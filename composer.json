@@ -1,0 +1,15 @@
+{
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "4.0.0"        
+    },
+    "scripts": {
+        "post-install-cmd": "bash install.sh",
+        "post-update-cmd": "bash install.sh"
+    }
+}

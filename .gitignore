@@ -1,4 +1,7 @@
 build-config.cfg
+composer.lock
 src/style.css
 src/style.css.map
-src/scss/.sass-cache
+src/scss/.sass-cache/
+src/vendor/
+vendor/

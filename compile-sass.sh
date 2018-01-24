@@ -2,15 +2,22 @@
  
 # Executa o comando 'sass' para verificar se existe (veja http://stackoverflow.com/a/677212/329911)
 command -v sass >/dev/null 2>&1 || {
-  echo >&2 "SASS parece não está disponivel.";
+  echo >&2 "SASS does not seem to be available.";
   exit 1;
 }
  
 # Define o caminho.
-echo "Compilando Sass..."
-cd src/scss
- 
-sass -E 'UTF-8' style.scss:../style.css
+echo "Compiling Sass..."
 
-echo "Compilação do Sass Concluído!"
+#Bootstrap
+cd src/vendor/bootstrap/scss
+sass bootstrap.scss:bootstrap.min.css --style compressed
+
+#Style do Tema
+cd ../../../scss
+sass -E 'UTF-8' style.scss:../style.css
+cd ..
+rm -rf style.css.map
+
+echo "Sass compilation Completed!"
 exit 0
