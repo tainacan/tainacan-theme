@@ -10,13 +10,13 @@ command -v sass >/dev/null 2>&1 || {
 echo "Compiling Sass..."
 
 #Bootstrap
-cd src/vendor/bootstrap/scss
+cd src/assets/vendor/bootstrap/scss
 sass bootstrap.scss:bootstrap.min.css --style compressed
 
 #Style do Tema
-cd ../../../scss
-sass -E 'UTF-8' style.scss:../style.css
-cd ..
+cd ../../../../assets/scss
+sass -E 'UTF-8' style.scss:../../style.css
+cd ../..
 rm -rf style.css.map
 
 echo "Sass compilation Completed!"

@@ -17,8 +17,8 @@ cp -R src/* $destination/
 rm -rf $destination/scss
 
 ##Bootstrap
-mkdir $destination/vendor/bootstrap/css
-cp $destination/vendor/bootstrap/scss/bootstrap.min.css $destination/vendor/bootstrap/css
-rm -rf $destination/vendor/bootstrap/scss
+mkdir $destination/assets/vendor/bootstrap/css
+cp $destination/assets/vendor/bootstrap/scss/bootstrap.min.css $destination/assets/vendor/bootstrap/css/bootstrap.min.css
+rm -rf $destination/assets/vendor/bootstrap/scss
 
 echo "Finish!!"
