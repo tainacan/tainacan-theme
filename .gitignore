@@ -1,7 +1,8 @@
 build-config.cfg
 composer.lock
+src/assets/style.css
+src/assets/style.css.map
+src/assets/scss/.sass-cache
+src/assets/vendor/
 src/style.css
-src/style.css.map
-src/scss/.sass-cache/
-src/vendor/
 vendor/
