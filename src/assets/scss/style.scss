@@ -11,6 +11,20 @@ Tags: tainacan, ufg, minc, cultura, flexible, open_source
 Text Domain: tainacans
 */
 
-.menu-shadow{
-    box-shadow: 0 2px 9px 0 #808080a6;
+nav{
+    &.menu-shadow{
+        box-shadow: 0 2px 9px 0 #808080a6;
+    }
+}
+
+form{
+    &.tainacan-form-search{
+        flex-flow: nowrap;
+    }
+}
+
+.header{
+    .header-img{
+        min-height: 240px;
+    }
 }
