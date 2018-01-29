@@ -1,0 +1,14 @@
+$heavy-metal: #1d1d1b;
+$jelly-bean: #298596;
+$scooter: #2cb4c1;
+$jungle-green: #25a189;
+
+$theme-colors: (
+  "heavy-metal": $heavy-metal,
+  "jelly-bean": $jelly-bean,
+  "scooter": $scooter,
+  "jungle-green": $jungle-green
+
+);
+
+@import "../vendor/bootstrap/scss/bootstrap";
