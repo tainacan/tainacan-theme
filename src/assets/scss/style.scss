@@ -14,6 +14,35 @@ Text Domain: tainacans
 nav{
     &.menu-shadow{
         box-shadow: 0 2px 9px 0 #808080a6;
+        .tainacan-logo{
+            @media only screen {
+                @media (max-width: 360px){
+                    margin-left: 4vw;
+                    margin-right: 10vw;
+                }
+                @media (min-width: 370px) and (max-width: 375px){
+                    margin-left: 4vw;
+                    margin-right: 13vw;
+                }
+                @media (min-width: 400px) and (max-width: 414px){
+                    margin-left: 4vw;
+                    margin-right: 21vw;
+                }
+                @media (min-width: 768px){
+                    position: absolute;
+                    left: 50px;
+                }
+            }
+        }
+        .navbar-toggler{
+            @media only screen {
+                @media (max-width: 414px){
+                    position: absolute;
+                    right: 16px;
+                    top: 12px;
+                }
+            }
+        }
     }
 }
 
@@ -22,13 +51,13 @@ form{
         flex-flow: nowrap;
         .tainacan-input-search{
             &:focus{
-                border-color: none;
                 box-shadow: none;
             }
         }
         .tainacan-button-search{
-            border-color: none;
-            box-shadow: none;
+            &:focus{
+                box-shadow: none;
+            }
         }
     }
 }
@@ -40,6 +69,22 @@ form{
                 min-height: 240px;
             }
         }
-        
+    }
+    .header-icon{
+        background-color: #0000007a;
+        @media only screen{
+            @media (max-width: 414px){
+                right: 1.4vw;
+            }
+            @media (min-width: 768px){
+                right: 2.9vw;
+            }
+            @media (min-width: 1440px){
+                right: 1.9vw;
+            }
+            @media (min-width: 1670px){
+                right: 0.9vw;
+            }
+        }
     }
 }
