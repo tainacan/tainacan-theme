@@ -20,11 +20,26 @@ nav{
 form{
     &.tainacan-form-search{
         flex-flow: nowrap;
+        .tainacan-input-search{
+            &:focus{
+                border-color: none;
+                box-shadow: none;
+            }
+        }
+        .tainacan-button-search{
+            border-color: none;
+            box-shadow: none;
+        }
     }
 }
 
 .header{
     .header-img{
-        min-height: 240px;
+        @media only screen{
+            @media (max-width: 768px){
+                min-height: 240px;
+            }
+        }
+        
     }
 }
