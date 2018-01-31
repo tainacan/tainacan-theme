@@ -11,39 +11,11 @@ Tags: tainacan, ufg, minc, cultura, flexible, open_source
 Text Domain: tainacans
 */
 
+@import "_media_query";
+
 nav{
     &.menu-shadow{
         box-shadow: 0 2px 9px 0 #808080a6;
-        .tainacan-logo{
-            @media only screen {
-                @media (max-width: 360px){
-                    margin-left: 4vw;
-                    margin-right: 10vw;
-                }
-                @media (min-width: 370px) and (max-width: 375px){
-                    margin-left: 4vw;
-                    margin-right: 13vw;
-                }
-                @media (min-width: 400px) and (max-width: 414px){
-                    margin-left: 4vw;
-                    margin-right: 21vw;
-                }
-                @media (min-width: 768px){
-                    position: absolute;
-                    left: 50px;
-                    top: 1.4vh;
-                }
-            }
-        }
-        .navbar-toggler{
-            @media only screen {
-                @media (max-width: 414px){
-                    position: absolute;
-                    right: 16px;
-                    top: 12px;
-                }
-            }
-        }
     }
 }
 
@@ -64,28 +36,9 @@ form{
 }
 
 .header{
-    .header-img{
-        @media only screen{
-            @media (max-width: 768px){
-                min-height: 240px;
-            }
-        }
-    }
     .header-icon{
         background-color: #0000007a;
-        @media only screen{
-            @media (max-width: 414px){
-                right: 1.4vw;
-            }
-            @media (min-width: 768px){
-                right: 2.9vw;
-            }
-            @media (min-width: 1440px){
-                right: 1.9vw;
-            }
-            @media (min-width: 1670px){
-                right: 0.9vw;
-            }
-        }
     }
 }
+
+@import "_footer";
