@@ -2,13 +2,17 @@ $heavy-metal: #1d1d1b;
 $jelly-bean: #298596;
 $scooter: #2cb4c1;
 $jungle-green: #25a189;
+$haiti: #150e38;
+$oslo-gray: #898d8f;
+
 
 $theme-colors: (
   "heavy-metal": $heavy-metal,
   "jelly-bean": $jelly-bean,
   "scooter": $scooter,
-  "jungle-green": $jungle-green
-
+  "jungle-green": $jungle-green,
+  "haiti": $haiti,
+  "oslo-gray": $oslo-gray
 );
 
 @import "../vendor/bootstrap/scss/bootstrap";
