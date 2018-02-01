@@ -6,40 +6,37 @@
                 <li class="border border-white border-left-0 border-right-0 border-bottom-0">
                     <input type="checkbox" checked>
                     <i></i>
-                    <h6 class="text-white font-weight-bold">Mapa do site <i class="material-icons mt-1"></i></h2>
-                    <p class="text-oslo-gray">
-                        <i class="material-icons text-white fiber">fiber_manual_record</i> Página 1
-                    </p>
-                    <p class="text-oslo-gray">
-                        <i class="material-icons text-white fiber">fiber_manual_record</i> Página 2
-                    </p>
+                    <h6 class="text-white font-weight-bold">Mapa do site <i class="material-icons mt-1 symbol"></i></h2>
+                    <?php for($i=0;$i<=5;$i++){ ?>
+                        <p class="text-oslo-gray">
+                            <i class="material-icons text-white fiber">fiber_manual_record</i> Página <?=$i;?>
+                        </p>
+                    <?php } ?>
                 </li>
                 <li class="border border-white border-left-0 border-right-0 border-bottom-0">
                     <input type="checkbox" checked>
                     <i></i>
-                    <h6 class="text-white font-weight-bold">Funções de administração <i class="material-icons mt-1"></i></h2>
-                    <p class="text-oslo-gray">
-                        <i class="material-icons text-white fiber">fiber_manual_record</i> Administração 1
-                    </p>
-                    <p class="text-oslo-gray">
-                        <i class="material-icons text-white fiber">fiber_manual_record</i> Administração 2
-                    </p>
+                    <h6 class="text-white font-weight-bold">Funções de administração <i class="material-icons mt-1 symbol"></i></h2>
+                    <?php for($i=0;$i<=5;$i++){ ?>
+                        <p class="text-oslo-gray">
+                            <i class="material-icons text-white fiber">fiber_manual_record</i> Administração <?=$i;?>
+                        </p>
+                    <?php } ?>
                 </li>
                 <li class="border border-white border-left-0 border-right-0 border-bottom-0">
                     <input type="checkbox" checked>
                     <i></i>
-                    <h6 class="text-white font-weight-bold">Funções do usuário <i class="material-icons mt-1"></i></h2>
-                    <p class="text-oslo-gray">
-                        <i class="material-icons text-white fiber">fiber_manual_record</i> Usuário 1
-                    </p>
-                    <p class="text-oslo-gray">
-                        <i class="material-icons text-white fiber">fiber_manual_record</i> Usuário 2
-                    </p>
+                    <h6 class="text-white font-weight-bold">Funções do usuário <i class="material-icons mt-1 symbol"></i></h2>
+                    <?php for($i=0;$i<=5;$i++){ ?>
+                        <p class="text-oslo-gray">
+                            <i class="material-icons text-white fiber">fiber_manual_record</i> Usuário <?=$i;?>
+                        </p>
+                    <?php } ?>
                 </li>
                 <li class="border border-white border-left-0 border-right-0">
                     <input type="checkbox" checked>
                     <i></i>
-                    <h6 class="text-white font-weight-bold">Redes sociais <i class="material-icons mt-1"></i></h2>
+                    <h6 class="text-white font-weight-bold">Redes sociais <i class="material-icons mt-1 symbol"></i></h2>
                     <p class="text-oslo-gray">
                         <svg style="width:1rem;height:1rem" viewBox="0 0 24 24">
                             <path fill="#fff" d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />

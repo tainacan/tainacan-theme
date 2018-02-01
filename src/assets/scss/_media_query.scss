@@ -119,7 +119,7 @@ footer{
                     &:last-of-type{
                         padding-bottom: 0;
                     }
-                    i{
+                    i.symbol{
                         position: absolute;
                         transform: translate( -6px , 0 );
                         margin-top: 16px;
@@ -136,7 +136,7 @@ footer{
                         }
                     }
                     h6{
-                        i{
+                        i.symbol{
                             &:before{
                                 content: "remove";
                                 @extend %transition;
@@ -158,7 +158,7 @@ footer{
                                 display: none;
                                 transform: translate( 0 , 50% );
                             }
-                            &~i{
+                            &~i.symbol{
                                 &:before{
                                     transform: translate( 2px , 0 ) rotate( 45deg );
                                 }
