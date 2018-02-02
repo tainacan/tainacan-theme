@@ -61,7 +61,7 @@ nav{
 
 footer{
     @media only screen {
-        @media (max-width: 768px){
+        @media (max-width: 991.98px){
             %transition {
                 transition: all 0.25s ease-in-out;
             }
@@ -86,7 +86,7 @@ footer{
                 @extend %no-select;
             }
             p{
-                line-height: 26px;
+                line-height: 18px;
                 letter-spacing: 1px;
                 position: relative;
                 overflow: hidden;
@@ -97,6 +97,10 @@ footer{
                 transform: translate( 0 , 0 )  ;
                 margin-top: 14px;
                 z-index: 2;
+                font-size: 14px;
+                &:nth-of-type(1){
+                    margin-top: 5px;
+                }
             }
             ul {
                 list-style: none;
@@ -124,6 +128,7 @@ footer{
                         transform: translate( -6px , 0 );
                         margin-top: 16px;
                         right: 0;
+                        font-size: 15px;
                         &:before , &:after{
                             content: "";
                             @extend %transition;
@@ -138,7 +143,7 @@ footer{
                     h6{
                         i.symbol{
                             &:before{
-                                content: "remove";
+                                content: "close";
                                 @extend %transition;
                             }
                         }
@@ -204,13 +209,11 @@ footer{
         @media (min-width: 992px){
             ul{
                 list-style: none;
-                -moz-column-count: 4;
-                -moz-column-gap: 20px;
-                -webkit-column-count: 4;
-                -webkit-column-gap: 20px;
-                column-count: 4;
-                column-gap: 20px;
                 li{
+                    margin-right: 10vw;
+                    &:last-child{
+                        margin-right: 0;
+                    }
                     &.border{
                         border: none !important;
                         input[type=checkbox]{
