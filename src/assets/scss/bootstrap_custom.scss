@@ -14,5 +14,5 @@ $theme-colors: (
   "haiti": $haiti,
   "oslo-gray": $oslo-gray
 );
-
+$font-family-sans-serif: "Roboto", "Helvetica Neue", Arial, sans-serif;
 @import "../vendor/bootstrap/scss/bootstrap";
