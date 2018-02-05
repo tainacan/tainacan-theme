@@ -67,10 +67,20 @@
     </div>
     <hr class="bg-scooter"/>
     <div class="row pt-3">
-        <div class="col">
-
+        <div class="col text-white font-weight-normal">
+            <p>
+                Instituição
+            </p>
+            <p>
+                Endereço
+            </p>
+            <p>
+                Email
+                    <br>
+                Telefone
+            </p>
         </div>
-        <div class="col-auto pr-0 d-none d-sm-block">
+        <div class="col-auto pr-0 pr-md-3 d-none d-sm-block align-self-md-center">
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.svg" alt="">
         </div>
     </div>
