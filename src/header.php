@@ -21,7 +21,7 @@
                 <button type="button" class="btn btn-link text-jelly-bean px-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-menu tainacan-dropdown-menu">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>
@@ -34,7 +34,7 @@
                 <button type="button" class="btn btn-link text-jelly-bean px-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-menu tainacan-dropdown-menu">
                     <a class="dropdown-item" href="#">Trocar Senha</a>
                     <a class="dropdown-item" href="#">Sair</a>
                 </div>
