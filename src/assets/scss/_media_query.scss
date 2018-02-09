@@ -21,6 +21,14 @@ nav{
                 }
             }
         }
+        .btn-group{
+            .dropdown-menu{
+                &.tainacan-dropdown-menu{
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
         .navbar-toggler{
             @media only screen {
                 @media (max-width: 414px){
