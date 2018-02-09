@@ -66,7 +66,7 @@
         </div>
     </div>
     <hr class="bg-scooter"/>
-    <div class="row pt-3">
+    <div class="row p-4">
         <div class="col text-white font-weight-normal">
             <p>
                 Instituição
