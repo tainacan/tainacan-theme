@@ -26,23 +26,23 @@
         </div>
         <div class="row p-5">
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-jelly-bean p-3">play_arrow</i> Esculturas
+                <i class="material-icons text-scooter p-3">play_arrow</i> Esculturas
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-jelly-bean p-3">play_arrow</i> Livros
+                <i class="material-icons text-scooter p-3">play_arrow</i> Livros
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-jelly-bean p-3">play_arrow</i> Quadros
+                <i class="material-icons text-scooter p-3">play_arrow</i> Quadros
             </div>
             <div class="w-100"></div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-jelly-bean p-3">play_arrow</i> Artefatos
+                <i class="material-icons text-scooter p-3">play_arrow</i> Artefatos
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-jelly-bean p-3">play_arrow</i> Documentos
+                <i class="material-icons text-scooter p-3">play_arrow</i> Documentos
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-jelly-bean p-3">play_arrow</i> Outros
+                <i class="material-icons text-scooter p-3">play_arrow</i> Outros
             </div>
         </div>
     </section>
