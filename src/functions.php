@@ -36,6 +36,9 @@ function tainacanEnqueueScripts(){
     wp_enqueue_script('popper', get_template_directory_uri() . '/assets/vendor/bootstrap/js/popper.min.js', '', '', true);
     //JS Bootstrap 4
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array('jquery'), '4.0.0', true);
+
+    //Javascript for Tainacan
+        wp_enqueue_script('jsTainacan', get_template_directory_uri() . '/assets/js/js.js', '', '', true);
 }
 add_action('wp_enqueue_scripts', 'tainacanEnqueueScripts');
 
