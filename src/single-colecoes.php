@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid p-0 capa-colecoes">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -6,7 +6,7 @@
             <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ol>
     </nav>
-    <section class="tainacan-info p-2">
+    <section class="tainacan-info p-2 m-md-5">
         <div class="row">
             <div class="col-12 col-md-6 p-5">
                 <h3 class="text-jelly-bean text-capitalize font-weight-bold mb-3">About</h3>

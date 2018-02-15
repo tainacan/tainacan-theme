@@ -67,6 +67,19 @@ nav{
     }
 }
 
+.capa-colecoes{
+    .tainacan-info{
+        @media only screen {
+            @media (min-width: 992px){
+                padding: 0 3rem 0 10rem !important;
+            }
+            @media (min-width: 1200px){
+                padding: 0 3rem 0 16rem !important;
+            }
+        }
+    }
+}
+
 footer{
     @media only screen {
         @media (max-width: 991.98px){
