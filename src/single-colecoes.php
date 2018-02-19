@@ -91,10 +91,10 @@
         </div>
     </section>
     <section class="tainacan-gallery-itens p-2">
-        <div class="col-12 d-flex border-bottom">
+        <div class="col-12 d-flex border-bottom mb-5">
             <h4 class="text-jelly-bean">Galeria de itens</h4> <span class="text-jelly-bean ml-auto align-self-center">Ver mais</span>
         </div>
-        <div class="row p-5">
+        <div class="row p-3 p-md-5">
             <div class="col-sm-6 col-lg-4">
                 <img class="img-fluid mx-auto d-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=1" alt="slide 1">
             </div>
@@ -125,11 +125,29 @@
         </div>
     </section>
     <section class="tainacan-estatisticas p-2">
-        <div class="col-12 d-flex border-bottom">
+        <div class="col-12 d-flex border-bottom mb-4">
             <h4 class="text-jelly-bean">Estatísticas</h4> <span class="text-jelly-bean ml-auto align-self-center">Ver mais</span>
         </div>
-        <div class="row p-5">
-            
+        <div class="row p-0 p-lg-5">
+            <div class="col-lg-6 p-0 p-lg-5">
+                <h5 class="text-dark p-4">Localização do usuário</h5>
+                <div class="d-flex justify-content-center bg-black-opacit">
+                    <iframe class="my-lg-5" frameborder="0" style="border:0; height: 242.5px; width: 381.3px;"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBbMcow3w_8HeBmqUcYcwigRSii0b2exT0
+                            &q=Campus+Samambaia,Goiania+GO" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 p-5">
+                <h5 class="text-dark p-4">Coleções do usuário</h5>
+                <div id="collectionGraph" class="bg-black-opacit" style="width: 100%; height: 300px;"></div>
+            </div>
+            <div class="col-lg-6 p-3">
+                
+            </div>
+            <div class="col-lg-6 p-3">
+                
+            </div>
         </div>
     </section>
     <section class="tainacan-caracteristicas p-2">

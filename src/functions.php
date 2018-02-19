@@ -36,9 +36,11 @@ function tainacanEnqueueScripts(){
     wp_enqueue_script('popper', get_template_directory_uri() . '/assets/vendor/bootstrap/js/popper.min.js', '', '', true);
     //JS Bootstrap 4
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array('jquery'), '4.0.0', true);
+    wp_enqueue_script( 'charts', 'https://www.gstatic.com/charts/loader.js');
 
     //Javascript for Tainacan
-        wp_enqueue_script('jsTainacan', get_template_directory_uri() . '/assets/js/js.js', '', '', true);
+        wp_enqueue_script('jsTainacan', get_template_directory_uri() . '/assets/js/js.js', '', '1.0', true);
+        wp_enqueue_script('collectionGraph', get_template_directory_uri() . '/assets/js/charts.js', array('charts'), '1.0');
 }
 add_action('wp_enqueue_scripts', 'tainacanEnqueueScripts');
 
@@ -48,7 +50,6 @@ add_action('wp_enqueue_scripts', 'tainacanEnqueueScripts');
 function tainacanEnqueueStyles(){
     //Style Bootstrap 4
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css');
-
     //Style Tainacan
     wp_enqueue_style('style', get_stylesheet_uri(), array('bootstrap'));
 }
