@@ -95,7 +95,33 @@
             <h4 class="text-jelly-bean">Galeria de itens</h4> <span class="text-jelly-bean ml-auto align-self-center">Ver mais</span>
         </div>
         <div class="row p-5">
-            
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=1" alt="slide 1">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=2" alt="slide 2">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=3" alt="slide 3">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=4" alt="slide 4">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-none d-sm-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=5" alt="slide 5">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-none d-sm-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=6" alt="slide 6">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-none d-sm-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=7" alt="slide 7">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-none d-sm-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=8" alt="slide 8">
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <img class="img-fluid mx-auto d-none d-lg-block mb-3 mb-md-5" src="//placehold.it/600x400/?text=9" alt="slide 9">
+            </div>
         </div>
     </section>
     <section class="tainacan-estatisticas p-2">
