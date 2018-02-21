@@ -14,8 +14,10 @@ function drawChart() {
     var options = {
         legend: {alignment: 'end'},
         pieHole: 0.4,
-        width: '500px',
-        backgroundColor: '#000'
+        backgroundColor: {
+            'fill': '#000', 
+            'fillOpacity': 0.01
+          }
     };
     var chart = new google.visualization.PieChart(document.getElementById('collectionGraph'));
 

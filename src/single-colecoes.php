@@ -138,9 +138,11 @@
                     </iframe>
                 </div>
             </div>
-            <div class="col-lg-6 p-5">
-                <h5 class="text-dark p-4">Coleções do usuário</h5>
-                <div id="collectionGraph" class="bg-black-opacit" style="width: 100%; height: 300px;"></div>
+            <div class="col-lg-6 p-0 p-lg-5">
+                <h5 class="text-dark pb-0 px-4 pt-4 p-md-4">Coleções do usuário</h5>
+                <div class="d-flex justify-content-center">
+                    <div id="collectionGraph" class="" style="width: 600px;"></div>
+                </div>
             </div>
             <div class="col-lg-6 p-3">
                 
