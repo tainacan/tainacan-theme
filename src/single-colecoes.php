@@ -1,3 +1,4 @@
+<?php get_header(); ?>
 <div class="container-fluid p-0 capa-colecoes">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -161,3 +162,5 @@
         </div>
     </section>
 </div>
+
+<?php get_footer(); ?>
