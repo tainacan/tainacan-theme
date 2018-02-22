@@ -1,6 +1,11 @@
-<?php 
-//Header
-get_header();
+<?php get_header(); ?>
 
-//Footer
-get_footer();
+<div class="container-fluid">
+    <div class="row p-2">
+
+        <?php get_template_part( 'template-parts/loop' ); ?>
+
+    </div>
+</div>
+
+<?php get_footer();
