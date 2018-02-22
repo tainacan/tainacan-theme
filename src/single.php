@@ -1,7 +1,17 @@
-<?php 
+<?php get_header(); ?>
 
-get_header();
+<div class="container-fluid mt-5">
+  <div class="row">
 
-get_template_part('template-parts/loop');
+    <div class="col-sm">
+      <div id="content" role="main">
+        <?php get_template_part('template-parts/single-post', get_post_format()); ?>
+      </div><!-- /#content -->
+    </div>
 
-get_footer();
+    <?php get_sidebar(); ?>
+
+  </div><!-- /.row -->
+</div><!-- /.container-responsive -->
+
+<?php get_footer(); ?>

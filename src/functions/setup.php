@@ -24,3 +24,21 @@ if(!function_exists('tainacan_setup')) {
 
 }
 add_action( 'after_setup_theme', 'tainacan_setup' );
+
+if ( ! function_exists( 'tainacan_post_date' ) ) {
+	function tainacan_post_date() {
+		if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">(updated %4$s)</time>';
+			}
+			$time_string = sprintf( $time_string,
+				esc_attr( get_the_date( 'c' ) ),
+				get_the_date(),
+				esc_attr( get_the_modified_date( 'c' ) ),
+				get_the_modified_date()
+			);
+			echo $time_string;
+		}
+	}
+}
