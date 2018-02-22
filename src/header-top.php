@@ -13,7 +13,7 @@
         
     <nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-1">
         <div class="d-md-flex ml-md-auto mr-md-4">
-            <a class="navbar-brand tainacan-logo" href="#">
+            <a class="navbar-brand tainacan-logo" href="<?=bloginfo( 'url' ) ?>">
                 <img src="<?php echo get_template_directory_uri().'/assets/images/logo.svg' ?>" class="logo" style="width: 150px">
             </a>
             <div class="btn-group pt-1 ml-auto">
