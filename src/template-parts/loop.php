@@ -17,4 +17,5 @@
 </div>
 
 <nav class="mx-auto">
+    <?php echo pagination_bst4(); ?>
 </nav>
