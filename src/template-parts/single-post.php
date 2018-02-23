@@ -22,14 +22,14 @@
     </main>
     <footer class="mt-5 border-top pt-3">
       <p>
-        <?php _e('Category: ', 'b4st'); the_category(', ') ?> | <?php if (has_tag()) { the_tags('Tags: ', ', '); ?> | <?php } _e('Comments', 'b4st'); ?>: <?php comments_popup_link(__('None', 'b4st'), '1', '%'); ?>
+        <?php _e('Category: ', 'tainacan'); the_category(', ') ?> | <?php if (has_tag()) { the_tags('Tags: ', ', '); ?> | <?php } _e('Comments', 'tainacan'); ?>: <?php comments_popup_link(__('None', 'tainacan'), '1', '%'); ?>
       </p>
       <div class="author-bio media border-top pt-3">
         <?php get_avatar(); ?>
         <div class="media-body ml-3">
           <p class="h4 author-name"><?php the_author_posts_link(); ?></p>
           <p class="author-description"><?php the_author_description(); ?></p>
-          <p class="author-other-posts mb-0 border-top pt-3"><?php _e('Other posts by ', 'b4st'); the_author_posts_link(); ?></p>
+          <p class="author-other-posts mb-0 border-top pt-3"><?php _e('Other posts by ', 'tainacan'); the_author_posts_link(); ?></p>
         </div>
       </div><!-- /.author-bio -->
     </footer>
