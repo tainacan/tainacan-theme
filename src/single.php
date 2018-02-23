@@ -12,6 +12,6 @@
         <?php get_sidebar(); ?>
 
     </div><!-- /.row -->
-</div><!-- /.container-responsive -->
+</div><!-- /.container-fluid -->
 
 <?php get_footer(); ?>

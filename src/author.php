@@ -39,6 +39,6 @@ if (
     </div>
     <!-- /.row -->
 </div>
-<!-- /.container-responsive -->
+<!-- /.container-fluid -->
 
 <?php get_footer(); ?>
