@@ -1,6 +1,11 @@
-<?php 
-//Header
-get_header();
+<?php get_header(); ?>
 
-//Footer
-get_footer();
+<div class="container-fluid">
+    <div class="col-sm">
+        <div id="content" role="main">
+            <?php get_template_part('template-parts/index-loop'); ?>
+        </div><!-- /#content -->
+    </div>
+</div>
+
+<?php get_footer();

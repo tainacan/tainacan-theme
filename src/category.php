@@ -5,7 +5,12 @@
 
         <div class="col-sm">
             <div id="content" role="main">
-                <?php get_template_part('template-parts/single-post', get_post_format()); ?>
+                <header class="mb-4 border-bottom">
+                    <h1>
+                        <?php _e('Category: ', 'tainacan'); echo single_cat_title(); ?>
+                    </h1>
+                </header>
+                <?php get_template_part('template-parts/index-loop'); ?>
             </div><!-- /#content -->
         </div>
 
