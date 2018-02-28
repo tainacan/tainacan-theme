@@ -30,10 +30,10 @@ if ( ! function_exists('tainacan_Enqueues') ) {
 
         /**
          * Google Charts
+         
+         *   wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
+         *   wp_enqueue_script('googleCharts');
          */
-            wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
-            wp_enqueue_script('googleCharts');
-
         /**
          * Tainacan Theme
          */
@@ -43,7 +43,6 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             wp_enqueue_script('tainacanJS');
             wp_register_script('collectionGraph_googleCharts', get_template_directory_uri() . '/assets/js/charts.js', array('googleCharts'), '1.0');
             wp_enqueue_script('collectionGraph_googleCharts');
-            
         /**
          * Comments
          */
