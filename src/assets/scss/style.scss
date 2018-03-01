@@ -12,6 +12,15 @@ Text Domain: tainacans
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+body{
+    a{
+        color: #298596;
+        &:hover{
+            color: #298596;
+        }
+    }
+}
+
 @import "_media_query";
 
 nav{
@@ -41,6 +50,8 @@ form{
         background-color: #0000007a;
     }
 }
+
+@import "_comments";
 
 @import "_single-colecoes";
 

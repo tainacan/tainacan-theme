@@ -1,0 +1,28 @@
+#comments{
+    label[for=comment]{
+        margin-left: 11.3rem;
+    }
+    form{
+        &#form-comment{
+            textarea{
+                @media only screen {
+                    @media (min-width: 768px){
+                        width: 45vw;
+                    }
+                    @media (max-width: 576px){
+                        width: 100vw;
+                    }
+                }
+            }
+            button{
+                &#submit{
+                    @media screen {
+                        @media (min-width: 768px){
+                            height: 5vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
