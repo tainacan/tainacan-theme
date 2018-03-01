@@ -30,10 +30,10 @@ if ( ! function_exists('tainacan_Enqueues') ) {
 
         /**
          * Google Charts
+         *
+         *  wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
+         *  wp_enqueue_script('googleCharts');
          */
-            wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
-            wp_enqueue_script('googleCharts');
-
         /**
          * Tainacan Theme
          */
