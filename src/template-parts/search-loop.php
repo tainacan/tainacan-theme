@@ -7,6 +7,6 @@
     </article>
 <?php endwhile; else: ?>
         <div class="alert alert-warning">
-            <i class="material-icons">warning</i> <?php _e('Sorry, your search yielded no results.', 'tainacan'); ?>
+            <i class="material-icons">warning</i> <?php _e('Sorry, your search yielded no results.', 'tainacan-theme'); ?>
         </div>
 <?php endif; ?>

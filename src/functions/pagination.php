@@ -14,8 +14,8 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 			'total' => $wp_query->max_num_pages,
 			'mid_size' => 5,
 			'prev_next' => True,
-			'prev_text' => __('< Newer', 'tainacan'),
-			'next_text' => __('Older >', 'tainacan'),
+			'prev_text' => __('< Newer', 'tainacan-theme'),
+			'next_text' => __('Older >', 'tainacan-theme'),
 			'type' => 'list'
 		) );
 		$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination'>", $paginate_links );

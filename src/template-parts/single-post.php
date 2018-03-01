@@ -6,9 +6,9 @@
       </h1>
       <div class="header-meta text-muted">
         <?php
-          _e('By ', 'tainacan');
+          _e('By ', 'tainacan-theme');
           the_author_posts_link();
-          _e(' on ', 'tainacan');
+          _e(' on ', 'tainacan-theme');
           tainacan_post_date();
         ?>
       </div>
@@ -22,14 +22,14 @@
     </main>
     <footer class="mt-5 border-top pt-3">
       <p>
-        <?php _e('Category: ', 'tainacan'); the_category(', ') ?> | <?php if (has_tag()) { the_tags('Tags: ', ', '); ?> | <?php } _e('Comments', 'tainacan'); ?>: <?php comments_popup_link(__('None', 'tainacan'), '1', '%'); ?>
+        <?php _e('Category: ', 'tainacan-theme'); the_category(', ') ?> | <?php if (has_tag()) { the_tags('Tags: ', ', '); ?> | <?php } _e('Comments', 'tainacan-theme'); ?>: <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
       </p>
       <div class="author-bio media border-top pt-3">
         <?php get_avatar(); ?>
         <div class="media-body ml-3">
           <p class="h4 author-name"><?php the_author_posts_link(); ?></p>
           <p class="author-description"><?php the_author_description(); ?></p>
-          <p class="author-other-posts mb-0 border-top pt-3"><?php _e('Other posts by ', 'tainacan'); the_author_posts_link(); ?></p>
+          <p class="author-other-posts mb-0 border-top pt-3"><?php _e('Other posts by ', 'tainacan-theme'); the_author_posts_link(); ?></p>
         </div>
       </div><!-- /.author-bio -->
     </footer>
@@ -43,11 +43,3 @@
     exit;
   endif;
 ?>
-<div class="row mt-5 border-top pt-3">
-  <div class="col">
-    <?php previous_post_link('%link', '<i class="fas fa-fw fa-arrow-left"></i> Previous post: '.'%title'); ?>
-  </div>
-  <div class="col text-right">
-    <?php next_post_link('%link', 'Next post: '.'%title' . ' <i class="fas fa-fw fa-arrow-right"></i>'); ?>
-  </div>
-</div>
