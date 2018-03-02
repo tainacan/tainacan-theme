@@ -1,6 +1,13 @@
 #comments{
-    label[for=comment]{
-        margin-left: 11.3rem;
+    div[for=comment]{
+        @media screen {
+            @media (min-width: 768px){
+                margin-left: 9rem;
+            }
+        }
+        .authenticated{
+            font-size: 0.7rem;
+        }
     }
     form{
         &#form-comment{
@@ -21,6 +28,18 @@
                             height: 5vh;
                         }
                     }
+                }
+            }
+        }
+    }
+    .media{
+        .media-body{
+            h5{
+                a{
+                    font-size: 0.9rem;
+                }
+                .comment-time{
+                    font-size: 0.7rem;
                 }
             }
         }
