@@ -47,9 +47,8 @@ if ( ! function_exists('tainacan_Enqueues') ) {
         /**
          * Comments
          */
-        if (is_singular() && comments_open() && get_option('thread_comments')) {
-            wp_enqueue_script('comment-reply');
-        }
+        if (is_singular() && comments_open() && get_option('thread_comments'))
+            wp_enqueue_script( 'comment-reply' );
     }
 }
 add_action('wp_enqueue_scripts', 'tainacan_Enqueues');
