@@ -5,7 +5,8 @@ $jungle-green: #25a189;
 $haiti: #150e38;
 $oslo-gray: #898d8f;
 $dodger-blue: #04a5ff;
-$black: rgba(0, 0, 0, 0.01);
+$black: #000;
+$black-opacit: rgba(0, 0, 0, 0.01);
 
 
 $theme-colors: (
@@ -16,7 +17,8 @@ $theme-colors: (
   "haiti": $haiti,
   "oslo-gray": $oslo-gray,
   "dodger-blue": $dodger-blue,
-  "black-opacit": $black
+  "black": $black,
+  "black-opacit": $black-opacit
 );
 $font-family-sans-serif: "Roboto", "Helvetica Neue", Arial, sans-serif;
 @import "../vendor/bootstrap/scss/bootstrap";
