@@ -16,15 +16,10 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
             echo get_avatar($comment, 60, '', '', $arg);
         ?>
         <div class="media-body">
-            <h5 class="media-heading comment-author vcard">
-                <?php printf('<cite class="fn">%1$s %2$s</cite>',
-                    get_comment_author_link(),
-                    // If current post author is also comment author, make it known visually.
-                    ($comment->user_id === $post->post_author) ? '<span class="label"> ' . __(
-                    'Post author',
-                    'tainacan-theme'
-                    ) . '</span> ' : ''); 
-                ?>   
+            <h5 class="media-heading comment-author vcard ml-2">
+                <a href="<?php echo get_author_posts_url($comment->user_id); ?>" class="text-black font-weight-bold">
+                    <?php comment_author( $comment->comment_ID ); ?>
+                </a>
                 <?php 
                     printf('<p class="comment-time text-oslo-gray my-sm-1">%s às %s.</p>', get_comment_date(), get_comment_time()); 
                 ?>
@@ -47,7 +42,7 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
             ?>
             <?php if($args['has_children']) : ?>
                 <p>
-                    <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-theme'); ?></a>
+                    <!-- <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-theme'); ?></a> -->
                 </p>
             <?php endif; ?>
         </div>

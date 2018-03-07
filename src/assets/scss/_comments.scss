@@ -45,6 +45,9 @@
             .comment-text{
                 p{
                     margin-bottom: 0;
+                    @media only screen and (max-width: 576px) {
+                        margin-left: 0.5rem;
+                    }
                 }
             }
         }
