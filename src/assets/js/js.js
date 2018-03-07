@@ -19,4 +19,9 @@ jQuery(document).ready(function( $ ) {
             }
         }
     });
+
+    /**
+     * Align the comments childrens
+     */
+    $('#comments ul.children').addClass('align-children');
 });

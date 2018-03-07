@@ -8,8 +8,9 @@
 function tainacan_Comments_Callback($comment, $args, $depth) {
     //get comment to determine type
     $GLOBALS['comment'] = $comment;
-    global $post; ?>
-    <div <?php comment_class( $args['has_children'] ? ' has-children media' : ' media' ); ?>>
+    global $post; 
+    $class_has = "has-children media comment-". $comment->comment_ID; ?>
+    <div <?php comment_class( $args['has_children'] ? $class_has : ' media' ); ?>>
         <?php 
             $arg = array('class' => 'img-fluid rounded-circle mr-sm-3', );
             echo get_avatar($comment, 60, '', '', $arg);
@@ -34,24 +35,31 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
                 </p>
             <?php endif; ?>
             <?php comment_text(); ?>
-            <p class="reply">
-                <?php comment_reply_link( array_merge($args, array(
-                            'reply_text' => __('Reply'),
-                            'depth'      => $depth,
-                            'max_depth'  => $args['max_depth'],
-                            'before'    => '<li class="reply-link list-inline-item">',
-                            'after'     => '<i class="material-icons text-jelly-bean align-middle pl-1" style="font-size: 15px">chat_bubble_outline</i></li>'
-                        )
-                    )); 
-                    edit_comment_link( __( 'Edit' ), '<li class="edit-link list-inline-item">', '<i class="material-icons text-jelly-bean align-middle pl-1" style="font-size: 15px">mode_edit</i></li>' );
-                ?>
-            </p>
-
+            <?php comment_reply_link( array_merge($args, array(
+                        'reply_text' => __('Reply'),
+                        'depth'      => $depth,
+                        'max_depth'  => $args['max_depth'],
+                        'before'    => '<li class="reply-link list-inline-item">',
+                        'after'     => '<i class="material-icons text-jelly-bean align-middle pl-1" style="font-size: 15px">chat_bubble_outline</i></li>'
+                    )
+                )); 
+                edit_comment_link( __( 'Edit' ), '<li class="edit-link list-inline-item">', '<i class="material-icons text-jelly-bean align-middle pl-1" style="font-size: 15px">mode_edit</i></li>' );
+            ?>
+            <?php if($args['has_children']) : ?>
+                <p>
+                    <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-theme'); ?></a>
+                </p>
+            <?php endif; ?>
         </div>
     </div>
 <?php }
 
-  /**
+function wrap_Comment($content){
+    return "<div class='comment-text'>". $content ."</div>";
+}
+add_filter( 'comment_text', 'wrap_Comment', 99);
+
+/**
  * Display date of post.
  */
 if ( ! function_exists( 'tainacan_post_date' ) ) {

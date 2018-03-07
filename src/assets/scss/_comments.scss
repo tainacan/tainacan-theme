@@ -42,6 +42,20 @@
                     font-size: 0.7rem;
                 }
             }
+            .comment-text{
+                p{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    ul{
+        &.children{
+            &.align-children{
+                @media only screen and (min-width: 576px){
+                    margin-left: 2.3rem;
+                }
+            }
         }
     }
 }
