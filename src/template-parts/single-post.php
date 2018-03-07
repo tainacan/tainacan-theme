@@ -7,9 +7,12 @@
                 </h1>
                 <div class="header-meta text-muted">
                     <?php
-                        _e('By ', 'tainacan-theme');
+                        _e('By', 'tainacan-theme');
+                        echo ' ';
                         the_author_posts_link();
-                        _e(' on ', 'tainacan-theme');
+                        echo ' ';
+                        _e('on', 'tainacan-theme');
+                        echo ' ';
                         tainacan_post_date();
                     ?>
                 </div>
@@ -32,20 +35,6 @@
                         _e('Comments', 'tainacan-theme'); echo ':'; ?> 
                         <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
                 </p>
-                <div class="author-bio media border-top pt-3">
-                    <?php get_avatar(); ?>
-                <div class="media-body ml-3">
-                    <p class="h4 author-name">
-                        <?php the_author_posts_link(); ?>
-                    </p>
-                    <p class="author-description">
-                        <?php the_author_description(); ?>
-                    </p>
-                    <p class="author-other-posts mb-0 border-top pt-3">
-                        <?php _e('Other posts by ', 'tainacan-theme'); the_author_posts_link(); ?>
-                    </p>
-                </div>
-                </div><!-- /.author-bio -->
             </footer>
         </article>
         <?php
