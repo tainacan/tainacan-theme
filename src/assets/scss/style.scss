@@ -75,6 +75,9 @@ form{
             background: none;
         }
     }
+    &.collection-page{
+        height: 100vh;
+    }
 }
 
 @import "_comments";
