@@ -1,6 +1,4 @@
 <?php get_header(); ?>
-
-<div class="container-fluid mt-5">
     <div class="row">
 
         <div class="col-sm">
@@ -17,6 +15,4 @@
         <?php get_sidebar(); ?>
 
     </div><!-- /.row -->
-</div><!-- /.container-fluid -->
-
 <?php get_footer(); ?>

@@ -12,8 +12,6 @@ if (
 }
 ?>
 <?php get_header(); ?>
-
-<div class="container-fluid mt-5">
     <div class="row">
 
         <div class="col-sm">
@@ -36,9 +34,6 @@ if (
 
         <?php get_sidebar(); ?>
 
-    </div>
-    <!-- /.row -->
-</div>
-<!-- /.container-fluid -->
+    </div> <!-- /.row -->
 
 <?php get_footer(); ?>

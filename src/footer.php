@@ -1,4 +1,4 @@
-
+</div>
 <footer class="container-fluid p-4 p-sm-5 mt-2 bg-haiti">
     <div class="row">
         <div class="col-12 col-lg">

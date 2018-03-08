@@ -18,3 +18,5 @@
         <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/images/capa.png" class="img-fluid header-img">
         <i class="material-icons float-right p-1 m-2 mt-3 text-white rounded-circle position-absolute header-icon">settings</i> -->
     </div>
+    
+    <div class="container-fluid mt-5">
