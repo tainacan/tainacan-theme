@@ -17,7 +17,7 @@ if(!function_exists('tainacan_setup')) {
         show_admin_bar( false );
 
         add_theme_support( 'html5', array( 'comment-list' ) );
-        
+        add_theme_support( 'post-thumbnails' );
         /**
          * Desabilita o FTP na instalação de Plugins
          */
@@ -30,3 +30,11 @@ add_action( 'after_setup_theme', 'tainacan_setup' );
 require get_template_directory() . '/functions/enqueues.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
+
+function wpdocs_excerpt_more( $more ) {
+    return sprintf( '<p><a class="read-more float-right" href="%1$s">%2$s</a></p>',
+        get_permalink( get_the_ID() ),
+        __( 'Read More', 'tainacan-theme' ).'...'
+    );
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
