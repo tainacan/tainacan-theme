@@ -34,7 +34,7 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 			$links[] = $paged + 1;
 		}
 	 
-		echo '<div class="col-sm-'.$col.'"><ul class="pagination">' . "\n";
+		echo '<div class="col-sm-'.$col.' pr-0"><ul class="pagination justify-content-end">' . "\n";
 	 
 		/** Previous Post Link */
 		if ( get_previous_posts_link() )
