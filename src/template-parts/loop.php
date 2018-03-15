@@ -9,11 +9,7 @@
                 printf('<p>%2</p>', _e('Sorry, no posts matched your criteria.', 'tainacan-theme'));
         endwhile; ?>
     </div>
-    <div class="row mx-5 px-5 justify-content-between">
-        <div class="col-sm-3 d-none d-lg-block pl-0">Teste</div>
-        <div class="col-sm-3 d-none d-md-block">Teste</div>
-        <?php echo tainacan_pagination(3); ?>
-    </div>
+    <?php echo tainacan_pagination(3); ?>
 <?php else:
     wp_redirect(esc_url( home_url() ) . '/404', 404);
     exit; ?>
