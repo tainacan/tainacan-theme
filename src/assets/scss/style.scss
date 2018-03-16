@@ -78,6 +78,29 @@ form{
     &.collection-page{
         height: 100vh;
     }
+    &.page-404{
+        overflow: hidden;
+        @media screen {
+            @media (max-width: 576px){
+                background-image:  url('assets/images/404-mobile.png') !important;
+                height: 89.8vh;
+            }
+            @media (min-width: 992px){
+                height: 91.5vh;
+            }
+        }
+        .brand{
+            color: white;
+            text-align: center;
+            h1{
+                font-size: 12.2rem;
+                font-weight: 600;
+            }
+            h3{
+                font-size: 1.313rem;
+            }
+        }
+    }
 }
 
 @import "_comments";
