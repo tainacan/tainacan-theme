@@ -16,7 +16,7 @@ if(!function_exists('tainacan_setup')) {
         **/
         show_admin_bar( false );
 
-        add_theme_support( 'html5', array( 'comment-list' ) );
+        add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
         /**
          * Desabilita o FTP na instalação de Plugins
