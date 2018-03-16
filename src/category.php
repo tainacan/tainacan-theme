@@ -8,7 +8,7 @@
                         <?php _e('Category: ', 'tainacan-theme'); echo single_cat_title(); ?>
                     </h1>
                 </header>
-                <?php get_template_part('template-parts/index-loop'); ?>
+                <?php get_template_part('template-parts/loop'); ?>
             </div><!-- /#content -->
         </div>
 
