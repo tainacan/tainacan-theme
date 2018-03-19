@@ -1,8 +1,25 @@
 article{
-    main{
+    header{
         img{
             max-width: 100%;
             height: auto;
+        }
+    }
+    main{
+        &.tainacan-content {
+            font-size: 1.1666666666666667rem;
+            -moz-column-count: 2;
+            -moz-column-gap: 50px;
+            -moz-column-rule: none;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 50px;
+            -webkit-column-rule: none;
+            column-count: 2;
+            column-gap: 50px;
+            column-rule: none;
+            &h1, &h2{
+                font-size: 1.6666666666666667rem;
+            }
         }
     }
 }

@@ -14,10 +14,10 @@
                 tainacan_post_date();
             ?>
         </div>
+        <?php the_post_thumbnail(); ?>
     </header>
-    <main>
+    <main class="tainacan-content">
         <?php
-            the_post_thumbnail();
             the_content();
             wp_link_pages();
         ?>
