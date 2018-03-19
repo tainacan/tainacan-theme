@@ -16,6 +16,17 @@ if(!function_exists('tainacan_setup')) {
         **/
         show_admin_bar( false );
 
+        $custom_header_support = array(// The default header text color.
+            'default-text-color' => '212529',
+            'wp-head-callback' => 'tainacan_header_style',
+        );
+        add_theme_support( 'custom-header', $custom_header_support );
+
+        if ( ! function_exists( 'get_custom_header' ) ) {
+            // This is all for compatibility with versions of WordPress prior to 3.4.
+            define( 'HEADER_TEXTCOLOR', $custom_header_support['default-text-color'] );
+        }
+        
         add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
         /**
@@ -28,6 +39,7 @@ if(!function_exists('tainacan_setup')) {
 add_action( 'after_setup_theme', 'tainacan_setup' );
 
 require get_template_directory() . '/functions/enqueues.php';
+require get_template_directory() . '/functions/customize.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
 
