@@ -7,6 +7,7 @@ $oslo-gray: #898d8f;
 $dodger-blue: #04a5ff;
 $black: #000;
 $black-opacit: rgba(0, 0, 0, 0.01);
+$midnight-blue: #01295C;
 
 
 $theme-colors: (
@@ -18,7 +19,8 @@ $theme-colors: (
   "oslo-gray": $oslo-gray,
   "dodger-blue": $dodger-blue,
   "black": $black,
-  "black-opacit": $black-opacit
+  "black-opacit": $black-opacit,
+  "midnight-blue": $midnight-blue
 );
 $font-family-sans-serif: "Roboto", "Helvetica Neue", Arial, sans-serif;
 @import "../vendor/bootstrap/scss/bootstrap";
