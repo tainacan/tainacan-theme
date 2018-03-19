@@ -39,7 +39,6 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 		
 		echo '<div class="row margin-pagination justify-content-between border-top">';
 			printf('<div class="col-sm-3 d-none d-lg-block pl-0">Viewing Items: %d to %d from %d</div>', $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts);
-			printf('<div class="col-sm-3 d-none d-md-block text-center">Items per page: %d</div>', $wp_query->post_count);
 			echo '<div class="col-sm-'.$col.' pr-0">';
 				echo '<ul class="pagination justify-content-end">' . "\n";
 	 
