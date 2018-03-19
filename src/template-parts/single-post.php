@@ -1,53 +1,41 @@
-<?php if(have_posts()): while(have_posts()): the_post(); ?>
-  <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
+<article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
     <header class="mb-4">
-      <h1>
-        <?php the_title()?>
-      </h1>
-      <div class="header-meta text-muted">
-        <?php
-          _e('By ', 'tainacan');
-          the_author_posts_link();
-          _e(' on ', 'tainacan');
-          tainacan_post_date();
-        ?>
-      </div>
+        <h1>
+            <?php the_title()?>
+        </h1>
+        <div class="header-meta text-muted">
+            <?php
+                _e('By', 'tainacan-theme');
+                echo ' ';
+                the_author_posts_link();
+                echo ' ';
+                _e('on', 'tainacan-theme');
+                echo ' ';
+                tainacan_post_date();
+            ?>
+        </div>
+        <?php the_post_thumbnail(); ?>
     </header>
-    <main>
-      <?php
-        the_post_thumbnail();
-        the_content();
-        wp_link_pages();
-      ?>
+    <main class="tainacan-content">
+        <?php
+            the_content();
+            wp_link_pages();
+        ?>
     </main>
     <footer class="mt-5 border-top pt-3">
-      <p>
-        <?php _e('Category: ', 'tainacan'); the_category(', ') ?> | <?php if (has_tag()) { the_tags('Tags: ', ', '); ?> | <?php } _e('Comments', 'tainacan'); ?>: <?php comments_popup_link(__('None', 'tainacan'), '1', '%'); ?>
-      </p>
-      <div class="author-bio media border-top pt-3">
-        <?php get_avatar(); ?>
-        <div class="media-body ml-3">
-          <p class="h4 author-name"><?php the_author_posts_link(); ?></p>
-          <p class="author-description"><?php the_author_description(); ?></p>
-          <p class="author-other-posts mb-0 border-top pt-3"><?php _e('Other posts by ', 'tainacan'); the_author_posts_link(); ?></p>
-        </div>
-      </div><!-- /.author-bio -->
+        <p>
+            <?php 
+                _e('Category: ', 'tainacan-theme'); 
+                the_category(', ') ?> | 
+                <?php if (has_tag()) { 
+                    the_tags('Tags: ', ', '); ?> | 
+                <?php } 
+                _e('Comments', 'tainacan-theme'); echo ':'; ?> 
+                <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
+        </p>
     </footer>
-  </article>
+</article>
 <?php
-    if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
-  endwhile; else:
-    wp_redirect(esc_url( home_url() ) . '/404', 404);
-    exit;
-  endif;
-?>
-<div class="row mt-5 border-top pt-3">
-  <div class="col">
-    <?php previous_post_link('%link', '<i class="fas fa-fw fa-arrow-left"></i> Previous post: '.'%title'); ?>
-  </div>
-  <div class="col text-right">
-    <?php next_post_link('%link', 'Next post: '.'%title' . ' <i class="fas fa-fw fa-arrow-right"></i>'); ?>
-  </div>
-</div>
+if ( comments_open() || get_comments_number() ) :
+    comments_template();
+endif; ?>

@@ -12,8 +12,6 @@ if (
 }
 ?>
 <?php get_header(); ?>
-
-<div class="container-fluid mt-5">
     <div class="row">
 
         <div class="col-sm">
@@ -21,7 +19,7 @@ if (
                 <header class="mb-4 border-bottom">
                     <?php if ($isAuthor === true): ?>
                         <h1>
-                            <?php _e('Posts by: ', 'tainacan'); echo get_the_author_meta( 'display_name' ); ?>
+                            <?php _e('Posts by: ', 'tainacan-theme'); echo get_the_author_meta( 'display_name' ); ?>
                         </h1>
                     <?php endif; ?>
                 </header>
@@ -36,9 +34,6 @@ if (
 
         <?php get_sidebar(); ?>
 
-    </div>
-    <!-- /.row -->
-</div>
-<!-- /.container-fluid -->
+    </div> <!-- /.row -->
 
 <?php get_footer(); ?>

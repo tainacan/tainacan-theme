@@ -1,0 +1,16 @@
+article{
+    header{
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    main{
+        &.tainacan-content {
+            font-size: 1.1666666666666667rem;
+            &h1, &h2{
+                font-size: 1.6666666666666667rem;
+            }
+        }
+    }
+}

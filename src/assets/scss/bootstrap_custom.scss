@@ -5,7 +5,9 @@ $jungle-green: #25a189;
 $haiti: #150e38;
 $oslo-gray: #898d8f;
 $dodger-blue: #04a5ff;
-$black: rgba(0, 0, 0, 0.01);
+$black: #000;
+$black-opacit: rgba(0, 0, 0, 0.01);
+$midnight-blue: #01295C;
 
 
 $theme-colors: (
@@ -16,7 +18,10 @@ $theme-colors: (
   "haiti": $haiti,
   "oslo-gray": $oslo-gray,
   "dodger-blue": $dodger-blue,
-  "black-opacit": $black
+  "black": $black,
+  "black-opacit": $black-opacit,
+  "midnight-blue": $midnight-blue
 );
-$font-family-sans-serif: "Roboto", "Helvetica Neue", Arial, sans-serif;
+$font-family-base: 'Roboto';
+$headings-font-family: 'Roboto';
 @import "../vendor/bootstrap/scss/bootstrap";

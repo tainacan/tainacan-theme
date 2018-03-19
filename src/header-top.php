@@ -7,6 +7,7 @@
     <title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <?php wp_head(); ?>
 </head>
 <body>

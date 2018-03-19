@@ -10,7 +10,16 @@ License URI:https://www.gnu.org/licenses/agpl-3.0.en.html
 Tags: tainacan, ufg, minc, cultura, flexible, open_source
 Text Domain: tainacans
 */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+    font-family: 'Roboto' !important;
+    a{
+        color: #298596;
+        &:hover{
+            color: #298596;
+        }
+    }
+}
 
 @import "_media_query";
 
@@ -36,11 +45,71 @@ form{
     }
 }
 
-.header{
-    .header-icon{
-        background-color: #0000007a;
+.page-header {
+    height: 40vh;
+    background-position: 50%;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    align-items: center;
+    &.header-filter {
+        position: relative;
+        &:after, &:before {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: block;
+            left: 0;
+            top: 0;
+            content: "";
+        }
+        &:before {
+            background: rgba(0, 0, 0, .5);
+        }
+    }
+    &.clear-filter{
+        &:before {
+            background: none;
+        }
+    }
+    &.collection-page{
+        height: 100vh;
+    }
+    &.page-404{
+        overflow: hidden;
+        @media screen {
+            @media (max-width: 576px){
+                background-image:  url('assets/images/404-mobile.png') !important;
+                height: 89.8vh;
+            }
+            @media (min-width: 992px){
+                height: 91.5vh;
+            }
+        }
+        .brand{
+            color: white;
+            text-align: center;
+            h1{
+                font-size: 12.2rem;
+                font-weight: 600;
+            }
+            h3{
+                font-size: 1.313rem;
+            }
+        }
     }
 }
+
+@import "_comments";
+
+@import "_blog-post";
+
+@import "_post";
+
+@import "_pagination";
 
 @import "_single-colecoes";
 

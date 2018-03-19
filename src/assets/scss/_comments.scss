@@ -1,0 +1,64 @@
+#comments{
+    div[for=comment]{
+        @media screen {
+            @media (min-width: 768px){
+                margin-left: 9rem;
+            }
+        }
+        .authenticated{
+            font-size: 0.7rem;
+        }
+    }
+    form{
+        &#form-comment{
+            textarea{
+                @media only screen {
+                    @media (min-width: 768px){
+                        width: 45vw;
+                    }
+                    @media (max-width: 576px){
+                        width: 90vw;
+                    }
+                }
+            }
+            button{
+                &#submit{
+                    @media screen {
+                        @media (min-width: 768px){
+                            height: 5vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .media{
+        .media-body{
+            h5{
+                a{
+                    font-size: 0.9rem;
+                }
+                .comment-time{
+                    font-size: 0.7rem;
+                }
+            }
+            .comment-text{
+                p{
+                    margin-bottom: 0;
+                    @media only screen and (max-width: 576px) {
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    ul{
+        &.children{
+            &.align-children{
+                @media only screen and (min-width: 576px){
+                    margin-left: 2.3rem;
+                }
+            }
+        }
+    }
+}
