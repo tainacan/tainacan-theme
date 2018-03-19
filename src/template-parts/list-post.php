@@ -1,4 +1,4 @@
-<div class="media mb-4">
+<div class="media mb-3 border-bottom p-2">
     <?php if ( has_post_thumbnail() && get_the_post_thumbnail_url(get_the_ID()) ) : ?>
         <a href="<?php the_permalink(); ?>">
             <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" alt="" class="img-fluid align-self-center mr-5">
