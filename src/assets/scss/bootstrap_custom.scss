@@ -22,5 +22,6 @@ $theme-colors: (
   "black-opacit": $black-opacit,
   "midnight-blue": $midnight-blue
 );
-$font-family-sans-serif: "Roboto", "Helvetica Neue", Arial, sans-serif;
+$font-family-base: 'Roboto';
+$headings-font-family: 'Roboto';
 @import "../vendor/bootstrap/scss/bootstrap";
