@@ -11,10 +11,6 @@ if(!function_exists('tainacan_setup')) {
      * Observe que esta função está conectada ao gancho after_setup_theme, que é executado antes do gancho de init.
      */
     function tainacan_setup() {
-        /**
-        * Não exibe o menu do administrador na pagina do site. Mesmo quando estiver logado!
-        **/
-        show_admin_bar( false );
 
         $custom_header_support = array(// The default header text color.
             'default-text-color' => '212529',
@@ -29,14 +25,56 @@ if(!function_exists('tainacan_setup')) {
         
         add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
+		
+		$header_args = array(
+			'default-image'      => get_template_directory_uri() . '/assets/images/capa.png',
+			'default-text-color' => '000',
+			'header-text'		 => true,
+			'width'              => 1280,
+			'height'             => 280,
+			'flex-width'         => false,
+			'flex-height'        => true,
+		);
+		add_theme_support( 'custom-header', $header_args );
+		
+		$logo_args = array(
+			'height'      => 25,
+			'width'       => 400,
+			'flex-height' => false,
+			'flex-width'  => true,
+		);
+		add_theme_support( 'custom-logo', $logo_args );
+		
         /**
          * Desabilita o FTP na instalação de Plugins - Lembrar de retirar!!
          */
         define('FS_METHOD', 'direct');
+		
     }
 
 }
 add_action( 'after_setup_theme', 'tainacan_setup' );
+
+function tainacan_get_logo() {
+	if (has_custom_logo()) {
+		return get_custom_logo();
+	} else {
+		$html = '<a class="navbar-brand tainacan-logo" href="' . get_bloginfo( 'url' ) . '">';
+		$html .= '<img src="' . get_template_directory_uri() . '/assets/images/logo.svg" class="logo" style="width: 150px">';
+		$html .= '</a>';
+		return $html;
+	}
+}
+
+
+function tainacan_change_logo_class( $html ) {
+
+    $html = str_replace( 'custom-logo-link', 'navbar-brand tainacan-logo', $html );
+	$html = str_replace( 'custom-logo', 'logo', $html );
+
+    return $html;
+}
+add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 
 require get_template_directory() . '/functions/enqueues.php';
 require get_template_directory() . '/functions/customize.php';

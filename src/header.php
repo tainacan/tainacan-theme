@@ -14,7 +14,7 @@
         </div>
     </form>
 
-    <div class="page-header header-filter clear-filter" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')">
+    <div class="page-header header-filter clear-filter" style="background-image: url('<?php header_image(); ?>')">
         <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/images/capa.png" class="img-fluid header-img">
         <i class="material-icons float-right p-1 m-2 mt-3 text-white rounded-circle position-absolute header-icon">settings</i> -->
     </div>

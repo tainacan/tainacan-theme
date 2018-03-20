@@ -14,9 +14,7 @@
         
     <nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-1">
         <div class="d-md-flex ml-md-auto mr-md-4">
-            <a class="navbar-brand tainacan-logo" href="<?=bloginfo( 'url' ) ?>">
-                <img src="<?php echo get_template_directory_uri().'/assets/images/logo.svg' ?>" class="logo" style="width: 150px">
-            </a>
+            <?php echo tainacan_get_logo(); ?>
             <div class="btn-group pt-1 ml-auto">
                 <button type="button" class="btn btn-link text-heavy-metal pr-1"><i class="material-icons">folder_open</i></button>
                 <button type="button" class="btn btn-link text-jelly-bean px-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
