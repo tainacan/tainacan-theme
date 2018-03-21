@@ -49,11 +49,26 @@ if(!function_exists('tainacan_setup')) {
          * Desabilita o FTP na instalação de Plugins - Lembrar de retirar!!
          */
         define('FS_METHOD', 'direct');
-		
+
     }
 
 }
 add_action( 'after_setup_theme', 'tainacan_setup' );
+      
+/*
+* Register Widgets SideBar
+*/
+function tainacan_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Primary Sidebar', 'rhs' ),
+        'id'            => 'sidebar-1',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'tainacan_widgets_init' );
 
 function tainacan_get_logo() {
 	if (has_custom_logo()) {
