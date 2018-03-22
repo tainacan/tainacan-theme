@@ -8,6 +8,8 @@ $dodger-blue: #04a5ff;
 $black: #000;
 $black-opacit: rgba(0, 0, 0, 0.01);
 $midnight-blue: #01295C;
+$silver: #cbcbcb;
+$mercury: #e5e5e5;
 
 
 $theme-colors: (
@@ -20,7 +22,9 @@ $theme-colors: (
   "dodger-blue": $dodger-blue,
   "black": $black,
   "black-opacit": $black-opacit,
-  "midnight-blue": $midnight-blue
+  "midnight-blue": $midnight-blue,
+  "silver": $silver,
+  "mercury": $mercury
 );
 $font-family-base: 'Roboto';
 $headings-font-family: 'Roboto';

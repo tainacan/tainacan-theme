@@ -1,0 +1,25 @@
+#sidebar{
+    &.sidebar{
+        border-radius: 1rem;
+        .widget{
+            .widget-title{
+                font-size: 14pt;
+            }
+            ul{
+                padding-left: 0;
+                li{
+                    display: block;
+                }
+            }
+            form{
+                .input-group-append{
+                    button{
+                        &:hover{
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
