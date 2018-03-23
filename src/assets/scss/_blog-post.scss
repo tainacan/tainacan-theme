@@ -4,4 +4,27 @@
             box-shadow: 0 4px 9px 0 #00000061, 0 5px 15px 0 #00000059;
         }
     }
+    .blog-content{
+        h3{
+            font-size: 16pt;
+        }
+        a[rel="author"]{
+            color: #4f4f4f;
+            font-weight: 700;
+            &:hover{
+                color: inherit;
+            }
+        }
+        .blog-read{
+            color: #fff;
+            background-color: #298596;
+            border-color: #298596;
+            &:hover{
+                color: #fff;
+                background-color: #298596;
+                border-color: #298596;
+                box-shadow: 0 4px 9px 0 #0000006b, 0 5px 15px 0 #0000006b;
+            }
+        }
+    }
 }

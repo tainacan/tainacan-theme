@@ -90,11 +90,6 @@ function tainacan_change_logo_class( $html ) {
 }
 add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 
-function custom_excerpt_length( $length ) {
-	return 20;
-}
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-
 require get_template_directory() . '/functions/enqueues.php';
 require get_template_directory() . '/functions/customize.php';
 require get_template_directory() . '/functions/pagination.php';
