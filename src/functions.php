@@ -81,7 +81,6 @@ function tainacan_get_logo() {
 	}
 }
 
-
 function tainacan_change_logo_class( $html ) {
 
     $html = str_replace( 'custom-logo-link', 'navbar-brand tainacan-logo', $html );
@@ -91,15 +90,12 @@ function tainacan_change_logo_class( $html ) {
 }
 add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 require get_template_directory() . '/functions/enqueues.php';
 require get_template_directory() . '/functions/customize.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
-
-function wpdocs_excerpt_more( $more ) {
-    return sprintf( '<p><a class="read-more float-right" href="%1$s">%2$s</a></p>',
-        get_permalink( get_the_ID() ),
-        __( 'Read More', 'tainacan-theme' ).'...'
-    );
-}
-add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );

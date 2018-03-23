@@ -1,15 +1,7 @@
-.blog-posts{
-    .media{
-        .media-body{
-            h5{
-                font-size: 1.5rem;
-                time, span {
-                    font-size: 0.8333333333333334rem;
-                }
-            }
-            .read-more{
-                font-size: 0.8333333333333334rem;
-            }
+.blog-post{
+    .blog-thumbnail{
+        img{
+            box-shadow: 0 4px 9px 0 #00000061, 0 5px 15px 0 #00000059;
         }
     }
 }
