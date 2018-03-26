@@ -30,13 +30,19 @@ if(!function_exists('tainacan_setup')) {
 			'default-image'      => get_template_directory_uri() . '/assets/images/capa.png',
 			'default-text-color' => '000',
 			'header-text'		 => true,
-			'width'              => 1280,
-			'height'             => 280,
 			'flex-width'         => false,
 			'flex-height'        => true,
 		);
 		add_theme_support( 'custom-header', $header_args );
-		
+		register_default_headers(
+            array(
+                'default-image' => array(
+                    'url'           => '%s/assets/images/capa.png',
+                    'thumbnail_url' => '%s/assets/images/capa.png',
+                    'description'   => __( 'Default Image', 'tainacan-theme' ),
+                ),
+            )
+        );
 		$logo_args = array(
 			'height'      => 25,
 			'width'       => 400,
