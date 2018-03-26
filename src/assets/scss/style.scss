@@ -46,7 +46,7 @@ form{
 }
 
 .page-header {
-    height: 40vh;
+    height: 200px;
     background-position: 50%;
     background-size: cover;
     margin: 0;
@@ -100,6 +100,9 @@ form{
                 font-size: 1.313rem;
             }
         }
+    }
+    &.page-height{
+        height: 400px;
     }
 }
 
