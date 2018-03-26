@@ -1,6 +1,6 @@
 <?php if(have_posts()): ?>
     <?php if(!is_single()) { $title = 'Blog'; } ?>
-    <div class="px-sm-3">
+    <div class="tainacan-title">
         <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
             <ul class="list-inline mb-0">
                 <li class="list-inline-item text-midnight-blue font-weight-bold"><?php echo $title; ?></li>
