@@ -4,7 +4,7 @@
             <a href="<?php the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" class="img-fluid rounded" alt=""></a>
         </div>
     <?php endif; ?>
-    <div class="col-xs-12 <?php if ( has_post_thumbnail() ) :?>col-md-8<?php else : ?>col-md-12<?php endif; ?> blog-content">
+    <div class="col-xs-12 blog-content <?php if ( has_post_thumbnail() ) :?>col-md-8 blog-flex<?php else : ?>col-md-12<?php endif; ?>">
         <h3 class="mb-3">
             <a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
         </h3>

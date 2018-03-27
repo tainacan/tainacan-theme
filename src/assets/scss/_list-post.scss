@@ -1,11 +1,25 @@
 .tainacan-list-post {
+    padding: 0 1rem 0 2rem;
     .blog-post{
         .blog-thumbnail{
+            @media screen {
+                @media (min-width: 992px){
+                    flex: 0 0 29.333333%;
+                }
+            }
             img{
                 box-shadow: 0 4px 9px 0 #00000061, 0 5px 15px 0 #00000059;
             }
         }
         .blog-content{
+            &.blog-flex{
+                @media screen {
+                    @media (min-width: 992px){
+                        flex: 0 0 70.666667%;
+                        max-width: 70.666667%;
+                    }
+                }
+            }
             h3{
                 font-size: 16pt;
             }

@@ -12,7 +12,7 @@
             </ul>
         </div>
     </div>
-    <div class="mt-3 <?php if(is_home()) echo 'px-sm-5 mx-sm-5 tainacan-list-post'; elseif(is_single()) echo 'tainacan-single-post'; ?>">
+    <div class="<?php if(is_home()) echo 'mt-5 tainacan-list-post'; elseif(is_single()) echo 'mt-3 tainacan-single-post'; ?>">
         <?php while(have_posts()): 
             the_post();
             //List Post
