@@ -1,8 +1,5 @@
 <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
     <header class="mb-4">
-        <h1>
-            <?php the_title()?>
-        </h1>
         <div class="header-meta text-muted">
             <?php
                 _e('By', 'tainacan-theme');
