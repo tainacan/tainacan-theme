@@ -1,15 +1,26 @@
-article{
-    header{
-        img{
-            max-width: 100%;
-            height: auto;
+.tainacan-single-post{
+    padding: 0 1rem 0 2rem;
+    article{
+        header{
+            .header-meta{
+                @media screen {
+                    @media (min-width: 768px){
+                        margin-top: -16px;
+                        margin-bottom: 3rem;
+                    }
+                }
+            }
+            img{
+                max-width: 100%;
+                height: auto;
+            }
         }
-    }
-    main{
-        &.tainacan-content {
-            font-size: 1rem;
-            &h1, &h2{
+        main{
+            &.tainacan-content {
                 font-size: 1rem;
+                &h1, &h2{
+                    font-size: 1rem;
+                }
             }
         }
     }
