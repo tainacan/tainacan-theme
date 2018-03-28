@@ -11,7 +11,7 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
     global $post; 
     //var_dump($args);die;
     $class_has = "has-children media comment-". $comment->comment_ID; ?>
-    <div <?php comment_class( $args['has_children'] ? $class_has : ' media' ); ?>>
+    <div <?php comment_class( $args['has_children'] ? $class_has : 'parent media' ); ?> id="comment-<?php comment_ID() ?>">
         <?php 
             $arg = array('class' => 'img-fluid rounded-circle mr-sm-3', );
             echo get_avatar($comment, 60, '', '', $arg);
