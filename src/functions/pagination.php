@@ -39,12 +39,12 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 		
 		echo '<div class="row margin-pagination justify-content-between border-top">';
 			printf('<div class="col-sm-3 d-none d-lg-block pl-0">Viewing Items: %d to %d from %d</div>', $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts);
-			echo '<div class="col-sm-'.$col.' pr-md-0">';
+			echo '<div class="col-sm-5 pr-md-0">';
 				echo '<ul class="pagination justify-content-center justify-content-md-end">' . "\n";
 	 
 					/** Previous Post Link */
 					if ( get_previous_posts_link() )
-						printf( '<li>%s</li>' . "\n", get_previous_posts_link() );
+						printf( '<li style="padding-right: 5px">%s</li>' . "\n", get_previous_posts_link() );
 				
 					/** Link to first page, plus ellipses if necessary */
 					if ( ! in_array( 1, $links ) ) {
