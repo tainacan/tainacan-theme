@@ -38,7 +38,7 @@
                     <a class="dropdown-item" href="#">Sair</a>
                 </div>
             </div>
-            <button class="navbar-toggler text-heavy-metal border-0 px-0 pt-2" type="button" data-toggle="collapse" data-target="#menuTp" aria-controls="menuTp" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler text-heavy-metal border-0 px-0 pt-2 ml-auto" type="button" data-toggle="collapse" data-target="#menuTp" aria-controls="menuTp" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="material-icons">more_vert</i>
             </button>
             <div class="collapse navbar-collapse mt-sm-1 mr-sm-3" id="menuTp">

@@ -96,6 +96,11 @@ function tainacan_change_logo_class( $html ) {
 add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 
 require_once get_template_directory() . '/vendor/class-wp-bootstrap-navwalker.php';
+
+register_nav_menus( array(
+	'navMenubelowHeader' => __( 'Nav Menu Below Header', 'tainacan-theme' ),
+) );
+
 require get_template_directory() . '/functions/enqueues.php';
 require get_template_directory() . '/functions/customize.php';
 require get_template_directory() . '/functions/pagination.php';
