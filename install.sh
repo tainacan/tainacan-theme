@@ -4,15 +4,20 @@ echo "\n ..::Tainacan Theme::..\n";
 
 echo "\nStarting installation with composer ... please wait!!";
 
-echo "\nChecking if project folders exist ...\n\n";
+echo "\nChecking if bootstrap folders exist ...\n\n";
 
-if (!file_exists("vendor/bootstrap")) { 
+if (!file_exists("src/assets/bootstrap")) { 
     mkdir("src/assets/vendor/bootstrap/", 0777, true); 
     mkdir("src/assets/vendor/bootstrap/scss", 0777, true); 
     mkdir("src/assets/vendor/bootstrap/js", 0777, true); 
 }
 
-echo "\nVerification completed...\n";
+echo "\m Checking if file bootstrap navwalker exist ... \n\n";
+
+if (!file_exists("src/vendor/class-wp-bootstrap-navwalker.php")) {
+    echo "\m Copy Boostrap Navwalker ... \n\n";
+    copy("vendor/wp-bootstrap/wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php", "src/vendor/class-wp-bootstrap-navwalker.php");
+}
 
 echo "\nStarting Copying Files...\n";
 

@@ -6,7 +6,8 @@
         }
     ],
     "require": {
-        "twbs/bootstrap": "4.0.0"        
+        "twbs/bootstrap": "4.0.0",
+        "wp-bootstrap/wp-bootstrap-navwalker": "*"
     },
     "scripts": {
         "post-install-cmd": "bash install.sh",
