@@ -1,6 +1,6 @@
 <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
     <header class="mb-4">
-        <div class="header-meta text-muted">
+        <div class="header-meta text-muted mb-3 mb-md-0">
             <?php
                 _e('By', 'tainacan-theme');
                 echo ' ';

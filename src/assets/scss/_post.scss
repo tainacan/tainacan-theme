@@ -1,5 +1,9 @@
 .tainacan-single-post{
-    padding: 0 1rem 0 2rem;
+    @media screen {
+        @media (min-width: 992px) {
+            padding: 0 1rem 0 2rem;
+        }
+    }
     article{
         header{
             .header-meta{
