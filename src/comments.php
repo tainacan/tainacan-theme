@@ -58,8 +58,8 @@ if (post_password_required()) {
 			<?php endif; ?>
 		</div>
 		<?php if (have_comments()) : ?>
-			<div class="row">
-				<div class="col col-sm-9 mx-sm-auto pl-sm-2 mt-4 list-comments">
+			<div class="row px-sm-4">
+				<div class="col col-sm-10 mt-4 list-comments mx-sm-auto pl-3">
 					<?php wp_list_comments('type=comment&callback=tainacan_Comments_Callback'); ?>
 				</div>
 			</div>
