@@ -58,6 +58,7 @@
         }
         .media-body{
             .comment-text{
+                max-width: 60vw;
                 @media only screen and (min-width: 576px){
                     margin-left: 0.5rem;
                 }

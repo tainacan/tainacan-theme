@@ -15,7 +15,7 @@
                         }
                     ?>
                 </li>
-                <li class="list-inline-item float-right"><a href=""><?php _e('Back'); ?></a></li>
+                <li class="list-inline-item float-right"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
             </ul>
         </div>
     </div>
