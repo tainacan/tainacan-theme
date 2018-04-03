@@ -16,6 +16,7 @@ echo "\m Checking if file bootstrap navwalker exist ... \n\n";
 
 if (!file_exists("src/vendor/class-wp-bootstrap-navwalker.php")) {
     echo "\m Copy Boostrap Navwalker ... \n\n";
+    mkdir("src/vendor/");
     copy("vendor/wp-bootstrap/wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php", "src/vendor/class-wp-bootstrap-navwalker.php");
 }
 
