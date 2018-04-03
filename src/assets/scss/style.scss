@@ -40,6 +40,26 @@ nav{
             }
         }
     }
+    &[aria-label='breadcrumb']{
+        border-bottom: 1px solid #cbcbcb;
+        a{
+            color: #2cb4c1;
+        }
+        .breadcrumb{
+            background: transparent;
+            @media screen {
+                @media (min-width: 992px){
+                    margin-left: 31px;
+                }
+            }
+        }
+        .breadcrumb-item + .breadcrumb-item{
+            &:before{
+                content: ">";
+                color: #2cb4c1;
+            }
+        }
+    }
 }
 
 form{
