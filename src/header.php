@@ -16,7 +16,7 @@ get_header('banner'); ?>
                         'container'			=> 'div',
                         'container_class'	=> 'collapse navbar-collapse',
                         'container_id'		=> 'menubelowHeader',
-                        'menu_class'		=> 'navbar-nav mr-auto',
+                        'menu_class'		=> 'navbar-nav mr-auto ml-md-1',
                         'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
                         'walker'			=> new WP_Bootstrap_Navwalker()
                     ) );
