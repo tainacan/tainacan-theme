@@ -14,7 +14,7 @@ get_header('banner'); ?>
             <a class="navbar-brand" href="#"></a>
             <!-- Brand and toggle get grouped for better mobile display -->
             <button class="navbar-toggler text-heavy-metal border-0 px-2 pt-2" type="button" data-toggle="collapse" data-target="#menubelowHeader" aria-controls="menubelowHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="material-icons">more_vert</i>
+                <span class="navbar-toggler-icon"></span>
             </button>
                 <?php
                     wp_nav_menu( array(
