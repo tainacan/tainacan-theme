@@ -6,17 +6,24 @@
                     <?php 
                         if(is_home()) echo 'Blog'; 
                         elseif(is_single()) the_title(); 
+                        elseif(is_search()){ 
+                            _e('Search Results for', 'tainacan-theme'); 
+                            echo ' ' . the_search_query();
+                        }
+                        elseif(is_archive()){
+                            echo ' ' . get_the_archive_title();
+                        }
                     ?>
                 </li>
                 <li class="list-inline-item float-right"><a href=""><?php _e('Back'); ?></a></li>
             </ul>
         </div>
     </div>
-    <div class="<?php if(is_home()) echo 'mt-5 tainacan-list-post'; elseif(is_single()) echo 'mt-3 tainacan-single-post'; ?>">
+    <div class="<?php if(is_home() || is_search() || is_category() || is_archive()) echo 'mt-5 tainacan-list-post'; elseif(is_single()) echo 'mt-3 tainacan-single-post'; ?>">
         <?php while(have_posts()): 
             the_post();
             //List Post
-            if(is_home()){
+            if(is_home() || is_search() || is_category() || is_archive()){
                 get_template_part('template-parts/list-post');
             }
             //View Post
