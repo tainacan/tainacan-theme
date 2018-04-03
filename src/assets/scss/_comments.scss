@@ -52,11 +52,23 @@
             }
         }
     }
+    .list-comments{
+        .media{
+            margin-bottom: 2.5rem;
+        }
+        .media-body{
+            .comment-text{
+                @media only screen and (min-width: 576px){
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
     ul{
         &.children{
             &.align-children{
                 @media only screen and (min-width: 576px){
-                    margin-left: 2.3rem;
+                    margin-left: 2.5rem;
                 }
             }
         }
