@@ -19,7 +19,7 @@ get_header('banner'); ?>
                 <?php
                     wp_nav_menu( array(
                         'theme_location'	=> 'navMenubelowHeader',
-                        'depth'				=> 1, // 1 = with dropdowns, 0 = no dropdowns.
+                        'depth'				=> 2, // 1 = with dropdowns, 0 = no dropdowns.
                         'container'			=> 'div',
                         'container_class'	=> 'collapse navbar-collapse',
                         'container_id'		=> 'menubelowHeader',
