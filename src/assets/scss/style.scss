@@ -27,6 +27,19 @@ nav{
     &.menu-shadow{
         box-shadow: 0 2px 9px 0 #808080a6;
     }
+    #menubelowHeader{
+        ul{
+            li{
+                &.menu-item{
+                    @media screen {
+                        @media (min-width: 992px){
+                            padding-right: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
     @media screen {
         @media (max-width: 768px){
             border-bottom: 1px solid #cbcbcb;
