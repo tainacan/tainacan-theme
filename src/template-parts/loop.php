@@ -5,7 +5,7 @@
                 <li class="list-inline-item text-midnight-blue font-weight-bold">
                     <?php 
                         if(is_home()) echo 'Blog'; 
-                        elseif(is_single()) the_title(); 
+                        elseif(is_single() || is_page()) the_title(); 
                         elseif(is_search()){ 
                             _e('Search Results for', 'tainacan-theme'); 
                             echo ' ' . the_search_query();
@@ -19,7 +19,7 @@
             </ul>
         </div>
     </div>
-    <div class="<?php if(is_home() || is_search() || is_category() || is_archive()) echo 'mt-5 tainacan-list-post'; elseif(is_single()) echo 'mt-3 tainacan-single-post'; ?>">
+    <div class="<?php if(is_home() || is_search() || is_category() || is_archive()) echo 'mt-5 tainacan-list-post'; elseif(is_single() || is_page()) echo 'mt-3 tainacan-single-post'; ?>">
         <?php while(have_posts()): 
             the_post();
             //List Post
@@ -27,7 +27,7 @@
                 get_template_part('template-parts/list-post');
             }
             //View Post
-            elseif(is_single()){
+            elseif(is_single() || is_page()){
                 get_template_part('template-parts/single-post');
             } else {
                 printf('<p>%2</p>', __('Sorry, no posts matched your criteria.', 'tainacan-theme'));
