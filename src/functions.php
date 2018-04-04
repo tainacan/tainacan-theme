@@ -22,7 +22,7 @@ if(!function_exists('tainacan_setup')) {
             // This is all for compatibility with versions of WordPress prior to 3.4.
             define( 'HEADER_TEXTCOLOR', $custom_header_support['default-text-color'] );
         }
-        
+        add_theme_support( 'align-wide' );
         add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
 		

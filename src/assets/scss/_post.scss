@@ -27,6 +27,24 @@
                 img {
                     max-width: 100%;
                 }
+                .wp-block-cover-image{
+                    width: 100vw;
+                    position: relative;
+                    left: 50%;
+                    right: 50%;
+                    margin-left: -50vw;
+                    margin-right: -50vw;  
+                }
+                .wp-block-embed{
+                    iframe{
+                        width: 100%;
+                    }
+                }
+                .wp-block-gallery{
+                    @media (max-width: 768px){
+                        padding-left: 0;
+                    }
+                }
             }
         }
     }

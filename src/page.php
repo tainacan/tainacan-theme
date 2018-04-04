@@ -6,8 +6,5 @@
                 <?php get_template_part('template-parts/loop'); ?>
             </div><!-- /#content -->
         </div>
-
-        <?php get_sidebar(); ?>
-
     </div><!-- /.row -->
 <?php get_footer(); ?>
