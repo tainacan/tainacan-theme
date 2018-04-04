@@ -1,5 +1,4 @@
 build-config.cfg
-composer.lock
 /vendor/
 /src/assets/style.css
 /src/assets/style.css.map
