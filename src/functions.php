@@ -63,17 +63,32 @@ add_action( 'after_setup_theme', 'tainacan_setup' );
 /*
 * Register Widgets SideBar
 */
-function tainacan_widgets_init() {
+function tainacan_widgets_sidebar_init() {
     register_sidebar( array(
-        'name'          => __( 'Tainacan Sidebar', 'tainacan-theme' ),
-        'id'            => 'sidebar-1',
+        'name'          => __( 'Tainacan Sidebar Right', 'tainacan-theme' ),
+        'id'            => 'sidebar-right',
         'before_widget' => '<aside id="%1$s" class="pb-4 px-4 widget %2$s">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h2 class="widget-title font-weight-bold">',
         'after_title'   => '</h2>',
     ) );
 }
-add_action( 'widgets_init', 'tainacan_widgets_init' );
+add_action( 'widgets_init', 'tainacan_widgets_sidebar_init' );
+
+/*
+* Register Widgets footer
+*/
+function tainacan_widgets_footer_init() {
+    register_sidebar( array(
+        'name'          => __( 'Tainacan Sidebar Footer', 'tainacan-theme' ),
+        'id'            => 'footer-1',
+        'before_widget' => '<li class="border border-white border-left-0 border-right-0 tainacan-side"><input type="checkbox" checked><i></i>',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h6 class="text-white font-weight-bold mb-lg-4">',
+        'after_title'   => ' <i class="material-icons mt-2 symbol"></i></h6>',
+    ) );
+}
+add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
 
 function tainacan_get_logo() {
 	if (has_custom_logo()) {
