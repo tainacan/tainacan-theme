@@ -169,21 +169,23 @@ footer{
                 margin: 0;
                 @extend %no-select;
             }
-            p{
-                line-height: 18px;
-                letter-spacing: 1px;
-                position: relative;
-                overflow: hidden;
-                max-height: 800px;
-                @extend %transition;
-                opacity: 1;
-                display: block;
-                transform: translate( 0 , 0 )  ;
-                margin-top: 14px;
-                z-index: 2;
-                font-size: 0.8rem;
-                &:nth-of-type(1){
-                    margin-top: 5px;
+            .tainacan-side{
+                p, div, ul{
+                    line-height: 18px;
+                    letter-spacing: 1px;
+                    position: relative;
+                    overflow: hidden;
+                    max-height: 800px;
+                    @extend %transition;
+                    opacity: 1;
+                    display: block;
+                    transform: translate( 0 , 0 )  ;
+                    margin-top: 14px;
+                    z-index: 2;
+                    font-size: 0.8rem;
+                    &:nth-of-type(1){
+                        margin-top: 5px;
+                    }
                 }
             }
             ul {
@@ -240,7 +242,7 @@ footer{
                         z-index: 1;
                         opacity: 0;
                         &:checked{
-                            &~p{
+                            &~p, &~div, &~ul{
                                 margin-top: 0;
                                 max-height: 0;
                                 opacity: 0;
@@ -294,14 +296,33 @@ footer{
             ul{
                 list-style: none;
                 li{
-                    margin-right: 10vw;
-                    &:last-child{
-                        margin-right: 0;
-                    }
-                    &.border{
-                        border: none !important;
-                        input[type=checkbox]{
-                            display: none;
+                    &.tainacan-side{
+                        margin-right: 5vw;
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                        &.border{
+                            border: none !important;
+                            input[type=checkbox]{
+                                display: none;
+                            }
+                        }
+                        > ul{
+                            width: 10vw;
+                            padding-left: 0;
+                            li{
+                                &:nth-of-type(n + 6){
+                                    display: none;
+                                }
+                                color: #898d8f;
+                            }
+                        }
+                        tr{
+                            color: #898d8f;
+                        }
+                        div > ul{
+                            width: 10vw;
+                            padding-left: 0;
                         }
                     }
                 }
