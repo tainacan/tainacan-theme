@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 col-lg">
                 <ul class="p-4 d-lg-flex justify-content-md-center mb-md-0">
-                    <li class="border border-white border-left-0 border-right-0 border-bottom-0">
+                    <!-- <li class="border border-white border-left-0 border-right-0 border-bottom-0">
                         <input type="checkbox" checked>
                         <i></i>
                         <h6 class="text-white font-weight-bold mb-lg-4">Mapa do site <i class="material-icons mt-2 symbol"></i></h2>
@@ -62,7 +62,8 @@
                             </svg>
                             Google Plus
                         </p>
-                    </li>
+                    </li> -->
+                    <?php dynamic_sidebar('footer-1'); ?>
                 </ul>
             </div>
         </div>
