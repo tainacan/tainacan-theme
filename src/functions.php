@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Setup Theme
  */
-
 if(!function_exists('tainacan_setup')) {
 
     /**
@@ -10,29 +10,26 @@ if(!function_exists('tainacan_setup')) {
      * Isso é usado para a configuração básica do tema, registro dos recursos do tema e init hooks. 
      * Observe que esta função está conectada ao gancho after_setup_theme, que é executado antes do gancho de init.
      */
-    function tainacan_setup() {
-
-        $custom_header_support = array(// The default header text color.
-            'default-text-color' => '212529',
-            'wp-head-callback' => 'tainacan_header_style',
-        );
-        add_theme_support( 'custom-header', $custom_header_support );
-
-        if ( ! function_exists( 'get_custom_header' ) ) {
-            // This is all for compatibility with versions of WordPress prior to 3.4.
-            define( 'HEADER_TEXTCOLOR', $custom_header_support['default-text-color'] );
-        }
+    function tainacan_setup() {        
+        /**
+         * Display in gutenberg plugin the full width for image
+         */
         add_theme_support( 'align-wide' );
+
         add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
-		
+        
+        /**
+         * Custom header to change the banner image
+         */
 		$header_args = array(
-			'default-text-color' => '000',
-            'header-text'		 => true,
+			//'default-text-color' => '000',
+            'header-text'		 => false,
 			'flex-width'         => false,
 			'flex-height'        => true,
 		);
-		add_theme_support( 'custom-header', $header_args );
+        add_theme_support( 'custom-header', $header_args );
+        
 		/* register_default_headers(
             array(
                 'default-image' => array(
@@ -42,6 +39,10 @@ if(!function_exists('tainacan_setup')) {
                 ),
             )
         ); */
+
+        /**
+         * Custom logo to change the logo image
+         */
 		$logo_args = array(
 			'height'      => 25,
 			'width'       => 400,
@@ -90,6 +91,11 @@ function tainacan_widgets_footer_init() {
 }
 add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
 
+/**
+ * get Logo function
+ *
+ * return custom logo or the default logo
+ */
 function tainacan_get_logo() {
 	if (has_custom_logo()) {
 		return get_custom_logo();
@@ -101,6 +107,12 @@ function tainacan_get_logo() {
 	}
 }
 
+/**
+ * Change logo class function
+ *
+ * @param [type] $html
+ * @return void
+ */
 function tainacan_change_logo_class( $html ) {
 
     $html = str_replace( 'custom-logo-link', 'navbar-brand tainacan-logo', $html );
@@ -110,13 +122,19 @@ function tainacan_change_logo_class( $html ) {
 }
 add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 
+/**
+ * Class navwalker
+ */
 require_once get_template_directory() . '/vendor/class-wp-bootstrap-navwalker.php';
 
+/**
+ * Register the menu for use after the banner
+ */
 register_nav_menus( array(
 	'navMenubelowHeader' => __( 'Nav Menu Below Header', 'tainacan-theme' ),
 ) );
 
-require get_template_directory() . '/functions/enqueues.php';
-require get_template_directory() . '/functions/customize.php';
+require get_template_directory() . '/functions/enqueues.php'; 
+require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
