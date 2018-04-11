@@ -28,11 +28,6 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             wp_register_script('popper_bootstrap4', get_template_directory_uri() . '/assets/vendor/bootstrap/js/popper.min.js', '', '', true);
             wp_enqueue_script('popper_bootstrap4');
 
-            // Load the dark colorscheme.
-            if ( 'dark' === get_theme_mod( 'colorscheme', 'light' ) || is_customize_preview() ) {
-                wp_register_style('tainacan-colors-dark', get_stylesheet_uri(). '/assets/css/colors-dark.css');
-                wp_enqueue_style('tainacan-colors-dark');
-            }
         /**
          * Google Charts
          

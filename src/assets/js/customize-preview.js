@@ -1,35 +1,41 @@
 /**
- * File customize-preview.js.
- *
- * Instantly live-update customizer settings in the preview for improved user experience.
+ * Live-update changed settings in real time in the Customizer preview.
  */
 
-(function( $ ) {
+( function( $ ) {
+	var style = $( '#tainacan-color-scheme-css' ),
+		api = wp.customize;
 
-	// Color scheme.
-	wp.customize( 'colorscheme', function( value ) {
+	if ( ! style.length ) {
+		style = $( 'head' ).append( '<style type="text/css" id="tainacan-color-scheme-css" />' )
+		                    .find( '#tainacan-color-scheme-css' );
+	}
+
+	// Site title.
+	api( 'blogname', function( value ) {
 		value.bind( function( to ) {
+			$( '.site-title a' ).text( to );
+		} );
+	} );
 
-			// Update color body class.
-			$( 'body' )
-				.removeClass( 'colors-light colors-dark colors-custom' )
-				.addClass( 'colors-' + to );
-		});
-	});
-
-	// Custom color hue.
-	wp.customize( 'colorscheme_hue', function( value ) {
+	// Site tagline.
+	api( 'blogdescription', function( value ) {
 		value.bind( function( to ) {
+			$( '.site-description' ).text( to );
+		} );
+	} );
 
-			// Update custom color CSS.
-			var style = $( '#custom-theme-colors' ),
-				hue = style.data( 'hue' ),
-				css = style.html();
+	// Add custom-background-image body class when background image is added.
+	api( 'background_image', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).toggleClass( 'custom-background-image', '' !== to );
+		} );
+	} );
 
-			// Equivalent to css.replaceAll, with hue followed by comma to prevent values with units from being changed.
-			css = css.split( hue + ',' ).join( to + ',' );
-			style.html( css ).data( 'hue', to );
-		});
-	});
-
+	// Color Scheme CSS.
+	api.bind( 'preview-ready', function() {
+		api.preview.bind( 'update-color-scheme-css', function( css ) {
+			style.html( css );
+		} );
+	} );
 } )( jQuery );
