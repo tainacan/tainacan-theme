@@ -3,39 +3,6 @@
  * Customizer functionality
  */
 
-if ( ! function_exists( 'tainacan_header_style' ) ) :
-/**
- * Styles the header text displayed on the site.
- *
- * Create your own tainacan_header_style() function to override in a child theme.
- *
- * @since Tainacan Theme
- *
- * @see tainacan_custom_header_and_background().
- */
-function tainacan_header_style() {
-	// If the header text option is untouched, let's bail.
-	if ( display_header_text() ) {
-		return;
-	}
-
-	// If the header text has been hidden.
-	?>
-	<style type="text/css" id="tainacan-header-css">
-		.site-branding {
-			margin: 0 auto 0 0;
-		}
-
-		.site-branding .site-title,
-		.site-description {
-			clip: rect(1px, 1px, 1px, 1px);
-			position: absolute;
-		}
-	</style>
-	<?php
-}
-endif; // tainacan_header_style
-
 /**
  * Adds postMessage support for site title and description for the Customizer.
  *
@@ -45,22 +12,6 @@ endif; // tainacan_header_style
  */
 function tainacan_customize_register( $wp_customize ) {
 	$color_scheme = tainacan_get_color_scheme();
-
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial( 'blogname', array(
-			'selector' => '.site-title a',
-			'container_inclusive' => false,
-			'render_callback' => 'tainacan_customize_partial_blogname',
-		) );
-		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
-			'selector' => '.site-description',
-			'container_inclusive' => false,
-			'render_callback' => 'tainacan_customize_partial_blogdescription',
-		) );
-	}
 
 	// Add color scheme setting and control.
 	$wp_customize->add_setting( 'color_scheme', array(
@@ -117,30 +68,6 @@ function tainacan_customize_register( $wp_customize ) {
 	) ) );
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
-
-/**
- * Render the site title for the selective refresh partial.
- *
- * @since Tainacan Theme
- * @see tainacan_customize_register()
- *
- * @return void
- */
-function tainacan_customize_partial_blogname() {
-	bloginfo( 'name' );
-}
-
-/**
- * Render the site tagline for the selective refresh partial.
- *
- * @since Tainacan Theme
- * @see tainacan_customize_register()
- *
- * @return void
- */
-function tainacan_customize_partial_blogdescription() {
-	bloginfo( 'description' );
-}
 
 /**
  * Registers color schemes for Tainacan Theme.
@@ -387,50 +314,6 @@ function tainacan_get_color_scheme_css( $colors ) {
 
 	return <<<CSS
 	/* Color Scheme */
-
-	/* Background Color */
-	/* body {
-		background-color: {$colors['background_color']};
-	} */
-
-	/* Page Background Color */
-	/* .site {
-		background-color: {$colors['page_background_color']};
-	} */
-
-	mark,
-	ins,
-	button,
-	button[disabled]:hover,
-	button[disabled]:focus,
-	input[type="button"],
-	input[type="button"][disabled]:hover,
-	input[type="button"][disabled]:focus,
-	input[type="reset"],
-	input[type="reset"][disabled]:hover,
-	input[type="reset"][disabled]:focus,
-	input[type="submit"],
-	input[type="submit"][disabled]:hover,
-	input[type="submit"][disabled]:focus,
-	.menu-toggle.toggled-on,
-	.menu-toggle.toggled-on:hover,
-	.menu-toggle.toggled-on:focus,
-	.pagination .prev,
-	.pagination .next,
-	.pagination .prev:hover,
-	.pagination .prev:focus,
-	.pagination .next:hover,
-	.pagination .next:focus,
-	.pagination .nav-links:before,
-	.pagination .nav-links:after,
-	.widget_calendar tbody a,
-	.widget_calendar tbody a:hover,
-	.widget_calendar tbody a:focus,
-	.page-links a,
-	.page-links a:hover,
-	.page-links a:focus {
-		color: {$colors['page_background_color']};
-	}
 
 	/* Link Color */
 	.menu-toggle:hover,
@@ -679,15 +562,6 @@ function tainacan_get_color_scheme_css( $colors ) {
 			border-top-color: {$colors['border_color']};
 			border-bottom-color: {$colors['border_color']};
 		}
-
-		.main-navigation ul ul li {
-			background-color: {$colors['page_background_color']};
-		}
-
-		.main-navigation ul ul:after {
-			border-top-color: {$colors['page_background_color']};
-			border-bottom-color: {$colors['page_background_color']};
-		}
 	}
 
 CSS;
@@ -718,79 +592,6 @@ function tainacan_color_scheme_css_template() {
 	<?php
 }
 add_action( 'customize_controls_print_footer_scripts', 'tainacan_color_scheme_css_template' );
-
-/**
- * Enqueues front-end CSS for the page background color.
- *
- * @since Tainacan Theme
- *
- * @see wp_add_inline_style()
- */
-function tainacan_page_background_color_css() {
-	$color_scheme          = tainacan_get_color_scheme();
-	$default_color         = $color_scheme[1];
-	$page_background_color = get_theme_mod( 'page_background_color', $default_color );
-
-	// Don't do anything if the current color is the default.
-	if ( $page_background_color === $default_color ) {
-		return;
-	}
-
-	$css = '
-		/* Custom Page Background Color */
-		.site {
-			background-color: %1$s;
-		}
-
-		mark,
-		ins,
-		button,
-		button[disabled]:hover,
-		button[disabled]:focus,
-		input[type="button"],
-		input[type="button"][disabled]:hover,
-		input[type="button"][disabled]:focus,
-		input[type="reset"],
-		input[type="reset"][disabled]:hover,
-		input[type="reset"][disabled]:focus,
-		input[type="submit"],
-		input[type="submit"][disabled]:hover,
-		input[type="submit"][disabled]:focus,
-		.menu-toggle.toggled-on,
-		.menu-toggle.toggled-on:hover,
-		.menu-toggle.toggled-on:focus,
-		.pagination .prev,
-		.pagination .next,
-		.pagination .prev:hover,
-		.pagination .prev:focus,
-		.pagination .next:hover,
-		.pagination .next:focus,
-		.pagination .nav-links:before,
-		.pagination .nav-links:after,
-		.widget_calendar tbody a,
-		.widget_calendar tbody a:hover,
-		.widget_calendar tbody a:focus,
-		.page-links a,
-		.page-links a:hover,
-		.page-links a:focus {
-			color: %1$s;
-		}
-
-		@media screen and (min-width: 56.875em) {
-			.main-navigation ul ul li {
-				background-color: %1$s;
-			}
-
-			.main-navigation ul ul:after {
-				border-top-color: %1$s;
-				border-bottom-color: %1$s;
-			}
-		}
-	';
-
-	wp_add_inline_style( 'tainacan-style', sprintf( $css, $page_background_color ) );
-}
-add_action( 'wp_enqueue_scripts', 'tainacan_page_background_color_css', 11 );
 
 /**
  * Enqueues front-end CSS for the link color.
