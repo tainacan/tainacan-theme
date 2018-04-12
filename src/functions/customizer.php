@@ -112,8 +112,8 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#1a1a1a',
 				'#ffffff',
-				'#007acc',
-				'#1a1a1a',
+				'#298596',
+				'#ffffff',
 				'#686868',
 			),
 		),
@@ -312,259 +312,28 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'border_color'          => '',
 	) );
 
-	return <<<CSS
+	return '
 	/* Color Scheme */
-
-	/* Link Color */
-	.menu-toggle:hover,
-	.menu-toggle:focus,
-	a,
-	.main-navigation a:hover,
-	.main-navigation a:focus,
-	.dropdown-toggle:hover,
-	.dropdown-toggle:focus,
-	.social-navigation a:hover:before,
-	.social-navigation a:focus:before,
-	.post-navigation a:hover .post-title,
-	.post-navigation a:focus .post-title,
-	.tagcloud a:hover,
-	.tagcloud a:focus,
-	.site-branding .site-title a:hover,
-	.site-branding .site-title a:focus,
-	.entry-title a:hover,
-	.entry-title a:focus,
-	.entry-footer a:hover,
-	.entry-footer a:focus,
-	.comment-metadata a:hover,
-	.comment-metadata a:focus,
-	.pingback .comment-edit-link:hover,
-	.pingback .comment-edit-link:focus,
-	.comment-reply-link,
-	.comment-reply-link:hover,
-	.comment-reply-link:focus,
-	.required,
-	.site-info a:hover,
-	.site-info a:focus {
-		color: {$colors['link_color']};
+	
+	body a, 
+	.tainacan-title-page ul li, 
+	.tainacan-title-page ul li a,
+	.tainacan-title-page ul li a:hover, 
+	.tainacan-list-post .blog-content h3 {
+		color: '.$colors["link_color"].' !important;
 	}
-
-	mark,
-	ins,
-	button:hover,
-	button:focus,
-	input[type="button"]:hover,
-	input[type="button"]:focus,
-	input[type="reset"]:hover,
-	input[type="reset"]:focus,
-	input[type="submit"]:hover,
-	input[type="submit"]:focus,
-	.pagination .prev:hover,
-	.pagination .prev:focus,
-	.pagination .next:hover,
-	.pagination .next:focus,
-	.widget_calendar tbody a,
-	.page-links a:hover,
-	.page-links a:focus {
-		background-color: {$colors['link_color']};
+	.tainacan-list-post .blog-post .blog-content .blog-read {
+		color: '.$colors["main_text_color"].' !important;
 	}
-
-	input[type="date"]:focus,
-	input[type="time"]:focus,
-	input[type="datetime-local"]:focus,
-	input[type="week"]:focus,
-	input[type="month"]:focus,
-	input[type="text"]:focus,
-	input[type="email"]:focus,
-	input[type="url"]:focus,
-	input[type="password"]:focus,
-	input[type="search"]:focus,
-	input[type="tel"]:focus,
-	input[type="number"]:focus,
-	textarea:focus,
-	.tagcloud a:hover,
-	.tagcloud a:focus,
-	.menu-toggle:hover,
-	.menu-toggle:focus {
-		border-color: {$colors['link_color']};
+	.tainacan-title-page,
+	.tainacan-list-post .blog-post .blog-content .blog-read {
+		border-color: '.$colors["link_color"].' !important;
 	}
-
-	/* Main Text Color */
-	body,
-	blockquote cite,
-	blockquote small,
-	.main-navigation a,
-	.menu-toggle,
-	.dropdown-toggle,
-	.social-navigation a,
-	.post-navigation a,
-	.pagination a:hover,
-	.pagination a:focus,
-	.widget-title a,
-	.site-branding .site-title a,
-	.entry-title a,
-	.page-links > .page-links-title,
-	.comment-author,
-	.comment-reply-title small a:hover,
-	.comment-reply-title small a:focus {
-		color: {$colors['main_text_color']};
+	.tainacan-list-post .blog-post .blog-content .blog-read {
+		background-color: '.$colors["link_color"].' !important;
 	}
-
-	blockquote,
-	.menu-toggle.toggled-on,
-	.menu-toggle.toggled-on:hover,
-	.menu-toggle.toggled-on:focus,
-	.post-navigation,
-	.post-navigation div + div,
-	.pagination,
-	.widget,
-	.page-header,
-	.page-links a,
-	.comments-title,
-	.comment-reply-title {
-		border-color: {$colors['main_text_color']};
-	}
-
-	button,
-	button[disabled]:hover,
-	button[disabled]:focus,
-	input[type="button"],
-	input[type="button"][disabled]:hover,
-	input[type="button"][disabled]:focus,
-	input[type="reset"],
-	input[type="reset"][disabled]:hover,
-	input[type="reset"][disabled]:focus,
-	input[type="submit"],
-	input[type="submit"][disabled]:hover,
-	input[type="submit"][disabled]:focus,
-	.menu-toggle.toggled-on,
-	.menu-toggle.toggled-on:hover,
-	.menu-toggle.toggled-on:focus,
-	.pagination:before,
-	.pagination:after,
-	.pagination .prev,
-	.pagination .next,
-	.page-links a {
-		background-color: {$colors['main_text_color']};
-	}
-
-	/* Secondary Text Color */
-
-	/**
-	 * IE8 and earlier will drop any block with CSS3 selectors.
-	 * Do not combine these styles with the next block.
-	 */
-	body:not(.search-results) .entry-summary {
-		color: {$colors['secondary_text_color']};
-	}
-
-	blockquote,
-	.post-password-form label,
-	a:hover,
-	a:focus,
-	a:active,
-	.post-navigation .meta-nav,
-	.image-navigation,
-	.comment-navigation,
-	.widget_recent_entries .post-date,
-	.widget_rss .rss-date,
-	.widget_rss cite,
-	.site-description,
-	.author-bio,
-	.entry-footer,
-	.entry-footer a,
-	.sticky-post,
-	.taxonomy-description,
-	.entry-caption,
-	.comment-metadata,
-	.pingback .edit-link,
-	.comment-metadata a,
-	.pingback .comment-edit-link,
-	.comment-form label,
-	.comment-notes,
-	.comment-awaiting-moderation,
-	.logged-in-as,
-	.form-allowed-tags,
-	.site-info,
-	.site-info a,
-	.wp-caption .wp-caption-text,
-	.gallery-caption,
-	.widecolumn label,
-	.widecolumn .mu_register label {
-		color: {$colors['secondary_text_color']};
-	}
-
-	.widget_calendar tbody a:hover,
-	.widget_calendar tbody a:focus {
-		background-color: {$colors['secondary_text_color']};
-	}
-
-	/* Border Color */
-	fieldset,
-	pre,
-	abbr,
-	acronym,
-	table,
-	th,
-	td,
-	input[type="date"],
-	input[type="time"],
-	input[type="datetime-local"],
-	input[type="week"],
-	input[type="month"],
-	input[type="text"],
-	input[type="email"],
-	input[type="url"],
-	input[type="password"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="number"],
-	textarea,
-	.main-navigation li,
-	.main-navigation .primary-menu,
-	.menu-toggle,
-	.dropdown-toggle:after,
-	.social-navigation a,
-	.image-navigation,
-	.comment-navigation,
-	.tagcloud a,
-	.entry-content,
-	.entry-summary,
-	.page-links a,
-	.page-links > span,
-	.comment-list article,
-	.comment-list .pingback,
-	.comment-list .trackback,
-	.comment-reply-link,
-	.no-comments,
-	.widecolumn .mu_register .mu_alert {
-		border-color: {$colors['main_text_color']}; /* Fallback for IE7 and IE8 */
-		border-color: {$colors['border_color']};
-	}
-
-	hr,
-	code {
-		background-color: {$colors['main_text_color']}; /* Fallback for IE7 and IE8 */
-		background-color: {$colors['border_color']};
-	}
-
-	@media screen and (min-width: 56.875em) {
-		.main-navigation li:hover > a,
-		.main-navigation li.focus > a {
-			color: {$colors['link_color']};
-		}
-
-		.main-navigation ul ul,
-		.main-navigation ul ul li {
-			border-color: {$colors['border_color']};
-		}
-
-		.main-navigation ul ul:before {
-			border-top-color: {$colors['border_color']};
-			border-bottom-color: {$colors['border_color']};
-		}
-	}
-
-CSS;
+	
+';
 }
 
 
@@ -612,83 +381,12 @@ function tainacan_link_color_css() {
 
 	$css = '
 		/* Custom Link Color */
-		.menu-toggle:hover,
-		.menu-toggle:focus,
-		a,
-		.main-navigation a:hover,
-		.main-navigation a:focus,
-		.dropdown-toggle:hover,
-		.dropdown-toggle:focus,
-		.social-navigation a:hover:before,
-		.social-navigation a:focus:before,
-		.post-navigation a:hover .post-title,
-		.post-navigation a:focus .post-title,
-		.tagcloud a:hover,
-		.tagcloud a:focus,
-		.site-branding .site-title a:hover,
-		.site-branding .site-title a:focus,
-		.entry-title a:hover,
-		.entry-title a:focus,
-		.entry-footer a:hover,
-		.entry-footer a:focus,
-		.comment-metadata a:hover,
-		.comment-metadata a:focus,
-		.pingback .comment-edit-link:hover,
-		.pingback .comment-edit-link:focus,
-		.comment-reply-link,
-		.comment-reply-link:hover,
-		.comment-reply-link:focus,
-		.required,
-		.site-info a:hover,
-		.site-info a:focus {
-			color: %1$s;
-		}
-
-		mark,
-		ins,
-		button:hover,
-		button:focus,
-		input[type="button"]:hover,
-		input[type="button"]:focus,
-		input[type="reset"]:hover,
-		input[type="reset"]:focus,
-		input[type="submit"]:hover,
-		input[type="submit"]:focus,
-		.pagination .prev:hover,
-		.pagination .prev:focus,
-		.pagination .next:hover,
-		.pagination .next:focus,
-		.widget_calendar tbody a,
-		.page-links a:hover,
-		.page-links a:focus {
-			background-color: %1$s;
-		}
-
-		input[type="date"]:focus,
-		input[type="time"]:focus,
-		input[type="datetime-local"]:focus,
-		input[type="week"]:focus,
-		input[type="month"]:focus,
-		input[type="text"]:focus,
-		input[type="email"]:focus,
-		input[type="url"]:focus,
-		input[type="password"]:focus,
-		input[type="search"]:focus,
-		input[type="tel"]:focus,
-		input[type="number"]:focus,
-		textarea:focus,
-		.tagcloud a:hover,
-		.tagcloud a:focus,
-		.menu-toggle:hover,
-		.menu-toggle:focus {
-			border-color: %1$s;
-		}
-
-		@media screen and (min-width: 56.875em) {
-			.main-navigation li:hover > a,
-			.main-navigation li.focus > a {
-				color: %1$s;
-			}
+		body a, 
+		.tainacan-title-page ul li, 
+		.tainacan-title-page ul li a,
+		.tainacan-title-page ul li a:hover, 
+		.tainacan-list-post .blog-content h3 {
+			color: %1$s !important;
 		}
 	';
 
@@ -726,123 +424,8 @@ function tainacan_main_text_color_css() {
 
 	$css = '
 		/* Custom Main Text Color */
-		body,
-		blockquote cite,
-		blockquote small,
-		.main-navigation a,
-		.menu-toggle,
-		.dropdown-toggle,
-		.social-navigation a,
-		.post-navigation a,
-		.pagination a:hover,
-		.pagination a:focus,
-		.widget-title a,
-		.site-branding .site-title a,
-		.entry-title a,
-		.page-links > .page-links-title,
-		.comment-author,
-		.comment-reply-title small a:hover,
-		.comment-reply-title small a:focus {
-			color: %1$s
-		}
-
-		blockquote,
-		.menu-toggle.toggled-on,
-		.menu-toggle.toggled-on:hover,
-		.menu-toggle.toggled-on:focus,
-		.post-navigation,
-		.post-navigation div + div,
-		.pagination,
-		.widget,
-		.page-header,
-		.page-links a,
-		.comments-title,
-		.comment-reply-title {
-			border-color: %1$s;
-		}
-
-		button,
-		button[disabled]:hover,
-		button[disabled]:focus,
-		input[type="button"],
-		input[type="button"][disabled]:hover,
-		input[type="button"][disabled]:focus,
-		input[type="reset"],
-		input[type="reset"][disabled]:hover,
-		input[type="reset"][disabled]:focus,
-		input[type="submit"],
-		input[type="submit"][disabled]:hover,
-		input[type="submit"][disabled]:focus,
-		.menu-toggle.toggled-on,
-		.menu-toggle.toggled-on:hover,
-		.menu-toggle.toggled-on:focus,
-		.pagination:before,
-		.pagination:after,
-		.pagination .prev,
-		.pagination .next,
-		.page-links a {
-			background-color: %1$s;
-		}
-
-		/* Border Color */
-		fieldset,
-		pre,
-		abbr,
-		acronym,
-		table,
-		th,
-		td,
-		input[type="date"],
-		input[type="time"],
-		input[type="datetime-local"],
-		input[type="week"],
-		input[type="month"],
-		input[type="text"],
-		input[type="email"],
-		input[type="url"],
-		input[type="password"],
-		input[type="search"],
-		input[type="tel"],
-		input[type="number"],
-		textarea,
-		.main-navigation li,
-		.main-navigation .primary-menu,
-		.menu-toggle,
-		.dropdown-toggle:after,
-		.social-navigation a,
-		.image-navigation,
-		.comment-navigation,
-		.tagcloud a,
-		.entry-content,
-		.entry-summary,
-		.page-links a,
-		.page-links > span,
-		.comment-list article,
-		.comment-list .pingback,
-		.comment-list .trackback,
-		.comment-reply-link,
-		.no-comments,
-		.widecolumn .mu_register .mu_alert {
-			border-color: %1$s; /* Fallback for IE7 and IE8 */
-			border-color: %2$s;
-		}
-
-		hr,
-		code {
-			background-color: %1$s; /* Fallback for IE7 and IE8 */
-			background-color: %2$s;
-		}
-
-		@media screen and (min-width: 56.875em) {
-			.main-navigation ul ul,
-			.main-navigation ul ul li {
-				border-color: %2$s;
-			}
-
-			.main-navigation ul ul:before {
-				border-top-color: %2$s;
-				border-bottom-color: %2$s;
-			}
+		.tainacan-list-post .blog-post .blog-content .blog-read {
+			color: %1$s !important;
 		}
 	';
 
