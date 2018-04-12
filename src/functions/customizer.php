@@ -123,7 +123,7 @@ function tainacan_get_color_schemes() {
 				'#262626',
 				'#1a1a1a',
 				'#9adffd',
-				'#e5e5e5',
+				'#ffffff',
 				'#c1c1c1',
 			),
 		),
@@ -133,7 +133,7 @@ function tainacan_get_color_schemes() {
 				'#616a73',
 				'#4d545c',
 				'#c7c7c7',
-				'#f2f2f2',
+				'#ffffff',
 				'#f2f2f2',
 			),
 		),
@@ -143,7 +143,7 @@ function tainacan_get_color_schemes() {
 				'#ffffff',
 				'#ff675f',
 				'#640c1f',
-				'#402b30',
+				'#ffffff',
 				'#402b30',
 			),
 		),
@@ -153,7 +153,7 @@ function tainacan_get_color_schemes() {
 				'#3b3721',
 				'#ffef8e',
 				'#774e24',
-				'#3b3721',
+				'#ffffff',
 				'#5b4d3e',
 			),
 		),
@@ -238,7 +238,7 @@ endif; // tainacan_sanitize_color_scheme
  */
 function tainacan_color_scheme_css() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
-
+	
 	// Don't do anything if the default color scheme is selected.
 	if ( 'default' === $color_scheme_option ) {
 		return;
@@ -267,7 +267,7 @@ function tainacan_color_scheme_css() {
 
 	$color_scheme_css = tainacan_get_color_scheme_css( $colors );
 
-	wp_add_inline_style( 'tainacan-style', $color_scheme_css );
+	wp_add_inline_style( 'custom-style', $color_scheme_css );
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_color_scheme_css' );
 
@@ -312,28 +312,32 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'border_color'          => '',
 	) );
 
-	return '
+	return <<<CSS
 	/* Color Scheme */
 	
-	body a, 
+	body a,
+	body a:hover, 
 	.tainacan-title-page ul li, 
 	.tainacan-title-page ul li a,
 	.tainacan-title-page ul li a:hover, 
-	.tainacan-list-post .blog-content h3 {
-		color: '.$colors["link_color"].' !important;
+	.tainacan-list-post .blog-content h3 ,
+	.tainacan-list-post .blog-content h3 a:hover {
+		color: {$colors['link_color']};
 	}
 	.tainacan-list-post .blog-post .blog-content .blog-read {
-		color: '.$colors["main_text_color"].' !important;
+		color: {$colors['main_text_color']};
 	}
 	.tainacan-title-page,
-	.tainacan-list-post .blog-post .blog-content .blog-read {
-		border-color: '.$colors["link_color"].' !important;
+	.tainacan-list-post .blog-post .blog-content .blog-read,
+	.tainacan-list-post .blog-post .blog-content .blog-read:hover {
+		border-color: {$colors['link_color']};
 	}
-	.tainacan-list-post .blog-post .blog-content .blog-read {
-		background-color: '.$colors["link_color"].' !important;
+	.tainacan-list-post .blog-post .blog-content .blog-read,
+	.tainacan-list-post .blog-post .blog-content .blog-read:hover {
+		background-color: {$colors['link_color']};
 	}
 	
-';
+CSS;
 }
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,10 +7,13 @@
     <title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-      <?php wp_head(); ?>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
+	    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<?php endif; ?>
+    <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
         
     <nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-1">
         <div class="d-md-flex ml-md-auto mr-md-4">
