@@ -51,10 +51,6 @@ if(!function_exists('tainacan_setup')) {
 		);
 		add_theme_support( 'custom-logo', $logo_args );
 		
-        /**
-         * Desabilita o FTP na instalação de Plugins - Lembrar de retirar!!
-         */
-        define('FS_METHOD', 'direct');
 
     }
 

@@ -35,7 +35,6 @@
         endwhile; ?>
     </div>
     <?php echo tainacan_pagination(3); ?>
-<?php else:
-    wp_redirect(esc_url( home_url() ) . '/404', 404);
-    exit; ?>
+<?php else: ?>
+	<?php _e('Nothing found', 'tainacan-theme'); ?>
 <?php endif; ?>
