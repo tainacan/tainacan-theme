@@ -150,9 +150,9 @@ footer{
                 transition: all 0.25s ease-in-out;
             }
             
-            %flipIn{
+            /* %flipIn{
                 animation: flipdown 0.5s ease both;
-            }
+            } */
             %no-select{
               -webkit-tap-highlight-color: rgba(0,0,0,0);
               -webkit-touch-callout: none;
@@ -194,9 +194,7 @@ footer{
                 padding: 0;
                 margin: 0;
                 li{
-                    position: relative;
-                    @extend %flipIn;
-                    
+                    position: relative;                    
                     &:nth-of-type(1){
                         animation-delay: 0.5s;
                     }
