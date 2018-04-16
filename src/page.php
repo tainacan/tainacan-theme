@@ -3,7 +3,7 @@
 
         <div class="col-sm">
             <div id="content" role="main">
-                <?php get_template_part('template-parts/loop'); ?>
+                <?php get_template_part('template-parts/loop', 'singular'); ?>
             </div><!-- /#content -->
         </div>
     </div><!-- /.row -->
