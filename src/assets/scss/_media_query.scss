@@ -170,12 +170,12 @@ footer{
                 @extend %no-select;
             }
             .tainacan-side{
-                p, div, ul{
+                > p, div, ul{
                     line-height: 18px;
                     letter-spacing: 1px;
                     position: relative;
                     overflow: hidden;
-                    max-height: 800px;
+                    max-height: 795px;
                     @extend %transition;
                     opacity: 1;
                     display: block;
@@ -184,8 +184,25 @@ footer{
                     z-index: 2;
                     font-size: 0.8rem;
                     &:nth-of-type(1){
-                        margin-top: 5px;
+                        margin: 5px 0 0.5em 0;
                     }
+                }
+
+                .gallery{
+                    display: grid;
+                    .gallery-item{
+                        margin: 5px 0 !important;
+                    }
+                    br{
+                        display: none;
+                    }
+                }
+
+                &{
+                    border-top: 1px solid white;
+                }
+                &:nth-last-child(1){
+                    border-bottom: 1px solid white;
                 }
             }
             ul {
@@ -301,12 +318,10 @@ footer{
                         &:last-child{
                             margin-right: 0;
                         }
-                        &.border{
-                            border: none !important;
-                            input[type=checkbox]{
-                                display: none;
-                            }
+                        input[type=checkbox]{
+                            display: none;
                         }
+                        
                         > ul{
                             width: 10vw;
                             padding-left: 0;
@@ -323,6 +338,15 @@ footer{
                         div > ul{
                             width: 10vw;
                             padding-left: 0;
+                        }
+                        .gallery{
+                            display: grid;
+                            .gallery-item{
+                                margin: 5px 0 !important;
+                            }
+                            br{
+                                display: none;
+                            }
                         }
                     }
                 }
