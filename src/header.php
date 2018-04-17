@@ -9,7 +9,7 @@ get_header('banner'); ?>
         $bread .= "</ol>";
     ?>
     <?php if(has_nav_menu('navMenubelowHeader')) : ?>
-        <nav class="navbar navbar-expand-md navbar-light bg-white px-1" role="navigation">
+        <nav class="navbar navbar-expand-md navbar-light bg-white px-1 border-bottom" role="navigation">
             <div class="container-fluid">
                 <?php /* if(wp_is_mobile()) echo $bread; */ ?>
                 <a class="navbar-brand" href="#"></a>
