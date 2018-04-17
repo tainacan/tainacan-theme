@@ -1,4 +1,10 @@
 .margin-pagination{
+    border-width: 2px !important;
+    .pagination{
+        a:nth-last-child(1){
+            white-space: nowrap;
+        }
+    }
     @media screen {
         @media (max-width: 592px){
             margin-left: 3rem;
@@ -9,5 +15,4 @@
             margin-right: 6rem;
         }
     }
-    border-width: 2px !important;
 }
