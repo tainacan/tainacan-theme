@@ -332,11 +332,7 @@ footer{
                                 &:nth-of-type(n + 6){
                                     display: none;
                                 }
-                                color: #898d8f;
                             }
-                        }
-                        tr{
-                            color: #898d8f;
                         }
                         div > ul{
                             width: 10vw;
@@ -356,6 +352,11 @@ footer{
                     }
                 }
             }
+        }
+    }
+    .tainacan-side{
+        .textwidget, .recentcomments, .calendar_wrap, ul li, div li, div, ul, li {
+            color: #898d8f;
         }
     }
 }
