@@ -10,7 +10,7 @@
         </h3>
         <?php echo '<p class="text-oslo-gray">'.wp_trim_words( get_the_content(), 35, '...' ).'</p>'; ?>
         <p>by <?php the_author_posts_link(); ?>, <?php the_time(); ?></p>
-        <a href="<?php the_permalink(); ?>" class="btn btn-primary blog-read float-right">Read more</a>
+        <a href="<?php the_permalink(); ?>" class="btn btn-jelly-bean float-right">Read more</a>
     </div>
 </div>
 
