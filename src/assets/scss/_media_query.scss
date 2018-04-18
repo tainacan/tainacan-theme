@@ -190,6 +190,9 @@ footer{
 
                 .gallery{
                     display: grid;
+                    max-height: 485px;
+                    overflow: hidden;
+                    justify-content: center;
                     .gallery-item{
                         margin: 5px 0 !important;
                     }
@@ -329,11 +332,7 @@ footer{
                                 &:nth-of-type(n + 6){
                                     display: none;
                                 }
-                                color: #898d8f;
                             }
-                        }
-                        tr{
-                            color: #898d8f;
                         }
                         div > ul{
                             width: 10vw;
@@ -341,6 +340,8 @@ footer{
                         }
                         .gallery{
                             display: grid;
+                            max-height: 485px;
+                            overflow: hidden;
                             .gallery-item{
                                 margin: 5px 0 !important;
                             }
@@ -351,6 +352,11 @@ footer{
                     }
                 }
             }
+        }
+    }
+    .tainacan-side{
+        .textwidget, .recentcomments, .calendar_wrap, ul li, div li, div, ul, li {
+            color: #898d8f;
         }
     }
 }

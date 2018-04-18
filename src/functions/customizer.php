@@ -110,51 +110,41 @@ function tainacan_get_color_schemes() {
 		'default' => array(
 			'label'  => __( 'Default', 'tainacan' ),
 			'colors' => array(
-				'#1a1a1a',
-				'#ffffff',
-				'#298596',
-				'#ffffff',
-				'#686868',
+				'#1a1a1a', //background
+				'#ffffff', //background page
+				'#298596', //link
+				'#ffffff', //main-text
+				'#686868', //second
 			),
 		),
-		'dark' => array(
-			'label'  => __( 'Dark', 'tainacan' ),
+		'amethystpurple' => array(
+			'label'  => __( 'Amethyst Purple', 'tainacan' ),
 			'colors' => array(
-				'#262626',
-				'#1a1a1a',
-				'#9adffd',
-				'#ffffff',
-				'#c1c1c1',
+				'#262626', //background
+				'#ffffff', //background page
+				'#a355c2', //link
+				'#ffffff', //main-text
+				'#c1c1c1', //second
 			),
 		),
-		'gray' => array(
-			'label'  => __( 'Gray', 'tainacan' ),
+		'dodgerblue' => array(
+			'label'  => __( 'Dodger Blue', 'tainacan' ),
 			'colors' => array(
-				'#616a73',
-				'#4d545c',
-				'#c7c7c7',
-				'#ffffff',
-				'#f2f2f2',
+				'#616a73', //background
+				'#ffffff', //background page
+				'#04A5FF', //link
+				'#ffffff', //main-text
+				'#f2f2f2', //second
 			),
 		),
-		'red' => array(
-			'label'  => __( 'Red', 'tainacan' ),
+		'matrixbrown' => array(
+			'label'  => __( 'Matrix Brown', 'tainacan' ),
 			'colors' => array(
-				'#ffffff',
-				'#ff675f',
-				'#640c1f',
-				'#ffffff',
-				'#402b30',
-			),
-		),
-		'yellow' => array(
-			'label'  => __( 'Yellow', 'tainacan' ),
-			'colors' => array(
-				'#3b3721',
-				'#ffef8e',
-				'#774e24',
-				'#ffffff',
-				'#5b4d3e',
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#b46659', //link
+				'#ffffff', //main-text
+				'#402b30', //second
 			),
 		),
 	) );

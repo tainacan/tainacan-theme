@@ -5,6 +5,8 @@
                 <?php get_template_part('template-parts/loop'); ?>
             </div><!-- /#content -->
         </div>
-        <?php get_sidebar(); ?>
+        <?php if ( is_active_sidebar( 'sidebar-right' ) ) { 
+            get_sidebar(); 
+        } ?>
     </div><!-- /.row -->
 <?php get_footer(); ?>
