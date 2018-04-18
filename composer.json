@@ -6,7 +6,7 @@
         }
     ],
     "require": {
-        "twbs/bootstrap": "4.0.0",
+        "twbs/bootstrap": "4.*",
         "wp-bootstrap/wp-bootstrap-navwalker": "*"
     },
     "scripts": {

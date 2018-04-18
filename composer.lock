@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2aff10de77826d55a5df5980e5893c7f",
-    "content-hash": "91e58eddc6019ea3eb4dde9b105605f7",
+    "hash": "73848e28368d82cda52954503d179f20",
+    "content-hash": "2072e43e35bd4f498320adcc3dc7536a",
     "packages": [
         {
             "name": "composer/installers",
@@ -129,16 +129,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v4.0.0",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "8a628b943cf31ca0a002c08af661a95772480225"
+                "reference": "8f7bd419935adfcd53c471a0202083464800619e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8a628b943cf31ca0a002c08af661a95772480225",
-                "reference": "8a628b943cf31ca0a002c08af661a95772480225",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8f7bd419935adfcd53c471a0202083464800619e",
+                "reference": "8f7bd419935adfcd53c471a0202083464800619e",
                 "shasum": ""
             },
             "replace": {
@@ -165,7 +165,7 @@
                 }
             ],
             "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "homepage": "https://getbootstrap.com",
+            "homepage": "https://getbootstrap.com/",
             "keywords": [
                 "JS",
                 "css",
@@ -176,20 +176,20 @@
                 "sass",
                 "web"
             ],
-            "time": "2018-01-18 18:29:48"
+            "time": "2018-04-09 16:00:23"
         },
         {
             "name": "wp-bootstrap/wp-bootstrap-navwalker",
-            "version": "v4.0.2",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-bootstrap/wp-bootstrap-navwalker.git",
-                "reference": "11e3e904296de2f2e5e47bd08a11e50b5e4616ae"
+                "reference": "87228b01eb4652c39349f209ee9da6ec6fa2b5c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-bootstrap/wp-bootstrap-navwalker/zipball/11e3e904296de2f2e5e47bd08a11e50b5e4616ae",
-                "reference": "11e3e904296de2f2e5e47bd08a11e50b5e4616ae",
+                "url": "https://api.github.com/repos/wp-bootstrap/wp-bootstrap-navwalker/zipball/87228b01eb4652c39349f209ee9da6ec6fa2b5c3",
+                "reference": "87228b01eb4652c39349f209ee9da6ec6fa2b5c3",
                 "shasum": ""
             },
             "require": {
@@ -199,11 +199,6 @@
                 "stevegrunwell/wp-enforcer": "^0.5.0"
             },
             "type": "library",
-            "autoload": {
-                "files": [
-                    "class-wp-bootstrap-navwalker.php"
-                ]
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0+"
@@ -218,7 +213,7 @@
                 }
             ],
             "description": "A custom WordPress nav walker class to fully implement the Bootstrap 4 navigation style in a custom theme using the WordPress built in menu manager.",
-            "time": "2018-02-25 23:24:31"
+            "time": "2018-04-14 01:22:55"
         }
     ],
     "packages-dev": [],
