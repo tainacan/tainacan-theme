@@ -73,7 +73,7 @@
         <div class="row p-4">
             <div class="col text-white font-weight-normal">
                 <p>
-                    Instituição
+                    <?php echo bloginfo('title');?>
                 </p>
                 <p>
                     Endereço

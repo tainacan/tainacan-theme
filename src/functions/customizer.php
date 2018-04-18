@@ -4,7 +4,7 @@
  */
 
 /**
- * Adds postMessage support for site title and description for the Customizer.
+ * Register Customizer color.
  *
  * @since Tainacan Theme
  *
@@ -12,6 +12,28 @@
  */
 function tainacan_customize_register( $wp_customize ) {
 	$color_scheme = tainacan_get_color_scheme();
+
+	/**
+	 * Add others infos in Site identity on customize
+	 */
+	$wp_customize->add_setting( 'blogaddress', array(
+		'type'       => 'option',
+		'capability' => 'manage_options',
+	) );
+
+	$wp_customize->add_control( 'blogaddress', array(
+		'label'      => __( 'Address' ),
+		'section'    => 'title_tagline',
+	) );
+	$wp_customize->add_setting( 'blogphone', array(
+		'type'       => 'option',
+		'capability' => 'manage_options',
+	) );
+
+	$wp_customize->add_control( 'blogphone', array(
+		'label'      => __( 'Phone Number' ),
+		'section'    => 'title_tagline',
+	) );
 
 	// Add color scheme setting and control.
 	$wp_customize->add_setting( 'color_scheme', array(
