@@ -8,7 +8,7 @@
         <h3 class="mb-3">
             <a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
         </h3>
-        <?php echo '<p class="text-oslo-gray">'.wp_trim_words( get_the_content(), 35, '...' ).'</p>'; ?>
+        <?php echo '<p class="text-oslo-gray">'.wp_trim_words( get_the_content(), 63, '...' ).'</p>'; ?>
         <p>by <?php the_author_posts_link(); ?>, <?php the_time(); ?></p>
         <a href="<?php the_permalink(); ?>" class="btn btn-jelly-bean float-right">Read more</a>
     </div>
