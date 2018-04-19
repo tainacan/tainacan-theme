@@ -19,9 +19,9 @@
         <div class="container-fluid pr-lg-5">
             <?php echo tainacan_get_logo(); ?>
             <div class="btn-group ml-auto">
-                <button type="button" class="btn btn-link text-heavy-metal px-0"><i class="material-icons">person_outline</i><span><?php _e('User'); ?></span></button>
-                <button type="button" class="btn btn-link text-jelly-bean dropdown-toggle dropdown-toggle-split px-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
+                <button type="button" class="btn btn-link text-heavy-metal px-0"><i class="material-icons">person_outline</i></button>
+                <button type="button" class="btn btn-link text-heavy-metal dropdown-toggle dropdown-toggle-split px-1 pt-lg-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    User <span class="sr-only text-jelly-bean">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu tainacan-dropdown-menu">
                     <a class="dropdown-item" href="#">Action</a>
