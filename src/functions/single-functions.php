@@ -35,11 +35,11 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
                         'reply_text' => __('Reply'),
                         'depth'      => $depth,
                         'max_depth'  => $args['max_depth'],
-                        'before'    => '<li class="ml-2 reply-link list-inline-item mr-3">',
+                        'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
                         'after'     => '</li>'
                     )
                 )); 
-                edit_comment_link( __( 'Edit' ), '<li class="edit-link list-inline-item mr-3">', '</li>' );
+                edit_comment_link( __( 'Edit' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
             ?>
             <?php if($args['has_children']) : ?>
                 <p>

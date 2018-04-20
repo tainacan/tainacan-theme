@@ -14,18 +14,18 @@ global $current_user;
 if (post_password_required()) {
     return;
 } ?>
-<div id="comments">
+<div id="comments" class="border-top border-jelly-bean" style="border-width: 2px !important;">
 	<!--show the form-->
 	<?php if('open' == $post->comment_status) : ?>
-		<div id="respond" class="clearfix">  
+		<div id="respond" class="clearfix mt-3">  
 			<?php if(get_option('comment_registration') && !$user_ID) : ?>
 				<p>
 				<?php printf( __( 'You must be %slogged%s in to post a comment.', 'tainacan-theme'), "<a href='" . get_option('home') . "/wp-login.php'>", "</a>" ); ?>
 				</p>        
 			<?php else : ?>      
-				<div for="comment" class="d-block">
+				<div for="comment" class="d-flex mb-2">
 					<span class="text-jelly-bean"><?php _e('Leave your comment', 'tainacan-theme'); ?></span>
-					<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block">
+					<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
 						<?php 
 							_e('Authenticated as', 'tainacan-theme'); echo ': '; 
 							echo '<a href="'. get_author_posts_url($current_user->ID) .'">' . $current_user->display_name . '</a>'; 
@@ -33,8 +33,8 @@ if (post_password_required()) {
 					</span>
 				</div>
 
-				<form autocomplete="off" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="form-comment" class="form-inline px-sm-5 clearfix">
-					<div class="row mx-sm-auto p-3">
+				<form autocomplete="off" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="form-comment" class="form-inline clearfix">
+					<div class="row mx-sm-auto ">
 						<div class="form-group">
 							<?php 
 								comment_id_fields(); 
@@ -47,9 +47,9 @@ if (post_password_required()) {
 									echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
 								?>
 							</span>
-							<textarea name="comment" id="comment" tabindex="1" required class="form-control mr-sm-3" rows="2" placeholder="<?php _e('Enter your comment here.', 'tainacan-theme'); ?>"></textarea>
+							<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2" placeholder="<?php _e('Enter your comment here.', 'tainacan-theme'); ?>"></textarea>
 						</div>
-						<button id="submit" class="btn btn-info bg-jungle-green align-self-center ml-auto " type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
+						<button id="submit" class="btn btn-info bg-jungle-green align-self-center ml-auto mt-3" type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
 					</div>
 					
 					<?php cancel_comment_reply_link('Cancel'); ?>
@@ -58,8 +58,8 @@ if (post_password_required()) {
 			<?php endif; ?>
 		</div>
 		<?php if (have_comments()) : ?>
-			<div class="row px-sm-4">
-				<div class="col col-sm-10 mt-4 list-comments mx-sm-auto pl-sm-3">
+			<div class="row">
+				<div class="col col-sm-10 mt-4 list-comments">
 					<?php wp_list_comments('type=comment&callback=tainacan_Comments_Callback'); ?>
 				</div>
 			</div>

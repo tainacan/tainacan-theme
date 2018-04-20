@@ -1,23 +1,37 @@
 #comments{
     div[for=comment]{
         @media screen {
-            @media (min-width: 768px){
-                margin-left: 9rem;
+            @media (max-width: 576px){
+                padding: 0 1rem;
             }
         }
+        span{
+            font-size: 18pt;
+        }
         .authenticated{
-            font-size: 0.7rem;
+            font-size: 10pt;
         }
     }
     form{
         &#form-comment{
+            .mx-sm-auto{
+                @media only screen and (max-width: 576px){
+                    padding: 0 2rem;
+                }
+            }
             textarea{
                 @media only screen {
-                    @media (min-width: 768px){
-                        width: 45vw;
-                    }
                     @media (max-width: 576px){
-                        width: 80vw;
+                        width: 84.4vw;
+                    }
+                    @media (min-width: 768px){
+                        width: 61.2vw;
+                    }
+                    @media (min-width: 992px){
+                        width: 60vw;
+                    }
+                    @media (min-width: 1200px){
+                        width: 64.7vw;
                     }
                 }
             }
@@ -25,42 +39,45 @@
                 &#submit{
                     @media screen {
                         @media (min-width: 768px){
-                            height: 5vh;
+                            height: 28px;
+                            padding-top: 2px;
                         }
                     }
                 }
             }
         }
     }
-    .media{
-        .media-body{
-            h5{
-                a{
-                    font-size: 0.9rem;
+    .list-comments{
+        @media only screen and (max-width: 576px){
+            padding: 0 2rem;
+        }
+        .media{
+            margin-bottom: 2.5rem;
+            .media-body{
+                h5{
+                    a{
+                        font-size: 12pt;
+                    }
+                    .comment-time{
+                        font-size: 10pt;
+                    }
                 }
-                .comment-time{
-                    font-size: 0.7rem;
-                }
-            }
-            .comment-text{
-                p{
-                    margin-bottom: 0;
-                    @media only screen and (max-width: 576px) {
+                .comment-text{
+                    font-size: 12pt;
+                    max-width: 60vw;
+                    p{
+                        margin-bottom: 0;
+                        @media only screen and (max-width: 576px) {
+                            margin-left: 0.5rem;
+                        }
+                    }
+                    @media only screen and (min-width: 576px){
                         margin-left: 0.5rem;
                     }
                 }
-            }
-        }
-    }
-    .list-comments{
-        .media{
-            margin-bottom: 2.5rem;
-        }
-        .media-body{
-            .comment-text{
-                max-width: 60vw;
-                @media only screen and (min-width: 576px){
-                    margin-left: 0.5rem;
+                .comment-reply-link, .comment-edit-link{
+                    color: #2cb4c1;
+                    font-size: 12pt;
                 }
             }
         }
