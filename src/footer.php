@@ -1,6 +1,6 @@
 </div>
 <?php if(!is_404()) : ?>
-    <footer class="container-fluid p-4 p-sm-5 mt-2 bg-haiti">
+    <footer class="container-fluid p-4 p-sm-5 mt-5 bg-haiti">
         <?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
             <div class="row">
                 <div class="col-12 col-lg">
