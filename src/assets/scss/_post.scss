@@ -1,7 +1,7 @@
 .tainacan-single-post{
     @media screen {
         @media (min-width: 992px) {
-            padding: 0 1rem 0 2rem;
+            padding: 0 2rem;
         }
     }
     article{
@@ -21,6 +21,9 @@
         main{
             &.tainacan-content {
                 font-size: 1rem;
+                @media only screen and (min-width: 1200px){
+                    padding: 0 8.5rem;
+                }
                 &h1, &h2{
                     font-size: 1rem;
                 }
@@ -41,9 +44,22 @@
                     }
                 }
                 .wp-block-gallery{
+                    .blocks-gallery-item{
+                        figure{
+                            figcaption{
+                                padding: 10px 10px 5px;
+                                background: #fff;
+                                color: #000;
+                            }
+                        }
+                    }
                     @media (max-width: 768px){
                         padding-left: 0;
                     }
+                }
+                .wp-block-pullquote{
+                    border-top: 1px solid #cbcbcb;
+                    border-bottom: 1px solid #cbcbcb;
                 }
             }
         }

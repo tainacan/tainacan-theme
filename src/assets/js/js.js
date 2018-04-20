@@ -25,6 +25,14 @@ jQuery(document).ready(function( $ ) {
      */
     $('#comments ul.children').addClass('align-children');
 
+    /**
+     * Add the icon on previous and next pagination in comment list
+     */
     $('<i class="material-icons">arrow_drop_down</i>').insertBefore("#comment-nav-below .float-left a");
     $('<i class="material-icons">arrow_drop_up</i>').insertAfter("#comment-nav-below .float-right a");
+
+    /**
+     * Change the class of guttenberg button
+     */
+    $('.wp-block-button a').toggleClass().addClass('btn btn-jelly-bean');
 });

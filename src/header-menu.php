@@ -16,7 +16,7 @@
 <body <?php body_class(); ?>>
         
 <nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-1">
-        <div class="container-fluid pr-lg-5">
+        <div class="container-fluid pr-lg-5 max-large">
             <?php echo tainacan_get_logo(); ?>
             <div class="btn-group ml-auto">
                 <button type="button" class="btn btn-link text-heavy-metal px-0"><i class="material-icons">person_outline</i></button>

@@ -140,17 +140,13 @@ form{
         height: 400px;
     }
 }
+
 .tainacan-title{
     @media screen {
         @media (min-width: 992px) {
-            padding: 0 1rem 0 2rem;
+            padding: 0 2rem;
         }
     }
-}
-
-.max-large{
-    overflow-x: hidden;
-    max-width: 1400px;
 }
 
 @import "_comments";

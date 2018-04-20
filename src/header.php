@@ -10,7 +10,7 @@ get_header('banner'); ?>
     ?>
     <?php if(has_nav_menu('navMenubelowHeader')) : ?>
         <nav class="navbar navbar-expand-md navbar-light bg-white px-1 border-bottom" role="navigation">
-            <div class="container-fluid">
+            <div class="container-fluid max-large">
                 <?php /* if(wp_is_mobile()) echo $bread; */ ?>
                 <a class="navbar-brand" href="#"></a>
                 <!-- Brand and toggle get grouped for better mobile display -->
