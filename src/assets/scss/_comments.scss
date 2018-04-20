@@ -1,10 +1,5 @@
 #comments{
     div[for=comment]{
-        @media screen {
-            @media (max-width: 576px){
-                padding: 0 1rem;
-            }
-        }
         span{
             font-size: 18pt;
         }
@@ -14,12 +9,25 @@
     }
     form{
         &#form-comment{
+            .form-row{
+                .col-11{
+                    @media screen {
+                        @media (max-width: 768px){
+                            flex: 0 0 100%;
+                        }
+                        @media (min-width: 992px){
+                            flex: 0 0 95%;
+                        }
+                    }
+                    max-width: 100%;
+                }
+            }
             .mx-sm-auto{
                 @media only screen and (max-width: 576px){
                     padding: 0 2rem;
                 }
             }
-            textarea{
+            /* textarea{
                 @media only screen {
                     @media (max-width: 576px){
                         width: 84.4vw;
@@ -34,7 +42,7 @@
                         width: 64.7vw;
                     }
                 }
-            }
+            } */
             button{
                 &#submit{
                     @media screen {

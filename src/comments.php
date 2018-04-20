@@ -34,23 +34,25 @@ if (post_password_required()) {
 				</div>
 
 				<form autocomplete="off" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="form-comment" class="form-inline clearfix">
-					<div class="row mx-sm-auto ">
-						<div class="form-group">
-							<?php 
-								comment_id_fields(); 
-								$args = array('class' => 'img-fluid rounded-circle mr-sm-3', );
-								echo get_avatar( $current_user->ID, 60, '', $current_user->display_name, $args );
-							?>
-							<span class="text-oslo-gray authenticated ml-3 d-inline d-sm-none">
-								<?php 
-									_e('Authenticated as', 'tainacan-theme'); echo ': '; 
-									echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
-								?>
-							</span>
-							<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2" placeholder="<?php _e('Enter your comment here.', 'tainacan-theme'); ?>"></textarea>
-						</div>
-						<button id="submit" class="btn btn-info bg-jungle-green align-self-center ml-auto mt-3" type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
-					</div>
+							<div class="form-row w-100 mx-0">
+								<div class="col">
+									<?php 
+										comment_id_fields(); 
+										$args = array('class' => 'img-fluid rounded-circle mr-sm-3', );
+										echo get_avatar( $current_user->ID, 60, '', $current_user->display_name, $args );
+									?>
+									<span class="text-oslo-gray authenticated ml-3 d-inline d-sm-none">
+										<?php 
+											_e('Authenticated as', 'tainacan-theme'); echo ': '; 
+											echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
+										?>
+									</span>
+								</div>
+								<div class="col-11 pr-0">
+									<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0 w-100" rows="2" placeholder="<?php _e('Enter your comment here.', 'tainacan-theme'); ?>"></textarea>
+								</div>
+							</div>
+							<button id="submit" class="btn btn-info bg-jungle-green align-self-center ml-auto mt-3 float-right" type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
 					
 					<?php cancel_comment_reply_link('Cancel'); ?>
 					<?php do_action('comment_form', $post->ID); ?>
