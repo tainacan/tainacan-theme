@@ -66,11 +66,11 @@ if (post_password_required()) {
 
 			<?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
 				<nav id="comment-nav-below" class="navigation" role="navigation">
-					<div class="nav-previous">
-						<?php echo '&larr; '; previous_comments_link( _e('Newer', 'tainacan-theme')); ?>
+					<div class="float-left">
+						<?php previous_comments_link(__('Previous Comments', 'tainacan-theme'), 0 ); ?>
 					</div>
-					<div class="nav-next">
-						<?php next_comments_link(_e('Older', 'tainacan-theme')); echo ' &rarr;'; ?>
+					<div class="float-right">
+						<?php next_comments_link(__('Next Comments', 'tainacan-theme'), 0 ); ?>
 					</div>
 				</nav>
 			<?php endif; // check for comment navigation ?>

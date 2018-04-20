@@ -24,4 +24,7 @@ jQuery(document).ready(function( $ ) {
      * Align the comments childrens
      */
     $('#comments ul.children').addClass('align-children');
+
+    $('<i class="material-icons">arrow_drop_down</i>').insertBefore("#comment-nav-below .float-left a");
+    $('<i class="material-icons">arrow_drop_up</i>').insertAfter("#comment-nav-below .float-right a");
 });
