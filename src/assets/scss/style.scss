@@ -147,6 +147,12 @@ form{
         }
     }
 }
+
+.max-large{
+    overflow-x: hidden;
+    max-width: 1400px;
+}
+
 @import "_comments";
 
 @import "_list-post";

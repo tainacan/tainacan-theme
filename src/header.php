@@ -35,4 +35,4 @@ get_header('banner'); ?>
     <!-- <nav aria-label="breadcrumb" class="d-none d-md-flex">
         <?php //echo $bread; ?>
     </nav> -->
-    <div class="container-fluid mt-5" style="overflow-x: hidden;">
+    <div class="container-fluid mt-5 max-large">
