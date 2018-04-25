@@ -23,7 +23,9 @@ if(!function_exists('tainacan_setup')) {
          * Custom header to change the banner image
          */
 		$header_args = array(
-			//'default-text-color' => '000',
+            //'default-text-color' => '000',
+            'width'              => 1280,
+            'height'             => 280,
             'header-text'		 => false,
 			'flex-width'         => false,
 			'flex-height'        => true,
