@@ -26,11 +26,32 @@ body{
 nav{
     &.menu-shadow{
         box-shadow: 0 2px 9px 0 #808080a6;
+        button{
+            &[data-toggle='dropdown']{
+                &::after{
+                    color: #298596;
+                }
+            }
+        }
+    }
+    .dropdown-menu{
+        .dropdown-item{
+            &:hover{
+                background-color: #2cb4c1;
+            }
+        }
     }
     #menubelowHeader{
         ul{
             li{
                 &.menu-item{
+                    a{
+                        font-size: 14pt;
+                        font-weight: 400;
+                        &::after{
+                            color: #298596;
+                        }
+                    }
                     @media screen {
                         @media (min-width: 992px){
                             padding-right: 50px;
@@ -142,6 +163,12 @@ form{
 }
 
 .tainacan-title{
+    .tainacan-title-page{
+        border-width: 2px !important;
+        .title-page{
+            font-size: 20pt;
+        }
+    }
     @media screen {
         @media (min-width: 992px) {
             padding: 0 2rem;

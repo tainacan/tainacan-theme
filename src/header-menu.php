@@ -24,11 +24,9 @@
                     <div class="d-none d-md-inline-block">User</div><span class="sr-only text-jelly-bean">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu tainacan-dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+                    <a class="dropdown-item" href="#">Perfil</a>
+                    <a class="dropdown-item" href="#">Coleção</a>
+                    <a class="dropdown-item" href="#">Sair</a>
                 </div>
                 <button type="button" class="btn btn-link text-heavy-metal px-1"><i class="material-icons">notifications_none</i></button>
                 <button type="button" class="btn btn-link text-heavy-metal pl-1 pr-lg-0"><i class="material-icons">help_outline</i></button>

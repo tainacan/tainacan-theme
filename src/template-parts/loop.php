@@ -1,8 +1,8 @@
 <?php if(have_posts()): ?>
     <div class="tainacan-title">
-        <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
+        <div class="border-bottom border-jelly-bean tainacan-title-page">
             <ul class="list-inline mb-1">
-                <li class="list-inline-item text-midnight-blue font-weight-bold">
+                <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                     <?php 
                         if(is_home()) echo 'Blog'; 
                         elseif(is_search()){ 
