@@ -17,6 +17,9 @@
                 color: #298596;
             }
         }
+        @media only screen and (max-width: 576px){
+            flex-wrap: wrap;
+        }
     }
     .view-items{
         white-space: nowrap;
