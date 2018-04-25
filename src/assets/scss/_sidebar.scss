@@ -5,6 +5,34 @@
         .widget{
             .widget-title{
                 font-size: 14pt;
+                font-weight: bold;
+                color: #1d1d1b;
+            }
+            &.widget_recent_entries, &.widget_recent_comments{
+                ul{
+                    li{
+                        margin-bottom: 0.3rem;
+                    }
+                }
+            }
+            &.widget_media_gallery{
+                .gallery{
+                    display: grid;
+                    dl{
+                        margin-top: 0;
+                        dt{
+                            img{
+                                border: 0;
+                            }
+                        }
+                    }
+                    br{
+                        display: none;
+                    }
+                }
+            }
+            &.widget_text{
+                font-size: 12pt;
             }
             ul{
                 padding-left: 0;
