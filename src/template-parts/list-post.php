@@ -8,7 +8,7 @@
         <h3 class="mb-3">
             <a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
         </h3>
-        <?php echo '<p class="text-oslo-gray">'.wp_trim_words( get_the_content(), 63, '...' ).'</p>'; ?>
+        <?php echo '<p class="text-tundora">'.wp_trim_words( get_the_content(), 63, '...' ).'</p>'; ?>
         <p><?php the_time('j M Y \\a\\t g:i'); echo ', '; _e('for'); echo ' '; the_author_posts_link(); ?></p>
         <a href="<?php the_permalink(); ?>" class="readmore float-right"><?php _e('Read more'); ?></a>
     </div>
