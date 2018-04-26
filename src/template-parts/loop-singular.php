@@ -3,10 +3,10 @@
 	    <div class="tainacan-title">
 	        <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 	            <ul class="list-inline mb-1">
-	                <li class="list-inline-item text-midnight-blue font-weight-bold">
+	                <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
 	                    <?php the_title(); ?>
 	                </li>
-	                <li class="list-inline-item float-right"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
+	                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
 	            </ul>
 	        </div>
 	    </div>
