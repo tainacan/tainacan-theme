@@ -7,7 +7,7 @@
     <title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
