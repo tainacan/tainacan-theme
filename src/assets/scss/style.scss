@@ -47,7 +47,7 @@ nav{
                 &.menu-item{
                     a{
                         font-size: 14pt;
-                        font-weight: 400;
+                        font-weight: 500;
                         &::after{
                             color: #298596;
                         }
@@ -174,7 +174,7 @@ form{
     }
     @media screen {
         @media (min-width: 992px) {
-            padding: 0 2rem;
+            padding: 0 1rem 0 2rem;
         }
     }
 }
