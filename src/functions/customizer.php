@@ -65,7 +65,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'     => 'colors',
 	) ) );
 
-	// Add main text color setting and control.
+	/* // Add main text color setting and control.
 	$wp_customize->add_setting( 'main_text_color', array(
 		'default'           => $color_scheme[3],
 		'sanitize_callback' => 'sanitize_hex_color',
@@ -87,7 +87,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_text_color', array(
 		'label'       => __( 'Secondary Text Color', 'tainacan' ),
 		'section'     => 'colors',
-	) ) );
+	) ) ); */
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
@@ -135,8 +135,6 @@ function tainacan_get_color_schemes() {
 				'#1a1a1a', //background
 				'#ffffff', //background page
 				'#298596', //link
-				'#ffffff', //main-text
-				'#686868', //second
 			),
 		),
 		'amethystpurple' => array(
@@ -145,8 +143,6 @@ function tainacan_get_color_schemes() {
 				'#262626', //background
 				'#ffffff', //background page
 				'#a355c2', //link
-				'#ffffff', //main-text
-				'#c1c1c1', //second
 			),
 		),
 		'dodgerblue' => array(
@@ -155,8 +151,6 @@ function tainacan_get_color_schemes() {
 				'#616a73', //background
 				'#ffffff', //background page
 				'#04A5FF', //link
-				'#ffffff', //main-text
-				'#f2f2f2', //second
 			),
 		),
 		'matrixbrown' => array(
@@ -165,8 +159,6 @@ function tainacan_get_color_schemes() {
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#b46659', //link
-				'#ffffff', //main-text
-				'#402b30', //second
 			),
 		),
 	) );
@@ -259,7 +251,7 @@ function tainacan_color_scheme_css() {
 	$color_scheme = tainacan_get_color_scheme();
 
 	// Convert main text hex color to rgba.
-	$color_textcolor_rgb = tainacan_hex2rgb( $color_scheme[3] );
+	$color_textcolor_rgb = tainacan_hex2rgb( $color_scheme[2] );
 
 	// If the rgba values are empty return early.
 	if ( empty( $color_textcolor_rgb ) ) {
@@ -271,9 +263,6 @@ function tainacan_color_scheme_css() {
 		'background_color'      => $color_scheme[0],
 		'page_background_color' => $color_scheme[1],
 		'link_color'            => $color_scheme[2],
-		'main_text_color'       => $color_scheme[3],
-		'secondary_text_color'  => $color_scheme[4],
-		'border_color'          => vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.2)', $color_textcolor_rgb ),
 
 	);
 
@@ -331,27 +320,34 @@ function tainacan_get_color_scheme_css( $colors ) {
 	body a:hover, 
 	.tainacan-title-page ul li a:hover, 
 	.tainacan-list-post .blog-content h3 ,
-	.tainacan-list-post .blog-content h3 a:hover {
+	.tainacan-list-post .blog-content h3 a:hover,
+	#comments .list-comments .media .media-body .comment-reply-link,
+	#comments .list-comments .media .media-body .comment-edit-link {
 		color: {$colors['link_color']};
 	}
 	.tainacan-title-page ul li, 
-	.tainacan-title-page ul li a{
+	.tainacan-title-page ul li a,
+	#menubelowHeader .menu-item a::after,
+	.menu-shadow button[data-toggle='dropdown']::after{
 		color: {$colors['link_color']} !important;
 	}
-	.tainacan-list-post .blog-post .blog-content .blog-read {
-		color: {$colors['main_text_color']} !important;
-	}
+	.tainacan-single-post #comments,
 	.tainacan-title-page,
 	.tainacan-list-post .blog-post .blog-content .blog-read,
-	.tainacan-list-post .blog-post .blog-content .blog-read:hover {
+	.tainacan-list-post .blog-post .blog-content .blog-read:hover,
+	.tainacan-content .wp-block-button a,
+	.tainacan-content .wp-block-button a:hover {
 		border-color: {$colors['link_color']} !important;
 	}
 	.tainacan-list-post .blog-post .blog-content .blog-read,
-	.tainacan-list-post .blog-post .blog-content .blog-read:hover {
+	.tainacan-list-post .blog-post .blog-content .blog-read:hover,
+	.tainacan-content .wp-block-button a,
+	.tainacan-content .wp-block-button a:hover,
+	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['link_color']};
 	}
-	.margin-pagination{
-		color: {$colors['link_color']};
+	.tainacan-single-post #comments .title-leave {
+		color: {$colors['link_color']} !important;
 	}
 	
 CSS;
@@ -370,10 +366,10 @@ function tainacan_color_scheme_css_template() {
 	$colors = array(
 		'background_color'      => '{{ data.background_color }}',
 		'page_background_color' => '{{ data.page_background_color }}',
-		'link_color'            => '{{ data.link_color }}',
+		'link_color'            => '{{ data.link_color }}',/* 
 		'main_text_color'       => '{{ data.main_text_color }}',
 		'secondary_text_color'  => '{{ data.secondary_text_color }}',
-		'border_color'          => '{{ data.border_color }}',
+		'border_color'          => '{{ data.border_color }}', */
 	);
 	?>
 	<script type="text/html" id="tmpl-tainacan-color-scheme">
@@ -424,7 +420,7 @@ add_action( 'wp_enqueue_scripts', 'tainacan_link_color_css', 11 );
  */
 function tainacan_main_text_color_css() {
 	$color_scheme    = tainacan_get_color_scheme();
-	$default_color   = $color_scheme[3];
+	$default_color   = $color_scheme[2];
 	$main_text_color = get_theme_mod( 'main_text_color', $default_color );
 
 	// Don't do anything if the current color is the default.
@@ -463,7 +459,7 @@ add_action( 'wp_enqueue_scripts', 'tainacan_main_text_color_css', 11 );
  */
 function tainacan_secondary_text_color_css() {
 	$color_scheme    = tainacan_get_color_scheme();
-	$default_color   = $color_scheme[4];
+	$default_color   = $color_scheme[2];
 	$secondary_text_color = get_theme_mod( 'secondary_text_color', $default_color );
 
 	// Don't do anything if the current color is the default.

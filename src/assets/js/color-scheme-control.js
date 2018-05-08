@@ -8,13 +8,13 @@
 	var cssTemplate = wp.template( 'tainacan-color-scheme' ),
 		colorSchemeKeys = [
 			'link_color',
-			'main_text_color',
-			'secondary_text_color'
+			/* 'main_text_color',
+			'secondary_text_color' */
 		],
 		colorSettings = [
 			'link_color',
-			'main_text_color',
-			'secondary_text_color'
+			/* 'main_text_color',
+			'secondary_text_color' */
 		];
 
 	api.controlConstructor.select = api.Control.extend( {
@@ -31,7 +31,7 @@
 						.data( 'data-default-color', color )
 						.wpColorPicker( 'defaultColor', color );
 
-					// Update Main Text Color.
+					/* // Update Main Text Color.
 					color = colors[3];
 					api( 'main_text_color' ).set( color );
 					api.control( 'main_text_color' ).container.find( '.color-picker-hex' )
@@ -43,7 +43,7 @@
 					api( 'secondary_text_color' ).set( color );
 					api.control( 'secondary_text_color' ).container.find( '.color-picker-hex' )
 						.data( 'data-default-color', color )
-						.wpColorPicker( 'defaultColor', color );
+						.wpColorPicker( 'defaultColor', color ); */
 				} );
 			}
 		}

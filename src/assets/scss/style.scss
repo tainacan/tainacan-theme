@@ -42,9 +42,9 @@ nav{
         }
     }
     #menubelowHeader{
-        ul{
-            li{
-                &.menu-item{
+        > ul{
+            > li{
+                &.menu-item {
                     a{
                         font-size: 14pt;
                         font-weight: 500;
@@ -178,7 +178,12 @@ form{
         }
     }
 }
-
+.dropdown-item {
+    font-weight: inherit !important;
+    &:hover{
+        color: black;
+    }
+}
 @import "_comments";
 
 @import "_list-post";
