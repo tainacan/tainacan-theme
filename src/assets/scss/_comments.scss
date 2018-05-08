@@ -43,13 +43,21 @@
                     }
                 }
             } */
-            button{
-                &#submit{
+            button, a{
+                &#submit, &#cancel-comment-reply-link{
                     @media screen {
                         @media (min-width: 768px){
                             height: 28px;
                             padding-top: 2px;
                         }
+                    }
+                }
+                &#cancel-comment-reply-link{
+                    color: #150e38;
+                }
+                &#submit{
+                    &:hover{
+                        background-color: #25a189 !important;
                     }
                 }
             }

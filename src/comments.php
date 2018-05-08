@@ -54,7 +54,7 @@ if (post_password_required()) {
 							</div>
 							<button id="submit" class="btn btn-info bg-jungle-green align-self-center ml-auto mt-3 float-right" type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
 					
-					<?php cancel_comment_reply_link('Cancel'); ?>
+					<?php cancel_comment_reply_link(__( 'Cancel', 'tainacan-theme' )); ?>
 					<?php do_action('comment_form', $post->ID); ?>
 				</form>
 			<?php endif; ?>
