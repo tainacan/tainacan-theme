@@ -24,7 +24,7 @@ if (post_password_required()) {
 				</p>        
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
-					<span class="text-jelly-bean"><?php _e('Leave your comment', 'tainacan-theme'); ?></span>
+					<span class="text-jelly-bean title-leave"><?php _e('Leave your comment', 'tainacan-theme'); ?></span>
 					<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
 						<?php 
 							_e('Authenticated as', 'tainacan-theme'); echo ': '; 
