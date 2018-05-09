@@ -130,35 +130,83 @@ function tainacan_get_color_schemes() {
 	 */
 	return apply_filters( 'tainacan_color_schemes', array(
 		'default' => array(
-			'label'  => __( 'Default', 'tainacan' ),
+			'label'  => __( 'Default', 'tainacan-theme'),
 			'colors' => array(
 				'#1a1a1a', //background
 				'#ffffff', //background page
 				'#298596', //link
 			),
 		),
-		'amethystpurple' => array(
-			'label'  => __( 'Amethyst Purple', 'tainacan' ),
+		'carmine' => array(
+			'label'  => __( 'Carmine', 'tainacan-theme' ),
 			'colors' => array(
 				'#262626', //background
 				'#ffffff', //background page
-				'#a355c2', //link
+				'#a55032', //link
 			),
 		),
-		'dodgerblue' => array(
-			'label'  => __( 'Dodger Blue', 'tainacan' ),
+		'cherry' => array(
+			'label'  => __( 'Cherry', 'tainacan-theme' ),
 			'colors' => array(
 				'#616a73', //background
 				'#ffffff', //background page
-				'#04A5FF', //link
+				'#af2e48', //link
 			),
 		),
-		'matrixbrown' => array(
-			'label'  => __( 'Matrix Brown', 'tainacan' ),
+		'mustard' => array(
+			'label'  => __( 'Mustard', 'tainacan-theme' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#b46659', //link
+				'#c58738', //link
+			),
+		),
+		'mintgreen' => array(
+			'label'  => __( 'Mint Green', 'tainacan-theme' ),
+			'colors' => array(
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#4ebfa7', //link
+			),
+		),
+		'darkturquoise' => array(
+			'label'  => __( 'Dark Turquoise', 'tainacan-theme' ),
+			'colors' => array(
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#288698', //link
+			),
+		),
+		'turquoise' => array(
+			'label'  => __( 'Turquoise', 'tainacan-theme' ),
+			'colors' => array(
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#2db4c1', //link
+			),
+		),
+		'lightblue' => array(
+			'label'  => __( 'Light Blue', 'tainacan-theme' ),
+			'colors' => array(
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#499dd6', //link
+			),
+		),
+		'purple' => array(
+			'label'  => __( 'Purple', 'tainacan-theme' ),
+			'colors' => array(
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#4751a3', //link
+			),
+		),
+		'violet' => array(
+			'label'  => __( 'Violet', 'tainacan-theme' ),
+			'colors' => array(
+				'#ffffff', //background
+				'#ffffff', //background page
+				'#955ba5', //link
 			),
 		),
 	) );
@@ -348,6 +396,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 	.tainacan-single-post #comments .title-leave {
 		color: {$colors['link_color']} !important;
+	}
+	footer hr.bg-scooter {
+		background-color: {$colors['link_color']} !important;
 	}
 	
 CSS;
