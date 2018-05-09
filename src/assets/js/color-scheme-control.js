@@ -62,7 +62,7 @@
 
 		// Add additional color.
 		// jscs:disable
-		colors.border_color = Color( colors.main_text_color ).toCSS( 'rgba', 0.2 );
+		colors.backtransparent = Color( colors.link_color ).toCSS( 'rgba', 0.5 );
 		// jscs:enable
 
 		css = cssTemplate( colors );

@@ -311,7 +311,7 @@ function tainacan_color_scheme_css() {
 		'background_color'      => $color_scheme[0],
 		'page_background_color' => $color_scheme[1],
 		'link_color'            => $color_scheme[2],
-
+		'backtransparent'			=> vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.5)', $color_textcolor_rgb )
 	);
 
 	$color_scheme_css = tainacan_get_color_scheme_css( $colors );
@@ -356,11 +356,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'background_color'      => '',
 		'page_background_color' => '',
 		'link_color'            => '',
-		'main_text_color'       => '',
-		'secondary_text_color'  => '',
-		'border_color'          => '',
+		'backtransparent'           => '',
 	) );
-
+	
 	return <<<CSS
 	/* Color Scheme */
 	
@@ -390,9 +388,11 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-list-post .blog-post .blog-content .blog-read,
 	.tainacan-list-post .blog-post .blog-content .blog-read:hover,
 	.tainacan-content .wp-block-button a,
-	.tainacan-content .wp-block-button a:hover,
-	nav .dropdown-menu .dropdown-item:hover {
+	.tainacan-content .wp-block-button a:hover {
 		background-color: {$colors['link_color']};
+	}
+	nav .dropdown-menu .dropdown-item:hover {
+		background-color: {$colors['backtransparent']};
 	}
 	.tainacan-single-post #comments .title-leave {
 		color: {$colors['link_color']} !important;
@@ -417,7 +417,8 @@ function tainacan_color_scheme_css_template() {
 	$colors = array(
 		'background_color'      => '{{ data.background_color }}',
 		'page_background_color' => '{{ data.page_background_color }}',
-		'link_color'            => '{{ data.link_color }}',/* 
+		'link_color'            => '{{ data.link_color }}',
+		'backtransparent'		=> '{{ data.backtransparent }}',/* 
 		'main_text_color'       => '{{ data.main_text_color }}',
 		'secondary_text_color'  => '{{ data.secondary_text_color }}',
 		'border_color'          => '{{ data.border_color }}', */
