@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('homecollection'); ?>
 	<div class="row">
         <div class="col mx-sm-auto p-0">
             <div id="content" role="main">

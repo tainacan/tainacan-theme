@@ -1,0 +1,14 @@
+.t-collection--info {
+        .t-collection--info-img {
+            max-width: 160px;
+            max-height: 160px;
+            @media screen and (min-width: 992px){
+                transform: translate3d(0,-50%,0);
+            }
+        }
+        .t-collection--info-title {
+            @media screen and (min-width: 992px){
+                transform: translate3d(0,-120%,0);
+            }
+        }
+}
