@@ -14,11 +14,7 @@
             <img src="<?php echo get_the_post_thumbnail_url(tainacan_get_collection_id()); ?>" class="t-collection--info-img rounded-circle img-fluid d-none d-md-block">
         </div>
         <div class="col-10 pl-0">
-<<<<<<< HEAD:src/header-homecollection.php
-            <h2 class="mt-3 mt-md-0 t-collection--info-title text-white">Title</h2>
-=======
             <h2 class="mt-3 mt-md-0 t-collection--info-title"><?php tainacan_the_collection_name(); ?></h2>
->>>>>>> 5fb08a2e2c93cdef01cc4473e7383f87eeb1dca3:src/tainacan/header-collection.php
             <div class="d-flex justify-content-between container ml-0 pl-0">
                 <div><?php tainacan_the_collection_description(); ?></div>
                 <div>
