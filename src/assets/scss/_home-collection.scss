@@ -1,14 +1,21 @@
+.t-collection--background-title{
+    position: absolute;
+    background: linear-gradient(to bottom, transparent 0%, black 126%);
+    width: 100%;
+    transform: translate3d(0, -100%, 0);
+    height: 172px !important;
+}
 .t-collection--info {
-        .t-collection--info-img {
-            max-width: 160px;
-            max-height: 160px;
-            @media screen and (min-width: 992px){
-                transform: translate3d(0,-50%,0);
-            }
+    .t-collection--info-img {
+        max-width: 160px;
+        max-height: 160px;
+        @media screen and (min-width: 992px){
+            transform: translate3d(0,-50%,0);
         }
-        .t-collection--info-title {
-            @media screen and (min-width: 992px){
-                transform: translate3d(0,-120%,0);
-            }
+    }
+    .t-collection--info-title {
+        @media screen and (min-width: 992px){
+            transform: translate3d(0,-120%,0);
         }
+    }
 }
