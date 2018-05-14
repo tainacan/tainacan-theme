@@ -18,7 +18,7 @@ if (post_password_required()) {
 	<!--show the form-->
 	<?php if('open' == $post->comment_status) : ?>
 		<div id="respond" class="clearfix mt-3">  
-			<?php if(get_option('comment_registration') && !$user_ID) : ?>
+			<?php if(get_option('comment_registration') && !is_user_logged_in()) : ?>
 				<p>
 				<?php printf( __( 'You must be %slogged%s in to post a comment.', 'tainacan-theme'), "<a href='" . get_option('home') . "/wp-login.php'>", "</a>" ); ?>
 				</p>        
@@ -28,7 +28,11 @@ if (post_password_required()) {
 					<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
 						<?php 
 							_e('Authenticated as', 'tainacan-theme'); echo ': '; 
-							echo '<a href="'. get_author_posts_url($current_user->ID) .'">' . $current_user->display_name . '</a>'; 
+							if(is_user_logged_in()) { 
+								echo '<a href="'. get_author_posts_url($current_user->ID) .'">' . $current_user->display_name . '</a>'; 
+							}else{
+								_e('Anonymous', 'tainacan-theme');
+							}
 						?>
 					</span>
 				</div>
@@ -44,12 +48,30 @@ if (post_password_required()) {
 									<span class="text-oslo-gray authenticated ml-3 d-inline d-sm-none">
 										<?php 
 											_e('Authenticated as', 'tainacan-theme'); echo ': '; 
-											echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
+											if(is_user_logged_in()) { 
+												echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
+											}else{
+												_e('Anonymous', 'tainacan-theme');
+											}
 										?>
 									</span>
 								</div>
 								<div class="col-11 pr-0">
-									<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0 w-100" rows="2" placeholder="<?php _e('Enter your comment here.', 'tainacan-theme'); ?>"></textarea>
+									<?php if(!is_user_logged_in()) : ?>
+										<div class="form-group form-inline mb-3">                            
+											<label for="author" class="font-weight-bold mr-3"><?php _e('Name'); ?> </label>
+											<input type="text" class="form-control" id="author" name="author" style="flex: 1 1 auto;">
+										</div>
+										<div class="form-group form-inline mb-3">                            
+											<label for="auemailthor" class="font-weight-bold mr-3"><?php _e('E-mail'); ?> </label>
+											<input type="email" class="form-control" id="email" name="email" style="flex: 1 1 auto;">
+										</div>
+										<div class="form-group form-inline mb-3">                            
+											<label for="email" class="font-weight-bold mr-3"><?php _e('Website'); ?> </label>
+											<input type="url" class="form-control" id="url" name="url" style="flex: 1 1 auto;">
+										</div>
+									<?php endif;?>
+									<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0 w-100" rows="2"></textarea>
 								</div>
 							</div>
 							<button id="submit" class="btn btn-info bg-jungle-green align-self-center ml-auto mt-3 float-right" type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
