@@ -25,13 +25,11 @@ if (post_password_required()) {
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
 					<span class="text-jelly-bean title-leave"><?php _e('Leave your comment', 'tainacan-theme'); ?></span>
-					<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
-						<?php 
-							_e('Authenticated as', 'tainacan-theme'); echo ': '; 
-							if(is_user_logged_in()) { 
+					<?php 
+						if(is_user_logged_in()) { ?>
+							<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
+							<?php _e('Authenticated as', 'tainacan-theme'); echo ': '; 
 								echo '<a href="'. get_author_posts_url($current_user->ID) .'">' . $current_user->display_name . '</a>'; 
-							}else{
-								_e('Anonymous', 'tainacan-theme');
 							}
 						?>
 					</span>
@@ -39,13 +37,13 @@ if (post_password_required()) {
 
 				<form autocomplete="off" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="form-comment" class="form-inline clearfix">
 							<div class="form-row w-100 mx-0">
-								<div class="col">
+								<div class="<?php if(is_user_logged_in()) { ?>col col-md-1<?php }else{ ?>col<?php } ?> pl-0 pb-3 pb-md-0">
 									<?php 
 										comment_id_fields(); 
 										$args = array('class' => 'img-fluid rounded-circle mr-sm-3', );
 										echo get_avatar( $current_user->ID, 60, '', $current_user->display_name, $args );
 									?>
-									<span class="text-oslo-gray authenticated ml-3 d-inline d-sm-none">
+									<span class="text-oslo-gray authenticated ml-3 <?php if(is_user_logged_in()) { ?>d-inline d-sm-none<?php } ?>">
 										<?php 
 											_e('Authenticated as', 'tainacan-theme'); echo ': '; 
 											if(is_user_logged_in()) { 
@@ -56,7 +54,7 @@ if (post_password_required()) {
 										?>
 									</span>
 								</div>
-								<div class="col-11 pr-0">
+								<div class="col-xs-11 col-md-11 pr-0">
 									<?php if(!is_user_logged_in()) : ?>
 										<div class="form-group form-inline mb-3">                            
 											<label for="author" class="font-weight-bold mr-3"><?php _e('Name'); ?> </label>
