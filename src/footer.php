@@ -1,4 +1,3 @@
-</div>
 <?php if(!is_404()) : ?>
     <footer class="container-fluid p-4 p-sm-5 mt-5 bg-haiti">
         <?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
