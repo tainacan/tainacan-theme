@@ -1,4 +1,4 @@
-<?php get_header('banner'); ?>
+<?php get_header(); ?>
 <?php get_template_part('tainacan/header-collection'); ?>
 	<div class="row">
         <div class="col mx-sm-auto p-0">
