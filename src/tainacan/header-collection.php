@@ -1,3 +1,6 @@
+<!-- Get the banner to display -->
+<?php get_template_part( 'template-parts/bannerHeader' ); ?>
+
 <?php 
 /**
  * This template adss Collections details to the header
