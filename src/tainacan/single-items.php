@@ -21,17 +21,15 @@
                             the_author_posts_link();
                             echo ' ';
                             _e('on', 'tainacan-theme');
-                            echo ' ';
-                            tainacan_post_date();
                         ?>
                     </div>
                     <?php //the_post_thumbnail(); ?>
                 </header>
-                <main class="tainacan-content text-tundora">
+                <section class="tainacan-content text-tundora">
                     <?php
                         tainacan_the_document();
                     ?>
-                </main>
+                </section>
             </article>
             <div class="row">
                 <!-- Container -->

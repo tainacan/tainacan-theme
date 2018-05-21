@@ -13,12 +13,12 @@
         </div>
         <?php the_post_thumbnail(); ?>
     </header>
-    <main class="tainacan-content text-tundora">
+    <section class="tainacan-content text-tundora">
         <?php
             the_content();
             wp_link_pages();
         ?>
-    </main>
+    </section>
     <footer class="mt-5 border-top pt-3">
         <p>
             <?php 

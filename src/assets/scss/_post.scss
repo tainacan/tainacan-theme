@@ -18,49 +18,47 @@
                 height: auto;
             }
         }
-        main{
-            &.tainacan-content {
+        .tainacan-content {
+            font-size: 1rem;
+            @media only screen and (min-width: 1200px){
+                padding: 0 8.5rem;
+            }
+            &h1, &h2{
                 font-size: 1rem;
-                @media only screen and (min-width: 1200px){
-                    padding: 0 8.5rem;
+            }
+            img {
+                max-width: 100%;
+            }
+            .wp-block-cover-image{
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;  
+            }
+            .wp-block-embed{
+                iframe{
+                    width: 100%;
                 }
-                &h1, &h2{
-                    font-size: 1rem;
-                }
-                img {
-                    max-width: 100%;
-                }
-                .wp-block-cover-image{
-                    width: 100vw;
-                    position: relative;
-                    left: 50%;
-                    right: 50%;
-                    margin-left: -50vw;
-                    margin-right: -50vw;  
-                }
-                .wp-block-embed{
-                    iframe{
-                        width: 100%;
-                    }
-                }
-                .wp-block-gallery{
-                    .blocks-gallery-item{
-                        figure{
-                            figcaption{
-                                padding: 10px 10px 5px;
-                                background: #fff;
-                                color: #000;
-                            }
+            }
+            .wp-block-gallery{
+                .blocks-gallery-item{
+                    figure{
+                        figcaption{
+                            padding: 10px 10px 5px;
+                            background: #fff;
+                            color: #000;
                         }
                     }
-                    @media (max-width: 768px){
-                        padding-left: 0;
-                    }
                 }
-                .wp-block-pullquote{
-                    border-top: 1px solid #cbcbcb;
-                    border-bottom: 1px solid #cbcbcb;
+                @media (max-width: 768px){
+                    padding-left: 0;
                 }
+            }
+            .wp-block-pullquote{
+                border-top: 1px solid #cbcbcb;
+                border-bottom: 1px solid #cbcbcb;
             }
         }
         footer{
