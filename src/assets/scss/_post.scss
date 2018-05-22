@@ -60,6 +60,20 @@
                 border-top: 1px solid #cbcbcb;
                 border-bottom: 1px solid #cbcbcb;
             }
+            &.single-item-collection{
+                .single-item-collection--document{
+                    iframe, img.attachment-large {
+                        width: 100%;
+                        height: 600px;
+                    }
+                }
+                .single-item-collection--information{
+                    h5{
+                        color: #000;
+                        font-weight: 700;
+                    }
+                }
+            }
         }
         footer{
             font-size: 14pt;
