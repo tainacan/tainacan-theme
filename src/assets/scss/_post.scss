@@ -84,4 +84,13 @@
             }
         }
     }
+    &.collection-single-item{
+        article{
+            header{
+                .time{
+                    float: right;
+                }
+            }
+        }
+    }
 }

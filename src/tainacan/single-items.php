@@ -16,19 +16,12 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="mt-3 tainacan-single-post">
+                    <div class="mt-3 tainacan-single-post collection-single-item">
                         <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
                             <header class="mb-4">
                                 <div class="header-meta text-muted mb-5">
-                                    <?php
-                                        _e('By', 'tainacan-theme');
-                                        echo ' ';
-                                        the_author_posts_link();
-                                        echo ' ';
-                                        _e('on', 'tainacan-theme');
-                                        echo ' ';
-                                        tainacan_post_date();
-                                    ?>
+                                    <?php _e('By ', 'tainacan-theme'); the_author_posts_link(); ?>
+                                    <span class="time"><strong><?php _e('Send date', 'tainacan-theme'); ?>:</strong> <time>22/05/2018</time></span>
                                 </div>
                                 <?php //the_post_thumbnail(); ?>
                             </header>
@@ -70,30 +63,7 @@
                         <article role="article">
                             <section class="tainacan-content single-item-collection text-tundora">
                                 <div class="single-item-collection--information">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5>Description</h5>
-                                            <span><?php //tainacan_the_description(); ?></span>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h5>Miniature</h5>
-                                                </div>
-                                                <div class="col">
-                                                    <h5>Voting</h5>
-                                                    <div class="col pl-0">
-                                                        <h5>Sharing</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <p><strong><?php _e('Type'); ?>:</strong></p>
-                                            <p><strong><?php _e('Year'); ?>:</strong></p>
-                                            <p><strong><?php _e('Pickers'); ?>:</strong></p>
-                                            <p><strong><?php _e('Model'); ?>:</strong></p>
-                                            <p><strong><?php _e('Brand'); ?>:</strong></p>
-                                        </div>
-                                    </div>
+                                    <?php tainacan_the_metadata(); ?>
                                 </div>
                             </section>
                         </article>
