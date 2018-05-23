@@ -62,8 +62,14 @@
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
                             <section class="tainacan-content single-item-collection text-tundora">
-                                <div class="single-item-collection--information">
-                                    <?php tainacan_the_metadata(); ?>
+                                <div class="single-item-collection--information justify-content-center">
+                                    <div class="card-columns">
+                                        <?php 
+                                            $args = ['before_title' => '<div class="card"><h3>', 'after_value' => '</p></div>'];
+                                            $field = null;
+                                            tainacan_the_metadata($field, $args); 
+                                        ?>
+                                    </div>
                                 </div>
                             </section>
                         </article>
