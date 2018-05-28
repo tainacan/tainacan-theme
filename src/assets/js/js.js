@@ -28,8 +28,8 @@ jQuery(document).ready(function( $ ) {
     /**
      * Add the icon on previous and next pagination in comment list
      */
-    $('<i class="material-icons">arrow_drop_down</i>').insertBefore("#comment-nav-below .float-left a");
-    $('<i class="material-icons">arrow_drop_up</i>').insertAfter("#comment-nav-below .float-right a");
+    $('<i class="mdi mdi-menu-left"></i>').insertBefore("#comment-nav-below .float-left a");
+    $('<i class="mdi mdi-menu-right"></i>').insertAfter("#comment-nav-below .float-right a");
 
     /**
      * Change the class of guttenberg button

@@ -27,13 +27,20 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             //Popper
             wp_register_script('popper_bootstrap4', get_template_directory_uri() . '/assets/vendor/bootstrap/js/popper.min.js', '', '', true);
             wp_enqueue_script('popper_bootstrap4');
-
+            
         /**
-         * Google Charts
-         
-         *   wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
-         *   wp_enqueue_script('googleCharts');
+         * Google
          */
+        
+         /* Material Icons */
+            wp_register_style('MaterialIconsFonts', get_template_directory_uri() . '/assets/fonts/material-design-icons/css/materialdesignicons.min.css', '', '2.4.85', '');
+            wp_enqueue_style('MaterialIconsFonts');
+            
+         /* Charts */
+        
+            /* wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
+            wp_enqueue_script('googleCharts'); */
+        
         /**
          * Tainacan Theme
          */
@@ -41,8 +48,8 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             wp_enqueue_style('tainacanStyle');
             wp_register_script('tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', '1.0', true);
             wp_enqueue_script('tainacanJS');
-            wp_register_script('collectionGraph_googleCharts', get_template_directory_uri() . '/assets/js/charts.js', array('googleCharts'), '1.0');
-            wp_enqueue_script('collectionGraph_googleCharts');
+            /* wp_register_script('collectionGraph_googleCharts', get_template_directory_uri() . '/assets/js/charts.js', array('googleCharts'), '1.0');
+            wp_enqueue_script('collectionGraph_googleCharts'); */
         /**
          * Comments
          */

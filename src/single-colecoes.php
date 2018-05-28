@@ -27,23 +27,23 @@
         </div>
         <div class="row p-5">
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-scooter p-3">play_arrow</i> Esculturas
+                <i class="mdi mdi-play text-scooter p-3"></i> Esculturas
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-scooter p-3">play_arrow</i> Livros
+                <i class="mdi mdi-play text-scooter p-3"></i> Livros
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-scooter p-3">play_arrow</i> Quadros
+                <i class="mdi mdi-play text-scooter p-3"></i> Quadros
             </div>
             <div class="w-100"></div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-scooter p-3">play_arrow</i> Artefatos
+                <i class="mdi mdi-play text-scooter p-3"></i> Artefatos
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-scooter p-3">play_arrow</i> Documentos
+                <i class="mdi mdi-play text-scooter p-3"></i> Documentos
             </div>
             <div class="col-sm border-bottom p-2 mx-lg-5">
-                <i class="material-icons text-scooter p-3">play_arrow</i> Outros
+                <i class="mdi mdi-play text-scooter p-3"></i> Outros
             </div>
         </div>
     </section>
@@ -80,11 +80,11 @@
                     </div>
                 </div>
                 <a class="carousel-control-prev text-scooter justify-content-start" href="#carouselExample" role="button" data-slide="prev">
-                    <i class="material-icons prev-play">play_arrow</i>
+                    <i class="mdi mdi-play prev-play"></i>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next text-scooter justify-content-end" href="#carouselExample" role="button" data-slide="next">
-                    <i class="material-icons">play_arrow</i>
+                    <i class="mdi mdi-play"></i>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
