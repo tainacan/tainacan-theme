@@ -32,7 +32,7 @@
                             </section>
                         </article>
                     </div>
-                    <div class="tainacan-title my-5">
+                    <div class="tainacan-title my-5 d-none">
                         <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
                             <ul class="list-inline mb-1">
                                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
@@ -68,13 +68,17 @@
                                             <div class="card border-0">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3>Miniature</h3>
-                                                    <div style="background: #c0c0c021; height: 250px; width: 250px"></div>
+                                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" class="item-card--thumbnail mt-2">
                                                 </div>
                                             </div>
                                             <div class="card border-0 mt-3">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3>Sharing</h3>
-                                                    
+                                                    <div class="btn-group" role="group">
+                                                        <a type="button" class="m-1"></a>
+                                                        <a type="button" class="m-1"></a>
+                                                        <a type="button" class="m-1"></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

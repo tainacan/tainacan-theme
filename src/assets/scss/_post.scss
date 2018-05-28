@@ -68,6 +68,10 @@
                 }
                 .single-item-collection--information{
                     .card{
+                        .item-card--thumbnail{
+                            height: 250px;
+                            width: 250px;
+                        }
                         h3{
                             color: #000;
                             font-size: 14pt;
