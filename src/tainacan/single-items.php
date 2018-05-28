@@ -63,12 +63,28 @@
                         <article role="article">
                             <section class="tainacan-content single-item-collection text-tundora">
                                 <div class="single-item-collection--information justify-content-center">
-                                    <div class="card-columns">
-                                        <?php 
-                                            $args = ['before_title' => '<div class="card"><h3>', 'after_value' => '</p></div>'];
-                                            $field = null;
-                                            tainacan_the_metadata($field, $args); 
-                                        ?>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="card border-0">
+                                                <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
+                                                    <h3>Miniature</h3>
+                                                    <div style="background: #c0c0c021; height: 250px; width: 250px"></div>
+                                                </div>
+                                            </div>
+                                            <div class="card border-0 mt-3">
+                                                <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
+                                                    <h3>Sharing</h3>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                                <?php 
+                                                    $args = ['before_title' => '<div class="card border-0"><div class="card-body bg-white border-0 pl-0 pt-0 pb-1"><h3>', 'after_title' => '</h3></div>', 'after_value' => '</p></div>'];
+                                                    //$field = null;
+                                                    tainacan_the_metadata(null, $args); 
+                                                ?>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
