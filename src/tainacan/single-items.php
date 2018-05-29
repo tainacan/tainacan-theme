@@ -21,7 +21,7 @@
                             <header class="mb-4">
                                 <div class="header-meta text-muted mb-5">
                                     <?php _e('By ', 'tainacan-theme'); the_author_posts_link(); ?>
-                                    <span class="time"><strong><?php _e('Send date', 'tainacan-theme'); ?>:</strong> <time>22/05/2018</time></span>
+                                    <span class="time"><strong><?php _e('Send date', 'tainacan-theme'); ?>:</strong> <?php tainacan_post_date(); ?></span>
                                 </div>
                                 <?php //the_post_thumbnail(); ?>
                             </header>
