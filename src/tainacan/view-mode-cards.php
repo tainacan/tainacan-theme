@@ -1,9 +1,6 @@
-
-
-<?php var_dump($request['fetch_only']); if (have_posts()):  ?>
+<?php if (have_posts()):  ?>
 
     <div class="list-container">
-        
 
         <?php while (have_posts()): the_post(); ?>
 
@@ -18,11 +15,11 @@
                     </div>
 
                     <div class="list-metadata">
-                        <?php foreach ($request['fetch_only']['meta'] as $meta_id): ?>
+                        <?php foreach ($displayed_metadata as $meta_id): ?>
                             
                             <span>
                                 <p>
-                                    <?php tainacan_the_metadata((int) $meta_id); ?>
+                                    <?php tainacan_the_metadata($meta_id); ?>
                                 </p>
                             </span>
 
@@ -34,8 +31,6 @@
             </div>
 
         <?php endwhile; ?>
-        
-        
     
     </div>
 
