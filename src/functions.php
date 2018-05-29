@@ -52,7 +52,15 @@ if(!function_exists('tainacan_setup')) {
 			'flex-width'  => true,
 		);
 		add_theme_support( 'custom-logo', $logo_args );
-		
+        
+        if (function_exists('tainacan_register_view_mode')) {
+            tainacan_register_view_mode('cards', [
+                'label' => 'Cards view',
+                'description' => 'A Cards view',
+                'icon' => '<span class="icon"><i class="mdi mdi-view-list mdi-24px"></i></span>',
+                'dynamic_metadata' => true,
+            ]);
+        }
 
     }
 
