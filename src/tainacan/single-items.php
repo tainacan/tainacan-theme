@@ -64,20 +64,20 @@
                             <section class="tainacan-content single-item-collection text-tundora">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <div class="card border-0">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3>Miniature</h3>
                                                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" class="item-card--thumbnail mt-2">
                                                 </div>
                                             </div>
-                                            <div class="card border-0 mt-3">
+                                            <div class="card border-0 my-3">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3>Sharing</h3>
                                                     <div class="btn-group" role="group">
-                                                        <a type="button" class="m-1"></a>
-                                                        <a type="button" class="m-1"></a>
-                                                        <a type="button" class="m-1"></a>
+                                                        <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt=""></a>
+                                                        <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt=""></a>
+                                                        <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt=""></a>
                                                     </div>
                                                 </div>
                                             </div>
