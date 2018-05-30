@@ -9,12 +9,22 @@
                     <div class="frame">
                         <div class="mat">
                             <div class="art">
-                                <?php the_post_thumbnail('medium'); ?>
+                                <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php the_post_thumbnail('medium'); ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
                     
-                    <p class="metadata-title"><?php the_title(); ?></p>
+                    <?php if ( tainacan_current_view_displays('title') ): ?>
+                        <p class="metadata-title">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </p>
+                    <?php endif; ?>
                 </div>
             </div>            
             

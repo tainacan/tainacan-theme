@@ -19,7 +19,7 @@
                         
                         <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
                             <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('thumbnail', array('class' => 'mr-4')); ?>
+                                <?php the_post_thumbnail('medium', array('class' => 'mr-4')); ?>
                             </a>
                         <?php endif; ?>
 
