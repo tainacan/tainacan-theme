@@ -64,12 +64,13 @@
                 .single-item-collection--document{
                     iframe, img.attachment-large {
                         width: 100%;
+                        height: auto;
                     }
                 }
                 .single-item-collection--information{
                     .card{
                         .item-card--thumbnail{
-                            height: 250px;
+                            height: auto;
                             width: 250px;
                         }
                         h3{
