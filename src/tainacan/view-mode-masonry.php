@@ -4,7 +4,11 @@
                 <div class="card">
                     <?php the_post_thumbnail('medium'); ?>
                     <div class="card-body">
-                        <h5 class="card-title"><?php the_title(); ?></h5>
+                        <h5 class="card-title">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h5>
                     </div>
                 </div>      
         <?php endwhile; ?>
