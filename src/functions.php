@@ -60,6 +60,12 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-view-list mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
+            tainacan_register_view_mode('grid', [
+                'label' => 'Grid view',
+                'description' => 'A Grid view',
+                'icon' => '<span class="icon"><i class="mdi mdi-view-grid mdi-24px"></i></span>',
+                'dynamic_metadata' => false,
+            ]);
         }
 
     }
