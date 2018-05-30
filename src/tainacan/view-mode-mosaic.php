@@ -5,10 +5,10 @@
         <?php while (have_posts()): the_post(); ?>
         
                 <div class="tainacan-mosaic">
-                    <?php the_post_thumbnail('full'); ?>
+                    <?php the_post_thumbnail('large'); ?>
                     <p class="metadata-title"><?php the_title(); ?></p>
                 </div>      
-                
+
         <?php endwhile; ?>
 
     </div>

@@ -4,7 +4,7 @@
 
         <div class="row no-gutters">
         <?php while (have_posts()): the_post(); ?>
-            <div class="col col-md-12 col-lg-6 col-xl-4">
+            <div class="col">
                 <div class="tainacan-grid">
                     <?php the_post_thumbnail('medium'); ?>
                     <p class="metadata-title"><?php the_title(); ?></p>

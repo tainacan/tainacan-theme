@@ -1,8 +1,11 @@
 .tainacan-grid-container {
     padding: 30px 4.166666667%;
 
+    .row { justify-content: flex-start; }
+    .col { flex-grow: 0; }
+
     .tainacan-grid {
-        padding: 12px 44px 24px 44px;
+        padding: 12px 24px 24px 24px;
         text-align: center;
 
         img {
@@ -19,7 +22,7 @@
             white-space: nowrap;
             overflow: hidden;
             padding: 0.75rem 1.5rem;
-            text-align: center;
+            text-align: left;
         }    
     
     }
