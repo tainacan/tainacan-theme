@@ -1,0 +1,39 @@
+.tainacan-mosaic-container {
+    padding: 0;
+    column-gap: 0;
+
+    .tainacan-mosaic {
+        padding: 0px;
+        text-align: center;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .metadata-title {
+            flex-shrink: 0;
+            border-top-right-radius: 5px;
+            font-size: 0.875rem;
+            margin-bottom: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            position: absolute;
+            opacity: 0;
+            background-color: rgba(255,255,255,0.85);
+            transition: opacity 0.5s;
+            margin-top: -45px;         
+        }
+   
+    }
+    .tainacan-mosaic:hover {
+        .metadata-title {
+            opacity: 1;
+        } 
+    }
+}
+
+

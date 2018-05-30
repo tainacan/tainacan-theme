@@ -16,5 +16,7 @@
     </div>
 
 <?php else: ?>
-    Nenhum item encontrado
+    <div class="tainacan-cards-container">
+        Nenhum item encontrado
+    </div>
 <?php endif; ?>

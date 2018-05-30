@@ -56,14 +56,20 @@ if(!function_exists('tainacan_setup')) {
         if (function_exists('tainacan_register_view_mode')) {
             tainacan_register_view_mode('cards', [
                 'label' => 'Cards view',
-                'description' => 'A Cards view',
+                'description' => 'A cards view, flexible for metadata',
                 'icon' => '<span class="icon"><i class="mdi mdi-view-list mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
             tainacan_register_view_mode('grid', [
                 'label' => 'Grid view',
-                'description' => 'A Grid view',
+                'description' => 'A grid view',
                 'icon' => '<span class="icon"><i class="mdi mdi-view-grid mdi-24px"></i></span>',
+                'dynamic_metadata' => false,
+            ]);
+            tainacan_register_view_mode('mosaic', [
+                'label' => 'Mosaic view',
+                'description' => 'A mosaic view',
+                'icon' => '<span class="icon"><i class="mdi mdi-view-quilt mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
         }
