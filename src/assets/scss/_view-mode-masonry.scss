@@ -1,6 +1,6 @@
 .tainacan-masonry-container {
     padding: 0;
-    column-gap: 20px;
+    column-gap: 0;
     column-count: 1;
    
     @media only screen and (min-width: 576px) {
@@ -14,9 +14,5 @@
     }
     .card{
         border: none;
-        img{
-            width: 100%;
-            height: auto;
-        }
     }
 }

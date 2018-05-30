@@ -2,7 +2,11 @@
     <div class="tainacan-masonry-container card-columns p-3">
         <?php while (have_posts()): the_post(); ?>
                 <div class="card">
-                    <?php the_post_thumbnail('medium'); ?>
+                    <?php 
+                        if(has_post_thumbnail()): 
+                            the_post_thumbnail('large'); 
+                        endif;
+                    ?>
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="<?php the_permalink(); ?>">
