@@ -6,8 +6,12 @@
         <?php while (have_posts()): the_post(); ?>
             <div class="col">
                 <div class="tainacan-grid">
-                    <?php the_post_thumbnail('medium'); ?>
-                    <p class="metadata-title"><?php the_title(); ?></p>
+                    <a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail('medium'); ?>
+					</a>
+                    <p class="metadata-title">
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</p>
                 </div>
             </div>            
             

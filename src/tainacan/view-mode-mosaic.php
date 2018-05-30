@@ -5,8 +5,12 @@
         <?php while (have_posts()): the_post(); ?>
         
                 <div class="tainacan-mosaic">
-                    <?php the_post_thumbnail('large'); ?>
-                    <p class="metadata-title"><?php the_title(); ?></p>
+                    <a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail('large'); ?>
+					</a>	
+                    <p class="metadata-title">
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</p>
                 </div>      
 
         <?php endwhile; ?>
