@@ -1,0 +1,46 @@
+.tainacan-cards-container {
+    padding: 30px 4.166666667%;
+
+    .tainacan-card {
+        padding: 12px 44px 24px 44px;
+
+        img {
+            width: 130px;
+            height: auto;
+        }
+
+        .metadata-title {
+            flex-shrink: 0;
+            font-size: 0.875rem;
+            margin-bottom: 0.875rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .media {
+            .media-body {
+                flex: 1;
+                font-size: 0.6875rem;
+                color: gray;
+                overflow: hidden;
+            
+                .metadata-label {
+                    font-size: 0.75rem;
+                    line-height: 1.0;
+                    margin-bottom: 0.2rem;
+                }
+
+                .metadata-value {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+   
+            }
+        }
+    
+    
+    }
+}
+
+

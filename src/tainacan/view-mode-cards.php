@@ -1,37 +1,30 @@
 <?php if (have_posts()):  ?>
 
-    <div class="list-container">
+    <div class="tainacan-cards-container">
 
+        <div class="row no-gutters">
         <?php while (have_posts()): the_post(); ?>
-
-            <div class="tainacan-list">
-            
-                <p class="field-main-content"><?php the_title(); ?></p>
-
-                <div>
+            <div class="col col-md-12 col-lg-6 col-xl-4">
+                <div class="tainacan-card">
                 
-                    <div class="list-image">
-                        <?php the_post_thumbnail('thumbnail'); ?>
-                    </div>
+                    <p class="metadata-title"><?php the_title(); ?></p>
 
-                    <div class="list-metadata">
-                        <?php foreach ($displayed_metadata as $meta_id): ?>
-                            
-                            <span>
-                                <p>
-                                    <?php tainacan_the_metadata($meta_id); ?>
-                                </p>
-                            </span>
+                    <div class="media">
+                        <?php the_post_thumbnail('thumbnail', array('class' => 'mr-4')); ?>
 
-                        <?php endforeach; ?>
+                        <div class="list-metadata media-body">
+                            <?php foreach ($displayed_metadata as $meta_id): ?>
+                                     
+                                <?php tainacan_the_metadata($meta_id, array('before_title' => '<h3 class="metadata-label">', 'before_value' => '<p class="metadata-value">')); ?>
+
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-                
                 </div>
-
-            </div>
-
+            </div>            
+            
         <?php endwhile; ?>
-    
+        </div>
     </div>
 
 <?php else: ?>
