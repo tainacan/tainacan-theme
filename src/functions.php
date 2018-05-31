@@ -90,6 +90,12 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-library-books mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
+            tainacan_register_view_mode('polaroid', [
+                'label' => 'Polaroid view',
+                'description' => 'A framed picture view, similar to polaroid photographs',
+                'icon' => '<span class="icon"><i class="mdi mdi-polaroid mdi-24px"></i></span>',
+                'dynamic_metadata' => true,
+            ]);
         }
 
     }
