@@ -81,7 +81,13 @@ if(!function_exists('tainacan_setup')) {
             tainacan_register_view_mode('masonry', [
                 'label' => 'Masonry view',
                 'description' => 'A masonry view',
-                'icon' => '<span class="icon"><i class="mdi mdi-collage mdi-24px"></i></span>',
+                'icon' => '<span class="icon"><i class="mdi mdi-view-dashboard mdi-24px"></i></span>',
+                'dynamic_metadata' => false,
+            ]);
+            tainacan_register_view_mode('books', [
+                'label' => 'Books view',
+                'description' => 'A books view, made for library visualizations',
+                'icon' => '<span class="icon"><i class="mdi mdi-library-books mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
         }
