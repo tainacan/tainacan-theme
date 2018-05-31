@@ -3,7 +3,20 @@
     background-color: #f5f5f5;
 
     .tainacan-gallery {
-        padding: 12px 4.166666667% 24px 4.166666667%;
+        padding: 24px;
+
+        &:hover {
+            .media .media-body .list-metadata {
+                        .metadata-title,
+                        .metadata-label,
+                        .metadata-value {
+                            white-space: normal;
+                        }
+            }
+            .art img {
+                width: 140px;
+            }
+        }
 
         .frame {
             background: black;
@@ -23,10 +36,6 @@
         
         .art {
             position: relative;
-
-            &:hover img {
-                width: 180px;
-            }
         }
         .art img {
             width: 100px;
@@ -87,18 +96,11 @@
                         transition: all 0.3s;
                     }
 
-                    &:hover {
-                        .metadata-title,
-                        .metadata-label,
-                        .metadata-value {
-                            white-space: normal;
-                        }
-                    }
                 }
                 &:before{
                     content: '';
                     position: absolute;
-                    top: 22px;
+                    top: 32px;
                     float: left;
                     margin-left: 10px;
                     width: 14px;
