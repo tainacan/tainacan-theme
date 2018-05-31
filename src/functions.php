@@ -102,6 +102,12 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-polaroid mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
+            tainacan_register_view_mode('profile', [
+                'label' => 'Profile view',
+                'description' => 'A profile view, for displaying persons information',
+                'icon' => '<span class="icon"><i class="mdi mdi-account-card-details mdi-24px"></i></span>',
+                'dynamic_metadata' => true,
+            ]);
         }
 
     }
