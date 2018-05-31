@@ -33,7 +33,7 @@
     </div>
 
 <?php else: ?>
-    <div class="tainacan-cards-container">
+    <div class="tainacan-profile-container">
         Nenhum item encontrado
     </div>
 <?php endif; ?>

@@ -1,0 +1,111 @@
+.tainacan-document-container {
+    padding: 30px 4.166666667%;
+
+    .tainacan-document {
+        padding: 12px;
+        margin: 24px;
+        border-radius: 5px;
+
+        &:hover {
+            .media .media-body {
+                .metadata-title,
+                .metadata-label,
+                .metadata-value {
+                    white-space: normal;
+                }
+            }
+            .media {
+                .paper::before {
+                    right: 6px;
+                    top: 0;
+                    transform: rotate(-1deg);
+                }
+                
+                .paper::after {
+                    top: 5px;
+                    right: -5px;
+                    transform: rotate(1deg);
+                }  
+            }
+
+        }
+
+        img {
+            width: 130px;
+            height: auto;
+        }
+        .media {
+            .paper {
+                background: #fff;
+                position: relative;
+            }
+            
+            .paper,
+            .paper::before,
+            .paper::after {
+                box-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+                border: 1px solid #bbb;
+            }
+            
+            .paper::before,
+            .paper::after {
+                content: "";
+                position: absolute;
+                height: 96%;
+                width: 99%;
+                background-color: #eee;
+                transition: top 0.3s, right 0.3s, transform 0.3s;
+            }
+            
+            .paper::before {
+                right: 3px;
+                top: -1;
+                transform: rotate(-2.5deg);
+                z-index: -1;
+            }
+            
+            .paper::after {
+                top: 4px;
+                right: -4px;
+                transform: rotate(2.0deg);
+                z-index: -2;
+            }
+              
+            .media-body {
+                flex: 1;
+                font-size: 0.6875rem;
+                color: gray;
+                overflow: hidden;
+
+                .metadata-title {
+                    flex-shrink: 0;
+                    font-size: 0.875rem;
+                    margin-bottom: 0.875rem;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            
+                .metadata-label {
+                    font-size: 0.75rem;
+                    line-height: 1.0;
+                    margin-bottom: 0.2rem;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                .metadata-value {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+   
+            }
+        }
+    
+    
+    }
+}
+
+

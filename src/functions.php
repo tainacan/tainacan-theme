@@ -108,6 +108,12 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-account-card-details mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
+            tainacan_register_view_mode('document', [
+                'label' => 'Document view',
+                'description' => 'A document view, for displaying papers and published research',
+                'icon' => '<span class="icon"><i class="mdi mdi-file-document mdi-24px"></i></span>',
+                'dynamic_metadata' => true,
+            ]);
         }
 
     }
