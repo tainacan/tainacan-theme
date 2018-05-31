@@ -78,6 +78,12 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-checkbox-intermediate mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
+            tainacan_register_view_mode('gallery', [
+                'label' => 'Gallery view',
+                'description' => 'A framed view with metadata, made for gallery expositions',
+                'icon' => '<span class="icon"><i class="mdi mdi-bank mdi-24px"></i></span>',
+                'dynamic_metadata' => true,
+            ]);
             tainacan_register_view_mode('masonry', [
                 'label' => 'Masonry view',
                 'description' => 'A masonry view',

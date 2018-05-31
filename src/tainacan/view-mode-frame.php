@@ -11,8 +11,7 @@
                             <div class="frame">
                                 <div class="mat">
                                     <div class="art">
-                                        
-                                                <?php the_post_thumbnail('medium'); ?>
+                                        <?php the_post_thumbnail('medium'); ?>
                                     </div>
                                 </div>
                             </div>
