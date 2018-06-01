@@ -28,6 +28,10 @@
                 -ms-transform:  translateX(50px) rotate(185deg);
                 -o-transform:  translateX(50px) rotate(185deg);
                 transform:  translateX(50px) rotate(185deg);
+                box-shadow: 2px 0px 15px -6px #111;
+            }
+            img {
+                box-shadow: 3px 5px 19px -8px #111;
             }
         }
 
@@ -35,14 +39,16 @@
             width: 228px;
             height: 228px;
             border-radius: 4px;
-            box-shadow: 0px 5px 18px -10px #111;
-            z-index: 33;
+            box-shadow: 0px 5px 18px -8px #111;
+            z-index: 9;
+            position: relative;
+            transition: box-shadow 0.2s;
         }
         .cd {
             position:absolute;
             width: 218px;
             height: 218px;
-            z-index: -11;
+            z-index: 0;
             display: block;
             -webkit-transition: all .25s ease-out;
             transition: all .25s ease-out;
@@ -51,6 +57,7 @@
             margin: 5px;
             background-blend-mode: darken;
             background-color: #ccc;
+            box-shadow: 0px 0px 0px 0px #111;
         }
         
         .metadata-title {
@@ -68,7 +75,7 @@
             transition: opacity 0.5s;
             left: 0;
             right: 0;
-            z-index: -3;
+            z-index: 0;
             margin: 10px 24px;
             border: 1px solid #e3e3e3;
         }  

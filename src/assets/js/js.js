@@ -35,11 +35,40 @@ jQuery(document).ready(function( $ ) {
      * Change the class of guttenberg button
      */
     $('.wp-block-button a').toggleClass().addClass('btn btn-jelly-bean');
+
+    $('#items-list-area').on('load', '.tainacan-masonry-view', function () {
+        console.log("Fui criado!");
+        // var msnry = new Masonry('.tainacan-masonry-view', {
+        //     percentPosition: true,
+        //     itemSelector: '.grid-item',
+        //     columnWidth: '.grid-sizer',
+        //     gutter: '.gutter-sizer',
+        //     horizontalOrder: true,
+        // });
+    });
+
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if ($('.tainacan-masonry-view')[0]) {
+                $('.tainacan-masonry-view').masonry({
+                    percentPosition: true,
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-sizer',
+                    gutter: '.gutter-sizer',
+                    horizontalOrder: true,
+                });
+            }
+        });
+    });
+    
+    var config = {
+        attributes: true,
+        childList: true,
+        characterData: true
+    };
+    
+    observer.observe(document.getElementById('items-list-area'), config);
+
 });
-jQuery('.tainacan-masonry-view').masonry({
-    percentPosition: true,
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    gutter: '.gutter-sizer',
-    horizontalOrder: true,
-});
+
+
