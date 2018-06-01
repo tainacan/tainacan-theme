@@ -3,7 +3,7 @@
 
     .tainacan-document {
         padding: 12px;
-        margin: 24px;
+        margin: 16px;
         border-radius: 5px;
 
         &:hover {
@@ -54,7 +54,7 @@
                 height: 96%;
                 width: 99%;
                 background-color: #eee;
-                transition: top 0.3s, right 0.3s, transform 0.3s;
+                transition: top 0.2s, right 0.2s, transform 0.2s;
             }
             
             .paper::before {
