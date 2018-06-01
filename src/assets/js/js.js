@@ -44,7 +44,7 @@ jQuery(document).ready(function( $ ) {
                     percentPosition: true,
                     itemSelector: '.grid-item',
                     columnWidth: '.grid-sizer',
-                    gutter: '.gutter-sizer',
+                    //gutter: '.gutter-sizer',
                     horizontalOrder: true,
                 });
             }
