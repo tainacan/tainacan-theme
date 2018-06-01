@@ -1,4 +1,4 @@
-#tainacan-masonry-view {
+.tainacan-masonry-view {
     margin: 1.5em 0;
     padding: 0;
     -moz-column-gap: 1.5em;
@@ -8,11 +8,20 @@
     .gutter-sizer { width: 4%; }
     
     .grid-sizer, .grid-item{ 
-        width: 48%; 
+        width: 20%; 
         @media only screen and (max-width: 700px){
             width: 100%;
         }
     }
     
-    .grid-item{ margin-bottom: 10px; }
+    .grid-item{ 
+        margin-bottom: 10px; 
+        .card{
+            border: none;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }
