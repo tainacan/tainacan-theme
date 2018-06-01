@@ -36,17 +36,7 @@ jQuery(document).ready(function( $ ) {
      */
     $('.wp-block-button a').toggleClass().addClass('btn btn-jelly-bean');
 
-    $('#items-list-area').on('load', '.tainacan-masonry-view', function () {
-        console.log("Fui criado!");
-        // var msnry = new Masonry('.tainacan-masonry-view', {
-        //     percentPosition: true,
-        //     itemSelector: '.grid-item',
-        //     columnWidth: '.grid-sizer',
-        //     gutter: '.gutter-sizer',
-        //     horizontalOrder: true,
-        // });
-    });
-
+    // Instantiates Masonry;
     var observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if ($('.tainacan-masonry-view')[0]) {
