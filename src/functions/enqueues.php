@@ -14,7 +14,7 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             wp_deregister_script( 'jquery' );
             wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
             wp_enqueue_script( 'jquery' );
-
+            wp_enqueue_script( 'masonry' );
         /**
          * Bootstrap 4
          */
