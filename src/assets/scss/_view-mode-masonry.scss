@@ -1,18 +1,18 @@
-.tainacan-masonry-container {
+#tainacan-masonry-view {
+    margin: 1.5em 0;
     padding: 0;
-    column-gap: 0;
-    column-count: 1;
-   
-    @media only screen and (min-width: 576px) {
-        column-count: 2;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 0.5em;
+
+    .gutter-sizer { width: 4%; }
+    
+    .grid-sizer, .grid-item{ 
+        width: 48%; 
+        @media only screen and (max-width: 700px){
+            width: 100%;
+        }
     }
-    @media only screen and (min-width: 768px) {
-        column-count: 3;
-    }
-    @media only screen and (min-width: 992px) {
-        column-count: 4;
-    }
-    .card{
-        border: none;
-    }
+    
+    .grid-item{ margin-bottom: 10px; }
 }

@@ -36,3 +36,10 @@ jQuery(document).ready(function( $ ) {
      */
     $('.wp-block-button a').toggleClass().addClass('btn btn-jelly-bean');
 });
+jQuery('.tainacan-masonry-view').masonry({
+    percentPosition: true,
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    gutter: '.gutter-sizer',
+    horizontalOrder: true,
+});

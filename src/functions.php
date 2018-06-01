@@ -41,7 +41,7 @@ if(!function_exists('tainacan_setup')) {
                 ),
             )
         ); */
-
+        require get_template_directory() . '/functions/enqueues.php';
         /**
          * Custom logo to change the logo image
          */
@@ -199,8 +199,6 @@ require_once get_template_directory() . '/vendor/class-wp-bootstrap-navwalker.ph
 register_nav_menus( array(
 	'navMenubelowHeader' => __( 'Nav Menu Below Header', 'tainacan-theme' ),
 ) );
-
-require get_template_directory() . '/functions/enqueues.php';
 
 function tainacan_hex2rgb( $color ) {
 	$color = trim( $color, '#' );

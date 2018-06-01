@@ -16,6 +16,7 @@
     .t-collection--info-img {
         max-width: 160px;
         max-height: 160px;
+        width: 100%;
         @media screen and (min-width: 992px){
             transform: translate3d(0,-50%,0);
         }
