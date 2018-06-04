@@ -60,6 +60,20 @@
                 border-top: 1px solid #cbcbcb;
                 border-bottom: 1px solid #cbcbcb;
             }
+            .wp-caption, .gallery-caption {
+                font-size: 13px;
+                max-width: 100%;
+                margin-top: 1em;
+                margin-bottom: 1.5em;
+                .wp-caption-text {
+                    margin: 0.8075em 0;
+                }
+                img[class*="wp-image-"]{
+                    height: auto;
+                    margin: 2% 0;
+                    width: 100%;
+                }
+            }
             &.single-item-collection{
                 .single-item-collection--document{
                     iframe, img.attachment-large {
