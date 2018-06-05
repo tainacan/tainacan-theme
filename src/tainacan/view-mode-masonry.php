@@ -6,10 +6,10 @@
         <!-- <div class="tainacan-masonry-container card-columns p-3"> -->
             <?php while (have_posts()): the_post(); ?>
                 <div class="grid-item col col-sm-6 col-md-4 col-lg-3 mb-3">
-                    <div class="card">
+                    <div class="card border-0">
                         <?php 
                             if(has_post_thumbnail()): 
-                                echo '<img src="'.get_the_post_thumbnail_url().'">';
+                                the_post_thumbnail('full');
                             endif;
                         ?>
                         <div class="card-body">

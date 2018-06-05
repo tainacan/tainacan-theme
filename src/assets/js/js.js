@@ -43,7 +43,8 @@ jQuery(document).ready(function( $ ) {
                 $('.tainacan-masonry-view').masonry({
                     percentPosition: true,
                     itemSelector: '.grid-item',
-                    columnWidth: '.grid-sizer',
+                    /* columnWidth: '.grid-sizer', */
+                    columnWidth: 277,
                     //gutter: '.gutter-sizer',
                     horizontalOrder: true,
                 });
