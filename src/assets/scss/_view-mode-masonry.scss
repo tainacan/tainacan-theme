@@ -6,6 +6,20 @@
                 width: 247.5px;
                 height: auto;
             }
+            &:hover{
+                background-color: #eaeaea;
+            }
+            /* &:selected{
+                background-color: #e6f6f8;
+            } */
+            .card-body{
+                .card-title{
+                    a{
+                        color: #000 !important;
+                        font-weight: 400;
+                    }
+                }
+            }
         }
     }
     /* margin: 1.5em 0;
