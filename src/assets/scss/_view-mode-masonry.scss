@@ -1,5 +1,13 @@
 .tainacan-masonry-view {
     min-height: 200px;
+    .grid-item{
+        .card{
+            img{
+                width: 247.5px;
+                height: auto;
+            }
+        }
+    }
     /* margin: 1.5em 0;
     padding: 0;
     -moz-column-gap: 1.5em;

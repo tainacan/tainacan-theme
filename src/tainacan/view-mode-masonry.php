@@ -7,11 +7,9 @@
             <?php while (have_posts()): the_post(); ?>
                 <div class="grid-item col col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card border-0">
-                        <?php 
-                            if(has_post_thumbnail()): 
-                                the_post_thumbnail('full');
-                            endif;
-                        ?>
+                        <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
+                            <?php the_post_thumbnail('medium'); ?>
+                        <?php endif; ?>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="<?php the_permalink(); ?>">
