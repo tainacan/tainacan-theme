@@ -1,10 +1,10 @@
 #comments{
     div[for=comment]{
         span{
-            font-size: 18pt;
+            font-size: 18px;
         }
         .authenticated{
-            font-size: 10pt;
+            font-size: 10px;
         }
     }
     form{
@@ -72,14 +72,14 @@
             .media-body{
                 h5{
                     a{
-                        font-size: 12pt;
+                        font-size: 12px;
                     }
                     .comment-time{
-                        font-size: 10pt;
+                        font-size: 10px;
                     }
                 }
                 .comment-text{
-                    font-size: 12pt;
+                    font-size: 12px;
                     max-width: 60vw;
                     p{
                         margin-bottom: 0;
@@ -93,7 +93,7 @@
                 }
                 .comment-reply-link, .comment-edit-link{
                     color: #2cb4c1;
-                    font-size: 12pt;
+                    font-size: 12px;
                 }
             }
         }

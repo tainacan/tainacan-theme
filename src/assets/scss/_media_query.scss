@@ -2,7 +2,7 @@ nav{
     &.menu-shadow{
         .tainacan-logo{
             @media only screen {
-                @media (max-width: 360px){
+                /* @media (max-width: 360px){
                     margin-left: 4vw;
                     margin-right: 10vw;
                 }
@@ -18,23 +18,35 @@ nav{
                     position: absolute;
                     left: 50px;
                     top: 1.4vh;
-                }
+                } */
             }
         }
-        .btn-group{
+        /* .btn-group{
             .dropdown-menu{
                 &.tainacan-dropdown-menu{
                     left: auto;
                     right: 0;
                 }
             }
-        }
-        .navbar-toggler{
+        } */
+
+        /* .navbar-toggler{
             @media only screen {
                 @media (max-width: 414px){
                     position: absolute;
                     right: 16px;
                     top: 12px;
+                }
+            }
+        } */
+        .navbar-nav{
+            flex-direction: inherit;
+            .nav-item{
+                .nav-link{
+                    font-size: 12px;
+                    i{
+                        font-size: 1rem;
+                    }
                 }
             }
         }
