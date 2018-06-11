@@ -24,6 +24,7 @@ body{
 @import "_media_query";
 
 nav{
+    max-height: 50px;
     &.menu-shadow{
         box-shadow: 0 2px 9px 0 #808080a6;
         button{
@@ -46,7 +47,7 @@ nav{
             > li{
                 &.menu-item {
                     a{
-                        font-size: 14pt;
+                        font-size: 14px;
                         font-weight: 500;
                         &::after{
                             color: #298596;
@@ -166,7 +167,7 @@ form{
     .tainacan-title-page{
         border-width: 2px !important;
         .title-page{
-            font-size: 20pt;
+            font-size: 20px;
         }
         .title-back{
             margin-top: 1rem;
