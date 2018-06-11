@@ -14,7 +14,7 @@
 <body <?php body_class(); ?>>
         
     <nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-0">
-        <div class="container-fluid max-large">
+        <div class="container-fluid max-large px-0">
             <?php echo tainacan_get_logo(); ?>
             <div class="btn-group ml-auto"> 
                 <button type="button" class="btn btn-link text-heavy-metal dropdown-toggle dropdown-toggle-split px-1 d-flex align-items-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
