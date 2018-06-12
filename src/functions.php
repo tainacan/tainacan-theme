@@ -161,7 +161,7 @@ function tainacan_get_logo() {
 		return get_custom_logo();
 	} else {
 		$html = '<a class="navbar-brand tainacan-logo" href="' . get_bloginfo( 'url' ) . '">';
-		$html .= '<img src="' . get_template_directory_uri() . '/assets/images/logo.svg" class="logo" style="width: 150px; max-height: 23px">';
+		$html .= '<img src="' . get_template_directory_uri() . '/assets/images/logo.svg" class="logo" style="max-height: 23px">';
 		$html .= '</a>';
 		return $html;
 	}
