@@ -10,7 +10,7 @@
  */
 ?>
 
-    <div class="t-collection--background-title"></div>
+    <!-- <div class="t-collection--background-title"></div> -->
     <div class="container-fluid">
         <div class="row t-collection--info ml-sm-5">
             <div class="col pr-0">

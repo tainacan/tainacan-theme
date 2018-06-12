@@ -110,7 +110,7 @@ form{
     padding: 0;
     border: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     &.header-filter {
         position: relative;
         &:after, &:before {
@@ -160,6 +160,33 @@ form{
     }
     &.page-height{
         height: 400px;
+    }
+    .title-header{
+        display: inline-block;
+        min-height: 100px;
+        opacity: 0.6;
+        padding: 1.5rem;
+        @media only screen and (min-width: 992px){
+            min-width: 450px;
+            padding-left: 4.166667rem;
+        }
+        @media only screen and (max-width: 768px){
+            padding: 0.7rem;
+            padding-top: 1rem;
+        }
+        h1{
+            color: #000;
+            font-size: 3rem;
+            font-weight: 600;
+            @media only screen and (max-width: 768px){
+                font-size: 1.5rem;
+            }
+        }
+        span{
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
     }
 }
 
