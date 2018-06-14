@@ -11,6 +11,7 @@ $midnight-blue: #01295C;
 $silver: #cbcbcb;
 $mercury: #e5e5e5;
 $tundora: #4e4e4e;
+$white-title: rgba(255, 255, 255, 0.6);
 
 
 $theme-colors: (
@@ -26,7 +27,8 @@ $theme-colors: (
   "midnight-blue": $midnight-blue,
   "silver": $silver,
   "mercury": $mercury,
-  "tundora": $tundora
+  "tundora": $tundora,
+  "white-title": $white-title
 );
 $font-family-base: 'Roboto';
 $headings-font-family: 'Roboto';
