@@ -24,13 +24,25 @@ body{
 @import "_media_query";
 
 nav{
-    max-height: 50px;
     &.menu-shadow{
         box-shadow: 0 2px 9px 0 #808080a6;
-        button{
-            &[data-toggle='dropdown']{
-                &::after{
-                    color: #298596;
+        max-height: 50px;
+        .max-large{
+            margin: 0 4.16666666667%;
+            .btn-group{
+                button{
+                    font-size: 12px;
+                    i{
+                        font-size: 19px;
+                    }
+                    &[data-toggle='dropdown']{
+                        &::after{
+                            color: #298596;
+                        }
+                    }
+                    &:hover, &:focus{
+                        text-decoration: none;
+                    }
                 }
             }
         }
@@ -42,20 +54,29 @@ nav{
             }
         }
     }
-    #menubelowHeader{
-        > ul{
-            > li{
-                &.menu-item {
-                    a{
-                        font-size: 14px;
-                        font-weight: 500;
-                        &::after{
-                            color: #298596;
+    &.menu-belowheader{
+        @media only screen and (min-width: 992px){
+            height: 70px;
+        }
+        #menubelowHeader{
+            > ul{
+                > li{
+                    &.menu-item {
+                        a{
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #000;
+                            &::after{
+                                color: #298596;
+                            }
+                            &:hover{
+                                color: #000;
+                            }
                         }
-                    }
-                    @media screen {
-                        @media (min-width: 992px){
-                            padding-right: 50px;
+                        @media screen {
+                            @media (min-width: 992px){
+                                padding-right: 60px;
+                            }
                         }
                     }
                 }
@@ -89,12 +110,15 @@ nav{
 form{
     &.tainacan-form-search{
         flex-flow: nowrap;
+        opacity: 0;
         .tainacan-input-search{
+            border-color: #cbcbcb !important;
             &:focus{
                 box-shadow: none;
             }
         }
         .tainacan-button-search{
+            border-color: #cbcbcb !important;
             &:focus{
                 box-shadow: none;
             }

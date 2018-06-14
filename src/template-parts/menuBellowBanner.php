@@ -1,12 +1,12 @@
 <?php
-    $bread = "<ol class='breadcrumb pb-0 mb-1' style='background: transparent'>";
+    /* $bread = "<ol class='breadcrumb pb-0 mb-1' style='background: transparent'>";
     $bread .= "<li class='breadcrumb-item'><a href='#'>Home</a></li>";
     $bread .= "<li class='breadcrumb-item'><a href='#'>Site</a></li>";
     $bread .= "<li class='breadcrumb-item active' aria-current='page'>Blog</li>";
-    $bread .= "</ol>";
+    $bread .= "</ol>"; */
 ?>
 <?php if(has_nav_menu('navMenubelowHeader')) : ?>
-    <nav class="navbar navbar-expand-md navbar-light bg-white px-1 border-bottom" role="navigation">
+    <nav class="navbar navbar-expand-md navbar-light bg-white px-1 border-bottom menu-belowheader" role="navigation">
         <div class="container-fluid max-large">
             <?php /* if(wp_is_mobile()) echo $bread; */ ?>
             <a class="navbar-brand" href="#"></a>
