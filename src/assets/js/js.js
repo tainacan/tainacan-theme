@@ -59,7 +59,9 @@ jQuery(document).ready(function( $ ) {
             $(this).addClass('d-none');
         }
         $(this).attr('type', 'submit');
-        $('.tainacan-form-search').animate({opacity: '1'}, "slow");
+        $('.tainacan-form-search').animate({opacity: '1'}, "slow", function(){
+            $('.tainacan-input-search').select();
+        });
         /* if($.trim($('.tainacan-input-search').val()).length){
             $('#btn-reset').removeClass('d-none');
         }else{
