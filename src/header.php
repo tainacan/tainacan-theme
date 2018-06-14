@@ -18,8 +18,7 @@
             <?php echo tainacan_get_logo(); ?>
             <div class="btn-group ml-auto"> 
                 <?php 
-                    if(!wp_is_mobile())
-                        echo tainacan_get_form_search();
+                    echo tainacan_get_form_search();
                 ?>
                 <button class="btn btn-link text-heavy-metal px-1 showInput"><i class="mdi mdi-magnify"></i></button>
                 <button type="button" class="btn btn-link text-heavy-metal dropdown-toggle dropdown-toggle-split px-1 d-flex align-items-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

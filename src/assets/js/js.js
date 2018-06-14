@@ -55,7 +55,10 @@ jQuery(document).ready(function( $ ) {
     $('.showInput').on('click', function(){
         $('.tainacan-form-search').removeClass('d-none');
         $('.tainacan-form-search').addClass('d-flex');
-        $(this).addClass('d-none');
+        if($(window).width() > 768){
+            $(this).addClass('d-none');
+        }
+        $(this).attr('type', 'submit');
         $('.tainacan-form-search').animate({opacity: '1'}, "slow");
         /* if($.trim($('.tainacan-input-search').val()).length){
             $('#btn-reset').removeClass('d-none');
@@ -66,6 +69,7 @@ jQuery(document).ready(function( $ ) {
     $('.tainacan-input-search').on('blur', function(){
         $('.tainacan-form-search').animate({opacity: '0'}, "slow", function(){
             $('.showInput').removeClass('d-none');
+            $('.showInput').removeAttr('type');
         });
     });
 
@@ -78,7 +82,3 @@ jQuery(document).ready(function( $ ) {
     observer.observe(document.getElementById('items-list-area'), config);
 
 });
-
-function showInput(){
-    this.removeClass = 'd-none';
-}

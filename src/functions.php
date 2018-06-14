@@ -169,9 +169,9 @@ function tainacan_get_logo() {
 
 function tainacan_get_form_search(){
     if(wp_is_mobile()){
-        $input = 'border-0';
-        $reset = 'border-0';
-        $submit = 'border-0';
+        $input = 'border-0 rounded-0';
+        $reset = 'border-0 rounded-0';
+        $submit = 'border-0 rounded-0';
     }else{
         $input = 'border-right-0 rounded-0';
         $reset = 'border-left-0 border-right-0 rounded-0';
@@ -189,8 +189,8 @@ function tainacan_get_form_search(){
                     $form .= '<button type="reset" class="btn border bg-white tainacan-button-search '.$reset.'"><i class="mdi mdi-close"></i></button>';
                 $form .= '</div>';
             }
-            $form .= '<div id="btn-submit" class="mr-1">';
-                $form .= '<button id="btn-submit-search" class="btn text-heavy-metal bg-white pl-0 pr-1 tainacan-button-search py-0 '.$submit.'"><i class="mdi mdi-magnify"></i></button>';
+            $form .= '<div id="btn-submit" class="mr-1 d-none d-lg-block">';
+                $form .= '<button type="submit" id="btn-submit-search" class="btn text-heavy-metal bg-white pl-0 pr-1 tainacan-button-search py-0 '.$submit.'"><i class="mdi mdi-magnify"></i></button>';
             $form .= '</div>';
         $form .= '</div>';
     $form .= '</form>';

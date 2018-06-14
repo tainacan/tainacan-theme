@@ -111,7 +111,24 @@ form{
     &.tainacan-form-search{
         flex-flow: nowrap;
         opacity: 0;
+        @media only screen and (max-width: 576px) {
+            position: absolute;
+            top: 46px;
+            right: 86px;
+            z-index: 2;
+        }
+        @media only screen and (min-width: 600px) and (max-width: 768px) {
+            position: absolute;
+            top: 46px;
+            right: 120px;
+            z-index: 2;
+        }
         .tainacan-input-search{
+            transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+            @media only screen and (max-width: 768px) {
+                width: 250px;
+                height: 27px;
+            }
             border-color: #cbcbcb !important;
             &:focus{
                 box-shadow: none;
