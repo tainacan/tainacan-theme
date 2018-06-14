@@ -167,6 +167,36 @@ function tainacan_get_logo() {
 	}
 }
 
+function tainacan_get_form_search(){
+    if(wp_is_mobile()){
+        $input = 'border-0';
+        $reset = 'border-0';
+        $submit = 'border-0';
+    }else{
+        $input = 'border-right-0 rounded-0';
+        $reset = 'border-left-0 border-right-0 rounded-0';
+        $submit = 'border border-left-0 rounded-0';
+    }
+
+    $form = '';
+    $form .= '<form class="tainacan-form-search d-none align-items-center">';
+        $form .= '<div id="test-form-search" class="d-flex justify-content-between">';
+            $form .= '<div id="input-search" class="w-100 pl-1">';
+                $form .= '<input class="form-control tainacan-input-search py-0 pr-0 '.$input.'" type="search" placeholder="Pesquisar no repositório" style="height:31px">';
+            $form .= '</div>';
+            if(wp_is_mobile()){
+                $form .= '<div id="btn-reset" class="d-none">';
+                    $form .= '<button type="reset" class="btn border bg-white tainacan-button-search '.$reset.'"><i class="mdi mdi-close"></i></button>';
+                $form .= '</div>';
+            }
+            $form .= '<div id="btn-submit" class="mr-1">';
+                $form .= '<button id="btn-submit-search" class="btn text-heavy-metal bg-white pl-0 pr-1 tainacan-button-search py-0 '.$submit.'"><i class="mdi mdi-magnify"></i></button>';
+            $form .= '</div>';
+        $form .= '</div>';
+    $form .= '</form>';
+    return $form;
+}
+
 /**
  * Change logo class function
  *

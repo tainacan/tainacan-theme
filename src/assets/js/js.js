@@ -52,6 +52,23 @@ jQuery(document).ready(function( $ ) {
         });
     });
     
+    $('.showInput').on('click', function(){
+        $('.tainacan-form-search').removeClass('d-none');
+        $('.tainacan-form-search').addClass('d-flex');
+        $(this).addClass('d-none');
+        $('.tainacan-form-search').animate({opacity: '1'}, "slow");
+        /* if($.trim($('.tainacan-input-search').val()).length){
+            $('#btn-reset').removeClass('d-none');
+        }else{
+            $('#btn-reset').addClass('d-none');
+        } */
+    });
+    $('.tainacan-input-search').on('blur', function(){
+        $('.tainacan-form-search').animate({opacity: '0'}, "slow", function(){
+            $('.showInput').removeClass('d-none');
+        });
+    });
+
     var config = {
         attributes: true,
         childList: true,
@@ -62,4 +79,6 @@ jQuery(document).ready(function( $ ) {
 
 });
 
-
+function showInput(){
+    this.removeClass = 'd-none';
+}
