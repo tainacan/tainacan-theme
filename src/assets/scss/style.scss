@@ -33,6 +33,7 @@ nav{
                 button{
                     font-size: 12px;
                     i{
+                        color: #01295c;
                         font-size: 19px;
                     }
                     &[data-toggle='dropdown']{
@@ -43,6 +44,9 @@ nav{
                     &:hover, &:focus{
                         text-decoration: none;
                     }
+                    &.active-button{
+                        background-color: #c1dae0;
+                    }
                 }
             }
         }
@@ -50,7 +54,7 @@ nav{
     .dropdown-menu{
         .dropdown-item{
             &:hover{
-                background-color: #2cb4c1;
+                background-color: #c1dae0;
             }
         }
     }
