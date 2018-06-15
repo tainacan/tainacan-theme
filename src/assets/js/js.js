@@ -58,6 +58,9 @@ jQuery(document).ready(function( $ ) {
         if($(window).width() > 768){
             $(this).addClass('d-none');
         }
+        if($(window).width() < 768){
+            $(this).addClass('active-button');
+        }
         $(this).attr('type', 'submit');
         $('.tainacan-form-search').animate({opacity: '1'}, "slow", function(){
             $('.tainacan-input-search').select();
@@ -73,6 +76,9 @@ jQuery(document).ready(function( $ ) {
             $('.showInput').removeClass('d-none');
             $('.showInput').removeAttr('type');
         });
+        if($(window).width() < 768){
+            $('.showInput').removeClass('active-button');
+        }
     });
 
     var config = {
