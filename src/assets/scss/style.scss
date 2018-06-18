@@ -59,6 +59,8 @@ nav{
         }
     }
     &.menu-belowheader{
+        border-bottom-color: #cbcbcb !important;
+        border-bottom-width: 0.75px !important;
         @media only screen and (min-width: 992px){
             height: 70px;
         }
@@ -251,7 +253,7 @@ form{
             font-size: 20px;
         }
         .title-back{
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
     }
 }
