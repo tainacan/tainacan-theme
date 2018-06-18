@@ -37,7 +37,7 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 			$links[] = $paged + 1;
 		}
 		
-		echo '<div class="row margin-pagination justify-content-between border-top">';
+		echo '<div class="d-flex margin-pagination justify-content-between border-top">';
 			printf('<div class="col-sm-3 d-none d-lg-block pl-0 view-items">Viewing Items: %d to %d from %d</div>', $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts);
 			echo '<div class="col-sm-5 pr-md-0">';
 				echo '<ul class="pagination justify-content-center justify-content-md-end">' . "\n";

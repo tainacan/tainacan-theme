@@ -3,18 +3,19 @@
     font-size: 12px;
     font-weight: 400;
     color: #898d8f;
+    padding: 0 1rem;
     .pagination{
         a:nth-last-child(1){
             white-space: nowrap;
         }
         li{
             a{
-                color: #898d8f;
+                color: #298596;
             }
         }
         .active{
             a{
-                color: #298596;
+                color: #898d8f;
             }
         }
         @media only screen and (max-width: 576px){
@@ -25,13 +26,13 @@
         white-space: nowrap;
     }
     @media screen {
-        @media (max-width: 592px){
+        /* @media (max-width: 592px){
             margin-left: 3rem;
             margin-right: 3rem;
         }
         @media (min-width: 768px){
             margin-left: 6rem;
             margin-right: 6rem;
-        }
+        } */
     }
 }

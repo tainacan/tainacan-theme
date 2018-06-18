@@ -8,7 +8,7 @@
 
 <main role="main" class="mt-5 max-large margin-one-column">
     <div class="row">
-        <div class="col col-md-9">
+        <div class="col-12 col-md-9">
             <?php get_template_part('template-parts/loop'); ?>
         </div>
         <?php if ( is_active_sidebar( 'sidebar-right' ) ) { 
