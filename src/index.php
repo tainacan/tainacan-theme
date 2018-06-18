@@ -5,16 +5,15 @@
 <!-- Get the menu if is create in panel admin -->
 <?php get_template_part( 'template-parts/menuBellowBanner' ); ?>
 
-<div class="container-fluid mt-5 max-large">
+
+<main role="main" class="mt-5 max-large margin-one-column">
     <div class="row">
-        <div class="col-sm">
-            <div id="content" role="main">
-                <?php get_template_part('template-parts/loop'); ?>
-            </div><!-- /#content -->
+        <div class="col col-md-9">
+            <?php get_template_part('template-parts/loop'); ?>
         </div>
         <?php if ( is_active_sidebar( 'sidebar-right' ) ) { 
             get_sidebar(); 
         } ?>
     </div>
-</div>
+</main>
 <?php get_footer();

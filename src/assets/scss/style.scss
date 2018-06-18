@@ -70,6 +70,7 @@ nav{
                             font-size: 14px;
                             font-weight: 400;
                             color: #000;
+                            padding-left: 0;
                             &::after{
                                 color: #298596;
                             }
@@ -253,17 +254,16 @@ form{
             margin-top: 1rem;
         }
     }
-    @media screen {
-        @media (min-width: 768px) {
-            padding: 0 2rem;
-        }
-    }
 }
 .dropdown-item {
     font-weight: inherit !important;
     &:hover{
         color: black;
     }
+}
+
+.margin-one-column{
+    margin: 0 4.16666666667%;
 }
 @import "_comments";
 
