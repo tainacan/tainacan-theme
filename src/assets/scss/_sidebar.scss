@@ -1,7 +1,5 @@
 #sidebar{
     &.sidebar{
-        background: #e5e5e57a;
-        border-radius: 1rem;
         .widget{
             .widget-title{
                 font-size: 14px;
@@ -46,6 +44,9 @@
                     button{
                         &:hover{
                             color: inherit;
+                        }
+                        i{
+                            color: #01295c;
                         }
                     }
                 }
