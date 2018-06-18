@@ -8,10 +8,10 @@
         <h3 class="mb-3">
             <a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
         </h3>
-        <?php echo '<p class="text-tundora">'.wp_trim_words( get_the_content(), 63, '...' ).'</p>'; ?>
-        <p><?php the_time('j M Y \\a\\t g:i'); echo ', '; _e('for'); echo ' '; the_author_posts_link(); ?></p>
+        <?php echo '<p class="text-black">'.wp_trim_words( get_the_content(), 63, '...' ).'</p>'; ?>
+        <time><?php the_time('j M Y \\a\\t g:i'); echo ', '; _e('for');?></time> <?php echo ' '; the_author_posts_link(); ?>
         <a href="<?php the_permalink(); ?>" class="readmore float-right"><?php _e('Read more'); ?></a>
     </div>
 </div>
 
-<hr class="mb-5">
+<hr class="border-mercury">
