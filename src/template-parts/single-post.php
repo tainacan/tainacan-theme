@@ -2,13 +2,13 @@
     <header class="mb-4">
         <div class="header-meta text-muted mb-5">
             <?php
+                tainacan_post_date();
+                echo ' ';
                 _e('By', 'tainacan-theme');
                 echo ' ';
                 the_author_posts_link();
-                echo ' ';
-                _e('on', 'tainacan-theme');
-                echo ' ';
-                tainacan_post_date();
+                /* echo ' ';
+                _e('on', 'tainacan-theme'); */
             ?>
         </div>
         <?php the_post_thumbnail(); ?>

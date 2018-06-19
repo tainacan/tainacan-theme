@@ -1,12 +1,17 @@
 .tainacan-single-post{
-    @media screen {
+    /* @media screen {
         @media (min-width: 768px) {
             padding: 0 2rem;
         }
-    }
+    } */
     article{
         header{
             .header-meta{
+                color: #898d8f !important;
+                font: {
+                    size: 12px;
+                    weight: 400;
+                }
                 @media screen {
                     @media (min-width: 768px){
                         margin-top: -10px;
@@ -21,7 +26,7 @@
         .tainacan-content {
             font-size: 1rem;
             @media only screen and (min-width: 1200px){
-                padding: 0 8.5rem;
+                padding: 0 8.33333334%;
             }
             &h1, &h2{
                 font-size: 1rem;
