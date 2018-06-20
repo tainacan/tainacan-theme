@@ -33,6 +33,9 @@ nav{
                 button{
                     font-size: 12px;
                     padding-right: 1.875rem !important;
+                    @media only screen and (max-width: 576px){
+                        padding-right: 0.875rem !important;
+                    }
                     &:last-child{
                         padding-right: 0.25rem !important;
                     }
@@ -223,6 +226,9 @@ form{
     }
     &.page-height{
         height: 400px;
+        @media only screen and (max-width: 576px){
+            height: 200px;
+        }
     }
     .title-header{
         display: inline-block;
