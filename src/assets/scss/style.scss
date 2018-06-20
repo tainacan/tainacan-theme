@@ -32,6 +32,10 @@ nav{
             .btn-group{
                 button{
                     font-size: 12px;
+                    padding-right: 1.875rem !important;
+                    &:last-child{
+                        padding-right: 0.25rem !important;
+                    }
                     i{
                         color: #01295c;
                         font-size: 19px;
