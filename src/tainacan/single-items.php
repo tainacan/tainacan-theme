@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
-<div class="container-fluid mt-5 max-large">
+<!-- Get the menu if is create in panel admin -->
+<?php get_template_part( 'template-parts/menuBellowBanner' ); ?>
+
+<main class="mt-5 max-large margin-one-column">
     <div class="row">
         <div class="col col-sm mx-sm-auto">
-            <div id="content" role="main">
             <?php if(have_posts()): ?>
                 <?php while(have_posts()): the_post(); ?>
                     <div class="tainacan-title">
@@ -82,7 +84,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col s-item-collection--metadata">
                                                 <?php 
                                                     $args = ['before_title' => '<div class="card border-0"><div class="card-body bg-white border-0 pl-0 pt-0 pb-1"><h3>', 'after_title' => '</h3></div>', 'after_value' => '</p></div>'];
                                                     //$field = null;
@@ -93,13 +95,26 @@
                                 </div>
                             </section>
                         </article>
+                        <div class="row">
+                            <!-- Container -->
+                            <div class="col mt-3 mx-auto">
+                                <?php
+                                if ( comments_open() || get_comments_number() ) :
+                                    comments_template();
+                                endif; ?>
+                            </div>
+                        </div>
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
                 <?php _e('Nothing found', 'tainacan-theme'); ?>
             <?php endif; ?>
-            </div><!-- /#content -->
         </div>
     </div><!-- /.row -->
-</div>
+</main>
 <?php get_footer(); ?>
+<script>
+    jQuery('#topNavbar').addClass('b-bottom-top');
+    jQuery('nav.menu-belowheader').removeClass('border-bottom');
+    jQuery('nav.menu-belowheader .max-large').addClass('b-bottom-bellow');
+</script>

@@ -95,7 +95,7 @@
                         h3{
                             color: #000;
                             font-size: 14px;
-                            font-weight: 800;
+                            font-weight: 700;
                         }
                         p {
                             color: #000;
@@ -105,13 +105,27 @@
                             margin-right: 0.5rem;
                         }
                     }
+                    .s-item-collection--metadata{
+                        h3{
+                            color: #000;
+                            font-size: 14px;
+                            font-weight: 700;
+                        }
+                        p{
+                            color: #000;
+                            font: {
+                                size: 12px;
+                                weight: 400;
+                            }
+                        }
+                    }
                 }
             }
         }
         footer{
             font-size: 14px;
             color: #000;
-            font-weight: 500;
+            font-weight: 400;
             a{
                 font-weight: 400;
             }
