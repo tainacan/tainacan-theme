@@ -131,6 +131,15 @@ nav{
     }
 }
 
+/*Bordar Navbar top*/
+.b-bottom-top{
+    border-bottom: 1px solid #298596;
+}
+/*Bordar Navbar bellow*/
+.b-bottom-bellow{
+    border-bottom: 1px solid #cbcbcb;
+}
+
 form{
     &.tainacan-form-search{
         flex-flow: nowrap;
