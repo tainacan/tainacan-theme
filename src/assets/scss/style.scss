@@ -234,26 +234,50 @@ form{
     }
     &.page-height{
         height: 400px;
+        > div {
+            @media only screen and (max-width: 576px){
+                margin-bottom: 1.5625rem !important;
+            }
+            .title-header{
+                @media only screen and (width: 768px){padding-top: 1rem !important;}
+            }
+        }
         @media only screen and (max-width: 576px){
             height: 200px;
         }
     }
+    > div{
+        @media only screen and (min-width: 768px){
+            margin-bottom: 3.75rem;
+        }
+        @media only screen and (max-width: 576px){
+            align-self: center;
+        }
+    }
+
     .title-header{
         display: inline-block;
-        min-height: 100px;
         padding: 1.5rem;
         @media only screen and (min-width: 992px){
+            height: 100px;
             min-width: 450px;
-            padding-left: 4.166667rem;
+            padding: 0rem;
+            padding-left: 4.166667%;
         }
         @media only screen and (max-width: 768px){
             padding: 0.7rem;
-            padding-top: 1rem;
+            padding-top: 2.2rem;
+            padding-left: 4.166667%;
+            height: 100px;
+        }
+        @media only screen and (max-width: 576px){
+            height: 60px;
+            padding: 0.3rem 1.3rem 0.3rem 4.16666666667%;
         }
         h1{
             color: #000;
             font-size: 3rem;
-            font-weight: 600;
+            font-weight: 800;
             @media only screen and (max-width: 768px){
                 font-size: 1.5rem;
             }
@@ -261,7 +285,10 @@ form{
         span{
             color: #000;
             font-size: 1.5rem;
-            font-weight: 300;
+            font-weight: 400;
+            @media only screen and (max-width: 576px){
+                font-size: 12px;
+            }
         }
     }
 }
