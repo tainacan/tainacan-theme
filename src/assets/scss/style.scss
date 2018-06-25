@@ -232,6 +232,9 @@ form{
             }
         }
     }
+    &.page-collection{
+        height: 400px !important;
+    }
     &.page-height{
         height: 400px;
         > div {
@@ -252,6 +255,11 @@ form{
         }
         @media only screen and (max-width: 576px){
             align-self: center;
+        }
+        &.t-bg-collection{
+            @media only screen and (min-width: 768px){
+                margin-bottom: 0;
+            }
         }
     }
 
