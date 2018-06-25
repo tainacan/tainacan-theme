@@ -15,15 +15,21 @@
             border-radius: 2px;
         }
 
-        .metadata-title {
+        &:hover {
+            p.metadata-title { text-decoration: none !important; }
+        }
+
+        p.metadata-title {
             flex-shrink: 0;
             font-size: 0.875rem;
-            margin-bottom: 0.875rem;
+            margin-bottom: 0;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
             padding: 0.75rem 1.5rem;
             text-align: left;
+            color: #1d1d1d;
+            text-decoration: none !important;
         }    
     
     }
