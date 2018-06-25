@@ -28,6 +28,20 @@ nav{
         max-height: 50px;
         .max-large{
             margin: 0 4.16666666667%;
+            .tainacan-form-search{
+                padding-right: 1.875rem !important;
+                .tainacan-input-search{
+                    height: 27px !important;
+                    width: 355px;
+                    &::placeholder{
+                        font-size: 12px;
+                        color: #898d8f;
+                    }
+                }
+                #btn-submit-search{
+                    height: 27px;
+                }
+            }
             .btn-group{
                 button{
                     font-size: 12px;
@@ -45,6 +59,7 @@ nav{
                     &[data-toggle='dropdown']{
                         &::after{
                             color: #298596;
+                            margin-left: 5px;
                         }
                     }
                     &:hover, &:focus{
