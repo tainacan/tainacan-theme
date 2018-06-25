@@ -253,6 +253,11 @@ form{
     &.page-height{
         height: 400px;
         > div {
+            &.ph-title-description{
+                @media only screen and (min-width: 768px){
+                    margin-bottom: 3.75rem;
+                }
+            }
             @media only screen and (max-width: 576px){
                 margin-bottom: 1.5625rem !important;
             }
@@ -265,8 +270,10 @@ form{
         }
     }
     > div{
-        @media only screen and (min-width: 768px){
-            margin-bottom: 3.75rem;
+        &.ph-title-description{
+            @media only screen and (min-width: 768px){
+                margin-bottom: 0;
+            }
         }
         @media only screen and (max-width: 576px){
             align-self: center;
