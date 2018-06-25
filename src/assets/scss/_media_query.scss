@@ -339,12 +339,8 @@ footer{
     .max-large{
         overflow-x: hidden;
         max-width: 1400px;
-        .tainacan-title{
-            padding: 0 1.8rem;
-        }
-        .tainacan-single-post{
-            padding: 0 1.8rem;
-        }
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     .navbar{
         > .pr-lg-5{
@@ -358,4 +354,9 @@ footer{
             }
         }
     } */
+    .page-header{
+        .title-header{
+            padding-left: 12.5rem !important;
+        }
+    }
 }
