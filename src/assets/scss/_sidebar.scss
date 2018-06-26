@@ -58,9 +58,12 @@
                 }
             }
             #tainacan-search{
-                font-size: 14px;
+                font-size: 12px;
                 color: #898d8f;
                 height: 27px;
+                &:focus{
+                    box-shadow: none;
+                }
             }
         }
     }
