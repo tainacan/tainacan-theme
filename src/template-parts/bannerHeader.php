@@ -8,6 +8,7 @@
         <div class="bg-white-title title-header">
             <h1 class="mb-0">
                 <?php if(is_home()) { ?> Blog <?php bloginfo('title'); }?>
+                <?php if(is_singular()) { the_title(); }?>
                 <?php if(is_archive()) { ?> <?php echo get_the_archive_title(); }?>
             </h1>
             <?php if(is_home()) {?> <span><?php bloginfo('description'); }?></span>
