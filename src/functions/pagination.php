@@ -44,7 +44,7 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 	 
 					/** Previous Post Link */
 					if ( get_previous_posts_link() )
-						printf( '<li style="padding-right: 5px">%s</li>' . "\n", get_previous_posts_link() );
+						printf( '<li style="padding-right: 5px">%s</li>' . "\n", get_previous_posts_link('<i class="mdi mdi-chevron-left"></i>') );
 				
 					/** Link to first page, plus ellipses if necessary */
 					if ( ! in_array( 1, $links ) ) {
@@ -74,7 +74,7 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 				
 					/** Next Post Link */
 					if ( get_next_posts_link() )
-						printf( '<li>%s</li>' . "\n", get_next_posts_link() );
+						printf( '<li>%s</li>' . "\n", get_next_posts_link('<i class="mdi mdi-chevron-right"></i>') );
 		
 				echo '</ul>';
 			echo '</div>' . "\n";
