@@ -5,20 +5,16 @@
         <div class="row no-gutters">
         <?php while (have_posts()): the_post(); ?>
             <div class="col">
-                <div class="tainacan-grid">
-                    <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
-                        <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('medium'); ?>
-                        </a>
-                    <?php endif; ?>
+                <a class="tainacan-grid" href="<?php the_permalink(); ?>">
                     <?php if ( tainacan_current_view_displays('title') ): ?>
-                        <p class="metadata-title">
-                            <a href="<?php the_permalink(); ?>">
-                                <?php the_title(); ?>
-                            </a>    
+                        <p class="metadata-title">     
+                            <?php the_title(); ?>           
                         </p>
                     <?php endif; ?>
-                </div>
+                    <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
+                            <?php the_post_thumbnail('medium'); ?>   
+                    <?php endif; ?>
+                </a>
             </div>            
             
         <?php endwhile; ?>

@@ -87,6 +87,7 @@ jQuery(document).ready(function( $ ) {
         characterData: true
     };
     
-    observer.observe(document.getElementById('items-list-area'), config);
+    if(document.getElementById('items-list-area'))
+        observer.observe(document.getElementById('items-list-area'), config);
 
 });
