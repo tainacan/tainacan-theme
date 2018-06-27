@@ -21,6 +21,19 @@
         </div>
     <?php endif; ?>
     <div class="mt-5 tainacan-list-post">
+        <?php if(is_archive('tainacan-collection')) : ?>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"><?php _e('Miniature'); ?></th>
+                        <th scope="col"><?php _e('Title'); ?></th>
+                        <th scope="col"><?php _e('Author'); ?></th>
+                        <th scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+        <?php endif; ?>
         <?php while(have_posts()): 
             the_post();
             //List Post
@@ -30,6 +43,10 @@
                 get_template_part('template-parts/list-post');
             endif;
         endwhile; ?>
+        <?php if(is_archive('tainacan-collection')) : ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
     </div>
     <?php echo tainacan_pagination(3); ?>
 <?php else: ?>

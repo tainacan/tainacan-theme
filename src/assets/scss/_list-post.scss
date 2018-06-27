@@ -44,4 +44,45 @@
             }
         }
     }
+    table {
+        .tainacan-list-collection{
+            th{
+                vertical-align: baseline;
+            }
+            .collection-checkbox{
+                width: 4.16666666667%;
+                text-align: right;
+                padding-right: 0;
+            }
+            .collection-miniature{
+                width: calc(4.16666666667% * 2);
+                text-align: center;
+            }
+            .collection-title{
+                font: {
+                    size: 14px;
+                    weight: 400;
+                }
+                a {
+                    color: #000;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }
+            .collection-create-by{
+                font: {
+                    size: 12px;
+                    weight: 400;
+                }
+
+                a {
+                    color: #898d8f;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
 }
