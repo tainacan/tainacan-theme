@@ -13,7 +13,7 @@
         </div>
         <?php the_post_thumbnail(); ?>
     </header>
-    <section class="tainacan-content text-tundora">
+    <section class="tainacan-content text-black margin-two-column">
         <?php
             the_content();
             wp_link_pages();

@@ -292,8 +292,12 @@ form{
         @media only screen and (min-width: 992px){
             height: 100px;
             min-width: 450px;
-            /* padding: 0rem; */
+            padding: 0rem;
             padding-left: 4.166667%;
+            &.singular-title{
+                padding: 1.5rem;
+                padding-left: 4.166667%;
+            }
         }
         @media only screen and (max-width: 768px){
             padding: 0.7rem;
@@ -348,6 +352,15 @@ form{
 .margin-one-column{
     margin: 0 4.16666666667%;
 }
+
+.margin-two-column{
+    margin: 0 8.33333333334%;
+}
+
+.margin-three-column{
+    margin: 0 12.5%;
+}
+
 @import "_comments";
 
 @import "_list-post";
