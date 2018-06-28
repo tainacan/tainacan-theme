@@ -46,7 +46,8 @@
     }
     table {
         .tainacan-list-collection{
-            th{
+            cursor: pointer;
+            th, td{
                 vertical-align: baseline;
             }
             .collection-checkbox{

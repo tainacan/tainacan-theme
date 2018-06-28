@@ -90,4 +90,7 @@ jQuery(document).ready(function( $ ) {
     if(document.getElementById('items-list-area'))
         observer.observe(document.getElementById('items-list-area'), config);
 
+    $('.tainacan-list-post .table .tainacan-list-collection td').click(function(){
+        window.location = $('.tainacan-list-post .table .tainacan-list-collection').data("href");
+    });
 });
