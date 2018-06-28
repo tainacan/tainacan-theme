@@ -27,14 +27,14 @@
                                 </div>
                                 <?php //the_post_thumbnail(); ?>
                             </header>
-                            <section class="tainacan-content single-item-collection text-tundora">
+                            <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--document">
                                     <?php tainacan_the_document(); ?>
                                 </div>
                             </section>
                         </article>
                     </div>
-                    <div class="tainacan-title my-5 d-none">
+                    <div class="tainacan-title my-5">
                         <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
                             <ul class="list-inline mb-1">
                                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
@@ -45,9 +45,23 @@
                     </div>
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
-                            <section class="tainacan-content single-item-collection text-tundora">
+                            <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--attachments">
-                                    <?php //tainacan_the_attachment(); ?>
+<?php
+    $images = get_posts( array (
+        'post_parent' => get_the_ID(),
+        'post_type' => 'attachment',
+        'post_per_page' => -1,
+        'exclude' => get_post_thumbnail_id( get_the_ID() )
+    ));
+    if ( empty($images) ) {
+        echo 'no attachments here';
+    } else {
+        foreach ( $images as $attachment ) {
+            echo wp_get_attachment_image( $attachment->ID, 'thumbnail' );
+        }
+    }
+?>
                                 </div>
                             </section>
                         </article>
@@ -63,7 +77,7 @@
                     </div>
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
-                            <section class="tainacan-content single-item-collection text-tundora">
+                            <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
                                         <div class="col-12 col-md-4">
