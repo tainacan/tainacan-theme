@@ -47,21 +47,21 @@
                         <article role="article">
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--attachments">
-<?php
-    $images = get_posts( array (
-        'post_parent' => get_the_ID(),
-        'post_type' => 'attachment',
-        'post_per_page' => -1,
-        'exclude' => get_post_thumbnail_id( get_the_ID() )
-    ));
-    if ( empty($images) ) {
-        echo 'no attachments here';
-    } else {
-        foreach ( $images as $attachment ) {
-            echo wp_get_attachment_image( $attachment->ID, 'thumbnail' );
-        }
-    }
-?>
+                                    <?php
+                                        $images = get_posts( array (
+                                            'post_parent' => get_the_ID(),
+                                            'post_type' => 'attachment',
+                                            'post_per_page' => -1,
+                                            'exclude' => get_post_thumbnail_id( get_the_ID() )
+                                        ));
+                                        if ( empty($images) ) {
+                                            echo 'no attachments here';
+                                        } else {
+                                            foreach ( $images as $attachment ) {
+                                                echo '<div class="single-item-collection--attachments-img">' . wp_get_attachment_image( $attachment->ID, 'medium' ) . '</div>';
+                                            }
+                                        }
+                                    ?>
                                 </div>
                             </section>
                         </article>
