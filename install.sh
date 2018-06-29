@@ -32,10 +32,13 @@ echo "Copy Slick for Slider...\n\n";
         mkdir("src/assets/vendor/slick/", 0777, true);
         mkdir("src/assets/vendor/slick/scss", 0777, true);
         mkdir("src/assets/vendor/slick/js", 0777, true);
+        mkdir("src/assets/vendor/slick/fonts", 0777, true);
     }
     copy("vendor/kenwheeler/slick/slick/slick-theme.scss", "src/assets/vendor/slick/scss/slick-theme.scss");
     copy("vendor/kenwheeler/slick/slick/slick.scss", "src/assets/vendor/slick/scss/slick.scss");
     copy("vendor/kenwheeler/slick/slick/slick.min.js", "src/assets/vendor/slick/js/slick.min.js");
+    copy("vendor/kenwheeler/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
+    recurse_copy("vendor/kenwheeler/slick/slick/fonts", "src/assets/vendor/slick/fonts");
 
 echo "Finish Copy files! \n\n";
 
