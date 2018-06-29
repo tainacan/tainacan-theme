@@ -7,7 +7,8 @@
     ],
     "require": {
         "twbs/bootstrap": "4.*",
-        "wp-bootstrap/wp-bootstrap-navwalker": "*"
+        "wp-bootstrap/wp-bootstrap-navwalker": "*",
+        "kenwheeler/slick": "1.6.1"
     },
     "scripts": {
         "post-install-cmd": "bash install.sh",

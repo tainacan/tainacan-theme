@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "73848e28368d82cda52954503d179f20",
-    "content-hash": "2072e43e35bd4f498320adcc3dc7536a",
+    "content-hash": "3d0374e3fd2d6b43ef8af59ab09d04f8",
     "packages": [
         {
             "name": "composer/installers",
@@ -125,20 +124,38 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-12-29 09:13:20"
+            "time": "2017-12-29T09:13:20+00:00"
         },
         {
-            "name": "twbs/bootstrap",
-            "version": "v4.1.0",
+            "name": "kenwheeler/slick",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "8f7bd419935adfcd53c471a0202083464800619e"
+                "url": "https://github.com/Alexander2Leb/slick.git",
+                "reference": "76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8f7bd419935adfcd53c471a0202083464800619e",
-                "reference": "8f7bd419935adfcd53c471a0202083464800619e",
+                "url": "https://api.github.com/repos/Alexander2Leb/slick/zipball/76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712",
+                "reference": "76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2017-03-31T12:40:41+00:00"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "779ad9f174ea5ab7e755f6df0ec9e5912d67dd16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/779ad9f174ea5ab7e755f6df0ec9e5912d67dd16",
+                "reference": "779ad9f174ea5ab7e755f6df0ec9e5912d67dd16",
                 "shasum": ""
             },
             "replace": {
@@ -176,7 +193,7 @@
                 "sass",
                 "web"
             ],
-            "time": "2018-04-09 16:00:23"
+            "time": "2018-04-30T16:04:33+00:00"
         },
         {
             "name": "wp-bootstrap/wp-bootstrap-navwalker",
@@ -213,7 +230,7 @@
                 }
             ],
             "description": "A custom WordPress nav walker class to fully implement the Bootstrap 4 navigation style in a custom theme using the WordPress built in menu manager.",
-            "time": "2018-04-14 01:22:55"
+            "time": "2018-04-14T01:22:55+00:00"
         }
     ],
     "packages-dev": [],
