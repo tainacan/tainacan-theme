@@ -12,7 +12,7 @@ if (!file_exists("src/assets/bootstrap")) {
     mkdir("src/assets/vendor/bootstrap/js", 0777, true); 
 }
 
-echo "\m Checking if file bootstrap navwalker exist ... \n\n";
+echo "\n Checking if file bootstrap navwalker exist ... \n\n";
 
 if (!file_exists("src/vendor/class-wp-bootstrap-navwalker.php")) {
     echo "\m Copy Boostrap Navwalker ... \n\n";
@@ -27,8 +27,17 @@ echo "...Bootstrap\n";
     copy("vendor/twbs/bootstrap/dist/js/bootstrap.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
     copy("vendor/twbs/bootstrap/assets/js/vendor/popper.min.js", "src/assets/vendor/bootstrap/js/popper.min.js");
 
+echo "Copy Slick for Slider...\n\n";
+    if (!file_exists("src/assets/vendor/slick")) {
+        mkdir("src/assets/vendor/slick/", 0777, true);
+        mkdir("src/assets/vendor/slick/scss", 0777, true);
+        mkdir("src/assets/vendor/slick/js", 0777, true);
+    }
+    copy("vendor/kenwheeler/slick/slick/slick-theme.scss", "src/assets/vendor/slick/scss/slick-theme.scss");
+    copy("vendor/kenwheeler/slick/slick/slick.scss", "src/assets/vendor/slick/scss/slick.scss");
+    copy("vendor/kenwheeler/slick/slick/slick.min.js", "src/assets/vendor/slick/js/slick.min.js");
 
-echo "Finish!\n\n";
+echo "Finish Copy files! \n\n";
 
 function recurse_copy($src,$dst) {
     $dir = opendir($src);
