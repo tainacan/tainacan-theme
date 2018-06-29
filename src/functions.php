@@ -15,7 +15,7 @@ if(!function_exists('tainacan_setup')) {
          * Display in gutenberg plugin the full width for image
          */
         add_theme_support( 'align-wide' );
-        
+
         add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
         define('FS_METHOD', 'direct');
@@ -115,7 +115,11 @@ if(!function_exists('tainacan_setup')) {
                 'dynamic_metadata' => false,
             ]);
         }
-
+        
+        /**
+         * 
+         */
+        add_image_size( 'collection-list-table', 40, 40 );
     }
 
 }
