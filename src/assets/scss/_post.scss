@@ -103,6 +103,15 @@
                         }
                     }
                     .s-item-collection--metadata{
+                        -moz-column-count: 2;
+                        -moz-column-gap: 0;
+                        -moz-column-rule: none;
+                        -webkit-column-count: 2;
+                        -webkit-column-gap: 0;
+                        -webkit-column-rule: none;
+                        column-count: 2;
+                        column-gap: 0;
+                        column-rule: none;
                         h3{
                             color: #000;
                             font-size: 14px;
