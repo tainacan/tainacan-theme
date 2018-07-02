@@ -27,21 +27,24 @@
             }
         }
         .t-collection--col-9{
-            margin-left: 4.16666666667%;
+            margin-left: 1.16666666667%;
+            @media only screen and (max-width: 1024px){
+                margin-left: 4.16666666667%;
+            }
         }
         .t-collection--info-img {
             width: 205px;
             height: 205px;
             max-width: 205px;
-            bottom: -4rem;
+            bottom: -6rem;
             @media only screen and (max-width: 1024px){
                 width: 165px;
                 height: 165px;
                 max-width: 165px;
-                bottom: -3rem;
+                bottom: -5rem;
             }
             @media only screen and (max-width: 992px){
-                bottom: -2rem;
+                bottom: -4rem;
                 width: 123px;
                 height: 123px;
                 max-width: 123px;
@@ -50,7 +53,7 @@
                 width: 95px;
                 height: 95px;
                 max-width: 95px;
-                bottom: 0;
+                bottom: -3rem;
             }
         }
         .t-collection--info-title {
@@ -60,24 +63,32 @@
             }
             bottom: 2.8rem;
             @media only screen and (min-width: 768px){
-                bottom: 2rem;
+                bottom: 0.5rem;
             }
             @media only screen and (max-width: 576px){
                 font: {
                     size: 18px;
                 }
+                bottom: 0.5rem;
             }
         }
-        .t-collection--info-description{
-            font: {
-                size: 12px;
-                weight: 400;
-            }
-            @media only screen and (max-width: 576px){
-                font: {
-                    size: 9px;
-                }
-            }
+    }
+    .t-collection--info-description-text {
+        font: {
+            size: 12px;
+            weight: 400;
+        }
+        margin-left: 1.16666666667%;
+        padding: 0 21.6%;
+        padding-right: 5%;
+        width: 100%;
+        word-wrap: break-word;
+        @media only screen and (max-width: 1024px){
+            margin-left: 4.16666666667%;
+        }
+        @media only screen and (max-width: 576px){
+            padding-left: 32.6%;
+            font-size: 9px;
         }
     }
 }

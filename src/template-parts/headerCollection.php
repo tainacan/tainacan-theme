@@ -11,10 +11,10 @@
             </div>
             <div class="col-8 col-md-9 pl-0 t-collection--col-9">
                 <h2 class="mt-3 mt-md-0 t-collection--info-title text-white position-absolute"><?php tainacan_the_collection_name(); ?></h2>
-                <div class="container t-collection--info-description ml-0 pl-0 mt-3 text-white">
-                    <div style="word-wrap: break-word;"><?php tainacan_the_collection_description(); ?></div>
-                </div>
             </div>
+        </div>
+        <div class="row t-collection--info-description ml-0 pl-0 mt-3 text-white margin-one-column">
+            <p class="t-collection--info-description-text"><?php tainacan_the_collection_description(); ?></p>
         </div>
     </div>
 </div>
