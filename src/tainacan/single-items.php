@@ -100,9 +100,9 @@
                                         </div>
                                         <div class="col col-md-8 s-item-collection--metadata">
                                                 <?php 
-                                                    $args = ['before_title' => '<p>', 'after_title' => '', 'after_value' => '</p>'];
+                                                    $args = ['before_title' => '<div><h3>', 'after_title' => '</h3>', 'before_value' => '<p>', 'after_value' => '</p></div>'];
                                                     //$field = null;
-                                                    tainacan_the_metadata(null, $args); 
+                                                    tainacan_the_metadata($args); 
                                                 ?>
                                         </div>
                                     </div>
