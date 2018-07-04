@@ -246,6 +246,13 @@ function tainacan_hex2rgb( $color ) {
 	return array( 'red' => $r, 'green' => $g, 'blue' => $b );
 }
 
+add_filter( 'query_vars', function ( $public_query_vars ) {
+
+    $public_query_vars[] = "tainacan_collections_viewmode";
+    return $public_query_vars;
+
+} );
+
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
