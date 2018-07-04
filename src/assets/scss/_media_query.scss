@@ -206,7 +206,14 @@ footer{
                     h6{
                         i.symbol{
                             &:before{
-                                content: "close";
+                                content: "\F415";
+                                display: inline-block;
+                                font: normal normal normal 24px/1 "Material Design Icons";
+                                font-size: 18px;
+                                text-rendering: auto;
+                                line-height: inherit;
+                                -webkit-font-smoothing: antialiased;
+                                -moz-osx-font-smoothing: grayscale;
                                 @extend %transition;
                             }
                         }
@@ -237,7 +244,14 @@ footer{
                             &~h6{
                                 i{
                                     &:before{
-                                        content: "add";
+                                        content: "\F156";
+                                        display: inline-block;
+                                        font: normal normal normal 24px/1 "Material Design Icons";
+                                        font-size: inherit;
+                                        text-rendering: auto;
+                                        line-height: inherit;
+                                        -webkit-font-smoothing: antialiased;
+                                        -moz-osx-font-smoothing: grayscale;
                                     }
                                 }
                             }
