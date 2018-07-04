@@ -6,6 +6,8 @@
                 <tr>
                     <th scope="col"><?php _e('Miniature'); ?></th>
                     <th scope="col"><?php _e('Title'); ?></th>
+                    <th scope="col"><?php _e('Description'); ?></th>
+                    <th scope="col"><?php _e('Date'); ?></th>
                     <th scope="col"><?php _e('Author'); ?></th>
                 </tr>
             </thead>
@@ -21,6 +23,8 @@
                             <?php endif; ?>
                         </td>
                         <td class="collection-title"><a href="<?php the_permalink(); ?>" class=""><?php the_title(); ?></a></td>
+                        <td class="collection-description text-oslo-gray"><?php the_excerpt(); ?></td>
+                        <td class="collection-date text-oslo-gray"><?php tainacan_post_date(); ?></td>
                         <td class="collection-create-by text-oslo-gray"><?php _e('Created by', 'tainacan-theme'); ?> <?php the_author_posts_link(); ?></td>
                     </tr>
                 
