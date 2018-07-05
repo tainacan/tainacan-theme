@@ -23,12 +23,12 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             //Style
             wp_register_style('bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', '', '4.1.1', '');
             wp_enqueue_style('bootstrap4CSS');
-            //Javascript
-            wp_register_script('bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array('jquery'), '4.1.1', true);
-            wp_enqueue_script('bootstrap4JS');
             //Popper
             wp_register_script('popper_bootstrap4', get_template_directory_uri() . '/assets/vendor/bootstrap/js/popper.min.js', '', '', true);
             wp_enqueue_script('popper_bootstrap4');
+            //Javascript
+            wp_register_script('bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array('jquery'), '4.1.1', true);
+            wp_enqueue_script('bootstrap4JS');
 
         /**
          * Slick Slider Carousel

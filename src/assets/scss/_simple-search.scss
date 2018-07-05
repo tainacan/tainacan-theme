@@ -1,0 +1,39 @@
+.tainacan-collection-list--simple-search{
+    .dropdown {
+        #dropdownMenuSorting, #dropdownMenuViewMode {
+            font-size: 14px;
+            &:focus{
+                box-shadow: none;
+            }
+            &::after {
+                color: #298596;
+            }
+        }
+        .dropdown-menu {
+            a {
+                &:hover{
+                    background-color: #c1dae0;
+                }
+            }
+        }
+    }
+    #tainacan-collection-search {
+        input{
+            border-color: #cbcbcb !important;
+            &:focus{
+                box-shadow: none;
+                border-right: none;
+            }
+            &::placeholder{
+                font-size: 11px;
+                color: #898d8f;
+            }
+        }
+        button{
+            border-color: #cbcbcb !important;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+    }
+}

@@ -358,6 +358,10 @@ form{
     margin: 0 4.16666666667%;
 }
 
+.margin-one-column-left{
+    margin-left: 4.16666666667%;
+}
+
 .margin-two-column{
     margin: 0 8.33333333334%;
 }
@@ -366,9 +370,17 @@ form{
     margin: 0 12.5%;
 }
 
+.custom-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 @import "_comments";
 
 @import "_list-post";
+
+@import "_simple-search";
 
 @import "_post";
 
