@@ -253,6 +253,17 @@ add_filter( 'query_vars', function ( $public_query_vars ) {
 
 } );
 
+function tainacan_active($selected, $current = true, $echo = true) {
+
+    $return = $selected == $current ? 'active' : '';
+
+    if ($echo)
+        echo $return;
+    
+    return $return;
+
+}
+
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';

@@ -24,17 +24,17 @@
                     <?php _e('Sorting', 'tainacan-theme'); ?>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSorting">
-                        <a class="dropdown-item" href="#"><?php _e('Creation date', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item" href="#"><?php _e('Title', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('orderby'), 'date'); ?>" href="<?php echo add_query_arg('orderby', 'date'); ?>"><?php _e('Creation date', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('orderby'), 'title'); ?>" href="<?php echo add_query_arg('orderby', 'title'); ?>"><?php _e('Title', 'tainacan-theme'); ?></a>
                     </div>
                 </div>
                     
-                <button class="btn btn-white bg-white margin-one-column-left">
+                <a class="btn btn-white bg-white margin-one-column-left <?php tainacan_active(get_query_var('order'), 'ASC'); ?>" href="<?php echo add_query_arg('order', 'ASC'); ?>">
                     <i class="mdi mdi-sort-ascending"></i>
-                </button>
-                <button class="btn btn-white bg-white">
+                </a>
+                <a class="btn btn-white bg-white <?php tainacan_active(get_query_var('order'), 'DESC'); ?>" href="<?php echo add_query_arg('order', 'DESC'); ?>">
                     <i class="mdi mdi-sort-descending"></i>
-                </button>
+                </a>
                 
                 <div class="dropdown margin-one-column-left">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,9 +42,9 @@
                         <?php _e('View Mode', 'tainacan-theme'); ?>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-                        <a class="dropdown-item" href="#"><?php _e('Table', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item" href="#"><?php _e('Cards', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item" href="#"><?php _e('Grid', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'cards'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'cards'); ?>"><?php _e('Cards', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Grid', 'tainacan-theme'); ?></a>
                     </div>
                 </div>
 
@@ -60,7 +60,11 @@
                         <?php //_e('Grid', 'tainacan-theme'); ?>
                     </option>
                 </select> -->
+                
                 <form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
+                    <input type="hidden" name="orderby" value="<?php echo get_query_var('orderby'); ?>" />
+                    <input type="hidden" name="order" value="<?php echo get_query_var('order'); ?>" />
+                    <input type="hidden" name="tainacan_collections_viewmode" value="<?php echo get_query_var('tainacan_collections_viewmode'); ?>" />
                     <div class="input-group">
                         <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search in collection'); ?>" />
                         <span class="input-group-append">
