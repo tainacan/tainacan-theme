@@ -17,6 +17,12 @@
             }
         }
     }
+
+    button{
+        &:focus{
+            box-shadow: none;
+        }
+    }
     #tainacan-collection-search {
         input{
             border-color: #cbcbcb !important;
