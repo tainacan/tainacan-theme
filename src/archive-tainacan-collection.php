@@ -9,15 +9,6 @@
     <div class="row">
         <div class="col col-sm mx-sm-auto">
             <div class="form-inline mt-4 tainacan-collection-list--simple-search">
-                <?php //_e('Order by', 'tainacan-theme'); ?>
-                <!-- <select class="custom-select" name="orderby">
-                    <option value="date" <?php //selected('date', get_query_var('orderby')); ?> >
-                        <?php //_e('Creation date', 'tainacan-theme'); ?>
-                    </option>
-                    <option value="title" <?php //selected('title', get_query_var('orderby')); ?> >
-                        <?php //_e('Title', 'tainacan-theme'); ?>
-                    </option>
-                </select> -->
                 
                 <div class="dropdown">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,19 +38,6 @@
                         <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Grid', 'tainacan-theme'); ?></a>
                     </div>
                 </div>
-
-                <?php //_e('View Mode', 'tainacan-theme'); ?>
-                <!-- <select class="custom-select" name="tainacan_collections_viewmode">
-                    <option value="table" <?php //selected('table', get_query_var('tainacan_collections_viewmode')); ?> >
-                        <?php //_e('Table', 'tainacan-theme'); ?>
-                    </option>
-                    <option value="cards" <?php //selected('cards', get_query_var('tainacan_collections_viewmode')); ?> >
-                        <?php //_e('Cards', 'tainacan-theme'); ?>
-                    </option>
-                    <option value="grid" <?php //selected('grid', get_query_var('tainacan_collections_viewmode')); ?> >
-                        <?php //_e('Grid', 'tainacan-theme'); ?>
-                    </option>
-                </select> -->
                 
                 <form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
                     <input type="hidden" name="orderby" value="<?php echo get_query_var('orderby'); ?>" />
