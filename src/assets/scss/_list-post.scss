@@ -96,4 +96,54 @@
             }
         }
     }
+    .tainacan-list-collection--grid {
+        /* @media only screen and (min-width: 768px){
+            flex: 0 0 23%;
+            max-width: 23%;
+        } */
+        .tainacan-list-collection--grid-title{
+            font: {
+                size: 14px;
+                weight: 400;
+            }
+        }
+        .tainacan-list-collection--grid-img {
+            width: 275px;
+            height: 250px;
+        }
+    }
+    .tainacan-list-collection--card {
+        &:hover {
+            background: #e5e5e5 !important;
+        }
+        .card-header {
+            background: #fff;
+            font: {
+                size: 14px;
+                weight: 400;
+            }
+        }
+        .tainacan-list-collection--card-img {
+            width: 172px;
+            height: 172px;
+        }
+        .card-block {
+            .card-text {
+                font: {
+                    size: 11px;
+                    weight: 400;
+                }
+            }
+        }
+    }
+
+    .tainacan-list-collection--grid-link, .tainacan-list-collection--card-link {
+        &:hover{
+            text-decoration: none;
+            background-color: #e5e5e5;
+            .card-header {
+                background-color: #e5e5e5;
+            }
+        }
+    }
 }
