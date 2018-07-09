@@ -10,7 +10,7 @@
         <div class="col col-sm mx-sm-auto">
             <div class="form-inline mt-4 tainacan-collection-list--simple-search justify-content-between">
                 
-                <div class="dropdown">
+                <div class="dropdown dropdown-sorting">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php _e('Sorting', 'tainacan-theme'); ?>
                     </button>

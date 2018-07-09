@@ -9,6 +9,11 @@
                 color: #298596;
             }
         }
+        &.dropdown-sorting{
+            button{
+                padding-left: 0;
+            }
+        }
         &.dropdown-viewMode {
             @media only screen and (max-width: 576px) {
                 .show{
