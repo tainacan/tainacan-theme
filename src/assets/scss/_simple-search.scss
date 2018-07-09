@@ -9,16 +9,37 @@
                 color: #298596;
             }
         }
+        &.dropdown-viewMode {
+            @media only screen and (max-width: 576px) {
+                .show{
+                    transform: translate3d(-94px, 35px, 0px) !important;
+                    left: 0 !important;
+                }
+            }
+        }
         .dropdown-menu {
             a {
                 &:hover{
+                    background-color: #c1dae0;
+                }
+                &.active {
                     background-color: #c1dae0;
                 }
             }
         }
     }
 
-    button{
+    a{
+        color: #898d8f;
+        &:hover{
+            color: #898d8f;
+        }
+        &.active {
+            color: #cbcbcb;
+            &:hover{
+                color: #cbcbcb;
+            }
+        }
         &:focus{
             box-shadow: none;
         }

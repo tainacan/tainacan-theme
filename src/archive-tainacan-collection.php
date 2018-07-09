@@ -8,7 +8,7 @@
 <main role="main" class="max-large margin-one-column">
     <div class="row">
         <div class="col col-sm mx-sm-auto">
-            <div class="form-inline mt-4 tainacan-collection-list--simple-search">
+            <div class="form-inline mt-4 tainacan-collection-list--simple-search justify-content-between">
                 
                 <div class="dropdown">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,10 +27,10 @@
                     <i class="mdi mdi-sort-descending"></i>
                 </a>
                 
-                <div class="dropdown margin-one-column-left">
+                <div class="dropdown margin-one-column-left dropdown-viewMode">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="mdi mdi-view-list text-oslo-gray"></i>
-                        <?php _e('View Mode', 'tainacan-theme'); ?>
+                        <span class="d-none d-md-inline"><?php _e('View Mode', 'tainacan-theme'); ?></span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
                         <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
