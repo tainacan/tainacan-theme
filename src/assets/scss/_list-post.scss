@@ -97,10 +97,8 @@
         }
     }
     .tainacan-list-collection--grid {
-        /* @media only screen and (min-width: 768px){
-            flex: 0 0 23%;
-            max-width: 23%;
-        } */
+        width: 250px;
+        height: 287px;
         .tainacan-list-collection--grid-title{
             font: {
                 size: 14px;

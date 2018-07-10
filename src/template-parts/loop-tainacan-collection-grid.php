@@ -1,5 +1,5 @@
 <?php if(have_posts()): ?>
-    <div class="tainacan-list-post text-center container px-0">
+    <div class="tainacan-list-post text-center container px-md-0">
         <div class="row mx-auto">
             <?php while(have_posts()): the_post(); ?>
                 <a class="tainacan-list-collection--grid-link mt-5 mr-2" href="<?php the_permalink(); ?>">
