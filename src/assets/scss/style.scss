@@ -111,7 +111,7 @@ nav{
                             }
                         }
                     }
-                    &.current_page_item{
+                    &.current_page_item, &.current-menu-item{
                         a{
                             border-bottom: 1px solid #298596;
                             padding: 0;
