@@ -20,7 +20,7 @@
         </div>
     </div>
     
-    <div class="mt-5 tainacan-list-post">
+    <div class="mt-5 tainacan-list-post margin-md-two-column">
         
         <?php while(have_posts()): ?>
             <?php the_post(); ?>

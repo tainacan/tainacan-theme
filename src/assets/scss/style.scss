@@ -295,7 +295,7 @@ form{
         padding: 1.5rem;
         padding-left: 4.166667%;
         padding-right: 4.166667%;
-        max-width: 90vw;
+        max-width: 87.5vw;
         word-break: break-word;
         @media only screen and (min-width: 992px){
             min-height: 100px;
@@ -362,6 +362,13 @@ form{
 
 .margin-one-column{
     margin: 0 4.16666666667%;
+}
+
+.margin-md-two-column {
+    @media only screen and (max-width: 768px){
+        margin-left: 8.33333333334% !important;
+        margin-right: 8.33333333334% !important;
+    }
 }
 
 .margin-one-column-left{
