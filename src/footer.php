@@ -13,10 +13,15 @@
         <div class="row p-4">
             <div class="col text-white font-weight-normal">
                 <p>
-                    <?php echo bloginfo('title');?>
-                </p>
-                <p>
-                <?php echo get_option('address-field', ''); ?>
+                    <?php 
+                        echo bloginfo('title');
+                    if(!wp_is_mobile()) : echo '<br>';?>
+                <?php
+                    else :
+                        echo '</p><p>';
+                    endif;
+                    echo get_option('address-field', ''); 
+                ?>
                 </p>
                 <p>
                     <?php 
