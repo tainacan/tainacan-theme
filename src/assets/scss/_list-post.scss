@@ -1,5 +1,10 @@
 .tainacan-list-post {
     //padding: 0 1rem 0 2rem;
+    hr{
+        &:last-child{
+            display: none;
+        }
+    }
     .blog-post{
         .blog-thumbnail{
             @media screen {
