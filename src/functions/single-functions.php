@@ -83,3 +83,12 @@ function filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
     return $formatted_link; 
 }
 add_filter( 'cancel_comment_reply_link', 'filter_cancel_comment_reply_link', 10, 3 ); 
+
+/* function max_title_length($title){
+    $max = 20;
+    if(strlen($title) > $max)
+        return substr($title, 0, $max). " &hellip;";
+    else
+        return $title;
+}
+add_filter('the_title', 'max_title_length'); */

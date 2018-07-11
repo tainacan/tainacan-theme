@@ -293,12 +293,16 @@ form{
     .title-header{
         display: inline-block;
         padding: 1.5rem;
+        padding-left: 4.166667%;
+        padding-right: 4.166667%;
+        max-width: 90vw;
+        word-break: break-word;
         @media only screen and (min-width: 992px){
-            height: 100px;
+            min-height: 100px;
             min-width: 450px;
             padding: 0rem;
             padding-left: 4.166667%;
-            padding-right: 1rem;
+            padding-right: 4.166667%;
             &.singular-title{
                 padding: 1.5rem;
                 padding-left: 4.166667%;
@@ -308,11 +312,12 @@ form{
             padding: 0.7rem;
             padding-top: 2.2rem;
             padding-left: 4.166667%;
-            height: 100px;
+            padding-right: 4.166667%;
+            min-height: 100px;
         }
         @media only screen and (max-width: 576px){
-            height: 60px;
-            padding: 0.3rem 1.3rem 0.3rem 4.16666666667%;
+            min-height: 60px;
+            padding: 1rem 1.3rem 0.3rem 4.16666666667%;
         }
         h1{
             color: #000;
@@ -337,6 +342,7 @@ form{
     .tainacan-title-page{
         .title-page{
             font-size: 20px;
+            word-break: break-word;
         }
         .title-back{
             font: {
