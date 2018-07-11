@@ -13,10 +13,12 @@
                 background-color: #e6f6f8;
             } */
             .card-body{
+                padding: 0.85rem;
                 .card-title{
                     a{
                         color: #000 !important;
                         font-weight: 400;
+                        font-size: 0.85rem;
                     }
                 }
             }

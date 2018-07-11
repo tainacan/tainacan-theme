@@ -8,7 +8,11 @@
                 <div class="grid-item col col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card border-0">
                         <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
-                            <?php the_post_thumbnail('medium'); ?>
+                            <?php if ( has_post_thumbnail() ): ?>
+                                <?php the_post_thumbnail('medium'); ?> 
+                            <?php else: ?>
+                                <?php echo '<img alt="Thumbnail placeholder" src="'.get_stylesheet_directory_uri().'/assets/images/thumbnail_placeholder.png">'?>
+                            <?php endif; ?>  
                         <?php endif; ?>
                         <div class="card-body">
                             <h5 class="card-title">

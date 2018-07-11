@@ -10,7 +10,12 @@
                         
                         <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
                             <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('thumbnail', array('class' => 'mr-4')); ?>
+                                <?php if ( has_post_thumbnail() ): ?>
+                                    <?php the_post_thumbnail('thumbnail', array('class' => 'mr-4')); ?>
+                                <?php else: ?>
+                                    <?php echo '<div class="mr-4"><img alt="Thumbnail placeholder" src="'.get_stylesheet_directory_uri().'/assets/images/thumbnail_placeholder.png"></div>'?>
+                                <?php endif; ?>  
+                                
                             </a>
                         <?php endif; ?>
 
