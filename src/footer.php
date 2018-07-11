@@ -1,5 +1,5 @@
 <?php if(!is_404()) : ?>
-    <footer class="container-fluid p-4 p-sm-5 mt-5 bg-haiti">
+    <footer class="container-fluid p-4 p-sm-5 mt-5 bg-haiti" style="padding-bottom: 0 !important;">
         <?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
             <div class="row">
                 <div class="col-12 col-lg">
@@ -16,12 +16,20 @@
                     <?php echo bloginfo('title');?>
                 </p>
                 <p>
-                    Endereço
+                <?php echo get_option('address-field', ''); ?>
                 </p>
                 <p>
-                    Email
-                        <br>
-                    Telefone
+                    <?php 
+                        _e('E-mail: ');
+                        echo bloginfo('admin_email'); 
+                        if(wp_is_mobile()) :
+                            echo '<br>';
+                        else :
+                            echo ' - ';
+                        endif;
+                        _e('Telephone: ');
+                        echo get_option('telephone-field', ''); 
+                    ?>
                 </p>
             </div>
             <div class="col-auto pr-0 pr-md-3 d-none d-sm-block align-self-md-center">
