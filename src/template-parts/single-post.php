@@ -3,9 +3,7 @@
         <div class="header-meta text-muted mb-5">
             <?php
                 tainacan_post_date();
-                echo ' ';
-                _e('By', 'tainacan-theme');
-                echo ' ';
+                _e(', by ', 'tainacan-theme');
                 the_author_posts_link();
                 /* echo ' ';
                 _e('on', 'tainacan-theme'); */
