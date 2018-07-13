@@ -1,7 +1,7 @@
 <?php if(have_posts()): ?>
     <div class="tainacan-title">
         <div class="border-bottom border-jelly-bean tainacan-title-page">
-            <ul class="list-inline mb-1">
+            <ul class="list-inline mb-1 d-flex">
                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                     <?php 
                         if(is_home()) echo 'Blog'; 
@@ -15,7 +15,7 @@
                         }
                     ?>
                 </li>
-                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
+                <li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
             </ul>
         </div>
     </div>
