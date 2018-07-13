@@ -51,6 +51,9 @@
                             padding-top: 2px;
                         }
                     }
+                    &:focus{
+                        box-shadow: none;
+                    }
                 }
                 &#cancel-comment-reply-link{
                     color: #150e38;
@@ -59,6 +62,7 @@
                     &:hover{
                         background-color: #25a189 !important;
                     }
+                    border: none;
                 }
             }
         }
