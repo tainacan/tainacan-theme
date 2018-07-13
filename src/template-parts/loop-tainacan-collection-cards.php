@@ -2,29 +2,23 @@
     <div class="tainacan-list-post container">
         <div class="row mx-auto">
             <?php while(have_posts()): the_post(); ?>
-            <a class="tainacan-list-collection--card-link mt-5 mx-1" href="<?php the_permalink(); ?>">
-                <div class="card tainacan-list-collection--card border-0">
-                    <div class="card-header text-black border-0">
-                        <?php the_title(); ?>
-                    </div>
-                    <div class="row ">
-                        <div class="col col-md-6 pr-0">
+                <div class="col col-lg-4 tainacan-list-collection--card mt-5">
+                    <a class="tainacan-list-collection--card-link mx-1" href="<?php the_permalink(); ?>">
+                        <h5 class="tainacan-list-collection--title text-black"><?php the_title(); ?></h5>
+                        <div class="media">
                             <?php if ( has_post_thumbnail() && get_the_post_thumbnail_url(get_the_ID()) ) : ?>
-                                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'collection-list-card') ?>" class="card-img-top-left tainacan-list-collection--card-img rounded-0" alt="">  
+                                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'collection-list-card') ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">  
                             <?php endif; ?>
-                        </div>
-                        <div class="col col-md-6 px-0">
-                            <div class="card-block p-0">
-                                <p class="card-text text-oslo-gray"><?php echo get_the_excerpt(); ?></p>
-                                <p class="card-text text-oslo-gray"> 
+                            <div class="media-body text-oslo-gray">
+                                <p><?php echo get_the_excerpt(); ?></p>
+                                <p> 
                                     <?php _e('Create by: ');?> <?php the_author(); ?><br>
                                     <?php _e('Date: ');?> <?php tainacan_post_date(); ?>
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </a>
             <?php endwhile; ?>
         </div>
     </div>

@@ -118,8 +118,11 @@
     .tainacan-list-collection--card {
         &:hover {
             background: #e5e5e5 !important;
+            .tainacan-list-collection--title {
+                background-color: #e5e5e5;
+            }
         }
-        .card-header {
+        .tainacan-list-collection--title {
             background: #fff;
             font: {
                 size: 14px;
@@ -130,8 +133,8 @@
             width: 172px;
             height: 172px;
         }
-        .card-block {
-            .card-text {
+        .media-body {
+            p {
                 font: {
                     size: 11px;
                     weight: 400;
@@ -144,7 +147,7 @@
         &:hover{
             text-decoration: none;
             background-color: #e5e5e5;
-            .card-header {
+            .tainacan-list-collection--title {
                 background-color: #e5e5e5;
             }
         }
