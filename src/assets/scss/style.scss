@@ -363,7 +363,13 @@ form{
 .margin-one-column{
     margin: 0 4.16666666667%;
 }
-
+.form-control{
+    border-color: #e5e5e5;
+    &:focus{
+        box-shadow: none;
+        border-color: #898d8f;
+    }
+}
 .margin-md-two-column {
     @media only screen and (max-width: 768px){
         margin-left: 8.33333333334% !important;
