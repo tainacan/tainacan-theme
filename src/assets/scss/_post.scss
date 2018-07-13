@@ -32,12 +32,15 @@
                 max-width: 100%;
             }
             .wp-block-cover-image{
-                width: 100vw;
+                width: 99.5vw;
                 position: relative;
                 left: 50%;
                 right: 50%;
                 margin-left: -50vw;
                 margin-right: -50vw;  
+                @media only screen and (max-width: 1200px){
+                    width: 100vw;
+                }
             }
             .wp-block-embed{
                 iframe{
