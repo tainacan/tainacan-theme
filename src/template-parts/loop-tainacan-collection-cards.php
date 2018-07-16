@@ -8,8 +8,16 @@
                         <div class="media">
                             <?php if ( has_post_thumbnail() && get_the_post_thumbnail_url(get_the_ID()) ) : ?>
                                 <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'collection-list-card') ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">  
-                            <?php else : ?>    
-                                <img src="//placehold.it/600x400?text=NO+IMG" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">
+                            <?php else : ?>
+                                <div class="image-placeholder">
+                                    <h4>
+                                    <?php 
+                                        $get_title =  get_the_title(); 
+                                        $ltr_group = substr($get_title, 0, 1);
+                                        echo $ltr_group;
+                                    ?>
+                                    </h4>
+                                </div>
                             <?php endif; ?>
                             <div class="media-body text-oslo-gray">
                                 <p><?php echo get_the_excerpt(); ?></p>
