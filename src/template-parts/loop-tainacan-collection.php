@@ -1,7 +1,7 @@
 <?php if(have_posts()): ?>
-    <div class="mt-5 tainacan-list-post">
+    <div class="mt-5 tainacan-list-post table-responsive">
         
-        <table class="table table-hover table-responsive">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col"><?php _e('Miniature'); ?></th>
@@ -21,7 +21,7 @@
                         </td>
                         <td class="collection-title"><?php the_title(); ?></td>
                         <td class="collection-description text-oslo-gray"><?php the_excerpt(); ?></td>
-                        <td class="collection-date text-oslo-gray"><?php tainacan_post_date(); ?></td>
+                        <td class="collection-date text-oslo-gray"><?php echo get_the_date(); ?></td>
                         <td class="collection-create-by text-oslo-gray"><?php _e('Created by', 'tainacan-theme'); ?> <?php the_author_posts_link(); ?></td>
                     </tr>
                 <?php endwhile; ?>
