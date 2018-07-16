@@ -56,61 +56,61 @@ if(!function_exists('tainacan_setup')) {
         
         if (function_exists('tainacan_register_view_mode')) {
             tainacan_register_view_mode('grid', [
-                'label' => 'Grid view',
-                'description' => 'A grid view',
-                'icon' => '<span class="icon"><i class="mdi mdi-view-grid mdi-24px"></i></span>',
+                'label' => 'Thumbnail',
+                'description' => 'A thumbnail grid view, showing only title and thumbnail',
+                'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
             tainacan_register_view_mode('mosaic', [
-                'label' => 'Mosaic view',
+                'label' => 'Mosaic',
                 'description' => 'A mosaic view',
                 'icon' => '<span class="icon"><i class="mdi mdi-view-quilt mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
             tainacan_register_view_mode('frame', [
-                'label' => 'Frame view',
+                'label' => 'Frame',
                 'description' => 'A frame view, made for gallery expositions',
                 'icon' => '<span class="icon"><i class="mdi mdi-checkbox-intermediate mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
             tainacan_register_view_mode('gallery', [
-                'label' => 'Gallery view',
+                'label' => 'Gallery',
                 'description' => 'A framed view with metadata, made for gallery expositions',
                 'icon' => '<span class="icon"><i class="mdi mdi-bank mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
             tainacan_register_view_mode('masonry', [
-                'label' => 'Masonry view',
+                'label' => 'Masonry',
                 'description' => 'A masonry view',
                 'icon' => '<span class="icon"><i class="mdi mdi-view-dashboard mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
             tainacan_register_view_mode('books', [
-                'label' => 'Books view',
+                'label' => 'Books',
                 'description' => 'A books view, made for library visualizations',
                 'icon' => '<span class="icon"><i class="mdi mdi-library-books mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
             tainacan_register_view_mode('polaroid', [
-                'label' => 'Polaroid view',
+                'label' => 'Polaroid',
                 'description' => 'A framed picture view, similar to polaroid photographs',
                 'icon' => '<span class="icon"><i class="mdi mdi-polaroid mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
             tainacan_register_view_mode('profile', [
-                'label' => 'Profile view',
+                'label' => 'Profile',
                 'description' => 'A profile view, for displaying persons information',
                 'icon' => '<span class="icon"><i class="mdi mdi-account-card-details mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
             tainacan_register_view_mode('document', [
-                'label' => 'Document view',
+                'label' => 'Document',
                 'description' => 'A document view, for displaying papers and published research',
                 'icon' => '<span class="icon"><i class="mdi mdi-file-document mdi-24px"></i></span>',
                 'dynamic_metadata' => true,
             ]);
             tainacan_register_view_mode('albums', [
-                'label' => 'Albums view',
+                'label' => 'Albums',
                 'description' => 'A musical albums view',
                 'icon' => '<span class="icon"><i class="mdi mdi-album mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
