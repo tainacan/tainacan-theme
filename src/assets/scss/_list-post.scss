@@ -50,6 +50,15 @@
         }
     }
     table {
+        thead {
+            th {
+                color: #898d8f;
+                font : {
+                    size: 12px;
+                    weight: 400;
+                }
+            }
+        }
         .tainacan-list-collection{
             cursor: pointer;
             th, td{
