@@ -67,6 +67,11 @@
                     width: 40px;
                     height: 40px;
                 }
+                .image-placeholder {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                }
             }
             .collection-title{
                 font: {
@@ -114,6 +119,13 @@
             width: 275px;
             height: 250px;
         }
+        .image-placeholder {
+            height: 250px;
+            width: 250px;
+            > h4 {
+                font-size: 48px;
+            }
+        }
     }
     .tainacan-list-collection--card {
         &:hover {
@@ -132,6 +144,15 @@
         .tainacan-list-collection--card-img {
             width: 172px;
             height: 172px;
+        }
+        .image-placeholder {
+            height: 172px;
+            width: 172px;
+            margin-right: 1rem;
+            > h4 {
+                text-align: center;
+                font-size: 48px;
+            }
         }
         .media-body {
             p {

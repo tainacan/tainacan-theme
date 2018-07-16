@@ -395,6 +395,22 @@ form{
     appearance: none;
 }
 
+
+.image-placeholder {
+    background-color: #cbcbcb;
+    display: flex;
+    margin: 0 auto;
+    > h4 {
+        /* align-self: center;
+        text-align: center;
+        width: 100%; */
+        flex: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #fff
+    }
+}
+
 @import "_comments";
 
 @import "_list-post";
