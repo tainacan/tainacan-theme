@@ -9,6 +9,16 @@
                         </p>
                         <?php if ( has_post_thumbnail() && get_the_post_thumbnail_url(get_the_ID()) ) : ?>
                             <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'collection-list-grid') ?>" class="img-fluid tainacan-list-collection--grid-img" alt="">  
+                        <?php else : ?>
+                            <div class="image-placeholder">
+                                <h4>
+                                <?php 
+                                    $get_title =  get_the_title(); 
+                                    $ltr_group = substr($get_title, 0, 1);
+                                    echo $ltr_group;
+                                ?>
+                                </h4>
+                            </div>
                         <?php endif; ?>
                     </div> 
                 </a>
