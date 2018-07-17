@@ -28,6 +28,13 @@
         }
         .t-collection--col-9{
             margin-left: 1.16666666667%;
+            h2 {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                left: 0;
+                right: 20vw;
+            }
             @media only screen and (max-width: 1024px){
                 margin-left: 4.16666666667%;
             }
