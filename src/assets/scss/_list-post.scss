@@ -7,21 +7,29 @@
     }
     .blog-post{
         .blog-thumbnail{
+            padding-right: 0;
+            margin-right: 4.16666666667%;
             @media screen {
                 @media (min-width: 992px){
                     flex: 0 0 29.333333%;
                 }
             }
-            /* img{
-                box-shadow: 0 4px 9px 0 #00000061, 0 5px 15px 0 #00000059;
-            } */
+            img{
+                width: 300px;
+                height: 193px;
+            }
         }
         .blog-content{
             &.blog-flex{
                 @media screen {
+                    @media (min-width: 768px) {
+                        flex: 0 0 61.666667%;
+                        max-width: 61.666667%;
+                    }
                     @media (min-width: 992px){
-                        flex: 0 0 70.666667%;
-                        max-width: 70.666667%;
+                        flex: 0 0 65.666667%;
+                        max-width: 65.666667%;
+                        padding-left: 0;
                     }
                 }
             }
