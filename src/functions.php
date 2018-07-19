@@ -184,7 +184,7 @@ function tainacan_get_form_search(){
     $form .= '<form class="tainacan-form-search d-none align-items-center">';
         $form .= '<div id="test-form-search" class="d-flex justify-content-between">';
             $form .= '<div id="input-search" class="w-100 pl-1">';
-                $form .= '<input class="form-control tainacan-input-search py-0 pr-0 '.$input.'" type="search" placeholder="'.__('Search in repository').'" style="height:31px">';
+                $form .= '<input class="form-control tainacan-input-search py-0 pr-0 '.$input.'" type="search" placeholder="'.__('Search in repository', 'tainacan-theme').'" style="height:31px">';
             $form .= '</div>';
             if(wp_is_mobile()){
                 $form .= '<div id="btn-reset" class="d-none">';
