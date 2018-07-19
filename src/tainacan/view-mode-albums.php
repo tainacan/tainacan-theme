@@ -10,7 +10,7 @@
                         <a href="<?php the_permalink(); ?>">              
                             <div class="cd" style="background-image: url('<?php the_post_thumbnail_url('medium'); ?>')"></div>                          
                             <?php if ( has_post_thumbnail() ): ?>
-                                <?php the_post_thumbnail('medium'); ?> 
+                                <?php the_post_thumbnail('tainacan-medium'); ?> 
                             <?php else: ?>
                                 <?php echo '<img alt="Thumbnail placeholder" src="'.get_stylesheet_directory_uri().'/assets/images/thumbnail_placeholder.png">'?>
                             <?php endif; ?>  

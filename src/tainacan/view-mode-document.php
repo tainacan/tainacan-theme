@@ -20,7 +20,7 @@
                             <?php if ( tainacan_current_view_displays('thumbnail') ): ?>
                                 <a href="<?php the_permalink(); ?>">
                                 <?php if ( has_post_thumbnail() ): ?>
-                                    <?php the_post_thumbnail('medium_large'); ?> 
+                                    <?php the_post_thumbnail('tainacan-medium-full'); ?> 
                                 <?php else: ?>
                                     <?php echo '<img alt="Thumbnail placeholder" src="'.get_stylesheet_directory_uri().'/assets/images/thumbnail_placeholder.png">'?>
                                 <?php endif; ?>  
