@@ -33,9 +33,9 @@
                         <span class="d-none d-md-inline"><?php _e('View Mode', 'tainacan-theme'); ?></span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
                         <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'cards'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'cards'); ?>"><?php _e('Cards', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Grid', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Thumbnails', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
                     </div>
                 </div>
                 
@@ -44,7 +44,7 @@
                     <input type="hidden" name="order" value="<?php echo get_query_var('order'); ?>" />
                     <input type="hidden" name="tainacan_collections_viewmode" value="<?php echo get_query_var('tainacan_collections_viewmode'); ?>" />
                     <div class="input-group">
-                        <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search in collection'); ?>" />
+                        <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search collections', 'tainacan-theme'); ?>" />
                         <span class="input-group-append">
                             <button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
                                 <i class="mdi mdi-magnify" style="line-height: inherit;"></i>
