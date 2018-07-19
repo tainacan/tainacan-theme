@@ -15,7 +15,7 @@
                 <?php while(have_posts()): the_post(); ?>
                     <tr class="tainacan-list-collection" onclick="location.href='<?php the_permalink(); ?>'">
                         <td class="collection-miniature">
-                            <?php if ( has_post_thumbnail() && get_the_post_thumbnail_url(get_the_ID()) ) : ?>
+                            <?php if ( has_post_thumbnail() ) : ?>
                                 <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'tainacan-small') ?>" class="img-fluid rounded-circle" alt="">
                             <?php else : ?>
                                 <div class="image-placeholder">
