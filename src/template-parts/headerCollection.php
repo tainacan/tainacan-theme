@@ -13,7 +13,7 @@
                     <div class="image-placeholder rounded-circle border border-white position-absolute">
                         <h4 class="text-center">
                         <?php 
-                            tainacan_the_collection_name();
+                            echo tainacan_get_initials(tainacan_get_the_collection_name());
                         ?>
                         </h4>
                     </div>
