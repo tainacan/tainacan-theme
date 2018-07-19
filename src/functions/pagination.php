@@ -37,14 +37,14 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 			$links[] = $paged + 1;
 		}
 		
-		echo '<div class="d-flex margin-pagination justify-content-between border-top">';
+		echo '<div class="d-flex margin-pagination justify-content-between border-top pt-2">';
 			printf('<div class="col-sm-3 d-none d-lg-block pl-0 view-items">Viewing Items: %d to %d from %d</div>', $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts);
 			echo '<div class="col-sm-5 pr-md-0">';
 				echo '<ul class="pagination justify-content-center justify-content-md-end">' . "\n";
 	 
 					/** Previous Post Link */
 					if ( get_previous_posts_link() )
-						printf( '<li style="padding-right: 5px">%s</li>' . "\n", get_previous_posts_link('<i class="mdi mdi-chevron-left"></i>') );
+						printf( '<li style="padding-right: 5px">%s</li>' . "\n", get_previous_posts_link('<i class="mdi mdi-menu-left"></i>') );
 				
 					/** Link to first page, plus ellipses if necessary */
 					if ( ! in_array( 1, $links ) ) {
@@ -74,7 +74,7 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 				
 					/** Next Post Link */
 					if ( get_next_posts_link() )
-						printf( '<li>%s</li>' . "\n", get_next_posts_link('<i class="mdi mdi-chevron-right"></i>') );
+						printf( '<li>%s</li>' . "\n", get_next_posts_link('<i class="mdi mdi-menu-right"></i>') );
 		
 				echo '</ul>';
 			echo '</div>' . "\n";
