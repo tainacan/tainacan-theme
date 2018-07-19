@@ -250,6 +250,9 @@ form{
     }
     &.page-collection{
         height: 400px !important;
+        @media only screen and (max-width: 576px){
+            height: 200px !important;
+        }
     }
     &.page-height{
         height: 400px;

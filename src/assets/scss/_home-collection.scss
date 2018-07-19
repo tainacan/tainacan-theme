@@ -25,18 +25,19 @@
                 flex: 0 0 29% !important;
                 max-width: 29% !important;
             }
+            @media only screen and (min-width: 1400px){
+                flex: 0 0 16% !important;
+                max-width: 16% !important;
+            }
         }
         .t-collection--col-9{
-            margin-left: 1.16666666667%;
+            margin-left: 4.16666666667%;
             h2 {
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 left: 0;
                 right: 20vw;
-            }
-            @media only screen and (max-width: 1024px){
-                margin-left: 4.16666666667%;
             }
         }
         .t-collection--info-img {
@@ -70,13 +71,14 @@
                 weight: 700;
             }
             bottom: 2.8rem;
-            @media only screen and (min-width: 768px){
-                bottom: 0.5rem;
-            }
             @media only screen and (max-width: 576px){
                 font: {
                     size: 18px;
+                    weight: 500;
                 }
+                bottom: 0.5rem;
+            }
+            @media only screen and (min-width: 768px){
                 bottom: 0.5rem;
             }
         }
@@ -86,18 +88,14 @@
             size: 12px;
             weight: 400;
         }
-        margin-left: 1.16666666667%;
-        padding: 0 21.6%;
-        padding-right: 5%;
+        //margin-left: 0.766667% !important;
+        //padding: 0 21.6%;
+        //padding-right: 5%;
         width: 100%;
         word-wrap: break-word;
         z-index: 1;
-        @media only screen and (max-width: 1024px){
-            margin-left: 4.16666666667%;
-        }
         @media only screen and (max-width: 576px){
             padding-left: 32.6%;
-            font-size: 9px;
         }
     }
 }
