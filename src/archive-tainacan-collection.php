@@ -33,9 +33,9 @@
                         <span class="d-none d-md-inline"><?php _e('View Mode', 'tainacan-theme'); ?></span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
                         <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'cards'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'cards'); ?>"><?php _e('Cards', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Grid', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Thumbnails', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
                     </div>
                 </div>
                 
