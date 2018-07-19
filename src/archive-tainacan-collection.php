@@ -44,7 +44,7 @@
                     <input type="hidden" name="order" value="<?php echo get_query_var('order'); ?>" />
                     <input type="hidden" name="tainacan_collections_viewmode" value="<?php echo get_query_var('tainacan_collections_viewmode'); ?>" />
                     <div class="input-group">
-                        <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search in collection'); ?>" />
+                        <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search collections', 'tainacan-theme'); ?>" />
                         <span class="input-group-append">
                             <button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
                                 <i class="mdi mdi-magnify" style="line-height: inherit;"></i>

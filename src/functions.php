@@ -262,6 +262,12 @@ function tainacan_active($selected, $current = true, $echo = true) {
 
 }
 
+add_filter('get_the_archive_title', function() {
+    if (is_post_type_archive('tainacan-collection')) {
+        return __('Collections', 'tainacan-theme');
+    }
+});
+
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
