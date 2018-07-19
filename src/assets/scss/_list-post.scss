@@ -123,7 +123,7 @@
             }
         }
     }
-    .tainacan-list-collection--grid {
+    /* .tainacan-list-collection--grid {
         width: 250px;
         height: 287px;
         .tainacan-list-collection--grid-title{
@@ -143,7 +143,8 @@
                 font-size: 48px;
             }
         }
-    }
+    } */
+    
     .tainacan-list-collection--card {
         &:hover {
             background: #e5e5e5 !important;
@@ -180,7 +181,34 @@
             }
         }
     }
-
+    .tainacan-list-collection--container-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 250px);
+        grid-gap: 46px;
+        .tainacan-list-collection--grid{
+            //grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 250px;
+            height: 295px;
+            .tainacan-list-collection--grid-title{
+                font: {
+                    size: 14px;
+                    weight: 400;
+                }
+                height: 45px;
+            }
+            .tainacan-list-collection--grid-img {
+                width: 275px;
+                height: 250px;
+            }
+            .image-placeholder {
+                height: 250px;
+                width: 250px;
+                > h4 {
+                    font-size: 48px;
+                }
+            }
+        }
+    }
     .tainacan-list-collection--grid-link, .tainacan-list-collection--card-link {
         &:hover{
             text-decoration: none;
