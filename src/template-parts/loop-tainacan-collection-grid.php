@@ -12,11 +12,7 @@
                         <?php else : ?>
                             <div class="image-placeholder">
                                 <h4>
-                                <?php 
-                                    $get_title =  get_the_title(); 
-                                    $ltr_group = substr($get_title, 0, 1);
-                                    echo $ltr_group;
-                                ?>
+                                    <?php echo tainacan_get_initials(get_the_title()); ?>
                                 </h4>
                             </div>
                         <?php endif; ?>
