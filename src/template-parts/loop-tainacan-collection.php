@@ -1,10 +1,10 @@
 <?php if(have_posts()): ?>
-    <div class="tainacan-list-post container">
-        <div class="row mx-auto">
+    <div class="tainacan-list-post px-md-0 mt-5">
+        <div class="tainacan-list-collection--container-card justify-content-center">
             <?php while(have_posts()): the_post(); ?>
-                <div class="col col-lg-4 tainacan-list-collection--card mt-5">
-                    <a class="tainacan-list-collection--card-link mx-1" href="<?php the_permalink(); ?>">
-                        <h5 class="tainacan-list-collection--title text-black"><?php the_title(); ?></h5>
+                <div class="tainacan-list-collection--card">
+                    <a class="tainacan-list-collection--card-link" href="<?php the_permalink(); ?>">
+                        <h5 class="tainacan-list-collection--title text-black text-left p-3 mb-0"><?php the_title(); ?></h5>
                         <div class="media">
                             <?php if ( has_post_thumbnail() ) : ?>
                                 <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'collection-list-card') ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">  
