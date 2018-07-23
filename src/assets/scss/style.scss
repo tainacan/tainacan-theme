@@ -26,6 +26,7 @@ body{
 nav{
     &.menu-shadow{
         max-height: 50px;
+        border-bottom: none;
         .max-large{
             margin: 0 4.16666666667%;
             .tainacan-form-search{
@@ -154,9 +155,12 @@ nav{
 .b-bottom-top{
     border-bottom: 1px solid #298596;
 }
+
 /*Bordar Navbar bellow*/
 .b-bottom-bellow{
-    border-bottom: 1px solid #cbcbcb;
+    @media only screen and (min-width: 769px) {
+        border-bottom: 1px solid #cbcbcb;
+    }
 }
 
 form{
