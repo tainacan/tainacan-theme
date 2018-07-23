@@ -22,8 +22,8 @@
                         <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
                             <header class="mb-4">
                                 <div class="header-meta text-muted mb-5">
-                                    <?php _e('By ', 'tainacan-theme'); the_author_posts_link(); ?>
-                                    <span class="time"><strong><?php _e('Send date', 'tainacan-theme'); ?>:</strong> <?php tainacan_post_date(); ?></span>
+                                    <span class="time"><?php tainacan_post_date(); ?></span>
+                                    <?php _e(', by ', 'tainacan-theme'); the_author_posts_link(); ?>
                                 </div>
                                 <?php //the_post_thumbnail(); ?>
                             </header>
