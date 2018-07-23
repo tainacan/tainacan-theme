@@ -307,8 +307,8 @@ form{
         padding-right: 4.166667%;
         max-width: 87.5vw;
         word-break: break-word;
-        @media only screen and (min-width: 992px){
-            min-height: 100px;
+        @media only screen and (min-width: 769px){
+            max-height: 100px;
             min-width: 450px;
             padding: 0rem;
             padding-left: 4.166667%;
@@ -320,14 +320,14 @@ form{
         }
         @media only screen and (max-width: 768px){
             padding: 0.7rem;
-            padding-top: 2.2rem;
+            padding-top: 1.2rem;
             padding-left: 4.166667%;
             padding-right: 4.166667%;
-            min-height: 100px;
+            max-height: 100px;
         }
         @media only screen and (max-width: 576px){
-            min-height: 60px;
-            padding: 1rem 1.3rem 0.3rem 4.16666666667%;
+            max-height: 50px;
+            padding: 0 1.3rem 0 4.16666666667%;
         }
         h1{
             color: #000;
