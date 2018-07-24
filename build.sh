@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source build-config.cfg
+source build-config.cfg 
 
 ## Install composer dependencies
 composer install
