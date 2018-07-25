@@ -4,8 +4,8 @@
 ?>
 
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
-    <div class="container-fluid max-large px-0 bg-jelly-bean t-bg-collection">
-        <div class="row t-collection--info margin-one-column">
+    <div class="container-fluid px-0 bg-jelly-bean t-bg-collection">
+        <div class="row t-collection--info max-large margin-one-column" style="overflow-x: inherit;">
             <div class="col-4 col-md-3 px-0 t-collection--col-3">
                 <?php if(has_post_thumbnail(tainacan_get_collection_id())) : ?>
                     <img src="<?php echo get_the_post_thumbnail_url(tainacan_get_collection_id()); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute">
