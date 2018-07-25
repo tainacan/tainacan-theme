@@ -16,6 +16,10 @@ function tainacan_customize_register( $wp_customize ) {
 	/**
 	 * Add others infos in Site identity on customize
 	 */
+	$wp_customize->add_section('footer_info', array(
+		'title'  	 => __('Footer settings', 'tainacan-theme'),
+		'priority'   => 200,
+	));
 	$wp_customize->add_setting( 'blogaddress', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
@@ -23,7 +27,7 @@ function tainacan_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'blogaddress', array(
 		'label'      => __( 'Address' ),
-		'section'    => 'title_tagline',
+		'section'    => 'footer_info',
 	) );
 	$wp_customize->add_setting( 'blogphone', array(
 		'type'       => 'option',
@@ -32,7 +36,7 @@ function tainacan_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'blogphone', array(
 		'label'      => __( 'Phone Number' ),
-		'section'    => 'title_tagline',
+		'section'    => 'footer_info',
 	) );
 
 	// Add color scheme setting and control.

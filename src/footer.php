@@ -20,7 +20,7 @@
                     else :
                         echo '</p><p>';
                     endif;
-                    echo get_option('address-field', ''); 
+                    echo get_option('blogaddress', ''); 
                 ?>
                 </p>
                 <p>
@@ -33,7 +33,7 @@
                             echo ' - ';
                         endif;
                         _e('Telephone: ');
-                        echo get_option('telephone-field', ''); 
+                        echo get_option('blogphone', ''); 
                     ?>
                 </p>
             </div>
