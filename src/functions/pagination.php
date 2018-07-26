@@ -1,6 +1,5 @@
 <?php
 
-if ( ! function_exists( 'pagination_bst4' ) ) {
 	/**
 	 * Tainacan pagination
 	 * @param $col to number of grid collum
@@ -80,4 +79,3 @@ if ( ! function_exists( 'pagination_bst4' ) ) {
 			echo '</div>' . "\n";
 		echo '</div>';
 	}
-}
