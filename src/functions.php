@@ -61,60 +61,14 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
-            tainacan_register_view_mode('mosaic', [
-                'label' => 'Mosaic',
-                'description' => 'A mosaic view',
-                'icon' => '<span class="icon"><i class="mdi mdi-view-quilt mdi-24px"></i></span>',
-                'dynamic_metadata' => false,
-            ]);
-            tainacan_register_view_mode('frame', [
-                'label' => 'Frame',
-                'description' => 'A frame view, made for gallery expositions',
-                'icon' => '<span class="icon"><i class="mdi mdi-checkbox-intermediate mdi-24px"></i></span>',
-                'dynamic_metadata' => false,
-            ]);
-            tainacan_register_view_mode('gallery', [
-                'label' => 'Gallery',
-                'description' => 'A framed view with metadata, made for gallery expositions',
-                'icon' => '<span class="icon"><i class="mdi mdi-bank mdi-24px"></i></span>',
-                'dynamic_metadata' => true,
-            ]);
+            
             tainacan_register_view_mode('masonry', [
                 'label' => 'Masonry',
                 'description' => 'A masonry view',
                 'icon' => '<span class="icon"><i class="mdi mdi-view-dashboard mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
-            tainacan_register_view_mode('books', [
-                'label' => 'Books',
-                'description' => 'A books view, made for library visualizations',
-                'icon' => '<span class="icon"><i class="mdi mdi-library-books mdi-24px"></i></span>',
-                'dynamic_metadata' => false,
-            ]);
-            tainacan_register_view_mode('polaroid', [
-                'label' => 'Polaroid',
-                'description' => 'A framed picture view, similar to polaroid photographs',
-                'icon' => '<span class="icon"><i class="mdi mdi-polaroid mdi-24px"></i></span>',
-                'dynamic_metadata' => true,
-            ]);
-            tainacan_register_view_mode('profile', [
-                'label' => 'Profile',
-                'description' => 'A profile view, for displaying persons information',
-                'icon' => '<span class="icon"><i class="mdi mdi-account-card-details mdi-24px"></i></span>',
-                'dynamic_metadata' => true,
-            ]);
-            tainacan_register_view_mode('document', [
-                'label' => 'Document',
-                'description' => 'A document view, for displaying papers and published research',
-                'icon' => '<span class="icon"><i class="mdi mdi-file-document mdi-24px"></i></span>',
-                'dynamic_metadata' => true,
-            ]);
-            tainacan_register_view_mode('albums', [
-                'label' => 'Albums',
-                'description' => 'A musical albums view',
-                'icon' => '<span class="icon"><i class="mdi mdi-album mdi-24px"></i></span>',
-                'dynamic_metadata' => false,
-            ]);
+            
         }
         
         add_image_size( 'tainacan-theme-list-post', 300, 200, true );
