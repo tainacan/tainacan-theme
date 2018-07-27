@@ -10,16 +10,15 @@
     form{
         &#form-comment{
             .form-row{
-                .col-11{
-                    @media screen {
-                        @media (max-width: 768px){
-                            flex: 0 0 100%;
-                        }
-                        @media (min-width: 992px){
-                            flex: 0 0 95%;
+                .form-group {
+                    .comments-input {
+                        margin-left: auto;
+                        width: 90% !important;
+                        @media only screen and (max-width: 576px){
+                            margin-left: 0;
+                            width: 100% !important;
                         }
                     }
-                    max-width: 100%;
                 }
             }
             .mx-sm-auto{
