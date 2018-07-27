@@ -25,8 +25,8 @@
                                     <span class="time"><?php tainacan_post_date(); ?></span>
                                     <?php _e(', by ', 'tainacan-theme'); the_author_posts_link(); ?>
                                 </div>
-                                <?php //the_post_thumbnail(); ?>
                             </header>
+                            <h1 class="title-content-items"><?php _e('Content'); ?></h1>
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--document">
                                     <?php tainacan_the_document(); ?>
@@ -35,16 +35,12 @@
                         </article>
                     </div>
                     <div class="tainacan-title my-5">
-                        <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
-                            <ul class="list-inline mb-1">
-                                <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-                                    <?php _e('Attachments'); ?>
-                                </li>
-                            </ul>
+                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
                         </div>
                     </div>
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
+                            <h1 class="title-content-items"><?php _e('Attachments'); ?></h1>
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--attachments">
                                     <?php
@@ -67,16 +63,12 @@
                         </article>
                     </div>
                     <div class="tainacan-title my-5">
-                        <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
-                            <ul class="list-inline mb-1">
-                                <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-                                    <?php _e('Information'); ?>
-                                </li>
-                            </ul>
+                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
                         </div>
                     </div>
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
+                            <h1 class="title-content-items"><?php _e('Informations'); ?></h1>
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
@@ -109,6 +101,12 @@
                                 </div>
                             </section>
                         </article>
+                    </div>
+                    <div class="tainacan-title my-5">
+                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                        </div>
+                    </div>
+                    <div class="mt-3 tainacan-single-post">
                         <div class="row">
                             <!-- Container -->
                             <div class="col mt-3 mx-auto">

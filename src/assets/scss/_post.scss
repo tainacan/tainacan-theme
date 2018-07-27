@@ -23,6 +23,13 @@
                 height: auto;
             }
         }
+        .title-content-items {
+            font-size: 18px;
+            font-weight: 500;
+            color: #338591;
+            margin-left: 4.16666666667%;
+            margin-bottom: 2rem;
+        }
         .tainacan-content {
             font-size: 1rem;
             &h1, &h2{
@@ -82,7 +89,7 @@
             &.single-item-collection{
                 .single-item-collection--document{
                     font : {
-                        size: 18px;
+                        size: 14px;
                         weight: 400;
                     }
                     color: black;
