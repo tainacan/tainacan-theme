@@ -6,8 +6,7 @@
                     <?php 
                         if(is_home()) echo 'Blog'; 
                         elseif(is_search()){ 
-                            _e('Search Results for', 'tainacan-theme'); 
-                            echo ' ';
+                            _e('Search Results for', 'tainacan-theme');
                             the_search_query();
                         }
                         elseif(is_archive()){
