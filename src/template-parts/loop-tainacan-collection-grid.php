@@ -4,7 +4,7 @@
             <?php while(have_posts()): the_post(); ?>
                 <a class="tainacan-list-collection--grid-link" href="<?php the_permalink(); ?>">
                     <div class="tainacan-list-collection--grid">
-                        <p class="tainacan-list-collection--grid-title text-black text-left p-3 mb-0">
+                        <p class="tainacan-list-collection--grid-title text-black text-left p-3 mb-0 text-truncate">
                             <?php the_title(); ?>           
                         </p>
                         <?php if ( has_post_thumbnail() ) : ?>
