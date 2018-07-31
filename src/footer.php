@@ -38,10 +38,11 @@
                 </p>
             </div>
             <div class="col-auto pr-0 pr-md-3 d-none d-sm-block align-self-md-center">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo-footer.svg" alt="">
+                    <img src="<?php if(get_theme_mod( 'footer_logo' )) { echo get_theme_mod( 'footer_logo' ); }else{ echo get_template_directory_uri() ?>/assets/images/logo-footer.svg<?php }?>" alt="">
             </div>
         </div>
     </footer>
+    <?php var_dump(get_theme_mod( 'footer_logo' )); ?>
 <?php endif; ?>
 <?php wp_footer(); ?>
 </body>

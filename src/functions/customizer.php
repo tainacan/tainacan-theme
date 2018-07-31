@@ -49,6 +49,20 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'    => 'footer_info',
 	) );
 
+	$wp_customize->add_setting( 'footer_logo', array(
+		'capability' => 'manage_options',
+	) );
+
+    $wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'footer_logo',
+            array(
+               'label'      => __( 'Upload a footer logo', 'tainacan-theme' ),
+               'section'    => 'footer_info',
+               'settings'   => 'footer_logo' 
+            )
+        )
+    );
+
 	// Add color scheme setting and control.
 	$wp_customize->add_setting( 'color_scheme', array(
 		'default'           => 'default',
