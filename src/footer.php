@@ -42,7 +42,6 @@
             </div>
         </div>
     </footer>
-    <?php var_dump(get_theme_mod( 'footer_logo' )); ?>
 <?php endif; ?>
 <?php wp_footer(); ?>
 </body>
