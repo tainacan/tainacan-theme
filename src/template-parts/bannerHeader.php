@@ -8,15 +8,36 @@
         <div class="bg-white-title title-header <?php if(is_singular() || is_archive() || is_search()) { echo 'singular-title'; }?>">
             <h1 class="mb-0 text-truncate">
                 <?php 
-                    if(is_home()) { ?> Blog <?php bloginfo('title'); }
+                    if(is_home()) { ?> 
+                        Blog <?php bloginfo('title'); 
+                    }
                     elseif(is_singular()) { 
                         /* echo mb_strimwidth(get_the_title(),0,25,'...'); */
                         the_title(); 
                     }
-                    elseif(is_archive()) { echo get_the_archive_title(); }
                     elseif(is_search()){ 
                         _e('Search Results for ', 'tainacan-theme');
                         the_search_query();
+                    }
+                    elseif(is_tag() || is_category()){
+                        single_term_title();
+                    }
+                    elseif(is_archive()){
+                        if(have_posts()){
+                            if ( is_day() ) :
+                                printf( __( 'Daily Archives: %s', 'tainacan-theme' ), get_the_date() );
+        
+                            elseif ( is_month() ) :
+                                printf( __( 'Monthly Archives: %s', 'tainacan-theme' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'tainacan-theme' ) ) );
+    
+                            elseif ( is_year() ) :
+                                printf( __( 'Yearly Archives: %s', 'tainacan-theme' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-theme' ) ) );
+    
+                            else :
+                                _e( 'Archives', 'tainacan-theme' );
+        
+                            endif;
+                        }
                     }
                 
                 ?>
