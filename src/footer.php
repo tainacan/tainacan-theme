@@ -26,7 +26,7 @@
                 <p>
                     <?php 
                         _e('E-mail: ');
-                        echo bloginfo('admin_email'); 
+                        echo get_option('blogemail', ''); 
                         if(wp_is_mobile()) :
                             echo '<br>';
                         else :

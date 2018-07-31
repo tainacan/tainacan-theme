@@ -39,6 +39,16 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'    => 'footer_info',
 	) );
 
+	$wp_customize->add_setting( 'blogemail', array(
+		'type'       => 'option',
+		'capability' => 'manage_options',
+	) );
+
+	$wp_customize->add_control( 'blogemail', array(
+		'label'      => __( 'E-mail' ),
+		'section'    => 'footer_info',
+	) );
+
 	// Add color scheme setting and control.
 	$wp_customize->add_setting( 'color_scheme', array(
 		'default'           => 'default',
