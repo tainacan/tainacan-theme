@@ -4,7 +4,7 @@
             <?php while(have_posts()): the_post(); ?>
                 <div class="tainacan-list-collection--card">
                     <a class="tainacan-list-collection--card-link" href="<?php the_permalink(); ?>">
-                        <h5 class="tainacan-list-collection--title text-black text-left p-3 mb-0"><?php the_title(); ?></h5>
+                        <h5 class="tainacan-list-collection--title text-black text-left p-3 mb-0 text-truncate"><?php the_title(); ?></h5>
                         <div class="media">
                             <?php if ( has_post_thumbnail() ) : ?>
                                 <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'collection-list-card') ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">  
