@@ -126,6 +126,39 @@
                         }
                     }
                 }
+                .single-item-collection--attachments {
+                    .single-item-collection--attachments-img {
+                        margin: 10px;
+                    }
+                    .single-item-collection--attachments-prev {
+                        left: -50px;
+                    }
+                    .single-item-collection--attachments-next {
+                        right: 0px;
+                        @media only screen and (min-width: 1500px) {
+                            right: -25px;
+                        }
+                    }
+                    .single-item-collection--attachments-prev, .single-item-collection--attachments-next {
+                        position: absolute;
+                        display: block;
+                        height: 33px;
+                        width: 18px;
+                        line-height: 0px;
+                        font-size: 60px;
+                        color: #298596;
+                        cursor: pointer;
+                        background: transparent;
+                        top: 50%;
+                        -webkit-transform: translate(0, -50%);
+                        -ms-transform: translate(0, -50%);
+                        transform: translate(0, -50%);
+                        padding: 0;
+                        border: none;
+                        outline: none;
+                    }
+
+                }
                 .single-item-collection--information{
                     .card{
                         .item-card--thumbnail{
