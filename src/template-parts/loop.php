@@ -4,7 +4,7 @@
             <ul class="list-inline mb-1 d-flex">
                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                     <?php 
-                        if(is_home()) echo 'Blog'; 
+                        if(is_home()) _e('Posts of blog', 'tainacan-theme'); 
                         elseif(is_search()){ 
                             _e('Search Results for', 'tainacan-theme');
                             the_search_query();
