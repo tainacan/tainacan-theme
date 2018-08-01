@@ -34,8 +34,7 @@
                                 printf( __( 'Yearly Archives: %s', 'tainacan-theme' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-theme' ) ) );
     
                             else :
-                                _e( 'Archives', 'tainacan-theme' );
-        
+                                echo get_the_archive_title();
                             endif;
                         }
                     }
