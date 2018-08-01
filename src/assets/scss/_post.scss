@@ -263,6 +263,17 @@
                             column-gap: 0;
                             column-rule: none;
                         }
+                        @media only screen and (min-width: 1408px){
+                            -moz-column-count: 3;
+                            -moz-column-gap: 0;
+                            -moz-column-rule: none;
+                            -webkit-column-count: 3;
+                            -webkit-column-gap: 0;
+                            -webkit-column-rule: none;
+                            column-count: 3;
+                            column-gap: 0;
+                            column-rule: none;
+                        }
                         h3{
                             color: #000;
                             font-size: 14px;
