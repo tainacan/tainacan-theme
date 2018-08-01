@@ -271,6 +271,7 @@ form{
             }
             @media only screen and (max-width: 576px){
                 margin-bottom: 1.5625rem !important;
+                align-self: flex-end;
             }
             .title-header{
                 @media only screen and (width: 768px){padding-top: 1rem !important;}
@@ -327,7 +328,9 @@ form{
         }
         @media only screen and (max-width: 576px){
             max-height: 50px;
-            padding: 0 1.3rem 0 4.16666666667%;
+            //padding: 0 1.3rem 0 4.16666666667%;
+            padding: 1rem;
+            padding-top: 0.8rem;
         }
         h1{
             color: #000;
