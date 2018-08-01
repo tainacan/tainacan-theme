@@ -128,47 +128,4 @@ jQuery(document).ready(function( $ ) {
             // instead of a settings object
           ]
       });
-
-    /* $('.single-item-collection--attachments').slick({
-        speed: 300,
-        prevArrow: '<button type="button" class="slick-prev"><i class="mdi mdi-menu-left"></i></button>',
-        nextArrow: '<button type="button" class="slick-next"><i class="mdi mdi-menu-right"></i></button>',
-        responsive: [
-            {
-                breakpoint: 1408,
-                settings: {
-                  slidesToShow: 6,
-                  slidesToScroll: 1,
-                  infinite: true,
-                  dots: true
-                }
-            },
-            {
-            breakpoint: 1024,
-                settings: {
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
-                }
-            },
-            {
-            breakpoint: 768,
-                settings: {
-                slidesToShow: 4,
-                slidesToScroll: 1
-                }
-            },
-            {
-            breakpoint: 480,
-                settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-                }
-            }
-          // You can unslick at a given breakpoint now by adding:
-          // settings: "unslick"
-          // instead of a settings object
-        ]
-      }); */
 });
