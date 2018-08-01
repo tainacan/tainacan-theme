@@ -14,7 +14,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$color_scheme = tainacan_get_color_scheme();
 
 	/**
-	 * Add others infos in Site identity on customize
+	 * Add others infos in Site identity on footer
 	 */
 	$wp_customize->add_section('footer_info', array(
 		'title'  	 => __('Footer settings', 'tainacan-theme'),
@@ -48,7 +48,10 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'      => __( 'E-mail' ),
 		'section'    => 'footer_info',
 	) );
-
+	
+	/**
+	 * Footer Logo customizer
+	 */
 	$wp_customize->add_setting( 'footer_logo', array(
 		'capability' => 'manage_options',
 	) );
@@ -56,14 +59,16 @@ function tainacan_customize_register( $wp_customize ) {
     $wp_customize->add_control(
 		new WP_Customize_Image_Control($wp_customize, 'footer_logo',
             array(
-               'label'      => __( 'Upload a footer logo', 'tainacan-theme' ),
+               'label'      => __( 'Upload a logo to the footer', 'tainacan-theme' ),
                'section'    => 'footer_info',
                'settings'   => 'footer_logo' 
             )
         )
     );
 
-	// Add color scheme setting and control.
+	/**
+	 * Add color scheme setting and control.
+	 */
 	$wp_customize->add_setting( 'color_scheme', array(
 		'default'           => 'default',
 		'sanitize_callback' => 'tainacan_sanitize_color_scheme',
@@ -78,10 +83,14 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) );
 
-	// Remove the core header textcolor control, as it shares the main text color.
+	/**
+	 * Remove the core header textcolor control, as it shares the main text color.
+	 */
 	$wp_customize->remove_control( 'header_textcolor' );
 
-	// Add link color setting and control.
+	/**
+	 * Add link color setting and control.
+	 */
 	$wp_customize->add_setting( 'link_color', array(
 		'default'           => $color_scheme[2],
 		'sanitize_callback' => 'sanitize_hex_color',
