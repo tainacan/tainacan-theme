@@ -35,9 +35,70 @@
             &h1, &h2{
                 font-size: 1rem;
             }
-            img {
-                max-width: 100%;
+            img[class*="align"], 
+            img[class*="wp-image-"], 
+            .gallery {
+                .gallery-icon img {
+                    padding: 6px;
+                    max-width: 97.5%;
+                    max-width: calc( 100% - 14px );
+                }
             }
+            img[class*="align"], img[class*="wp-image-"], img[class*="attachment-"] {
+                height: auto;
+            }
+            img {
+                padding: 6px;
+                max-width: calc( 100% - 14px );
+                &.alignleft {
+                    float: left;
+                    margin-right: 1.625em;
+                    margin-bottom: 1.625em;
+                    @media only screen and (max-width: 576px) {
+                        display: block;
+                        float: none;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+                &.alignright {
+                    float: right;
+                    margin-left: 1.625em;
+                    @media only screen and (max-width: 576px) {
+                        display: block;
+                        float: none;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+                &.size-full{
+                    max-width: 97.5%;
+                    width: auto;
+                    height: auto;
+                }
+                &.aligncenter {
+                    clear: both;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            /* .wp-caption {
+                background: #cbcbcb;
+                margin-bottom: 1.625em;
+                max-width: 96%;
+                max-width: calc( 100% - 18px );
+                padding: 9px;
+                .wp-caption-text {
+                    margin-bottom: 0.6em;
+                    padding: 10px 0 5px 40px;
+                    position: relative;
+                }
+                .wp-caption-text, .gallery-caption {
+                    color: #666;
+                    font-size: 12px;
+                }
+            } */
             table, tr, td {
                 border: 1px solid black;
                 padding: 5px;
@@ -89,6 +150,11 @@
                     margin: 2% 0;
                     width: 100%;
                 }
+            }
+            > p:last-child::after {
+                display: block;
+                clear: both;
+                content: "";
             }
             &.single-item-collection{
                 .single-item-collection--document{
