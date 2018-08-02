@@ -8,7 +8,8 @@
     "require": {
         "twbs/bootstrap": "4.*",
         "wp-bootstrap/wp-bootstrap-navwalker": "*",
-        "kenwheeler/slick": "1.6.1"
+        "kenwheeler/slick": "1.6.1",
+        "desandro/imagesloaded": "4.*"
     },
     "scripts": {
         "post-install-cmd": "bash install.sh",

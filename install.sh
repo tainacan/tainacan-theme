@@ -2,15 +2,7 @@
 php -r '
 echo "\n ..::Tainacan Theme::..\n";
 
-echo "\nStarting installation with composer ... please wait!!";
-
-echo "\nChecking if bootstrap folders exist ...\n\n";
-
-if (!file_exists("src/assets/bootstrap")) { 
-    mkdir("src/assets/vendor/bootstrap/", 0777, true); 
-    mkdir("src/assets/vendor/bootstrap/scss", 0777, true); 
-    mkdir("src/assets/vendor/bootstrap/js", 0777, true); 
-}
+echo "\nStarting installation with composer ... please wait!!\n";
 
 echo "\n Checking if file bootstrap navwalker exist ... \n\n";
 
@@ -20,9 +12,16 @@ if (!file_exists("src/vendor/class-wp-bootstrap-navwalker.php")) {
     copy("vendor/wp-bootstrap/wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php", "src/vendor/class-wp-bootstrap-navwalker.php");
 }
 
-echo "\nStarting Copying Files...\n";
+echo "\nStarting Copying Files...\n\n";
 
-echo "...Bootstrap\n";
+echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
+
+    if (!file_exists("src/assets/vendor/bootstrap")) { 
+        mkdir("src/assets/vendor/", 0777, true);
+        mkdir("src/assets/vendor/bootstrap/", 0777, true); 
+        mkdir("src/assets/vendor/bootstrap/scss", 0777, true); 
+        mkdir("src/assets/vendor/bootstrap/js", 0777, true); 
+    }
     recurse_copy("vendor/twbs/bootstrap/scss", "src/assets/vendor/bootstrap/scss");
     copy("vendor/twbs/bootstrap/dist/js/bootstrap.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
     copy("vendor/twbs/bootstrap/assets/js/vendor/popper.min.js", "src/assets/vendor/bootstrap/js/popper.min.js");
@@ -39,6 +38,12 @@ echo "Copy Slick for Slider...\n\n";
     copy("vendor/kenwheeler/slick/slick/slick.min.js", "src/assets/vendor/slick/js/slick.min.js");
     copy("vendor/kenwheeler/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
     recurse_copy("vendor/kenwheeler/slick/slick/fonts", "src/assets/vendor/slick/fonts");
+
+echo "Copy ImageLoaded... \n\n";
+    if (!file_exists("src/assets/vendor/imgloaded")) {
+        mkdir("src/assets/vendor/imgloaded/", 0777, true);
+    }
+    copy("vendor/desandro/imagesloaded/imagesloaded.pkgd.min.js", "src/assets/vendor/imgloaded/imagesloaded.pkgd.min.js");
 
 echo "Finish Copy files! \n\n";
 
