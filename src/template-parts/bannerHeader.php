@@ -18,7 +18,7 @@
                         _e('Search Results for ', 'tainacan-theme');
                         the_search_query();
                     }
-                    elseif(is_tag() || is_category()){
+                    elseif(is_tag() || is_category() || is_tax()){
                         single_term_title();
                     }
                     elseif(is_archive()){
