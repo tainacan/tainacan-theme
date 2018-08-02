@@ -24,7 +24,7 @@ echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
     }
     recurse_copy("vendor/twbs/bootstrap/scss", "src/assets/vendor/bootstrap/scss");
     copy("vendor/twbs/bootstrap/dist/js/bootstrap.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
-    copy("vendor/twbs/bootstrap/assets/js/vendor/popper.min.js", "src/assets/vendor/bootstrap/js/popper.min.js");
+    copy("vendor/twbs/bootstrap/site/docs/4.1/assets/js/vendor/popper.min.js", "src/assets/vendor/bootstrap/js/popper.min.js");
 
 echo "Copy Slick for Slider...\n\n";
     if (!file_exists("src/assets/vendor/slick")) {
@@ -39,11 +39,12 @@ echo "Copy Slick for Slider...\n\n";
     copy("vendor/kenwheeler/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
     recurse_copy("vendor/kenwheeler/slick/slick/fonts", "src/assets/vendor/slick/fonts");
 
-echo "Copy ImageLoaded... \n\n";
-    if (!file_exists("src/assets/vendor/imgloaded")) {
-        mkdir("src/assets/vendor/imgloaded/", 0777, true);
+echo "Copy Masonry & ImageLoaded... \n\n";
+    if (!file_exists("src/assets/vendor/desandro")) {
+        mkdir("src/assets/vendor/desandro/", 0777, true);
     }
-    copy("vendor/desandro/imagesloaded/imagesloaded.pkgd.min.js", "src/assets/vendor/imgloaded/imagesloaded.pkgd.min.js");
+    copy("vendor/desandro/masonry/dist/masonry.pkgd.min.js", "src/assets/vendor/desandro/masonry.pkgd.min.js");
+    copy("vendor/desandro/imagesloaded/imagesloaded.pkgd.min.js", "src/assets/vendor/desandro/imagesloaded.pkgd.min.js");
 
 echo "Finish Copy files! \n\n";
 
