@@ -5,7 +5,7 @@
         <div class="row no-gutters">
         <?php while (have_posts()): the_post(); ?>
             <div class="col">
-                <a class="tainacan-grid" href="<?php the_permalink(); ?>">
+                <a class="tainacan-grid-item" href="<?php the_permalink(); ?>">
                     <p class="metadata-title">     
                         <?php the_title(); ?>           
                     </p>
