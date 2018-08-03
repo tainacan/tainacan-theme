@@ -129,7 +129,17 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, 350px);
         grid-gap: 30px;
+        @media only screen and (max-width: 797px) {
+            grid-gap: 4px;
+        }
         .tainacan-list-collection--card {
+            @media only screen and (max-width: 350px) {
+                padding: {
+                    left: 2rem;
+                    right: 0rem;
+                }
+                width: 100vw;
+            }
             &:hover {
                 background: #e5e5e5 !important;
                 .tainacan-list-collection--title {
@@ -163,6 +173,7 @@
                         size: 11px;
                         weight: 400;
                     }
+                    padding-top: 10px;
                 }
             }
         }
