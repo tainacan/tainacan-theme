@@ -51,35 +51,6 @@ jQuery(document).ready(function( $ ) {
             }
         });
     });
-    
-    $('.showInput').on('click', function(){
-        $('.tainacan-form-search').removeClass('d-none');
-        $('.tainacan-form-search').addClass('d-flex');
-        if($(window).width() > 768){
-            $(this).addClass('d-none');
-        }
-        if($(window).width() < 768){
-            $(this).addClass('active-button');
-        }
-        $(this).attr('type', 'submit');
-        $('.tainacan-form-search').animate({opacity: '1'}, "slow", function(){
-            $('.tainacan-input-search').select();
-        });
-        /* if($.trim($('.tainacan-input-search').val()).length){
-            $('#btn-reset').removeClass('d-none');
-        }else{
-            $('#btn-reset').addClass('d-none');
-        } */
-    });
-    $('.tainacan-input-search').on('blur', function(){
-        $('.tainacan-form-search').animate({opacity: '0'}, "slow", function(){
-            $('.showInput').removeClass('d-none');
-            $('.showInput').removeAttr('type');
-        });
-        if($(window).width() < 768){
-            $('.showInput').removeClass('active-button');
-        }
-    });
 
     var config = {
         attributes: true,
