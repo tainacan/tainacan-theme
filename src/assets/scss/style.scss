@@ -76,6 +76,38 @@ nav{
             }
         }
     }
+    .tainacan-search-form {
+        .form-control {
+            height: 27px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #898d8f;
+        }
+    }
+    .tainacan-form-dropdown {
+        #dropdownMenuLink {
+            &::after {
+                content: none;
+            }
+        }
+        > .dropdown-menu {
+            top: calc(100% + 2px);
+            right: 0;
+            width: 204px;
+            height: 27px;
+            padding: 0;
+            left: inherit;
+            .input-group {
+                border: 0;
+            }
+            .form-control {
+                border-radius: 0;
+                font-size: 12px;
+                font-weight: 400;
+                color: #898d8f;
+            }
+        }
+    }
     .dropdown-menu{
         .dropdown-item{
             &:hover{
@@ -163,41 +195,59 @@ nav{
     }
 }
 
-form{
-    &.tainacan-form-search{
-        flex-flow: nowrap;
-        opacity: 0;
-        @media only screen and (max-width: 576px) {
+.tainacan-search-form {
+    .input-group {
+        float: right !important;
+        transition: all 0.35s, border-radius 0s;
+        width: 32px;
+        height: 32px;
+        background-color: #fff;
+        //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        //border-radius: 25px;
+        //border: 1px solid #ccc;
+        .form-control {
+            //margin-left: -25px;
+            border:none;
+            background: transparent;
+            box-shadow: none;
+            display:block;
+            padding: 1rem 2rem;
+            padding-left: 1rem;
+            &::-webkit-input-placeholder {
+                display: none;
+            }
+            &:-moz-placeholder {
+                /* Firefox 18- */
+                display: none;
+            }
+            &:-ms-input-placeholder {
+                display: none;
+            }
+        }
+        &:hover, &.hover {
+            width: 100%;
+            //border-radius: 25px 25px 25px 25px;
+            border: 1px solid #ccc;
+            position: static;
+        }
+        .form-control-feedback {
             position: absolute;
-            top: 46px;
-            right: 86px;
-            z-index: 2;
-        }
-        @media only screen and (min-width: 600px) and (max-width: 768px) {
-            position: absolute;
-            top: 46px;
-            right: 120px;
-            z-index: 2;
-        }
-        .tainacan-input-search{
-            transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
-            @media only screen and (max-width: 768px) {
-                width: 250px;
-                height: 27px;
-            }
-            border-color: #cbcbcb !important;
-            &:focus{
-                box-shadow: none;
-            }
-        }
-        .tainacan-button-search{
-            border-color: #cbcbcb !important;
-            &:focus{
-                box-shadow: none;
-            }
+            //top: -5px;
+            bottom: 0px;
+            right: -2px;
+            left: 5px;
+            display: block;
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            color: #3596e0;
+            left: initial;
+            font-size: 19px;
         }
     }
 }
+
 
 .page-header {
     height: 200px;
