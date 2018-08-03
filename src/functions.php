@@ -214,6 +214,14 @@ add_filter('get_the_archive_title', function() {
     }
 });
 
+add_action('pre_get_posts', function($query) {
+
+    if ($query->is_main_query() && $query->is_post_type_archive('tainacan-collection')) {
+        $query->set('posts_per_page', 12);
+    }
+
+});
+
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';

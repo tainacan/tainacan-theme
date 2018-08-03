@@ -1,13 +1,7 @@
 <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
     <header class="mb-4">
         <div class="header-meta text-muted mb-5">
-            <?php
-                tainacan_post_date();
-                _e(', by ', 'tainacan-theme');
-                the_author_posts_link();
-                /* echo ' ';
-                _e('on', 'tainacan-theme'); */
-            ?>
+            <?php tainacan_post_date(); ?> <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?>
         </div>
         <?php the_post_thumbnail(); ?>
     </header>

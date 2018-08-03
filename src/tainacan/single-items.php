@@ -22,11 +22,11 @@
                         <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
                             <header class="mb-4">
                                 <div class="header-meta text-muted mb-5">
-                                    <span class="time"><?php tainacan_post_date(); ?></span>
-                                    <?php _e(', by ', 'tainacan-theme'); the_author_posts_link(); ?>
+                                    <span class="time"><?php tainacan_post_date(); ?></span> 
+                                    <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?>
                                 </div>
                             </header>
-                            <h1 class="title-content-items"><?php _e('Content'); ?></h1>
+                            <h1 class="title-content-items"><?php _e('Document', 'tainacan-theme'); ?></h1>
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--document">
                                     <?php tainacan_the_document(); ?>
@@ -75,13 +75,13 @@
                                         <div class="col-12 col-md-4">
                                             <div class="card border-0">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
-                                                    <h3>Miniature</h3>
+                                                    <h3><?php _e('Thumbnail', 'tainacan-theme'); ?></h3>
                                                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" class="item-card--thumbnail mt-2">
                                                 </div>
                                             </div>
                                             <div class="card border-0 my-3">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
-                                                    <h3>Sharing</h3>
+                                                    <h3><?php _e('Share', 'tainacan-theme'); ?></h3>
                                                     <div class="btn-group" role="group">
                                                         <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt=""></a>
                                                         <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt=""></a>
