@@ -167,10 +167,10 @@
                         display: block;
                         height: auto;
                         margin: 0 auto;
-                        width: calc(4.16666666667% * 18);
+                        //width: calc(4.16666666667% * 18);
                     }
                     img.attachment-large {
-                        width: 100%;
+                        //width: 100%;
                     }
                     > iframe {
                         @media only screen and (min-width: 768px){
