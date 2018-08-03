@@ -424,6 +424,18 @@ form{
     }
 }
 
+// Item appear animation, used in some view modes.
+@keyframes item-appear {
+    from {
+        opacity: 0;
+        transform: translate(0, 12px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0px);
+    }
+}
+
 @import "_comments";
 
 @import "_list-post";
