@@ -1,11 +1,50 @@
 footer{
     ul{
         li{
+            &.tainacan-side {
+                h6 {
+                    font: {
+                        size: 18px;
+                    }
+                }
+            }
             p{
                 .fiber{
                     font-size: 9px;
                 }
             }
+            a{
+                color: #898d8f;
+                &:hover {
+                    color: #898d8f;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .tainacan-footer-info {
+        @media only screen and (max-width: 768px){
+            margin: 0 calc(4.16666666667% * 1);
+        }
+        @media only screen and (max-width: 991px){
+            margin: 0 calc(4.16666666667% * 2);
+        }
+        @media only screen and (min-width: 992px){
+            margin: 0 calc(4.16666666667% * 3);
+        }
+        .tainacan-footer-info--blog {
+            font: {
+                size: 14px;
+                weight: 400;
+            }
+        }
+        .tainacan-footer-info--logo {
+            width: 120px;
+        }
+        .tainacan-powered {
+            font-size: 14px;
+            font-weight: 400;
+            color: #44638e;
         }
     }
 }

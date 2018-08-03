@@ -10,9 +10,9 @@
             </div>
         <?php } ?>
         <hr class="bg-scooter"/>
-        <div class="row p-4">
+        <div class="row p-4 tainacan-footer-info">
             <div class="col text-white font-weight-normal">
-                <p>
+                <p class="tainacan-footer-info--blog">
                     <?php 
                         echo bloginfo('title');
                     if(!wp_is_mobile()) : echo '<br>';?>
@@ -23,7 +23,7 @@
                     echo get_option('blogaddress', ''); 
                 ?>
                 </p>
-                <p>
+                <p class="tainacan-footer-info--blog">
                     <?php 
                         _e('E-mail: ');
                         echo get_option('blogemail', ''); 
@@ -37,8 +37,11 @@
                     ?>
                 </p>
             </div>
-            <div class="col-auto pr-0 pr-md-3 d-none d-sm-block align-self-md-center">
-                    <img src="<?php if(get_theme_mod( 'footer_logo' )) { echo get_theme_mod( 'footer_logo' ); }else{ echo get_template_directory_uri() ?>/assets/images/logo-footer.svg<?php }?>" alt="">
+            <div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
+                    <img src="<?php if(get_theme_mod( 'footer_logo' )) { echo get_theme_mod( 'footer_logo' ); }else{ echo get_template_directory_uri() ?>/assets/images/logo-footer.svg<?php }?>" class="tainacan-footer-info--logo" alt="">
+            </div>
+            <div class="col-12 tainacan-powered">
+                <span><?php _e('Proudly powered by Wordpress and Tainacan'); ?></span>
             </div>
         </div>
     </footer>
