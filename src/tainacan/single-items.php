@@ -26,14 +26,24 @@
                                     <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?>
                                 </div>
                             </header>
-                            <h1 class="title-content-items"><?php _e('Document', 'tainacan-theme'); ?></h1>
-                            <section class="tainacan-content single-item-collection margin-two-column">
-                                <div class="single-item-collection--document">
-                                    <?php tainacan_the_document(); ?>
-                                </div>
-                            </section>
+                            <?php if (tainacan_has_document()): ?>
+                                <h1 class="title-content-items"><?php _e('Document', 'tainacan-theme'); ?></h1>
+                                <section class="tainacan-content single-item-collection margin-two-column">
+                                    <div class="single-item-collection--document">
+                                        <?php tainacan_the_document(); ?>
+                                    </div>
+                                </section>
+                            <?php endif; ?>
                         </article>
                     </div>
+
+                    <?php if (tainacan_has_document()): ?>
+                        <div class="tainacan-title my-5">
+                            <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    
                     <?php
                         $images = get_posts( array (
                             'post_parent' => get_the_ID(),
@@ -41,34 +51,37 @@
                             'post_per_page' => -1,
                             'exclude' => get_post_thumbnail_id( get_the_ID() )
                         ));
-                        if ( !empty($images) ) {
                     ?>
-                    <div class="tainacan-title my-5">
-                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                    
+                    <?php if ( !empty($images) ) : ?>
+
+                        <div class="mt-3 tainacan-single-post">
+                            <article role="article">
+                                <h1 class="title-content-items"><?php _e('Attachments'); ?></h1>
+                                <section class="tainacan-content single-item-collection margin-two-column">
+                                    <div class="single-item-collection--attachments">
+                                        <?php
+                                            foreach ( $images as $attachment ) {
+                                                echo '<div class="single-item-collection--attachments-img">' . wp_get_attachment_image( $attachment->ID, 'tainacan-theme-list-post' ) . '</div>';
+                                            }
+                                        ?>
+                                    </div>
+                                </section>
+                            </article>
                         </div>
-                    </div>
+
+                        <div class="tainacan-title my-5">
+                            <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
+                    
+
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
-                            <h1 class="title-content-items"><?php _e('Attachments'); ?></h1>
-                            <section class="tainacan-content single-item-collection margin-two-column">
-                                <div class="single-item-collection--attachments">
-                                    <?php
-                                        foreach ( $images as $attachment ) {
-                                            echo '<div class="single-item-collection--attachments-img">' . wp_get_attachment_image( $attachment->ID, 'tainacan-theme-list-post' ) . '</div>';
-                                        }
-                                    ?>
-                                </div>
-                            </section>
-                        </article>
-                    </div>
-                    <?php } ?>
-                    <div class="tainacan-title my-5">
-                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
-                        </div>
-                    </div>
-                    <div class="mt-3 tainacan-single-post">
-                        <article role="article">
-                            <h1 class="title-content-items"><?php _e('Informations'); ?></h1>
+                            <!-- <h1 class="title-content-items"><?php _e('Information', 'tainacan-theme'); ?></h1> -->
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
