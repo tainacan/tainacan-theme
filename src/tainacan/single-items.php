@@ -61,9 +61,17 @@
                                 <section class="tainacan-content single-item-collection margin-two-column">
                                     <div class="single-item-collection--attachments">
                                         <?php
-                                            foreach ( $images as $attachment ) {
-                                                echo '<div class="single-item-collection--attachments-img">' . wp_get_attachment_image( $attachment->ID, 'tainacan-theme-list-post' ) . '</div>';
-                                            }
+                                            foreach ( $images as $attachment ) { ?>
+                                                <div class="single-item-collection--attachments-img">
+                                                    <a href="<?php echo get_the_permalink( $attachment->ID ); ?>">
+                                                        <?php 
+                                                        $image_attributes = wp_get_attachment_image_src( $attachment->ID );
+                                                        if ( $image_attributes ) : ?>
+                                                            <img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" />
+                                                        <?php endif; ?>
+                                                    </a>
+                                                </div>
+                                            <?php }
                                         ?>
                                     </div>
                                 </section>

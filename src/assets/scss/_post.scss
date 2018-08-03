@@ -200,7 +200,7 @@
                         left: -50px;
                     }
                     .single-item-collection--attachments-next {
-                        right: 0px;
+                        right: -10px;
                         @media only screen and (min-width: 1500px) {
                             right: -25px;
                         }
@@ -209,7 +209,7 @@
                         position: absolute;
                         display: block;
                         height: 33px;
-                        width: 18px;
+                        width: 45px;
                         line-height: 0px;
                         font-size: 60px;
                         color: #298596;
