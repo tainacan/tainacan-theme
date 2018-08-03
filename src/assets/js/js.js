@@ -36,31 +36,6 @@ jQuery(document).ready(function( $ ) {
      */
     $('.wp-block-button a').toggleClass().addClass('btn btn-jelly-bean');
 
-    // Instantiates Masonry;
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if ($('.tainacan-masonry-view')[0]) {
-                $('.tainacan-masonry-view').masonry({
-                    percentPosition: true,
-                    itemSelector: '.grid-item',
-                    /* columnWidth: '.grid-sizer', */
-                    columnWidth: 277,
-                    //gutter: '.gutter-sizer',
-                    horizontalOrder: true,
-                });
-            }
-        });
-    });
-
-    var config = {
-        attributes: true,
-        childList: true,
-        characterData: true
-    };
-    
-    if(document.getElementById('items-list-area'))
-        observer.observe(document.getElementById('items-list-area'), config);
-
     $('.tainacan-list-post .table .tainacan-list-collection td').click(function(){
         window.location = $('.tainacan-list-post .table .tainacan-list-collection').data("href");
     });

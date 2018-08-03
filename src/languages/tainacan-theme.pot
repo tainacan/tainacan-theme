@@ -1,0 +1,373 @@
+# WordPress Blank Pot
+# Copyright (C) 2014 ...
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: "
+"WordPress Blank Pot "
+"v1.0.0\n"
+"POT-Creation-Date: "
+"2018-08-03 11:47-0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your "
+"Name <you@example.com>\n"
+"Language-Team: Your Team "
+"<translations@example."
+"com>\n"
+"Report-Msgid-Bugs-To: "
+"Translator Name "
+"<translations@example."
+"com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/"
+"plain; charset=UTF-8\n"
+"Content-Transfer-"
+"Encoding: 8bit\n"
+"Plural-Forms: "
+"nplurals=2; plural=n != "
+"1;\n"
+"X-Textdomain-Support: "
+"yesX-Generator: Poedit "
+"1.6.4\n"
+"X-Poedit-SourceCharset: "
+"UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html_e;"
+"esc_html_x:1,2c;"
+"esc_html__;esc_attr_e;"
+"esc_attr_x:1,2c;"
+"esc_attr__;_ex:1,2c;"
+"_nx:4c,1,2;"
+"_nx_noop:4c,1,2;_x:1,2c;"
+"_n:1,2;_n_noop:1,2;"
+"__ngettext:1,2;"
+"__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Language: en_US\n"
+"X-Generator: Poedit "
+"2.0.4\n"
+"X-Poedit-"
+"SearchPath-0: .\n"
+
+#: 404.php:9
+msgid ""
+"The page you are looking "
+"for does not exist!"
+msgstr ""
+
+#: 404.php:14
+msgid "Go to first page"
+msgstr ""
+
+#: archive-tainacan-collection.php:15
+msgid "Sorting"
+msgstr ""
+
+#: archive-tainacan-collection.php:18
+msgid "Creation date"
+msgstr ""
+
+#: archive-tainacan-collection.php:19
+#: template-parts/loop-tainacan-collection-table.php:8
+msgid "Title"
+msgstr ""
+
+#: archive-tainacan-collection.php:33
+msgid "View Mode"
+msgstr ""
+
+#: archive-tainacan-collection.php:36
+msgid "Cards"
+msgstr ""
+
+#: archive-tainacan-collection.php:37
+msgid "Thumbnails"
+msgstr ""
+
+#: archive-tainacan-collection.php:38
+msgid "Table"
+msgstr ""
+
+#: archive-tainacan-collection.php:47
+msgid "Search collections"
+msgstr ""
+
+#: comments.php:23
+#, php-format
+msgid ""
+"You must be %slogged%s "
+"in to post a comment."
+msgstr ""
+
+#: comments.php:27
+msgid "Leave your comment"
+msgstr ""
+
+#: comments.php:31
+#: comments.php:42
+#: comments.php:61
+msgid "Authenticated as"
+msgstr ""
+
+#: comments.php:46
+#: comments.php:65
+msgid "Anonymous"
+msgstr ""
+
+#: comments.php:74
+msgid "Name"
+msgstr ""
+
+#: comments.php:78
+#: functions/customizer.php:48
+msgid "E-mail"
+msgstr ""
+
+#: comments.php:82
+msgid "Website"
+msgstr ""
+
+#: comments.php:86
+msgid "Comment"
+msgstr ""
+
+#: comments.php:92
+msgid "Cancel"
+msgstr ""
+
+#: comments.php:93
+msgid "Send"
+msgstr ""
+
+#: comments.php:108
+msgid "Previous Comments"
+msgstr ""
+
+#: comments.php:111
+msgid "Next Comments"
+msgstr ""
+
+#: comments.php:117
+msgid ""
+"Comments are closed."
+msgstr ""
+
+#: footer.php:28
+msgid "E-mail: "
+msgstr ""
+
+#: footer.php:35
+msgid "Telephone: "
+msgstr ""
+
+#: functions.php:85
+msgid ""
+"Tainacan Sidebar Right"
+msgstr ""
+
+#: functions.php:100
+msgid ""
+"Tainacan Sidebar Footer"
+msgstr ""
+
+#: functions.php:141
+#: searchform.php:3
+msgid "Search"
+msgstr ""
+
+#: functions.php:180
+msgid ""
+"Nav Menu Below Header"
+msgstr ""
+
+#: functions.php:221
+msgid "Collections"
+msgstr ""
+
+#: functions/customizer.php:20
+msgid "Footer settings"
+msgstr ""
+
+#: functions/customizer.php:29
+msgid "Address"
+msgstr ""
+
+#: functions/customizer.php:38
+msgid "Phone Number"
+msgstr ""
+
+#: functions/customizer.php:62
+msgid ""
+"Upload a logo to the "
+"footer"
+msgstr ""
+
+#: functions/customizer.php:79
+msgid "Base Color Scheme"
+msgstr ""
+
+#: functions/customizer.php:101
+msgid "Link Color"
+msgstr ""
+
+#: functions/customizer.php:170
+msgid "Default"
+msgstr ""
+
+#: functions/customizer.php:178
+msgid "Carmine"
+msgstr ""
+
+#: functions/customizer.php:186
+msgid "Cherry"
+msgstr ""
+
+#: functions/customizer.php:194
+msgid "Mustard"
+msgstr ""
+
+#: functions/customizer.php:202
+msgid "Mint Green"
+msgstr ""
+
+#: functions/customizer.php:210
+msgid "Dark Turquoise"
+msgstr ""
+
+#: functions/customizer.php:218
+msgid "Turquoise"
+msgstr ""
+
+#: functions/customizer.php:226
+msgid "Light Blue"
+msgstr ""
+
+#: functions/customizer.php:234
+msgid "Purple"
+msgstr ""
+
+#: functions/customizer.php:242
+msgid "Violet"
+msgstr ""
+
+#: functions/single-functions.php:30
+msgid ""
+"Your comment is awaiting "
+"moderation."
+msgstr ""
+
+#: functions/single-functions.php:35
+msgid "Reply"
+msgstr ""
+
+#: functions/single-functions.php:42
+msgid "Edit"
+msgstr ""
+
+#: functions/single-functions.php:46
+msgid "Hide reply"
+msgstr ""
+
+#: tainacan/single-items.php:17
+#: template-parts/loop-singular.php:9
+#: template-parts/loop.php:17
+msgid "Back"
+msgstr ""
+
+#: tainacan/single-items.php:26
+#: template-parts/single-post.php:6
+msgid ", by "
+msgstr ""
+
+#: tainacan/single-items.php:29
+msgid "Content"
+msgstr ""
+
+#: tainacan/single-items.php:52
+msgid "Attachments"
+msgstr ""
+
+#: tainacan/single-items.php:71
+msgid "Informations"
+msgstr ""
+
+#: tainacan/single-items.php:122
+#: template-parts/loop-singular.php:18
+#: template-parts/loop-tainacan-collection-grid.php:28
+#: template-parts/loop-tainacan-collection-table.php:43
+#: template-parts/loop-tainacan-collection.php:35
+#: template-parts/loop.php:36
+msgid "Nothing found"
+msgstr ""
+
+#: template-parts/bannerHeader.php:18
+msgid "Search Results"
+msgstr ""
+
+#: template-parts/bannerHeader.php:26
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: template-parts/bannerHeader.php:29
+#, php-format
+msgid ""
+"Monthly Archives: %s"
+msgstr ""
+
+#: template-parts/bannerHeader.php:29
+msgctxt ""
+"monthly archives date "
+"format"
+msgid "F Y"
+msgstr ""
+
+#: template-parts/bannerHeader.php:32
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: template-parts/bannerHeader.php:32
+msgctxt ""
+"yearly archives date "
+"format"
+msgid "Y"
+msgstr ""
+
+#: template-parts/list-post.php:12
+msgid "for"
+msgstr ""
+
+#: template-parts/list-post.php:13
+msgid "Read more..."
+msgstr ""
+
+#: template-parts/loop-tainacan-collection-table.php:9
+msgid "Description"
+msgstr ""
+
+#: template-parts/loop.php:7
+msgid "Posts of blog"
+msgstr ""
+
+#: template-parts/loop.php:9
+msgid "Search Results for"
+msgstr ""
+
+#: template-parts/single-post.php:23
+msgid "Category: "
+msgstr ""
+
+#: template-parts/single-post.php:28
+msgid "Comments"
+msgstr ""
+
+#: template-parts/single-post.php:29
+msgid "None"
+msgstr ""
+
+#: vendor/class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr ""

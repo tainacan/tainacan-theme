@@ -39,13 +39,6 @@ echo "Copy Slick for Slider...\n\n";
     copy("vendor/kenwheeler/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
     recurse_copy("vendor/kenwheeler/slick/slick/fonts", "src/assets/vendor/slick/fonts");
 
-echo "Copy Masonry & ImageLoaded... \n\n";
-    if (!file_exists("src/assets/vendor/desandro")) {
-        mkdir("src/assets/vendor/desandro/", 0777, true);
-    }
-    copy("vendor/desandro/masonry/dist/masonry.pkgd.min.js", "src/assets/vendor/desandro/masonry.pkgd.min.js");
-    copy("vendor/desandro/imagesloaded/imagesloaded.pkgd.min.js", "src/assets/vendor/desandro/imagesloaded.pkgd.min.js");
-
 echo "Finish Copy files! \n\n";
 
 function recurse_copy($src,$dst) {

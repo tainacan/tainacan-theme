@@ -61,14 +61,6 @@ if(!function_exists('tainacan_setup')) {
                 'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
             ]);
-            
-            tainacan_register_view_mode('masonry', [
-                'label' => 'Masonry',
-                'description' => 'A masonry view',
-                'icon' => '<span class="icon"><i class="mdi mdi-view-dashboard mdi-24px"></i></span>',
-                'dynamic_metadata' => false,
-            ]);
-            
         }
         
         add_image_size( 'tainacan-theme-list-post', 300, 200, true );
@@ -220,6 +212,14 @@ add_filter('get_the_archive_title', function() {
     if (is_post_type_archive('tainacan-collection')) {
         return __('Collections', 'tainacan-theme');
     }
+});
+
+add_action('pre_get_posts', function($query) {
+
+    if ($query->is_main_query() && $query->is_post_type_archive('tainacan-collection')) {
+        $query->set('posts_per_page', 12);
+    }
+
 });
 
 require get_template_directory() . '/functions/customizer.php';

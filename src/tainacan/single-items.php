@@ -22,18 +22,28 @@
                         <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
                             <header class="mb-4">
                                 <div class="header-meta text-muted mb-5">
-                                    <span class="time"><?php tainacan_post_date(); ?></span>
-                                    <?php _e(', by ', 'tainacan-theme'); the_author_posts_link(); ?>
+                                    <span class="time"><?php tainacan_post_date(); ?></span> 
+                                    <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?>
                                 </div>
                             </header>
-                            <h1 class="title-content-items"><?php _e('Content'); ?></h1>
-                            <section class="tainacan-content single-item-collection margin-two-column">
-                                <div class="single-item-collection--document">
-                                    <?php tainacan_the_document(); ?>
-                                </div>
-                            </section>
+                            <?php if (tainacan_has_document()): ?>
+                                <h1 class="title-content-items"><?php _e('Document', 'tainacan-theme'); ?></h1>
+                                <section class="tainacan-content single-item-collection margin-two-column">
+                                    <div class="single-item-collection--document">
+                                        <?php tainacan_the_document(); ?>
+                                    </div>
+                                </section>
+                            <?php endif; ?>
                         </article>
                     </div>
+
+                    <?php if (tainacan_has_document()): ?>
+                        <div class="tainacan-title my-5">
+                            <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    
                     <?php
                         $images = get_posts( array (
                             'post_parent' => get_the_ID(),
@@ -41,47 +51,50 @@
                             'post_per_page' => -1,
                             'exclude' => get_post_thumbnail_id( get_the_ID() )
                         ));
-                        if ( !empty($images) ) {
                     ?>
-                    <div class="tainacan-title my-5">
-                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                    
+                    <?php if ( !empty($images) ) : ?>
+
+                        <div class="mt-3 tainacan-single-post">
+                            <article role="article">
+                                <h1 class="title-content-items"><?php _e('Attachments'); ?></h1>
+                                <section class="tainacan-content single-item-collection margin-two-column">
+                                    <div class="single-item-collection--attachments">
+                                        <?php
+                                            foreach ( $images as $attachment ) {
+                                                echo '<div class="single-item-collection--attachments-img">' . wp_get_attachment_image( $attachment->ID, 'tainacan-theme-list-post' ) . '</div>';
+                                            }
+                                        ?>
+                                    </div>
+                                </section>
+                            </article>
                         </div>
-                    </div>
+
+                        <div class="tainacan-title my-5">
+                            <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
+                    
+
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
-                            <h1 class="title-content-items"><?php _e('Attachments'); ?></h1>
-                            <section class="tainacan-content single-item-collection margin-two-column">
-                                <div class="single-item-collection--attachments">
-                                    <?php
-                                        foreach ( $images as $attachment ) {
-                                            echo '<div class="single-item-collection--attachments-img">' . wp_get_attachment_image( $attachment->ID, 'tainacan-theme-list-post' ) . '</div>';
-                                        }
-                                    ?>
-                                </div>
-                            </section>
-                        </article>
-                    </div>
-                    <?php } ?>
-                    <div class="tainacan-title my-5">
-                        <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
-                        </div>
-                    </div>
-                    <div class="mt-3 tainacan-single-post">
-                        <article role="article">
-                            <h1 class="title-content-items"><?php _e('Informations'); ?></h1>
+                            <!-- <h1 class="title-content-items"><?php _e('Information', 'tainacan-theme'); ?></h1> -->
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
                                         <div class="col-12 col-md-4">
                                             <div class="card border-0">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
-                                                    <h3>Miniature</h3>
+                                                    <h3><?php _e('Thumbnail', 'tainacan-theme'); ?></h3>
                                                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" class="item-card--thumbnail mt-2">
                                                 </div>
                                             </div>
                                             <div class="card border-0 my-3">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
-                                                    <h3>Sharing</h3>
+                                                    <h3><?php _e('Share', 'tainacan-theme'); ?></h3>
                                                     <div class="btn-group" role="group">
                                                         <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt=""></a>
                                                         <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt=""></a>

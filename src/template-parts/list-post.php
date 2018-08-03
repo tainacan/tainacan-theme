@@ -9,7 +9,8 @@
             <a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
         </h3>
         <?php echo '<p class="text-black">'.wp_trim_words( get_the_excerpt(), 28, '...').'</p>'; ?>
-        <time><?php the_time('j M Y \\a\\t g:i'); echo ', '; _e('for');?></time> <?php echo ' '; the_author_posts_link(); ?>
+        <?php tainacan_post_date(); ?> 
+        <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?>
         <a href="<?php the_permalink(); ?>" class="readmore float-right"><?php _e('Read more...'); ?></a>
     </div>
 </div>
