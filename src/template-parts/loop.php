@@ -7,7 +7,7 @@
                         if(is_home()) _e('Posts of blog', 'tainacan-theme'); 
                         elseif(is_search()){ 
                             _e('Search Results for', 'tainacan-theme');
-                            the_search_query();
+                            echo ' "' , get_search_query(), '"';
                         }
                         elseif(is_archive()){
                             echo ' ' . get_the_archive_title();

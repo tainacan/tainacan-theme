@@ -9,14 +9,13 @@
             <h1 class="mb-0 text-truncate">
                 <?php 
                     if(is_home()) { ?> 
-                        Blog <?php bloginfo('title'); 
+                        <?php bloginfo('title'); 
                     }
                     elseif(is_singular()) { ?> 
-                        Blog <?php bloginfo('title');
+                        <?php bloginfo('title');
                     }
                     elseif(is_search()){ 
-                        _e('Search Results for ', 'tainacan-theme');
-                        the_search_query();
+                        _e('Search Results', 'tainacan-theme');
                     }
                     elseif(is_tag() || is_category() || is_tax()){
                         single_term_title();
