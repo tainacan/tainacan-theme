@@ -4,7 +4,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col"><?php //_e('Miniature'); ?></th>
+                    <th scope="col"></th>
                     <th scope="col"><?php _e('Title'); ?></th>
                     <th scope="col"><?php _e('Description'); ?></th>
                     <!-- <th scope="col"><?php //_e('Date'); ?></th>
