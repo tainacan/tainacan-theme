@@ -20,20 +20,28 @@
                     else :
                         echo '</p><p>';
                     endif;
-                    echo get_option('blogaddress', ''); 
+                    if ( get_option('blogaddress') ) {
+                        echo get_option('blogaddress', ''); 
+                    }
                 ?>
                 </p>
                 <p class="tainacan-footer-info--blog">
                     <?php 
-                        _e('E-mail: ');
-                        echo get_option('blogemail', ''); 
-                        if(wp_is_mobile()) :
-                            echo '<br>';
-                        else :
-                            echo ' - ';
-                        endif;
-                        _e('Telephone: ');
-                        echo get_option('blogphone', ''); 
+                        if( get_option('blogemail') ) {
+                            _e('E-mail: ');
+                            echo get_option('blogemail', ''); 
+                        }
+                        if(get_option('blogemail') && get_option('blogphone')) {
+                            if(wp_is_mobile()) :
+                                echo '<br>';
+                            else :
+                                    echo ' - ';
+                            endif;
+                        }
+                        if( get_option('blogphone') ) {
+                            _e('Telephone: ');
+                            echo get_option('blogphone', ''); 
+                        }
                     ?>
                 </p>
             </div>
@@ -41,7 +49,13 @@
                     <img src="<?php if(get_theme_mod( 'footer_logo' )) { echo get_theme_mod( 'footer_logo' ); }else{ echo get_template_directory_uri() ?>/assets/images/logo-footer.svg<?php }?>" class="tainacan-footer-info--logo" alt="">
             </div>
             <div class="col-12 tainacan-powered">
-                <span><?php _e('Proudly powered by Wordpress and Tainacan'); ?></span>
+                <span>
+                    <?php 
+                        if(get_theme_mod( 'display_powered')) {
+                            _e('Proudly powered by Wordpress and Tainacan'); 
+                        }
+                    ?>
+                </span>
             </div>
         </div>
     </footer>
