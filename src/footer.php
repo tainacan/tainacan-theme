@@ -51,7 +51,7 @@
             <div class="col-12 tainacan-powered">
                 <span>
                     <?php 
-                        if(get_theme_mod( 'display_powered')) {
+                        if ( true == get_theme_mod( 'display_powered', false ) ) {
                             printf(__('Proudly powered by %s and %s'), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>'); 
                         }
                     ?>

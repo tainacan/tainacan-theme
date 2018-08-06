@@ -230,6 +230,7 @@
                         .item-card--thumbnail{
                             height: auto;
                             width: 250px;
+                            padding: 0;
                         }
                         h3{
                             color: #000;
@@ -242,6 +243,10 @@
                         }
                         .item-card-link--sharing{
                             margin-right: 0.5rem;
+                            img {
+                                padding: 0;
+                                max-width: 100%;
+                            }
                         }
                     }
                     .s-item-collection--metadata{

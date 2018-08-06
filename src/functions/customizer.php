@@ -48,23 +48,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'      => __( 'E-mail' ),
 		'section'    => 'footer_info',
 	) );
-
-	/**
-	 * Checkbox to display or no the Proudly Powered by Wordpress and Tainacan.
-	 */
-	$wp_customize->add_setting( 'display_powered', array(
-		'default'        => true,
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'display_powered_sanitize_checkbox',
-	) );
-	
-	$wp_customize->add_control( 'display_powered', array(
-		'type' => 'checkbox',
-		'settings' => 'display_powered',
-		'section' => 'footer_info', // Add a default or your own section
-		'label' => __( 'Display Proudly', 'tainacan-theme' ),
-		'description' => __( 'This checkbox display or no the proudly powered.' ),
-	) );
 	
 	/**
 	 * Footer Logo customizer
@@ -82,6 +65,77 @@ function tainacan_customize_register( $wp_customize ) {
             )
         )
     );
+
+	/**
+	 * Checkbox to display or no the Proudly Powered by Wordpress and Tainacan.
+	 */
+	$wp_customize->add_setting( 'display_powered', array(
+		'default'        => true,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+	) );
+	
+	$wp_customize->add_control( 'display_powered', array(
+		'type' => 'checkbox',
+		'settings' => 'display_powered',
+		'section' => 'footer_info',
+		'label' => __( 'Display Proudly', 'tainacan-theme' ),
+		'description' => __( 'This checkbox display or no the proudly powered.' ),
+	) );
+
+	/**
+	 * Social Share Links
+	 */
+
+	$wp_customize->add_section('social_share', array(
+		'title'  	 => __('Social Share', 'tainacan-theme'),
+		'priority'   => 200,
+	));
+
+	//Facebook
+	$wp_customize->add_setting( 'facebook_share', array(
+		'default'        => true,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+	) );
+	
+	$wp_customize->add_control( 'facebook_share', array(
+		'type' => 'checkbox',
+		'settings' => 'facebook_share',
+		'section' => 'social_share',
+		'label' => __( 'Display Facebook', 'tainacan-theme' ),
+		'description' => __( 'This checkbox display or no the Facebook Share.' ),
+	) );
+
+	//Twitter
+	$wp_customize->add_setting( 'twitter_share', array(
+		'default'        => true,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+	) );
+	
+	$wp_customize->add_control( 'twitter_share', array(
+		'type' => 'checkbox',
+		'settings' => 'twitter_share',
+		'section' => 'social_share',
+		'label' => __( 'Display Twitter', 'tainacan-theme' ),
+		'description' => __( 'This checkbox display or no the Twitter Share.' ),
+	) );
+
+	//Google Plus
+	$wp_customize->add_setting( 'google_share', array(
+		'default'        => true,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+	) );
+	
+	$wp_customize->add_control( 'google_share', array(
+		'type' => 'checkbox',
+		'settings' => 'google_share',
+		'section' => 'social_share',
+		'label' => __( 'Display Google Plus', 'tainacan-theme' ),
+		'description' => __( 'This checkbox display or no the Google Plus Share.' ),
+	) );
 
 	/**
 	 * Add color scheme setting and control.
@@ -149,7 +203,7 @@ add_action( 'customize_register', 'tainacan_customize_register', 11 );
  * Callback to Checkbox to display or no the 
  * Proudly Powered by Wordpress and Tainacan.
  */
-function display_powered_sanitize_checkbox( $checked ) {
+function display_callback_sanitize_checkbox( $checked ) {
 	// Boolean check.
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }

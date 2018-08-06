@@ -102,9 +102,21 @@
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3><?php _e('Share', 'tainacan-theme'); ?></h3>
                                                     <div class="btn-group" role="group">
-                                                        <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt=""></a>
-                                                        <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt=""></a>
-                                                        <a href="#" class="item-card-link--sharing"><img src="<?=get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt=""></a>
+                                                        <?php if ( true == get_theme_mod( 'facebook_share', false ) ) : ?> 
+                                                            <a href="#" class="item-card-link--sharing">
+                                                                <img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt="">
+                                                            </a>
+                                                        <?php endif; ?>
+                                                        <?php if ( true == get_theme_mod( 'twitter_share', false ) ) : ?> 
+                                                            <a href="#" class="item-card-link--sharing">
+                                                                <img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="">
+                                                            </a>
+                                                        <?php endif; ?>
+                                                        <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
+                                                            <a href="#" class="item-card-link--sharing">
+                                                                <img src="<?=get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt="">
+                                                            </a>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
