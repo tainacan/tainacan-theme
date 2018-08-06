@@ -35,7 +35,7 @@
                             if(wp_is_mobile()) :
                                 echo '<br>';
                             else :
-                                    echo ' - ';
+                                echo ' - ';
                             endif;
                         }
                         if( get_option('blogphone') ) {
@@ -52,7 +52,7 @@
                 <span>
                     <?php 
                         if(get_theme_mod( 'display_powered')) {
-                            _e('Proudly powered by Wordpress and Tainacan'); 
+                            printf(__('Proudly powered by %s and %s'), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>'); 
                         }
                     ?>
                 </span>

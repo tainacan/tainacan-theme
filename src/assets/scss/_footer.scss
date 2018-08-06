@@ -45,6 +45,13 @@ footer{
             font-size: 14px;
             font-weight: 400;
             color: #44638e;
+            a {
+                color: #44638e;
+                &:hover{
+                    color: #44638e;
+                    text-decoration: none;
+                }
+            }
         }
     }
 }
