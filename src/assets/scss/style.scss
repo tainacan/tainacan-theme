@@ -89,6 +89,9 @@ nav{
             &::after {
                 content: none;
             }
+            i {
+                font-size: 19px;
+            }
         }
         > .dropdown-menu {
             top: calc(100% + 2px);

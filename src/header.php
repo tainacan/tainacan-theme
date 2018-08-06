@@ -20,11 +20,11 @@
                     <form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()">
                         <div class="input-group">
                             <input type="text" name="s" placeholder="<?php _e('Search'); ?>" class="form-control" formControlName="searchText" size="50">
-                            <span class="text-heavy-metal input-group-btn mdi mdi-magnify form-control-feedback"></span>
+                            <span class="text-midnight-blue input-group-btn mdi mdi-magnify form-control-feedback"></span>
                         </div>
                     </form>
                     <div class="dropdown tainacan-form-dropdown d-md-none">
-                        <a class="btn btn-link text-heavy-metal px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-magnify"></i></a>
+                        <a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-magnify"></i></a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
