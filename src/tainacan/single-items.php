@@ -63,12 +63,10 @@
                                         <?php
                                             foreach ( $images as $attachment ) { ?>
                                                 <div class="single-item-collection--attachments-img">
-                                                    <a href="<?php echo get_the_permalink( $attachment->ID ); ?>">
+                                                    <a href="<?php echo $attachment->guid; ?>">
                                                         <?php 
-                                                        $image_attributes = wp_get_attachment_image_src( $attachment->ID );
-                                                        if ( $image_attributes ) : ?>
-                                                            <img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" />
-                                                        <?php endif; ?>
+                                                            echo wp_get_attachment_image( $attachment->ID, 'tainacan-item-attachments' );
+                                                        ?>
                                                     </a>
                                                 </div>
                                             <?php }

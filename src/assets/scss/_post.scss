@@ -191,6 +191,10 @@
                 .single-item-collection--attachments {
                     .single-item-collection--attachments-img {
                         margin: 10px;
+                        img {
+                            width: 134px;
+                            height: 116px;
+                        }
                     }
                     .single-item-collection--attachments-prev {
                         left: -50px;
