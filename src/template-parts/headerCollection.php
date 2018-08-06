@@ -24,7 +24,7 @@
             </div>
             <div class="col-4 col-md-3 px-0 t-collection--col-3"></div>
             <div class="col-8 col-md-9 pl-0 t-collection--col-9">
-                <p class="text-white"><?php tainacan_the_collection_description(); ?></p>
+                <p class="text-white t-collection--info-description-text"><?php tainacan_the_collection_description(); ?></p>
             </div>
         </div>
     </div>

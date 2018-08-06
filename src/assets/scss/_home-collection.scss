@@ -83,20 +83,17 @@
                 bottom: 0.5rem;
             }
         }
-    }
-    .t-collection--info-description-text {
-        font: {
-            size: 12px;
-            weight: 400;
-        }
-        //margin-left: 0.766667% !important;
-        //padding: 0 21.6%;
-        //padding-right: 5%;
-        width: 100%;
-        word-wrap: break-word;
-        z-index: 1;
-        @media only screen and (max-width: 576px){
-            padding-left: 32.6%;
+        .t-collection--info-description-text {
+            font: {
+                size: 12px;
+                weight: 400;
+            }
+            @media only screen and (max-width: 576px){
+                font: {
+                    size: 9px;
+                    weight: 400;
+                }
+            }
         }
     }
 }
