@@ -64,6 +64,7 @@ if(!function_exists('tainacan_setup')) {
         }
         
         add_image_size( 'tainacan-theme-list-post', 300, 200, true );
+        add_image_size( 'tainacan-item-attachments', 134, 116, true );
     }
 
 }
