@@ -88,11 +88,13 @@
                 size: 12px;
                 weight: 400;
             }
+            margin-top: 1rem;
             @media only screen and (max-width: 576px){
                 font: {
                     size: 9px;
                     weight: 400;
                 }
+                margin-top: 0.5rem;
             }
         }
     }
