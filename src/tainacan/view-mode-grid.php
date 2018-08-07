@@ -23,6 +23,15 @@
 
 <?php else: ?>
     <div class="tainacan-grid-container">
-        Nenhum item encontrado
+        <section class="section">
+            <div class="content has-text-gray4 has-text-centered">
+                <p>
+                    <span class="icon is-large">
+                        <i class="mdi mdi-48px mdi-file-multiple"></i>
+                    </span>
+                </p>
+                <p><?php echo __('No item was found.','tainacan'); ?></p>
+            </div>
+        </section>
     </div>
 <?php endif; ?>
