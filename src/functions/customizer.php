@@ -122,6 +122,16 @@ function tainacan_customize_register( $wp_customize ) {
 		//'description' => __( 'This checkbox display or no the Twitter Share.' ),
 	) );
 
+	$wp_customize->add_setting( 'twitter_user', array(
+		'type'       => 'option',
+		'capability' => 'manage_options',
+	) );
+
+	$wp_customize->add_control( 'twitter_user', array(
+		'label'      => __( 'Twitter User', 'tainacan-theme' ),
+		'section'    => 'social_share',
+	) );
+
 	//Google Plus
 	$wp_customize->add_setting( 'google_share', array(
 		'default'        => true,
