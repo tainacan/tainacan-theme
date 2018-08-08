@@ -103,17 +103,17 @@
                                                     <h3><?php _e('Share', 'tainacan-theme'); ?></h3>
                                                     <div class="btn-group" role="group">
                                                         <?php if ( true == get_theme_mod( 'facebook_share', false ) ) : ?> 
-                                                            <a href="#" class="item-card-link--sharing">
+                                                            <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="item-card-link--sharing" target="_blank">
                                                                 <img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt="">
                                                             </a>
                                                         <?php endif; ?>
-                                                        <?php if ( true == get_theme_mod( 'twitter_share', false ) ) : ?> 
-                                                            <a href="#" class="item-card-link--sharing">
+                                                        <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
+                                                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank" class="item-card-link--sharing">
                                                                 <img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="">
                                                             </a>
                                                         <?php endif; ?>
                                                         <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
-                                                            <a href="#" class="item-card-link--sharing">
+                                                            <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing">
                                                                 <img src="<?=get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt="">
                                                             </a>
                                                         <?php endif; ?>
