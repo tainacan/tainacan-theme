@@ -104,7 +104,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'settings' => 'facebook_share',
 		'section' => 'social_share',
 		'label' => __( 'Display Facebook', 'tainacan-theme' ),
-		'description' => __( 'This checkbox display or no the Facebook Share.' ),
+		//'description' => __( 'This checkbox display or no the Facebook Share.' ),
 	) );
 
 	//Twitter
@@ -119,7 +119,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'settings' => 'twitter_share',
 		'section' => 'social_share',
 		'label' => __( 'Display Twitter', 'tainacan-theme' ),
-		'description' => __( 'This checkbox display or no the Twitter Share.' ),
+		//'description' => __( 'This checkbox display or no the Twitter Share.' ),
 	) );
 
 	//Google Plus
@@ -134,7 +134,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'settings' => 'google_share',
 		'section' => 'social_share',
 		'label' => __( 'Display Google Plus', 'tainacan-theme' ),
-		'description' => __( 'This checkbox display or no the Google Plus Share.' ),
+		//'description' => __( 'This checkbox display or no the Google Plus Share.' ),
 	) );
 
 	/**
@@ -147,7 +147,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'color_scheme', array(
-		'label'    => __( 'Base Color Scheme', 'tainacan' ),
+		'label'    => __( 'Choose a Color Scheme', 'tainacan-theme' ),
 		'section'  => 'colors',
 		'type'     => 'select',
 		'choices'  => tainacan_get_color_scheme_choices(),
@@ -169,7 +169,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-		'label'       => __( 'Link Color', 'tainacan' ),
+		'label'       => __( 'Or pick any color', 'tainacan-theme' ),
 		'section'     => 'colors',
 	) ) );
 
@@ -341,10 +341,13 @@ if ( ! function_exists( 'tainacan_get_color_scheme' ) ) :
  */
 function tainacan_get_color_scheme() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
+	$link_color = get_theme_mod( 'link_color', 'default' );
 	$color_schemes       = tainacan_get_color_schemes();
 
 	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
-		return $color_schemes[ $color_scheme_option ]['colors'];
+		$return = $color_schemes[ $color_scheme_option ]['colors'];
+		$return[2] = $link_color; // override link color with the one from color picker
+		return $return;
 	}
 
 	return $color_schemes['default']['colors'];
