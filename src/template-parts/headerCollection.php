@@ -12,14 +12,22 @@
                         ?>
                         </h4>
                     </div>
-<?php endif; ?>
+                <?php endif; ?>
             </div>
             <div class="col-8 col-md-9 pl-0 t-collection--col-9">
-                <h2 class="mt-3 mt-md-0 t-collection--info-title text-white position-absolute"><?php tainacan_the_collection_name(); ?></h2>
-            </div>
-            <div class="col-4 col-md-3 px-0 t-collection--col-3"></div>
-            <div class="col-8 col-md-9 pl-0 t-collection--col-9">
-                <p class="text-white t-collection--info-description-text"><?php tainacan_the_collection_description(); ?></p>
+                <h2 class="t-collection--info-title text-white">
+                    <?php tainacan_the_collection_name(); ?>
+                </h2>
+                <p class="text-white t-collection--info-description-text">
+                    <?php 
+                        if(!wp_is_mobile()){
+                            $words = 420;
+                        }else {
+                            $words = 80;
+                        }
+                        wp_trim_words( tainacan_the_collection_description(), $words, '...' ) ; 
+                    ?>
+                </p>
             </div>
         </div>
     </div>

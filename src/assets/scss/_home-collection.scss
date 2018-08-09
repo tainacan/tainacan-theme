@@ -37,24 +37,22 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                left: 0;
-                right: 20vw;
             }
         }
         .t-collection--info-img, .image-placeholder {
             width: 205px;
             height: 205px;
             max-width: 205px;
-            bottom: -6rem;
-            border-width: 2px !important;
+            bottom: 2rem;
+            border-width: 4px !important;
             @media only screen and (max-width: 1024px){
                 width: 165px;
                 height: 165px;
                 max-width: 165px;
-                bottom: -5rem;
+                bottom: 4rem;
             }
             @media only screen and (max-width: 992px){
-                bottom: -4rem;
+                bottom: 7rem;
                 width: 123px;
                 height: 123px;
                 max-width: 123px;
@@ -63,7 +61,13 @@
                 width: 95px;
                 height: 95px;
                 max-width: 95px;
-                bottom: -3rem;
+                bottom: 4rem;
+            }
+            @media only screen and (max-width: 360px){
+                width: 95px;
+                height: 95px;
+                max-width: 95px;
+                bottom: 8rem;
             }
         }
         .t-collection--info-title {
@@ -71,24 +75,20 @@
                 size: 24px;
                 weight: 700;
             }
-            bottom: 2.8rem;
+            margin-top: 0.4rem;
             @media only screen and (max-width: 767px){
                 font: {
                     size: 18px;
                     weight: 500;
                 }
-                bottom: 0.5rem;
-            }
-            @media only screen and (min-width: 768px){
-                bottom: 0.5rem;
             }
         }
         .t-collection--info-description-text {
             font: {
-                size: 12px;
+                size: 14px;
                 weight: 400;
             }
-            margin-top: 1rem;
+            margin-bottom: 0;
             @media only screen and (max-width: 576px){
                 font: {
                     size: 9px;
