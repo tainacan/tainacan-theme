@@ -1,5 +1,5 @@
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
-    <div class="container-fluid px-0 bg-jelly-bean t-bg-collection" style="z-index: 0;">
+    <div class="container-fluid px-0 bg-jelly-bean t-bg-collection" style="<!-- z-index: 0; -->">
         <div class="row t-collection--info max-large margin-one-column" style="overflow-x: inherit;">
             <div class="col-4 col-md-3 px-0 t-collection--col-3">
                 <?php if(has_post_thumbnail(tainacan_get_collection_id())) : ?>
@@ -12,7 +12,7 @@
                         ?>
                         </h4>
                     </div>
-                <?php endif; ?>
+<?php endif; ?>
             </div>
             <div class="col-8 col-md-9 pl-0 t-collection--col-9">
                 <h2 class="mt-3 mt-md-0 t-collection--info-title text-white position-absolute"><?php tainacan_the_collection_name(); ?></h2>
