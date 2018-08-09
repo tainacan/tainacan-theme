@@ -356,11 +356,13 @@ function tainacan_get_color_scheme() {
 
 	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
 		$return = $color_schemes[ $color_scheme_option ]['colors'];
-		$return[2] = $link_color; // override link color with the one from color picker
-		return $return;
 	}
 
-	return $color_schemes['default']['colors'];
+	$return = $color_schemes['default']['colors'];
+	$return[2] = $link_color; // override link color with the one from color picker	
+	
+	return $return;
+	
 }
 endif; // tainacan_get_color_scheme
 
@@ -422,9 +424,9 @@ function tainacan_color_scheme_css() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
 	
 	// Don't do anything if the default color scheme is selected.
-	if ( 'default' == $color_scheme_option ) {
-		return;
-	}
+	//if ( 'default' == $color_scheme_option ) {
+	//	return;
+	//}
 
 	$color_scheme = tainacan_get_color_scheme();
 
