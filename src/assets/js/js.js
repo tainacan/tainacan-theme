@@ -72,6 +72,31 @@ jQuery(document).ready(function( $ ) {
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
-          ]
-      });
+        ]
+    });
+    //$('.t-collection--info-description-text').attr('style', 'display: block; max-height: 4.5em;');
+    /* var t = $(".elimore");
+    t.dotdotdot({
+        keep: ".toggle"
+    });
+
+    var n = t.data("dotdotdot");
+    t.on("click", ".toggle", function(e) {
+        t.preventDefault(), t.hasClass("ddd-truncated") ? (n.restore(), t.addClass("full-story")) : (t.removeClass("full-story"), n.truncate(), n.watch())
+    }); */
+    $('.fab').click(function () {
+        $('.radial').toggleClass('open');
+    });
+});
+jQuery(document).ready(function(e) {
+    ! function() {
+        var t = e(".dotmore");
+        t.dotdotdot({
+            keep: ".toggle"
+        });
+        var n = t.data("dotdotdot");
+        t.on("click", ".toggle", function(e) {
+            e.preventDefault(), t.hasClass("ddd-truncated") ? (n.restore(), t.addClass("full-story")) : (t.removeClass("full-story"), n.truncate(), n.watch())
+        })
+    }()
 });
