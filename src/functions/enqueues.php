@@ -47,6 +47,12 @@ if ( ! function_exists('tainacan_Enqueues') ) {
             wp_register_style('MaterialIconsFonts', get_template_directory_uri() . '/assets/fonts/material-design-icons/css/materialdesignicons.min.css', '', '2.4.85', '');
             wp_enqueue_style('MaterialIconsFonts');
             
+        /**
+         * DotJS
+         */
+        wp_register_script('DotJS', get_template_directory_uri() . '/assets/js/dotdotdot.js', array('jquery'), '', true);
+        wp_enqueue_script('DotJS');
+
          /* Charts */
         
             /* wp_register_script( 'googleCharts', 'https://www.gstatic.com/charts/loader.js');
