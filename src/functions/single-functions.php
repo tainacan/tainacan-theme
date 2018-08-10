@@ -85,7 +85,7 @@ function social_meta() {
 
     if(is_single() || is_tax()) {
 
-        $logo = get_stylesheet_directory_uri().'/assets/images/logo.svg';
+        $logo = get_template_directory_uri().'/assets/images/logo.svg';
 
         $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "thumbnail") : $logo;
         
