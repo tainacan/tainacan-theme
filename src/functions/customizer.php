@@ -128,7 +128,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'twitter_user', array(
-		'label'      => __( 'Twitter User', 'tainacan-theme' ),
+		'label'      => __( 'Twitter User to be cited in tweets (via @user)', 'tainacan-theme' ),
 		'section'    => 'social_share',
 	) );
 
