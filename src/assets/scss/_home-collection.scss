@@ -13,10 +13,11 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
 } */
 .t-bg-collection{
-    height: 125px;
+    min-height: 150px;
     @media only screen and (max-width: 576px){
-        height: 65px;
+        min-height: 65px;
     }
+    z-index: 1;
     .t-collection--info {
         padding-top: 6px;
         .t-collection--col-3{
@@ -95,6 +96,22 @@
                     weight: 400;
                 }
                 margin-top: 0.5rem;
+            }
+            &.elimore {
+                height: 65px;
+                .toggle {
+                    &::before{
+                        content: "[ Show more ]";
+                    }
+                }
+                &.full-story {
+                    height: auto;
+                    .toggle {
+                        &::before{
+                            content: "[ Show less ]";
+                        }
+                    }
+                }
             }
         }
     }
