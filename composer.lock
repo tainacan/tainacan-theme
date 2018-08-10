@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d0374e3fd2d6b43ef8af59ab09d04f8",
+    "hash": "ddc02b7d91b22a56841ec209e22e2955",
+    "content-hash": "98bbd33116059a9a051feb1c6e71394e",
     "packages": [
         {
             "name": "composer/installers",
@@ -124,25 +125,26 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-12-29T09:13:20+00:00"
+            "time": "2017-12-29 09:13:20"
         },
         {
-            "name": "kenwheeler/slick",
-            "version": "1.6.1",
+            "name": "fabianobn/slick",
+            "version": "v1.8.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Alexander2Leb/slick.git",
-                "reference": "76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712"
+                "url": "https://github.com/fabianobn/slick.git",
+                "reference": "62bacb288031d1e370327e0e2aa3c8a582e1d040"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Alexander2Leb/slick/zipball/76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712",
-                "reference": "76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712",
+                "url": "https://api.github.com/repos/fabianobn/slick/zipball/62bacb288031d1e370327e0e2aa3c8a582e1d040",
+                "reference": "62bacb288031d1e370327e0e2aa3c8a582e1d040",
                 "shasum": ""
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-03-31T12:40:41+00:00"
+            "description": "This is the atualized Slick Slider used in Wordpress",
+            "time": "2018-06-29 17:54:50"
         },
         {
             "name": "twbs/bootstrap",
@@ -193,7 +195,7 @@
                 "sass",
                 "web"
             ],
-            "time": "2018-07-24T15:54:34+00:00"
+            "time": "2018-07-24 15:54:34"
         },
         {
             "name": "wp-bootstrap/wp-bootstrap-navwalker",
@@ -230,7 +232,7 @@
                 }
             ],
             "description": "A custom WordPress nav walker class to fully implement the Bootstrap 4 navigation style in a custom theme using the WordPress built in menu manager.",
-            "time": "2018-04-14T01:22:55+00:00"
+            "time": "2018-04-14 01:22:55"
         }
     ],
     "packages-dev": [],
