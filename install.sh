@@ -38,7 +38,7 @@ echo "Copy Slick for Slider...\n\n";
     copy("vendor/fabianobn/slick/slick/slick.min.js", "src/assets/vendor/slick/js/slick.min.js");
     copy("vendor/fabianobn/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
     recurse_copy("vendor/fabianobn/slick/slick/fonts", "src/assets/vendor/slick/fonts");
-
+    
 echo "Finish Copy files! \n\n";
 
 function recurse_copy($src,$dst) {
