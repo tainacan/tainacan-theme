@@ -83,9 +83,9 @@ add_filter( 'cancel_comment_reply_link', 'filter_cancel_comment_reply_link', 10,
 function social_meta() {
     global $post;
 
-    if(is_single() || is_tax()) {
+    if(is_single() || is_tax() || is_archive()) {
 
-        $logo = get_stylesheet_directory_uri().'/assets/images/logo.svg';
+        $logo = get_stylesheet_directory_uri().'/assets/images/social-logo.png';
 
         $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "thumbnail") : $logo;
         
