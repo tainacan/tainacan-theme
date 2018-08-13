@@ -96,6 +96,7 @@
             &.dotmore {
                 height: 65px;
                 .toggle {
+                    color: #9d9fa0;
                     &::before{
                         content: "[ Show more ]";
                     }
