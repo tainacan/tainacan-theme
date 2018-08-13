@@ -89,12 +89,14 @@ function social_meta() {
         global $wp;
         if(is_archive('tainacan-collection')){
             $title = tainacan_get_the_collection_name();
-            $img_info = (has_post_thumbnail(tainacan_get_collection_id())) ? get_the_post_thumbnail_url(tainacan_get_collection_id()) : $logo;
+            //$img_info = (has_post_thumbnail(tainacan_get_collection_id())) ? get_the_post_thumbnail_url(tainacan_get_collection_id()) : $logo;
+            //var_dump(wp_get_attachment_image_src(get_post_thumbnail_id(tainacan_get_collection_id()), "full"));die;
+            $img_info = (has_post_thumbnail(tainacan_get_collection_id())) ? wp_get_attachment_image_src(get_post_thumbnail_id(tainacan_get_collection_id()), "full") : $logo;
             $url_src = home_url( $wp->request );
             $excerpt = tainacan_get_the_collection_description();
         } else {
             $title = get_the_title();
-            $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "thumbnail") : $logo;
+            $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full") : $logo;
             $url_src = get_permalink();
             $content = wp_trim_words( $post->post_content, 28, '[...]');
             if($excerpt = $content) {

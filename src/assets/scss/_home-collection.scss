@@ -1,5 +1,5 @@
 .collection-header {
-    @media only screen and (min-width: 1400px) {
+    @media only screen and (min-width: 1800px) {
         overflow: inherit;
     }
 }
@@ -46,6 +46,7 @@
     }
     .t-collection--info {
         padding-top: 6px;
+        margin-right: calc(4.16666666667% * 3);
         .t-collection--col-3{
             flex: 0 0 18% !important;
             max-width: 18% !important;
@@ -208,7 +209,7 @@
     @extend .absolute-center;
     width: 35px;
     height: 35px;
-    left: 93%;
+    left: 95.833333%;
     .btn {
         position: absolute;
         top: 0;

@@ -27,7 +27,7 @@
                     <div class="mdi mdi-share-variant" id="collection-header--share-button-plus"></div>
                 </button>
             </div>  -->
-            <div class="collection-header--share">
+            <div class="collection-header--share" style="margin-right: 4.16666666667%;">
                 <div class="btn trigger">
                     <span class="mdi mdi-share-variant"></span>
                 </div>
