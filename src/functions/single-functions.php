@@ -85,7 +85,7 @@ function social_meta() {
 
     if(is_single() || is_tax() || is_archive()) {
 
-        $logo = get_stylesheet_directory_uri().'/assets/images/social-logo.png';
+        $logo = get_template_directory_uri().'/assets/images/social-logo.png';
         global $wp;
         if(is_archive('tainacan-collection')){
             $title = tainacan_get_the_collection_name();

@@ -32,33 +32,33 @@
                     <span class="mdi mdi-share-variant"></span>
                 </div>
                 <div class="icons">
-                    <div class="rotater">
-                        <?php if ( true == get_theme_mod( 'facebook_share', false ) ) : ?> 
+                    <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
+                        <div class="rotater">
                             <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
                                 <div class="btn btn-icon">
                                     <i class="mdi mdi-facebook"></i>
                                 </div>
                             </a>
-                        <?php endif; ?>
-                    </div>
-                    <div class="rotater">
-                        <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
+                        </div>
+                    <?php endif; ?>
+                    <?php if ( true == get_theme_mod( 'google_share', true ) ) : ?> 
+                        <div class="rotater">
                             <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank">
                                 <div class="btn btn-icon">
                                     <i class="mdi mdi-google-plus"></i>
                                 </div>
                             </a>
-                        <?php endif; ?>
-                    </div>
-                    <div class="rotater">
-                        <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
+                        </div>
+                    <?php endif; ?>
+                    <?php if ( true == get_theme_mod( 'twitter_share', true ) && get_option( 'twitter_user') ) : ?> 
+                        <div class="rotater">
                             <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
                                 <div class="btn btn-icon">
                                     <i class="mdi mdi-twitter"></i>
                                 </div>
                             </a>
-                        <?php endif; ?>
-                    </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
