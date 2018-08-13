@@ -42,19 +42,19 @@
                         <?php endif; ?>
                     </div>
                     <div class="rotater">
-                        <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
-                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
+                        <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
+                            <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank">
                                 <div class="btn btn-icon">
-                                    <i class="mdi mdi-twitter"></i>
+                                    <i class="mdi mdi-google-plus"></i>
                                 </div>
                             </a>
                         <?php endif; ?>
                     </div>
                     <div class="rotater">
-                        <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
-                            <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank">
+                        <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
+                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
                                 <div class="btn btn-icon">
-                                    <i class="mdi mdi-google-plus"></i>
+                                    <i class="mdi mdi-twitter"></i>
                                 </div>
                             </a>
                         <?php endif; ?>

@@ -84,9 +84,6 @@ jQuery(document).ready(function( $ ) {
     t.on("click", ".toggle", function(e) {
         t.preventDefault(), t.hasClass("ddd-truncated") ? (n.restore(), t.addClass("full-story")) : (t.removeClass("full-story"), n.truncate(), n.watch())
     }); */
-    $('.collection-header--share-button').click(function () {
-        $('.collection-header--share').toggleClass('open');
-    });
 });
 jQuery(document).ready(function(e) {
         var t = e(".dotmore");
