@@ -11,21 +11,62 @@
                     ?>
                     </h4>
                 </div>
-            <?php endif; ?>
-            <div class="radial collection-header--share">
-                <button class="mdi mdi-facebook" id="fa-1"></button>
-                <button class="mdi mdi-twitter" id="fa-2"></button>
-                <button class="mdi mdi-google-plus" id="fa-3"></button>
-                <button class="fab collection-header--share-button">
+            <?php endif; 
+            global $wp; ?>
+            <!-- <div class="collection-header--share">
+                <?php if ( true == get_theme_mod( 'facebook_share', false ) ) : ?>
+                    <button onclick="location.href='http://www.facebook.com/sharer.php?u=<?php echo home_url( $wp->request ); ?>'" target="_blank" class="mdi mdi-facebook" id="fa-1"></button>
+                <?php endif; ?>
+                <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
+                    <button onclick="location.href='http://twitter.com/share?url=<?php echo home_url( $wp->request ); ?>&amp;text=<?php echo tainacan_get_the_collection_name(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>'" target="_blank" class="mdi mdi-twitter" id="fa-2"></button>
+                <?php endif; ?>
+                <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
+                    <button onclick="location.href='https://plus.google.com/share?url=<?php echo home_url( $wp->request ); ?>'" target="_blank" class="mdi mdi-google-plus" id="fa-3"></button>
+                <?php endif; ?>
+                <button class="collection-header--share-button">
                     <div class="mdi mdi-share-variant" id="collection-header--share-button-plus"></div>
                 </button>
-            </div> 
+            </div>  -->
+            <div class="collection-header--share">
+                <div class="btn trigger">
+                    <span class="mdi mdi-share-variant"></span>
+                </div>
+                <div class="icons">
+                    <div class="rotater">
+                        <?php if ( true == get_theme_mod( 'facebook_share', false ) ) : ?> 
+                            <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+                                <div class="btn btn-icon">
+                                    <i class="mdi mdi-facebook"></i>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="rotater">
+                        <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
+                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
+                                <div class="btn btn-icon">
+                                    <i class="mdi mdi-twitter"></i>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="rotater">
+                        <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
+                            <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank">
+                                <div class="btn btn-icon">
+                                    <i class="mdi mdi-google-plus"></i>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row t-collection--info max-large margin-one-column" style="overflow-x: inherit;">
             <div class="col-4 col-md-3 px-0 t-collection--col-3">
                 
             </div>
-            <div class="col-8 col-md-9 pl-0 t-collection--col-9" style="z-index: 2">
+            <div class="col-8 col-md-9 pl-0 t-collection--col-9 mt-md-3" style="z-index: 2">
                 <h2 class="t-collection--info-title text-white">
                     <?php tainacan_the_collection_name(); ?>
                 </h2>

@@ -86,29 +86,37 @@ function social_meta() {
     if(is_single() || is_tax() || is_archive()) {
 
         $logo = get_stylesheet_directory_uri().'/assets/images/social-logo.png';
-
-        $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "thumbnail") : $logo;
+        global $wp;
+        if(is_archive('tainacan-collection')){
+            $title = tainacan_get_the_collection_name();
+            $img_info = (has_post_thumbnail(tainacan_get_collection_id())) ? get_the_post_thumbnail_url(tainacan_get_collection_id()) : $logo;
+            $url_src = home_url( $wp->request );
+            $excerpt = tainacan_get_the_collection_description();
+        } else {
+            $title = get_the_title();
+            $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "thumbnail") : $logo;
+            $url_src = get_permalink();
+            $content = wp_trim_words( $post->post_content, 28, '[...]');
+            if($excerpt = $content) {
+                $excerpt = strip_tags($content);
+                $excerpt = str_replace("", "'", $excerpt);
+            } else {
+                $excerpt = get_bloginfo('description');
+            }
+        }
         
         $image = array(
            'url' => (!empty($img_info[0]) && $img_info[1] >= 200 && $img_info[2] >= 200) ? $img_info[0] : $logo,
            'width' => (!empty($img_info[1]) && $img_info[1] >= 200 && $img_info[2] >= 200) ? $img_info[1] : 200,
            'height' => (!empty($img_info[2]) && $img_info[1] >= 200 && $img_info[2] >= 200) ? $img_info[2] : 200,
         );
-        
-        $content = wp_trim_words( $post->post_content, 28, '[...]');
-        if($excerpt = $content) {
-            $excerpt = strip_tags($content);
-            $excerpt = str_replace("", "'", $excerpt);
-        } else {
-            $excerpt = get_bloginfo('description');
-        }
 
         ?>
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="<?php echo the_title(); ?>"/>
+        <meta property="og:title" content="<?php echo $title; ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
         <meta property="og:description" content="<?php echo $excerpt; ?>"/>
-        <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+        <meta property="og:url" content="<?php echo $url_src; ?>"/>
         <meta property="og:image" content="<?php echo $image['url']; ?>"/>
         <meta property="og:image:width" content="<?php echo $image['width']; ?>"/>
         <meta property="og:image:height" content="<?php echo $image['height']; ?>"/>

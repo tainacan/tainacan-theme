@@ -84,12 +84,11 @@ jQuery(document).ready(function( $ ) {
     t.on("click", ".toggle", function(e) {
         t.preventDefault(), t.hasClass("ddd-truncated") ? (n.restore(), t.addClass("full-story")) : (t.removeClass("full-story"), n.truncate(), n.watch())
     }); */
-    $('.fab').click(function () {
-        $('.radial').toggleClass('open');
+    $('.collection-header--share-button').click(function () {
+        $('.collection-header--share').toggleClass('open');
     });
 });
 jQuery(document).ready(function(e) {
-    ! function() {
         var t = e(".dotmore");
         t.dotdotdot({
             keep: ".toggle"
@@ -97,6 +96,8 @@ jQuery(document).ready(function(e) {
         var n = t.data("dotdotdot");
         t.on("click", ".toggle", function(e) {
             e.preventDefault(), t.hasClass("ddd-truncated") ? (n.restore(), t.addClass("full-story")) : (t.removeClass("full-story"), n.truncate(), n.watch())
-        })
-    }()
+        });
+        e(".trigger").click(function() {
+            e(".collection-header--share").toggleClass("active"); 
+        });
 });
