@@ -12,7 +12,7 @@
                     <?php if ( has_post_thumbnail() ): ?>
                         <?php the_post_thumbnail('tainacan-medium'); ?> 
                     <?php else: ?>
-                        <?php echo '<img alt="Thumbnail placeholder" src="'.get_stylesheet_directory_uri().'/assets/images/thumbnail_placeholder.png">'?>
+                        <?php echo '<img alt="Thumbnail placeholder" src="'.get_template_directory_uri().'/assets/images/thumbnail_placeholder.png">'?>
                     <?php endif; ?>  
                 </a>
             </div>            

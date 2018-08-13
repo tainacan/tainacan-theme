@@ -85,6 +85,7 @@ function social_meta() {
 
     if(is_single() || is_tax() || is_archive()) {
 
+<<<<<<< HEAD
         $logo = get_stylesheet_directory_uri().'/assets/images/social-logo.png';
         global $wp;
         if(is_archive('tainacan-collection')){
@@ -104,6 +105,11 @@ function social_meta() {
                 $excerpt = get_bloginfo('description');
             }
         }
+=======
+        $logo = get_template_directory_uri().'/assets/images/logo.svg';
+
+        $img_info = (has_post_thumbnail($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "thumbnail") : $logo;
+>>>>>>> 3232a6522e85af07571c5b6c99d90963429321ca
         
         $image = array(
            'url' => (!empty($img_info[0]) && $img_info[1] >= 200 && $img_info[2] >= 200) ? $img_info[0] : $logo,
