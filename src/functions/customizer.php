@@ -191,7 +191,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_text_color', array(
-		'label'       => __( 'Main Text Color', 'tainacan' ),
+		'label'       => __( 'Main Text Color', 'tainacan-theme' ),
 		'section'     => 'colors',
 	) ) );
 
@@ -203,7 +203,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_text_color', array(
-		'label'       => __( 'Secondary Text Color', 'tainacan' ),
+		'label'       => __( 'Secondary Text Color', 'tainacan-theme' ),
 		'section'     => 'colors',
 	) ) ); */
 }
