@@ -31,6 +31,12 @@ jQuery(document).ready(function( $ ) {
     $('<i class="mdi mdi-menu-left"></i>').insertBefore("#comment-nav-below .float-left a");
     $('<i class="mdi mdi-menu-right"></i>').insertAfter("#comment-nav-below .float-right a");
 
+    $('.comment-reply-link').on('click', function(){
+        //$('#cancel-comment-reply-link').remove();
+        $('.form-submit').prepend($('#cancel-comment-reply-link'));
+        $('.comment-submit-link');
+    });
+
     /**
      * Change the class of guttenberg button
      */

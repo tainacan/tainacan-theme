@@ -17,7 +17,7 @@ if (post_password_required()) {
 <div id="comments" class="border-top border-jelly-bean" style="border-width: 2px !important;">
 	<!--show the form-->
 	<?php if('open' == $post->comment_status) : ?>
-		<div id="respond" class="clearfix mt-3">  
+		<div id="respond" class="clearfix mt-5 <?php if(!wp_is_mobile()) { ?>margin-two-column<?php } ?>">  
 			<?php if(get_option('comment_registration') && !is_user_logged_in()) : ?>
 				<p>
 				<?php printf( __( 'You must be %slogged%s in to post a comment.', 'tainacan-theme'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
@@ -35,69 +35,27 @@ if (post_password_required()) {
 					</span>
 				</div>
 
-				<form autocomplete="off" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="form-comment" class="form-inline clearfix">
-					<?php if(is_user_logged_in()) { ?>
-						<span class="text-oslo-gray authenticated d-inline d-sm-none mb-4">
-							<?php 
-								_e('Authenticated as', 'tainacan-theme'); echo ': '; 
-								if(is_user_logged_in()) { 
-									echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
-								}else{
-									_e('Anonymous', 'tainacan-theme');
-								}
-							?>
-						</span>
-					<?php } ?>
-					<div class="form-row w-100 mx-0">
-						<div class="<?php if(is_user_logged_in()) { ?>col-3 col-md-1 align-self-end<?php }else{ ?>col-12<?php } ?> pl-0 <?php if(!is_user_logged_in()) : ?>mb-5<?php endif; ?>">
-							<?php 
-								comment_id_fields(); 
-								$args = array('class' => 'img-fluid rounded-circle mr-sm-3', );
-								echo get_avatar( $current_user->ID, 60, '', $current_user->display_name, $args );
-							?>
-							<?php if(!is_user_logged_in()) { ?>
-								<span class="text-oslo-gray authenticated d-md-inline mb-4">
-									<?php 
-										_e('Authenticated as', 'tainacan-theme'); echo ': '; 
-										if(is_user_logged_in()) { 
-											echo '<a href="'. get_author_posts_url($current_user->ID) .'" class="font-weight-light">' . $current_user->display_name . '</a>'; 
-										}else{
-											_e('Anonymous', 'tainacan-theme');
-										}
-									?>
-								</span>
-							<?php } ?>
-						</div>
-						<div class="col <?php if(!is_user_logged_in()) : ?>col-md-12<?php else: ?>col-md-11<?php endif; ?> pr-0">
-							<?php if(!is_user_logged_in()) : ?>
-								<div class="form-group form-inline mb-3">                            
-									<label for="author" class="font-weight-bold"><?php _e('Name', 'tainacan-theme'); ?>*: </label>
-									<input type="text" class="form-control comments-input" id="author" name="author">
-								</div>
-								<div class="form-group form-inline mb-3">                            
-									<label for="email" class="font-weight-bold"><?php _e('E-mail', 'tainacan-theme'); ?>*: </label>
-									<input type="email" class="form-control comments-input" id="email" name="email">
-								</div>
-								<div class="form-group form-inline mb-3">
-									<label for="url" class="font-weight-bold"><?php _e('Website', 'tainacan-theme'); ?>: </label>
-									<input type="url" class="form-control comments-input" id="url" name="url">
-								</div>
-							<div class="form-group form-inline mb-3 align-items-start">
-								<label for="comment" class="font-weight-bold mr-3"><?php _e('Comment', 'tainacan-theme'); ?>*: </label>
-							<?php endif;?>
-								<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0 w-100 <?php if(!is_user_logged_in()) : ?>comments-input<?php endif;?>" rows="2"></textarea>
-							<?php if(!is_user_logged_in()) : ?></div><?php endif;?>
-						</div>
-					</div>
-					<?php cancel_comment_reply_link(__( 'Cancel', 'tainacan-theme' )); ?>
-					<button id="submit" class="btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto" type="submit" name="submit"><?php _e('Send', 'tainacan-theme') ?></button>
-					<?php do_action('comment_form', $post->ID); ?>
-				</form>
+				<?php 
+					$comment_args = [
+						'logged_in_as' => '<span class="text-oslo-gray authenticated d-inline d-sm-none mb-4">'.
+						sprintf( __('Authenticated as <a href="%1$s" class="font-weight-light">%2$s</a>', 'tainacan-theme'), get_author_posts_url($current_user->ID), $current_user->display_name)
+						.'</span>',
+						'title_reply' => '',
+						'title_reply_before' => '',
+						'title_reply_after' => '',
+						'comment_field' => sprintf('<div class="form-row"><div class="col-3 col-md-1 text-right"><img src="%1$s" class="img-fluid rounded-circle mr-sm-3"></div>', get_avatar_url($current_user->ID, array('size'=>60))).'<div class="col-9 col-md-11"><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
+						'cancel_reply_before' => '',
+						'cancel_reply_after' => '',
+						'class_submit' => 'btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto comment-submit-link',
+						'label_submit' =>  __('Send', 'tainacan-theme'),
+					];
+					comment_form($comment_args); 
+				?>
 			<?php endif; ?>
 		</div>
 		<?php if (have_comments()) : ?>
-			<div class="row">
-				<div class="col col-sm-10 mt-4 list-comments">
+			<div class="row <?php if(!wp_is_mobile()) { ?>margin-two-column<?php } ?>">
+				<div class="col mt-4 list-comments">
 					<?php wp_list_comments('type=comment&callback=tainacan_Comments_Callback'); ?>
 				</div>
 			</div>
