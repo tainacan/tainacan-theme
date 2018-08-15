@@ -52,8 +52,10 @@
                 font-weight: 400;
             }
             .readmore{
-                font-size: 14px;
-                font-weight: 400;
+                &.screen-reader-text{
+                    font-size: 14px;
+                    font-weight: 400;
+                }
             }
         }
     }

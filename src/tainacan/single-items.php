@@ -14,7 +14,7 @@
                                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                                     <?php the_title(); ?>
                                 </li>
-                                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
+                                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-theme'); ?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
 
                         <div class="mt-3 tainacan-single-post">
                             <article role="article">
-                                <h1 class="title-content-items"><?php _e('Attachments'); ?></h1>
+                                <h1 class="title-content-items"><?php _e('Attachments', 'tainacan-theme'); ?></h1>
                                 <section class="tainacan-content single-item-collection margin-two-column">
                                     <div class="single-item-collection--attachments">
                                         <?php
@@ -104,18 +104,18 @@
                                                     <div class="btn-group" role="group">
                                                         <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
                                                             <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="item-card-link--sharing" target="_blank">
-                                                                <img src="<?=get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt="">
+                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt="">
                                                             </a>
                                                         <?php endif; ?>
                                                         <?php if ( true == get_theme_mod( 'twitter_share', true ) ) : ?> 
                                                             <?php $via = !empty(get_option( 'twitter_user')) ? '&amp;via=' . get_option( 'twitter_user') : ''; ?>
 															<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="item-card-link--sharing">
-                                                                <img src="<?=get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="">
+                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="">
                                                             </a>
                                                         <?php endif; ?>
                                                         <?php if ( true == get_theme_mod( 'google_share', true ) ) : ?> 
                                                             <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing">
-                                                                <img src="<?=get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt="">
+                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt="">
                                                             </a>
                                                         <?php endif; ?>
                                                     </div>

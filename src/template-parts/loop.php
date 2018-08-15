@@ -17,7 +17,7 @@
                         }
                     ?>
                 </li>
-                <li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
+                <li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-theme'); ?></a></li>
             </ul>
         </div>
     </div>

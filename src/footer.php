@@ -28,8 +28,7 @@
                 <p class="tainacan-footer-info--blog">
                     <?php 
                         if( get_option('blogemail') ) {
-                            _e('E-mail: ');
-                            echo get_option('blogemail', ''); 
+                            printf(__('E-mail: %s', 'tainacan-theme'), get_option('blogemail', ''));
                         }
                         if(get_option('blogemail') && get_option('blogphone')) {
                             if(wp_is_mobile()) :
@@ -39,8 +38,7 @@
                             endif;
                         }
                         if( get_option('blogphone') ) {
-                            _e('Telephone: ');
-                            echo get_option('blogphone', ''); 
+                            printf(__('Telephone: %s', 'tainacan-theme'), get_option('blogphone', ''));
                         }
                     ?>
                 </p>
@@ -52,7 +50,7 @@
                 <span>
                     <?php 
                         if ( true == get_theme_mod( 'display_powered', false ) ) {
-                            printf(__('Proudly powered by %s and %s'), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>'); 
+                            printf(__('Proudly powered by %s and %s', 'tainacan-theme'), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>'); 
                         }
                     ?>
                 </span>

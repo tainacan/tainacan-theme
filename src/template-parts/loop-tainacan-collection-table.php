@@ -5,8 +5,8 @@
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col"><?php _e('Title'); ?></th>
-                    <th scope="col"><?php _e('Description'); ?></th>
+                    <th scope="col"><?php _e('Title', 'tainacan-theme'); ?></th>
+                    <th scope="col"><?php _e('Description', 'tainacan-theme'); ?></th>
                     <!-- <th scope="col"><?php //_e('Date'); ?></th>
                     <th scope="col"><?php //_e('Author'); ?></th> -->
                 </tr>

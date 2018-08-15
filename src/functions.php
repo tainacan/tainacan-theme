@@ -18,6 +18,7 @@ if(!function_exists('tainacan_setup')) {
 
         add_theme_support( 'html5', array( 'comment-list' , 'comment-form') );
         add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'automatic-feed-links' );
         define('FS_METHOD', 'direct');
         /**
          * Custom header to change the banner image
@@ -31,6 +32,14 @@ if(!function_exists('tainacan_setup')) {
 			'flex-height'        => true,
 		);
         add_theme_support( 'custom-header', $header_args );
+
+        /*
+         * Let WordPress manage the document title.
+         * By adding theme support, we declare that this theme does not use a
+         * hard-coded <title> tag in the document head, and expect WordPress to
+         * provide it for us.
+         */
+        add_theme_support( 'title-tag' );
         
 		/* register_default_headers(
             array(
@@ -53,7 +62,7 @@ if(!function_exists('tainacan_setup')) {
 			'flex-width'  => true,
 		);
 		add_theme_support( 'custom-logo', $logo_args );
-        
+
         if (function_exists('tainacan_register_view_mode')) {
             tainacan_register_view_mode('grid', [
                 'label' => 'Thumbnail',
@@ -69,6 +78,15 @@ if(!function_exists('tainacan_setup')) {
 
 }
 add_action( 'after_setup_theme', 'tainacan_setup' );
+
+/**
+ * Set the content width based on the theme's design and stylesheet.
+ *
+ * @since Tainacan Theme
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 1400;
+}
 
 /*
 * Register Widgets SideBar
@@ -109,7 +127,7 @@ function tainacan_get_logo() {
 	if (has_custom_logo()) {
 		return get_custom_logo();
 	} else {
-		$html = '<a class="navbar-brand tainacan-logo" href="' . get_bloginfo( 'url' ) . '">';
+		$html = '<a class="navbar-brand tainacan-logo" href="' . esc_url( home_url() ) . '">';
 		$html .= '<img src="' . get_template_directory_uri() . '/assets/images/logo.svg" class="logo" style="max-height: 23px">';
 		$html .= '</a>';
 		return $html;

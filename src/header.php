@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -19,7 +18,7 @@
             <div class="btn-group ml-auto"> 
                     <form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()">
                         <div class="input-group">
-                            <input type="text" name="s" placeholder="<?php _e('Search'); ?>" class="form-control" formControlName="searchText" size="50">
+                            <input type="text" name="s" placeholder="<?php _e('Search', 'tainacan-theme'); ?>" class="form-control" formControlName="searchText" size="50">
                             <span class="text-midnight-blue input-group-btn mdi mdi-magnify form-control-feedback"></span>
                         </div>
                     </form>
@@ -29,7 +28,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
                                 <div class="input-group border">
-                                    <input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e('Search'); ?>" id="tainacan-search">
+                                    <input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e('Search', 'tainacan-theme'); ?>" id="tainacan-search">
                                 </div>
                             </form>
                         </div>

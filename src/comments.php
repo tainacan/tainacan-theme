@@ -20,7 +20,7 @@ if (post_password_required()) {
 		<div id="respond" class="clearfix mt-3">  
 			<?php if(get_option('comment_registration') && !is_user_logged_in()) : ?>
 				<p>
-				<?php printf( __( 'You must be %slogged%s in to post a comment.', 'tainacan-theme'), "<a href='" . get_option('home') . "/wp-login.php'>", "</a>" ); ?>
+				<?php printf( __( 'You must be %slogged%s in to post a comment.', 'tainacan-theme'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
 				</p>        
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
@@ -71,19 +71,19 @@ if (post_password_required()) {
 						<div class="col <?php if(!is_user_logged_in()) : ?>col-md-12<?php else: ?>col-md-11<?php endif; ?> pr-0">
 							<?php if(!is_user_logged_in()) : ?>
 								<div class="form-group form-inline mb-3">                            
-									<label for="author" class="font-weight-bold"><?php _e('Name'); ?>*: </label>
+									<label for="author" class="font-weight-bold"><?php _e('Name', 'tainacan-theme'); ?>*: </label>
 									<input type="text" class="form-control comments-input" id="author" name="author">
 								</div>
 								<div class="form-group form-inline mb-3">                            
-									<label for="auemailthor" class="font-weight-bold"><?php _e('E-mail'); ?>*: </label>
+									<label for="email" class="font-weight-bold"><?php _e('E-mail', 'tainacan-theme'); ?>*: </label>
 									<input type="email" class="form-control comments-input" id="email" name="email">
 								</div>
 								<div class="form-group form-inline mb-3">
-									<label for="email" class="font-weight-bold"><?php _e('Website'); ?>: </label>
+									<label for="url" class="font-weight-bold"><?php _e('Website', 'tainacan-theme'); ?>: </label>
 									<input type="url" class="form-control comments-input" id="url" name="url">
 								</div>
 							<div class="form-group form-inline mb-3 align-items-start">
-								<label for="comment" class="font-weight-bold mr-3"><?php _e('Comment'); ?>*: </label>
+								<label for="comment" class="font-weight-bold mr-3"><?php _e('Comment', 'tainacan-theme'); ?>*: </label>
 							<?php endif;?>
 								<textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0 w-100 <?php if(!is_user_logged_in()) : ?>comments-input<?php endif;?>" rows="2"></textarea>
 							<?php if(!is_user_logged_in()) : ?></div><?php endif;?>

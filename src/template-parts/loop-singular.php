@@ -6,7 +6,7 @@
 	                <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
 	                    <?php the_title(); ?>
 	                </li>
-	                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back'); ?></a></li>
+	                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-theme'); ?></a></li>
 	            </ul>
 	        </div>
 	    </div>

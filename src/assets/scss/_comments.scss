@@ -75,7 +75,9 @@
             .media-body{
                 h5{
                     a{
-                        font-size: 12px;
+                        &.bypostauthor{
+                            font-size: 12px;
+                        }
                     }
                     .comment-time{
                         font-size: 10px;

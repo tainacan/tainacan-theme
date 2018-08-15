@@ -18,7 +18,7 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
         ?>
         <div class="media-body">
             <h5 class="media-heading comment-author vcard ml-2">
-                <a href="<?php echo get_author_posts_url($comment->user_id); ?>" class="text-black font-weight-bold">
+                <a href="<?php echo get_author_posts_url($comment->user_id); ?>" class="text-black font-weight-bold bypostauthor">
                     <?php comment_author( $comment->comment_ID ); ?>
                 </a>
                 <?php 
