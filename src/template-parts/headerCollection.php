@@ -13,20 +13,6 @@
                 </div>
             <?php endif; 
             global $wp; ?>
-            <!-- <div class="collection-header--share">
-                <?php if ( true == get_theme_mod( 'facebook_share', false ) ) : ?>
-                    <button onclick="location.href='http://www.facebook.com/sharer.php?u=<?php echo home_url( $wp->request ); ?>'" target="_blank" class="mdi mdi-facebook" id="fa-1"></button>
-                <?php endif; ?>
-                <?php if ( true == get_theme_mod( 'twitter_share', false ) && get_option( 'twitter_user') ) : ?> 
-                    <button onclick="location.href='http://twitter.com/share?url=<?php echo home_url( $wp->request ); ?>&amp;text=<?php echo tainacan_get_the_collection_name(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>'" target="_blank" class="mdi mdi-twitter" id="fa-2"></button>
-                <?php endif; ?>
-                <?php if ( true == get_theme_mod( 'google_share', false ) ) : ?> 
-                    <button onclick="location.href='https://plus.google.com/share?url=<?php echo home_url( $wp->request ); ?>'" target="_blank" class="mdi mdi-google-plus" id="fa-3"></button>
-                <?php endif; ?>
-                <button class="collection-header--share-button">
-                    <div class="mdi mdi-share-variant" id="collection-header--share-button-plus"></div>
-                </button>
-            </div>  -->
             <div class="collection-header--share" style="margin-right: 4.16666666667%;">
                 <div class="btn trigger">
                     <span class="mdi mdi-share-variant"></span>
@@ -34,7 +20,7 @@
                 <div class="icons">
                     <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
                         <div class="rotater">
-                            <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+                            <a href="http://www.facebook.com/sharer.php?u=<?php echo home_url( $wp->request ); ?>" target="_blank">
                                 <div class="btn btn-icon">
                                     <i class="mdi mdi-facebook"></i>
                                 </div>
@@ -43,7 +29,7 @@
                     <?php endif; ?>
                     <?php if ( true == get_theme_mod( 'google_share', true ) ) : ?> 
                         <div class="rotater">
-                            <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank">
+                            <a href="https://plus.google.com/share?url=<?php echo home_url( $wp->request ); ?>" target="_blank">
                                 <div class="btn btn-icon">
                                     <i class="mdi mdi-google-plus"></i>
                                 </div>
@@ -52,7 +38,7 @@
                     <?php endif; ?>
                     <?php if ( true == get_theme_mod( 'twitter_share', true ) && get_option( 'twitter_user') ) : ?> 
                         <div class="rotater">
-                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
+                            <a href="http://twitter.com/share?url=<?php echo home_url( $wp->request ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
                                 <div class="btn btn-icon">
                                     <i class="mdi mdi-twitter"></i>
                                 </div>
