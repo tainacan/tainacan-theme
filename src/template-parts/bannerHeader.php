@@ -26,6 +26,8 @@
                             elseif ( is_year() ) :
                                 printf( __( 'Yearly Archives: %s', 'tainacan-theme' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-theme' ) ) );
     
+                            elseif(is_author()) :
+                                echo get_the_author();
                             else :
                                 echo get_the_archive_title();
                             endif;

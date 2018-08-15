@@ -11,6 +11,9 @@
                         }
                         elseif(is_archive()){
                             echo ' ' . get_the_archive_title();
+                            if(is_author()) {
+                                _e('Posts of author', 'tainacan-theme');
+                            }
                         }
                     ?>
                 </li>
