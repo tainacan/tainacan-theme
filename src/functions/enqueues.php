@@ -9,12 +9,6 @@ if ( ! function_exists('tainacan_Enqueues') ) {
      */
     function tainacan_Enqueues(){
         /**
-         * Adicionando o jquery ao footer das páginas.
-         */
-            wp_deregister_script( 'jquery' );
-            wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-            wp_enqueue_script( 'jquery' );
-        /**
          * Bootstrap 4.1.3
          */
             //Style
