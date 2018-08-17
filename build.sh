@@ -1,4 +1,8 @@
 #!/bin/bash
+command -v sass >/dev/null 2>&1 || {
+  echo >&2 "SASS does not seem to be available.";
+  exit 1;
+}
 
 source build-config.cfg
 
