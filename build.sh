@@ -1,6 +1,6 @@
 #!/bin/bash
 command -v sass >/dev/null 2>&1 || {
-  echo >&2 "SASS does not seem to be available.";
+  echo >&2 "REQUIRE: SASS installed to compile the SCSS archives to CSS.";
   exit 1;
 }
 

@@ -2,7 +2,7 @@
  
 # Executa o comando 'sass' para verificar se existe (veja http://stackoverflow.com/a/677212/329911)
 command -v sass >/dev/null 2>&1 || {
-  echo >&2 "SASS does not seem to be available.";
+  echo >&2 "REQUIRE: SASS installed to compile the SCSS archives to CSS.";
   exit 1;
 }
  
