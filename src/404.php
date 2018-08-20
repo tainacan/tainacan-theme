@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 mx-auto text-center">
-                    <button class="btn btn-primary bg-jungle-green py-0"><?php _e('Go to first page', 'tainacan-theme');?></button>
+                    <a href="<?php echo home_url(); ?>" class="btn btn-primary bg-jungle-green py-0"><?php _e('Go to first page', 'tainacan-theme');?></a>
                 </div>
             </div>
         </div>

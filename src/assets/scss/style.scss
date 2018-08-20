@@ -289,15 +289,25 @@ nav{
     }
     &.page-404{
         height: 100vh;
-        .brand{
-            color: white;
-            text-align: center;
-            h1{
-                font-size: 150px;
-                font-weight: 600;
+        .container {
+            z-index: 2;
+            .brand{
+                color: white;
+                text-align: center;
+                h1{
+                    font-size: 150px;
+                    font-weight: 600;
+                }
+                h3{
+                    font-size: 1.313rem;
+                }
             }
-            h3{
-                font-size: 1.313rem;
+            a{
+                border-color: #25a189 !important;
+                &:hover{
+                    background-color: #25a189 !important;
+                    border-color: #25a189 !important;
+                }
             }
         }
     }
