@@ -87,10 +87,10 @@
             }
             margin-bottom: 0;
             @media only screen and (max-width: 576px){
-                font: {
-                    size: 9px;
-                    weight: 400;
-                }
+                // font: {
+                //     size: 9px;
+                //     weight: 400;
+                // }
                 margin-top: 0.5rem;
             }
             &.dotmore {
@@ -211,6 +211,7 @@
     width: 35px;
     height: 35px;
     left: 95.833333%;
+    top: -2px;
     .btn {
         position: absolute;
         top: 0;
