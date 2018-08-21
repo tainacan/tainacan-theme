@@ -43,33 +43,27 @@
                             </div>
                         </div>
                     <?php endif; ?>
-                    
-                    <?php
-                        $images = get_posts( array (
-                            'post_parent' => get_the_ID(),
-                            'post_type' => 'attachment',
-                            'post_per_page' => -1,
-                            'exclude' => get_post_thumbnail_id( get_the_ID() )
-                        ));
-                    ?>
-                    
-                    <?php if ( !empty($images) ) : ?>
+
+                    <?php 
+                        $attachment = array_values( get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'numberposts'  => -1 ) ) ); 
+                    ?>    
+                
+                    <?php if ( !empty($attachment) ) : ?>
 
                         <div class="mt-3 tainacan-single-post">
                             <article role="article">
                                 <h1 class="title-content-items"><?php _e('Attachments', 'tainacan-theme'); ?></h1>
                                 <section class="tainacan-content single-item-collection margin-two-column">
                                     <div class="single-item-collection--attachments">
-                                        <?php
-                                            foreach ( $images as $attachment ) { ?>
-                                                <div class="single-item-collection--attachments-img">
-                                                    <a href="<?php echo $attachment->guid; ?>">
-                                                        <?php 
-                                                            echo wp_get_attachment_image( $attachment->ID, 'tainacan-item-attachments' );
-                                                        ?>
-                                                    </a>
-                                                </div>
-                                            <?php }
+                                        <?php foreach ( $attachment as $attachment ) { ?>
+                                            <div class="single-item-collection--attachments-img">
+                                                <a href="<?php echo $attachment->guid; ?>">
+                                                    <?php 
+                                                        echo wp_get_attachment_image( $attachment->ID, 'tainacan-item-attachments' );
+                                                    ?>
+                                                </a>
+                                            </div>
+                                        <?php }
                                         ?>
                                     </div>
                                 </section>
