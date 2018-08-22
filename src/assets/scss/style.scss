@@ -162,6 +162,12 @@ nav{
                     }
                 }
             }
+            ul {
+                &.dropdown-menu {
+                    min-width: 10rem !important;
+                    padding: .5rem 0 !important;
+                }
+            }
         }
     }
     @media screen {
