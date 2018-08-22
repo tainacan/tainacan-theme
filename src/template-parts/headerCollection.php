@@ -6,6 +6,9 @@
         .t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore.full-story .toggle::before {
             content: "[ ' . __("Show less", "tainacan-theme") . ' ]";
         }
+        nav.menu-belowheader #menubelowHeader ul.dropdown-menu {
+            min-width: 10rem !important;
+        }
     </style>';
 ?>
 
