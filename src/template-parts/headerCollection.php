@@ -13,10 +13,10 @@
     <div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
         <div class="collection-header position-relative max-large" style="">
             <?php if(has_post_thumbnail(tainacan_get_collection_id())) : ?>
-                <img src="<?php echo get_the_post_thumbnail_url(tainacan_get_collection_id()); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" style="margin-left: 4.16666666667%;">
+                <img src="<?php echo get_the_post_thumbnail_url(tainacan_get_collection_id()); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left">
             <?php else : ?>
                 <div class="image-placeholder rounded-circle border border-white position-absolute">
-                    <h4 class="text-center"  style="margin-left: 4.16666666667%;">
+                    <h4 class="text-center">
                     <?php 
                         echo tainacan_get_initials(tainacan_get_the_collection_name());
                     ?>
