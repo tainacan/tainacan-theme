@@ -95,7 +95,7 @@ function tainacan_widgets_sidebar_init() {
     register_sidebar( array(
         'name'          => __( 'Tainacan Sidebar Right', 'tainacan-theme' ),
         'id'            => 'sidebar-right',
-        'before_widget' => '<aside id="%1$s" class="pb-4 px-4 widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="pb-4 pl-4 widget %2$s">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h2 class="widget-title font-weight-bold">',
         'after_title'   => '</h2>',
