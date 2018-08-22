@@ -1,3 +1,14 @@
+<?php
+    echo '<style>
+        .t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore .toggle::before {
+            content: "[ ' . __("Show more", "tainacan-theme") . ' ]";
+        }
+        .t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore.full-story .toggle::before {
+            content: "[ ' . __("Show less", "tainacan-theme") . ' ]";
+        }
+    </style>';
+?>
+
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
     <div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
         <div class="collection-header position-relative max-large" style="">
