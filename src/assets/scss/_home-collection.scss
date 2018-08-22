@@ -206,6 +206,9 @@
     height: 35px;
     left: 94.833333%;
     top: -2px;
+    @media only screen and (max-width: 576px) {
+        left: 90.833333%;
+    }
     .btn {
         position: absolute;
         top: 0;
