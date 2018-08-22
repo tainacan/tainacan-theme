@@ -5,13 +5,13 @@
 }
 .t-bg-collection{
     min-height: 150px;
+    z-index: 1;
     @media only screen and (max-width: 768px){
         min-height: 130px;
     }
     @media only screen and (max-width: 576px){
         min-height: 65px;
     }
-    z-index: 1;
 
     .t-collection--info-img, .image-placeholder {
         width: 205px;
@@ -19,6 +19,7 @@
         max-width: 205px;
         bottom: -6rem;
         border-width: 4px !important;
+        margin-left: 4.16666666667%;
         @media only screen and (max-width: 1024px){
             width: 165px;
             height: 165px;
@@ -97,17 +98,10 @@
                 height: 65px;
                 .toggle {
                     color: #9d9fa0;
-                    &::before{
-                        content: "[ Show more ]";
-                    }
                 }
                 &.full-story {
                     height: auto;
-                    .toggle {
-                        &::before{
-                            content: "[ Show less ]";
-                        }
-                    }
+                    margin-bottom: 1rem;
                 }
             }
         }

@@ -56,12 +56,14 @@
                 <h2 class="t-collection--info-title text-white">
                     <?php tainacan_the_collection_name(); ?>
                 </h2>
-                <div class="text-white t-collection--info-description-text dotmore">
-                    <?php
-                        tainacan_the_collection_description(); 
-                    ?>
-                    <a class="toggle" href="#"></a>
-                </div>
+                <?php if ( !empty(tainacan_get_the_collection_description()) ): ?>
+                    <div class="text-white t-collection--info-description-text dotmore">
+                        <?php
+                            tainacan_the_collection_description(); 
+                        ?>
+                        <a class="toggle" href="#"></a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
