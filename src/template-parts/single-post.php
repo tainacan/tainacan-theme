@@ -1,7 +1,9 @@
 <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
     <header class="mb-4">
         <div class="header-meta text-muted mb-5 d-flex">
-            <?php tainacan_post_date(); ?> &nbsp;<?php printf(__('by&nbsp;%s', 'tainacan-theme'), get_the_author_posts_link()); ?>
+            <?php if(!is_singular('page')) { ?>
+                <?php tainacan_post_date(); ?> &nbsp;<?php printf(__('by&nbsp;%s', 'tainacan-theme'), get_the_author_posts_link()); ?>
+            <?php } ?>
             <div class="btn-group ml-auto" role="group">
                 <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
                     <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="" target="_blank">
