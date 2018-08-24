@@ -58,19 +58,15 @@ add_filter( 'comment_text', 'wrap_Comment', 99);
 /**
  * Display date of post.
  */
-//if ( ! function_exists( 'tainacan_post_date' ) ) {
-	function tainacan_post_date() {
-		//if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-			
-			$time_string = sprintf( $time_string,
-				esc_attr( get_the_date( 'c' ) ),
-				get_the_date()
-			);
-			echo $time_string;
-		//}
-	}
-//}
+function tainacan_post_date() {
+    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+    
+    $time_string = sprintf( $time_string,
+        esc_attr( get_the_date( 'c' ) ),
+        get_the_date()
+    );
+    echo $time_string;
+}
 
 // define the cancel_comment_reply_link callback 
 function filter_cancel_comment_reply_link( $formatted_link, $link, $text ) { 
