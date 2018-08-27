@@ -4,16 +4,20 @@
             <ul class="list-inline mb-1 d-flex">
                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                     <?php 
-                        if(is_home()) _e('Posts of blog', 'tainacan-theme'); 
+                        if(is_home()) {
+                            if ( get_option( 'page_for_posts') ) {
+                                echo get_the_title( get_option('page_for_posts') );
+                            } else {
+                                _e('Blog Posts', 'tainacan-theme');
+                            }
+                            
+                        } 
                         elseif(is_search()){ 
                             _e('Search Results for', 'tainacan-theme');
                             echo ' "' , get_search_query(), '"';
                         }
-                        elseif(is_archive()){
+                        elseif(is_archive()) {
                             echo ' ' . get_the_archive_title();
-                            if(is_author()) {
-                                _e('Posts of author', 'tainacan-theme');
-                            }
                         }
                     ?>
                 </li>

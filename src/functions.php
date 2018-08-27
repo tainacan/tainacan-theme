@@ -197,10 +197,11 @@ function tainacan_active($selected, $current = true, $echo = true) {
 
 }
 
-add_filter('get_the_archive_title', function() {
+add_filter('get_the_archive_title', function($title) {
     if (is_post_type_archive('tainacan-collection')) {
         return __('Collections', 'tainacan-theme');
     }
+    return $title;
 });
 
 add_action('pre_get_posts', function($query) {
