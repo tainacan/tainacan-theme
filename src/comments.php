@@ -43,7 +43,7 @@ if (post_password_required()) {
 						'title_reply' => '',
 						'title_reply_before' => '',
 						'title_reply_after' => '',
-						'comment_field' => sprintf('<div class="form-row"><div class="col-3 col-md-1 text-right"><img src="%1$s" class="img-fluid rounded-circle mr-sm-3"></div>', get_avatar_url($current_user->ID, array('size'=>60))).'<div class="col-9 col-md-11"><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
+						'comment_field' => sprintf('<div class="form-row"><div class="col-3 col-md-1 align-self-center form-row--avartar"><img src="%1$s" class="img-fluid rounded-circle"></div>', get_avatar_url($current_user->ID, array('size'=>60))).'<div class="col-9 col-md-11 form-row--textarea"><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
 						'cancel_reply_before' => '',
 						'cancel_reply_after' => '',
 						'class_submit' => 'btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto comment-submit-link',
@@ -55,7 +55,7 @@ if (post_password_required()) {
 		</div>
 		<?php if (have_comments()) : ?>
 			<div class="row <?php if(!wp_is_mobile()) { ?>margin-two-column<?php } ?>">
-				<div class="col mt-4 list-comments">
+				<div class="col mt-4 list-comments pl-md-0">
 					<?php wp_list_comments('type=comment&callback=tainacan_Comments_Callback'); ?>
 				</div>
 			</div>
