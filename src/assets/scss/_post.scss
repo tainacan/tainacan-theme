@@ -37,7 +37,10 @@
         }
         .tainacan-content {
             font-size: 1rem;
-            min-height: 10vw;
+            min-height: 32.5vh;
+            @media only screen and (min-height: 1080px) {
+                min-height: 50vh;
+            }
             &h1, &h2{
                 font-size: 1rem;
             }
