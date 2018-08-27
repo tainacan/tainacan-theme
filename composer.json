@@ -7,7 +7,6 @@
     ],
     "require": {
         "twbs/bootstrap": "4.*",
-        "wp-bootstrap/wp-bootstrap-navwalker": "*",
         "fabianobn/slick": "v1.8.*"
     },
     "scripts": {

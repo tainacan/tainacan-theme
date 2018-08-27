@@ -33,16 +33,6 @@
                             </form>
                         </div>
                     </div>
-                <!-- <button type="button" class="btn btn-link text-heavy-metal dropdown-toggle dropdown-toggle-split px-1 d-flex align-items-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="mdi mdi-account-outline"></i><div class="d-none d-md-inline-flex px-1">User</div><span class="sr-only text-jelly-bean">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu tainacan-dropdown-menu">
-                    <a class="dropdown-item" href="#">Perfil</a>
-                    <a class="dropdown-item" href="#">Coleção</a>
-                    <a class="dropdown-item" href="#">Sair</a>
-                </div>
-                <button type="button" class="btn btn-link text-heavy-metal px-1"><i class="mdi mdi-bell-outline"></i></button>
-                <button type="button" class="btn btn-link text-heavy-metal pl-1 pr-0"><i class="mdi mdi-help-circle-outline"></i></button> -->
             </div>
         </div>
     </nav>

@@ -22,7 +22,7 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
                     <?php comment_author( $comment->comment_ID ); ?>
                 </a>
                 <?php 
-                    printf('<p class="comment-time text-oslo-gray my-sm-1">%s às %s.</p>', get_comment_date(), get_comment_time()); 
+                    printf('<p class="comment-time text-oslo-gray my-sm-1">%s &agrave;s %s.</p>', get_comment_date(), get_comment_time()); 
                 ?>
             </h5>
             <?php if ('0' == $comment->comment_approved) : ?>

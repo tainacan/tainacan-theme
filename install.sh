@@ -4,14 +4,6 @@ echo "\n ..::Tainacan Theme::..\n";
 
 echo "\nStarting installation with composer ... please wait!!\n";
 
-echo "\n Checking if file bootstrap navwalker exist ... \n\n";
-
-if (!file_exists("src/vendor/class-wp-bootstrap-navwalker.php")) {
-    echo "\m Copy Boostrap Navwalker ... \n\n";
-    mkdir("src/vendor/", 0777, true);
-    copy("vendor/wp-bootstrap/wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php", "src/vendor/class-wp-bootstrap-navwalker.php");
-}
-
 echo "\nStarting Copying Files...\n\n";
 
 echo "\nCopy Frameword CSS - Bootstrap ...\n\n";

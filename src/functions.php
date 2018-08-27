@@ -152,7 +152,7 @@ add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 /**
  * Class navwalker
  */
-require_once get_template_directory() . '/vendor/class-wp-bootstrap-navwalker.php';
+require_once get_template_directory() . '/lib/class-wp-bootstrap-navwalker.php';
 
 /**
  * Register the menu for use after the banner
