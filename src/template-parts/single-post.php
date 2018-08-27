@@ -31,6 +31,7 @@
             wp_link_pages();
         ?>
     </section>
+    <?php if(!is_singular('page')) { ?>
     <footer class="mt-5 border-top pt-3">
         <p>
             <?php 
@@ -43,6 +44,7 @@
                 <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
         </p>
     </footer>
+    <?php } ?>
 </article>
 <div class="row">
 	<!-- Container -->
