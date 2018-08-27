@@ -16,7 +16,7 @@
                                 </div>
                             <?php endif; ?>
                             <div class="media-body text-oslo-gray">
-                                <p><?php echo get_the_excerpt(); ?></p>
+                                <p><?php echo wp_trim_words( get_the_excerpt(), 35, '[...]'); ?></p>
                                 <!-- <p> 
                                     <?php //_e('Create by: ');?> <?php //the_author(); ?><br>
                                     <?php //_e('Date: ');?> <?php //tainacan_post_date(); ?>
