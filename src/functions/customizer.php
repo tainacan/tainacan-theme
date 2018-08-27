@@ -537,6 +537,99 @@ function tainacan_get_color_scheme_css( $colors ) {
 	footer hr.bg-scooter {
 		background-color: {$colors['link_color']} !important;
 	}
+
+	/**
+	* Tainacan Collections
+	*/
+	.tainacan-collection-list--simple-search .dropdown #dropdownMenuSorting::after, .tainacan-collection-list--simple-search .dropdown #dropdownMenuViewMode::after {
+		color: {$colors['link_color']};
+	}
+	.tainacan-list-post .tainacan-list-collection--container-card .tainacan-list-collection--card .tainacan-list-collection--title,
+	.tainacan-list-post .tainacan-list-collection--container-grid .tainacan-list-collection--grid .tainacan-list-collection--grid-title,
+	.tainacan-list-post table thead th {
+		color: {$colors['link_color']} !important;
+	}
+
+	/**
+	* Plugin Tainacan
+	*/
+	/* Dropdown Arrow */
+	#items-list-area .dropdown .dropdown-trigger .button .icon, 
+	#items-list-area .autocomplete .dropdown-trigger .button .icon {
+		color: {$colors['link_color']};
+	}
+
+	/* Dropdown Active Item (for normal dropdown, autocomplete, taginput, etc... */
+	#items-list-area .dropdown .dropdown-menu .dropdown-content .dropdown-item.is-active, 
+	#items-list-area .dropdown .dropdown-menu .dropdown-content .has-link a.is-active, 
+	#items-list-area .dropdown .dropdown-menu .has-link .dropdown-content a.is-active, 
+	#items-list-area .autocomplete .dropdown-menu .dropdown-content .dropdown-item.is-active, 
+	#items-list-area .autocomplete .dropdown .dropdown-menu .dropdown-content .has-link a.is-active, 
+	#items-list-area .dropdown .autocomplete .dropdown-menu .dropdown-content .has-link a.is-active, 
+	#items-list-area .autocomplete .dropdown .dropdown-menu .has-link .dropdown-content a.is-active, 
+	#items-list-area .dropdown .autocomplete .dropdown-menu .has-link .dropdown-content a.is-active {
+		background-color: {$colors['backtransparent']};
+	}
+
+	/* Select Arrow */
+	#items-list-area .select:not(.is-loading)::after {
+		color: {$colors['link_color']} !important;
+	}
+
+	/* Anchor tag, links */
+	.theme-items-list a {
+		color: {$colors['link_color']} !important;
+	}
+
+	/* Tooltip */
+	.tooltip .tooltip-inner {
+		background-color: {$colors['backtransparent']} !important;
+	}
+	.tooltip .tooltip-arrow {
+		border-color: {$colors['backtransparent']} !important;
+	}
+
+	/* Colored text */
+	#items-list-area .has-text-secondary {
+		color: {$colors['link_color']} !important;
+	}
+
+	/* Pagination icons and links */
+	#items-list-area .pagination-area .pagination .pagination-link, 
+	#items-list-area .pagination-area .pagination .pagination-previous, 
+	#items-list-area .pagination-area .pagination .pagination-next {
+		color: {$colors['link_color']} !important;
+	}
+
+	/* Outline Button */
+	#items-list-area .button.is-outlined {
+		color: {$colors['link_color']} !important;
+	}
+
+	/* Colored Button */
+	#items-list-area .button.is-secondary,
+	#items-list-area .button.is-secondary:hover, 
+	#items-list-area .button.is-secondary:focus {
+		background: {$colors['link_color']} !important;
+	}
+
+	/* Checkbox modal on finder columns */
+	#items-list-area .tainacan-li-checkbox-last-active,
+	#items-list-area .tainacan-li-checkbox-parent-active {
+		background-color: {$colors['backtransparent']};
+	}
+
+	/* Line above section titles */
+	#items-list-area .tainacan-modal-title hr,
+	#items-list-area .advanced-search-criteria-title hr {
+		background-color: {$colors['link_color']};
+	}
+
+	/* Filter menu compress button */
+	#filter-menu-compress-button {
+		background-color: {$colors['backtransparent']} !important;
+		color: {$colors['link_color']} !important;
+	}
 	
 CSS;
 }
