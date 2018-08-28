@@ -8,20 +8,20 @@
     .tainacan-grid-item {
         animation-name: item-appear;
         animation-duration: 0.5s;
-        max-width: 258px;
-        margin: 12px 16px 24px 16px;
+        max-width: 255px;
+        margin: 12px 15px 24px 15px;
         text-align: center;
         display: block;
         text-decoration: none !important;
 
         img {
-            width: 258px;
+            width: 255px;
             height: auto;
             border-radius: 0px;
         }
 
         &:hover {
-            background-color: #e5e5e5;
+            background-color: #dbdbdb;
             p.metadata-title { text-decoration: none !important; }
         }
 
@@ -32,7 +32,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             text-align: left;
             color: #1d1d1d;
             text-decoration: none !important;

@@ -602,7 +602,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Outline Button */
-	.theme-items-list .button.is-outlined {
+	.theme-items-list .button.is-outlined,
+	.tainacan-modal-content .button.is-outlined {
 		color: {$colors['link_color']} !important;
 	}
 
@@ -620,9 +621,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Line above section titles */
-	.theme-items-list .tainacan-modal-title hr,
-	.theme-items-list .advanced-search-criteria-title hr {
-		background-color: {$colors['link_color']};
+	.tainacan-modal-title hr,
+	.advanced-search-criteria-title hr {
+		background-color: {$colors['link_color']} !important;
 	}
 
 	/* Filter menu compress button */
