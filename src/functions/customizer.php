@@ -615,9 +615,15 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Checkbox modal on finder columns */
-	.theme-items-list .tainacan-li-checkbox-last-active,
-	.theme-items-list .tainacan-li-checkbox-parent-active {
-		background-color: {$colors['backtransparent']};
+	.tainacan-modal-content  .tainacan-li-checkbox-last-active,
+	.tainacan-modal-content  .tainacan-li-checkbox-parent-active,
+	.tainacan-modal-content  .tainacan-show-more:hover {
+		background-color: {$colors['backtransparent']} !important;
+	}
+
+	/* Checkbox modal arrow*/
+	.tainacan-modal-content .mdi-menu-right {
+		color: {$colors['link_color']} !important;
 	}
 
 	/* Line above section titles */
