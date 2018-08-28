@@ -56,6 +56,17 @@
                     }
                 }
             }
+            .comment-form-cookies-consent {
+                display: flex;
+                align-items: center;
+                #wp-comment-cookies-consent{
+                    width: auto;
+                    display: inline-flex;
+                }
+                label {
+                    margin: 0 1rem;
+                }
+            }
             .comment-form-author {
                 margin-top: 22px;
             }
