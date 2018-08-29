@@ -25,6 +25,9 @@ jQuery(document).ready(function( $ ) {
      */
     $('#comments ul.children').addClass('align-children');
 
+
+    $('.tainacan-single-post .tainacan-content table').addClass('table table-borderless');
+
     /**
      * Add the icon on previous and next pagination in comment list
      */
