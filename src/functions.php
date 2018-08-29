@@ -215,3 +215,4 @@ add_action('pre_get_posts', function($query) {
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
+require get_template_directory() . '/functions/collection-color.php';
