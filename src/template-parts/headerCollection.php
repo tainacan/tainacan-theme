@@ -70,7 +70,8 @@
                 <h2 class="t-collection--info-title text-white">
                     <?php tainacan_the_collection_name(); ?>
                 </h2>
-                <?php if ( !empty(tainacan_get_the_collection_description()) ): ?>
+                <?php $tainacan_collection_description = tainacan_get_the_collection_description(); ?>
+                <?php if ( !empty($tainacan_collection_description) ): ?>
                     <div class="text-white t-collection--info-description-text dotmore">
                         <?php
                             tainacan_the_collection_description(); 

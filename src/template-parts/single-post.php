@@ -11,7 +11,8 @@
                     </a>
                 <?php endif; ?>
                 <?php if ( true == get_theme_mod( 'twitter_share', true ) ) : ?> 
-                    <?php $via = !empty(get_option( 'twitter_user')) ? '&amp;via=' . get_option( 'twitter_user') : ''; ?>
+                    <?php $twitter_option = get_option( 'twitter_user'); ?>
+                    <?php $via = !empty($twitter_option) ? '&amp;via=' . get_option( 'twitter_user') : ''; ?>
                     <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="">
                         <img src="<?php echo get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="">
                     </a>
