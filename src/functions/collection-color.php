@@ -47,7 +47,7 @@ class TainacanThemeCollectionColor {
             <input 
                     style="height: 40px;width: 40px;margin: 0.5rem 0.1rem;border: 0;padding: 0;" 
                     type="color" 
-                    value="pink" 
+                    value="#2c2d2d" 
                     name="<?php echo $this->meta_name; ?>">
             </input>   
         </div>
