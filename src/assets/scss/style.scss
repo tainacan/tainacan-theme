@@ -315,9 +315,10 @@ nav{
         }
     }
     &.page-collection{
-        height: 400px !important;
+        height: auto;
+        padding-top: 250px;
         @media only screen and (max-width: 576px){
-            height: 200px !important;
+            padding-top: 89.62px;
         }
     }
     &.page-height{

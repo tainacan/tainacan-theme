@@ -44,6 +44,23 @@
             &h1, &h2{
                 font-size: 1rem;
             }
+            blockquote:not(.wp-block-pullquote), .wp-block-quote {
+                color: #898d8f;
+                font-weight: 400;
+                padding: 1rem;
+                border-left:2px solid #298596;
+                margin-left: 4.16666666667%;
+                margin-right: 4.16666666667%;
+                cite {
+                    float: right;
+                    color: #298596;
+                }
+            }
+            .table {
+                thead {
+                    border-bottom: 1px solid #cbcbcb;
+                }
+            }
             img[class*="align"], 
             img[class*="wp-image-"], 
             .gallery {
@@ -118,26 +135,6 @@
                     margin-right: auto;
                 }
             }
-            /* .wp-caption {
-                background: #cbcbcb;
-                margin-bottom: 1.625em;
-                max-width: 96%;
-                max-width: calc( 100% - 18px );
-                padding: 9px;
-                .wp-caption-text {
-                    margin-bottom: 0.6em;
-                    padding: 10px 0 5px 40px;
-                    position: relative;
-                }
-                .wp-caption-text, .gallery-caption {
-                    color: #666;
-                    font-size: 12px;
-                }
-            } */
-            table, tr, td {
-                border: 1px solid black;
-                padding: 5px;
-            }
             figure {
                 margin: 16px 40px;
             }
@@ -185,6 +182,17 @@
             .wp-block-pullquote{
                 border-top: 1px solid #cbcbcb;
                 border-bottom: 1px solid #cbcbcb;
+                p {
+                    color: #298596;
+                    font: {
+                        size: 22px;
+                        weight: 500;
+                    }
+                }
+                cite {
+                    font-size: 16px;
+                    color: #898d8f;
+                }
             }
             .wp-caption, .gallery-caption {
                 font-size: 13px;

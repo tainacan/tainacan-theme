@@ -64,12 +64,12 @@ if(!function_exists('tainacan_setup')) {
 		add_theme_support( 'custom-logo', $logo_args );
 
         if (function_exists('tainacan_register_view_mode')) {
-            tainacan_register_view_mode('grid', [
+            tainacan_register_view_mode('grid', array(
                 'label' => 'Thumbnail',
                 'description' => 'A thumbnail grid view, showing only title and thumbnail',
                 'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
-            ]);
+            ));
         }
         
         add_image_size( 'tainacan-theme-list-post', 300, 200, true );
@@ -179,12 +179,11 @@ function tainacan_hex2rgb( $color ) {
 	return array( 'red' => $r, 'green' => $g, 'blue' => $b );
 }
 
-add_filter( 'query_vars', function ( $public_query_vars ) {
-
+function tainacan_collections_viewmode($public_query_vars){
     $public_query_vars[] = "tainacan_collections_viewmode";
     return $public_query_vars;
-
-} );
+}
+add_filter( 'query_vars', 'tainacan_collections_viewmode');
 
 function tainacan_active($selected, $current = true, $echo = true) {
 
@@ -197,20 +196,20 @@ function tainacan_active($selected, $current = true, $echo = true) {
 
 }
 
-add_filter('get_the_archive_title', function($title) {
+function tainacan_theme_collection_title($title){
     if (is_post_type_archive('tainacan-collection')) {
         return __('Collections', 'tainacan-theme');
     }
     return $title;
-});
+}
+add_filter('get_the_archive_title', 'tainacan_theme_collection_title');
 
-add_action('pre_get_posts', function($query) {
-
+function tainacan_theme_collection_query($query){
     if ($query->is_main_query() && $query->is_post_type_archive('tainacan-collection')) {
         $query->set('posts_per_page', 12);
     }
-
-});
+}
+add_action('pre_get_posts', 'tainacan_theme_collection_query');
 
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';

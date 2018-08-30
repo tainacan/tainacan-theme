@@ -20,7 +20,7 @@ if (post_password_required()) {
 		<div id="respond" class="clearfix mt-5 <?php if(!wp_is_mobile()) { ?>margin-two-column<?php } ?>">  
 			<?php if(get_option('comment_registration') && !is_user_logged_in()) : ?>
 				<p>
-				<?php printf( __( 'You must be %slogged%s in to post a comment.', 'tainacan-theme'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
+				<?php printf( __( 'You must be %1$slogged%2$s in to post a comment.', 'tainacan-theme'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
 				</p>        
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
@@ -36,7 +36,7 @@ if (post_password_required()) {
 				</div>
 
 				<?php 
-					$comment_args = [
+					$comment_args = array(
 						'logged_in_as' => '<span class="text-oslo-gray authenticated d-inline d-sm-none mb-4">'.
 						sprintf( __('Authenticated as <a href="%1$s" class="font-weight-light">%2$s</a>', 'tainacan-theme'), get_author_posts_url($current_user->ID), $current_user->display_name)
 						.'</span>',
@@ -48,7 +48,7 @@ if (post_password_required()) {
 						'cancel_reply_after' => '',
 						'class_submit' => 'btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto comment-submit-link',
 						'label_submit' =>  __('Send', 'tainacan-theme'),
-					];
+					);
 					comment_form($comment_args); 
 				?>
 			<?php endif; ?>

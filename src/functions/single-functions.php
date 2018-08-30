@@ -7,7 +7,6 @@
  */
 function tainacan_Comments_Callback($comment, $args, $depth) {
     //get comment to determine type
-    $GLOBALS['comment'] = $comment;
     global $post; 
     //var_dump($args);die;
     $class_has = "has-children media comment-". $comment->comment_ID; ?>

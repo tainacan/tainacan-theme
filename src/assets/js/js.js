@@ -25,6 +25,9 @@ jQuery(document).ready(function( $ ) {
      */
     $('#comments ul.children').addClass('align-children');
 
+
+    $('.tainacan-single-post .tainacan-content table').addClass('table table-borderless');
+
     /**
      * Add the icon on previous and next pagination in comment list
      */
@@ -80,21 +83,12 @@ jQuery(document).ready(function( $ ) {
             // instead of a settings object
         ]
     });
-    //$('.t-collection--info-description-text').attr('style', 'display: block; max-height: 4.5em;');
-    /* var t = $(".elimore");
-    t.dotdotdot({
-        keep: ".toggle"
-    });
-
-    var n = t.data("dotdotdot");
-    t.on("click", ".toggle", function(e) {
-        t.preventDefault(), t.hasClass("ddd-truncated") ? (n.restore(), t.addClass("full-story")) : (t.removeClass("full-story"), n.truncate(), n.watch())
-    }); */
 });
 jQuery(document).ready(function(e) {
         var t = e(".dotmore");
         t.dotdotdot({
-            keep: ".toggle"
+            keep: ".toggle",
+            height: "watch"
         });
         var n = t.data("dotdotdot");
         t.on("click", ".toggle", function(e) {
