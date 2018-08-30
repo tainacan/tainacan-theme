@@ -44,21 +44,114 @@
             &h1, &h2{
                 font-size: 1rem;
             }
-            blockquote:not(.wp-block-pullquote), .wp-block-quote {
+            h1 {
+                color: #298596;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            h2 {
+                color: #000;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            h3 {
+                color: #000;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            h4 {
                 color: #898d8f;
+                font-size: 16px;
+                font-style: italic;
+            }
+            h5 {
+                color: #000;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            h6 {
+                color: #298596;
+                font-size: 14px;
                 font-weight: 400;
-                padding: 1rem;
+            }
+            pre:not(.wp-block-code) {
+                color: #898d8f;
+                font-size: 16px;
+                font-weight: 400;
+                white-space: pre-line;
+            }
+            .wp-block-code {
+                code {
+                    font-size: 87.5%;
+                    color: #e83e8c;
+                    word-break: break-word;
+                }
+            }
+            blockquote:not(.wp-block-pullquote), .wp-block-quote {
                 border-left:2px solid #298596;
                 margin-left: 4.16666666667%;
                 margin-right: 4.16666666667%;
-                cite {
-                    float: right;
-                    color: #298596;
+                padding: 1rem;
+                p {
+                    color: #898d8f;
+                    font-size: 22px;
+                    font-weight: 500;
                 }
+                cite {
+                    color: #298596;
+                    float: right;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+            .wp-block-separator {
+                border-color: #cbcbcb;
+                width: 50%;
+                &.is-style-wide{
+                    width: 100%;
+                }
+                &.is-style-dots{
+                    &::before {
+                        color: #cbcbcb;
+                        font-weight: 600;
+                    }
+                }
+            }
+            ul {
+                font-size: 16px;
+                font-weight: 400;
+                color: #000;
             }
             .table {
                 thead {
                     border-bottom: 1px solid #cbcbcb;
+                    color: #898d8f;
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+                tbody {
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #000;
+                }
+            }
+            dl {
+                dd {
+                    margin-left: 2rem;
+                }
+            }
+            address {
+                font-size: 14px;
+                font-style: italic;
+            }
+            p {
+                code {
+                    border-radius: 5px; 
+                    -moz-border-radius: 5px; 
+                    -webkit-border-radius: 5px; 
+                    border: 1px solid #BCBEC0;
+                    padding: 2px;
+                    font-size:12px;
                 }
             }
             img[class*="align"], 
@@ -177,6 +270,12 @@
                     img {
                         max-width: none !important;
                     }
+                }
+                text-align: center;
+                figcaption{
+                    color: #000;
+                    font-size: 14px;
+                    font-weight: 400;
                 }
             }
             .wp-block-pullquote{
@@ -361,6 +460,10 @@
             font-weight: 400;
             a{
                 font-weight: 400;
+            }
+            span {
+                color: #298596;
+                font-weight: 300;
             }
         }
     }

@@ -37,9 +37,9 @@
         <p>
             <?php 
                 _e('Category: ', 'tainacan-theme'); 
-                the_category(', ') ?> | 
+                the_category(' <span>|</span> ') ?> -
                 <?php if (has_tag()) { 
-                    the_tags('Tags: ', ', '); ?> | 
+                    the_tags('Tags: ', ' <span>|</span> '); ?> -
                 <?php } 
                 _e('Comments', 'tainacan-theme'); echo ':'; ?> 
                 <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
