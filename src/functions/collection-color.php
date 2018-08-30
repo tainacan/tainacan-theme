@@ -7,17 +7,17 @@ class TainacanThemeCollectionColor {
     public $meta_name = 'tainacan_theme_collection_color';
     
     function __construct() {
-        add_filter('tainacan-api-response-collection-meta', [$this, 'add_meta_to_response'], 10, 2);
+        add_filter('tainacan-api-response-collection-meta', array($this, 'add_meta_to_response'), 10, 2);
 
-        add_action('tainacan-register-admin-hooks', [$this, 'register_hook']);
+        add_action('tainacan-register-admin-hooks', array($this, 'register_hook'));
 
-        add_action('tainacan-insert-tainacan-collection', [$this, 'save_meta']);
+        add_action('tainacan-insert-tainacan-collection', array($this, 'save_meta'));
 
     }
 
     function register_hook() {
         if (function_exists('register_admin_hook')) {
-            register_admin_hook( 'collection', [$this, 'form'] );
+            register_admin_hook( 'collection', array($this, 'form') );
         }
     }
 
