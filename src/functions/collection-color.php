@@ -24,10 +24,34 @@ class TainacanThemeCollectionColor {
     function form() {
 
         ob_start();
-        ?>
+        ?>  
 
-        <input type="text" value="pink" name="<?php echo $this->meta_name; ?>" />
-
+        <div class="field">
+        <label class="label">Collection Color</label>
+        <span class="help-wrapper">
+            <a class="help-button has-text-secondary">
+                <span class="icon is-small">
+                    <i class="mdi mdi-help-circle-outline"/></i>
+                </span>
+            </a>
+            <div class="help-tooltip">
+                <div class="help-tooltip-header">
+                    <h5>Collection Color</h5>
+                </div> 
+                <div class="help-tooltip-body">
+                    <p>Color that will fill the area over collection's header on Tainacan theme.</p>
+                </div>
+            </div>
+        </span>
+        <div class="control is-clearfix"> 
+            <input 
+                    style="height: 40px;width: 40px;margin: 0.5rem 0.1rem;border: 0;padding: 0;" 
+                    type="color" 
+                    value="pink" 
+                    name="<?php echo $this->meta_name; ?>">
+            </input>   
+        </div>
+    
         <?php
 
 
