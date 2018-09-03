@@ -495,7 +495,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'link_color'            => '',
 		'backtransparent'           => '',
 	) );
-	$filter = apply_filters( 'tainacan_customize_colors', $colors);
+
+	$filter = (has_filter('tainacan_customize_colors')) ? apply_filters( 'tainacan_customize_colors', $colors) : '';
 	return <<<CSS
 	/* Color Scheme */
 	
