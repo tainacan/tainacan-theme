@@ -495,7 +495,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'link_color'            => '',
 		'backtransparent'           => '',
 	) );
-	
+	$filter = apply_filters( 'tainacan_customize_colors', $colors);
 	return <<<CSS
 	/* Color Scheme */
 	
@@ -645,6 +645,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 		background-color: {$colors['backtransparent']} !important;
 		color: {$colors['link_color']} !important;
 	}
+
+	{$filter}
 	
 CSS;
 }
