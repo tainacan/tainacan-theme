@@ -8,8 +8,16 @@
         }
         nav.menu-belowheader #menubelowHeader ul.dropdown-menu {
             min-width: 10rem !important;
-        }
-    </style>';
+        }';
+    
+	$custom_color = get_post_meta(tainacan_get_collection_id(), 'tainacan_theme_collection_color', true);
+	if ($custom_color) {
+		echo ".t-bg-collection {
+            background-color: $custom_color;
+        }";
+	}
+	
+	echo '</style>';
 ?>
 
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
