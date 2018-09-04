@@ -85,7 +85,7 @@
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
-                                        <div class="col-12 col-md-4">
+                                        <div class="col s-item-collection--metadata">
                                             <div class="card border-0">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3><?php _e('Thumbnail', 'tainacan-theme'); ?></h3>
@@ -116,13 +116,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col col-md-8 s-item-collection--metadata">
-                                                <?php 
-                                                    $args = array('before_title' => '<div><h3>', 'after_title' => '</h3>', 'before_value' => '<p>', 'after_value' => '</p></div>');
-                                                    //$field = null;
-                                                    tainacan_the_metadata($args); 
-                                                ?>
+                                            <?php 
+                                                $args = array('before_title' => '<div><h3>', 'after_title' => '</h3>', 'before_value' => '<p>', 'after_value' => '</p></div>');
+                                                //$field = null;
+                                                tainacan_the_metadata($args); 
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
