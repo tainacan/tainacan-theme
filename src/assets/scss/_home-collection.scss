@@ -87,6 +87,9 @@
                 weight: 400;
             }
             margin-bottom: 0;
+            a {
+                color: rgba(255, 255, 255, 0.60);
+            }
             @media only screen and (max-width: 576px){
                 // font: {
                 //     size: 9px;
@@ -98,7 +101,7 @@
                 height: 65px;
                 margin-bottom: 2rem;
                 .toggle {
-                    color: #9d9fa0;
+                    color: rgba(255, 255, 255, 0.60);
                     white-space: nowrap;
                 }
                 &.full-story {
