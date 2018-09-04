@@ -65,8 +65,8 @@ class TainacanThemeCollectionColor {
     }
 
     function save_meta($object) {
-        global $HTTP_RAW_POST_DATA;
-        $post = json_decode($HTTP_RAW_POST_DATA);
+        $postdata = file_get_contents("php://input");
+        $post = json_decode($postdata);
         
         if ($object->can_edit()) {
             if (isset($post->{$this->meta_name})) {
