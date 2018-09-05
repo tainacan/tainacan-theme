@@ -1,0 +1,23 @@
+.tainacan-collection--change-color-picker #colorpicker {
+    border: 0;
+    height: 40px;
+    margin: 0.5rem 0.1rem;
+    padding: 0;
+    width: 40px;
+}
+.tainacan-collection--change-text-color .control {
+    margin-top: 1rem;
+}
+.tainacan-collection--change-text-color .color-text[for="white"] {
+    background-color: #000;
+    color: #fff;
+    margin-right: 1rem;
+    padding: 0.8rem;
+}
+
+.tainacan-collection--change-text-color .color-text[for="black"] {
+    background-color: #fff;
+    color: #000;
+    margin-right: 1rem;
+    padding: 0.8rem;
+}

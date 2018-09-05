@@ -10,10 +10,19 @@
             min-width: 10rem !important;
         }';
     
-	$custom_color = get_post_meta(tainacan_get_collection_id(), 'tainacan_theme_collection_color', true);
-	if ($custom_color) {
+    $background_color = get_post_meta(tainacan_get_collection_id(), 'tainacan_theme_collection_background_color', true);
+    $text_color = get_post_meta(tainacan_get_collection_id(), 'tainacan_theme_collection_color', true);
+	if ($background_color) {
 		echo ".t-bg-collection {
-            background-color: $custom_color;
+            background-color: $background_color !important;
+        }";
+        echo ".t-bg-collection h2, .t-bg-collection .t-collection--info-description-text {
+            color: $text_color !important;
+        }";
+
+        echo ".t-bg-collection a {
+            color: $text_color !important;
+            opacity: 0.6;
         }";
 	}
 	
