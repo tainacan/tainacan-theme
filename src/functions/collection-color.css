@@ -5,9 +5,34 @@
     padding: 0;
     width: 40px;
 }
+
+.tainacan-collection--change-color-picker .custom-color {
+    width: 30px;
+    height: 30px;
+}
+
+.tainacan-collection--change-color-picker .custom-color:checked:before {
+    content: none;
+}
+
+.tainacan-collection--change-color-picker .custom-color:checked {
+    border-color: black;
+    border-width: 2px;
+}
+
 .tainacan-collection--change-text-color .control {
     margin-top: 1rem;
 }
+
+.tainacan-collection--change-text-color input[type="radio"]::before {
+    background-color: #000;
+}
+
+.tainacan-collection--change-text-color input[type=radio]:focus {
+    border-color: #b4b9be;
+    box-shadow: none;
+}
+
 .tainacan-collection--change-text-color .color-text[for="white"] {
     background-color: #000;
     color: #fff;

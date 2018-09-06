@@ -17,7 +17,7 @@ class TainacanThemeCollectionColor {
     }
 
     function action_tainacan_enqueue_admin_scripts() { 
-        wp_enqueue_script('colorWell', get_template_directory_uri(). '/functions/collection-color.js', '', '', true);
+        wp_enqueue_script('colorWell', get_template_directory_uri(). '/functions/collection-color.js', false, false, true);
         wp_enqueue_style('colorWellStyle', get_template_directory_uri(). '/functions/collection-color.css');
     }
 
@@ -50,11 +50,27 @@ class TainacanThemeCollectionColor {
                 </div>
             </span>
             <div class="control is-clearfix"> 
-                <input 
-                    type="color" 
-                    value="#2c2d2d" 
-                    id="colorpicker"
-                    name="<?php echo $this->background_color; ?>">
+                <p style="padding: 1rem 0; font-weight: 600;"><?php _e('Alternative colors', 'tainacan-theme'); ?></p>
+                <?php
+                    $colors = array(
+                        'default' => '#298596',
+                        'carmine' => '#a55032',
+                        'cherry' => '#af2e48',
+                        'mustard' => '#c58738',
+                        'mintgreen' => '#4ebfa7',
+                        'darkturquoise' => '#288698',
+                        'turquoise' => '#2db4c1',
+                        'lightblue' => '#499dd6',
+                        'purple' => '#4751a3',
+                        'violet' => '#955ba5',
+                    );
+
+                    foreach($colors as $name=>$color){
+                ?>
+                        <input type="radio" value="<?php echo $color; ?>" name="null" class="custom-color <?php echo $name; ?>" style="background-color: <?php echo $color; ?>;">
+                    <?php } ?>
+                <p style="padding-top: 1rem; font-weight: 600;"><?php _e('Picker color', 'tainacan-theme'); ?></p>
+                <input type="color" value="" id="colorpicker" name="<?php echo $this->background_color; ?>">
             </div>
         </div>
 
@@ -80,7 +96,7 @@ class TainacanThemeCollectionColor {
                     type="radio" 
                     value="#fff" 
                     name="<?php echo $this->text_color; ?>"
-                    id="white">
+                    id="white" checked>
                     <label for="white" id="color-white" class="color-text">White</label>
                 <input
                     type="radio" 

@@ -1,14 +1,23 @@
-document.addEventListener('tainacan-collection-hook-reload', function() {
-    var colorWell;
-    colorWell = document.getElementById("colorpicker");
+jQuery(document).on('tainacan-collection-hook-reload', function(){
+    var colorWell = jQuery('#colorpicker');
+    var alternativeColor = jQuery('.custom-color');
     if(colorWell != null){
-        colorWell.addEventListener('input', function(event){
-            var label = document.getElementsByClassName('color-text');
-            if (label[0] && label[1]) {
-                label[0].style.backgroundColor = event.target.value;
-                label[1].style.backgroundColor = event.target.value;
+        colorWell.on('input', function(event){
+            var label = jQuery('.color-text');
+            if(label){
+                label.css('background-color', event.target.value);
             }
         });
-        colorWell.select();
+    }
+    if(alternativeColor != null){
+        alternativeColor.change(function(e){
+            var label = jQuery('.color-text');
+            if(alternativeColor.is(':checked')){
+                if(label){
+                    label.css('background-color', e.target.value);
+                }
+                colorWell.val(e.target.value);
+            }
+        });
     }
 });
