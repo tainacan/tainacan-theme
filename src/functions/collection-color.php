@@ -50,7 +50,7 @@ class TainacanThemeCollectionColor {
                 </div>
             </span>
             <div class="control is-clearfix"> 
-                <p style="padding: 1rem 0; font-weight: 600;"><?php _e('Alternative colors', 'tainacan-theme'); ?></p>
+                <p style="padding: 1rem 0; font-weight: 600;"><?php _e('Suggested colors', 'tainacan-theme'); ?></p>
                 <?php
                     $colors = array(
                         'default' => '#298596',
@@ -63,6 +63,7 @@ class TainacanThemeCollectionColor {
                         'lightblue' => '#499dd6',
                         'purple' => '#4751a3',
                         'violet' => '#955ba5',
+                        'gray' => '#2c2d2d'
                     );
 
                     foreach($colors as $name=>$color){

@@ -6,9 +6,15 @@
     width: 40px;
 }
 
+.tainacan-collection--change-color-picker #colorpicker:focus {
+    box-shadow: none;
+}
+
 .tainacan-collection--change-color-picker .custom-color {
     width: 30px;
     height: 30px;
+    border-radius: 0;
+    border: none;
 }
 
 .tainacan-collection--change-color-picker .custom-color:checked:before {
@@ -16,7 +22,7 @@
 }
 
 .tainacan-collection--change-color-picker .custom-color:checked {
-    border-color: black;
+    border: 1px solid black;
     border-width: 2px;
 }
 
