@@ -10,6 +10,10 @@
             min-width: 10rem !important;
         }
     </style>';
+
+$term = tainacan_get_term();
+$taxonomy = get_taxonomy( $term->taxonomy );
+
 ?>
 
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
@@ -25,7 +29,8 @@
             </div>
             <div class="col-8 col-md-9 pl-0 t-collection--col-9 mt-md-3" style="z-index: 2">
                 <h2 class="t-collection--info-title text-white">
-                    <?php tainacan_the_term_name(); ?>
+                    <?php echo $taxonomy->labels->name; ?>:
+					<?php tainacan_the_term_name(); ?>
                 </h2>
                 <?php $tainacan_term_description = tainacan_get_the_term_description(); ?>
                 <?php if ( !empty($tainacan_term_description) ): ?>
