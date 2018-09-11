@@ -40,7 +40,7 @@ nav{
                         width: 229px;
                     }
                     &::placeholder{
-                        font-size: 12px;
+                        font-size: 0.75rem;
                         color: #898d8f;
                     }
                 }
@@ -50,7 +50,7 @@ nav{
             }
             .btn-group{
                 button{
-                    font-size: 12px;
+                    font-size: 0.75rem;
                     padding-right: 1.875rem !important;
                     @media only screen and (max-width: 576px){
                         padding-right: 0.875rem !important;
@@ -60,7 +60,7 @@ nav{
                     }
                     i{
                         color: #01295c;
-                        font-size: 19px;
+                        font-size: 1.1875rem;
                     }
                     &[data-toggle='dropdown']{
                         &::after{
@@ -81,7 +81,7 @@ nav{
     .tainacan-search-form {
         .form-control {
             height: 27px;
-            font-size: 12px;
+            font-size: 0.75rem;
             font-weight: 400;
             color: #898d8f;
         }
@@ -92,7 +92,7 @@ nav{
                 content: none;
             }
             i {
-                font-size: 19px;
+                font-size: 1.1875rem;
             }
         }
         > .dropdown-menu {
@@ -107,7 +107,7 @@ nav{
             }
             .form-control {
                 border-radius: 0;
-                font-size: 12px;
+                font-size: 0.75rem;
                 font-weight: 400;
                 color: #898d8f;
             }
@@ -131,7 +131,7 @@ nav{
                 > li{
                     &.menu-item {
                         a{
-                            font-size: 14px;
+                            font-size: 0.875rem;
                             font-weight: 400;
                             color: #000;
                             padding-left: 0;
@@ -251,7 +251,7 @@ nav{
             text-align: center;
             color: #3596e0;
             left: initial;
-            font-size: 19px;
+            font-size: 1.1875rem;
         }
     }
 }
@@ -298,7 +298,7 @@ nav{
                 color: white;
                 text-align: center;
                 h1{
-                    font-size: 150px;
+                    font-size: 9.375rem;
                     font-weight: 600;
                 }
                 h3{
@@ -407,7 +407,7 @@ nav{
             font-size: 1.5rem;
             font-weight: 400;
             @media only screen and (max-width: 576px){
-                font-size: 12px;
+                font-size: 0.75rem;
             }
         }
     }
@@ -416,7 +416,7 @@ nav{
 .tainacan-title{
     .tainacan-title-page{
         .title-page{
-            font-size: 20px;
+            font-size: 1.25rem;
             word-break: break-word;
             @media only screen and (max-width: 576px){
                 width: 85%;
@@ -427,7 +427,7 @@ nav{
         }
         .title-back{
             font: {
-                size: 14px;
+                size: 0.875rem;
                 weight: 400;
             }
             margin-top: 0.5rem;

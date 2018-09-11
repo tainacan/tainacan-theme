@@ -34,26 +34,26 @@
                 }
             }
             h3{
-                font-size: 18px;
+                font-size: 1.125rem;
             }
             .text-black{
                 font-weight: 400;
             }
             time{
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
                 color: #898d8f;
             }
             a[rel="author"]{
                 //color: #4f4f4f;
-                font-size: 12px;
+                font-size: 0.75rem;
                 font-weight: 400;
             }
             .readmore{
                 &.screen-reader-text{
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     font-weight: 400;
                 }
             }
@@ -65,7 +65,7 @@
             th {
                 color: #898d8f;
                 font : {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
             }
@@ -95,7 +95,7 @@
             }
             .collection-title{
                 font: {
-                    size: 14px;
+                    size: 0.875rem;
                     weight: 400;
                 }
                 a {
@@ -107,13 +107,13 @@
             }
             .collection-description, .collection-date{
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
             }
             .collection-create-by{
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
 
@@ -151,7 +151,7 @@
             .tainacan-list-collection--title {
                 background: #fff;
                 font: {
-                    size: 14px;
+                    size: 0.875rem;
                     weight: 400;
                 }
                 height: 45px;
@@ -166,13 +166,13 @@
                 margin-right: 1rem;
                 > h4 {
                     text-align: center;
-                    font-size: 48px;
+                    font-size: 3rem;
                 }
             }
             .media-body {
                 p {
                     font: {
-                        size: 11px;
+                        size: 0.6875rem;
                         weight: 400;
                     }
                     padding-top: 10px;
@@ -191,7 +191,7 @@
             height: 295px;
             .tainacan-list-collection--grid-title{
                 font: {
-                    size: 14px;
+                    size: 0.875rem;
                     weight: 400;
                 }
                 height: 45px;
@@ -204,7 +204,7 @@
                 height: 250px;
                 width: 250px;
                 > h4 {
-                    font-size: 48px;
+                    font-size: 3rem;
                 }
             }
         }

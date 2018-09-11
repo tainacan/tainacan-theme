@@ -9,7 +9,7 @@
             .header-meta{
                 color: #898d8f !important;
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
                 align-items: center;
@@ -29,7 +29,7 @@
             }
         }
         .title-content-items {
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 500;
             color: #338591;
             margin-left: 4.16666666667%;
@@ -46,43 +46,43 @@
             }
             h1 {
                 color: #298596;
-                font-size: 18px;
+                font-size: 1.125rem;
                 font-weight: 600;
             }
             h2 {
                 color: #000;
-                font-size: 18px;
+                font-size: 1.125rem;
                 font-weight: 600;
             }
             h3 {
                 color: #000;
-                font-size: 16px;
+                font-size: 1rem;
                 font-weight: 600;
             }
             h4 {
                 color: #898d8f;
-                font-size: 16px;
+                font-size: 1rem;
                 font-style: italic;
             }
             h5 {
                 color: #000;
-                font-size: 14px;
+                font-size: 0.875rem;
                 font-weight: 600;
             }
             h6 {
                 color: #298596;
-                font-size: 14px;
+                font-size: 0.875rem;
                 font-weight: 400;
             }
             pre:not(.wp-block-code) {
                 color: #898d8f;
-                font-size: 16px;
+                font-size: 1rem;
                 font-weight: 400;
                 white-space: pre-line;
             }
             .wp-block-code {
                 code {
-                    font-size: 87.5%;
+                    font-size: 0.875rem;
                     color: #e83e8c;
                     word-break: break-word;
                 }
@@ -94,13 +94,13 @@
                 padding: 1rem;
                 p {
                     color: #898d8f;
-                    font-size: 22px;
+                    font-size: 1.375rem;
                     font-weight: 500;
                 }
                 cite {
                     color: #298596;
                     float: right;
-                    font-size: 16px;
+                    font-size: 1rem;
                     font-weight: 400;
                 }
             }
@@ -118,7 +118,7 @@
                 }
             }
             ul {
-                font-size: 16px;
+                font-size: 1rem;
                 font-weight: 400;
                 color: #000;
             }
@@ -127,10 +127,10 @@
                     border-bottom: 1px solid #cbcbcb;
                     color: #898d8f;
                     font-weight: 400;
-                    font-size: 12px;
+                    font-size: 0.75rem;
                 }
                 tbody {
-                    font-size: 12px;
+                    font-size: 0.75rem;
                     font-weight: 400;
                     color: #000;
                 }
@@ -141,7 +141,7 @@
                 }
             }
             address {
-                font-size: 14px;
+                font-size: 0.875rem;
                 font-style: italic;
             }
             p {
@@ -274,7 +274,7 @@
                 text-align: center;
                 figcaption{
                     color: #000;
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     font-weight: 400;
                 }
             }
@@ -284,17 +284,17 @@
                 p {
                     color: #298596;
                     font: {
-                        size: 22px;
+                        size: 1.375rem;
                         weight: 500;
                     }
                 }
                 cite {
-                    font-size: 16px;
+                    font-size: 1rem;
                     color: #898d8f;
                 }
             }
             .wp-caption, .gallery-caption {
-                font-size: 13px;
+                font-size: 0.8125rem;
                 max-width: 100%;
                 margin-top: 1em;
                 margin-bottom: 1.5em;
@@ -315,7 +315,7 @@
             &.single-item-collection{
                 .single-item-collection--document{
                     font : {
-                        size: 14px;
+                        size: 0.875rem;
                         weight: 400;
                     }
                     color: black;
@@ -367,7 +367,7 @@
                         height: 33px;
                         width: 45px;
                         line-height: 0px;
-                        font-size: 60px;
+                        font-size: 3.75rem;
                         color: #298596;
                         cursor: pointer;
                         background: transparent;
@@ -390,12 +390,12 @@
                         }
                         h3{
                             color: #000;
-                            font-size: 14px;
+                            font-size: 0.875rem;
                             font-weight: 700;
                         }
                         p {
                             color: #000;
-                            font-size: 12px;
+                            font-size: 0.75rem;
                         }
                         .item-card-link--sharing{
                             margin-right: 0.5rem;
@@ -438,7 +438,7 @@
                         }
                         h3{
                             color: #000;
-                            font-size: 14px;
+                            font-size: 0.875rem;
                             font-weight: 700;
                             padding-right: 1rem;
                             &:first-of-type:last-of-type {
@@ -449,7 +449,7 @@
                             color: #000;
                             word-wrap: break-word;
                             font: {
-                                size: 12px;
+                                size: 0.75rem;
                                 weight: 400;
                             }
                         }
@@ -458,7 +458,7 @@
             }
         }
         footer{
-            font-size: 14px;
+            font-size: 0.875rem;
             color: #000;
             font-weight: 400;
             a{

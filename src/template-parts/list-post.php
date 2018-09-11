@@ -10,7 +10,7 @@
         </h3>
         <?php echo '<p class="text-black">'.wp_trim_words( get_the_excerpt(), 28, '...').'</p>'; ?>
         <?php tainacan_post_date(); ?> 
-        <span style="font-size: 12px; font-weight: 400; color: #898d8f;"> <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?></span>
+        <span style="font-size: 0.75rem; font-weight: 400; color: #898d8f;"> <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?></span>
         <a href="<?php the_permalink(); ?>" class="readmore float-right screen-reader-text"><?php _e('Read more...', 'tainacan-theme'); ?></a>
     </div>
 </div>
