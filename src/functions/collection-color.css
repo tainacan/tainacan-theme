@@ -15,6 +15,7 @@
     height: 30px;
     border-radius: 0;
     border: none;
+    -moz-appearance: none;
 }
 
 .tainacan-collection--change-color-picker .custom-color:checked:before {
