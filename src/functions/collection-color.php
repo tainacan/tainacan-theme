@@ -66,6 +66,10 @@ class TainacanThemeCollectionColor {
                         'gray' => '#2c2d2d'
                     );
 
+                    if(has_filter('tainacan-collection-colors')) {
+                        $colors = apply_filters('tainacan-collection-colors', $colors);
+                    }
+
                     foreach($colors as $name=>$color){
                 ?>
                         <input type="radio" value="<?php echo $color; ?>" name="null" class="custom-color <?php echo $name; ?>" style="background-color: <?php echo $color; ?>;">
@@ -98,13 +102,13 @@ class TainacanThemeCollectionColor {
                     value="#fff" 
                     name="<?php echo $this->text_color; ?>"
                     id="white" checked>
-                    <label for="white" id="color-white" class="color-text">White</label>
+                    <label for="white" id="color-white" class="color-text"><?php _e('White', 'tainacan-theme'); ?></label>
                 <input
                     type="radio" 
                     value="#000" 
                     name="<?php echo $this->text_color; ?>"
                     id="black">
-                    <label for="black" id="color-black" class="color-text">Black</label>
+                    <label for="black" id="color-black" class="color-text"><?php _e('Black', 'tainacan-theme'); ?></label>
             </div>
         </div>
 
