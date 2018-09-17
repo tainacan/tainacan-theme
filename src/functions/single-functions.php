@@ -86,7 +86,7 @@ function filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
 }
 add_filter( 'cancel_comment_reply_link', 'filter_cancel_comment_reply_link', 10, 3 ); 
 
-function social_meta() {
+function tainacan_social_meta() {
     global $post;
 
     if(is_single() || is_tax() || is_archive()) {
@@ -136,4 +136,4 @@ function social_meta() {
     }
 }
 
-add_action('wp_head', 'social_meta', 5);
+add_action('wp_head', 'tainacan_social_meta', 5);
