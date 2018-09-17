@@ -22,8 +22,7 @@
                         <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
                             <header class="mb-4">
                                 <div class="header-meta text-muted mb-5">
-                                    <span class="time"><?php tainacan_post_date(); ?></span> 
-                                    <?php printf(__('by %s', 'tainacan-theme'), get_the_author_posts_link()); ?>
+                                    <span class="time"><?php tainacan_meta_date_author(); ?></span>
                                 </div>
                             </header>
                             <?php if (tainacan_has_document()): ?>

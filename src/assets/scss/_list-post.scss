@@ -20,6 +20,9 @@
             }
         }
         .blog-content{
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #898d8f;
             &.blog-flex{
                 @media screen {
                     @media (min-width: 768px) {
@@ -38,6 +41,7 @@
             }
             .text-black{
                 font-weight: 400;
+                font-size: 1rem;
             }
             time{
                 font: {

@@ -2,7 +2,7 @@
     <header class="mb-4">
         <div class="header-meta text-muted mb-5 d-flex">
             <?php if(!is_singular('page')) { ?>
-                <?php tainacan_post_date(); ?> &nbsp;<?php printf(__('by&nbsp;%s', 'tainacan-theme'), get_the_author_posts_link()); ?>
+                <?php tainacan_meta_date_author(); ?>
             <?php } ?>
             <div class="btn-group ml-auto" role="group">
                 <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 

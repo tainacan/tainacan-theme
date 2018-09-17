@@ -57,14 +57,25 @@ add_filter( 'comment_text', 'wrap_Comment', 99);
 /**
  * Display date of post.
  */
-function tainacan_post_date() {
-    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+function tainacan_meta_date_author($echo = true) {
+    $time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
     
-    $time_string = sprintf( $time_string,
+    $time_string = sprintf( $time,
         esc_attr( get_the_date( 'c' ) ),
         get_the_date()
     );
-    echo $time_string;
+
+    $string = $time_string;
+    $string .= __('&nbsp;by&nbsp;', 'tainacan-theme');
+    $string .= get_the_author_posts_link();
+
+    $string = apply_filters('tainacan-meta-date-author', $string);
+
+    if ($echo) {
+        echo $string;
+    } else {
+        return $string;
+    }
 }
 
 // define the cancel_comment_reply_link callback 

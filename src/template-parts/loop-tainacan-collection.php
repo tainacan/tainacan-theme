@@ -21,10 +21,6 @@
                                 <?php else : ?>
                                     <p style="font-style: italic;"><?php _e('Description not informed'); ?></p>
                                 <?php endif; ?>
-                                <!-- <p> 
-                                    <?php //_e('Create by: ');?> <?php //the_author(); ?><br>
-                                    <?php //_e('Date: ');?> <?php //tainacan_post_date(); ?>
-                                </p> -->
                             </div>
                         </div>
                     </a>
