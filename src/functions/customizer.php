@@ -520,7 +520,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'backtransparent'           => '',
 	) );
 
-	$filter = (has_filter('tainacan_customize_colors')) ? apply_filters( 'tainacan_customize_colors', $colors) : '';
+	$filter = (has_filter('tainacan-customize-css-class')) ? apply_filters( 'tainacan-customize-css-class', $colors) : '';
 	return <<<CSS
 	/* Color Scheme */
 	
