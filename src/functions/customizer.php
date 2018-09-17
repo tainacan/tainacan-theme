@@ -569,8 +569,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-collection-list--simple-search .dropdown #dropdownMenuSorting::after, .tainacan-collection-list--simple-search .dropdown #dropdownMenuViewMode::after {
 		color: {$colors['link_color']};
 	}
-	.tainacan-list-post .tainacan-list-collection--container-card .tainacan-list-collection--card .tainacan-list-collection--title,
-	.tainacan-list-post .tainacan-list-collection--container-grid .tainacan-list-collection--grid .tainacan-list-collection--grid-title,
+	
 	.tainacan-list-post table thead th {
 		color: {$colors['link_color']} !important;
 	}
@@ -653,11 +652,19 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['link_color']} !important;
 	}
 
-	/* Advanced search title */ 
+	/* Advanced search criteria title */ 
 	.advanced-search-criteria-title h1,
 	.advanced-search-criteria-title h2 {
 		color: {$colors['link_color']} !important;
 	} 
+
+	/* Advanced search results title */ 
+	.advanced-search-results-title h1 { 
+		color: {$colors['link_color']} !important; 
+	}
+	.advanced-search-results-title hr { 
+		background-color: {$colors['backtransparent']} !important; 
+	}
 
 	/* Line above section titles */
 	.tainacan-modal-title hr,
