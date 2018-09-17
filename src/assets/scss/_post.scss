@@ -350,6 +350,12 @@
                         img {
                             width: 125px;
                             height: 125px;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        a:focus {
+                            outline: none;
                         }
                     }
                     .single-item-collection--attachments-prev {
@@ -441,6 +447,7 @@
                             font-size: 0.875rem;
                             font-weight: 700;
                             padding-right: 1rem;
+                            width: 100%;
                             &:first-of-type:last-of-type {
                                 display: inline-block;
                             }
