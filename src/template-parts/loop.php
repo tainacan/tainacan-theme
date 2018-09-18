@@ -8,12 +8,12 @@
                             if ( get_option( 'page_for_posts') ) {
                                 echo get_the_title( get_option('page_for_posts') );
                             } else {
-                                _e('Blog Posts', 'tainacan-theme');
+                                _e('Blog Posts', 'tainacan-interface');
                             }
                             
                         } 
                         elseif(is_search()){ 
-                            _e('Search Results for', 'tainacan-theme');
+                            _e('Search Results for', 'tainacan-interface');
                             echo ' "' , get_search_query(), '"';
                         }
                         elseif(is_archive()) {
@@ -21,7 +21,7 @@
                         }
                     ?>
                 </li>
-                <li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-theme'); ?></a></li>
+                <li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-interface'); ?></a></li>
             </ul>
         </div>
     </div>
@@ -40,5 +40,5 @@
     <?php echo tainacan_pagination(3); ?>
     
 <?php else: ?>
-	<?php _e('Nothing found', 'tainacan-theme'); ?>
+	<?php _e('Nothing found', 'tainacan-interface'); ?>
 <?php endif; ?>

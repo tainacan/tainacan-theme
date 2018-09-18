@@ -36,13 +36,13 @@
     <footer class="mt-5 border-top pt-3">
         <p>
             <?php 
-                _e('Category: ', 'tainacan-theme'); 
+                _e('Category: ', 'tainacan-interface'); 
                 the_category(' <span>|</span> ') ?> -
                 <?php if (has_tag()) { 
                     the_tags('Tags: ', ' <span>|</span> '); ?> -
                 <?php } 
-                _e('Comments', 'tainacan-theme'); echo ':'; ?> 
-                <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
+                _e('Comments', 'tainacan-interface'); echo ':'; ?> 
+                <?php comments_popup_link(__('None', 'tainacan-interface'), '1', '%'); ?>
         </p>
     </footer>
     <?php } ?>

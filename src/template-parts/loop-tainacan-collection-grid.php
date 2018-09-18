@@ -25,5 +25,5 @@
     <?php echo tainacan_pagination(3); ?>
 
 <?php else: ?>
-	<?php _e('Nothing found', 'tainacan-theme'); ?>
+	<?php _e('Nothing found', 'tainacan-interface'); ?>
 <?php endif; ?>

@@ -26,23 +26,23 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
             </h5>
             <?php if ('0' == $comment->comment_approved) : ?>
                 <p class="comment-awaiting-moderation">
-                    <?php _e('Your comment is awaiting moderation.','tainacan-theme'); ?>
+                    <?php _e('Your comment is awaiting moderation.','tainacan-interface'); ?>
                 </p>
             <?php endif; ?>
             <?php comment_text(); ?>
             <?php comment_reply_link( array(
-                        'reply_text' => __('Reply', 'tainacan-theme'),
+                        'reply_text' => __('Reply', 'tainacan-interface'),
                         'depth'      => $depth,
                         'max_depth'  => $args['max_depth'],
                         'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
                         'after'     => '</li>'
                     )
                 ); 
-                edit_comment_link( __( 'Edit', 'tainacan-theme' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
+                edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
             ?>
             <?php if($args['has_children']) : ?>
                 <p>
-                    <!-- <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-theme'); ?></a> -->
+                    <!-- <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-interface'); ?></a> -->
                 </p>
             <?php endif; ?>
         </div>
@@ -66,7 +66,7 @@ function tainacan_meta_date_author($echo = true) {
     );
 
     $string = $time_string;
-    $string .= __('&nbsp;by&nbsp;', 'tainacan-theme');
+    $string .= __('&nbsp;by&nbsp;', 'tainacan-interface');
     $string .= get_the_author_posts_link();
 
     $string = apply_filters('tainacan-meta-date-author', $string);

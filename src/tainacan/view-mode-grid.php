@@ -30,7 +30,7 @@
                         <i class="mdi mdi-48px mdi-file-multiple"></i>
                     </span>
                 </p>
-                <p><?php echo __('No item was found.','tainacan-theme'); ?></p>
+                <p><?php echo __('No item was found.','tainacan-interface'); ?></p>
             </div>
         </section>
     </div>

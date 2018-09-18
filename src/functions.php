@@ -46,7 +46,7 @@ if(!function_exists('tainacan_setup')) {
                 'default-image' => array(
                     'url'           => '%s/assets/images/capa.png',
                     'thumbnail_url' => '%s/assets/images/capa.png',
-                    'description'   => __( 'Default Image', 'tainacan-theme' ),
+                    'description'   => __( 'Default Image', 'tainacan-interface' ),
                 ),
             )
         ); */
@@ -72,7 +72,7 @@ if(!function_exists('tainacan_setup')) {
             ));
         }
         
-        add_image_size( 'tainacan-theme-list-post', 300, 200, true );
+        add_image_size( 'tainacan-interface-list-post', 300, 200, true );
         add_image_size( 'tainacan-item-attachments', 125, 125, true );
     }
 
@@ -93,7 +93,7 @@ if ( ! isset( $content_width ) ) {
 */
 function tainacan_widgets_sidebar_init() {
     register_sidebar( array(
-        'name'          => __( 'Tainacan Sidebar Right', 'tainacan-theme' ),
+        'name'          => __( 'Tainacan Sidebar Right', 'tainacan-interface' ),
         'id'            => 'sidebar-right',
         'before_widget' => '<aside id="%1$s" class="pb-4 pl-4 widget %2$s">',
         'after_widget'  => '</aside>',
@@ -108,7 +108,7 @@ add_action( 'widgets_init', 'tainacan_widgets_sidebar_init' );
 */
 function tainacan_widgets_footer_init() {
     register_sidebar( array(
-        'name'          => __( 'Tainacan Sidebar Footer', 'tainacan-theme' ),
+        'name'          => __( 'Tainacan Sidebar Footer', 'tainacan-interface' ),
         'id'            => 'footer-1',
         'before_widget' => '<li class="border-left-0 border-right-0 tainacan-side"><input type="checkbox" checked><i></i>',
         'after_widget'  => '</li>',
@@ -158,7 +158,7 @@ require_once get_template_directory() . '/lib/class-wp-bootstrap-navwalker.php';
  * Register the menu for use after the banner
  */
 register_nav_menus( array(
-	'navMenubelowHeader' => __( 'Nav Menu Below Header', 'tainacan-theme' ),
+	'navMenubelowHeader' => __( 'Nav Menu Below Header', 'tainacan-interface' ),
 ) );
 
 function tainacan_hex2rgb( $color ) {
@@ -198,7 +198,7 @@ function tainacan_active($selected, $current = true, $echo = true) {
 
 function tainacan_theme_collection_title($title){
     if (is_post_type_archive('tainacan-collection')) {
-        return __('Collections', 'tainacan-theme');
+        return __('Collections', 'tainacan-interface');
     }
     return $title;
 }
