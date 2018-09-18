@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2018-08-03 12:20-0300\n"
+"POT-Creation-Date: 2018-09-18 10:41-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -21,12 +21,12 @@ msgstr ""
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
 "_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:9
 msgid "The page you are looking for does not exist!"
-msgstr "A página que você está buscando não existe"
+msgstr "A página que você está buscando não existe!"
 
 #: 404.php:14
 msgid "Go to first page"
@@ -34,7 +34,7 @@ msgstr "Ir para página inicial"
 
 #: archive-tainacan-collection.php:15
 msgid "Sorting"
-msgstr "Ordenaçao"
+msgstr "Ordenação"
 
 #: archive-tainacan-collection.php:18
 msgid "Creation date"
@@ -67,231 +67,304 @@ msgstr "Buscar coleções"
 
 #: comments.php:23
 #, php-format
-msgid "You must be %slogged%s in to post a comment."
-msgstr "Você precisa estar %sconectado%s para publicar um comentário"
+msgid "You must be %1$slogged%2$s in to post a comment."
+msgstr "Você precisa estar %sconectado%s para publicar um comentário."
 
 #: comments.php:27
 msgid "Leave your comment"
 msgstr "Deixe seu comentário"
 
-#: comments.php:31 comments.php:42 comments.php:61
+#: comments.php:31
 msgid "Authenticated as"
 msgstr "Conectado como"
 
-#: comments.php:46 comments.php:65
-msgid "Anonymous"
-msgstr "Anônimo"
+#: comments.php:41
+#, php-format
+msgid "Authenticated as <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
+msgstr "Conectado como <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
 
-#: comments.php:74
-msgid "Name"
-msgstr "Nome"
-
-#: comments.php:78 functions/customizer.php:48
-msgid "E-mail"
-msgstr "E-mail"
-
-#: comments.php:82
-msgid "Website"
-msgstr "Website"
-
-#: comments.php:86
-msgid "Comment"
-msgstr "Comentário"
-
-#: comments.php:92
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: comments.php:93
+#: comments.php:50
 msgid "Send"
 msgstr "Enviar"
 
-#: comments.php:108
+#: comments.php:66
 msgid "Previous Comments"
 msgstr "Comentários Anteriores"
 
-#: comments.php:111
+#: comments.php:69
 msgid "Next Comments"
 msgstr "Próximos Comentários"
 
-#: comments.php:117
+#: comments.php:75
 msgid "Comments are closed."
-msgstr "Comentários estão fechados"
+msgstr "Comentários estão fechados."
 
-#: footer.php:28
-msgid "E-mail: "
-msgstr "E-mail: "
+#: footer.php:31
+#, php-format
+msgid "E-mail: %s"
+msgstr "E-mail:  %s"
 
-#: footer.php:35
-msgid "Telephone: "
-msgstr "Telefone:"
+#: footer.php:41
+#, php-format
+msgid "Telephone: %s"
+msgstr "Telefone: %s"
 
-#: functions.php:85
+#: footer.php:53
+#, php-format
+msgid "Proudly powered by %1$s and %2$s"
+msgstr ""
+
+#: functions.php:96
 msgid "Tainacan Sidebar Right"
 msgstr "Barra lateral direita do Tainacan"
 
-#: functions.php:100
+#: functions.php:111
 msgid "Tainacan Sidebar Footer"
 msgstr "Rodapé do Tainacan"
 
-#: functions.php:141 searchform.php:3
-msgid "Search"
-msgstr "Buscar"
-
-#: functions.php:180
+#: functions.php:161
 msgid "Nav Menu Below Header"
 msgstr "Navegação abaixo do cabeçalho"
 
-#: functions.php:221
+#: functions.php:201
 msgid "Collections"
 msgstr "Coleções"
+
+#: functions/collection-color.php:36 functions/collection-color.php:45
+msgid "Collection Background Color"
+msgstr ""
+
+#: functions/collection-color.php:48
+msgid ""
+"Color that will fill the area over collection's header on Tainacan theme."
+msgstr ""
+
+#: functions/collection-color.php:53
+msgid "Suggested colors"
+msgstr ""
+
+#: functions/collection-color.php:77
+msgid "Picker color"
+msgstr ""
+
+#: functions/collection-color.php:83 functions/collection-color.php:92
+msgid "Collection Text Color"
+msgstr ""
+
+#: functions/collection-color.php:95
+msgid "Text color on area over collection's header on Tainacan theme."
+msgstr ""
+
+#: functions/collection-color.php:105
+msgid "White"
+msgstr ""
+
+#: functions/collection-color.php:111
+msgid "Black"
+msgstr ""
 
 #: functions/customizer.php:20
 msgid "Footer settings"
 msgstr "Configurações do rodapé"
 
-#: functions/customizer.php:29
+#: functions/customizer.php:30
 msgid "Address"
 msgstr "Endereço"
 
-#: functions/customizer.php:38
+#: functions/customizer.php:40
 msgid "Phone Number"
 msgstr "Telefone"
 
-#: functions/customizer.php:62
+#: functions/customizer.php:51
+msgid "E-mail"
+msgstr "E-mail"
+
+#: functions/customizer.php:66
 msgid "Upload a logo to the footer"
 msgstr "Suba uma imagem de logo para o rodapé"
 
-#: functions/customizer.php:79
-msgid "Base Color Scheme"
-msgstr "Esquema de cores"
+#: functions/customizer.php:86
+msgid "Display Proudly"
+msgstr ""
 
-#: functions/customizer.php:101
-msgid "Link Color"
-msgstr "Cor do link"
+#: functions/customizer.php:87
+msgid "This checkbox display or no the proudly powered."
+msgstr ""
 
-#: functions/customizer.php:170
+#: functions/customizer.php:95
+msgid "Social Share"
+msgstr ""
+
+#: functions/customizer.php:110
+msgid "Display Facebook"
+msgstr ""
+
+#: functions/customizer.php:125
+msgid "Display Twitter"
+msgstr ""
+
+#: functions/customizer.php:136
+msgid "Twitter User to be cited in tweets (via @user)"
+msgstr ""
+
+#: functions/customizer.php:151
+msgid "Display Google Plus"
+msgstr ""
+
+#: functions/customizer.php:165
+msgid "Choose a Color Scheme"
+msgstr ""
+
+#: functions/customizer.php:187
+msgid "Or pick any color"
+msgstr "Ou escolha alguma cor"
+
+#: functions/customizer.php:198
+msgid "Tooltip Color"
+msgstr ""
+
+#: functions/customizer.php:251
 msgid "Default"
 msgstr "Padrão"
 
-#: functions/customizer.php:178
+#: functions/customizer.php:260
 msgid "Carmine"
-msgstr "Carmine"
+msgstr "Carmim"
 
-#: functions/customizer.php:186
+#: functions/customizer.php:269
 msgid "Cherry"
-msgstr "Cherry"
+msgstr "Cereja"
 
-#: functions/customizer.php:194
+#: functions/customizer.php:278
 msgid "Mustard"
-msgstr "Mustard"
+msgstr "Mostarda"
 
-#: functions/customizer.php:202
+#: functions/customizer.php:287
 msgid "Mint Green"
-msgstr "Mint Green"
+msgstr "Verde Menta"
 
-#: functions/customizer.php:210
+#: functions/customizer.php:296
 msgid "Dark Turquoise"
-msgstr "Dark Turquoise"
+msgstr "Turquesa Escuro"
 
-#: functions/customizer.php:218
+#: functions/customizer.php:305
 msgid "Turquoise"
-msgstr "Turquoise"
+msgstr "Turquesa"
 
-#: functions/customizer.php:226
-msgid "Light Blue"
-msgstr "Light Blue"
+#: functions/customizer.php:314
+msgid "Blue Heavenly"
+msgstr "Azul Celeste"
 
-#: functions/customizer.php:234
+#: functions/customizer.php:323
 msgid "Purple"
-msgstr "Purple"
+msgstr "Roxo"
 
-#: functions/customizer.php:242
+#: functions/customizer.php:332
 msgid "Violet"
-msgstr "Violet"
+msgstr "Violeta"
 
-#: functions/single-functions.php:30
+#: functions/single-functions.php:29
 msgid "Your comment is awaiting moderation."
-msgstr "Seu comentário está aguardando moderação"
+msgstr "Seu comentário está aguardando moderação."
 
-#: functions/single-functions.php:35
+#: functions/single-functions.php:34
 msgid "Reply"
 msgstr "Responder"
 
-#: functions/single-functions.php:42
+#: functions/single-functions.php:41
 msgid "Edit"
 msgstr "Editar"
 
-#: functions/single-functions.php:46
+#: functions/single-functions.php:45
 msgid "Hide reply"
 msgstr "Esconder resposta"
 
+#: functions/single-functions.php:69
+msgid "&nbsp;by&nbsp;"
+msgstr "&nbsp;por&nbsp;"
+
+#: header.php:20 header.php:30 searchform.php:3
+msgid "Search"
+msgstr "Buscar"
+
+#: lib/class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr "Adicionar um menu"
+
 #: tainacan/single-items.php:17 template-parts/loop-singular.php:9
-#: template-parts/loop.php:17
+#: template-parts/loop.php:24
 msgid "Back"
 msgstr "Voltar"
-
-#: tainacan/single-items.php:26 template-parts/list-post.php:13
-#: template-parts/single-post.php:4
-#, php-format
-msgid "by %s"
-msgstr "por %s"
 
 #: tainacan/single-items.php:29
 msgid "Document"
 msgstr "Documento"
 
-#: tainacan/single-items.php:52
+#: tainacan/single-items.php:54
 msgid "Attachments"
 msgstr "Anexos"
 
-#: tainacan/single-items.php:71
-msgid "Informations"
+#: tainacan/single-items.php:83
+#, fuzzy
+#| msgid "Informations"
+msgid "Information"
 msgstr "Informações"
 
-#: tainacan/single-items.php:78
+#: tainacan/single-items.php:90
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: tainacan/single-items.php:84
+#: tainacan/single-items.php:96
 msgid "Share"
 msgstr "Compartilhar"
 
-#: tainacan/single-items.php:122 template-parts/loop-singular.php:18
+#: tainacan/single-items.php:146 template-parts/loop-singular.php:18
 #: template-parts/loop-tainacan-collection-grid.php:28
 #: template-parts/loop-tainacan-collection-table.php:43
-#: template-parts/loop-tainacan-collection.php:35 template-parts/loop.php:36
+#: template-parts/loop-tainacan-collection.php:35 template-parts/loop.php:43
 msgid "Nothing found"
 msgstr "Nada encontrado"
 
-#: template-parts/bannerHeader.php:18
+#: tainacan/view-mode-grid.php:33
+msgid "No item was found."
+msgstr "Nenhum item foi encontrado."
+
+#: template-parts/bannerHeader.php:13
 msgid "Search Results"
 msgstr "Resultado da busca"
 
-#: template-parts/bannerHeader.php:26
+#: template-parts/bannerHeader.php:21
 #, php-format
 msgid "Daily Archives: %s"
 msgstr "Arquivos diários: %s"
 
-#: template-parts/bannerHeader.php:29
+#: template-parts/bannerHeader.php:24
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr "Arquivos mensais: %s"
 
-#: template-parts/bannerHeader.php:29
+#: template-parts/bannerHeader.php:24
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F de Y"
 
-#: template-parts/bannerHeader.php:32
+#: template-parts/bannerHeader.php:27
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr "Arquivos Anuais: %s"
 
-#: template-parts/bannerHeader.php:32
+#: template-parts/bannerHeader.php:27
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
+
+#: template-parts/headerCollection.php:4 template-parts/headerTaxonomy.php:4
+msgid "Show more"
+msgstr "Mostrar mais"
+
+#: template-parts/headerCollection.php:7 template-parts/headerTaxonomy.php:7
+msgid "Show less"
+msgstr "Mostrar menos"
 
 #: template-parts/list-post.php:14
 msgid "Read more..."
@@ -301,29 +374,53 @@ msgstr "Leia mais..."
 msgid "Description"
 msgstr "Descrição"
 
-#: template-parts/loop.php:7
-msgid "Posts of blog"
-msgstr "Posts do blog"
+#: template-parts/loop-tainacan-collection.php:22
+msgid "Description not informed"
+msgstr "Descrição não foi informada"
 
-#: template-parts/loop.php:9
+#: template-parts/loop.php:11
+msgid "Blog Posts"
+msgstr "Posts do Blog"
+
+#: template-parts/loop.php:16
 msgid "Search Results for"
 msgstr "Resultados de busca por"
 
-#: template-parts/single-post.php:17
+#: template-parts/single-post.php:39
 msgid "Category: "
-msgstr "Categoria:"
+msgstr "Categoria: "
 
-#: template-parts/single-post.php:22
+#: template-parts/single-post.php:44
 msgid "Comments"
 msgstr "Comentários"
 
-#: template-parts/single-post.php:23
+#: template-parts/single-post.php:45
 msgid "None"
 msgstr "Nenhum"
 
-#: vendor/class-wp-bootstrap-navwalker.php:366
-msgid "Add a menu"
-msgstr "Adcionar um menu"
+#~ msgid "Anonymous"
+#~ msgstr "Anônimo"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Website"
+#~ msgstr "Website"
+
+#~ msgid "Comment"
+#~ msgstr "Comentário"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Light Blue"
+#~ msgstr "Light Blue"
+
+#~ msgid "by %s"
+#~ msgstr "por %s"
+
+#~ msgid "Posts of blog"
+#~ msgstr "Posts do blog"
 
 #~ msgid ", by "
 #~ msgstr ", por"
