@@ -23,6 +23,41 @@ body{
     }
 }
 
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 4.16666666667%;
+    background: rgb(0, 0, 0);
+    background: #4ea2ad;
+    width: 36px;
+    height: 36px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 99;
+    i {
+        color: #fff;
+        margin: 0;
+        position: relative;
+        left: 2px;
+        top: -7px;
+        font-size: 2rem;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+}
+
 @import "_media_query";
 
 nav{

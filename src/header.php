@@ -35,3 +35,5 @@
             </div>
         </div>
     </nav>
+
+    <a href="javascript:" id="return-to-top"><i class="mdi mdi-menu-up"></i></a>
