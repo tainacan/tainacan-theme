@@ -198,30 +198,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'       => __( 'Tooltip Color', 'tainacan-theme' ),
 		'section'     => 'colors',
 	) ) );
-
-	/* // Add main text color setting and control.
-	$wp_customize->add_setting( 'main_text_color', array(
-		'default'           => $color_scheme[3],
-		'sanitize_callback' => 'sanitize_hex_color',
-		'transport'         => 'postMessage',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_text_color', array(
-		'label'       => __( 'Main Text Color', 'tainacan-theme' ),
-		'section'     => 'colors',
-	) ) );
-
-	// Add secondary text color setting and control.
-	$wp_customize->add_setting( 'secondary_text_color', array(
-		'default'           => $color_scheme[4],
-		'sanitize_callback' => 'sanitize_hex_color',
-		'transport'         => 'postMessage',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_text_color', array(
-		'label'       => __( 'Secondary Text Color', 'tainacan-theme' ),
-		'section'     => 'colors',
-	) ) ); */
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
@@ -243,8 +219,7 @@ function display_callback_sanitize_checkbox( $checked ) {
  * 1. Main Background Color.
  * 2. Page Background Color.
  * 3. Link Color.
- * 4. Main Text Color.
- * 5. Secondary Text Color.
+ * 4. Tooltip.
  *
  * @since Tainacan Theme
  *
@@ -335,8 +310,8 @@ function tainacan_get_color_schemes() {
 				'#cdecef', //tooltip
 			),
 		),
-		'lightblue' => array(
-			'label'  => __( 'Light Blue', 'tainacan-theme' ),
+		'blueheavenly' => array(
+			'label'  => __( 'Blue Heavenly', 'tainacan-theme' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
@@ -698,10 +673,7 @@ function tainacan_color_scheme_css_template() {
 		'page_background_color' => '{{ data.page_background_color }}',
 		'link_color'            => '{{ data.link_color }}',
 		'tooltip_color'            => '{{ data.tooltip_color }}',
-		'backtransparent'		=> '{{ data.backtransparent }}',/* 
-		'main_text_color'       => '{{ data.main_text_color }}',
-		'secondary_text_color'  => '{{ data.secondary_text_color }}',
-		'border_color'          => '{{ data.border_color }}', */
+		'backtransparent'		=> '{{ data.backtransparent }}',
 	);
 	?>
 	<script type="text/html" id="tmpl-tainacan-color-scheme">
