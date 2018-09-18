@@ -19,7 +19,7 @@
                                 <?php if(get_the_excerpt()) : ?>
                                     <p><?php echo wp_trim_words( get_the_excerpt(), 35, '[...]'); ?></p>
                                 <?php else : ?>
-                                    <p style="font-style: italic;"><?php _e('Description not informed'); ?></p>
+                                    <p style="font-style: italic;"><?php _e('Description not informed', 'tainacan-theme'); ?></p>
                                 <?php endif; ?>
                             </div>
                         </div>

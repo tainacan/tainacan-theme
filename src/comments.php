@@ -20,6 +20,7 @@ if (post_password_required()) {
 		<div id="respond" class="clearfix mt-5 <?php if(!wp_is_mobile()) { ?>margin-two-column<?php } ?>">  
 			<?php if(get_option('comment_registration') && !is_user_logged_in()) : ?>
 				<p>
+				<?php // translators: placeholders are the opening and closing a (link) tags ?>
 				<?php printf( __( 'You must be %1$slogged%2$s in to post a comment.', 'tainacan-theme'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
 				</p>        
 			<?php else : ?>      
@@ -36,9 +37,11 @@ if (post_password_required()) {
 				</div>
 
 				<?php 
+					$user_link = sprintf('<a href="%1$s" class="font-weight-light">%2$s</a>', get_author_posts_url($current_user->ID), $current_user->display_name);
 					$comment_args = array(
 						'logged_in_as' => '<span class="text-oslo-gray authenticated d-inline d-sm-none mb-4">'.
-						sprintf( __('Authenticated as <a href="%1$s" class="font-weight-light">%2$s</a>', 'tainacan-theme'), get_author_posts_url($current_user->ID), $current_user->display_name)
+						// translators: placeholder is the user name with link to its page
+						sprintf( __('Authenticated as %1$s', 'tainacan-theme'), $user_link)
 						.'</span>',
 						'title_reply' => '',
 						'title_reply_before' => '',

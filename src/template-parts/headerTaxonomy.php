@@ -18,6 +18,7 @@ $taxonomy = get_taxonomy( $term->taxonomy );
 
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
     <div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
+        <?php do_action('tainacan-theme-taxonomy-header'); ?>
         <div class="collection-header position-relative max-large" style="">
             
             <?php get_template_part('template-parts/header-social-share'); ?>
@@ -33,15 +34,17 @@ $taxonomy = get_taxonomy( $term->taxonomy );
 					<?php tainacan_the_term_name(); ?>
                 </h2>
                 <?php $tainacan_term_description = tainacan_get_the_term_description(); ?>
-                <?php if ( !empty($tainacan_term_description) ): ?>
+                <?php if ( !empty($tainacan_term_description) || has_action('tainacan-theme-taxonoy-description') ): ?>
                     <div class="text-white t-collection--info-description-text dotmore">
                         <?php
                             echo $tainacan_term_description; 
                         ?>
                         <a class="toggle" href="#"></a>
+                        <?php do_action('tainacan-theme-taxonoy-description'); ?>
                     </div>
                 <?php endif; ?>
             </div>
+            <?php do_action('tainacan-theme-taxonomy-header-bottom'); ?>
         </div>
     </div>
 </div>

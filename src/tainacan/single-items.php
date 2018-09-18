@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col col-sm mx-sm-auto">
             <?php if(have_posts()): ?>
+                <?php do_action('tainacan-theme-single-item-top'); ?>
                 <?php while(have_posts()): the_post(); ?>
                     <div class="tainacan-title">
                         <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
@@ -18,6 +19,9 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <?php do_action('tainacan-theme-single-item-after-title'); ?>
+                    
                     <div class="mt-3 tainacan-single-post collection-single-item">
                         <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
                             <header class="mb-4">
@@ -35,6 +39,8 @@
                             <?php endif; ?>
                         </article>
                     </div>
+
+                    <?php do_action('tainacan-theme-single-item-after-document'); ?>
 
                     <?php if (tainacan_has_document()): ?>
                         <div class="tainacan-title my-5">
@@ -76,7 +82,7 @@
 
                     <?php endif; ?>
 
-                    
+                    <?php do_action('tainacan-theme-single-item-after-attachments'); ?>
 
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
@@ -115,17 +121,22 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php do_action('tainacan-theme-single-item-metadata-begin'); ?>
                                             <?php 
                                                 $args = array('before_title' => '<div><h3>', 'after_title' => '</h3>', 'before_value' => '<p>', 'after_value' => '</p></div>');
                                                 //$field = null;
                                                 tainacan_the_metadata($args); 
                                             ?>
+                                            <?php do_action('tainacan-theme-single-item-metadata-end'); ?>
                                         </div>
                                     </div>
                                 </div>
                             </section>
                         </article>
                     </div>
+
+                    <?php do_action('tainacan-theme-single-item-after-metadata'); ?>
+
                     <div class="tainacan-title my-5">
                         <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
                         </div>
@@ -142,6 +153,7 @@
                         </div>
                     </div>
                 <?php endwhile; ?>
+                <?php do_action('tainacan-theme-single-item-bottom'); ?>
             <?php else: ?>
                 <?php _e('Nothing found', 'tainacan-theme'); ?>
             <?php endif; ?>

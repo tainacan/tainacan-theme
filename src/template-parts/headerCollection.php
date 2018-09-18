@@ -32,6 +32,7 @@
 <div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else: ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
     <div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
         <div class="collection-header position-relative max-large" style="">
+            <?php do_action('tainacan-theme-collection-header'); ?>
             <?php if(has_post_thumbnail(tainacan_get_collection_id())) : ?>
                 <img src="<?php echo get_the_post_thumbnail_url(tainacan_get_collection_id()); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left">
             <?php else : ?>
@@ -88,15 +89,17 @@
                     <?php tainacan_the_collection_name(); ?>
                 </h2>
                 <?php $tainacan_collection_description = tainacan_get_the_collection_description(); ?>
-                <?php if ( !empty($tainacan_collection_description) ): ?>
+                <?php if ( !empty($tainacan_collection_description) || has_action('tainacan-theme-collection-description') ): ?>
                     <div class="text-white t-collection--info-description-text dotmore">
                         <?php
                             tainacan_the_collection_description(); 
                         ?>
+                        <?php do_action('tainacan-theme-collection-description'); ?>
                         <a class="toggle" href="#"></a>
                     </div>
                 <?php endif; ?>
             </div>
+            <?php do_action('tainacan-theme-collection-header-bottom'); ?>
         </div>
     </div>
 </div>
