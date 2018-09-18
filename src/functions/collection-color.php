@@ -45,7 +45,7 @@ class TainacanThemeCollectionColor {
                         <h5><?php _e('Collection Background Color', 'tainacan-interface'); ?></h5>
                     </div> 
                     <div class="help-tooltip-body">
-                        <p><?php _e('Color that will fill the area over collection\'s header on Tainacan theme.', 'tainacan-interface'); ?></p>
+                        <p><?php _e('Collection header fill color', 'tainacan-interface'); ?></p>
                     </div>
                 </div>
             </span>
@@ -92,7 +92,7 @@ class TainacanThemeCollectionColor {
                         <h5><?php _e('Collection Text Color', 'tainacan-interface'); ?></h5>
                     </div> 
                     <div class="help-tooltip-body">
-                        <p><?php _e('Text color on area over collection\'s header on Tainacan theme.', 'tainacan-interface'); ?></p>
+                        <p><?php _e('Text color on collection header', 'tainacan-interface'); ?></p>
                     </div>
                 </div>
             </span>

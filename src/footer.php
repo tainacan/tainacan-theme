@@ -50,7 +50,7 @@
                 <span>
                     <?php 
                         if ( true == get_theme_mod( 'display_powered', false ) ) {
-                            printf(__('Proudly powered by %1$s and %2$s', 'tainacan-interface'), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>'); 
+                            printf(__('Proudly powered by %1$s and %2$s.', 'tainacan-interface'), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>'); 
                         }
                     ?>
                 </span>

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2018-09-18 10:41-0300\n"
+"POT-Creation-Date: 2018-09-18 15:43-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -21,16 +21,16 @@ msgstr ""
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
 "_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:9
 msgid "The page you are looking for does not exist!"
-msgstr "A página que você está buscando não existe!"
+msgstr "A página que você está procurando não existe!"
 
 #: 404.php:14
 msgid "Go to first page"
-msgstr "Ir para página inicial"
+msgstr "Ir para a página inicial"
 
 #: archive-tainacan-collection.php:15
 msgid "Sorting"
@@ -65,44 +65,44 @@ msgstr "Tabela"
 msgid "Search collections"
 msgstr "Buscar coleções"
 
-#: comments.php:23
+#: comments.php:24
 #, php-format
 msgid "You must be %1$slogged%2$s in to post a comment."
 msgstr "Você precisa estar %sconectado%s para publicar um comentário."
 
-#: comments.php:27
+#: comments.php:28
 msgid "Leave your comment"
 msgstr "Deixe seu comentário"
 
-#: comments.php:31
+#: comments.php:32
 msgid "Authenticated as"
 msgstr "Conectado como"
 
-#: comments.php:41
+#: comments.php:44
 #, php-format
-msgid "Authenticated as <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
-msgstr "Conectado como <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
+msgid "Authenticated as %1$s"
+msgstr "Conectado como %1$s"
 
-#: comments.php:50
+#: comments.php:53
 msgid "Send"
 msgstr "Enviar"
 
-#: comments.php:66
+#: comments.php:69
 msgid "Previous Comments"
 msgstr "Comentários Anteriores"
 
-#: comments.php:69
+#: comments.php:72
 msgid "Next Comments"
 msgstr "Próximos Comentários"
 
-#: comments.php:75
+#: comments.php:78
 msgid "Comments are closed."
-msgstr "Comentários estão fechados."
+msgstr "Os comentários estão fechados."
 
 #: footer.php:31
 #, php-format
 msgid "E-mail: %s"
-msgstr "E-mail:  %s"
+msgstr "E-mail: %s"
 
 #: footer.php:41
 #, php-format
@@ -111,8 +111,8 @@ msgstr "Telefone: %s"
 
 #: footer.php:53
 #, php-format
-msgid "Proudly powered by %1$s and %2$s"
-msgstr ""
+msgid "Proudly powered by %1$s and %2$s."
+msgstr "Orgulhosamente feito com %1$s e %2$s."
 
 #: functions.php:96
 msgid "Tainacan Sidebar Right"
@@ -123,8 +123,8 @@ msgid "Tainacan Sidebar Footer"
 msgstr "Rodapé do Tainacan"
 
 #: functions.php:161
-msgid "Nav Menu Below Header"
-msgstr "Navegação abaixo do cabeçalho"
+msgid "Navigation menu below header"
+msgstr "Menu de navegação abaixo do cabeçalho"
 
 #: functions.php:201
 msgid "Collections"
@@ -132,36 +132,37 @@ msgstr "Coleções"
 
 #: functions/collection-color.php:36 functions/collection-color.php:45
 msgid "Collection Background Color"
-msgstr ""
+msgstr "Cor de fundo da coleção"
 
 #: functions/collection-color.php:48
-msgid ""
-"Color that will fill the area over collection's header on Tainacan theme."
-msgstr ""
+#, fuzzy
+#| msgid "Collection Text Color"
+msgid "Collection header fill color"
+msgstr "Cor de texto da coleção"
 
 #: functions/collection-color.php:53
 msgid "Suggested colors"
-msgstr ""
+msgstr "Cores sugeridas"
 
 #: functions/collection-color.php:77
 msgid "Picker color"
-msgstr ""
+msgstr "Seleção de cor"
 
 #: functions/collection-color.php:83 functions/collection-color.php:92
 msgid "Collection Text Color"
-msgstr ""
+msgstr "Cor de texto da coleção"
 
 #: functions/collection-color.php:95
-msgid "Text color on area over collection's header on Tainacan theme."
-msgstr ""
+msgid "Text color on collection header"
+msgstr "Cor de texto do cabeçalho do tema"
 
 #: functions/collection-color.php:105
 msgid "White"
-msgstr ""
+msgstr "Branco"
 
 #: functions/collection-color.php:111
 msgid "Black"
-msgstr ""
+msgstr "Preto"
 
 #: functions/customizer.php:20
 msgid "Footer settings"
@@ -184,44 +185,50 @@ msgid "Upload a logo to the footer"
 msgstr "Suba uma imagem de logo para o rodapé"
 
 #: functions/customizer.php:86
-msgid "Display Proudly"
-msgstr ""
+#, fuzzy
+#| msgid "Display \"Proudly Powered by\""
+msgid "Display \"Proudly Powered by...\""
+msgstr "Exibir \"Orgulhosamente feito com...\""
 
 #: functions/customizer.php:87
-msgid "This checkbox display or no the proudly powered."
+msgid ""
+"This checkbox shows the \"Proudly Powered by Tainacan and Wordpress\" "
+"sentence."
 msgstr ""
+"Este checkbox mostra a frase \"Orgulhosamente feito com Tainacan e Wordpress"
+"\"."
 
 #: functions/customizer.php:95
 msgid "Social Share"
-msgstr ""
+msgstr "Compartilhar em mídias sociais"
 
 #: functions/customizer.php:110
 msgid "Display Facebook"
-msgstr ""
+msgstr "Mostrar o botão do Facebook"
 
 #: functions/customizer.php:125
 msgid "Display Twitter"
-msgstr ""
+msgstr "Mostrar o botão do Twitter"
 
 #: functions/customizer.php:136
 msgid "Twitter User to be cited in tweets (via @user)"
-msgstr ""
+msgstr "Usuário do Twitter a ser citado (via @nomedeusuario)"
 
 #: functions/customizer.php:151
 msgid "Display Google Plus"
-msgstr ""
+msgstr "Mostrar botão do Google Plus"
 
 #: functions/customizer.php:165
 msgid "Choose a Color Scheme"
-msgstr ""
+msgstr "Escolha uma paleta de cores"
 
 #: functions/customizer.php:187
 msgid "Or pick any color"
-msgstr "Ou escolha alguma cor"
+msgstr "Ou escolha qualquer cor"
 
 #: functions/customizer.php:198
 msgid "Tooltip Color"
-msgstr ""
+msgstr "Cor das dicas"
 
 #: functions/customizer.php:251
 msgid "Default"
@@ -291,34 +298,32 @@ msgstr "Buscar"
 msgid "Add a menu"
 msgstr "Adicionar um menu"
 
-#: tainacan/single-items.php:17 template-parts/loop-singular.php:9
+#: tainacan/single-items.php:18 template-parts/loop-singular.php:9
 #: template-parts/loop.php:24
 msgid "Back"
 msgstr "Voltar"
 
-#: tainacan/single-items.php:29
+#: tainacan/single-items.php:33
 msgid "Document"
 msgstr "Documento"
 
-#: tainacan/single-items.php:54
+#: tainacan/single-items.php:60
 msgid "Attachments"
 msgstr "Anexos"
 
-#: tainacan/single-items.php:83
-#, fuzzy
-#| msgid "Informations"
+#: tainacan/single-items.php:89
 msgid "Information"
 msgstr "Informações"
 
-#: tainacan/single-items.php:90
+#: tainacan/single-items.php:96
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: tainacan/single-items.php:96
+#: tainacan/single-items.php:102
 msgid "Share"
 msgstr "Compartilhar"
 
-#: tainacan/single-items.php:146 template-parts/loop-singular.php:18
+#: tainacan/single-items.php:158 template-parts/loop-singular.php:18
 #: template-parts/loop-tainacan-collection-grid.php:28
 #: template-parts/loop-tainacan-collection-table.php:43
 #: template-parts/loop-tainacan-collection.php:35 template-parts/loop.php:43
@@ -397,6 +402,15 @@ msgstr "Comentários"
 #: template-parts/single-post.php:45
 msgid "None"
 msgstr "Nenhum"
+
+#~ msgid ""
+#~ "Color that will fill the area over collection's header on Tainacan theme."
+#~ msgstr "Cor que irá preencher a área de cabeçalho do tema"
+
+#~ msgid ""
+#~ "Authenticated as <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
+#~ msgstr ""
+#~ "Conectado como <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
 
 #~ msgid "Anonymous"
 #~ msgstr "Anônimo"

@@ -158,7 +158,7 @@ require_once get_template_directory() . '/lib/class-wp-bootstrap-navwalker.php';
  * Register the menu for use after the banner
  */
 register_nav_menus( array(
-	'navMenubelowHeader' => __( 'Nav Menu Below Header', 'tainacan-interface' ),
+	'navMenubelowHeader' => __( 'Navigation menu below header', 'tainacan-interface' ),
 ) );
 
 function tainacan_hex2rgb( $color ) {
