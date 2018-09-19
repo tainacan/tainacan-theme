@@ -128,8 +128,8 @@ class TainacanThemeCollectionColor {
     }
 
     function save_meta($object) {
-        $postdata = file_get_contents("php://input");
-        $post = json_decode($postdata);
+		global $HTTP_RAW_POST_DATA;
+		$post = json_decode($HTTP_RAW_POST_DATA);
         
         if ($object->can_edit()) {
             if (isset($post->{$this->background_color})) {
