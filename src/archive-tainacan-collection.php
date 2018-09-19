@@ -12,11 +12,11 @@
                 
                 <div class="dropdown dropdown-sorting">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php _e('Sorting', 'tainacan-theme'); ?>
+                    <?php _e('Sorting', 'tainacan-interface'); ?>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuSorting">
-                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('orderby'), 'date'); ?>" href="<?php echo add_query_arg('orderby', 'date'); ?>"><?php _e('Creation date', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('orderby'), 'title'); ?>" href="<?php echo add_query_arg('orderby', 'title'); ?>"><?php _e('Title', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('orderby'), 'date'); ?>" href="<?php echo add_query_arg('orderby', 'date'); ?>"><?php _e('Creation date', 'tainacan-interface'); ?></a>
+                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('orderby'), 'title'); ?>" href="<?php echo add_query_arg('orderby', 'title'); ?>"><?php _e('Title', 'tainacan-interface'); ?></a>
                     </div>
                 </div>
                     
@@ -30,12 +30,12 @@
                 <div class="dropdown margin-one-column-left dropdown-viewMode">
                     <button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="mdi mdi-view-list text-oslo-gray"></i>
-                        <span class="d-none d-md-inline"><?php _e('View Mode', 'tainacan-theme'); ?></span>
+                        <span class="d-none d-md-inline"><?php _e('View Mode', 'tainacan-interface'); ?></span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'cards'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'cards'); ?>"><?php _e('Cards', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Thumbnails', 'tainacan-theme'); ?></a>
-                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-theme'); ?></a>
+                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'cards'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'cards'); ?>"><?php _e('Cards', 'tainacan-interface'); ?></a>
+                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'grid'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'grid'); ?>"><?php _e('Thumbnails', 'tainacan-interface'); ?></a>
+                        <a class="dropdown-item text-black <?php tainacan_active(get_query_var('tainacan_collections_viewmode'), 'table'); ?>" href="<?php echo add_query_arg('tainacan_collections_viewmode', 'table'); ?>"><?php _e('Table', 'tainacan-interface'); ?></a>
                     </div>
                 </div>
                 
@@ -44,7 +44,7 @@
                     <input type="hidden" name="order" value="<?php echo get_query_var('order'); ?>" />
                     <input type="hidden" name="tainacan_collections_viewmode" value="<?php echo get_query_var('tainacan_collections_viewmode'); ?>" />
                     <div class="input-group">
-                        <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search collections', 'tainacan-theme'); ?>" />
+                        <input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var('s'); ?>" placeholder="<?php _e('Search collections', 'tainacan-interface'); ?>" />
                         <span class="input-group-append">
                             <button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
                                 <i class="mdi mdi-magnify" style="line-height: inherit;"></i>

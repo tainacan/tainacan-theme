@@ -191,7 +191,7 @@ footer{
                         transform: translate( -6px , 0 );
                         margin-top: 16px;
                         right: 0;
-                        font-size: 15px;
+                        font-size: 0.9375rem;
                         &:before , &:after{
                             content: "";
                             @extend %transition;
@@ -209,7 +209,7 @@ footer{
                                 content: "\F415";
                                 display: inline-block;
                                 font: normal normal normal 24px/1 "Material Design Icons";
-                                font-size: 18px;
+                                font-size: 1.125rem;
                                 text-rendering: auto;
                                 line-height: inherit;
                                 -webkit-font-smoothing: antialiased;

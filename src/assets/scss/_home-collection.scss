@@ -70,20 +70,20 @@
         }
         .t-collection--info-title {
             font: {
-                size: 24px;
+                size: 1.5rem;
                 weight: 700;
             }
             margin-top: 0.4rem;
             @media only screen and (max-width: 767px){
                 font: {
-                    size: 18px;
+                    size: 1.125rem;
                     weight: 500;
                 }
             }
         }
         .t-collection--info-description-text {
             font: {
-                size: 14px;
+                size: 0.875rem;
                 weight: 400;
             }
             margin-bottom: 0;
@@ -235,7 +235,7 @@
         color: #2c2d2d;
         .mdi {
             @extend .absolute-center;
-            font-size: 24px;
+            font-size: 1.5rem;
             transition: color 0.3s;
             color: #2c2d2d;
             &.mdi-share-variant {

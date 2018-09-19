@@ -20,6 +20,9 @@
             }
         }
         .blog-content{
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #898d8f;
             &.blog-flex{
                 @media screen {
                     @media (min-width: 768px) {
@@ -34,26 +37,27 @@
                 }
             }
             h3{
-                font-size: 18px;
+                font-size: 1.125rem;
             }
             .text-black{
                 font-weight: 400;
+                font-size: 1rem;
             }
             time{
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
                 color: #898d8f;
             }
             a[rel="author"]{
                 //color: #4f4f4f;
-                font-size: 12px;
+                font-size: 0.75rem;
                 font-weight: 400;
             }
             .readmore{
                 &.screen-reader-text{
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     font-weight: 400;
                 }
             }
@@ -65,15 +69,22 @@
             th {
                 color: #898d8f;
                 font : {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
+                border-top: none;
             }
         }
         .tainacan-list-collection{
             cursor: pointer;
+            &:hover {
+                background-color: #f2f2f2;
+            }
             th, td{
                 vertical-align: baseline;
+            }
+            td {
+                border-top: none;
             }
             .collection-checkbox{
                 width: 4.16666666667%;
@@ -95,7 +106,7 @@
             }
             .collection-title{
                 font: {
-                    size: 14px;
+                    size: 0.875rem;
                     weight: 400;
                 }
                 a {
@@ -107,13 +118,13 @@
             }
             .collection-description, .collection-date{
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
             }
             .collection-create-by{
                 font: {
-                    size: 12px;
+                    size: 0.75rem;
                     weight: 400;
                 }
 
@@ -129,7 +140,7 @@
     
     .tainacan-list-collection--container-card {
         display: grid;
-        grid-template-columns: repeat(auto-fit, 350px);
+        grid-template-columns: repeat(auto-fit, 425px);
         grid-gap: 30px;
         @media only screen and (max-width: 797px) {
             grid-gap: 4px;
@@ -143,36 +154,36 @@
                 width: 100vw;
             }
             &:hover {
-                background: #e5e5e5 !important;
+                background: #f2f2f2 !important;
                 .tainacan-list-collection--title {
-                    background-color: #e5e5e5;
+                    background-color: #dbdbdb;
                 }
             }
             .tainacan-list-collection--title {
                 background: #fff;
                 font: {
-                    size: 14px;
+                    size: 0.875rem;
                     weight: 400;
                 }
-                height: 45px;
+                height: 40px;
             }
             .tainacan-list-collection--card-img {
-                width: 172px;
-                height: 172px;
+                width: 170px;
+                height: 170px;
             }
             .image-placeholder {
-                height: 172px;
-                width: 172px;
+                height: 170px;
+                width: 170px;
                 margin-right: 1rem;
                 > h4 {
                     text-align: center;
-                    font-size: 48px;
+                    font-size: 3rem;
                 }
             }
             .media-body {
                 p {
                     font: {
-                        size: 11px;
+                        size: 0.6875rem;
                         weight: 400;
                     }
                     padding-top: 10px;
@@ -191,7 +202,7 @@
             height: 295px;
             .tainacan-list-collection--grid-title{
                 font: {
-                    size: 14px;
+                    size: 0.875rem;
                     weight: 400;
                 }
                 height: 45px;
@@ -204,7 +215,7 @@
                 height: 250px;
                 width: 250px;
                 > h4 {
-                    font-size: 48px;
+                    font-size: 3rem;
                 }
             }
         }
@@ -213,9 +224,9 @@
     .tainacan-list-collection--grid-link, .tainacan-list-collection--card-link {
         &:hover{
             text-decoration: none;
-            background-color: #e5e5e5;
-            .tainacan-list-collection--title {
-                background-color: #e5e5e5;
+            background-color: #f2f2f2;
+            .tainacan-list-collection--title, .tainacan-list-collection--grid-title {
+                background-color: #dbdbdb;
             }
         }
     }

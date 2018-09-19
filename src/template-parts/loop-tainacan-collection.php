@@ -16,11 +16,11 @@
                                 </div>
                             <?php endif; ?>
                             <div class="media-body text-oslo-gray">
-                                <p><?php echo wp_trim_words( get_the_excerpt(), 35, '[...]'); ?></p>
-                                <!-- <p> 
-                                    <?php //_e('Create by: ');?> <?php //the_author(); ?><br>
-                                    <?php //_e('Date: ');?> <?php //tainacan_post_date(); ?>
-                                </p> -->
+                                <?php if(get_the_excerpt()) : ?>
+                                    <p><?php echo wp_trim_words( get_the_excerpt(), 35, '[...]'); ?></p>
+                                <?php else : ?>
+                                    <p style="font-style: italic;"><?php _e('Description not informed', 'tainacan-interface'); ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </a>
@@ -32,5 +32,5 @@
     <?php echo tainacan_pagination(3); ?>
 
 <?php else: ?>
-	<?php _e('Nothing found', 'tainacan-theme'); ?>
+	<?php _e('Nothing found', 'tainacan-interface'); ?>
 <?php endif; ?>

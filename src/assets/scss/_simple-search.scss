@@ -1,7 +1,7 @@
 .tainacan-collection-list--simple-search{
     .dropdown {
         #dropdownMenuSorting, #dropdownMenuViewMode {
-            font-size: 14px;
+            font-size: 0.875rem;
             &:focus{
                 box-shadow: none;
             }
@@ -23,7 +23,8 @@
             }
         }
         .dropdown-menu {
-            font-size: 14px;
+            font-size: 0.875rem;
+            border-radius: 0;
             a {
                 &:hover{
                     background-color: #c1dae0;
@@ -58,7 +59,7 @@
                 border-right: none;
             }
             &::placeholder{
-                font-size: 11px;
+                font-size: 0.6875rem;
                 color: #898d8f;
             }
         }

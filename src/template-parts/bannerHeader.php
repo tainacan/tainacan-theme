@@ -10,7 +10,7 @@
                         <?php bloginfo('title');
                     }
                     elseif(is_search()){ 
-                        _e('Search Results', 'tainacan-theme');
+                        _e('Search Results', 'tainacan-interface');
                     }
                     elseif(is_tag() || is_category() || is_tax()){
                         single_term_title();
@@ -18,13 +18,13 @@
                     elseif(is_archive()){
                         if(have_posts()){
                             if ( is_day() ) :
-                                printf( __( 'Daily Archives: %s', 'tainacan-theme' ), get_the_date() );
+                                printf( __( 'Daily Archives: %s', 'tainacan-interface' ), get_the_date() );
         
                             elseif ( is_month() ) :
-                                printf( __( 'Monthly Archives: %s', 'tainacan-theme' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'tainacan-theme' ) ) );
+                                printf( __( 'Monthly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'tainacan-interface' ) ) );
     
                             elseif ( is_year() ) :
-                                printf( __( 'Yearly Archives: %s', 'tainacan-theme' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-theme' ) ) );
+                                printf( __( 'Yearly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-interface' ) ) );
     
                             elseif(is_author()) :
                                 echo get_the_author();

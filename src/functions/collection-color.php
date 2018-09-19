@@ -33,7 +33,7 @@ class TainacanThemeCollectionColor {
         ?>  
 
         <div class="field tainacan-collection--change-color-picker">
-            <label class="label"><?php _e('Collection Background Color', 'tainacan-theme'); ?></label>
+            <label class="label"><?php _e('Collection Background Color', 'tainacan-interface'); ?></label>
             <span class="help-wrapper">
                 <a class="help-button has-text-secondary">
                     <span class="icon is-small">
@@ -42,15 +42,15 @@ class TainacanThemeCollectionColor {
                 </a>
                 <div class="help-tooltip">
                     <div class="help-tooltip-header">
-                        <h5><?php _e('Collection Background Color', 'tainacan-theme'); ?></h5>
+                        <h5><?php _e('Collection Background Color', 'tainacan-interface'); ?></h5>
                     </div> 
                     <div class="help-tooltip-body">
-                        <p><?php _e('Color that will fill the area over collection\'s header on Tainacan theme.', 'tainacan-theme'); ?></p>
+                        <p><?php _e('Collection header fill color', 'tainacan-interface'); ?></p>
                     </div>
                 </div>
             </span>
             <div class="control is-clearfix"> 
-                <p style="padding: 1rem 0; font-weight: 600;"><?php _e('Suggested colors', 'tainacan-theme'); ?></p>
+                <p style="padding: 1rem 0; font-weight: 600;"><?php _e('Suggested colors', 'tainacan-interface'); ?></p>
                 <?php
                     $colors = array(
                         'default' => '#298596',
@@ -66,17 +66,21 @@ class TainacanThemeCollectionColor {
                         'gray' => '#2c2d2d'
                     );
 
+                    if(has_filter('tainacan-collection-colors')) {
+                        $colors = apply_filters('tainacan-collection-colors', $colors);
+                    }
+
                     foreach($colors as $name=>$color){
                 ?>
                         <input type="radio" value="<?php echo $color; ?>" name="null" class="custom-color <?php echo $name; ?>" style="background-color: <?php echo $color; ?>;">
                     <?php } ?>
-                <p style="padding-top: 1rem; font-weight: 600;"><?php _e('Picker color', 'tainacan-theme'); ?></p>
+                <p style="padding-top: 1rem; font-weight: 600;"><?php _e('Picker color', 'tainacan-interface'); ?></p>
                 <input type="color" value="" id="colorpicker" name="<?php echo $this->background_color; ?>">
             </div>
         </div>
 
         <div class="field tainacan-collection--change-text-color">
-            <label class="label"><?php _e('Collection Text Color', 'tainacan-theme'); ?></label>
+            <label class="label"><?php _e('Collection Text Color', 'tainacan-interface'); ?></label>
             <span class="help-wrapper">
                 <a class="help-button has-text-secondary">
                     <span class="icon is-small">
@@ -85,10 +89,10 @@ class TainacanThemeCollectionColor {
                 </a>
                 <div class="help-tooltip">
                     <div class="help-tooltip-header">
-                        <h5><?php _e('Collection Text Color', 'tainacan-theme'); ?></h5>
+                        <h5><?php _e('Collection Text Color', 'tainacan-interface'); ?></h5>
                     </div> 
                     <div class="help-tooltip-body">
-                        <p><?php _e('Text color on area over collection\'s header on Tainacan theme.', 'tainacan-theme'); ?></p>
+                        <p><?php _e('Text color on collection header', 'tainacan-interface'); ?></p>
                     </div>
                 </div>
             </span>
@@ -98,13 +102,13 @@ class TainacanThemeCollectionColor {
                     value="#fff" 
                     name="<?php echo $this->text_color; ?>"
                     id="white" checked>
-                    <label for="white" id="color-white" class="color-text">White</label>
+                    <label for="white" id="color-white" class="color-text"><?php _e('White', 'tainacan-interface'); ?></label>
                 <input
                     type="radio" 
                     value="#000" 
                     name="<?php echo $this->text_color; ?>"
                     id="black">
-                    <label for="black" id="color-black" class="color-text">Black</label>
+                    <label for="black" id="color-black" class="color-text"><?php _e('Black', 'tainacan-interface'); ?></label>
             </div>
         </div>
 

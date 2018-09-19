@@ -6,7 +6,7 @@
 	                <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
 	                    <?php the_title(); ?>
 	                </li>
-	                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-theme'); ?></a></li>
+	                <li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e('Back', 'tainacan-interface'); ?></a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -15,5 +15,5 @@
 	    </div>
 	<?php endwhile; ?>
 <?php else: ?>
-	<?php _e('Nothing found', 'tainacan-theme'); ?>
+	<?php _e('Nothing found', 'tainacan-interface'); ?>
 <?php endif; ?>

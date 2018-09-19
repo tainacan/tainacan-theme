@@ -7,13 +7,13 @@ footer{
             &.tainacan-side {
                 h6 {
                     font: {
-                        size: 18px;
+                        size: 1.125rem;
                     }
                 }
             }
             p{
                 .fiber{
-                    font-size: 9px;
+                    font-size: 0.5625rem;
                 }
             }
             a{
@@ -37,7 +37,7 @@ footer{
         }
         .tainacan-footer-info--blog {
             font: {
-                size: 14px;
+                size: 0.875rem;
                 weight: 400;
             }
         }
@@ -45,7 +45,7 @@ footer{
             width: 120px;
         }
         .tainacan-powered {
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 400;
             color: #44638e;
             a {

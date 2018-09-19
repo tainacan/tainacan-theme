@@ -45,8 +45,8 @@ if ( ! function_exists('tainacan_Enqueues') ) {
         /**
          * DotJS
          */
-        wp_register_script('DotJS', get_template_directory_uri() . '/assets/js/dotdotdot.js', array('jquery'), '', true);
-        wp_enqueue_script('DotJS');
+            wp_register_script('DotJS', get_template_directory_uri() . '/assets/js/dotdotdot.js', array('jquery'), '', true);
+            wp_enqueue_script('DotJS');
 
          /* Charts */
         

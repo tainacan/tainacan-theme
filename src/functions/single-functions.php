@@ -26,23 +26,23 @@ function tainacan_Comments_Callback($comment, $args, $depth) {
             </h5>
             <?php if ('0' == $comment->comment_approved) : ?>
                 <p class="comment-awaiting-moderation">
-                    <?php _e('Your comment is awaiting moderation.','tainacan-theme'); ?>
+                    <?php _e('Your comment is awaiting moderation.','tainacan-interface'); ?>
                 </p>
             <?php endif; ?>
             <?php comment_text(); ?>
             <?php comment_reply_link( array(
-                        'reply_text' => __('Reply', 'tainacan-theme'),
+                        'reply_text' => __('Reply', 'tainacan-interface'),
                         'depth'      => $depth,
                         'max_depth'  => $args['max_depth'],
                         'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
                         'after'     => '</li>'
                     )
                 ); 
-                edit_comment_link( __( 'Edit', 'tainacan-theme' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
+                edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
             ?>
             <?php if($args['has_children']) : ?>
                 <p>
-                    <!-- <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-theme'); ?></a> -->
+                    <!-- <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e('Hide reply', 'tainacan-interface'); ?></a> -->
                 </p>
             <?php endif; ?>
         </div>
@@ -57,14 +57,25 @@ add_filter( 'comment_text', 'wrap_Comment', 99);
 /**
  * Display date of post.
  */
-function tainacan_post_date() {
-    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+function tainacan_meta_date_author($echo = true) {
+    $time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
     
-    $time_string = sprintf( $time_string,
+    $time_string = sprintf( $time,
         esc_attr( get_the_date( 'c' ) ),
         get_the_date()
     );
-    echo $time_string;
+
+    $string = $time_string;
+    $string .= __('&nbsp;by&nbsp;', 'tainacan-interface');
+    $string .= get_the_author_posts_link();
+
+    $string = apply_filters('tainacan-meta-date-author', $string);
+
+    if ($echo) {
+        echo $string;
+    } else {
+        return $string;
+    }
 }
 
 // define the cancel_comment_reply_link callback 
@@ -75,7 +86,7 @@ function filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
 }
 add_filter( 'cancel_comment_reply_link', 'filter_cancel_comment_reply_link', 10, 3 ); 
 
-function social_meta() {
+function tainacan_social_meta() {
     global $post;
 
     if(is_single() || is_tax() || is_archive()) {
@@ -84,8 +95,6 @@ function social_meta() {
         global $wp;
         if(is_archive('tainacan-collection')){
             $title = tainacan_get_the_collection_name();
-            //$img_info = (has_post_thumbnail(tainacan_get_collection_id())) ? get_the_post_thumbnail_url(tainacan_get_collection_id()) : $logo;
-            //var_dump(wp_get_attachment_image_src(get_post_thumbnail_id(tainacan_get_collection_id()), "full"));die;
             $img_info = (has_post_thumbnail(tainacan_get_collection_id())) ? wp_get_attachment_image_src(get_post_thumbnail_id(tainacan_get_collection_id()), "full") : $logo;
             $url_src = home_url( $wp->request );
             $excerpt = tainacan_get_the_collection_description();
@@ -125,4 +134,4 @@ function social_meta() {
     }
 }
 
-add_action('wp_head', 'social_meta', 5);
+add_action('wp_head', 'tainacan_social_meta', 5);

@@ -2,7 +2,7 @@
     <header class="mb-4">
         <div class="header-meta text-muted mb-5 d-flex">
             <?php if(!is_singular('page')) { ?>
-                <?php tainacan_post_date(); ?> &nbsp;<?php printf(__('by&nbsp;%s', 'tainacan-theme'), get_the_author_posts_link()); ?>
+                <?php tainacan_meta_date_author(); ?>
             <?php } ?>
             <div class="btn-group ml-auto" role="group">
                 <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
@@ -36,13 +36,13 @@
     <footer class="mt-5 border-top pt-3">
         <p>
             <?php 
-                _e('Category: ', 'tainacan-theme'); 
+                _e('Category: ', 'tainacan-interface'); 
                 the_category(' <span>|</span> ') ?> -
                 <?php if (has_tag()) { 
                     the_tags('Tags: ', ' <span>|</span> '); ?> -
                 <?php } 
-                _e('Comments', 'tainacan-theme'); echo ':'; ?> 
-                <?php comments_popup_link(__('None', 'tainacan-theme'), '1', '%'); ?>
+                _e('Comments', 'tainacan-interface'); echo ':'; ?> 
+                <?php comments_popup_link(__('None', 'tainacan-interface'), '1', '%'); ?>
         </p>
     </footer>
     <?php } ?>

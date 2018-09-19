@@ -17,7 +17,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Add others infos in Site identity on footer
 	 */
 	$wp_customize->add_section('footer_info', array(
-		'title'  	 => __('Footer settings', 'tainacan-theme'),
+		'title'  	 => __('Footer settings', 'tainacan-interface'),
 		'priority'   => 200,
 	));
 	$wp_customize->add_setting( 'blogaddress', array(
@@ -27,7 +27,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'blogaddress', array(
-		'label'      => __( 'Address', 'tainacan-theme' ),
+		'label'      => __( 'Address', 'tainacan-interface' ),
 		'section'    => 'footer_info',
 	) );
 	$wp_customize->add_setting( 'blogphone', array(
@@ -37,7 +37,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'blogphone', array(
-		'label'      => __( 'Phone Number', 'tainacan-theme' ),
+		'label'      => __( 'Phone Number', 'tainacan-interface' ),
 		'section'    => 'footer_info',
 	) );
 
@@ -48,7 +48,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'blogemail', array(
-		'label'      => __( 'E-mail', 'tainacan-theme' ),
+		'label'      => __( 'E-mail', 'tainacan-interface' ),
 		'section'    => 'footer_info',
 	) );
 	
@@ -63,7 +63,7 @@ function tainacan_customize_register( $wp_customize ) {
     $wp_customize->add_control(
 		new WP_Customize_Image_Control($wp_customize, 'footer_logo',
             array(
-               'label'      => __( 'Upload a logo to the footer', 'tainacan-theme' ),
+               'label'      => __( 'Upload a logo to the footer', 'tainacan-interface' ),
                'section'    => 'footer_info',
                'settings'   => 'footer_logo' 
             )
@@ -83,8 +83,8 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'settings' => 'display_powered',
 		'section' => 'footer_info',
-		'label' => __( 'Display Proudly', 'tainacan-theme' ),
-		'description' => __( 'This checkbox display or no the proudly powered.', 'tainacan-theme' ),
+		'label' => __( 'Display "Proudly Powered by..."', 'tainacan-interface' ),
+		'description' => __( 'This checkbox shows the "Proudly Powered by Tainacan and Wordpress" sentence.', 'tainacan-interface' ),
 	) );
 
 	/**
@@ -92,7 +92,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_section('social_share', array(
-		'title'  	 => __('Social Share', 'tainacan-theme'),
+		'title'  	 => __('Social Share', 'tainacan-interface'),
 		'priority'   => 200,
 	));
 
@@ -107,8 +107,8 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'settings' => 'facebook_share',
 		'section' => 'social_share',
-		'label' => __( 'Display Facebook', 'tainacan-theme' ),
-		//'description' => __( 'This checkbox display or no the Facebook Share.', 'tainacan-theme' ),
+		'label' => __( 'Display Facebook button', 'tainacan-interface' ),
+		//'description' => __( 'This checkbox display or no the Facebook Share.', 'tainacan-interface' ),
 	) );
 
 	//Twitter
@@ -122,8 +122,8 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'settings' => 'twitter_share',
 		'section' => 'social_share',
-		'label' => __( 'Display Twitter', 'tainacan-theme' ),
-		//'description' => __( 'This checkbox display or no the Twitter Share.', 'tainacan-theme' ),
+		'label' => __( 'Display Twitter button', 'tainacan-interface' ),
+		//'description' => __( 'This checkbox display or no the Twitter Share.', 'tainacan-interface' ),
 	) );
 
 	$wp_customize->add_setting( 'twitter_user', array(
@@ -133,7 +133,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'twitter_user', array(
-		'label'      => __( 'Twitter User to be cited in tweets (via @user)', 'tainacan-theme' ),
+		'label'      => __( 'Twitter User to be cited in tweets (via @user)', 'tainacan-interface' ),
 		'section'    => 'social_share',
 	) );
 
@@ -148,8 +148,8 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'settings' => 'google_share',
 		'section' => 'social_share',
-		'label' => __( 'Display Google Plus', 'tainacan-theme' ),
-		//'description' => __( 'This checkbox display or no the Google Plus Share.', 'tainacan-theme' ),
+		'label' => __( 'Display Google Plus button', 'tainacan-interface' ),
+		//'description' => __( 'This checkbox display or no the Google Plus Share.', 'tainacan-interface' ),
 	) );
 
 	/**
@@ -162,7 +162,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'color_scheme', array(
-		'label'    => __( 'Choose a Color Scheme', 'tainacan-theme' ),
+		'label'    => __( 'Choose a Color Scheme', 'tainacan-interface' ),
 		'section'  => 'colors',
 		'type'     => 'select',
 		'choices'  => tainacan_get_color_scheme_choices(),
@@ -184,33 +184,20 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-		'label'       => __( 'Or pick any color', 'tainacan-theme' ),
+		'label'       => __( 'Or pick any color', 'tainacan-interface' ),
 		'section'     => 'colors',
 	) ) );
 
-	/* // Add main text color setting and control.
-	$wp_customize->add_setting( 'main_text_color', array(
+	$wp_customize->add_setting( 'tooltip_color', array(
 		'default'           => $color_scheme[3],
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_text_color', array(
-		'label'       => __( 'Main Text Color', 'tainacan-theme' ),
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tooltip_color', array(
+		'label'       => __( 'Tooltip Color', 'tainacan-interface' ),
 		'section'     => 'colors',
 	) ) );
-
-	// Add secondary text color setting and control.
-	$wp_customize->add_setting( 'secondary_text_color', array(
-		'default'           => $color_scheme[4],
-		'sanitize_callback' => 'sanitize_hex_color',
-		'transport'         => 'postMessage',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_text_color', array(
-		'label'       => __( 'Secondary Text Color', 'tainacan-theme' ),
-		'section'     => 'colors',
-	) ) ); */
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
@@ -232,8 +219,7 @@ function display_callback_sanitize_checkbox( $checked ) {
  * 1. Main Background Color.
  * 2. Page Background Color.
  * 3. Link Color.
- * 4. Main Text Color.
- * 5. Secondary Text Color.
+ * 4. Tooltip.
  *
  * @since Tainacan Theme
  *
@@ -262,83 +248,93 @@ function tainacan_get_color_schemes() {
 	 */
 	return apply_filters( 'tainacan_color_schemes', array(
 		'default' => array(
-			'label'  => __( 'Default', 'tainacan-theme'),
+			'label'  => __( 'Default', 'tainacan-interface'),
 			'colors' => array(
 				'#1a1a1a', //background
 				'#ffffff', //background page
 				'#298596', //link
+				'#e6f6f8', //tooltip
 			),
 		),
 		'carmine' => array(
-			'label'  => __( 'Carmine', 'tainacan-theme' ),
+			'label'  => __( 'Carmine', 'tainacan-interface' ),
 			'colors' => array(
 				'#262626', //background
 				'#ffffff', //background page
 				'#a55032', //link
+				'#e6d3cd', //tooltip
 			),
 		),
 		'cherry' => array(
-			'label'  => __( 'Cherry', 'tainacan-theme' ),
+			'label'  => __( 'Cherry', 'tainacan-interface' ),
 			'colors' => array(
 				'#616a73', //background
 				'#ffffff', //background page
 				'#af2e48', //link
+				'#e9cbd1', //tooltip
 			),
 		),
 		'mustard' => array(
-			'label'  => __( 'Mustard', 'tainacan-theme' ),
+			'label'  => __( 'Mustard', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#c58738', //link
+				'#f0e1cf', //tooltip
 			),
 		),
 		'mintgreen' => array(
-			'label'  => __( 'Mint Green', 'tainacan-theme' ),
+			'label'  => __( 'Mint Green', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#4ebfa7', //link
+				'#d4efe9', //tooltip
 			),
 		),
 		'darkturquoise' => array(
-			'label'  => __( 'Dark Turquoise', 'tainacan-theme' ),
+			'label'  => __( 'Dark Turquoise', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#288698', //link
+				'#cbe0e5', //tooltip
 			),
 		),
 		'turquoise' => array(
-			'label'  => __( 'Turquoise', 'tainacan-theme' ),
+			'label'  => __( 'Turquoise', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#2db4c1', //link
+				'#cdecef', //tooltip
 			),
 		),
-		'lightblue' => array(
-			'label'  => __( 'Light Blue', 'tainacan-theme' ),
+		'blueheavenly' => array(
+			'label'  => __( 'Blue Heavenly', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#499dd6', //link
+				'#d3e6f2', //tooltip
 			),
 		),
 		'purple' => array(
-			'label'  => __( 'Purple', 'tainacan-theme' ),
+			'label'  => __( 'Purple', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#4751a3', //link
+				'#d1d4e7', //tooltip
 			),
 		),
 		'violet' => array(
-			'label'  => __( 'Violet', 'tainacan-theme' ),
+			'label'  => __( 'Violet', 'tainacan-interface' ),
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
 				'#955ba5', //link
+				'#e4d7e8', //tooltip
 			),
 		),
 	) );
@@ -357,6 +353,7 @@ if ( ! function_exists( 'tainacan_get_color_scheme' ) ) :
 function tainacan_get_color_scheme() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
 	$link_color = get_theme_mod( 'link_color', 'default' );
+	$tooltip_color = get_theme_mod( 'tooltip_color', 'default' );
 	$color_schemes       = tainacan_get_color_schemes();
 
 	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
@@ -365,7 +362,7 @@ function tainacan_get_color_scheme() {
 
 	$return = $color_schemes['default']['colors'];
 	$return[2] = $link_color; // override link color with the one from color picker	
-	
+	$return[3] = $tooltip_color;
 	return $return;
 	
 }
@@ -448,6 +445,7 @@ function tainacan_color_scheme_css() {
 		'background_color'      => $color_scheme[0],
 		'page_background_color' => $color_scheme[1],
 		'link_color'            => $color_scheme[2],
+		'tooltip_color'            => $color_scheme[3],
 		'backtransparent'			=> vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.5)', $color_textcolor_rgb )
 	);
 
@@ -493,10 +491,11 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'background_color'      => '',
 		'page_background_color' => '',
 		'link_color'            => '',
+		'tooltip_color'            => '',
 		'backtransparent'           => '',
 	) );
 
-	$filter = (has_filter('tainacan_customize_colors')) ? apply_filters( 'tainacan_customize_colors', $colors) : '';
+	$filter = (has_filter('tainacan-customize-css-class')) ? apply_filters( 'tainacan-customize-css-class', $colors) : '';
 	return <<<CSS
 	/* Color Scheme */
 	
@@ -545,8 +544,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-collection-list--simple-search .dropdown #dropdownMenuSorting::after, .tainacan-collection-list--simple-search .dropdown #dropdownMenuViewMode::after {
 		color: {$colors['link_color']};
 	}
-	.tainacan-list-post .tainacan-list-collection--container-card .tainacan-list-collection--card .tainacan-list-collection--title,
-	.tainacan-list-post .tainacan-list-collection--container-grid .tainacan-list-collection--grid .tainacan-list-collection--grid-title,
+	
 	.tainacan-list-post table thead th {
 		color: {$colors['link_color']} !important;
 	}
@@ -584,10 +582,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 
 	/* Tooltip */
 	.tooltip .tooltip-inner {
-		background-color: {$colors['backtransparent']} !important;
+		background-color: {$colors['tooltip_color']} !important;
 	}
 	.tooltip .tooltip-arrow {
-		border-color: {$colors['backtransparent']} !important;
+		border-color: {$colors['tooltip_color']} !important;
 	}
 
 	/* Colored text */
@@ -629,11 +627,19 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['link_color']} !important;
 	}
 
-	/* Advanced search title */ 
+	/* Advanced search criteria title */ 
 	.advanced-search-criteria-title h1,
 	.advanced-search-criteria-title h2 {
 		color: {$colors['link_color']} !important;
 	} 
+
+	/* Advanced search results title */ 
+	.advanced-search-results-title h1 { 
+		color: {$colors['link_color']} !important; 
+	}
+	.advanced-search-results-title hr { 
+		background-color: {$colors['backtransparent']} !important; 
+	}
 
 	/* Line above section titles */
 	.tainacan-modal-title hr,
@@ -666,10 +672,8 @@ function tainacan_color_scheme_css_template() {
 		'background_color'      => '{{ data.background_color }}',
 		'page_background_color' => '{{ data.page_background_color }}',
 		'link_color'            => '{{ data.link_color }}',
-		'backtransparent'		=> '{{ data.backtransparent }}',/* 
-		'main_text_color'       => '{{ data.main_text_color }}',
-		'secondary_text_color'  => '{{ data.secondary_text_color }}',
-		'border_color'          => '{{ data.border_color }}', */
+		'tooltip_color'            => '{{ data.tooltip_color }}',
+		'backtransparent'		=> '{{ data.backtransparent }}',
 	);
 	?>
 	<script type="text/html" id="tmpl-tainacan-color-scheme">
@@ -718,26 +722,26 @@ add_action( 'wp_enqueue_scripts', 'tainacan_link_color_css', 11 );
  *
  * @see wp_add_inline_style()
  */
-function tainacan_main_text_color_css() {
+function tainacan_tooltip_color_css() {
 	$color_scheme    = tainacan_get_color_scheme();
-	$default_color   = $color_scheme[2];
-	$main_text_color = get_theme_mod( 'main_text_color', $default_color );
+	$default_color   = $color_scheme[3];
+	$tooltip_color = get_theme_mod( 'tooltip_color', $default_color );
 
 	// Don't do anything if the current color is the default.
-	if ( $main_text_color === $default_color ) {
+	if ( $tooltip_color === $default_color ) {
 		return;
 	}
 
 	// Convert main text hex color to rgba.
-	$main_text_color_rgb = tainacan_hex2rgb( $main_text_color );
+	$tooltip_color_rgb = tainacan_hex2rgb( $tooltip_color );
 
 	// If the rgba values are empty return early.
-	if ( empty( $main_text_color_rgb ) ) {
+	if ( empty( $tooltip_color_rgb ) ) {
 		return;
 	}
 
 	// If we get this far, we have a custom color scheme.
-	$border_color = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.2)', $main_text_color_rgb );
+	$border_color = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.2)', $tooltip_color_rgb );
 
 	$css = '
 		/* Custom Main Text Color */
@@ -746,9 +750,9 @@ function tainacan_main_text_color_css() {
 		}
 	';
 
-	wp_add_inline_style( 'tainacan-style', sprintf( $css, $main_text_color, $border_color ) );
+	wp_add_inline_style( 'tainacan-style', sprintf( $css, $tooltip_color, $border_color ) );
 }
-add_action( 'wp_enqueue_scripts', 'tainacan_main_text_color_css', 11 );
+add_action( 'wp_enqueue_scripts', 'tainacan_tooltip_color_css', 11 );
 
 /**
  * Enqueues front-end CSS for the secondary text color.

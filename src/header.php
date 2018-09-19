@@ -17,7 +17,7 @@
             <div class="btn-group ml-auto"> 
                     <form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()">
                         <div class="input-group">
-                            <input type="text" name="s" placeholder="<?php _e('Search', 'tainacan-theme'); ?>" class="form-control" formControlName="searchText" size="50">
+                            <input type="text" name="s" placeholder="<?php _e('Search', 'tainacan-interface'); ?>" class="form-control" formControlName="searchText" size="50">
                             <span class="text-midnight-blue input-group-btn mdi mdi-magnify form-control-feedback"></span>
                         </div>
                     </form>
@@ -27,7 +27,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
                                 <div class="input-group border">
-                                    <input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e('Search', 'tainacan-theme'); ?>" id="tainacan-search">
+                                    <input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e('Search', 'tainacan-interface'); ?>" id="tainacan-search">
                                 </div>
                             </form>
                         </div>
@@ -35,3 +35,5 @@
             </div>
         </div>
     </nav>
+
+    <a href="javascript:" id="return-to-top"><i class="mdi mdi-menu-up"></i></a>

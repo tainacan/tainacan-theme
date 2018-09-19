@@ -8,11 +8,13 @@
 	var cssTemplate = wp.template( 'tainacan-color-scheme' ),
 		colorSchemeKeys = [
 			'link_color',
+			'tooltip_color',
 			/* 'main_text_color',
 			'secondary_text_color' */
 		],
 		colorSettings = [
 			'link_color',
+			'tooltip_color',
 			/* 'main_text_color',
 			'secondary_text_color' */
 		];
@@ -28,6 +30,12 @@
 					color = colors[2];
 					api( 'link_color' ).set( color );
 					api.control( 'link_color' ).container.find( '.color-picker-hex' )
+						.data( 'data-default-color', color )
+						.wpColorPicker( 'defaultColor', color );
+
+					color = colors[3];
+					api( 'tooltip_color' ).set( color );
+					api.control( 'tooltip_color' ).container.find( '.color-picker-hex' )
 						.data( 'data-default-color', color )
 						.wpColorPicker( 'defaultColor', color );
 

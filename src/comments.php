@@ -20,15 +20,16 @@ if (post_password_required()) {
 		<div id="respond" class="clearfix mt-5 <?php if(!wp_is_mobile()) { ?>margin-two-column<?php } ?>">  
 			<?php if(get_option('comment_registration') && !is_user_logged_in()) : ?>
 				<p>
-				<?php printf( __( 'You must be %1$slogged%2$s in to post a comment.', 'tainacan-theme'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
+				<?php // translators: placeholders are the opening and closing a (link) tags ?>
+				<?php printf( __( 'You must be %1$slogged%2$s in to post a comment.', 'tainacan-interface'), "<a href='" . esc_url( home_url() ) . "/wp-login.php'>", "</a>" ); ?>
 				</p>        
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
-					<span class="text-jelly-bean title-leave"><?php _e('Leave your comment', 'tainacan-theme'); ?></span>
+					<span class="text-jelly-bean title-leave"><?php _e('Leave your comment', 'tainacan-interface'); ?></span>
 					<?php 
 						if(is_user_logged_in()) { ?>
 							<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
-							<?php _e('Authenticated as', 'tainacan-theme'); echo ': '; 
+							<?php _e('Authenticated as', 'tainacan-interface'); echo ': '; 
 								echo '<a href="'. get_author_posts_url($current_user->ID) .'">' . $current_user->display_name . '</a>'; 
 							}
 						?>
@@ -36,9 +37,11 @@ if (post_password_required()) {
 				</div>
 
 				<?php 
+					$user_link = sprintf('<a href="%1$s" class="font-weight-light">%2$s</a>', get_author_posts_url($current_user->ID), $current_user->display_name);
 					$comment_args = array(
 						'logged_in_as' => '<span class="text-oslo-gray authenticated d-inline d-sm-none mb-4">'.
-						sprintf( __('Authenticated as <a href="%1$s" class="font-weight-light">%2$s</a>', 'tainacan-theme'), get_author_posts_url($current_user->ID), $current_user->display_name)
+						// translators: placeholder is the user name with link to its page
+						sprintf( __('Authenticated as %1$s', 'tainacan-interface'), $user_link)
 						.'</span>',
 						'title_reply' => '',
 						'title_reply_before' => '',
@@ -47,7 +50,7 @@ if (post_password_required()) {
 						'cancel_reply_before' => '',
 						'cancel_reply_after' => '',
 						'class_submit' => 'btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto comment-submit-link',
-						'label_submit' =>  __('Send', 'tainacan-theme'),
+						'label_submit' =>  __('Send', 'tainacan-interface'),
 					);
 					comment_form($comment_args); 
 				?>
@@ -63,16 +66,16 @@ if (post_password_required()) {
 			<?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
 				<nav id="comment-nav-below" class="navigation" role="navigation">
 					<div class="float-left">
-						<?php previous_comments_link(__('Previous Comments', 'tainacan-theme'), 0 ); ?>
+						<?php previous_comments_link(__('Previous Comments', 'tainacan-interface'), 0 ); ?>
 					</div>
 					<div class="float-right">
-						<?php next_comments_link(__('Next Comments', 'tainacan-theme'), 0 ); ?>
+						<?php next_comments_link(__('Next Comments', 'tainacan-interface'), 0 ); ?>
 					</div>
 				</nav>
 			<?php endif; // check for comment navigation ?>
 
 			<?php elseif (!comments_open() && '0' != get_comments_number() && post_type_supports(get_post_type(), 'comments')) : ?>
-				<p class="nocomments"><?php _e('Comments are closed.', 'tainacan-theme'); ?></p>
+				<p class="nocomments"><?php _e('Comments are closed.', 'tainacan-interface'); ?></p>
 		<?php endif; ?>
 	<?php endif; ?>
 </div>
