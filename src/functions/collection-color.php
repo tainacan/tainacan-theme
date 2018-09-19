@@ -28,9 +28,13 @@ class TainacanThemeCollectionColor {
     }
 
     function form() {
-
+		
+		if (!function_exists('tainacan_get_api_postdata')) {
+			return '';
+		}
+		
         ob_start();
-        ?>  
+        ?>
 
         <div class="field tainacan-collection--change-color-picker">
             <label class="label"><?php _e('Collection Background Color', 'tainacan-interface'); ?></label>
@@ -128,8 +132,11 @@ class TainacanThemeCollectionColor {
     }
 
     function save_meta($object) {
-		global $HTTP_RAW_POST_DATA;
-		$post = json_decode($HTTP_RAW_POST_DATA);
+		if (!function_exists('tainacan_get_api_postdata')) {
+			return;
+		}
+		
+        $post = tainacan_get_api_postdata();
         
         if ($object->can_edit()) {
             if (isset($post->{$this->background_color})) {
