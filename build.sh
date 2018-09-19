@@ -24,6 +24,7 @@ rm -rf $destination/scss
 mkdir $destination/assets/vendor/bootstrap/css
 cp $destination/assets/vendor/bootstrap/scss/bootstrap.min.css $destination/assets/vendor/bootstrap/css/bootstrap.min.css
 rm -rf $destination/assets/vendor/bootstrap/scss
+rm -rf $destination/vendor
 
 ##Slick
 mkdir $destination/assets/vendor/slick/css
