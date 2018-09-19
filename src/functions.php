@@ -69,7 +69,7 @@ if(!function_exists('tainacan_setup')) {
                 'description' => 'A thumbnail grid view, showing only title and thumbnail',
                 'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
                 'dynamic_metadata' => false,
-                'template' => get_template_directory() . '/tainacan/view-mode-' . $slug . '.php',
+                'template' => get_template_directory() . '/tainacan/view-mode-grid.php',
             ));
         }
 
