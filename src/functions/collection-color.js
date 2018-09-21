@@ -1,24 +1,17 @@
 jQuery(document).on('tainacan-collection-hook-reload', function(){
-    var colorWell = jQuery('#colorpicker');
-    var alternativeColor = jQuery('.custom-color');
-    var label = jQuery('.color-text');
-    if(colorWell != null){
-        colorWell.on('input', function(event){
-            var label = jQuery('.color-text');
-            if(label){
-                label.css('background-color', event.target.value);
-            }
-        });
-    }
-    if(alternativeColor != null){
-        alternativeColor.change(function(e){
-            if(alternativeColor.is(':checked')){
-                if(label){
-                    label.css('background-color', e.target.value);
-                }
-                colorWell.val(e.target.value);
-            }
-        });
-    }
-    label.css('background-color', colorWell.val());
+    jQuery("#colorpicker").spectrum({
+        showPalette: true,
+        palette: [
+            ['#298596', '#a55032', '#af2e48', '#c58738', '#4ebfa7'],
+            ['#288698', '#2db4c1', '#499dd6', '#4751a3', '#955ba5'],
+            ['#2c2d2d']
+        ],
+        move: function(color) {
+            jQuery('.color-text').css('background-color', color.toHexString());
+        },
+        change: function(color) {
+            jQuery('.color-text').css('background-color', color.toHexString());
+        }
+    });
+    jQuery('.color-text').css('background-color', jQuery('.sp-preview-inner').css("background-color"));
 });

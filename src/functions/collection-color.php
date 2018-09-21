@@ -19,6 +19,8 @@ class TainacanThemeCollectionColor {
     function action_tainacan_enqueue_admin_scripts() { 
         wp_enqueue_script('colorWell', get_template_directory_uri(). '/functions/collection-color.js', false, false, true);
         wp_enqueue_style('colorWellStyle', get_template_directory_uri(). '/functions/collection-color.css');
+        wp_enqueue_script('Spectrum', get_template_directory_uri(). '/assets/js/spectrum.js', false, false, true);
+        wp_enqueue_style('Spectrum', get_template_directory_uri(). '/assets/js/spectrum.css');
     }
 
     function register_hook() {
@@ -54,32 +56,8 @@ class TainacanThemeCollectionColor {
                 </div>
             </span>
             <div class="control is-clearfix"> 
-                <p style="padding: 1rem 0; font-weight: 600;"><?php _e('Suggested colors', 'tainacan-interface'); ?></p>
-                <?php
-                    $colors = array(
-                        'default' => '#298596',
-                        'carmine' => '#a55032',
-                        'cherry' => '#af2e48',
-                        'mustard' => '#c58738',
-                        'mintgreen' => '#4ebfa7',
-                        'darkturquoise' => '#288698',
-                        'turquoise' => '#2db4c1',
-                        'lightblue' => '#499dd6',
-                        'purple' => '#4751a3',
-                        'violet' => '#955ba5',
-                        'gray' => '#2c2d2d'
-                    );
-
-                    if(has_filter('tainacan-collection-colors')) {
-                        $colors = apply_filters('tainacan-collection-colors', $colors);
-                    }
-
-                    foreach($colors as $name=>$color){
-                ?>
-                        <input type="radio" value="<?php echo $color; ?>" name="null" class="custom-color <?php echo $name; ?>" style="background-color: <?php echo $color; ?>;">
-                    <?php } ?>
-                <p style="padding-top: 1rem; font-weight: 600;"><?php _e('Picker color', 'tainacan-interface'); ?></p>
-                <input type="color" value="" id="colorpicker" name="<?php echo $this->background_color; ?>">
+                <p style="font-weight: 600;"><?php _e('Picker color', 'tainacan-interface'); ?></p>
+                <input type="text" value="" id="colorpicker" name="<?php echo $this->background_color; ?>">
             </div>
         </div>
 
@@ -88,7 +66,7 @@ class TainacanThemeCollectionColor {
             <span class="help-wrapper">
                 <a class="help-button has-text-secondary">
                     <span class="icon is-small">
-                        <i class="mdi mdi-help-circle-outline"/></i>
+                        <i class="mdi mdi-help-circle-outline"></i>
                     </span>
                 </a>
                 <div class="help-tooltip">
