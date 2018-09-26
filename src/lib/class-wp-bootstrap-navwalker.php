@@ -375,7 +375,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				} else {
 					return $fallback_output;
 				}
-			}
+			} // End if().
 		}
 
 		/**
@@ -552,4 +552,4 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			return $output;
 		}
 	}
-}
+} // End if().

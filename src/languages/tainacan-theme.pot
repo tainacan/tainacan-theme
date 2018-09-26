@@ -302,34 +302,34 @@ msgstr ""
 msgid "Nothing found"
 msgstr ""
 
-#: template-parts/bannerHeader.php:18
+#: template-parts/bannerheader.php:18
 msgid "Search Results"
 msgstr ""
 
-#: template-parts/bannerHeader.php:26
+#: template-parts/bannerheader.php:26
 #, php-format
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: template-parts/bannerHeader.php:29
+#: template-parts/bannerheader.php:29
 #, php-format
 msgid ""
 "Monthly Archives: %s"
 msgstr ""
 
-#: template-parts/bannerHeader.php:29
+#: template-parts/bannerheader.php:29
 msgctxt ""
 "monthly archives date "
 "format"
 msgid "F Y"
 msgstr ""
 
-#: template-parts/bannerHeader.php:32
+#: template-parts/bannerheader.php:32
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: template-parts/bannerHeader.php:32
+#: template-parts/bannerheader.php:32
 msgctxt ""
 "yearly archives date "
 "format"

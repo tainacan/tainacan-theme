@@ -25,7 +25,6 @@
 				this.setting.bind( 'change', function( value ) {
 					var colors = colorScheme[value].colors;
 
-
 					// Update Link Color.
 					color = colors[2];
 					api( 'link_color' ).set( color );

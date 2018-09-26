@@ -1,14 +1,14 @@
 <!-- Get the banner to display -->
-<?php get_template_part( 'template-parts/headerCollection' ); ?>
+<?php get_template_part( 'template-parts/headercollection' ); ?>
 
-<?php 
+<?php
 /**
  * This template adss Collections details to the header
- * 
+ *
  * It will only work with tainacan plugin enabled.
- * 
+ *
  */
 ?>
 
 <!-- Get the menu if is create in panel admin -->
-<?php get_template_part( 'template-parts/menuBellowBanner' ); ?>
+<?php get_template_part( 'template-parts/menubellowbanner' ); ?>

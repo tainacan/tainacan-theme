@@ -22,7 +22,7 @@
 				</a>
 			</div>
 		<?php endif; ?>
-		<?php if ( true == get_theme_mod( 'twitter_share', true ) && get_option( 'twitter_user') ) : ?> 
+		<?php if ( true == get_theme_mod( 'twitter_share', true ) && get_option( 'twitter_user' ) ) : ?>
 			<div class="rotater">
 				<a href="http://twitter.com/share?url=<?php echo home_url( $wp->request ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo get_option( 'twitter_user', '' ) ?>" target="_blank">
 					<div class="btn btn-icon">

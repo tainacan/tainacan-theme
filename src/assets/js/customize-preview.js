@@ -7,8 +7,7 @@
 		api = wp.customize;
 
 	if ( ! style.length ) {
-		style = $( 'head' ).append( '<style type="text/css" id="tainacan-color-scheme-css" />' )
-		                    .find( '#tainacan-color-scheme-css' );
+		style = $( 'head' ).append( '<style type="text/css" id="tainacan-color-scheme-css" />' ).find( '#tainacan-color-scheme-css' );
 	}
 
 	// Color Scheme CSS.

@@ -334,40 +334,40 @@ msgstr "Nada encontrado"
 msgid "No item was found."
 msgstr "Nenhum item foi encontrado."
 
-#: template-parts/bannerHeader.php:13
+#: template-parts/bannerheader.php:13
 msgid "Search Results"
 msgstr "Resultado da busca"
 
-#: template-parts/bannerHeader.php:21
+#: template-parts/bannerheader.php:21
 #, php-format
 msgid "Daily Archives: %s"
 msgstr "Arquivos diários: %s"
 
-#: template-parts/bannerHeader.php:24
+#: template-parts/bannerheader.php:24
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr "Arquivos mensais: %s"
 
-#: template-parts/bannerHeader.php:24
+#: template-parts/bannerheader.php:24
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F de Y"
 
-#: template-parts/bannerHeader.php:27
+#: template-parts/bannerheader.php:27
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr "Arquivos Anuais: %s"
 
-#: template-parts/bannerHeader.php:27
+#: template-parts/bannerheader.php:27
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
-#: template-parts/headerCollection.php:4 template-parts/headerTaxonomy.php:4
+#: template-parts/headercollection.php:4 template-parts/headertaxonomy.php:4
 msgid "Show more"
 msgstr "Mostrar mais"
 
-#: template-parts/headerCollection.php:7 template-parts/headerTaxonomy.php:7
+#: template-parts/headercollection.php:7 template-parts/headertaxonomy.php:7
 msgid "Show less"
 msgstr "Mostrar menos"
 

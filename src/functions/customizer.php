@@ -17,7 +17,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Add others infos in Site identity on footer
 	 */
 	$wp_customize->add_section('footer_info', array(
-		'title'  	 => __('Footer settings', 'tainacan-interface'),
+		'title'  	 => __( 'Footer settings', 'tainacan-interface' ),
 		'priority'   => 200,
 	));
 	$wp_customize->add_setting( 'blogaddress', array(
@@ -51,7 +51,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'      => __( 'E-mail', 'tainacan-interface' ),
 		'section'    => 'footer_info',
 	) );
-	
+
 	/**
 	 * Footer Logo customizer
 	 */
@@ -60,15 +60,15 @@ function tainacan_customize_register( $wp_customize ) {
 		'sanitize_callback'  => 'esc_attr',
 	) );
 
-    $wp_customize->add_control(
+	$wp_customize->add_control(
 		new WP_Customize_Image_Control($wp_customize, 'footer_logo',
-            array(
-               'label'      => __( 'Upload a logo to the footer', 'tainacan-interface' ),
-               'section'    => 'footer_info',
-               'settings'   => 'footer_logo' 
-            )
-        )
-    );
+			array(
+			   'label'      => __( 'Upload a logo to the footer', 'tainacan-interface' ),
+			   'section'    => 'footer_info',
+			   'settings'   => 'footer_logo',
+			)
+		)
+	);
 
 	/**
 	 * Checkbox to display or no the Proudly Powered by Wordpress and Tainacan.
@@ -78,7 +78,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'display_callback_sanitize_checkbox',
 	) );
-	
+
 	$wp_customize->add_control( 'display_powered', array(
 		'type' => 'checkbox',
 		'settings' => 'display_powered',
@@ -92,7 +92,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_section('social_share', array(
-		'title'  	 => __('Social Share', 'tainacan-interface'),
+		'title'  	 => __( 'Social Share', 'tainacan-interface' ),
 		'priority'   => 200,
 	));
 
@@ -102,7 +102,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'display_callback_sanitize_checkbox',
 	) );
-	
+
 	$wp_customize->add_control( 'facebook_share', array(
 		'type' => 'checkbox',
 		'settings' => 'facebook_share',
@@ -117,7 +117,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'display_callback_sanitize_checkbox',
 	) );
-	
+
 	$wp_customize->add_control( 'twitter_share', array(
 		'type' => 'checkbox',
 		'settings' => 'twitter_share',
@@ -143,7 +143,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'display_callback_sanitize_checkbox',
 	) );
-	
+
 	$wp_customize->add_control( 'google_share', array(
 		'type' => 'checkbox',
 		'settings' => 'google_share',
@@ -202,7 +202,7 @@ function tainacan_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
 /**
- * Callback to Checkbox to display or no the 
+ * Callback to Checkbox to display or no the
  * Proudly Powered by Wordpress and Tainacan.
  */
 function display_callback_sanitize_checkbox( $checked ) {
@@ -248,7 +248,7 @@ function tainacan_get_color_schemes() {
 	 */
 	return apply_filters( 'tainacan_color_schemes', array(
 		'default' => array(
-			'label'  => __( 'Default', 'tainacan-interface'),
+			'label'  => __( 'Default', 'tainacan-interface' ),
 			'colors' => array(
 				'#1a1a1a', //background
 				'#ffffff', //background page
@@ -341,78 +341,78 @@ function tainacan_get_color_schemes() {
 }
 
 if ( ! function_exists( 'tainacan_get_color_scheme' ) ) :
-/**
- * Retrieves the current Tainacan Theme color scheme.
- *
- * Create your own tainacan_get_color_scheme() function to override in a child theme.
- *
- * @since Tainacan Theme
- *
- * @return array An associative array of either the current or default color scheme HEX values.
- */
-function tainacan_get_color_scheme() {
-	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
-	$link_color = get_theme_mod( 'link_color', 'default' );
-	$tooltip_color = get_theme_mod( 'tooltip_color', 'default' );
-	$color_schemes       = tainacan_get_color_schemes();
+	/**
+	 * Retrieves the current Tainacan Theme color scheme.
+	 *
+	 * Create your own tainacan_get_color_scheme() function to override in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array An associative array of either the current or default color scheme HEX values.
+	 */
+	function tainacan_get_color_scheme() {
+		$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
+		$link_color = get_theme_mod( 'link_color', 'default' );
+		$tooltip_color = get_theme_mod( 'tooltip_color', 'default' );
+		$color_schemes       = tainacan_get_color_schemes();
 
-	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
-		$return = $color_schemes[ $color_scheme_option ]['colors'];
+		if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
+			$return = $color_schemes[ $color_scheme_option ]['colors'];
+		}
+
+		$return = $color_schemes['default']['colors'];
+		$return[2] = $link_color; // override link color with the one from color picker
+		$return[3] = $tooltip_color;
+		return $return;
+
 	}
-
-	$return = $color_schemes['default']['colors'];
-	$return[2] = $link_color; // override link color with the one from color picker	
-	$return[3] = $tooltip_color;
-	return $return;
-	
-}
 endif; // tainacan_get_color_scheme
 
 if ( ! function_exists( 'tainacan_get_color_scheme_choices' ) ) :
-/**
- * Retrieves an array of color scheme choices registered for Tainacan Theme.
- *
- * Create your own tainacan_get_color_scheme_choices() function to override
- * in a child theme.
- *
- * @since Tainacan Theme
- *
- * @return array Array of color schemes.
- */
-function tainacan_get_color_scheme_choices() {
-	$color_schemes                = tainacan_get_color_schemes();
-	$color_scheme_control_options = array();
+	/**
+	 * Retrieves an array of color scheme choices registered for Tainacan Theme.
+	 *
+	 * Create your own tainacan_get_color_scheme_choices() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array Array of color schemes.
+	 */
+	function tainacan_get_color_scheme_choices() {
+		$color_schemes                = tainacan_get_color_schemes();
+		$color_scheme_control_options = array();
 
-	foreach ( $color_schemes as $color_scheme => $value ) {
-		$color_scheme_control_options[ $color_scheme ] = $value['label'];
+		foreach ( $color_schemes as $color_scheme => $value ) {
+			$color_scheme_control_options[ $color_scheme ] = $value['label'];
+		}
+
+		return $color_scheme_control_options;
 	}
-
-	return $color_scheme_control_options;
-}
 endif; // tainacan_get_color_scheme_choices
 
 
 if ( ! function_exists( 'tainacan_sanitize_color_scheme' ) ) :
-/**
- * Handles sanitization for Tainacan Theme color schemes.
- *
- * Create your own tainacan_sanitize_color_scheme() function to override
- * in a child theme.
- *
- * @since Tainacan Theme
- *
- * @param string $value Color scheme name value.
- * @return string Color scheme name.
- */
-function tainacan_sanitize_color_scheme( $value ) {
-	$color_schemes = tainacan_get_color_scheme_choices();
+	/**
+	 * Handles sanitization for Tainacan Theme color schemes.
+	 *
+	 * Create your own tainacan_sanitize_color_scheme() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $value Color scheme name value.
+	 * @return string Color scheme name.
+	 */
+	function tainacan_sanitize_color_scheme( $value ) {
+		$color_schemes = tainacan_get_color_scheme_choices();
 
-	if ( ! array_key_exists( $value, $color_schemes ) ) {
-		return 'default';
+		if ( ! array_key_exists( $value, $color_schemes ) ) {
+			return 'default';
+		}
+
+		return $value;
 	}
-
-	return $value;
-}
 endif; // tainacan_sanitize_color_scheme
 
 /**
@@ -424,7 +424,7 @@ endif; // tainacan_sanitize_color_scheme
  */
 function tainacan_color_scheme_css() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
-	
+
 	// Don't do anything if the default color scheme is selected.
 	//if ( 'default' == $color_scheme_option ) {
 	//	return;
@@ -446,7 +446,7 @@ function tainacan_color_scheme_css() {
 		'page_background_color' => $color_scheme[1],
 		'link_color'            => $color_scheme[2],
 		'tooltip_color'            => $color_scheme[3],
-		'backtransparent'			=> vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.5)', $color_textcolor_rgb )
+		'backtransparent'			=> vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.5)', $color_textcolor_rgb ),
 	);
 
 	$color_scheme_css = tainacan_get_color_scheme_css( $colors );
@@ -495,7 +495,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 		'backtransparent'           => '',
 	) );
 
-	$filter = (has_filter('tainacan-customize-css-class')) ? apply_filters( 'tainacan-customize-css-class', $colors) : '';
+	$filter = ( has_filter( 'tainacan-customize-css-class' ) ) ? apply_filters( 'tainacan-customize-css-class', $colors ) : '';
 	return <<<CSS
 	/* Color Scheme */
 	
