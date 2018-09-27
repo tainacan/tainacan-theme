@@ -1,6 +1,13 @@
 .tainacan-grid-container {
     min-height: 50vh;
     padding: 30px 4.166666667%;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 285px);
+    grid-gap: 0px;
+    justify-content: space-evenly;
+    animation-name: item-appear;
+    animation-duration: 0.5s;
 
     .row { justify-content: space-around }
     .col { flex-grow: 0; }
