@@ -100,6 +100,7 @@ function tainacan_social_meta() {
 			$url_src = home_url( $wp->request );
 			$excerpt = tainacan_get_the_collection_description();
 		} else {
+			$excerpt = tainacan_get_the_collection_description();
 			$title = get_the_title();
 			$img_info = ( has_post_thumbnail( $post->ID ) ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ) : $logo;
 			$url_src = get_permalink();
