@@ -25,11 +25,7 @@
 						<a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-magnify"></i></a>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-								<div class="input-group border">
-									<input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e( 'Search', 'tainacan-interface' ); ?>" id="tainacan-search">
-								</div>
-							</form>
+							<?php get_search_form(); ?>
 						</div>
 					</div>
 			</div>
