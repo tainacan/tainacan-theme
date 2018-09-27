@@ -29,8 +29,16 @@
 	<section class="tainacan-content text-black margin-two-column">
 		<?php
 			the_content();
-			wp_link_pages();
 		?>
+		<div class="row margin-one-column">
+			<?php // Previous/next post navigation.
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-link"><span>' . __( 'Pages:', 'tainacan-interface' ) . '</span>',
+						'after'  => '</div>',
+					)
+				); ?>
+		</div>
 	</section>
 	<?php if ( ! is_singular( 'page' ) ) { ?>
 	<footer class="mt-5 border-top pt-3">
