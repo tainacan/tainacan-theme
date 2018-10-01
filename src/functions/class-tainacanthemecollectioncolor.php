@@ -17,7 +17,7 @@ class TainacanThemeCollectionColor {
 	function action_tainacan_enqueue_admin_scripts() {
 		wp_enqueue_script( 'colorWell', get_template_directory_uri() . '/functions/collection-color.js', false, false, true );
 		wp_enqueue_style( 'colorWellStyle', get_template_directory_uri() . '/functions/collection-color.css' );
-		wp_enqueue_script( 'Spectrum', 'https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/i18n/jquery.spectrum-pt-br.min.js', false, false, true );
+		wp_enqueue_script( 'Spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', false, false, true );
 		wp_enqueue_style( 'Spectrum', get_template_directory_uri() . '/assets/js/spectrum.css' );
 	}
 
