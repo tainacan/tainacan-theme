@@ -94,18 +94,5 @@ jQuery( document ).ready(function( $ ) {
 		// instead of a settings object
 		]
 	});
-});
-jQuery( document ).ready( function( e ) {
-		var t = e( ".dotmore" );
-		t.dotdotdot({
-			keep: ".toggle",
-			height: "watch"
-		});
-		var n = t.data( "dotdotdot" );
-		t.on( "click", ".toggle", function( e ) {
-			e.preventDefault(), t.hasClass( "ddd-truncated" ) ? (n.restore(), t.addClass( "full-story" )) : ( t.removeClass( "full-story" ), n.truncate(), n.watch() )
-		});
-		e( ".trigger" ).click( function() {
-			e( ".collection-header--share" ).toggleClass( "active" );
-		});
+
 });
