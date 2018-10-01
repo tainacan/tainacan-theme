@@ -16,6 +16,7 @@ echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
     }
     recurse_copy("vendor/twbs/bootstrap/scss", "src/assets/vendor/bootstrap/scss");
     copy("vendor/twbs/bootstrap/dist/js/bootstrap.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
+    recurse_copy("vendor/twbs/bootstrap/js/src", "src/assets/vendor/bootstrap/js/src");
     copy("vendor/twbs/bootstrap/site/docs/4.1/assets/js/vendor/popper.min.js", "src/assets/vendor/bootstrap/js/popper.min.js");
 
 echo "Copy Slick for Slider...\n\n";
