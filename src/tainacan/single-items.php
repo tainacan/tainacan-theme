@@ -74,7 +74,7 @@
 											<div class="single-item-collection--attachments-img">
 												<a href="<?php echo $attachment->guid; ?>" target="_BLANK">
 													<?php
-														echo wp_get_attachment_image( $attachment->ID, 'tainacan-item-attachments' );
+														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments' );
 													?>
 												</a>
 											</div>

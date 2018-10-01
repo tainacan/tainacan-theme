@@ -15,9 +15,9 @@ class TainacanThemeCollectionColor {
 	}
 
 	function action_tainacan_enqueue_admin_scripts() {
-		wp_enqueue_script( 'colorWell', get_template_directory_uri() . '/functions/collection-color.js', false, false, true );
-		wp_enqueue_style( 'colorWellStyle', get_template_directory_uri() . '/functions/collection-color.css' );
-		wp_localize_script( 'colorWell', 'tainacan_colorPickerVars', [
+		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/functions/collection-color.js', false, false, true );
+		wp_enqueue_style( 'tainacan_colorWellStyle', get_template_directory_uri() . '/functions/collection-color.css' );
+		wp_localize_script( 'tainacan_colorWell', 'tainacan_colorPickerVars', [
 			'cancelText' => __("cancel", 'tainacan-interface'),
 			'chooseText' => __("choose", 'tainacan-interface'),
 			'togglePaletteMoreText' => __("more", 'tainacan-interface'),
@@ -26,8 +26,8 @@ class TainacanThemeCollectionColor {
 			'noColorSelectedText' => __("No Color Selected", 'tainacan-interface'),
 		] );
 
-		wp_enqueue_script( 'Spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', false, false, true );
-		wp_enqueue_style( 'Spectrum', get_template_directory_uri() . '/assets/js/spectrum.css' );
+		wp_enqueue_script( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', false, false, true );
+		wp_enqueue_style( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/js/spectrum.css' );
 	}
 
 	function register_hook() {

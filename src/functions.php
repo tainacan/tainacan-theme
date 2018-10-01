@@ -73,9 +73,8 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 			));
 		}
 
-		add_image_size( 'tainacan-theme-list-post', 300, 200, true );
 		add_image_size( 'tainacan-interface-list-post', 300, 200, true );
-		add_image_size( 'tainacan-item-attachments', 125, 125, true );
+		add_image_size( 'tainacan-interface-item-attachments', 125, 125, true );
 	}
 } // End if().
 add_action( 'after_setup_theme', 'tainacan_setup' );
