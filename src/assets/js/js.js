@@ -95,4 +95,6 @@ jQuery( document ).ready(function( $ ) {
 		]
 	});
 
+	$('.tainacan-interface-truncate').tainacan_interface_truncate();
+
 });

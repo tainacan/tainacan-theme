@@ -47,6 +47,11 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 */
 			wp_enqueue_script( 'tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), '1.0', false );
 			wp_register_style( 'tainacanStyle', get_stylesheet_uri(), array( 'bootstrap4CSS' ) );
+			wp_localize_script( 'tainacanTruncate', 'tainacan_trucanteVars', [
+				"moreText" => __('More', 'tainacan-interface'),
+				"lessText" => __('Less', 'tainacan-interface')
+			]);
+			
 			wp_enqueue_style( 'tainacanStyle' );
 			wp_register_script( 'tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', '1.0', true );
 			wp_enqueue_script( 'tainacanJS' );

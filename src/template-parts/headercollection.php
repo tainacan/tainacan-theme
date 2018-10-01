@@ -103,9 +103,3 @@ echo '</style>';
 		</div>
 	</div>
 </div>
-<script>
-	jQuery('.tainacan-interface-truncate').tainacan_interface_truncate({
-		"moreText": "<?php _e('More', 'tainacan-interface'); ?>",
-		"lessText": "<?php _e('Less', 'tainacan-interface'); ?>"
-	});
-</script>

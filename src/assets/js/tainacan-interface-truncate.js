@@ -4,8 +4,8 @@
 			showChars: 350,
 			minChars: 100,
 			ellipsesText: "...",
-			moreText: "More",
-			lessText: "Less"
+			moreText: tainacan_trucanteVars.moreText,
+			lessText: tainacan_trucanteVars.lessText
 		};
 
 		if (settings) {
@@ -19,8 +19,8 @@
 			if(t.length < config.minChars) return;
 			
 			$(this).html(
-				t.slice(0,config.showChars)+'<span>'+ config.ellipsesText +' </span><a href="#" class="tainacan-interface-more">'+ config.moreText +'</a>'+
-				'<span style="display:none;">'+ t.slice(config.showChars,t.length)+' <a href="#" class="tainacan-interface-less">'+ config.lessText +'</a></span>'
+				t.slice(0,config.showChars)+'<span>'+ config.ellipsesText +' </span><a href="#" class="tainacan-interface-more">[ '+ config.moreText +' ]</a>'+
+				'<span style="display:none;">'+ t.slice(config.showChars,t.length)+' <a href="#" class="tainacan-interface-less">[ '+ config.lessText +' ]</a></span>'
 			);
 			
 		}); 
