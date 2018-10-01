@@ -351,9 +351,9 @@ if ( ! function_exists( 'tainacan_get_color_scheme' ) ) :
 	 * @return array An associative array of either the current or default color scheme HEX values.
 	 */
 	function tainacan_get_color_scheme() {
-		$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
-		$link_color = get_theme_mod( 'link_color', 'default' );
-		$tooltip_color = get_theme_mod( 'tooltip_color', 'default' );
+		$color_scheme_option = esc_attr(get_theme_mod( 'color_scheme', 'default' ));
+		$link_color = esc_attr(get_theme_mod( 'link_color', 'default' ));
+		$tooltip_color = esc_attr(get_theme_mod( 'tooltip_color', 'default' ));
 		$color_schemes       = tainacan_get_color_schemes();
 
 		if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
@@ -423,7 +423,7 @@ endif; // tainacan_sanitize_color_scheme
  * @see wp_add_inline_style()
  */
 function tainacan_color_scheme_css() {
-	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
+	$color_scheme_option = esc_attr(get_theme_mod( 'color_scheme', 'default' ));
 
 	// Don't do anything if the default color scheme is selected.
 	//if ( 'default' == $color_scheme_option ) {
@@ -693,7 +693,7 @@ add_action( 'customize_controls_print_footer_scripts', 'tainacan_color_scheme_cs
 function tainacan_link_color_css() {
 	$color_scheme    = tainacan_get_color_scheme();
 	$default_color   = $color_scheme[2];
-	$link_color = get_theme_mod( 'link_color', $default_color );
+	$link_color = esc_attr(get_theme_mod( 'link_color', $default_color ));
 
 	// Don't do anything if the current color is the default.
 	if ( $link_color === $default_color ) {
@@ -764,7 +764,7 @@ add_action( 'wp_enqueue_scripts', 'tainacan_tooltip_color_css', 11 );
 function tainacan_secondary_text_color_css() {
 	$color_scheme    = tainacan_get_color_scheme();
 	$default_color   = $color_scheme[2];
-	$secondary_text_color = get_theme_mod( 'secondary_text_color', $default_color );
+	$secondary_text_color = esc_attr(get_theme_mod( 'secondary_text_color', $default_color ));
 
 	// Don't do anything if the current color is the default.
 	if ( $secondary_text_color === $default_color ) {
