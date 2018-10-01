@@ -43,13 +43,9 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_style( 'MaterialIconsFonts' );
 
 		/**
-		 * DotJS
-		 */
-			wp_register_script( 'DotJS', get_template_directory_uri() . '/assets/js/dotdotdot.js', array( 'jquery' ), '', true );
-			wp_enqueue_script( 'DotJS' );
-		/**
 		 * Tainacan Theme
 		 */
+			wp_enqueue_script( 'tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), '1.0', false );
 			wp_register_style( 'tainacanStyle', get_stylesheet_uri(), array( 'bootstrap4CSS' ) );
 			wp_enqueue_style( 'tainacanStyle' );
 			wp_register_script( 'tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', '1.0', true );

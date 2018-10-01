@@ -90,7 +90,7 @@ echo '</style>';
 				</h2>
 				<?php $tainacan_collection_description = tainacan_get_the_collection_description(); ?>
 				<?php if ( ! empty( $tainacan_collection_description ) || has_action( 'tainacan-interface-collection-description' ) ) : ?>
-					<div class="text-white t-collection--info-description-text dotmore">
+					<div class="text-white t-collection--info-description-text tainacan-interface-truncate">
 						<?php
 							tainacan_the_collection_description();
 						?>
@@ -103,3 +103,9 @@ echo '</style>';
 		</div>
 	</div>
 </div>
+<script>
+	jQuery('.tainacan-interface-truncate').tainacan_interface_truncate({
+		"moreText": "<?php _e('More', 'tainacan-interface'); ?>",
+		"lessText": "<?php _e('Less', 'tainacan-interface'); ?>"
+	});
+</script>

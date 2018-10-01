@@ -97,21 +97,16 @@
                 // }
                 margin-top: 0.5rem;
             }
-            &.dotmore {
+            &.tainacan-interface-truncate {
                 height: 65px;
                 margin-bottom: 2rem;
-                .toggle {
+                .tainacan-interface-more, .tainacan-interface-less {
                     color: rgba(255, 255, 255, 0.60);
                     white-space: nowrap;
                 }
                 &.full-story {
                     height: auto;
                     margin-bottom: 1rem;
-                }
-                &:not(.ddd-truncated):not(.full-story) {
-                    .toggle {
-                        display: none;
-                    }
                 }
             }
         }
