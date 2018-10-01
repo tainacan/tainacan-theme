@@ -57,6 +57,5 @@ WP Bootstrap Navwalker Copyright Edward McIntyre
 Licenses: GPLv3+
 Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 
-Bundled header image, Copyright Alvin Engler
+Bundled images, Copyright Taincan.org
 License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/@englr?photo=bIhpiQA009k
