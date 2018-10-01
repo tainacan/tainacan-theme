@@ -22,12 +22,12 @@
                         </div>
                     </form>
                     <div class="dropdown tainacan-form-dropdown d-md-none">
-                        <a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-magnify"></i></a>
+                        <a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-magnify"></i><span>Pesquisar</span></a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
                                 <div class="input-group border">
-                                    <input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e('Search', 'tainacan-theme'); ?>" id="tainacan-search">
+                                    <input class="form-control py-2 border-0" type="search" name="s" placeholder="<?php _e('Search', 'tainacan-theme'); ?>" id="tainacan-search-2">
                                 </div>
                             </form>
                         </div>

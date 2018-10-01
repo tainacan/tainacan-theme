@@ -78,6 +78,7 @@ nav{
             }
         }
     }
+    .tainacan-logo { margin-bottom: 0; }
     .tainacan-search-form {
         .form-control {
             height: 27px;
@@ -93,6 +94,10 @@ nav{
             }
             i {
                 font-size: 1.1875rem;
+            }
+            & > span {
+                position: absolute;
+                left: -999999999px;
             }
         }
         > .dropdown-menu {
@@ -394,7 +399,7 @@ nav{
             padding: 1rem;
             padding-top: 0.8rem;
         }
-        h1{
+        .page-title {
             color: #000;
             font-size: 3rem;
             font-weight: 800;
