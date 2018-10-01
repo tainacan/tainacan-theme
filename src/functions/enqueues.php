@@ -25,7 +25,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * Slick Slider Carousel
 		 */
 			//Styles
-			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
 			wp_register_style( 'SlickCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick.min.css', '', '1.6.1', '' );
 			wp_register_style( 'SlickThemeCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick-theme.min.css', '', '1.6.1', '' );
 			wp_enqueue_style( 'SlickCss' );
