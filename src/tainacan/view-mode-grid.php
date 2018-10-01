@@ -9,7 +9,9 @@
 					<?php the_title(); ?>           
 				</p>
 				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail( 'tainacan-medium' ); ?> 
+					<div class="thumbnail-container">
+						<?php the_post_thumbnail( 'tainacan-medium' ); ?> 
+					</div>
 				<?php else : ?>
 					<?php echo '<img alt="Thumbnail placeholder" src="' . get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png">'?>
 				<?php endif; ?>  
