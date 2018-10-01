@@ -127,11 +127,6 @@ add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
 function tainacan_get_logo() {
 	if ( has_custom_logo() ) {
 		return get_custom_logo();
-	} else {
-		$html = '<a class="navbar-brand tainacan-logo" href="' . esc_url( home_url() ) . '">';
-		$html .= '<img src="' . get_template_directory_uri() . '/assets/images/logo.svg" class="logo" style="max-height: 23px">';
-		$html .= '</a>';
-		return $html;
 	}
 }
 

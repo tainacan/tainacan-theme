@@ -40,7 +40,7 @@ if ( get_option( 'blogphone' ) ) {
 				</p>
 			</div>
 			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-					<img src="<?php if ( get_theme_mod( 'footer_logo' ) ) { echo get_theme_mod( 'footer_logo' ); } else { echo get_template_directory_uri() ?>/assets/images/logo-footer.svg<?php }?>" class="tainacan-footer-info--logo" alt="">
+					<img src="<?php if ( get_theme_mod( 'footer_logo' ) ) { echo get_theme_mod( 'footer_logo' ); } ?>" class="tainacan-footer-info--logo" alt="">
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>
