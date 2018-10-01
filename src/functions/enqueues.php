@@ -36,8 +36,9 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Google
 		 */
-
-		 /* Material Icons */
+		 	// Google fonts Roboto
+		 	wp_enqueue_style( 'tainacan_RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+			// Material Icons
 			wp_register_style( 'tainacan_MaterialIconsFonts', get_template_directory_uri() . '/assets/fonts/material-design-icons/css/materialdesignicons.min.css', '', '2.4.85', '' );
 			wp_enqueue_style( 'tainacan_MaterialIconsFonts' );
 
