@@ -53,9 +53,25 @@ Spectrum Colorpicker v1.8.0 Copyright (c) Brian Grinstead
 Licenses: MIT
 Source: https://github.com/bgrins/spectrum
 
-WP Bootstrap Navwalker Copyright Edward McIntyre
+WP Bootstrap Navwalker Class Copyright Edward McIntyre
 Licenses: GPLv3+
 Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+
+Photos used in the screenshot
+Kingfisher birds
+
+1. https://pixabay.com/en/kingfisher-bird-aviary-color-nature-863495/
+License CC0
+
+2. https://pixabay.com/en/animal-avian-beak-bird-1867936/
+License: CC0
+
+3. https://pixabay.com/en/animal-background-beak-beautiful-3387479/
+License: CC0
+
+4. Photo by Vincent van Zalinge on Unsplash
+License: Unplash Lincese - https://unsplash.com/license
+Source: https://unsplash.com/photos/2iPhBX4vigc
 
 Bundled images, Copyright Taincan.org
 License: CC0 1.0 Universal (CC0 1.0)
