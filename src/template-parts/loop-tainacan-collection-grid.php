@@ -8,7 +8,7 @@
                             <?php the_title(); ?>           
                         </p>
                         <?php if ( has_post_thumbnail() ) : ?>
-                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'tainacan-medium') ?>" class="img-fluid tainacan-list-collection--grid-img" alt="">  
+                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'tainacan-medium') ?>" class="img-fluid tainacan-list-collection--grid-img" alt="Thumbnail">  
                         <?php else : ?>
                             <div class="image-placeholder">
                                 <h4 class="text-center">

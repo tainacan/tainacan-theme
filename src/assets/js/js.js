@@ -83,6 +83,43 @@ jQuery(document).ready(function( $ ) {
             // instead of a settings object
         ]
     });
+
+    /*
+     * ACESSIBILIDADE
+    */
+
+    accessibilityCounter = 0;
+
+    jQuery('.button-text-minus').on('click',function() {
+        if (accessibilityCounter > -3) {
+            var _html = jQuery('html'),
+                fonte = _html.css('font-size'),
+                tamanho = fonte.split('px');
+
+            _html.css('font-size', (parseInt(tamanho[0]) - 2));
+            accessibilityCounter--;
+        }
+    });
+
+    jQuery('.button-text-default').on('click',function() {
+        jQuery('html').css('font-size','1rem');
+        accessibilityCounter = 0;
+    });
+
+    jQuery('.button-text-plus').on('click',function() {
+        if (accessibilityCounter < 3) {
+            var _html = jQuery('html'),
+                fonte = _html.css('font-size'),
+                tamanho = fonte.split('px');
+
+            _html.css('font-size', (parseInt(tamanho[0]) + 3));
+            accessibilityCounter++;
+        }
+    });
+
+    jQuery('.button-high-contrast').on('click',function() {
+        jQuery('body').toggleClass('contraste');
+    });
 });
 jQuery(document).ready(function(e) {
         var t = e(".dotmore");

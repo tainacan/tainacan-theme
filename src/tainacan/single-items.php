@@ -89,7 +89,7 @@
                                             <div class="card border-0">
                                                 <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
                                                     <h3><?php _e('Thumbnail', 'tainacan-theme'); ?></h3>
-                                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" class="item-card--thumbnail mt-2">
+                                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" class="item-card--thumbnail mt-2" alt="Thumbnail">
                                                 </div>
                                             </div>
                                             <div class="card border-0 my-3">
@@ -98,19 +98,19 @@
                                                     <div class="btn-group" role="group">
                                                         <?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
                                                             <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="item-card-link--sharing" target="_blank">
-                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt="">
+                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/facebook-circle.png'; ?>" alt="Facebook">
                                                             </a>
                                                         <?php endif; ?>
                                                         <?php if ( true == get_theme_mod( 'twitter_share', true ) ) : ?> 
                                                             <?php $twitter_option = get_option( 'twitter_user'); ?>
                                                             <?php $via = !empty($twitter_option) ? '&amp;via=' . get_option( 'twitter_user') : ''; ?>
 															<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="item-card-link--sharing">
-                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="">
+                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/twitter-circle.png'; ?>" alt="Twitter">
                                                             </a>
                                                         <?php endif; ?>
                                                         <?php if ( true == get_theme_mod( 'google_share', true ) ) : ?> 
                                                             <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing">
-                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt="">
+                                                                <img src="<?php echo get_template_directory_uri().'/assets/images/google-plus-circle.png'; ?>" alt="Google Plus">
                                                             </a>
                                                         <?php endif; ?>
                                                     </div>

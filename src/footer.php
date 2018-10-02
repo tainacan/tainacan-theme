@@ -1,5 +1,5 @@
 <?php if(!is_404()) : ?>
-    <footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
+    <footer id="footer" class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
         <?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
             <div class="row">
                 <div class="col-12 col-lg">
