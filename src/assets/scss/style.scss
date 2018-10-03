@@ -212,20 +212,16 @@ nav{
     .input-group {
         float: right !important;
         transition: all 0.35s, border-radius 0s;
-        width: 32px;
         min-height: 32px;
         background-color: #fff;
-        //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-        //border-radius: 25px;
-        //border: 1px solid #ccc;
         .form-control {
-            //margin-left: -25px;
-            border:none;
+            width: 0;
+            border: 1px solid transparent;
             background: transparent;
             box-shadow: none;
             display:block;
-            padding: 1rem 2rem;
-            padding-left: 1rem;
+            padding: 1rem 0;
+            transition: width 0.35s, padding 0.35s, border 0.35s;
             &::-webkit-input-placeholder {
                 display: none;
             }
@@ -236,12 +232,18 @@ nav{
             &:-ms-input-placeholder {
                 display: none;
             }
+            &:focus {
+                width: 400px;
+                padding: 1rem 2rem;
+                border: 1px solid #ccc;
+            }
         }
         &:hover, &.hover {
-            width: 100%;
-            //border-radius: 25px 25px 25px 25px;
-            border: 1px solid #ccc;
-            position: static;
+            .form-control {
+                width: 400px;
+                padding: 1rem 2rem;
+                border: 1px solid #ccc;
+            }
         }
         .form-control-feedback {
             position: absolute;
@@ -723,9 +725,7 @@ body.contraste .tainacan-title-page ul li,
 body.contraste .tainacan-title-page ul li a,
 body.contraste #menubelowHeader .menu-item a::after,
 body.contraste .menu-shadow button[data-toggle='dropdown']::after,
-body.contraste .tainacan-search-form .input-group .form-control::-webkit-input-placeholder,
-body.contraste .tainacan-search-form .input-group .form-control:-moz-placeholder,
-body.contraste .tainacan-search-form .input-group .form-control:-ms-input-placeholder { color: #fff !important; }
+body.contraste .tainacan-search-form .input-group .form-control::placeholder { color: #fff !important; }
 
 body.contraste .page-header .title-header.singular-title,
 body.contraste img,
@@ -734,7 +734,8 @@ body.contraste .accessibility-options button { border: 1px solid #fff !important
 
 body.contraste footer .tainacan-footer-info .tainacan-footer-info--logo,
 body.contraste .collection-header--type-b .btn.trigger,
-body.contraste .page-header .title-header.singular-title { border: none !important; }
+body.contraste .page-header .title-header.singular-title,
+body.contraste .tainacan-single-post article header .header-meta img { border: none !important; }
 
 body.contraste .page-header.page-height > div.ph-title-description,
 body.contraste .collection-header--share .rotater,

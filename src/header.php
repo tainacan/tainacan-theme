@@ -16,7 +16,7 @@
             <ul class="accessibility-shortcuts" role="menubar">
                 <li role="menuitem"><a href="#content" accesskey="c"><span>c</span> Ir para o conteúdo</a></li>
                 <li role="menuitem"><a href="#menu-menu-1" accesskey="m"><span>m</span> Ir para o menu</a></li>
-                <li role="menuitem"><a href="#tainacan-search" accesskey="b"><span>b</span> Ir para a busca</a></li>
+                <li role="menuitem"><a href="#tainacan-search-header" accesskey="b"><span>b</span> Ir para a busca</a></li>
                 <li role="menuitem"><a href="#footer" accesskey="r"><span>r</span> Ir para o rodapé</a></li>
             </ul>
 
