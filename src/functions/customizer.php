@@ -23,7 +23,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'blogaddress', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
-		'sanitize_callback'  => 'esc_attr',
+		'sanitize_callback'  => 'sanitize_text_field',
 	) );
 
 	$wp_customize->add_control( 'blogaddress', array(
@@ -33,7 +33,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'blogphone', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
-		'sanitize_callback'  => 'esc_attr',
+		'sanitize_callback'  => 'tainacan_sanitize_phone',
 	) );
 
 	$wp_customize->add_control( 'blogphone', array(
@@ -44,7 +44,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'blogemail', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
-		'sanitize_callback'  => 'esc_attr',
+		'sanitize_callback'  => 'tainacan_sanitize_email',
 	) );
 
 	$wp_customize->add_control( 'blogemail', array(
@@ -57,7 +57,6 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_setting( 'footer_logo', array(
 		'capability' => 'manage_options',
-		'sanitize_callback'  => 'esc_attr',
 	) );
 
 	$wp_customize->add_control(
@@ -129,7 +128,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'twitter_user', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
-		'sanitize_callback'  => 'esc_attr',
+		'sanitize_callback'  => 'sanitize_text_field',
 	) );
 
 	$wp_customize->add_control( 'twitter_user', array(
@@ -208,6 +207,42 @@ add_action( 'customize_register', 'tainacan_customize_register', 11 );
 function tainacan_display_callback_sanitize_checkbox( $checked ) {
 	// Boolean check.
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
+}
+
+/**
+ * Email sanitization callback.
+ *
+ * - Sanitization: email
+ * - Control: text
+ *
+ * @param string               $email   Email address to sanitize.
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @return string The sanitized email if not null; otherwise, the setting default.
+ */
+function tainacan_sanitize_email( $email, $setting ) {
+	// Strips out all characters that are not allowable in an email address.
+	$email = sanitize_email( $email );
+
+	// If $email is a valid email, return it; otherwise, return the default.
+	return ( ! is_null( $email ) ? $email : $setting->default );
+}
+
+/**
+ * Phone number sanitization callback.
+ *
+ * - Sanitization: number
+ * - Control: text
+ *
+ * @param string               $email   Email address to sanitize.
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @return string The sanitized email if not null; otherwise, the setting default.
+ */
+function tainacan_sanitize_phone( $phone ) {
+	// Strips out all characters that are not allowable in an email address.
+	$phone = preg_replace('/[^0-9 \\-\\(\\)\\+\\/]/', '', $phone);
+
+	// If $email is a valid email, return it; otherwise, return the default.
+	return ( strlen($phone) <= 18 ? $phone : '' );
 }
 
 /**
