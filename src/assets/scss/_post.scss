@@ -315,11 +315,13 @@
             &.single-item-collection{
                 min-height: 23.5vh;
                 .single-item-collection--document{
+                    color: black;
                     font : {
                         size: 0.875rem;
                         weight: 400;
                     }
-                    color: black;
+                    display: flex;
+                    justify-content: center;
                     > iframe, img.attachment-large {
                         display: block;
                         height: auto;
