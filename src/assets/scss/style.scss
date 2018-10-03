@@ -104,9 +104,8 @@ nav{
             top: calc(100% + 2px);
             right: 0;
             width: 204px;
-            height: 27px;
             padding: 0;
-            left: inherit;
+            left: inherit; display: block;
             .input-group {
                 border: 0;
             }
@@ -246,20 +245,73 @@ nav{
             }
         }
         .form-control-feedback {
+            width: 34px;
+            height: 30px;
+            font-size: 1.1875rem !important;
+            color: #3596e0;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            display: block;
             position: absolute;
             top: 50%;
             right: 1px;
-            left: 5px;
-            display: block;
-            width: 34px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            color: #3596e0;
-            cursor: pointer;
-            left: initial;
-            font-size: 1.1875rem;
+            border: none;
+            background: none;
+            z-index: 9;
             transform: translate(0,-50%);
+
+            span:before {
+                height: 29px;
+                line-height: 29px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar { z-index: 2; }
+    .tainacan-search-form .input-group {
+        .form-control {
+            width: 200px;
+            height: 38px;
+            padding: 1rem;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            border-radius: .25rem;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            background-color: #fff;
+            z-index: -2;
+            transition: transform 0.35s, opacity 0.35s, border 0.35s, z-index 0s 0.35s;
+
+            &:focus {
+                width: 200px;
+                padding: 1rem;
+                opacity: 1;
+                border: 1px solid rgba(0,0,0,0.15);
+                z-index: 2;
+                transform: translate(0,50px);
+                transition: transform 0.35s, opacity 0.35s, border 0.35s;
+            }
+        }
+        &:hover, &.hover {
+            .form-control {
+                width: 200px;
+                padding: 1rem;
+                border: 1px solid rgba(0,0,0,0.15);
+            }
+        }
+        &.hover .form-control {
+            width: 200px;
+            padding: 1rem;
+            opacity: 1;
+            border: 1px solid rgba(0,0,0,0.15);
+            z-index: 2;
+            transform: translate(0,50px);
+            transition: transform 0.35s, opacity 0.35s, border 0.35s;
         }
     }
 }
@@ -562,7 +614,7 @@ nav{
     position: relative;
     border-bottom: 1px solid #01295C;
     background-color: #fff;
-    z-index: 2;
+    z-index: 4;
 }
 .accessibility-bar__container {
     width: 100%;
@@ -682,6 +734,35 @@ nav{
         justify-content: space-around;
     }
     .accessibility-options { margin-top: 20px; }
+}
+
+/* MODO COMPACTO DA BARRA DE ACESSIBILIDADE */
+
+.accessibility-bar.compact-mode {
+    position: absolute;
+    top: 0;
+    border: none;
+    background: none;
+    transform: translate(0,-100px);
+}
+.accessibility-bar.compact-mode .accessibility-options { display: none; }
+.accessibility-bar.compact-mode .accessibility-shortcuts a {
+    padding: 5px 10px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    opacity: 0;
+    background-color: #fff;
+    z-index: -2;
+    transform: translate(-50%,100px);
+}
+.accessibility-bar.compact-mode .accessibility-shortcuts a:focus {
+    opacity: 1;
+    z-index: 2;
+}
+
+@media screen and (max-width: 500px) {
+    .accessibility-bar.compact-mode .accessibility-shortcuts a:focus { transform: translate(-50%,160px); }
 }
 
 /*

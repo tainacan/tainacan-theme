@@ -27,7 +27,7 @@
                                 </div>
                             </header>
                             <?php if (tainacan_has_document()): ?>
-                                <h1 class="title-content-items"><?php _e('Document', 'tainacan-theme'); ?></h1>
+                                <h3 class="title-content-items"><?php _e('Document', 'tainacan-theme'); ?></h3>
                                 <section class="tainacan-content single-item-collection margin-two-column">
                                     <div class="single-item-collection--document">
                                         <?php tainacan_the_document(); ?>
@@ -52,7 +52,7 @@
 
                         <div class="mt-3 tainacan-single-post">
                             <article role="article">
-                                <h1 class="title-content-items"><?php _e('Attachments', 'tainacan-theme'); ?></h1>
+                                <h3 class="title-content-items"><?php _e('Attachments', 'tainacan-theme'); ?></h3>
                                 <section class="tainacan-content single-item-collection margin-two-column">
                                     <div class="single-item-collection--attachments">
                                         <?php foreach ( $attachment as $attachment ) { ?>
@@ -81,7 +81,7 @@
 
                     <div class="mt-3 tainacan-single-post">
                         <article role="article">
-                            <!-- <h1 class="title-content-items"><?php _e('Information', 'tainacan-theme'); ?></h1> -->
+                            <!-- <h3 class="title-content-items"><?php _e('Information', 'tainacan-theme'); ?></h3> -->
                             <section class="tainacan-content single-item-collection margin-two-column">
                                 <div class="single-item-collection--information justify-content-center">
                                     <div class="row">
