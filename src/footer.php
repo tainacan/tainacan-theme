@@ -1,10 +1,10 @@
 <?php if ( ! is_404() ) : ?>
 	<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
-		<?php if ( is_active_sidebar( 'footer-1' ) ) { ?>
+		<?php if ( is_active_sidebar( 'tainacan-sidebar-footer' ) ) { ?>
 			<div class="row">
 				<div class="col-12 col-lg">
 					<ul class="p-4 d-lg-flex justify-content-md-center mb-md-0">
-						<?php dynamic_sidebar( 'footer-1' ); ?>
+						<?php dynamic_sidebar( 'tainacan-sidebar-footer' ); ?>
 					</ul>
 				</div>
 			</div>

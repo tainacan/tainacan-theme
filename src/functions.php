@@ -94,7 +94,7 @@ if ( ! isset( $content_width ) ) {
 function tainacan_widgets_sidebar_init() {
 	register_sidebar( array(
 		'name'          => __( 'Tainacan Sidebar Right', 'tainacan-interface' ),
-		'id'            => 'sidebar-right',
+		'id'            => 'tainacan-sidebar-right',
 		'before_widget' => '<aside id="%1$s" class="pb-4 pl-4 widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title font-weight-bold">',
@@ -109,7 +109,7 @@ add_action( 'widgets_init', 'tainacan_widgets_sidebar_init' );
 function tainacan_widgets_footer_init() {
 	register_sidebar( array(
 		'name'          => __( 'Tainacan Sidebar Footer', 'tainacan-interface' ),
-		'id'            => 'footer-1',
+		'id'            => 'tainacan-sidebar-footer',
 		'before_widget' => '<li class="border-left-0 border-right-0 tainacan-side"><input type="checkbox" checked><i></i>',
 		'after_widget'  => '</li>',
 		'before_title'  => '<h6 class="text-white font-weight-bold mb-lg-4">',

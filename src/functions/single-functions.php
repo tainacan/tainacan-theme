@@ -50,10 +50,10 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 	</div>
 <?php }
 
-function wrap_comment( $content ) {
+function tainacan_wrap_comment( $content ) {
 	return '<div class="comment-text">' . $content . '</div>';
 }
-add_filter( 'comment_text', 'wrap_comment', 99 );
+add_filter( 'comment_text', 'tainacan_wrap_comment', 99 );
 
 /**
  * Display date of post.
@@ -80,12 +80,12 @@ function tainacan_meta_date_author( $echo = true ) {
 }
 
 // define the cancel_comment_reply_link callback
-function filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
+function tainacan_filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
 	// make filter magic happen here...
 	$formatted_link = '<a rel="nofollow" class="btn btn-info text-haiti bg-white border-oslo-gray align-self-center mt-3 ml-auto mr-1" id="cancel-comment-reply-link" href="' . $link . '" style="display:none;">' . $text . '</a>';
 	return $formatted_link;
 }
-add_filter( 'cancel_comment_reply_link', 'filter_cancel_comment_reply_link', 10, 3 );
+add_filter( 'cancel_comment_reply_link', 'tainacan_filter_cancel_comment_reply_link', 10, 3 );
 
 function tainacan_social_meta() {
 	global $post;
@@ -130,8 +130,7 @@ function tainacan_social_meta() {
 		<meta property="og:image:height" content="<?php echo $image['height']; ?>"/>
 
 
-<?php
-	} else {
+	<?php } else {
 		return;
 	} // End if().
 }

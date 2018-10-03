@@ -76,7 +76,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'display_powered', array(
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'display_powered', array(
@@ -100,7 +100,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'facebook_share', array(
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'facebook_share', array(
@@ -115,7 +115,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'twitter_share', array(
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'twitter_share', array(
@@ -141,7 +141,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'google_share', array(
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'google_share', array(
@@ -205,7 +205,7 @@ add_action( 'customize_register', 'tainacan_customize_register', 11 );
  * Callback to Checkbox to display or no the
  * Proudly Powered by Wordpress and Tainacan.
  */
-function display_callback_sanitize_checkbox( $checked ) {
+function tainacan_display_callback_sanitize_checkbox( $checked ) {
 	// Boolean check.
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
