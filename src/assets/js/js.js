@@ -95,8 +95,8 @@ jQuery( document ).ready(function( $ ) {
 		]
 	});
 
-	$('.tainacan-interface-truncate').tainacan_interface_truncate();
-	$( ".trigger" ).click( function() {	
-		$( ".collection-header--share" ).toggleClass( "active" );	
+	$( '.tainacan-interface-truncate' ).tainacan_interface_truncate();
+	$( ".trigger" ).click( function() {
+		$( ".collection-header--share" ).toggleClass( "active" );
 	});
 });

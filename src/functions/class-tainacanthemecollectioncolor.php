@@ -17,14 +17,14 @@ class TainacanThemeCollectionColor {
 	function action_tainacan_enqueue_admin_scripts() {
 		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/functions/collection-color.js', false, false, true );
 		wp_enqueue_style( 'tainacan_colorWellStyle', get_template_directory_uri() . '/functions/collection-color.css' );
-		wp_localize_script( 'tainacan_colorWell', 'tainacan_colorPickerVars', [
+		wp_localize_script( 'tainacan_colorWell', 'tainacan_colorPickerVars', array(
 			'cancelText' => __("cancel", 'tainacan-interface'),
 			'chooseText' => __("choose", 'tainacan-interface'),
 			'togglePaletteMoreText' => __("more", 'tainacan-interface'),
 			'togglePaletteLessText' => __("less", 'tainacan-interface'),
 			'clearText' => __("Clear Color Selection", 'tainacan-interface'),
 			'noColorSelectedText' => __("No Color Selected", 'tainacan-interface'),
-		] );
+		 ) );
 
 		wp_enqueue_script( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', false, false, true );
 		wp_enqueue_style( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/js/spectrum.css' );
