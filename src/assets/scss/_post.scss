@@ -313,6 +313,7 @@
                 content: "";
             }
             &.single-item-collection{
+                min-height: 23.5vh;
                 .single-item-collection--document{
                     font : {
                         size: 0.875rem;
