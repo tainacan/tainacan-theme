@@ -13,7 +13,7 @@
 		<div class="mt-3 tainacan-single-post">
 			<?php get_template_part( 'template-parts/single-post' ); ?>
 		</div>
-		<div class="row margin-one-column justify-content-between">
+		<div class="row justify-content-between">
 			<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'tainacan-interface' ) ); ?></span>
 			<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'tainacan-interface' ) ); ?></span>
 		</div>
