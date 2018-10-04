@@ -22,9 +22,16 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 				<a href="<?php echo get_author_posts_url( $comment->user_id ); ?>" class="text-black font-weight-bold bypostauthor">
 					<?php comment_author( $comment->comment_ID ); ?>
 				</a>
-				<?php
-					printf( '<p class="comment-time text-oslo-gray my-sm-1">%s &agrave;s %s.</p>', get_comment_date(), get_comment_time() );
-				?>
+				<p class="comment-time text-oslo-gray my-sm-1">
+					<?php
+						printf( 
+							/* translators: 1: Comment date, 2: comment time. Example: April 21st at 15:25*/
+							__('%1$s at %2$s.', 'tainacan-interface'), 
+							get_comment_date(), 
+							get_comment_time() 
+						);
+					?>
+				</p>
 			</h5>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 				<p class="comment-awaiting-moderation">
@@ -94,18 +101,18 @@ function tainacan_social_meta() {
 
 		$logo = get_template_directory_uri() . '/assets/images/social-logo.png';
 		global $wp;
-		if ( is_archive( 'tainacan-collection' ) ) {
+		if ( is_post_type_archive( 'tainacan-collection' ) ) {
+			// TODO: this is wrong, we should check if it a archive of collection items, not archive of collections
 			$title = tainacan_get_the_collection_name();
 			$img_info = ( has_post_thumbnail( tainacan_get_collection_id() ) ) ? wp_get_attachment_image_src( get_post_thumbnail_id( tainacan_get_collection_id() ), 'full' ) : $logo;
 			$url_src = home_url( $wp->request );
 			$excerpt = tainacan_get_the_collection_description();
 		} else {
-			$excerpt = tainacan_get_the_collection_description();
 			$title = get_the_title();
 			$img_info = ( has_post_thumbnail( $post->ID ) ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ) : $logo;
 			$url_src = get_permalink();
 			$content = wp_trim_words( $post->post_content, 28, '[...]' );
-			if ( $excerpt == $content ) {
+			if ( $content ) {
 				$excerpt = strip_tags( $content );
 				$excerpt = str_replace( '', "'", $excerpt );
 			} else {

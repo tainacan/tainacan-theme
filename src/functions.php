@@ -19,7 +19,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form' ) );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
-		define( 'FS_METHOD', 'direct' );
 		/**
 		 * Custom header to change the banner image
 		 */

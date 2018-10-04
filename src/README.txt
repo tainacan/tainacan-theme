@@ -2,7 +2,7 @@
 Contributors: andrebenedito, fabianobn, jacsonp, leogermani, weryques, wetah
 Requires at least: WordPress 4.8
 Tested up to: WordPress 4.9.8
-Version: 1.0.3
+Version: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 
@@ -59,19 +59,13 @@ Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 
 Photos used in the screenshot
 Kingfisher birds
-
-1. https://pixabay.com/en/kingfisher-bird-aviary-color-nature-863495/
+1. https://pixabay.com/en/kingfisher-bird-alcedo-atthis-1068684/
+License: CC0
+2. https://pixabay.com/en/animal-background-beak-beautiful-3387479/
 License CC0
-
-2. https://pixabay.com/en/animal-avian-beak-bird-1867936/
+3. https://pixabay.com/en/animal-avian-beak-bird-1867936/
 License: CC0
 
-3. https://pixabay.com/en/animal-background-beak-beautiful-3387479/
-License: CC0
-
-4. Photo by Vincent van Zalinge on Unsplash
-License: Unplash Lincese - https://unsplash.com/license
-Source: https://unsplash.com/photos/2iPhBX4vigc
 
 Bundled images, Copyright Taincan.org
 License: CC0 1.0 Universal (CC0 1.0)

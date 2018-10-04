@@ -111,21 +111,21 @@
 												<div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
 													<h3><?php _e( 'Share', 'tainacan-interface' ); ?></h3>
 													<div class="btn-group" role="group">
-														<?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
+														<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
 															<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="item-card-link--sharing" target="_blank">
 																<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="">
 															</a>
 														<?php endif; ?>
-														<?php if ( true == get_theme_mod( 'twitter_share', true ) ) : ?> 
+														<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
 															<?php
-															$twitter_option = get_option( 'twitter_user' );
-															$via = ! empty( $twitter_option ) ? '&amp;via=' . get_option( 'twitter_user' ) : '';
+															$twitter_option = get_option( 'tainacan_twitter_user' );
+															$via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr(get_option( 'tainacan_twitter_user' )) : '';
 															?>
 															<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="item-card-link--sharing">
 																<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="">
 															</a>
 														<?php endif; ?>
-														<?php if ( true == get_theme_mod( 'google_share', true ) ) : ?> 
+														<?php if ( true == get_theme_mod( 'tainacan_google_share', true ) ) : ?> 
 															<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing">
 																<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="">
 															</a>
