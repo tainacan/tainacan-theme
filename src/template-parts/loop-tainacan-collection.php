@@ -7,7 +7,7 @@
 						<h5 class="tainacan-list-collection--title text-black text-left p-3 mb-0 text-truncate"><?php the_title(); ?></h5>
 						<div class="media">
 							<?php if ( has_post_thumbnail() ) : ?>
-								<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'collection-list-card' ) ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">  
+								<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'collection-list-card' ) ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="Thumbnail">  
 							<?php else : ?>
 								<div class="image-placeholder">
 									<h4>

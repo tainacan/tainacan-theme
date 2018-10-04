@@ -11,12 +11,12 @@
 				<?php while ( have_posts() ) : the_post(); ?>
 					<div class="tainacan-title">
 						<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
-							<ul class="list-inline mb-1">
-								<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
+							<div class="list-inline mb-1">
+								<h3 class="list-inline-item text-midnight-blue font-weight-bold title-page">
 									<?php the_title(); ?>
-								</li>
-								<li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
-							</ul>
+								</h3>
+								<a href="javascript:history.go(-1)" class="list-inline-item float-right title-back"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
+							</div>
 						</div>
 					</div>
 					
@@ -30,7 +30,7 @@
 								</div>
 							</header>
 							<?php if ( tainacan_has_document() ) : ?>
-								<h1 class="title-content-items"><?php _e( 'Document', 'tainacan-interface' ); ?></h1>
+								<h3 class="title-content-items"><?php _e( 'Document', 'tainacan-interface' ); ?></h3>
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--document">
 										<?php tainacan_the_document(); ?>
@@ -67,7 +67,7 @@
 
 						<div class="mt-3 tainacan-single-post">
 							<article role="article">
-								<h1 class="title-content-items"><?php _e( 'Attachments', 'tainacan-interface' ); ?></h1>
+								<h3 class="title-content-items"><?php _e( 'Attachments', 'tainacan-interface' ); ?></h3>
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachment as $attachment ) { ?>
@@ -96,7 +96,7 @@
 
 					<div class="mt-3 tainacan-single-post">
 						<article role="article">
-							<!-- <h1 class="title-content-items"><?php _e( 'Information', 'tainacan-interface' ); ?></h1> -->
+							<!-- <h3 class="title-content-items"><?php _e( 'Information', 'tainacan-interface' ); ?></h3> -->
 							<section class="tainacan-content single-item-collection margin-two-column">
 								<div class="single-item-collection--information justify-content-center">
 									<div class="row">
@@ -104,7 +104,7 @@
 											<div class="card border-0">
 												<div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
 													<h3><?php _e( 'Thumbnail', 'tainacan-interface' ); ?></h3>
-													<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'tainacan-medium-full' ) ?>" class="item-card--thumbnail mt-2">
+													<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'tainacan-medium-full' ) ?>" class="item-card--thumbnail mt-2" alt="Thumbnail">
 												</div>
 											</div>
 											<div class="card border-0 my-3">
@@ -113,7 +113,7 @@
 													<div class="btn-group" role="group">
 														<?php if ( true == get_theme_mod( 'facebook_share', true ) ) : ?> 
 															<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="item-card-link--sharing" target="_blank">
-																<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="">
+																<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="Facebook">
 															</a>
 														<?php endif; ?>
 														<?php if ( true == get_theme_mod( 'twitter_share', true ) ) : ?> 
@@ -122,12 +122,12 @@
 															$via = ! empty( $twitter_option ) ? '&amp;via=' . get_option( 'twitter_user' ) : '';
 															?>
 															<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="item-card-link--sharing">
-																<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="">
+																<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="Twitter">
 															</a>
 														<?php endif; ?>
 														<?php if ( true == get_theme_mod( 'google_share', true ) ) : ?> 
 															<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing">
-																<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="">
+																<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="Google Plus">
 															</a>
 														<?php endif; ?>
 													</div>

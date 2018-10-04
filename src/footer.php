@@ -1,5 +1,5 @@
 <?php if ( ! is_404() ) : ?>
-	<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
+	<footer id="footer" class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
 		<?php if ( is_active_sidebar( 'tainacan-sidebar-footer' ) ) { ?>
 			<div class="row">
 				<div class="col-12 col-lg">
@@ -12,35 +12,42 @@
 		<hr class="bg-scooter"/>
 		<div class="row p-4 tainacan-footer-info">
 			<div class="col text-white font-weight-normal">
-				<p class="tainacan-footer-info--blog">
-					<?php echo bloginfo( 'title' );
-					if ( ! wp_is_mobile() ) {
-						echo '<br>';
-					} else {
-						echo '</p><p>';
+				<?php
+					if (get_bloginfo('title')) {
+						echo '<p class="tainacan-footer-info--blog">' . get_bloginfo('title');
+						if(!wp_is_mobile()):
+							echo '<br>';
+						else:
+							echo '</p><p>';
+						endif;
+						if ( get_option('blogaddress') ) {
+							echo get_option('blogaddress', ''); 
+						}
+						echo '</p>';
 					}
-					if ( get_option( 'blogaddress' ) ) {
-						echo get_option( 'blogaddress', '' );
-					} ?>
-				</p>
-				<p class="tainacan-footer-info--blog">
-<?php if ( get_option( 'blogemail' ) ) {
-	printf( __( 'E-mail: %s', 'tainacan-interface' ), get_option( 'blogemail', '' ) );
-}
-if ( get_option( 'blogemail' ) && get_option( 'blogphone' ) ) {
-	if ( wp_is_mobile() ) :
-		echo '<br>';
-	else :
-		echo ' - ';
-	endif;
-}
-if ( get_option( 'blogphone' ) ) {
-	printf( __( 'Telephone: %s', 'tainacan-interface' ), get_option( 'blogphone', '' ) );
-} ?>
-				</p>
+				?>
+				<?php 
+					if( get_option('blogemail') ) {
+						echo '<p class="tainacan-footer-info--blog">';
+						printf(__('E-mail: %s', 'tainacan-theme'), get_option('blogemail', ''));
+						if(get_option('blogphone')) {
+							if(wp_is_mobile()):
+								echo '<br>';
+							else:
+								echo ' - ';
+							endif;
+							printf(__('Telephone: %s', 'tainacan-theme'), get_option('blogphone', ''));
+						}
+						echo '</p>';
+					} elseif (get_option('blogphone')) {
+						echo '<p class="tainacan-footer-info--blog">';
+						printf(__('Telephone: %s', 'tainacan-theme'), get_option('blogphone', ''));
+						echo '</p>';
+					}
+				?>
 			</div>
 			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-					<img src="<?php if ( get_theme_mod( 'footer_logo' ) ) { echo esc_attr(get_theme_mod( 'footer_logo' )); } ?>" class="tainacan-footer-info--logo" alt="">
+				<!-- <img src="<?php /*if ( get_theme_mod( 'footer_logo' ) ) { echo esc_attr(get_theme_mod( 'footer_logo' )); } */?>" class="tainacan-footer-info--logo" alt="Tainacan - Logo preto e branco"> -->
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>

@@ -34,7 +34,7 @@ echo '</style>';
 		<div class="collection-header position-relative max-large" style="">
 			<?php do_action( 'tainacan-interface-collection-header' ); ?>
 			<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : ?>
-				<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left">
+				<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="Image">
 			<?php else : ?>
 				<div class="image-placeholder rounded-circle border border-white position-absolute">
 					<h4 class="text-center">

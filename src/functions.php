@@ -127,10 +127,10 @@ function tainacan_get_logo() {
 	if ( has_custom_logo() ) {
 		return get_custom_logo();
 	} else {	
-		$html = '<a class="navbar-brand tainacan-logo" href="' . esc_url( home_url() ) . '">';	
-		$html .= '<h1>'. get_bloginfo( 'name' ) .'</h1>';	
-		$html .= '</a>';	
-		return $html;	
+		$html = '<a class="navbar-brand tainacan-logo" href="' . esc_url( home_url() ) . '">';
+		$html .= '<h1>'. get_bloginfo( 'name' ) .'</h1>';
+		$html .= '</a>';
+		return $html;
 	}
 }
 

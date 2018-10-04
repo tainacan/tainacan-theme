@@ -26,7 +26,7 @@ if ( post_password_required() ) {
 				</p>        
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
-					<span class="text-jelly-bean title-leave"><?php _e( 'Leave your comment', 'tainacan-interface' ); ?></span>
+					<h4 class="text-jelly-bean title-leave"><?php _e( 'Leave your comment', 'tainacan-interface' ); ?></h4>
 					<?php if ( is_user_logged_in() ) { ?>
 						<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
 						<?php _e( 'Authenticated as:', 'tainacan-interface' );
@@ -45,9 +45,9 @@ if ( post_password_required() ) {
 						'title_reply' => '',
 						'title_reply_before' => '',
 						'title_reply_after' => '',
-						'comment_field' => sprintf( '<div class="form-row"><div class="col-3 col-md-1 align-self-center form-row--avartar"><img src="%1$s" class="img-fluid rounded-circle"></div>', get_avatar_url( $current_user->ID, array(
+						'comment_field' => sprintf( '<div class="form-row"><div class="col-3 col-md-1 align-self-center form-row--avartar"><img src="%1$s" class="img-fluid rounded-circle" alt="Avatar"></div>', get_avatar_url( $current_user->ID, array(
 							'size' => 60,
-						) ) ) . '<div class="col-9 col-md-11 form-row--textarea"><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
+						) ) ) . '<div class="col-9 col-md-11 form-row--textarea"><label for="comment" class="sr-only">Comentário</label><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
 						'cancel_reply_before' => '',
 						'cancel_reply_after' => '',
 						'class_submit' => 'btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto comment-submit-link',

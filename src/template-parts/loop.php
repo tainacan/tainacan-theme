@@ -1,8 +1,8 @@
 <?php if ( have_posts() ) : ?>
 	<div class="tainacan-title">
 		<div class="border-bottom border-jelly-bean tainacan-title-page">
-			<ul class="list-inline mb-1 d-flex">
-				<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
+			<div class="list-inline mb-1 d-flex">
+				<h3 class="list-inline-item text-midnight-blue font-weight-bold title-page">
 					<?php if ( is_home() ) {
 						if ( get_option( 'page_for_posts' ) ) :
 							echo get_the_title( get_option( 'page_for_posts' ) );
@@ -15,9 +15,9 @@
 } elseif ( is_archive() ) {
 	echo ' ' . get_the_archive_title();
 } ?>
-				</li>
-				<li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
-			</ul>
+				</h3>
+				<a href="javascript:history.go(-1)" class="list-inline-item float-right title-back align-self-end ml-auto"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
+			</div>
 		</div>
 	</div>
 
@@ -29,7 +29,7 @@
 	</div>
 
 	<?php echo tainacan_pagination( 3 ); ?>
-	
+
 <?php else : ?>
 	<?php _e( 'Nothing found', 'tainacan-interface' ); ?>
 <?php endif; ?>
