@@ -69,7 +69,7 @@
 
 		// Add additional color.
 		// jscs:disable
-		colors.backtransparent = Color( colors.link_color ).toCSS( 'rgba', 0.5 );
+		colors.backtransparent = Color( colors.tainacan_link_color ).toCSS( 'rgba', 0.5 );
 		// jscs:enable
 
 		css = cssTemplate( colors );

@@ -700,8 +700,8 @@ function tainacan_color_scheme_css_template() {
 	$colors = array(
 		'background_color'      => '{{ data.background_color }}',
 		'page_background_color' => '{{ data.page_background_color }}',
-		'tainacan_link_color'            => '{{ data.link_color }}',
-		'tainacan_tooltip_color'            => '{{ data.tooltip_color }}',
+		'tainacan_link_color'            => '{{ data.tainacan_link_color }}',
+		'tainacan_tooltip_color'            => '{{ data.tainacan_tooltip_color }}',
 		'backtransparent'		=> '{{ data.backtransparent }}',
 	);
 	?>
@@ -782,4 +782,3 @@ function tainacan_tooltip_color_css() {
 	wp_add_inline_style( 'tainacan-style', sprintf( $css, $tooltip_color, $border_color ) );
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_tooltip_color_css', 11 );
-
