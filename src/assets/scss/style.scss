@@ -832,6 +832,9 @@ body.contraste .button.is-outlined {
 	background-color: #000 !important;
 }
 
+body.contraste a { text-decoration: underline !important; }
+body.contraste a:visited { color: #FFF333 !important; }
+
 body.contraste .search-box,
 body.contraste .collection-header--type-b { border: 2px solid #fff !important; }
 
@@ -894,3 +897,26 @@ body.contraste .tooltip .tooltip-inner {
 }
 body.contraste .accessibility-options .button-high-contrast,
 body.contraste .tainacan-logo img { background-color: #fff !important; }
+
+body.contraste .tainacan-search-form {
+	.input-group {
+		.form-control {
+			border: 1px solid transparent !important;
+
+			&:focus { border: 1px solid #fff !important; }
+		}
+		&:hover,
+		&.hover {
+			.form-control { border: 1px solid #fff !important; }
+		}
+	}
+}
+
+body.contraste #return-to-top {
+	background: #fff !important;
+
+	i {
+		color: #000 !important;
+		background: transparent !important;
+	}
+}

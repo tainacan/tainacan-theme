@@ -1,5 +1,6 @@
 <?php if ( ! is_404() ) : ?>
-	<footer id="footer" class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
+	<footer role="contentinfo" class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
+		<a href="#footer" id="footer" name="footer" class="sr-only">Rodapé</a>
 		<?php if ( is_active_sidebar( 'tainacan-sidebar-footer' ) ) { ?>
 			<div class="row">
 				<div class="col-12 col-lg">
@@ -47,7 +48,7 @@
 				?>
 			</div>
 			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-				<img src="<?php if ( get_theme_mod( 'tainacan_footer_logo' ) ) { echo esc_attr(get_theme_mod( 'tainacan_footer_logo' )); } ?>" class="tainacan-footer-info--logo" alt="Tainacan - Logo preto e branco">
+				<!-- <img src="<?php/* if ( get_theme_mod( 'tainacan_footer_logo' ) ) { echo esc_attr(get_theme_mod( 'tainacan_footer_logo' )); } */?>" class="tainacan-footer-info--logo" alt="Tainacan - Logo preto e branco"> -->
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>
