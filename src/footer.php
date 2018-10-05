@@ -20,12 +20,12 @@
 						echo '</p><p>';
 					}
 					if ( get_option( 'tainacan_blogaddress' ) ) {
-						echo wp_filter_nohtml_kses(get_option( 'tainacan_blogaddress', '' ));
+						echo wp_filter_nohtml_kses( get_option( 'tainacan_blogaddress', '' ) );
 					} ?>
 				</p>
 				<p class="tainacan-footer-info--blog">
 <?php if ( get_option( 'tainacan_blogemail' ) ) {
-	printf( __( 'E-mail: %s', 'tainacan-interface' ), sanitize_email(get_option( 'tainacan_blogemail', '' )) );
+	printf( __( 'E-mail: %s', 'tainacan-interface' ), sanitize_email( get_option( 'tainacan_blogemail', '' ) ) );
 }
 if ( get_option( 'tainacan_blogemail' ) && get_option( 'tainacan_blogphone' ) ) {
 	if ( wp_is_mobile() ) :
@@ -35,12 +35,12 @@ if ( get_option( 'tainacan_blogemail' ) && get_option( 'tainacan_blogphone' ) ) 
 	endif;
 }
 if ( get_option( 'tainacan_blogphone' ) ) {
-	printf( __( 'Telephone: %s', 'tainacan-interface' ), wp_filter_nohtml_kses(get_option( 'tainacan_blogphone', '' )) );
+	printf( __( 'Telephone: %s', 'tainacan-interface' ), wp_filter_nohtml_kses( get_option( 'tainacan_blogphone', '' ) ) );
 } ?>
 				</p>
 			</div>
 			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-					<img src="<?php if ( get_theme_mod( 'tainacan_footer_logo' ) ) { echo esc_attr(get_theme_mod( 'tainacan_footer_logo' )); } ?>" class="tainacan-footer-info--logo" alt="">
+					<img src="<?php if ( get_theme_mod( 'tainacan_footer_logo' ) ) { echo esc_attr( get_theme_mod( 'tainacan_footer_logo' ) ); } ?>" class="tainacan-footer-info--logo" alt="">
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>

@@ -24,11 +24,11 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 				</a>
 				<p class="comment-time text-oslo-gray my-sm-1">
 					<?php
-						printf( 
+						printf(
 							/* translators: 1: Comment date, 2: comment time. Example: April 21st at 15:25*/
-							__('%1$s at %2$s.', 'tainacan-interface'), 
-							get_comment_date(), 
-							get_comment_time() 
+							__( '%1$s at %2$s.', 'tainacan-interface' ),
+							get_comment_date(),
+							get_comment_time()
 						);
 					?>
 				</p>
@@ -137,9 +137,7 @@ function tainacan_social_meta() {
 		<meta property="og:image:height" content="<?php echo $image['height']; ?>"/>
 
 
-	<?php } else {
-		return;
-	} // End if().
+	<?php } else { return; } // End if().
 }
 
 add_action( 'wp_head', 'tainacan_social_meta', 5 );
