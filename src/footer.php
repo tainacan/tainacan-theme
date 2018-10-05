@@ -20,38 +20,39 @@
 						else:
 							echo '</p><p>';
 						endif;
-						if ( get_option('blogaddress') ) {
-							echo get_option('blogaddress', ''); 
+						if ( get_option('tainacan_blogaddress') ) {
+							echo wp_filter_nohtml_kses(get_option( 'tainacan_blogaddress', '' ));
 						}
 						echo '</p>';
 					}
 				?>
 				<?php 
-					if( get_option('blogemail') ) {
+					if ( get_option( 'tainacan_blogemail' ) ) {
 						echo '<p class="tainacan-footer-info--blog">';
-						printf(__('E-mail: %s', 'tainacan-theme'), get_option('blogemail', ''));
-						if(get_option('blogphone')) {
+						printf( __( 'E-mail: %s', 'tainacan-interface' ), sanitize_email(get_option( 'tainacan_blogemail', '' )) );
+						if(get_option('tainacan_blogphone')) {
 							if(wp_is_mobile()):
 								echo '<br>';
 							else:
 								echo ' - ';
 							endif;
-							printf(__('Telephone: %s', 'tainacan-theme'), get_option('blogphone', ''));
+							printf( __( 'Telephone: %s', 'tainacan-interface' ), wp_filter_nohtml_kses(get_option( 'tainacan_blogphone', '' )) );
 						}
 						echo '</p>';
-					} elseif (get_option('blogphone')) {
+					} elseif (get_option('tainacan_blogphone')) {
 						echo '<p class="tainacan-footer-info--blog">';
-						printf(__('Telephone: %s', 'tainacan-theme'), get_option('blogphone', ''));
+						printf( __( 'Telephone: %s', 'tainacan-interface' ), wp_filter_nohtml_kses(get_option( 'tainacan_blogphone', '' )) );
 						echo '</p>';
 					}
 				?>
 			</div>
 			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-				<!-- <img src="<?php /*if ( get_theme_mod( 'footer_logo' ) ) { echo esc_attr(get_theme_mod( 'footer_logo' )); } */?>" class="tainacan-footer-info--logo" alt="Tainacan - Logo preto e branco"> -->
+				<img src="<?php if ( get_theme_mod( 'tainacan_footer_logo' ) ) { echo esc_attr(get_theme_mod( 'tainacan_footer_logo' )); } ?>" class="tainacan-footer-info--logo" alt="Tainacan - Logo preto e branco">
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>
-					<?php if ( true == get_theme_mod( 'display_powered', false ) ) {
+					<?php if ( true == get_theme_mod( 'tainacan_display_powered', false ) ) {
+						/* translators: 1: WordPress; 2: Tainacan*/
 						printf( __( 'Proudly powered by %1$s and %2$s.', 'tainacan-interface' ), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>' ); } ?>
 				</span>
 			</div>

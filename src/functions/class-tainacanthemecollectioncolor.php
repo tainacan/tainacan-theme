@@ -1,4 +1,7 @@
 <?php
+/**
+ * Class that hooks in the tainacan plugin (if present) to add new options to Collections
+ */
 class TainacanThemeCollectionColor {
 
 
@@ -31,8 +34,8 @@ class TainacanThemeCollectionColor {
 	}
 
 	function register_hook() {
-		if ( function_exists( 'register_admin_hook' ) ) {
-			register_admin_hook( 'collection', array( $this, 'form' ) );
+		if ( function_exists( 'tainacan_register_admin_hook' ) ) {
+			tainacan_register_admin_hook( 'collection', array( $this, 'form' ) );
 		}
 	}
 
