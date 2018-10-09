@@ -180,4 +180,10 @@ jQuery( document ).ready(function( $ ) {
 			_formBuscaFilho.removeClass('hover');
 		}
 	});
+
+
+	/*
+	* ADICIONANDO JS NÃO OBSTRUSIVO
+	*/
+	$('body').addClass('js');
 });

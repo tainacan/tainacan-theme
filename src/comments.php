@@ -45,9 +45,9 @@ if ( post_password_required() ) {
 						'title_reply' => '',
 						'title_reply_before' => '',
 						'title_reply_after' => '',
-						'comment_field' => sprintf( '<div class="form-row"><div class="col-3 col-md-1 align-self-center form-row--avartar"><img src="%1$s" class="img-fluid rounded-circle" alt="Avatar"></div>', get_avatar_url( $current_user->ID, array(
+						'comment_field' => sprintf( '<div class="form-row"><div class="col-12 col-md-3 align-self-center form-row--avartar"><img src="%1$s" class="img-fluid rounded-circle" alt="Avatar"></div>', get_avatar_url( $current_user->ID, array(
 							'size' => 60,
-						) ) ) . '<div class="col-9 col-md-11 form-row--textarea"><label for="comment" class="sr-only">Comentário</label><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
+						) ) ) . '<div class="col-12 col-md-9 form-row--textarea"><label for="comment" class="sr-only">Comentário</label><textarea name="comment" id="comment" tabindex="1" required class="form-control mt-2 mt-sm-0" rows="2"></textarea></div></div>',
 						'cancel_reply_before' => '',
 						'cancel_reply_after' => '',
 						'class_submit' => 'btn btn-info bg-jungle-green align-self-center mt-3 float-right ml-auto comment-submit-link',

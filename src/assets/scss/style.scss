@@ -329,7 +329,31 @@ nav{
 
 @media screen and (max-width: 768px) {
 	.navbar { z-index: 2; }
+	/* JS NÃO OBSTRUSIVO */
 	.tainacan-search-form .input-group {
+		.form-control {
+			width: 200px;
+			height: 38px;
+			padding: 1rem;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			opacity: 1;
+			border-radius: .25rem;
+			border: 1px solid rgba(0,0,0,0.15);
+			background-clip: padding-box;
+			background-color: #fff;
+			z-index: 2;
+			transform: translate(0,50px);
+
+			&:focus,
+			&:hover {
+				width: 200px;
+				padding: 1rem;
+			}
+		}
+	}
+	body.js .tainacan-search-form .input-group {
 		.form-control {
 			width: 200px;
 			height: 38px;
@@ -343,6 +367,7 @@ nav{
 			background-clip: padding-box;
 			background-color: #fff;
 			z-index: -2;
+			transform: translate(0,0);
 			transition: transform 0.35s, opacity 0.35s, border 0.35s, z-index 0s 0.35s;
 
 			&:focus {
@@ -717,7 +742,8 @@ nav{
 	background: #01295C;
 }
 
-.accessibility-options {
+.accessibility-options { display: none; }
+body.js .accessibility-options {
 	height: 24px;
 	margin: 0 -10px;
 	padding: 0;
@@ -818,6 +844,13 @@ nav{
 @media screen and (max-width: 500px) {
 	.accessibility-bar.compact-mode .accessibility-shortcuts a:focus { transform: translate(-50%,160px); }
 }
+
+/*
+- ADICIONANDO JS NÃO OBSTRUSIVO
+*/
+
+.collapse:not(.show) { display: block; }
+body.js .collapse:not(.show) { display: none; }
 
 /*
 - ALTO CONTRASTE
