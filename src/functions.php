@@ -125,9 +125,9 @@ add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
 function tainacan_get_logo() {
 	if ( has_custom_logo() ) {
 		return get_custom_logo();
-	} else {	
+	} else {
 		$html = '<a class="navbar-brand tainacan-logo" href="' . esc_url( home_url() ) . '">';
-		$html .= '<h1>'. get_bloginfo( 'name' ) .'</h1>';
+		$html .= '<h1>' . get_bloginfo( 'name' ) . '</h1>';
 		$html .= '</a>';
 		return $html;
 	}

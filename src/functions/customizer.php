@@ -57,6 +57,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_setting( 'tainacan_footer_logo', array(
 		'capability' => 'manage_options',
+		'sanitize_callback' => 'tainacan_sanitize_upload',
 	) );
 
 	$wp_customize->add_control(
@@ -233,16 +234,39 @@ function tainacan_sanitize_email( $email, $setting ) {
  * - Sanitization: number
  * - Control: text
  *
- * @param string               $email   Email address to sanitize.
- * @param WP_Customize_Setting $setting Setting instance.
- * @return string The sanitized email if not null; otherwise, the setting default.
+ * @param string               $phone   Phone to sanitize.
+ * @return string The sanitized phone if the number is <= 18; otherwise, the setting default.
  */
 function tainacan_sanitize_phone( $phone ) {
-	// Strips out all characters that are not allowable in an email address.
-	$phone = preg_replace('/[^0-9 \\-\\(\\)\\+\\/]/', '', $phone);
+	// Replace out all characters that are not allowable in an phone number.
+	$phone = preg_replace( '/[^0-9 \\-\\(\\)\\+\\/]/', '', $phone );
 
-	// If $email is a valid email, return it; otherwise, return the default.
-	return ( strlen($phone) <= 18 ? $phone : '' );
+	// If $phone is a valid number and <= 18, return it; otherwise, ''.
+	return ( strlen( $phone ) <= 18 ? $phone : '' );
+}
+
+/**
+ * Tainacan Upload sanitization callback.
+ *
+ * - Sanitization: upload
+ * - Control: file
+ *
+ */
+function tainacan_sanitize_upload( $input ) {
+
+	/* default output */
+	$output = '';
+
+	/* check file type */
+	$filetype = wp_check_filetype( $input );
+	$mime_type = $filetype['type'];
+
+	/* only mime type "image" allowed */
+	if ( strpos( $mime_type, 'image' ) !== false ) {
+		$output = $input;
+	}
+
+	return $output;
 }
 
 /**
@@ -387,8 +411,8 @@ if ( ! function_exists( 'tainacan_get_color_scheme' ) ) :
 	 */
 	function tainacan_get_color_scheme() {
 		$color_scheme_option = get_theme_mod( 'tainacan_color_scheme', 'default' );
-		$link_color = get_theme_mod( 'tainacan_link_color', 'default' ); // sanitized upon save 
-		$tooltip_color = get_theme_mod( 'tainacan_tooltip_color', 'default' ); // sanitized upon save 
+		$link_color = get_theme_mod( 'tainacan_link_color', 'default' ); // sanitized upon save
+		$tooltip_color = get_theme_mod( 'tainacan_tooltip_color', 'default' ); // sanitized upon save
 		$color_schemes       = tainacan_get_color_schemes();
 
 		if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {

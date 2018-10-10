@@ -36,8 +36,8 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Google
 		 */
-		 	// Google fonts Roboto
-		 	wp_enqueue_style( 'tainacan_RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+			// Google fonts Roboto
+			wp_enqueue_style( 'tainacan_RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
 			// Material Icons
 			wp_register_style( 'tainacan_MaterialIconsFonts', get_template_directory_uri() . '/assets/fonts/material-design-icons/css/materialdesignicons.min.css', '', '2.4.85');
 			wp_enqueue_style( 'tainacan_MaterialIconsFonts' );
@@ -47,8 +47,8 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 */
 			wp_enqueue_script( 'tainacan_tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), '1.0', false );
 			wp_localize_script( 'tainacan_tainacanTruncate', 'tainacan_trucanteVars', array(
-				"moreText" => __('More', 'tainacan-interface'),
-				"lessText" => __('Less', 'tainacan-interface')
+				'moreText' => __( 'More', 'tainacan-interface' ),
+				'lessText' => __( 'Less', 'tainacan-interface' ),
 			));
 
 			wp_register_style( 'tainacan_tainacanStyle', get_stylesheet_uri(), array( 'tainacan_bootstrap4CSS' ) );

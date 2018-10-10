@@ -26,8 +26,7 @@
 						}
 						echo '</p>';
 					}
-				?>
-				<?php 
+
 					if ( get_option( 'tainacan_blogemail' ) ) {
 						echo '<p class="tainacan-footer-info--blog">';
 						printf( __( 'E-mail: %s', 'tainacan-interface' ), sanitize_email(get_option( 'tainacan_blogemail', '' )) );
