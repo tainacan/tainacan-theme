@@ -95,12 +95,12 @@ function tainacan_filter_cancel_comment_reply_link( $formatted_link, $link, $tex
 add_filter( 'cancel_comment_reply_link', 'tainacan_filter_cancel_comment_reply_link', 10, 3 );
 
 function tainacan_social_meta() {
-	global $post;
 
 	if ( is_single() || is_tax() || is_archive() ) {
 
 		$logo = get_template_directory_uri() . '/assets/images/social-logo.png';
 		global $wp;
+			
 		if ( is_post_type_archive( 'tainacan-collection' ) ) {
 			// TODO: this is wrong, we should check if it a archive of collection items, not archive of collections
 			$title = tainacan_get_the_collection_name();
@@ -108,6 +108,10 @@ function tainacan_social_meta() {
 			$url_src = home_url( $wp->request );
 			$excerpt = tainacan_get_the_collection_description();
 		} else {
+			global $post;
+
+			if ( !is_object($post) ) { return; }
+
 			$title = get_the_title();
 			$img_info = ( has_post_thumbnail( $post->ID ) ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ) : $logo;
 			$url_src = get_permalink();
