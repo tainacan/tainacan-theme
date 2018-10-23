@@ -623,14 +623,18 @@ nav{
 	background-color: #cbcbcb;
 	display: flex;
 	margin: 0 auto;
-	> h4 {
+	> .title-initials {
 		/* align-self: center;
 		text-align: center;
 		width: 100%; */
 		flex: auto;
 		margin-top: auto;
 		margin-bottom: auto;
-		color: #fff
+		color: #fff;
+		font-size: 1.5rem;
+		text-decoration: none;
+		cursor: text;
+		border-bottom: none;
 	}
 }
 
@@ -915,7 +919,7 @@ body.contraste .collection-header--share .btn .mdi.mdi-share-variant,
 body.contraste .collection-header--share .btn .mdi,
 body.contraste .t-bg-collection .t-collection--info .t-collection--info-title,
 body.contraste .t-bg-collection .t-collection--info .t-collection--col-9,
-body.contraste .image-placeholder>h4,
+body.contraste .image-placeholder>.title-initials,
 body.contraste .t-bg-collection .t-collection--info .t-collection--col-3,
 body.contraste .accessibility-shortcuts,
 body.contraste .accessibility-shortcuts li,
