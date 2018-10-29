@@ -417,11 +417,14 @@
                     }
                     .s-item-collection--metadata{
                         div {
-                            /* -webkit-column-break-inside: avoid;
-                            -moz-column-break-inside:avoid;
-                            -moz-page-break-inside:avoid;
+                            -webkit-column-break-inside: avoid;
                             page-break-inside: avoid;
-                            break-inside: avoid-column; */
+                            break-inside: avoid;
+                            &:last-child {
+                                -webkit-column-break-inside: auto;
+                                page-break-inside: auto;
+                                break-inside: auto;
+                            }
                         }
                         @media only screen and (min-width: 768px){
                             -moz-column-count: 2;
