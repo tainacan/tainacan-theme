@@ -2,9 +2,9 @@
 php -r '
 echo "\n ..::Tainacan Theme::..\n";
 
-echo "\nStarting installation with composer ... please wait!!\n";
+echo "\nInitiating the installation with composer ... please wait!!\n";
 
-echo "\nStarting Copying Files...\n\n";
+echo "\nInitiating the copying of files...\n\n";
 
 echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
 
