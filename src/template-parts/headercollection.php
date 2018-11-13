@@ -91,9 +91,7 @@ echo '</style>';
 				<?php $tainacan_collection_description = tainacan_get_the_collection_description(); ?>
 				<?php if ( ! empty( $tainacan_collection_description ) || has_action( 'tainacan-interface-collection-description' ) ) : ?>
 					<div class="text-white t-collection--info-description-text tainacan-interface-truncate">
-						<?php
-							tainacan_the_collection_description();
-						?>
+						<?php tainacan_the_collection_description(); ?>
 						<?php do_action( 'tainacan-interface-collection-description' ); ?>
 						<a class="toggle" href="#"></a>
 					</div>
