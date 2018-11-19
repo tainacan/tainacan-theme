@@ -21,7 +21,7 @@ msgstr ""
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
 "_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:9
@@ -183,8 +183,6 @@ msgid "Upload a logo to the footer"
 msgstr "Suba uma imagem de logo para o rodapé"
 
 #: functions/customizer.php:86
-#, fuzzy
-#| msgid "Display \"Proudly Powered by\""
 msgid "Display \"Proudly Powered by...\""
 msgstr "Exibir \"Orgulhosamente feito com...\""
 

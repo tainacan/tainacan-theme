@@ -11,6 +11,9 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	 * Observe que esta função está conectada ao gancho after_setup_theme, que é executado antes do gancho de init.
 	 */
 	function tainacan_setup() {
+		
+		load_theme_textdomain( 'tainacan-interface', get_template_directory() . '/languages' );
+		
 		/**
 		 * Display in gutenberg plugin the full width for image
 		 */
