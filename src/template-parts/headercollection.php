@@ -1,9 +1,9 @@
 <?php
 echo '<style>
-.t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore .toggle::before {
+.t-bg-collection .t-collection--info .t-collection--info-description-text.tainacan-interface-truncate .toggle::before {
 	content: "[ ' . __( 'Show more', 'tainacan-interface' ) . ' ]";
 }
-.t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore.full-story .toggle::before {
+.t-bg-collection .t-collection--info .t-collection--info-description-text.tainacan-interface-truncate.full-story .toggle::before {
 	content: "[ ' . __( 'Show less', 'tainacan-interface' ) . ' ]";
 }
 nav.menu-belowheader #menubelowHeader ul.dropdown-menu {
