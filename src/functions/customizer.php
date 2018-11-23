@@ -720,6 +720,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 		border: 3px solid {$colors['tainacan_link_color']};
 	}
 
+	#return-to-top {
+		background-color: {$colors['tainacan_link_color']};
+	}
+
 	{$filter}
 	
 CSS;
