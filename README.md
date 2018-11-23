@@ -15,3 +15,5 @@ Default Tainacan Theme, to be used with tainacan plugin
     - sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 - Execute o build
     - ./build.sh
+    
+   #Teste Commit
