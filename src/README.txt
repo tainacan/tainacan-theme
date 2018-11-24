@@ -1,4 +1,4 @@
-=== Tainacan Interface ===
+=== Tainacan Interface Teste ===
 Contributors: andrebenedito, fabianobn, jacsonp, leogermani, weryques, wetah
 Requires at least: WordPress 4.8
 Tested up to: WordPress 4.9.8
