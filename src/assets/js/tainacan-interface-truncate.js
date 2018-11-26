@@ -15,7 +15,7 @@
 		var minimized_elements = $( this );
 
 		minimized_elements.each(function(){
-			var t = $.trim(minimized_elements.text());
+			var t = minimized_elements.html();
 			if (t.length <= config.minChars) { return };
 
 			$( this ).html(

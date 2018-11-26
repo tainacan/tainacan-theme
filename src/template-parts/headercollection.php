@@ -87,7 +87,6 @@ echo '</style>';
 					<div class="text-white t-collection--info-description-text tainacan-interface-truncate">
 						<?php tainacan_the_collection_description(); ?>
 						<?php do_action( 'tainacan-interface-collection-description' ); ?>
-						<a class="toggle" href="#"></a>
 					</div>
 				<?php endif; ?>
 			</div>
