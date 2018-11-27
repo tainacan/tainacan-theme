@@ -706,6 +706,24 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
+	.slide-control-arrow .icon .mdi::before {
+		color: {$colors['tainacan_link_color']};
+	}
+	#tainacan-slide-container .tainacan-slide-item.active-item img {
+		border-bottom: 4px solid {$colors['tainacan_link_color']};
+	}
+	.metadata-menu .metadata-menu-header hr {
+		background-color: {$colors['backtransparent']};
+	}
+
+	.slide-title-area .play-button .icon {
+		border: 3px solid {$colors['tainacan_link_color']};
+	}
+
+	#return-to-top {
+		background-color: {$colors['tainacan_link_color']};
+	}
+
 	{$filter}
 	
 CSS;

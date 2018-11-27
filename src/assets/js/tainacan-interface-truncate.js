@@ -1,8 +1,15 @@
 (function($) {
 	$.fn.tainacan_interface_truncate = function (settings) {
+		if(window.innerWidth <= 576) {
+			count = 150;
+		}else if(window.innerWidth <= 360) {
+			count = 87;
+		} else {
+			count = 350;
+		}
 		var config = {
-			showChars: 350,
-			minChars: 100,
+			showChars: count,
+			minChars: count,
 			ellipsesText: "...",
 			moreText: tainacan_trucanteVars.moreText,
 			lessText: tainacan_trucanteVars.lessText
@@ -15,8 +22,8 @@
 		var minimized_elements = $( this );
 
 		minimized_elements.each(function(){
-			var t = $( this ).text();
-			if (t.length < config.minChars) { return };
+			var t = minimized_elements.html();
+			if (t.length <= config.minChars) { return };
 
 			$( this ).html(
 				t.slice( 0,config.showChars ) + '<span>' + config.ellipsesText + ' </span><a href="#" class="tainacan-interface-more">[ ' + config.moreText + ' ]</a>' + '<span style="display:none;">' + t.slice( config.showChars,t.length ) + ' <a href="#" class="tainacan-interface-less">[ ' + config.lessText + ' ]</a></span>'

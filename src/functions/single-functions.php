@@ -99,15 +99,19 @@ function tainacan_social_meta() {
 	if ( is_single() || is_tax() || is_archive() ) {
 
 		$logo = get_template_directory_uri() . '/assets/images/social-logo.png';
+		$excerpt = get_bloginfo( 'description' );
+		$url_src = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		global $wp;
 			
-		if ( is_post_type_archive( 'tainacan-collection' ) ) {
-			// TODO: this is wrong, we should check if it a archive of collection items, not archive of collections
-			$title = tainacan_get_the_collection_name();
-			$img_info = ( has_post_thumbnail( tainacan_get_collection_id() ) ) ? wp_get_attachment_image_src( get_post_thumbnail_id( tainacan_get_collection_id() ), 'full' ) : $logo;
-			$url_src = home_url( $wp->request );
-			$excerpt = tainacan_get_the_collection_description();
-		} else {
+		if ( is_post_type_archive() ) {
+			$collection_id = tainacan_get_collection_id();
+			if ($collection_id) {
+				$title = tainacan_get_the_collection_name();
+				$img_info = ( has_post_thumbnail( tainacan_get_collection_id() ) ) ? wp_get_attachment_image_src( get_post_thumbnail_id( tainacan_get_collection_id() ), 'full' ) : $logo;
+				$url_src = home_url( $wp->request );
+				$excerpt = tainacan_get_the_collection_description();
+			}
+		} elseif ( is_singular() ) {
 			global $post;
 
 			if ( !is_object($post) ) { return; }
@@ -119,9 +123,38 @@ function tainacan_social_meta() {
 			if ( $content ) {
 				$excerpt = strip_tags( $content );
 				$excerpt = str_replace( '', "'", $excerpt );
-			} else {
-				$excerpt = get_bloginfo( 'description' );
+			} 
+		} elseif ( is_tax() ) {
+			$term = get_queried_object();
+			$tainacan_term = tainacan_get_term();
+			
+			$title = $term->name;
+			$excerpt = $term->description;
+			
+			$url_src = get_term_link($term->term_id, $term->taxonomy);
+
+			if ($tainacan_term) {
+				$_term = new \Tainacan\Entities\Term( $tainacan_term );
+				$img_id = $_term->get_header_image_id();
+				if ($img_id) {
+					$img_info = wp_get_attachment_image_src( $img_id, 'full' );
+				}
 			}
+			
+		} else {
+			
+			if ( is_day() ) :
+				$title =  sprintf( __( 'Daily Archives: %s', 'tainacan-interface' ), get_the_date() );
+			elseif ( is_month() ) :
+				$title =  sprintf( __( 'Monthly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'tainacan-interface' ) ) );
+			elseif ( is_year() ) :
+				$title =  sprintf( __( 'Yearly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-interface' ) ) );
+			elseif ( is_author() ) :
+				$title = get_the_author();
+			else :
+				$title = get_the_archive_title();
+			endif;
+			
 		}
 
 		$image = array(

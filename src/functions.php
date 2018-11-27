@@ -11,6 +11,9 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	 * Observe que esta função está conectada ao gancho after_setup_theme, que é executado antes do gancho de init.
 	 */
 	function tainacan_setup() {
+		
+		load_theme_textdomain( 'tainacan-interface', get_template_directory() . '/languages' );
+		
 		/**
 		 * Display in gutenberg plugin the full width for image
 		 */
@@ -24,10 +27,10 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 */
 		$header_args = array(
 			//'default-text-color' => '000',
-			'width'              => 1280,
+			'width'              => 2000,
 			'height'             => 280,
 			'header-text'		 => false,
-			'flex-width'         => false,
+			'flex-width'         => true,
 			'flex-height'        => true,
 		);
 		add_theme_support( 'custom-header', $header_args );

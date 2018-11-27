@@ -1,11 +1,5 @@
 <?php
 echo '<style>
-.t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore .toggle::before {
-	content: "[ ' . __( 'Show more', 'tainacan-interface' ) . ' ]";
-}
-.t-bg-collection .t-collection--info .t-collection--info-description-text.dotmore.full-story .toggle::before {
-	content: "[ ' . __( 'Show less', 'tainacan-interface' ) . ' ]";
-}
 nav.menu-belowheader #menubelowHeader ul.dropdown-menu {
 	min-width: 10rem !important;
 }';
@@ -95,11 +89,8 @@ echo '</style>';
 					<?php $tainacan_collection_description = tainacan_get_the_collection_description(); ?>
 					<?php if ( ! empty( $tainacan_collection_description ) || has_action( 'tainacan-interface-collection-description' ) ) : ?>
 						<div class="text-white t-collection--info-description-text tainacan-interface-truncate">
-							<?php
-								tainacan_the_collection_description();
-							?>
+							<?php tainacan_the_collection_description(); ?>
 							<?php do_action( 'tainacan-interface-collection-description' ); ?>
-							<a class="toggle" href="#"></a>
 						</div>
 					<?php endif; ?>
 				</div>

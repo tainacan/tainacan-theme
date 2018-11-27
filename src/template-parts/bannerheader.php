@@ -27,6 +27,7 @@
 					}
 				} ?>
 			</h2>
+			<?php do_action( 'tainacan-interface-banner-header-description' ); ?>
 		</div>
 	</div>
 </div>

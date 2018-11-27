@@ -336,13 +336,14 @@
                         }
                     }
                     .tainacan-embed-container{
-                        @media only screen and (min-width: 768px){
-                            iframe {
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                width: 100%;
-                                height: 100%;
+                        iframe {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            
+                            @media only screen and (min-width: 768px){
+                                width: 70vw;
+                                height: 70vh;
                             }
                         }
                     }
@@ -417,11 +418,14 @@
                     }
                     .s-item-collection--metadata{
                         div {
-                            /* -webkit-column-break-inside: avoid;
-                            -moz-column-break-inside:avoid;
-                            -moz-page-break-inside:avoid;
+                            -webkit-column-break-inside: avoid;
                             page-break-inside: avoid;
-                            break-inside: avoid-column; */
+                            break-inside: avoid;
+                            &:last-child {
+                                -webkit-column-break-inside: auto;
+                                page-break-inside: auto;
+                                break-inside: auto;
+                            }
                         }
                         @media only screen and (min-width: 768px){
                             -moz-column-count: 2;
