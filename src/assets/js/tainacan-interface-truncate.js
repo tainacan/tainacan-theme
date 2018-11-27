@@ -1,8 +1,13 @@
 (function($) {
 	$.fn.tainacan_interface_truncate = function (settings) {
+		if(window.innerWidth <= 360) {
+			count = 98;
+		}else {
+			count = 350;
+		}
 		var config = {
-			showChars: 350,
-			minChars: 350,
+			showChars: count,
+			minChars: count,
 			ellipsesText: "...",
 			moreText: tainacan_trucanteVars.moreText,
 			lessText: tainacan_trucanteVars.lessText
