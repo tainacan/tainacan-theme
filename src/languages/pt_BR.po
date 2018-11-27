@@ -21,7 +21,7 @@ msgstr ""
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
 "_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:9
@@ -68,7 +68,7 @@ msgstr "Buscar coleções"
 #: comments.php:24
 #, php-format
 msgid "You must be %1$slogged%2$s in to post a comment."
-msgstr "Você precisa estar %sconectado%s para publicar um comentário."
+msgstr "Você precisa estar %1$sconectado%2$s para publicar um comentário."
 
 #: comments.php:28
 msgid "Leave your comment"
