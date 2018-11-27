@@ -1,8 +1,10 @@
 (function($) {
 	$.fn.tainacan_interface_truncate = function (settings) {
-		if(window.innerWidth <= 360) {
-			count = 98;
-		}else {
+		if(window.innerWidth <= 576) {
+			count = 150;
+		}else if(window.innerWidth <= 360) {
+			count = 87;
+		} else {
 			count = 350;
 		}
 		var config = {
