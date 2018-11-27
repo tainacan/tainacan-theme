@@ -381,7 +381,7 @@ msgstr "Descrição não foi informada"
 
 #: template-parts/loop.php:11
 msgid "Blog Posts"
-msgstr "Posts do Blog"
+msgstr "Publicações do Blog"
 
 #: template-parts/loop.php:16
 msgid "Search Results for"
