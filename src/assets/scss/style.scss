@@ -389,7 +389,7 @@ nav{
         height: 400px;
         > div {
             &.ph-title-description{
-                @media only screen and (min-width: 768px){
+                @media only screen and (min-width: 577px){
                     margin-bottom: 3.75rem;
                 }
             }
