@@ -584,7 +584,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['backtransparent']};
 	}
-	.tainacan-single-post #comments .title-leave {
+	.tainacan-single-post #comments .title-leave,
+	.tainacan-single-post article .title-content-items {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 	footer hr.bg-scooter {
@@ -605,6 +606,43 @@ function tainacan_get_color_scheme_css( $colors ) {
 	/**
 	* Plugin Tainacan
 	*/
+	/* Selected Item background ------------------------------------------- */
+	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row,
+	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row .checkbox-cell .checkbox, 
+	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row .actions-cell .actions-container
+	.tainacan-cards-container .selected-card .metadata-title,
+	.tainacan-records-container .selected-record .metadata-title,
+	.tainacan-grid-container .selected-grid-item.
+	.tainacan-masonry-container .selected-masonry-item {
+		background-color: {$colors['tainacan_link_color']};
+	}
+	/* // - Selected Item Title ------------------------------------------- */
+	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row has-text-secondary,
+	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row p,
+	.tainacan-cards-container .selected-card .metadata-title p,
+	.tainacan-records-container .selected-record .metadata-title p{
+		color: {$colors['tainacan_link_color']} !important;
+	}
+	/* // - Selected Item Checkbox ------------------------------------------- */
+	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row checkbox-cell .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+	.tainacan-cards-container .selected-card .card-checkbox .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+	.tainacan-grid-container .selected-grid-item .grid-item-checkbox .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+	.tainacan-masonry-container .selected-masonry-item .masonry-item-checkbox .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+	.tainacan-records-container .selected-record .record-checkbox .b-checkbox.checkbox input[type="checkbox"]:checked + .check  {
+		background-color: transparent;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath style='fill:rgb(255,255,255)' d='M 0.04038059,0.6267767 0.14644661,0.52071068 0.42928932,0.80355339 0.3232233,0.90961941 z M 0.21715729,0.80355339 0.85355339,0.16715729 0.95961941,0.2732233 0.3232233,0.90961941 z'%3E%3C/path%3E%3C/svg%3E");
+		border-color: {$colors['tainacan_link_color']} !important;
+	}
+	/** Abas no modal de termos */
+	.tainacan-finder-columns-container .tabs li.is-active a {
+		border-bottom-color: INSERIR COR;
+		color: black;
+	}
+	/* Setinhas no mesmo modal */
+	.tainacan-finder-columns-container a .tainacan-icon {
+		color: INSERIR COR;
+	}
+
 	/* Dropdown Arrow */
 	.theme-items-list .dropdown .dropdown-trigger .button .icon, 
 	.theme-items-list .autocomplete .dropdown-trigger .button .icon {
