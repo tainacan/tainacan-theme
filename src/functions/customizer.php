@@ -633,9 +633,15 @@ function tainacan_get_color_scheme_css( $colors ) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath style='fill:rgb(255,255,255)' d='M 0.04038059,0.6267767 0.14644661,0.52071068 0.42928932,0.80355339 0.3232233,0.90961941 z M 0.21715729,0.80355339 0.85355339,0.16715729 0.95961941,0.2732233 0.3232233,0.90961941 z'%3E%3C/path%3E%3C/svg%3E");
 		border-color: {$colors['tainacan_link_color']} !important;
 	}
+	.tainacan-slide-main-view .slide-control-arrow .icon .tainacan-icon::before {
+		color: {$colors['tainacan_link_color']};
+	}
+	.tainacan-slides-list #tainacan-slide-container .tainacan-slide-item.active-item img {
+		border-bottom: 4px solid {$colors['tainacan_link_color']};
+	}
 	/** Abas no modal de termos */
 	.tainacan-finder-columns-container .tabs li.is-active a {
-		border-bottom-color: INSERIR COR;
+		border-bottom-color: {$colors['tainacan_link_color']};
 		color: black;
 	}
 	/* Setinhas no mesmo modal */
