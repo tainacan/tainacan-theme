@@ -640,7 +640,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 	/* Setinhas no mesmo modal */
 	.tainacan-finder-columns-container a .tainacan-icon {
-		color: INSERIR COR;
+		color: {$colors['tainacan_link_color']};
 	}
 
 	/* Dropdown Arrow */
