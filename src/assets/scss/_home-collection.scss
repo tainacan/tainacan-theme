@@ -98,7 +98,7 @@
                 margin-top: 0.5rem;
             }
             &.tainacan-interface-truncate {
-                height: 65px;
+                min-height: 65px;
                 margin-bottom: 2rem;
                 .tainacan-interface-more, .tainacan-interface-less {
                     color: rgba(255, 255, 255, 0.60);
@@ -106,7 +106,7 @@
                 }
                 &.full-story {
                     height: auto;
-                    margin-bottom: 1rem;
+                    margin-bottom: 2rem;
                 }
             }
         }
