@@ -616,6 +616,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-masonry-container .selected-masonry-item {
 		background-color: {$colors['tainacan_link_color']};
 	}
+	.toast.is-secondary {
+        background-color: {$colors['tainacan_link_color']};
+	}
 	/* // - Selected Item Title ------------------------------------------- */
 	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row has-text-secondary,
 	.table-container .table-wrapper table.tainacan-table tbody tr.selected-row p,
