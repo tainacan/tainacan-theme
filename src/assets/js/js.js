@@ -99,4 +99,17 @@ jQuery( document ).ready(function( $ ) {
 	$( ".trigger" ).click( function() {
 		$( ".collection-header--share" ).toggleClass( "active" );
 	});
+	$('#menubelowHeader .dropdown-menu a.dropdown-toggle').addClass('dropdown-submenu');
+	$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+		if (!$(this).next().hasClass('show')) {
+		  $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+		}
+		var $subMenu = $(this).next(".dropdown-menu");
+		$subMenu.toggleClass('show');
+		if($subMenu.hasClass('show')) {
+			$subMenu.find('.dropdown-submenu').attr('style', 'padding-left: 3rem !important');
+			$subMenu.find('.dropdown-item').attr('style', 'padding-left: 3rem');
+		}
+		return false;
+	});
 });

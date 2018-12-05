@@ -16,14 +16,13 @@
 			<?php /* if(wp_is_mobile()) echo $bread; */ ?>
 				<?php
 					wp_nav_menu( array(
-						'theme_location'	=> 'navMenubelowHeader',
-						'depth'				=> 2, // 1 = with dropdowns, 0 = no dropdowns.
-						'container'			=> 'div',
-						'container_class'	=> 'collapse navbar-collapse',
-						'container_id'		=> 'menubelowHeader',
-						'menu_class'		=> 'navbar-nav mr-auto',
-						'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
-						'walker'			=> new WP_Bootstrap_Navwalker(),
+						'theme_location'  => 'navMenubelowHeader',
+						'container'       => 'div',
+						'container_class' => 'collapse navbar-collapse',
+						'container_id'    => 'menubelowHeader',
+						'menu_class'      => 'navbar-nav mr-auto',
+						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'          => new WP_Bootstrap_Navwalker(),
 					) );
 				?>
 		</div>
