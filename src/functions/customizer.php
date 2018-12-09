@@ -516,8 +516,8 @@ add_action( 'wp_head', 'tainacan_color_scheme_css' );
  * @since Tainacan Theme
  */
 function tainacan_customize_control_js() {
-	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/assets/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20160816', true );
-	wp_localize_script( 'color-scheme-control', 'colorScheme', tainacan_get_color_schemes() );
+	wp_enqueue_script( 'tainacan-color-scheme-control', get_template_directory_uri() . '/assets/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20160816', true );
+	wp_localize_script( 'tainacan-color-scheme-control', 'TainacanColorScheme', tainacan_get_color_schemes() );
 }
 add_action( 'customize_controls_enqueue_scripts', 'tainacan_customize_control_js' );
 

@@ -1,4 +1,4 @@
-/* global colorScheme, Color */
+/* global TainacanColorScheme, Color */
 /**
  * Add a listener to the Color Scheme control to update other color controls to new values/defaults.
  * Also trigger an update of the Color Scheme CSS when a color is changed.
@@ -23,7 +23,7 @@
 		ready: function() {
 			if ( 'tainacan_color_scheme' === this.id ) {
 				this.setting.bind( 'change', function( value ) {
-					var colors = colorScheme[value].colors;
+					var colors = TainacanColorScheme[value].colors;
 
 					// Update Link Color.
 					color = colors[2];
@@ -60,7 +60,7 @@
 	function updateCSS() {
 		var scheme = api( 'tainacan_color_scheme' )(),
 			css,
-			colors = _.object( colorSchemeKeys, colorScheme[ scheme ].colors );
+			colors = _.object( colorSchemeKeys, TainacanColorScheme[ scheme ].colors );
 
 		// Merge in color scheme overrides.
 		_.each( colorSettings, function( setting ) {
