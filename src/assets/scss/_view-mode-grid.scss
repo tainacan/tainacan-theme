@@ -21,19 +21,33 @@
         display: block;
         text-decoration: none !important;
 
-        .thumbnail-container {
-            margin: 0;
-            padding: 0;
-            background-color: #f6f6f6;
+        .grid-item-thumbnail {
+            width: 255px;
             height: 255px;
-        }
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            display: block;
+            position: relative;
 
-        img {
-            max-width: 255px;
-            max-height: 255px;
-            width: auto;
-            height: auto;
-            border-radius: 0px;
+            .skeleton {
+                width: 255px;
+                height: 255px;
+                position: absolute;
+                z-index: -1;
+                background-color: #e0e0e0;
+                bottom: 0;
+            }
+            
+            img {
+                width: 255px;
+                height: 255px;
+                height: auto;
+                border-radius: 0px;
+                margin-bottom: -5px;
+                visibility: hidden;
+            }
         }
 
         &:hover {
