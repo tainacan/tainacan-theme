@@ -72,6 +72,20 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 				'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
 				'dynamic_metadata' => false,
 				'template' => get_template_directory() . '/tainacan/view-mode-grid.php',
+				'skeleton_template' => '<div class="tainacan-grid-container">
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+							</div>'
 			));
 		}
 

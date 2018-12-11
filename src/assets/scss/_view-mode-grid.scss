@@ -6,20 +6,23 @@
     grid-template-columns: repeat(auto-fill, 285px);
     grid-gap: 0px;
     justify-content: space-evenly;
-    animation-name: item-appear;
+    animation-name: appear;
     animation-duration: 0.5s;
 
     .row { justify-content: space-around }
     .col { flex-grow: 0; }
 
     .tainacan-grid-item {
-        animation-name: item-appear;
-        animation-duration: 0.5s;
-        max-width: 255px;
+        width: 255px;
         margin: 12px 15px 24px 15px;
         text-align: center;
         display: block;
         text-decoration: none !important;
+
+        &.skeleton {
+            width: 255px;
+            height: 295px;
+        }
 
         .grid-item-thumbnail {
             width: 255px;
