@@ -14,9 +14,11 @@ jQuery( document ).on( 'tainacan-collection-hook-reload', function() {
 		],
 		move: function( color ) {
 			jQuery( '.color-text' ).css( 'background-color', color.toHexString() );
+			jQuery( '#colorpicker' ).attr( 'value', color.toHexString() );
 		},
 		change: function( color ) {
 			jQuery( '.color-text' ).css( 'background-color', color.toHexString() );
+			jQuery( '#colorpicker' ).attr( 'value', color.toHexString() );
 		}
 	});
 	jQuery( '.color-text' ).css( 'background-color', jQuery( '.sp-preview-inner' ).css( "background-color" ) );
