@@ -48,7 +48,7 @@ function the_breadcrumb() {
 				$post_type = get_post_type_object(get_post_type());
 				$slug = $post_type->rewrite;
 				if(!is_page() && get_post_type() != 'tainacan-collection') {
-					echo '<a href="' . $homeLink . '/' . __('collections', 'tainacan-interface').'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
+					echo '<a href="'. get_post_type_archive_link('tainacan-collection') .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 				}
 				echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
 				if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
@@ -63,7 +63,7 @@ function the_breadcrumb() {
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			$post_type = get_post_type_object(get_post_type());
 			if(!is_page() && get_post_type() != 'tainacan-collection') {
-				echo '<a href="' . $homeLink . '/' . __('collections', 'tainacan-interface').'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
+				echo '<a href="'. get_post_type_archive_link('tainacan-collection') .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 			}
 			echo $before . $post_type->labels->singular_name . $after;
 
