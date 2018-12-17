@@ -21,6 +21,8 @@
 							printf( __( 'Yearly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-interface' ) ) );
 						elseif ( is_author() ) :
 							echo get_the_author();
+						elseif ( 'tainacan-collection' == get_post_type() ) :
+							echo get_the_archive_title();
 						else :
 							echo tainacan_the_collection_name();
 						endif;
