@@ -22,7 +22,7 @@
 						elseif ( is_author() ) :
 							echo get_the_author();
 						else :
-							echo get_the_archive_title();
+							echo tainacan_the_collection_name();
 						endif;
 					}
 				} ?>
