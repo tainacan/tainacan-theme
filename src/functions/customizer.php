@@ -671,12 +671,14 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Select Arrow */
-	.theme-items-list .select:not(.is-loading)::after {
+	.theme-items-list .select:not(.is-loading)::after
+	.tainacan-modal-content .select:not(.is-loading)::after ,{
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
 	/* Anchor tag, links */
-	.theme-items-list a, .theme-items-list a:hover {
+	.theme-items-list a, .theme-items-list a:hover,
+	.tainacan-modal-content a, .tainacan-modal-content a:hover  {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
@@ -689,7 +691,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Colored text */
-	.theme-items-list .has-text-secondary {
+	.theme-items-list .has-text-secondary,
+	.tainacan-modal-content .has-text-secondary {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
