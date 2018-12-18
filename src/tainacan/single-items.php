@@ -13,7 +13,12 @@
 						<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 							<ul class="list-inline mb-1">
 								<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-									<?php the_title(); ?>
+									<?php the_title(); ?> 
+									<?php if(function_exists('tainacan_the_item_edit_link')) {
+										echo '<span class="tainacan-edit-item-collection">';
+											tainacan_the_item_edit_link(null, ' - ');
+										echo '</span>';
+									} ?>
 								</li>
 								<li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
 							</ul>
