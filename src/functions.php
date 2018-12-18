@@ -236,3 +236,4 @@ require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
 require get_template_directory() . '/functions/class-tainacanthemecollectioncolor.php';
+require get_template_directory() . '/functions/breadcrumb.php';
