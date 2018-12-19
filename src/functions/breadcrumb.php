@@ -17,7 +17,7 @@ function the_breadcrumb() {
 
 	if (is_home() || is_front_page()) {
 
-		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 margin-one-column"><a href="' . $homeLink . '">' . $home . '</a></nav>';
+		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a></nav>';
 
 	} else {
 
