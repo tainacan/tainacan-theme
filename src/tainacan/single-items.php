@@ -77,7 +77,7 @@
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachment as $attachment ) { ?>
 											<div class="single-item-collection--attachments-img">
-												<a href="<?php echo $attachment->guid; ?>" target="_BLANK">
+												<a href="<?php echo $attachment->guid; ?>" data-toggle="lightbox" data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments' );
 													?>
