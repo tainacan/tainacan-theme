@@ -595,7 +595,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 	/**
 	* Tainacan Collections
 	*/
-	.tainacan-collection-list--simple-search .dropdown #dropdownMenuSorting::after, .tainacan-collection-list--simple-search .dropdown #dropdownMenuViewMode::after {
+	.tainacan-collection-list--simple-search .dropdown #dropdownMenuSorting::after, 
+	.tainacan-collection-list--simple-search .dropdown #dropdownMenuViewMode::after {
 		color: {$colors['tainacan_link_color']};
 	}
 	
@@ -671,14 +672,16 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Select Arrow */
-	.theme-items-list .select:not(.is-loading)::after
-	.tainacan-modal-content .select:not(.is-loading)::after ,{
+	.theme-items-list .select:not(.is-loading)::after,
+	.tainacan-modal-content .select:not(.is-loading)::after {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
-	/* Anchor tag, links */
+	/* Anchor tag, links, buttons styled as links */
 	.theme-items-list a, .theme-items-list a:hover,
-	.tainacan-modal-content a, .tainacan-modal-content a:hover  {
+	.tainacan-modal-content a, .tainacan-modal-content a:hover,
+	.theme-items-list button.link-style, .theme-items-list button.link-style:hover,
+	.tainacan-modal-content button.link-style, .tainacan-modal-content button.link-style:hover   {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
