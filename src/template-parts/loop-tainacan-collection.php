@@ -6,8 +6,10 @@
 					<a class="tainacan-list-collection--card-link" href="<?php the_permalink(); ?>">
 						<h5 class="tainacan-list-collection--title text-black text-left p-3 mb-0 text-truncate"><?php the_title(); ?></h5>
 						<div class="media">
-							<?php if ( has_post_thumbnail() ) : ?>
-								<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'collection-list-card' ) ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="">  
+							<?php if ( has_post_thumbnail() ) : 
+								$thumbnail_id = get_post_thumbnail_id( $post->ID );
+								$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+								<img src="<?php the_post_thumbnail_url( 'collection-list-card' ) ?>" class="tainacan-list-collection--card-img rounded-0 align-self-center mr-3" alt="<?php echo esc_attr($alt); ?>">  
 							<?php else : ?>
 								<div class="image-placeholder">
 									<h4>
