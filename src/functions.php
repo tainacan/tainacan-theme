@@ -52,7 +52,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 				),
 			)
 		); */
-		require_once( 'functions/enqueues.php' );
+		require_once get_template_directory() . '/functions/enqueues.php' ;
 
 		/**
 		 * Custom logo to change the logo image
