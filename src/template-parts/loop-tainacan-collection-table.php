@@ -36,7 +36,7 @@
 		</table>
 	</div>
 
-	<?php echo tainacan_pagination( 3 ); ?>
+	<?php echo tainacan_pagination(); ?>
 
 <?php else : ?>
 	<?php _e( 'Nothing found', 'tainacan-interface' ); ?>
