@@ -673,7 +673,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 
 	/* Select Arrow */
 	.theme-items-list .select:not(.is-loading)::after,
-	.tainacan-modal-content .select:not(.is-loading)::after {
+	.tainacan-modal-content .select:not(.is-loading)::after,
+	button.link-style, 
+	button.link-style:focus,
+	button.link-style:hover {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
