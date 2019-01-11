@@ -509,6 +509,9 @@ nav{
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
+            .tainacan-edit-item-collection {
+                font-size: 1rem;
+            }
         }
         .title-back{
             font: {
@@ -606,3 +609,12 @@ nav{
 @import "_footer";
 
 @import "_view-mode-grid.scss";
+
+.ekko-lightbox-nav-overlay {
+    a {
+        opacity: 1;
+        span {
+            padding: 0;
+        }
+    }
+}

@@ -13,9 +13,11 @@
 						<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 							<ul class="list-inline mb-1">
 								<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-									<?php the_title(); ?>
+									<?php the_title(); ?> 
 								</li>
-								<li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
+								<li class="list-inline-item float-right title-back">
+									<a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -27,6 +29,11 @@
 							<header class="mb-4">
 								<div class="header-meta text-muted mb-5">
 									<span class="time"><?php tainacan_meta_date_author(); ?></span>
+									<?php if(function_exists('tainacan_the_item_edit_link')) {
+										echo '<span class="tainacan-edit-item-collection">';
+											tainacan_the_item_edit_link(null, ' - ');
+										echo '</span>';
+									} ?>
 								</div>
 							</header>
 							<?php if ( tainacan_has_document() ) : ?>
@@ -72,7 +79,7 @@
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachment as $attachment ) { ?>
 											<div class="single-item-collection--attachments-img">
-												<a href="<?php echo $attachment->guid; ?>" target="_BLANK">
+												<a href="<?php echo $attachment->guid; ?>" data-toggle="lightbox" data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments' );
 													?>
