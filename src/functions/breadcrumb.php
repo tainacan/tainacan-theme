@@ -21,7 +21,7 @@ function the_breadcrumb() {
 
 	} else {
 
-		echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 margin-one-column"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
+		echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
 
 		if ( is_category() ) {
 			$thisCat = get_category(get_query_var('cat'), false);
