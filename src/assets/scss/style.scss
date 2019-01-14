@@ -616,5 +616,13 @@ nav{
         span {
             padding: 0;
         }
+        &:first-child {
+            left: -50px;
+            position: relative;
+        }
+        &:last-child {
+            right: -50px;
+            position: relative;
+        }
     }
 }
