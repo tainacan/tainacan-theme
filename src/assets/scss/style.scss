@@ -259,6 +259,7 @@ nav{
     }
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #cbcbcb;
+        font-size: 0.875rem;
         .breadcrumb{
             background: transparent;
             @media screen {

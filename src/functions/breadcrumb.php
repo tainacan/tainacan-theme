@@ -9,7 +9,7 @@ function the_breadcrumb() {
 	$delimiter = '>'; // delimiter between crumbs
 	$home = __('Home', 'tainacan-interface'); // text for the 'Home' link
 	$showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-	$before = '<span class="current">'; // tag before the current crumb
+	$before = '<span class="current text-black">'; // tag before the current crumb
 	$after = '</span>'; // tag after the current crumb
 
 	global $post;
@@ -17,11 +17,11 @@ function the_breadcrumb() {
 
 	if (is_home() || is_front_page()) {
 
-		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a></nav>';
+		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column text-jelly-bean"><a href="' . $homeLink . '">' . $home . '</a></nav>';
 
 	} else {
 
-		echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
+		echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column text-jelly-bean "><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
 
 		if ( is_category() ) {
 			$thisCat = get_category(get_query_var('cat'), false);
