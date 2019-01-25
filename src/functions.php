@@ -104,6 +104,21 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 1400;
 }
 
+/**
+ * Adds extra classes dp body tag. has-not-finished-loading is removed
+ * from tag after jQuery.document(ready). It is used to style page while
+ * not all DOM and JS is finished.
+ *
+ * @since Tainacan Theme
+ */
+add_filter( 'body_class', 'custom_class' );
+function custom_class( $classes ) {
+
+	$classes[] = 'loading-content';
+
+	return $classes;
+}
+
 /*
 * Register Widgets SideBar
 */

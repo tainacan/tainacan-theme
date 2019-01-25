@@ -1,4 +1,7 @@
 jQuery( document ).ready(function( $ ) {
+
+	$( 'body' ).removeClass('loading-content');
+
 	$( '#carouselExample' ).on( 'slide.bs.carousel', function ( e ) {
 
 		var $e = $( e.relatedTarget );
