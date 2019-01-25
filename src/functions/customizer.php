@@ -320,7 +320,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#262626', //background
 				'#ffffff', //background page
-				'#a55032', //link
+				'#8c442c', //link
 				'#e6d3cd', //tooltip
 			),
 		),
@@ -329,7 +329,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#616a73', //background
 				'#ffffff', //background page
-				'#af2e48', //link
+				'#A12B42', //link
 				'#e9cbd1', //tooltip
 			),
 		),
@@ -338,7 +338,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#c58738', //link
+				'#754E24', //link
 				'#f0e1cf', //tooltip
 			),
 		),
@@ -347,7 +347,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#4ebfa7', //link
+				'#255F56', //link
 				'#d4efe9', //tooltip
 			),
 		),
@@ -356,7 +356,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#288698', //link
+				'#205E6F', //link
 				'#cbe0e5', //tooltip
 			),
 		),
@@ -365,7 +365,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#2db4c1', //link
+				'#185F6D', //link
 				'#cdecef', //tooltip
 			),
 		),
@@ -374,7 +374,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#499dd6', //link
+				'#1D5C86', //link
 				'#d3e6f2', //tooltip
 			),
 		),
@@ -499,7 +499,7 @@ function tainacan_color_scheme_css() {
 		'page_background_color' => $color_scheme[1],
 		'tainacan_link_color'            => $color_scheme[2],
 		'tainacan_tooltip_color'            => $color_scheme[3],
-		'backtransparent'			=> vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.5)', $color_textcolor_rgb ),
+		'backtransparent'			=> vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.3)', $color_textcolor_rgb ),
 	);
 
 	$color_scheme_css = tainacan_get_color_scheme_css( $colors );
@@ -673,7 +673,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 
 	/* Select Arrow */
 	.theme-items-list .select:not(.is-loading)::after,
-	.tainacan-modal-content .select:not(.is-loading)::after {
+	.tainacan-modal-content .select:not(.is-loading)::after,
+	button.link-style, 
+	button.link-style:focus,
+	button.link-style:hover {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 

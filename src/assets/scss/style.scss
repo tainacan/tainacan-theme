@@ -298,6 +298,7 @@ nav{
     }
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #cbcbcb;
+        font-size: 0.875rem;
         .breadcrumb{
             background: transparent;
             @media screen {
@@ -548,6 +549,9 @@ nav{
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
+            .tainacan-edit-item-collection {
+                font-size: 1rem;
+            }
         }
         .title-back{
             font: {
@@ -645,3 +649,20 @@ nav{
 @import "_footer";
 
 @import "_view-mode-grid.scss";
+
+.ekko-lightbox-nav-overlay {
+    a {
+        opacity: 1;
+        span {
+            padding: 0;
+        }
+        &:first-child {
+            left: -50px;
+            position: relative;
+        }
+        &:last-child {
+            right: -50px;
+            position: relative;
+        }
+    }
+}

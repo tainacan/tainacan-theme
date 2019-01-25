@@ -6,25 +6,22 @@
     padding: 0 1rem;
     margin-top: 5rem;
     .pagination{
-        a:nth-last-child(1){
-            white-space: nowrap;
-        }
-        li{
-            a{
-                color: #298596;
+        .nav-links {
+            a:nth-last-child(1){
+                white-space: nowrap;
+            }
+            @media only screen and (max-width: 576px){
+                flex-wrap: wrap;
+            }
+            .page-numbers{
+                padding: .5rem;
                 i {
                     font-size: 1.125rem;
                 }
+                .next {
+                    padding-left: 0;
+                }
             }
-            align-self: center;
-        }
-        .active{
-            a{
-                color: #898d8f;
-            }
-        }
-        @media only screen and (max-width: 576px){
-            flex-wrap: wrap;
         }
     }
     .view-items{
