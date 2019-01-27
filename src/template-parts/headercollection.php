@@ -4,8 +4,8 @@ nav.menu-belowheader #menubelowHeader ul.dropdown-menu {
 	min-width: 10rem !important;
 }';
 
-$background_color = get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_background_color', true );
-$text_color = get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_color', true );
+$background_color = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_background_color', true ) );
+$text_color = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_color', true ) );
 if ( $background_color ) {
 	echo ".t-bg-collection {
 		background-color: $background_color !important;
