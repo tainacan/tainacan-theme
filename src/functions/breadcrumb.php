@@ -3,7 +3,7 @@
 /** The breadcrump function
  * Display parent and current page
  **/    
-function the_breadcrumb() {
+function tainacan_interface_the_breadcrumb() {
 
 	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
 	$delimiter = '>'; // delimiter between crumbs
@@ -32,12 +32,12 @@ function the_breadcrumb() {
 			echo $before . __('Search results for "', 'tainacan-interface') . get_search_query() . '"' . $after;
 
 		} elseif ( is_day() ) {
-			echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . '&nbsp;';
-			echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . '&nbsp;';
+			echo '<a href="' . esc_url(get_year_link(get_the_time('Y'))) . '">' . get_the_time('Y') . '</a> ' . $delimiter . '&nbsp;';
+			echo '<a href="' . esc_url(get_month_link(get_the_time('Y'),get_the_time('m'))) . '">' . get_the_time('F') . '</a> ' . $delimiter . '&nbsp;';
 			echo $before . get_the_time('d') . $after;
 
 		} elseif ( is_month() ) {
-			echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>&nbsp;' . $delimiter . '&nbsp;';
+			echo '<a href="' . esc_url(get_year_link(get_the_time('Y'))) . '">' . get_the_time('Y') . '</a>&nbsp;' . $delimiter . '&nbsp;';
 			echo $before . get_the_time('F') . $after;
 
 		} elseif ( is_year() ) {
@@ -48,7 +48,7 @@ function the_breadcrumb() {
 				$post_type = get_post_type_object(get_post_type());
 				$slug = $post_type->rewrite;
 				if(!is_page() && get_post_type() != 'tainacan-collection') {
-					echo '<a href="'. get_post_type_archive_link('tainacan-collection') .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
+					echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 				}
 				echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
 				if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
@@ -63,7 +63,7 @@ function the_breadcrumb() {
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			$post_type = get_post_type_object(get_post_type());
 			if(!is_page() && get_post_type() != 'tainacan-collection') {
-				echo '<a href="'. get_post_type_archive_link('tainacan-collection') .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
+				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 			}
 			echo $before . $post_type->labels->singular_name . $after;
 
@@ -71,7 +71,7 @@ function the_breadcrumb() {
 			$parent = get_post($post->post_parent);
 			$cat = get_the_category($parent->ID); $cat = $cat[0];
 			echo get_category_parents($cat, TRUE, '&nbsp;' . $delimiter . '&nbsp;');
-			echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>';
+			echo '<a href="' . esc_url(get_permalink($parent)) . '">' . $parent->post_title . '</a>';
 			if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
 
 		} elseif ( is_page() && !$post->post_parent ) {
@@ -82,7 +82,7 @@ function the_breadcrumb() {
 			$breadcrumbs = array();
 			while ($parent_id) {
 				$page = get_page($parent_id);
-				$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+				$breadcrumbs[] = '<a href="' . esc_url(get_permalink($page->ID)) . '">' . get_the_title($page->ID) . '</a>';
 				$parent_id  = $page->post_parent;
 			}
 			$breadcrumbs = array_reverse($breadcrumbs);
@@ -113,4 +113,4 @@ function the_breadcrumb() {
 		echo '</nav>';
 
 	}
-} // end the_breadcrumb()
+} // end tainacan_interface_the_breadcrumb()

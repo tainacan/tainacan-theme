@@ -22,4 +22,4 @@
 	</nav>
 <?php endif; ?>
 
-	<?php the_breadcrumb(); ?>
+	<?php tainacan_interface_the_breadcrumb(); ?>
