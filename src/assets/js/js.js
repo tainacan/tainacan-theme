@@ -1,4 +1,7 @@
 jQuery( document ).ready(function( $ ) {
+
+	$( 'body' ).removeClass('loading-content');
+
 	$( '#carouselExample' ).on( 'slide.bs.carousel', function ( e ) {
 
 		var $e = $( e.relatedTarget );
@@ -111,5 +114,12 @@ jQuery( document ).ready(function( $ ) {
 			$subMenu.find('.dropdown-item').attr('style', 'padding-left: 3rem');
 		}
 		return false;
+	});
+	
+	$('.margin-pagination .navigation.pagination[role="navigation"]').addClass('justify-content-center justify-content-md-end');
+
+	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+		event.preventDefault();
+		$(this).ekkoLightbox();
 	});
 });

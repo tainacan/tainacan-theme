@@ -52,7 +52,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 				),
 			)
 		); */
-		require_once( 'functions/enqueues.php' );
+		require_once get_template_directory() . '/functions/enqueues.php' ;
 
 		/**
 		 * Custom logo to change the logo image
@@ -72,6 +72,20 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 				'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
 				'dynamic_metadata' => false,
 				'template' => get_template_directory() . '/tainacan/view-mode-grid.php',
+				'skeleton_template' => '<div class="tainacan-grid-container">
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+								<div class="skeleton tainacan-grid-item"></div>
+							</div>'
 			));
 		}
 
@@ -88,6 +102,21 @@ add_action( 'after_setup_theme', 'tainacan_setup' );
  */
 if ( ! isset( $content_width ) ) {
 	$content_width = 1400;
+}
+
+/**
+ * Adds extra classes dp body tag. has-not-finished-loading is removed
+ * from tag after jQuery.document(ready). It is used to style page while
+ * not all DOM and JS is finished.
+ *
+ * @since Tainacan Theme
+ */
+add_filter( 'body_class', 'custom_class' );
+function custom_class( $classes ) {
+
+	$classes[] = 'loading-content';
+
+	return $classes;
 }
 
 /*
@@ -219,6 +248,6 @@ function tainacan_theme_collection_query( $query ) {
 add_action( 'pre_get_posts', 'tainacan_theme_collection_query' );
 
 require get_template_directory() . '/functions/customizer.php';
-require get_template_directory() . '/functions/pagination.php';
 require get_template_directory() . '/functions/single-functions.php';
 require get_template_directory() . '/functions/class-tainacanthemecollectioncolor.php';
+require get_template_directory() . '/functions/breadcrumb.php';

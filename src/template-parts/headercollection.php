@@ -8,14 +8,14 @@ $background_color = get_post_meta( tainacan_get_collection_id(), 'tainacan_theme
 $text_color = get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_color', true );
 if ( $background_color ) {
 	echo ".t-bg-collection {
-		background-color: $background_color !important;
+		background-color: " . esc_attr($background_color) . " !important;
 	}";
 	echo ".t-bg-collection h2, .t-bg-collection .t-collection--info-description-text {
-		color: $text_color !important;
+		color: " . esc_attr($text_color) . " !important;
 	}";
 
 	echo ".t-bg-collection a {
-		color: $text_color !important;
+		color: " . esc_attr($text_color) . " !important;
 		opacity: 0.6;
 	}";
 }
@@ -27,13 +27,15 @@ echo '</style>';
 	<div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
 		<div class="collection-header position-relative max-large" style="">
 			<?php do_action( 'tainacan-interface-collection-header' ); ?>
-			<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : ?>
-				<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left">
+			<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
+				$thumbnail_id = get_post_thumbnail_id( $post->ID );
+				$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+				<img src="<?php the_post_thumbnail_url(); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
 			<?php else : ?>
 				<div class="image-placeholder rounded-circle border border-white position-absolute">
 					<h4 class="text-center">
 					<?php
-						echo tainacan_get_initials( tainacan_get_the_collection_name() );
+						echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
 					?>
 					</h4>
 				</div>

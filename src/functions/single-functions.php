@@ -62,6 +62,35 @@ function tainacan_wrap_comment( $content ) {
 }
 add_filter( 'comment_text', 'tainacan_wrap_comment', 99 );
 
+
+if ( ! function_exists( 'tainacan_pagination' ) ) :
+	function tainacan_pagination() {
+		global $wp_query;
+		$cur_posts = min( (int) $wp_query->get( 'posts_per_page' ), $wp_query->found_posts );
+		$to_paged = max( (int) $wp_query->get( 'paged' ), 1 );
+		$count_max = ( $to_paged - 1 ) * $cur_posts; ?>
+		<div class="d-flex margin-pagination justify-content-between border-top pt-2">
+			<?php printf( '<div class="col-sm-3 d-none d-lg-block pl-0 view-items">Viewing Items: %d to %d from %d</div>', $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts ); ?>
+			<div class="col-sm-5 pr-md-0 justify-content-md-end">
+				<?php the_posts_pagination(
+					array(
+						'mid_size'  => 2,
+						'prev_text' => sprintf(
+							'%s',
+							'<i class="mdi mdi-menu-left"></i>'
+						),
+						'next_text' => sprintf(
+							' %s',
+							'<i class="mdi mdi-menu-right"></i>'
+						),
+						'screen_reader_text' => ' '
+					)
+				); ?>
+			</div>
+		</div>
+	<?php }
+endif;
+
 /**
  * Display date of post.
  */

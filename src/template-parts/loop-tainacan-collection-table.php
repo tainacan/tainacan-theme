@@ -14,12 +14,14 @@
 				<?php while ( have_posts() ) : the_post(); ?>
 					<tr class="tainacan-list-collection" onclick="location.href='<?php the_permalink(); ?>'">
 						<td class="collection-miniature">
-							<?php if ( has_post_thumbnail() ) : ?>
-								<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'tainacan-small' ) ?>" class="img-fluid rounded-circle" alt="">
+							<?php if ( has_post_thumbnail() ) : 
+								$thumbnail_id = get_post_thumbnail_id( $post->ID );
+								$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+								<img src="<?php the_post_thumbnail_url( 'tainacan-small' ) ?>" class="img-fluid rounded-circle" alt="<?php echo esc_attr($alt); ?>">
 							<?php else : ?>
 								<div class="image-placeholder">
 									<h4>
-									<?php echo tainacan_get_initials( get_the_title(), true ); ?>
+									<?php echo esc_html( tainacan_get_initials( get_the_title(), true ) ); ?>
 									</h4>
 								</div>
 							<?php endif; ?>
@@ -34,7 +36,7 @@
 		</table>
 	</div>
 
-	<?php echo tainacan_pagination( 3 ); ?>
+	<?php echo tainacan_pagination(); ?>
 
 <?php else : ?>
 	<?php _e( 'Nothing found', 'tainacan-interface' ); ?>

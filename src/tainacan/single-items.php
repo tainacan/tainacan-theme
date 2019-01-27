@@ -13,9 +13,11 @@
 						<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 							<ul class="list-inline mb-1">
 								<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-									<?php the_title(); ?>
+									<?php the_title(); ?> 
 								</li>
-								<li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
+								<li class="list-inline-item float-right title-back">
+									<a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -27,6 +29,11 @@
 							<header class="mb-4">
 								<div class="header-meta text-muted mb-5">
 									<span class="time"><?php tainacan_meta_date_author(); ?></span>
+									<?php if(function_exists('tainacan_the_item_edit_link')) {
+										echo '<span class="tainacan-edit-item-collection">';
+											tainacan_the_item_edit_link(null, ' - ');
+										echo '</span>';
+									} ?>
 								</div>
 							</header>
 							<?php if ( tainacan_has_document() ) : ?>
@@ -72,7 +79,7 @@
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachment as $attachment ) { ?>
 											<div class="single-item-collection--attachments-img">
-												<a href="<?php echo $attachment->guid; ?>" target="_BLANK">
+												<a href="<?php echo $attachment->guid; ?>" data-toggle="lightbox" data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments' );
 													?>
@@ -113,7 +120,7 @@
 													<div class="btn-group" role="group">
 														<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
 															<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="item-card-link--sharing" target="_blank">
-																<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="">
+																<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>">
 															</a>
 														<?php endif; ?>
 														<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
@@ -122,12 +129,12 @@
 															$via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_option( 'tainacan_twitter_user' ) ) : '';
 															?>
 															<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="item-card-link--sharing">
-																<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="">
+																<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
 															</a>
 														<?php endif; ?>
 														<?php if ( true == get_theme_mod( 'tainacan_google_share', true ) ) : ?> 
 															<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing">
-																<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="">
+																<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="<?php esc_attr_e('Share this on google plus', 'tainacan-interface') ?>">
 															</a>
 														<?php endif; ?>
 													</div>

@@ -23,6 +23,45 @@ body{
     }
 }
 
+body.loading-content main {
+    min-height: calc(100vh - 480px);
+    width: 100vw;
+    transition: min-height ease 0.3s,  height ease 0.3s; 
+}
+
+body.loading-content main>* {
+    display: none;
+    visibility: hidden;
+}
+
+@keyframes spinner-border {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+body.loading-content main:before {
+    content: ' ';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 4rem 50% 0 50%;
+    vertical-align: center;
+    border: 0.25rem solid #dbdbdb;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border .5s linear infinite;
+    animation: spinner-border .5s linear infinite;
+}
+
 // Animation for return to top
 @keyframes appear-from-bottom {
     from {
@@ -259,6 +298,7 @@ nav{
     }
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #cbcbcb;
+        font-size: 0.875rem;
         .breadcrumb{
             background: transparent;
             @media screen {
@@ -509,6 +549,9 @@ nav{
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
+            .tainacan-edit-item-collection {
+                font-size: 1rem;
+            }
         }
         .title-back{
             font: {
@@ -607,18 +650,19 @@ nav{
 
 @import "_view-mode-grid.scss";
 
-@import "_view-mode-mosaic.scss";
-
-@import "_view-mode-frame.scss";
-
-@import "_view-mode-books.scss";
-
-@import "_view-mode-polaroid.scss";
-
-@import "_view-mode-gallery.scss";
-
-@import "_view-mode-profile.scss";
-
-@import "_view-mode-document.scss";
-
-@import "_view-mode-albums.scss";
+.ekko-lightbox-nav-overlay {
+    a {
+        opacity: 1;
+        span {
+            padding: 0;
+        }
+        &:first-child {
+            left: -50px;
+            position: relative;
+        }
+        &:last-child {
+            right: -50px;
+            position: relative;
+        }
+    }
+}

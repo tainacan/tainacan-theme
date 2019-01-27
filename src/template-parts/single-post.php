@@ -7,19 +7,19 @@
 			<div class="btn-group ml-auto" role="group">
 				<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
 					<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="" target="_blank">
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="">
+						<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>">
 					</a>
 				<?php endif; ?>
 				<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
 					<?php $twitter_option = get_option( 'tainacan_twitter_user' ); ?>
 					<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_option( 'tainacan_twitter_user' ) ) : ''; ?>
 					<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="">
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="">
+						<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
 					</a>
 				<?php endif; ?>
 				<?php if ( true == get_theme_mod( 'tainacan_google_share', true ) ) : ?> 
 					<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="">
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="">
+						<img src="<?php echo get_template_directory_uri() . '/assets/images/google-plus-circle.png'; ?>" alt="<?php esc_attr_e('Share this on google plus', 'tainacan-interface') ?>">
 					</a>
 				<?php endif; ?>
 			</div>

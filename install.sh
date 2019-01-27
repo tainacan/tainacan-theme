@@ -15,9 +15,8 @@ echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
         mkdir("src/assets/vendor/bootstrap/js", 0777, true); 
     }
     recurse_copy("vendor/twbs/bootstrap/scss", "src/assets/vendor/bootstrap/scss");
-    copy("vendor/twbs/bootstrap/dist/js/bootstrap.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
+    copy("vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
     recurse_copy("vendor/twbs/bootstrap/js/src", "src/assets/vendor/bootstrap/js/src");
-    copy("vendor/twbs/bootstrap/site/docs/4.1/assets/js/vendor/popper.min.js", "src/assets/vendor/bootstrap/js/popper.min.js");
 
 echo "Copy Slick for Slider...\n\n";
     if (!file_exists("src/assets/vendor/slick")) {
@@ -32,6 +31,13 @@ echo "Copy Slick for Slider...\n\n";
     copy("vendor/fabianobn/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
     recurse_copy("vendor/fabianobn/slick/slick/fonts", "src/assets/vendor/slick/fonts");
     
+echo "Copy Ekko Lightbox...\n\n";
+    if (!file_exists("src/assets/vendor/ekko-lightbox")) {
+        mkdir("src/assets/vendor/ekko-lightbox/", 0777, true);
+    }
+    copy("vendor/fabianobn/ekko-lightbox/dist/ekko-lightbox.min.js", "src/assets/vendor/ekko-lightbox/ekko-lightbox.min.js");
+    copy("vendor/fabianobn/ekko-lightbox/dist/ekko-lightbox.css", "src/assets/vendor/ekko-lightbox/ekko-lightbox.min.css");
+
 echo "Finish Copy files! \n\n";
 
 function recurse_copy($src,$dst) {
@@ -48,5 +54,19 @@ function recurse_copy($src,$dst) {
         }
     }
     closedir($dir);
+}
+
+function delete_files($target) {
+    if(is_dir($target)){
+        $files = glob( $target . "*", GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
+
+        foreach( $files as $file ){
+            delete_files( $file );      
+        }
+
+        rmdir( $target );
+    } elseif(is_file($target)) {
+        unlink( $target );  
+    }
 }
 '

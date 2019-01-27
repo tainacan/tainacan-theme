@@ -7,12 +7,14 @@
 						<p class="tainacan-list-collection--grid-title text-black text-left p-3 mb-0 text-truncate">
 							<?php the_title(); ?>           
 						</p>
-						<?php if ( has_post_thumbnail() ) : ?>
-							<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'tainacan-medium' ) ?>" class="img-fluid tainacan-list-collection--grid-img" alt="">  
+						<?php if ( has_post_thumbnail() ) : 
+							$thumbnail_id = get_post_thumbnail_id( $post->ID );
+							$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+							<img src="<?php the_post_thumbnail_url( 'tainacan-medium' ) ?>" class="img-fluid tainacan-list-collection--grid-img" alt="<?php echo esc_attr($alt); ?>">  
 						<?php else : ?>
 							<div class="image-placeholder">
 								<h4 class="text-center">
-									<?php echo tainacan_get_initials( get_the_title() ); ?>
+									<?php echo esc_html( tainacan_get_initials( get_the_title() ) ); ?>
 								</h4>
 							</div>
 						<?php endif; ?>
@@ -22,7 +24,7 @@
 		</div>
 	</div>
 
-	<?php echo tainacan_pagination( 3 ); ?>
+	<?php echo tainacan_pagination(); ?>
 
 <?php else : ?>
 	<?php _e( 'Nothing found', 'tainacan-interface' ); ?>

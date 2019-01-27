@@ -9,11 +9,19 @@
 					<?php the_title(); ?>           
 				</p>
 				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="thumbnail-container">
-						<?php the_post_thumbnail( 'tainacan-medium' ); ?> 
+					<div 
+							style="background-image: url(<?php the_post_thumbnail_url( 'tainacan-medium' ) ?>)"
+							class="grid-item-thumbnail">
+						<?php the_post_thumbnail( 'tainacan-medium' ); ?>
+						<div class="skeleton"></div> 
 					</div>
 				<?php else : ?>
-					<?php echo '<img alt="Thumbnail placeholder" src="' . get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png">'?>
+					<div 
+							style="background-image: url(<?php echo get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png'?>)"
+							class="grid-item-thumbnail">
+						<?php echo '<img alt="Thumbnail placeholder" src="' . get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png">'?>
+						<div class="skeleton"></div> 
+					</div>
 				<?php endif; ?>  
 			</a>	
 		
