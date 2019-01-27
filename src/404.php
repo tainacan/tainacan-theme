@@ -7,7 +7,6 @@
 					<div class="brand mb-5">
 						<h1><?php _e( '404', 'tainacan-interface' );?></h1>
 						<h3><?php _e( 'The page you are looking for does not exist!', 'tainacan-interface' );?></h3>
-						<h3>\_(ツ)_/</h3>
 					</div>
 				</div>
 				<div class="col-md-12 mx-auto text-center">

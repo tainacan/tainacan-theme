@@ -2,7 +2,7 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="col-xs-12 col-md-4 blog-thumbnail align-self-center text-center mb-4 mb-md-0">
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail('tainacan-interface-list-post', ['class' => 'img-fluid']); ?>
+				<?php the_post_thumbnail('tainacan-interface-list-post', array('class' => 'img-fluid')); ?>
 			</a>
 		</div>
 	<?php endif; ?>
