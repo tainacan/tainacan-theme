@@ -1,9 +1,9 @@
 <div class="row blog-post mb-3">
-	<?php if ( has_post_thumbnail() ) : 
-			$thumbnail_id = get_post_thumbnail_id( $post->ID );
-			$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="col-xs-12 col-md-4 blog-thumbnail align-self-center text-center mb-4 mb-md-0">
-			<a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url( 'tainacan-interface-list-post' ) ?>" class="img-fluid" alt="<?php echo esc_attr($alt); ?>"></a>
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail('tainacan-interface-list-post', ['class' => 'img-fluid']); ?>
+			</a>
 		</div>
 	<?php endif; ?>
 	<div class="col-xs-12 blog-content <?php if ( has_post_thumbnail() ) :?>col-md-8 blog-flex<?php else : ?>col-md-12<?php endif; ?> align-self-center">

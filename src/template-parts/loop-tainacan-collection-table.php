@@ -15,9 +15,7 @@
 					<tr class="tainacan-list-collection" onclick="location.href='<?php the_permalink(); ?>'">
 						<td class="collection-miniature">
 							<?php if ( has_post_thumbnail() ) : 
-								$thumbnail_id = get_post_thumbnail_id( $post->ID );
-								$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
-								<img src="<?php the_post_thumbnail_url( 'tainacan-small' ) ?>" class="img-fluid rounded-circle" alt="<?php echo esc_attr($alt); ?>">
+								the_post_thumbnail('tainacan-small', ['class' => 'img-fluid rounded-circle']); ?>
 							<?php else : ?>
 								<div class="image-placeholder">
 									<h4>
