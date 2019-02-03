@@ -585,7 +585,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 		background-color: {$colors['backtransparent']};
 	}
 	.tainacan-single-post #comments .title-leave,
-	.tainacan-single-post article .title-content-items {
+	.tainacan-single-post article .title-content-items,
+	.tainacan-single-post article .tainacan-content h1 {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 	footer hr.bg-scooter {
