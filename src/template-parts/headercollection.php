@@ -30,7 +30,7 @@ echo '</style>';
 			<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
 				$thumbnail_id = get_post_thumbnail_id( $post->ID );
 				$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
-				<img src="<?php the_post_thumbnail_url(); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
+				<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
 			<?php else : ?>
 				<div class="image-placeholder rounded-circle border border-white position-absolute">
 					<h4 class="text-center">
