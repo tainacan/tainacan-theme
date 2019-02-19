@@ -270,10 +270,8 @@ nav{
                                 padding-left: 1.5rem;
                             }
                         }
-                        @media screen {
-                            @media (min-width: 992px){
-                                padding-right: 60px;
-                            }
+                        @media only screen and (min-width: 992px){
+                            padding-right: 60px;
                         }
                     }
                     &.current_page_item, &.current-menu-item{
@@ -291,20 +289,16 @@ nav{
             }
         }
     }
-    @media screen {
-        @media (max-width: 768px){
-            border-bottom: 1px solid #cbcbcb;
-        }
+    @media only screen and (max-width: 768px) {
+        border-bottom: 1px solid #cbcbcb;
     }
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #cbcbcb;
         font-size: 0.875rem;
         .breadcrumb{
             background: transparent;
-            @media screen {
-                @media (min-width: 992px){
-                    margin-left: 31px;
-                }
+            @media only screen and (min-width: 992px){
+                margin-left: 31px;
             }
         }
         .breadcrumb-item + .breadcrumb-item{
@@ -648,7 +642,9 @@ nav{
 
 @import "_footer";
 
-@import "_view-mode-grid.scss";
+@import "_view-mode-grid";
+
+@import "_header-taxonomy";
 
 .ekko-lightbox-nav-overlay {
     a {

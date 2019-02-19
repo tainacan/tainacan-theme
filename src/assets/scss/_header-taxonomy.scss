@@ -1,0 +1,151 @@
+.page-header-taxonomy {
+    border: 0;
+    display: flex;
+    height: 400px;
+    margin-top: 1rem;
+    margin-bottom: 50px;
+    position: relative;
+    background-color: #f2f2f2;
+    @media only screen and (max-width: 576px) {
+        height: auto;
+    }
+    @media only screen and (min-width: 641px) and (max-width: 768px) {
+        height: 270px;
+    }
+    @media only screen and (min-width: 577px) and (max-width: 640px) {
+        height: 329px;
+    }
+    > .container-fluid {
+        > .page-header-image {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            @media only screen and (max-width: 576px) {
+                height: 360px;
+            }
+            @media only screen and (min-width: 641px) and (max-width: 768px) {
+                flex: 0 0 37.5%;
+                max-width: 37.3333333333%;
+                height: 270px;
+            }
+            @media only screen and (max-width: 640px) {
+                height: 329px;
+            }
+        }
+        > .page-header-content {
+            @media only screen and (max-width: 768px) {
+                height: 270px;
+            }
+            @media only screen and (max-width: 640px) {
+                height: 329px;
+            }
+            @media only screen and (max-width: 576px) {
+                height: 386px;
+            }
+            > .page-header-content-meta {
+                margin: 45px 4.16666666667%;
+                @media only screen and (max-width: 768px) {
+                    margin-top: 30px;
+                    margin-bottom: 18px;
+                    margin-left: 32px;
+                    margin-right: 32px;
+                }
+                @media only screen and (max-width: 576px) {
+                    margin-top: 40px;
+                    margin-bottom: 25px;
+                }
+                > .page-header-content-title {
+                    width: 100%;
+                    border-color: #298596 !important;
+                    .page-header-title {
+                        color: #01295c;
+                        font: {
+                            size: 20px;
+                            weight: 400;
+                        }
+                        @media only screen and (max-width: 576px) {
+                            margin-bottom: 0.9375rem;
+                        }
+
+                    }
+                    .page-header-back {
+                        font-size: 14px;
+                        display: flex;
+                        align-self: center;
+                        margin-bottom: .2rem;
+                    }
+                }
+                > .page-header-hightlights {
+                    margin-top: 30px;
+                    @media only screen and (max-width: 768px) {
+                        margin-top: 23px;
+                    }
+                    > .page-header-description {
+                        color: #000;
+                        font: {
+                            size: 14px;
+                            weight: 400;
+                        }
+                        @media only screen and (max-width: 768px) {
+                            font-size: 12px;
+                        }
+                        a {
+                            color: #298596;
+                            font: {
+                                size: 14px;
+                                weight: 400;
+                            }   
+                        }
+                    }
+                    > .page-header-share {
+                        padding-left: 4.16666666667%;
+                        @media only screen and (max-width: 768px) {
+                            margin-top: 23px;
+                            padding-left: 0;
+                        }
+                        @media only screen and (max-width: 576px) {
+                            margin-top: 40px;
+                        }
+                        .page-header-icons {
+                            width: 100%;
+                            @media only screen and (max-width: 768px) {
+                                &:not(:last-child) {
+                                    width: 20%;;
+                                }
+                                width: 50%;
+                            }
+                            .share-title {
+                                color: #000;
+                                font: {
+                                    size: 14px;
+                                    weight: 500;
+                                }
+                                margin-bottom: .1rem;
+                            }
+                            @media only screen and (min-width: 769px) {
+                                &:not(:last-child){
+                                    margin-bottom: 22px;
+                                }
+                            }
+                            .icon-export {
+                                background-color: #298596;
+                                color: #fff;
+                                border-radius: 100%;
+                                padding: .282rem .4rem;
+                            }
+                            .share-link {
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                                .share-images {
+                                    width: 28px;
+                                    height: 28px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
