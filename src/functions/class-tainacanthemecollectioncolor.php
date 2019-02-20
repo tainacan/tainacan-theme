@@ -30,7 +30,7 @@ class TainacanThemeCollectionColor {
 		));
 
 		wp_enqueue_script( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', false, false, true );
-		wp_enqueue_style( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/js/spectrum.css' );
+		wp_enqueue_style( 'tainacan_Spectrum', get_template_directory_uri() . '/assets/css/spectrum.css' );
 	}
 
 	function register_hook() {
