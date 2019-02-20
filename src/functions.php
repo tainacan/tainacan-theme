@@ -26,7 +26,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 * Custom header to change the banner image
 		 */
 		$header_args = array(
-			//'default-text-color' => '000',
 			'width'              => 2000,
 			'height'             => 280,
 			'header-text'		 => false,
@@ -43,15 +42,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 */
 		add_theme_support( 'title-tag' );
 
-		/* register_default_headers(
-			array(
-				'default-image' => array(
-					'url'           => '%s/assets/images/capa.png',
-					'thumbnail_url' => '%s/assets/images/capa.png',
-					'description'   => __( 'Default Image', 'tainacan-interface' ),
-				),
-			)
-		); */
 		require_once get_template_directory() . '/functions/enqueues.php' ;
 
 		/**

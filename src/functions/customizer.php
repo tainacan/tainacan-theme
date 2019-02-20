@@ -108,7 +108,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'settings' => 'tainacan_facebook_share',
 		'section' => 'tainacan_social_share',
 		'label' => __( 'Display Facebook button', 'tainacan-interface' ),
-		//'description' => __( 'This checkbox display or no the Facebook Share.', 'tainacan-interface' ),
 	) );
 
 	//Twitter
@@ -123,7 +122,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'settings' => 'tainacan_twitter_share',
 		'section' => 'tainacan_social_share',
 		'label' => __( 'Display Twitter button', 'tainacan-interface' ),
-		//'description' => __( 'This checkbox display or no the Twitter Share.', 'tainacan-interface' ),
 	) );
 
 	$wp_customize->add_setting( 'tainacan_twitter_user', array(
@@ -149,7 +147,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'settings' => 'tainacan_google_share',
 		'section' => 'tainacan_social_share',
 		'label' => __( 'Display Google Plus button', 'tainacan-interface' ),
-		//'description' => __( 'This checkbox display or no the Google Plus Share.', 'tainacan-interface' ),
 	) );
 
 	/**
