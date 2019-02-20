@@ -18,8 +18,8 @@ class TainacanThemeCollectionColor {
 	}
 
 	function action_tainacan_enqueue_admin_scripts() {
-		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/functions/collection-color.js', false, false, true );
-		wp_enqueue_style( 'tainacan_colorWellStyle', get_template_directory_uri() . '/functions/collection-color.css' );
+		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/assets/js/collection-color.js', false, false, true );
+		wp_enqueue_style( 'tainacan_colorWellStyle', get_template_directory_uri() . '/assets/css/collection-color.css' );
 		wp_localize_script( 'tainacan_colorWell', 'tainacan_colorPickerVars', array(
 			'cancelText' => __( 'Cancel', 'tainacan-interface' ),
 			'chooseText' => __( 'Choose', 'tainacan-interface' ),
