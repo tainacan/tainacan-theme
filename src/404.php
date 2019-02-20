@@ -10,7 +10,7 @@
 					</div>
 				</div>
 				<div class="col-md-12 mx-auto text-center">
-					<a href="<?php echo home_url(); ?>" class="btn btn-primary bg-jungle-green py-0"><?php _e( 'Go to the first page', 'tainacan-interface' );?></a>
+					<a href="<?php echo esc_url( home_url() ); ?>" class="btn btn-primary bg-jungle-green py-0"><?php _e( 'Go to the first page', 'tainacan-interface' );?></a>
 				</div>
 			</div>
 		</div>
