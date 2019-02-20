@@ -57,8 +57,8 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 
 		if ( function_exists( 'tainacan_register_view_mode' ) ) {
 			tainacan_register_view_mode('grid', array(
-				'label' => 'Thumbnail',
-				'description' => 'A thumbnail grid view, showing only title and thumbnail',
+				'label' => __( 'Thumbnail', 'tainacan-interface' ),
+				'description' => __( 'A thumbnail grid view, showing only title and thumbnail', 'tainacan-interface' ),
 				'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
 				'dynamic_metadata' => false,
 				'template' => get_template_directory() . '/tainacan/view-mode-grid.php',
