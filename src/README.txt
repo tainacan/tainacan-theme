@@ -58,14 +58,18 @@ Licenses: GPLv3+
 Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 
 Photos used in the screenshot
-Kingfisher birds
-1. https://pixabay.com/en/kingfisher-bird-alcedo-atthis-1068684/
+White tailed eagle
+1. https://pixabay.com/en/white-tailed-eagle-adler-bald-eagle-2015098/
 License: CC0
-2. https://pixabay.com/en/animal-background-beak-beautiful-3387479/
+Bald eagle soaring
+1. https://pixabay.com/en/bald-eagle-soaring-bird-raptor-521492/
 License CC0
-3. https://pixabay.com/en/animal-avian-beak-bird-1867936/
+Bald eagles
+1. https://pixabay.com/en/bald-eagles-bald-eagle-bird-of-prey-341898/
 License: CC0
-
+Eagle of prey soaring
+1. https://pixabay.com/en/eagle-birds-bird-of-prey-soaring-217591/
+License: CC0
 
 Bundled images, Copyright Taincan.org
 License: CC0 1.0 Universal (CC0 1.0)
