@@ -25,18 +25,13 @@ echo "Copy Slick for Slider...\n\n";
         mkdir("src/assets/vendor/slick/js", 0777, true);
         mkdir("src/assets/vendor/slick/fonts", 0777, true);
     }
-    copy("vendor/fabianobn/slick/slick/slick-theme.scss", "src/assets/vendor/slick/scss/slick-theme.scss");
-    copy("vendor/fabianobn/slick/slick/slick.scss", "src/assets/vendor/slick/scss/slick.scss");
-    copy("vendor/fabianobn/slick/slick/slick.min.js", "src/assets/vendor/slick/js/slick.min.js");
-    copy("vendor/fabianobn/slick/slick/ajax-loader.gif", "src/assets/vendor/slick/ajax-loader.gif");
-    recurse_copy("vendor/fabianobn/slick/slick/fonts", "src/assets/vendor/slick/fonts");
+    recurse_copy("vendor/fabianobn/slick/slick/", "src/assets/vendor/slick/");
     
 echo "Copy Ekko Lightbox...\n\n";
     if (!file_exists("src/assets/vendor/ekko-lightbox")) {
         mkdir("src/assets/vendor/ekko-lightbox/", 0777, true);
     }
-    copy("vendor/fabianobn/ekko-lightbox/dist/ekko-lightbox.min.js", "src/assets/vendor/ekko-lightbox/ekko-lightbox.min.js");
-    copy("vendor/fabianobn/ekko-lightbox/dist/ekko-lightbox.css", "src/assets/vendor/ekko-lightbox/ekko-lightbox.min.css");
+    recurse_copy("vendor/fabianobn/ekko-lightbox/", "src/assets/vendor/ekko-lightbox/");
 
 echo "Finish Copy files! \n\n";
 

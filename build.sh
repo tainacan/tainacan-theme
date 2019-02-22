@@ -6,19 +6,20 @@ command -v sass >/dev/null 2>&1 || {
 
 source build-config.cfg
 
+echo "Updating files of theme"
+rm -rf $destination
+mkdir $destination
+
+##Removendo o arquivo sass
+##rm -rf $destination/scss
+
 ## Install composer dependencies
 composer install
 
 ## Compile SASS
 sh compile-sass.sh
 
-echo "Updating files of theme"
-rm -rf $destination
-mkdir $destination
 cp -R src/* $destination/
-
-##Removendo o arquivo sass
-rm -rf $destination/scss
 
 ##Bootstrap
 mkdir $destination/assets/vendor/bootstrap/css
