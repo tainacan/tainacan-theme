@@ -12,40 +12,40 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * Bootstrap 4.1.3
 		 */
 			//Style
-			wp_register_style( 'tainacan_bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css' );
-			wp_enqueue_style( 'tainacan_bootstrap4CSS' );
+			wp_register_style( 'bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css' );
+			wp_enqueue_style( 'bootstrap4CSS' );
 			//Javascript
-			wp_register_script( 'tainacan_bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '', true );
-			wp_enqueue_script( 'tainacan_bootstrap4JS' );
+			wp_register_script( 'bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '', true );
+			wp_enqueue_script( 'bootstrap4JS' );
 
 		/**
 		 * Slick Slider Carousel
 		 */
 			//Styles
-			wp_register_style( 'tainacan_SlickCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick.min.css', '', '1.6.1', '' );
-			wp_register_style( 'tainacan_SlickThemeCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick-theme.min.css', '', '1.6.1', '' );
-			wp_enqueue_style( 'tainacan_SlickCss' );
-			wp_enqueue_style( 'tainacan_SlickThemeCss' );
+			wp_register_style( 'SlickCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick.min.css', '', '1.6.1', '' );
+			wp_register_style( 'SlickThemeCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick-theme.min.css', '', '1.6.1', '' );
+			wp_enqueue_style( 'SlickCss' );
+			wp_enqueue_style( 'SlickThemeCss' );
 			//Javascript
-			wp_register_script( 'tainacan_SlickJS', get_template_directory_uri() . '/assets/vendor/slick/js/slick.min.js', array( 'jquery' ), '1.6.1', true );
-			wp_enqueue_script( 'tainacan_SlickJS' );
+			wp_register_script( 'SlickJS', get_template_directory_uri() . '/assets/vendor/slick/js/slick.min.js', array( 'jquery' ), '1.6.1', true );
+			wp_enqueue_script( 'SlickJS' );
 
 		/**
 		 * Ekko Lightbox
 		 */
-			wp_register_style( 'tainacan_EkkoLightboxCss', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/ekko-lightbox.min.css');
-			wp_enqueue_style( 'tainacan_EkkoLightboxCss' );
-			wp_register_script( 'tainacan_EkkoLightboxJs', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/ekko-lightbox.min.js', array('jquery'), null, true);
-			wp_enqueue_script( 'tainacan_EkkoLightboxJs' );
+			wp_register_style( 'EkkoLightboxCss', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/ekko-lightbox.min.css');
+			wp_enqueue_style( 'EkkoLightboxCss' );
+			wp_register_script( 'EkkoLightboxJs', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/ekko-lightbox.min.js', array('jquery'), null, true);
+			wp_enqueue_script( 'EkkoLightboxJs' );
 
 		/**
 		 * Google
 		 */
 			// Google fonts Roboto
-			wp_enqueue_style( 'tainacan_RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
 			// Material Icons
-			wp_register_style( 'tainacan_MaterialIconsFonts', get_template_directory_uri() . '/assets/fonts/material-design-icons/css/materialdesignicons.min.css', '', '2.4.85', '' );
-			wp_enqueue_style( 'tainacan_MaterialIconsFonts' );
+			wp_register_style( 'MaterialIconsFonts', get_template_directory_uri() . '/assets/fonts/material-design-icons/css/materialdesignicons.min.css', '', '2.4.85', '' );
+			wp_enqueue_style( 'MaterialIconsFonts' );
 
 		/**
 		 * Tainacan Theme
