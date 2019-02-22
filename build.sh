@@ -23,7 +23,6 @@ rm -rf $destination/scss
 ##Bootstrap
 mkdir $destination/assets/vendor/bootstrap/css
 cp $destination/assets/vendor/bootstrap/scss/bootstrap.min.css $destination/assets/vendor/bootstrap/css/bootstrap.min.css
-rm -rf $destination/assets/vendor/bootstrap/scss
 rm -rf $destination/vendor
 
 ##Slick
@@ -32,6 +31,5 @@ cp $destination/assets/vendor/slick/scss/slick.min.css $destination/assets/vendo
 cp $destination/assets/vendor/slick/scss/slick-theme.min.css $destination/assets/vendor/slick/css/slick-theme.min.css
 mv $destination/assets/vendor/slick/ajax-loader.gif $destination/assets/vendor/slick/css/ajax-loader.gif
 mv $destination/assets/vendor/slick/fonts/ $destination/assets/vendor/slick/css/fonts/
-rm -rf $destination/assets/vendor/slick/scss
 
 echo "Compilation Finish!!"
