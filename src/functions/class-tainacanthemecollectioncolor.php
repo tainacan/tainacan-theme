@@ -48,6 +48,11 @@ class TainacanThemeCollectionColor {
 		ob_start();
 		?>
 
+		<div class="field tainacan-collection--section-header">
+			<h4><?php _e( 'Taincan theme header settings', 'tainacan-interface' ); ?></h4>
+			<hr>
+		</div>
+
 		<div class="field tainacan-collection--change-color-picker">
 			<label class="label"><?php _e( 'Collection Background Color', 'tainacan-interface' ); ?></label>
 			<span class="help-wrapper">
