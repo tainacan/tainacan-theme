@@ -9,7 +9,7 @@ $taxonomy = get_taxonomy( $term->taxonomy );
 
 ?>
 
-<div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else : ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
+<div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else : ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/capa.png')"<?php endif; ?>>
 	<div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
 		<?php do_action( 'tainacan-interface-taxonomy-header' ); ?>
 		<div class="collection-header position-relative max-large" style="">

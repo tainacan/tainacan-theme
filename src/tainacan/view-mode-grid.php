@@ -17,7 +17,7 @@
 					</div>
 				<?php else : ?>
 					<div 
-							style="background-image: url(<?php echo get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png'?>)"
+							style="background-image: url(<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/thumbnail_placeholder.png'?>)"
 							class="grid-item-thumbnail">
 						<?php echo '<img alt="', esc_attr_e('Thumbnail placeholder', 'tainacan-interface'), '" src="', get_template_directory_uri(), '/assets/images/thumbnail_placeholder.png">'?>
 						<div class="skeleton"></div> 
