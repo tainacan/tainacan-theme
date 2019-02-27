@@ -1,8 +1,8 @@
 === Tainacan Interface ===
 Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto
 Requires at least: WordPress 4.8
-Tested up to: WordPress 5.0.3
-Version: 1.0.9
+Tested up to: WordPress 5.1
+Version: 1.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 
@@ -58,17 +58,17 @@ Licenses: GPLv3+
 Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 
 Photos used in the screenshot
-White tailed eagle
-1. https://pixabay.com/en/white-tailed-eagle-adler-bald-eagle-2015098/
+
+1. https://pxhere.com/en/photo/73320
 License: CC0
-Bald eagle soaring
-1. https://pixabay.com/en/bald-eagle-soaring-bird-raptor-521492/
+
+2. https://pxhere.com/en/photo/73383
 License CC0
-Bald eagles
-1. https://pixabay.com/en/bald-eagles-bald-eagle-bird-of-prey-341898/
+
+3. https://pxhere.com/en/photo/73485
 License: CC0
-Eagle of prey soaring
-1. https://pixabay.com/en/eagle-birds-bird-of-prey-soaring-217591/
+
+4. https://pxhere.com/en/photo/1432253
 License: CC0
 
 Bundled images, Copyright Taincan.org
