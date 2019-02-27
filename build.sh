@@ -33,4 +33,8 @@ cp $destination/assets/vendor/slick/scss/slick-theme.min.css $destination/assets
 mv $destination/assets/vendor/slick/ajax-loader.gif $destination/assets/vendor/slick/css/ajax-loader.gif
 mv $destination/assets/vendor/slick/fonts/ $destination/assets/vendor/slick/css/fonts/
 
+##clean 
+rm $destination/assets/vendor/ekko-lightbox/.gitignore
+rm -rf $destination/assets/vendor/ekko-lightbox/.git
+
 echo "Compilation Finish!!"

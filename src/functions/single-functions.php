@@ -70,7 +70,8 @@ if ( ! function_exists( 'tainacan_pagination' ) ) :
 		$count_max = ( $to_paged - 1 ) * $cur_posts; ?>
 		<div class="d-flex margin-pagination justify-content-between border-top pt-2">
 			<div class="col-sm-3 d-none d-lg-block pl-0 view-items">
-				<?php printf( __('Viewing Items: %d to %d from %d', 'tainacan-interface'), $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts ); ?>
+				<?php //translators: Example - Viewing Items: 1 to 12 of 345 ?>
+				<?php printf( __('Viewing Items: %1$d to %2$d of %3$d', 'tainacan-interface'), $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts ); ?>
 			</div>
 			<div class="col-sm-5 pr-md-0 justify-content-md-end">
 				<?php the_posts_pagination(
