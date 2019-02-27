@@ -45,6 +45,9 @@
     color: #fff;
     margin-right: 1rem;
     padding: 0.8rem;
+    border-radius: 3px;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.875rem;
 }
 
 .tainacan-collection--change-text-color .color-text[for="black"] {
@@ -52,4 +55,7 @@
     color: #000;
     margin-right: 1rem;
     padding: 0.8rem;
+    border-radius: 3px;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.875rem;
 }

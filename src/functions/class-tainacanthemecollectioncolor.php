@@ -66,7 +66,6 @@ class TainacanThemeCollectionColor {
 				</div>
 			</span>
 			<div class="control is-clearfix"> 
-				<p style="font-weight: 600;"><?php _e( 'Picker color', 'tainacan-interface' ); ?></p>
 				<input type="text" value="" id="colorpicker" name="<?php echo $this->tainacan_background_color; ?>">
 			</div>
 		</div>
@@ -94,7 +93,8 @@ class TainacanThemeCollectionColor {
 					value="#fff" 
 					name="<?php echo $this->tainacan_text_color; ?>"
 					id="white" checked>
-					<label for="white" id="color-white" class="color-text"><?php _e( 'White', 'tainacan-interface' ); ?></label>
+					<label for="white" id="color-white" class="color-text">
+						<?php _e( 'White', 'tainacan-interface' ); ?></label>
 				<input
 					type="radio" 
 					value="#000" 
