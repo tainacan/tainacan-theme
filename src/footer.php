@@ -46,7 +46,7 @@ if ( get_option( 'tainacan_blogphone' ) ) {
 				<span>
 					<?php if ( true == get_theme_mod( 'tainacan_display_powered', false ) ) {
 						/* translators: 1: WordPress; 2: Tainacan*/
-						printf( __( 'Proudly powered by %1$s and %2$s.', 'tainacan-interface' ), '<a href="https://wordpress.org/">Wordpress</a>', '<a href="http://tainacan.org/">Tainacan</a>' ); } ?>
+						printf( __( 'Proudly powered by %1$s and %2$s.', 'tainacan-interface' ), '<a href="https://wordpress.org/">WordPress</a>', '<a href="http://tainacan.org/">Tainacan</a>' ); } ?>
 				</span>
 			</div>
 		</div>
