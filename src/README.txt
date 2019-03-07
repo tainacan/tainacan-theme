@@ -3,6 +3,8 @@ Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, wery
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.1
 Version: 1.0.10
+Requires PHP: 5.6
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 
