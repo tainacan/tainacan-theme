@@ -21,33 +21,36 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority'   => 200,
 	));
 	$wp_customize->add_setting( 'tainacan_blogaddress', array(
-		'type'       => 'option',
+		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'sanitize_text_field',
 	) );
 
 	$wp_customize->add_control( 'tainacan_blogaddress', array(
+		'type'       => 'theme_mod',
 		'label'      => __( 'Address', 'tainacan-interface' ),
 		'section'    => 'tainacan_footer_info',
 	) );
 	$wp_customize->add_setting( 'tainacan_blogphone', array(
-		'type'       => 'option',
+		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'tainacan_sanitize_phone',
 	) );
 
 	$wp_customize->add_control( 'tainacan_blogphone', array(
+		'type'       => 'theme_mod',
 		'label'      => __( 'Phone Number', 'tainacan-interface' ),
 		'section'    => 'tainacan_footer_info',
 	) );
 
 	$wp_customize->add_setting( 'tainacan_blogemail', array(
-		'type'       => 'option',
+		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'tainacan_sanitize_email',
 	) );
 
 	$wp_customize->add_control( 'tainacan_blogemail', array(
+		'type'       => 'theme_mod',
 		'label'      => __( 'E-mail', 'tainacan-interface' ),
 		'section'    => 'tainacan_footer_info',
 	) );
@@ -56,6 +59,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Footer Logo customizer
 	 */
 	$wp_customize->add_setting( 'tainacan_footer_logo', array(
+		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback' => 'tainacan_sanitize_upload',
 	) );
@@ -74,6 +78,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Checkbox to display or no the Proudly Powered by Wordpress and Tainacan.
 	 */
 	$wp_customize->add_setting( 'tainacan_display_powered', array(
+		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
@@ -98,6 +103,7 @@ function tainacan_customize_register( $wp_customize ) {
 
 	//Facebook
 	$wp_customize->add_setting( 'tainacan_facebook_share', array(
+		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
@@ -112,6 +118,7 @@ function tainacan_customize_register( $wp_customize ) {
 
 	//Twitter
 	$wp_customize->add_setting( 'tainacan_twitter_share', array(
+		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
@@ -125,7 +132,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'tainacan_twitter_user', array(
-		'type'       => 'option',
+		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'sanitize_text_field',
 	) );
@@ -137,6 +144,7 @@ function tainacan_customize_register( $wp_customize ) {
 
 	//Google Plus
 	$wp_customize->add_setting( 'tainacan_google_share', array(
+		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
@@ -153,6 +161,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Add color scheme setting and control.
 	 */
 	$wp_customize->add_setting( 'tainacan_color_scheme', array(
+		'type'       => 'theme_mod',
 		'default'           => 'default',
 		'sanitize_callback' => 'tainacan_sanitize_color_scheme',
 		'transport'         => 'postMessage',
@@ -175,6 +184,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Add link color setting and control.
 	 */
 	$wp_customize->add_setting( 'tainacan_link_color', array(
+		'type'       => 'theme_mod',
 		'default'           => $color_scheme[2],
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage',
@@ -186,6 +196,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) ) );
 
 	$wp_customize->add_setting( 'tainacan_tooltip_color', array(
+		'type'       => 'theme_mod',
 		'default'           => $color_scheme[3],
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage',

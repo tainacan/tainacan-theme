@@ -11,8 +11,8 @@
 					</a>
 				<?php endif; ?>
 				<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
-					<?php $twitter_option = get_option( 'tainacan_twitter_user' ); ?>
-					<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_option( 'tainacan_twitter_user' ) ) : ''; ?>
+					<?php $twitter_option = get_theme_mod( 'tainacan_twitter_user' ); ?>
+					<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_theme_mod( 'tainacan_twitter_user' ) ) : ''; ?>
 					<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="">
 						<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
 					</a>

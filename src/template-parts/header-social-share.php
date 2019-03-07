@@ -22,9 +22,9 @@
 				</a>
 			</div>
 		<?php endif; ?>
-		<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) && get_option( 'tainacan_twitter_user' ) ) : ?>
+		<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) && get_theme_mod( 'tainacan_twitter_user' ) ) : ?>
 			<div class="rotater">
-				<a href="http://twitter.com/share?url=<?php echo esc_url( home_url( $wp->request ) ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo esc_attr( get_option( 'tainacan_twitter_user', '' ) ); ?>" target="_blank">
+				<a href="http://twitter.com/share?url=<?php echo esc_url( home_url( $wp->request ) ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo esc_attr( get_theme_mod( 'tainacan_twitter_user', '' ) ); ?>" target="_blank">
 					<div class="btn btn-icon">
 						<i class="mdi mdi-twitter"></i>
 					</div>

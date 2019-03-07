@@ -19,23 +19,23 @@
 					} else {
 						echo '</p><p>';
 					}
-					if ( get_option( 'tainacan_blogaddress' ) ) {
-						echo wp_filter_nohtml_kses( get_option( 'tainacan_blogaddress', '' ) );
+					if ( get_theme_mod( 'tainacan_blogaddress' ) ) {
+						echo wp_filter_nohtml_kses( get_theme_mod( 'tainacan_blogaddress', '' ) );
 					} ?>
 				</p>
 				<p class="tainacan-footer-info--blog">
-<?php if ( get_option( 'tainacan_blogemail' ) ) {
-	printf( __( 'E-mail: %s', 'tainacan-interface' ), sanitize_email( get_option( 'tainacan_blogemail', '' ) ) );
+<?php if ( get_theme_mod( 'tainacan_blogemail' ) ) {
+	printf( __( 'E-mail: %s', 'tainacan-interface' ), sanitize_email( get_theme_mod( 'tainacan_blogemail', '' ) ) );
 }
-if ( get_option( 'tainacan_blogemail' ) && get_option( 'tainacan_blogphone' ) ) {
+if ( get_theme_mod( 'tainacan_blogemail' ) && get_theme_mod( 'tainacan_blogphone' ) ) {
 	if ( wp_is_mobile() ) :
 		echo '<br>';
 	else :
 		echo ' - ';
 	endif;
 }
-if ( get_option( 'tainacan_blogphone' ) ) {
-	printf( __( 'Telephone: %s', 'tainacan-interface' ), wp_filter_nohtml_kses( get_option( 'tainacan_blogphone', '' ) ) );
+if ( get_theme_mod( 'tainacan_blogphone' ) ) {
+	printf( __( 'Telephone: %s', 'tainacan-interface' ), wp_filter_nohtml_kses( get_theme_mod( 'tainacan_blogphone', '' ) ) );
 } ?>
 				</p>
 			</div>
