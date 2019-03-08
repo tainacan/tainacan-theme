@@ -18,7 +18,7 @@ echo "Compiling Sass..."
 #Style do Tema
 #cd ../../../../assets/scss
 cd src/assets/scss
-sass -E 'UTF-8' style.scss:../../style.css --style compressed
+sass -E 'UTF-8' style.scss:../../style.css
 echo "Style of Tainacan Compiled";
 sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
 echo "Bootstrap Compiled";

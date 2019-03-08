@@ -23,7 +23,7 @@ if ( $background_color ) {
 echo '</style>';
 ?>
 
-<div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else : ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo get_template_directory_uri() ?>/assets/images/capa.png')"<?php endif; ?>>
+<div <?php if ( get_header_image() ) : ?>class="page-header header-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else : ?>class="page-header header-filter page-collection" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/capa.png')"<?php endif; ?>>
 	<div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
 		<div class="collection-header position-relative max-large" style="">
 			<?php do_action( 'tainacan-interface-collection-header' ); ?>
@@ -48,7 +48,7 @@ echo '</style>';
 				<div class="icons">
 					<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
 						<div class="rotater">
-							<a href="http://www.facebook.com/sharer.php?u=<?php echo home_url( $wp->request ); ?>" target="_blank">
+							<a href="http://www.facebook.com/sharer.php?u=<?php echo esc_url( home_url( $wp->request ) ); ?>" target="_blank">
 								<div class="btn btn-icon">
 									<i class="mdi mdi-facebook"></i>
 								</div>
@@ -57,16 +57,16 @@ echo '</style>';
 					<?php endif; ?>
 					<?php if ( true == get_theme_mod( 'tainacan_google_share', true ) ) : ?> 
 						<div class="rotater">
-							<a href="https://plus.google.com/share?url=<?php echo home_url( $wp->request ); ?>" target="_blank">
+							<a href="https://plus.google.com/share?url=<?php echo esc_url( home_url( $wp->request ) ); ?>" target="_blank">
 								<div class="btn btn-icon">
 									<i class="mdi mdi-google-plus"></i>
 								</div>
 							</a>
 						</div>
 					<?php endif; ?>
-					<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) && get_option( 'tainacan_twitter_user' ) ) : ?> 
+					<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) && get_theme_mod( 'tainacan_twitter_user' ) ) : ?> 
 						<div class="rotater">
-							<a href="http://twitter.com/share?url=<?php echo home_url( $wp->request ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo esc_attr( get_option( 'tainacan_twitter_user', '' ) ); ?>" target="_blank">
+							<a href="http://twitter.com/share?url=<?php echo esc_url( home_url( $wp->request ) ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo esc_attr( get_theme_mod( 'tainacan_twitter_user', '' ) ); ?>" target="_blank">
 								<div class="btn btn-icon">
 									<i class="mdi mdi-twitter"></i>
 								</div>

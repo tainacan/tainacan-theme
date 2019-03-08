@@ -26,7 +26,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 * Custom header to change the banner image
 		 */
 		$header_args = array(
-			//'default-text-color' => '000',
 			'width'              => 2000,
 			'height'             => 280,
 			'header-text'		 => false,
@@ -43,15 +42,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 */
 		add_theme_support( 'title-tag' );
 
-		/* register_default_headers(
-			array(
-				'default-image' => array(
-					'url'           => '%s/assets/images/capa.png',
-					'thumbnail_url' => '%s/assets/images/capa.png',
-					'description'   => __( 'Default Image', 'tainacan-interface' ),
-				),
-			)
-		); */
 		require_once get_template_directory() . '/functions/enqueues.php' ;
 
 		/**
@@ -67,8 +57,8 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 
 		if ( function_exists( 'tainacan_register_view_mode' ) ) {
 			tainacan_register_view_mode('grid', array(
-				'label' => 'Thumbnail',
-				'description' => 'A thumbnail grid view, showing only title and thumbnail',
+				'label' => __( 'Thumbnail', 'tainacan-interface' ),
+				'description' => __( 'A thumbnail grid view, showing only title and thumbnail', 'tainacan-interface' ),
 				'icon' => '<span class="icon"><i class="mdi mdi-apps mdi-24px"></i></span>',
 				'dynamic_metadata' => false,
 				'template' => get_template_directory() . '/tainacan/view-mode-grid.php',
