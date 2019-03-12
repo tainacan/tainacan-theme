@@ -294,11 +294,20 @@ function tainacan_setup_theme_supported_features() {
         ),
 	) );
 	add_theme_support( 'align-wide' );
-	
+	add_theme_support( 'editor-style' );
+	add_editor_style( 'editor-style.css' );
 }
 
 add_action( 'after_setup_theme', 'tainacan_setup_theme_supported_features' );
 
+/**
+* Enqueue editor styles for Gutenberg
+*/
+ 
+function tainacan_editor_styles() {
+    wp_enqueue_style( 'tainacan-editor-style', get_template_directory_uri() . '/editor-style.css' );
+}
+add_action( 'enqueue_block_editor_assets', 'tainacan_editor_styles' );
 
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/single-functions.php';
