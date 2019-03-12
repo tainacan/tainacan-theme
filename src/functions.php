@@ -292,7 +292,8 @@ function tainacan_setup_theme_supported_features() {
             'slug' => 'violet',
             'color' => '#955ba5',
         ),
-    ) );
+	) );
+	add_theme_support( 'align-wide' );
 }
 
 add_action( 'after_setup_theme', 'tainacan_setup_theme_supported_features' );
