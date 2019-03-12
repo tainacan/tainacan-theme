@@ -1,0 +1,30 @@
+.alignwide {
+    margin: 0 calc(-8.3333333333vw + 15px) !important;
+
+    @media only screen and (min-width: 1800px) {
+        margin: 0 calc(-1*(87.5vw - 1415px)/2) !important !important;
+    }
+}
+.wp-block-image.alignwide>img {
+    max-width: 1400px !important;
+    width: calc(100vw - 12.5vw) !important;
+    padding: 0 !important;
+    left: 0px;
+    position: relative;
+
+    @media only screen and (min-width: 1800px) {
+        left: 30px;
+    }
+}
+
+.alignfull {
+    margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+    margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+    max-width : 100vw;
+    width: 100vw;
+}
+.wp-block-image.alignfull>img {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    padding: 0 !important;
+}

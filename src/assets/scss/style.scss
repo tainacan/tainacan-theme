@@ -12,6 +12,7 @@ Text Domain: tainacan-interface
 
 body{
     font-family: 'Roboto' !important;
+    overflow-x: hidden;
     a{
         color: #298596;
         &:hover{
@@ -625,6 +626,8 @@ nav{
         transform: translate(0, 0px);
     }
 }
+
+@import "_gutenberg-support";
 
 @import "_comments";
 
