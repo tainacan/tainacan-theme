@@ -1,8 +1,10 @@
 === Tainacan Interface ===
 Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto
 Requires at least: WordPress 4.8
-Tested up to: WordPress 5.0.3
-Version: 1.0.9
+Tested up to: WordPress 5.1
+Version: 1.0.11
+Requires PHP: 5.6
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 
@@ -58,14 +60,18 @@ Licenses: GPLv3+
 Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 
 Photos used in the screenshot
-Kingfisher birds
-1. https://pixabay.com/en/kingfisher-bird-alcedo-atthis-1068684/
-License: CC0
-2. https://pixabay.com/en/animal-background-beak-beautiful-3387479/
-License CC0
-3. https://pixabay.com/en/animal-avian-beak-bird-1867936/
+
+1. https://pxhere.com/en/photo/73320
 License: CC0
 
+2. https://pxhere.com/en/photo/73383
+License CC0
+
+3. https://pxhere.com/en/photo/73485
+License: CC0
+
+4. https://pxhere.com/en/photo/1432253
+License: CC0
 
 Bundled images, Copyright Taincan.org
 License: CC0 1.0 Universal (CC0 1.0)
