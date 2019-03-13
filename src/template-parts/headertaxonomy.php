@@ -34,7 +34,7 @@ $src = wp_get_attachment_image_src($image, 'full');
 					</div>
 					<?php do_action( 'tainacan-interface-taxonoy-description' ); ?>
 					<div class="col-12 col-lg-4 d-flex flex-wrap page-header-share">
-						<div class="page-header-icons">
+						<div class="page-header-icons d-none">
 							<p class="share-title"><?php _e('Export', 'tainacan-interface'); ?></p>
 							<a href="" class="icon-export"><i class="mdi mdi-export"></i></a>
 						</div>
