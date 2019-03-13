@@ -1,30 +1,402 @@
-.edit-post-visual-editor.editor-styles-wrapper {
+.edit-post-visual-editor.editor-styles-wrapper,
+.components-modal__screen-overlay {
   font-family: 'Roboto', sans-serif !important;
   /* Main column width */
   /* Width of "wide" blocks */
   /* Width of "full" blocks */
-  /* Post title */ }
-  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout {
+  /* Post title */
+  /* Heading */
+  /* Buttons */
+  /* Text input */
+  /* Labels */
+  /* Modal container */
+  /* Modal Header */
+  /* Checkboxes and Radio Buttons*/
+  /* Blockquote */
+  /* Pullquote */
+  /* Tables */
+  /* Tainacan Selection Modal */ }
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout,
+  .components-modal__screen-overlay .editor-block-list__layout {
     padding-left: 4.16667%;
     padding-right: 4.16667%; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block,
+  .components-modal__screen-overlay .wp-block {
     max-width: 1400px;
     margin-left: 8.3333333333%;
     margin-right: 8.3333333333%; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-align="wide"] {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-align="wide"],
+  .components-modal__screen-overlay .wp-block[data-align="wide"] {
     margin-left: auto;
     margin-right: auto; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-align="full"] {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-align="full"],
+  .components-modal__screen-overlay .wp-block[data-align="full"] {
     max-width: calc(100% + 8.333333333%);
     width: calc(100% + 8.333333333%);
     margin-left: -4.16667%;
     margin-right: -4.16667%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block,
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__input {
-    font-size: 14px;
+  .edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
+  .components-modal__screen-overlay .wp-block.editor-post-title__block,
+  .components-modal__screen-overlay .editor-post-title__block .editor-post-title__input {
+    font-size: 1.25rem;
     font-family: 'Roboto', sans-serif; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block {
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block textarea,
+    .edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input textarea,
+    .components-modal__screen-overlay .wp-block.editor-post-title__block textarea,
+    .components-modal__screen-overlay .editor-post-title__block .editor-post-title__input textarea {
+      padding: 3px 6px; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block,
+  .components-modal__screen-overlay .wp-block.editor-post-title__block {
     border-bottom: 2px solid #3f3f3f;
     margin-bottom: 24px; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h2,
+  .components-modal__screen-overlay .wp-block-heading h2 {
+    font-size: 1.125rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h3,
+  .components-modal__screen-overlay .wp-block-heading h3 {
+    font-size: 1rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h4,
+  .components-modal__screen-overlay .wp-block-heading h4 {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #555758; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button,
+  .components-modal__screen-overlay .components-button.is-button {
+    border: none;
+    box-shadow: none;
+    border-radius: 6px;
+    height: auto;
+    text-shadow: none; }
+    .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button:active:not(.is-default),
+    .components-modal__screen-overlay .components-button.is-button:active:not(.is-default) {
+      color: white; }
+    .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button:active, .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button:focus,
+    .components-modal__screen-overlay .components-button.is-button:active,
+    .components-modal__screen-overlay .components-button.is-button:focus {
+      box-shadow: none; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button:not(.is-small),
+  .components-modal__screen-overlay .components-button.is-button:not(.is-small) {
+    padding: 5px 12px;
+    line-height: 1.2rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button.is-primary,
+  .components-modal__screen-overlay .components-button.is-button.is-primary {
+    background-color: #298596; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button.is-default,
+  .components-modal__screen-overlay .components-button.is-button.is-default {
+    background: white;
+    border: 1px solid #555758;
+    color: #298596; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-icon-button:hover,
+  .edit-post-visual-editor.editor-styles-wrapper .components-icon-button:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-icon-button:active,
+  .components-modal__screen-overlay .components-icon-button:hover,
+  .components-modal__screen-overlay .components-icon-button:focus,
+  .components-modal__screen-overlay .components-icon-button:active {
+    box-shadow: none !important;
+    background: none !important;
+    border: none !important; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content .input-control,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="date"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="datetime-local"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="datetime"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="email"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="month"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="number"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="password"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="search"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="tel"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="text"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="time"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="url"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="week"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content select,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content textarea,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover .input-control,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="date"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="datetime-local"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="datetime"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="email"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="month"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="number"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="password"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="search"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="tel"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="text"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="time"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="url"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="week"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover select,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover textarea,
+  .components-modal__screen-overlay .components-modal__content .input-control,
+  .components-modal__screen-overlay .components-modal__content input[type="date"],
+  .components-modal__screen-overlay .components-modal__content input[type="datetime-local"],
+  .components-modal__screen-overlay .components-modal__content input[type="datetime"],
+  .components-modal__screen-overlay .components-modal__content input[type="email"],
+  .components-modal__screen-overlay .components-modal__content input[type="month"],
+  .components-modal__screen-overlay .components-modal__content input[type="number"],
+  .components-modal__screen-overlay .components-modal__content input[type="password"],
+  .components-modal__screen-overlay .components-modal__content input[type="search"],
+  .components-modal__screen-overlay .components-modal__content input[type="tel"],
+  .components-modal__screen-overlay .components-modal__content input[type="text"],
+  .components-modal__screen-overlay .components-modal__content input[type="time"],
+  .components-modal__screen-overlay .components-modal__content input[type="url"],
+  .components-modal__screen-overlay .components-modal__content input[type="week"],
+  .components-modal__screen-overlay .components-modal__content select,
+  .components-modal__screen-overlay .components-modal__content textarea,
+  .components-modal__screen-overlay .components-popover .input-control,
+  .components-modal__screen-overlay .components-popover input[type="date"],
+  .components-modal__screen-overlay .components-popover input[type="datetime-local"],
+  .components-modal__screen-overlay .components-popover input[type="datetime"],
+  .components-modal__screen-overlay .components-popover input[type="email"],
+  .components-modal__screen-overlay .components-popover input[type="month"],
+  .components-modal__screen-overlay .components-popover input[type="number"],
+  .components-modal__screen-overlay .components-popover input[type="password"],
+  .components-modal__screen-overlay .components-popover input[type="search"],
+  .components-modal__screen-overlay .components-popover input[type="tel"],
+  .components-modal__screen-overlay .components-popover input[type="text"],
+  .components-modal__screen-overlay .components-popover input[type="time"],
+  .components-modal__screen-overlay .components-popover input[type="url"],
+  .components-modal__screen-overlay .components-popover input[type="week"],
+  .components-modal__screen-overlay .components-popover select,
+  .components-modal__screen-overlay .components-popover textarea {
+    border-radius: 0;
+    border-color: #cbcbcb;
+    padding: 4px 8px; }
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content .input-control:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="date"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="datetime-local"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="datetime"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="email"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="month"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="number"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="password"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="search"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="tel"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="text"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="time"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="url"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="week"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content select:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__content textarea:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover .input-control:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="date"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="datetime-local"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="datetime"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="email"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="month"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="number"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="password"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="search"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="tel"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="text"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="time"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="url"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="week"]:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover select:focus,
+    .edit-post-visual-editor.editor-styles-wrapper .components-popover textarea:focus,
+    .components-modal__screen-overlay .components-modal__content .input-control:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="date"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="datetime-local"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="datetime"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="email"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="month"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="number"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="password"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="search"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="tel"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="text"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="time"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="url"]:focus,
+    .components-modal__screen-overlay .components-modal__content input[type="week"]:focus,
+    .components-modal__screen-overlay .components-modal__content select:focus,
+    .components-modal__screen-overlay .components-modal__content textarea:focus,
+    .components-modal__screen-overlay .components-popover .input-control:focus,
+    .components-modal__screen-overlay .components-popover input[type="date"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="datetime-local"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="datetime"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="email"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="month"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="number"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="password"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="search"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="tel"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="text"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="time"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="url"]:focus,
+    .components-modal__screen-overlay .components-popover input[type="week"]:focus,
+    .components-modal__screen-overlay .components-popover select:focus,
+    .components-modal__screen-overlay .components-popover textarea:focus {
+      border: 1px solid #555758;
+      box-shadow: none; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-base-control__label,
+  .components-modal__screen-overlay .components-base-control__label {
+    font-weight: 600;
+    color: black; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content,
+  .components-modal__screen-overlay .components-modal__content {
+    padding: 32px; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__header,
+  .components-modal__screen-overlay .components-modal__header {
+    height: 32px;
+    margin: 0 12px 32px 12px;
+    padding: 0;
+    border-bottom: 1px solid #298596; }
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__header .components-modal__header-heading,
+    .edit-post-visual-editor.editor-styles-wrapper .components-modal__header h1,
+    .components-modal__screen-overlay .components-modal__header .components-modal__header-heading,
+    .components-modal__screen-overlay .components-modal__header h1 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #555758; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="checkbox"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="checkbox"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="checkbox"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"]:checked::before,
+  .components-modal__screen-overlay .components-modal__content input[type="checkbox"]:checked::before,
+  .components-modal__screen-overlay .components-popover input[type="checkbox"]:checked::before,
+  .components-modal__screen-overlay .editor-block-list__block input[type="checkbox"]:checked::before,
+  .components-modal__screen-overlay .components-modal__content input[type="radio"]:checked::before,
+  .components-modal__screen-overlay .components-popover input[type="radio"]:checked::before,
+  .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:checked::before {
+    color: black; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"]:checked::before,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"]:checked::before,
+  .components-modal__screen-overlay .components-modal__content input[type="radio"]:checked::before,
+  .components-modal__screen-overlay .components-popover input[type="radio"]:checked::before,
+  .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:checked::before {
+    background: black;
+    margin: 4px 0 0 3px;
+    width: 8px;
+    height: 8px; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="checkbox"]:checked,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:checked,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="checkbox"]:checked,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"]:checked,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="checkbox"]:checked,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"]:checked,
+  .components-modal__screen-overlay .components-modal__content input[type="checkbox"]:checked,
+  .components-modal__screen-overlay .components-modal__content input[type="radio"]:checked,
+  .components-modal__screen-overlay .components-popover input[type="checkbox"]:checked,
+  .components-modal__screen-overlay .components-popover input[type="radio"]:checked,
+  .components-modal__screen-overlay .editor-block-list__block input[type="checkbox"]:checked,
+  .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:checked {
+    background: white;
+    border: 1px solid #555758; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="checkbox"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="checkbox"],
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"],
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="checkbox"],
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"],
+  .components-modal__screen-overlay .components-modal__content input[type="checkbox"],
+  .components-modal__screen-overlay .components-modal__content input[type="radio"],
+  .components-modal__screen-overlay .components-popover input[type="checkbox"],
+  .components-modal__screen-overlay .components-popover input[type="radio"],
+  .components-modal__screen-overlay .editor-block-list__block input[type="checkbox"],
+  .components-modal__screen-overlay .editor-block-list__block input[type="radio"] {
+    border: 1px solid #555758; }
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="checkbox"]:checked:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:checked:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="checkbox"]:checked:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"]:checked:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="checkbox"]:checked:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"]:checked:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="checkbox"]:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="checkbox"]:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"]:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="checkbox"]:focus,
+  .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"]:focus,
+  .components-modal__screen-overlay .components-modal__content input[type="checkbox"]:checked:focus,
+  .components-modal__screen-overlay .components-modal__content input[type="radio"]:checked:focus,
+  .components-modal__screen-overlay .components-popover input[type="checkbox"]:checked:focus,
+  .components-modal__screen-overlay .components-popover input[type="radio"]:checked:focus,
+  .components-modal__screen-overlay .editor-block-list__block input[type="checkbox"]:checked:focus,
+  .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:checked:focus,
+  .components-modal__screen-overlay .components-modal__content input[type="checkbox"]:focus,
+  .components-modal__screen-overlay .components-modal__content input[type="radio"]:focus,
+  .components-modal__screen-overlay .components-popover input[type="checkbox"]:focus,
+  .components-modal__screen-overlay .components-popover input[type="radio"]:focus,
+  .components-modal__screen-overlay .editor-block-list__block input[type="checkbox"]:focus,
+  .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:focus {
+    box-shadow: none; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-quote:not(.is-large):not(.is-style-large),
+  .components-modal__screen-overlay .wp-block-quote:not(.is-large):not(.is-style-large) {
+    border-left: 2px solid #298596;
+    color: #555758;
+    font-weight: normal;
+    font-size: 1.125rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-quote__citation,
+  .components-modal__screen-overlay .wp-block-quote__citation {
+    font-weight: 500;
+    text-align: right;
+    color: #298596; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-pullquote,
+  .components-modal__screen-overlay .wp-block-pullquote {
+    border-top: 2px solid #cbcbcb;
+    border-bottom: 2px solid #cbcbcb;
+    padding: 2rem 0; }
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block-pullquote .block-library-pullquote__content.editor-rich-text p,
+    .components-modal__screen-overlay .wp-block-pullquote .block-library-pullquote__content.editor-rich-text p {
+      font-size: 1.125rem;
+      color: #298596;
+      font-weight: 500; }
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block-pullquote .wp-block-pullquote__citation,
+    .components-modal__screen-overlay .wp-block-pullquote .wp-block-pullquote__citation {
+      color: #555758;
+      font-size: 1rem;
+      font-weight: normal;
+      font-style: italic;
+      text-transform: none; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-table th,
+  .components-modal__screen-overlay .wp-block-table th {
+    border-bottom: 1px solid #cbcbcb; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-table td,
+  .components-modal__screen-overlay .wp-block-table td {
+    border: 1px solid #f2f2f2; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-footer,
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-footer,
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-footer,
+  .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-footer,
+  .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-footer,
+  .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-footer {
+    margin: 0;
+    border: none;
+    padding-top: 0; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area,
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area,
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area,
+  .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area,
+  .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area,
+  .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area {
+    padding: 0 14px; }
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control,
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control,
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control,
+    .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control,
+    .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control,
+    .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control {
+      width: 100%; }
+      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field,
+      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field,
+      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field,
+      .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field,
+      .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field,
+      .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field {
+        display: flex;
+        align-items: center; }
+        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field label,
+        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field label,
+        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field label,
+        .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field label,
+        .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field label,
+        .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field label {
+          flex-shrink: 0;
+          margin-right: 12px; }
 
 /*# sourceMappingURL=editor-style.css.map */

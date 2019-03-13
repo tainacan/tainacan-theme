@@ -1,4 +1,5 @@
-.edit-post-visual-editor.editor-styles-wrapper {
+.edit-post-visual-editor.editor-styles-wrapper,
+.components-modal__screen-overlay {
 
     font-family: 'Roboto', sans-serif !important;
 
@@ -30,13 +31,254 @@
 
     /* Post title */
     .wp-block.editor-post-title__block,
-    .wp-block.editor-post-title__input {
-        font-size: 14px;
+    .editor-post-title__block .editor-post-title__input{
+        font-size: 1.25rem;
         font-family: 'Roboto', sans-serif;   
+        textarea {
+            padding: 3px 6px;
+        }
     }
     .wp-block.editor-post-title__block {
         border-bottom: 2px solid #3f3f3f; 
         margin-bottom: 24px;
+    }
+
+    /* Heading */
+    .wp-block-heading h2 {
+        font-size: 1.125rem;
+    }
+    .wp-block-heading h3 {
+        font-size: 1rem;
+    }
+    .wp-block-heading h4 {
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: normal;
+        color: #555758;
+    }
+
+    /* Buttons */
+    .components-button.is-button {
+        border: none;
+        box-shadow: none;
+        border-radius: 6px;
+        height: auto;
+        text-shadow: none;
+
+        &:active:not(.is-default) {
+            color: white;
+        }
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .components-button.is-button:not(.is-small) {
+        padding: 5px 12px;
+        line-height: 1.2rem;
+    }
+    .components-button.is-button.is-primary {
+        background-color: #298596;
+    }
+    .components-button.is-button.is-default {
+        background: white;
+        border: 1px solid #555758;
+        color: #298596;
+    }
+    .components-icon-button:hover,
+    .components-icon-button:focus,
+    .components-icon-button:active {
+        box-shadow: none !important;
+        background: none !important;
+        border: none !important;
+    }
+
+    /* Text input */
+    .components-modal__content .input-control, 
+    .components-modal__content input[type="date"], 
+    .components-modal__content input[type="datetime-local"], 
+    .components-modal__content input[type="datetime"], 
+    .components-modal__content input[type="email"], 
+    .components-modal__content input[type="month"], 
+    .components-modal__content input[type="number"], 
+    .components-modal__content input[type="password"],
+    .components-modal__content input[type="search"], 
+    .components-modal__content input[type="tel"], 
+    .components-modal__content input[type="text"], 
+    .components-modal__content input[type="time"], 
+    .components-modal__content input[type="url"], 
+    .components-modal__content input[type="week"], 
+    .components-modal__content select, 
+    .components-modal__content textarea, 
+    .components-popover .input-control,
+    .components-popover input[type="date"], 
+    .components-popover input[type="datetime-local"], 
+    .components-popover input[type="datetime"], 
+    .components-popover input[type="email"], 
+    .components-popover input[type="month"], 
+    .components-popover input[type="number"], 
+    .components-popover input[type="password"],
+    .components-popover input[type="search"], 
+    .components-popover input[type="tel"], 
+    .components-popover input[type="text"], 
+    .components-popover input[type="time"], 
+    .components-popover input[type="url"], 
+    .components-popover input[type="week"], 
+    .components-popover select, 
+    .components-popover textarea {
+        border-radius: 0;
+        border-color: #cbcbcb;
+        padding: 4px 8px;
+
+        &:focus {
+            border: 1px solid #555758;
+            box-shadow: none;
+        }
+    }
+
+    /* Labels */
+    .components-base-control__label {
+        font-weight: 600;
+        color: black;
+    }
+
+    /* Modal container */
+    .components-modal__content {
+        padding: 32px;
+    }
+
+    /* Modal Header */
+    .components-modal__header {
+        height: 32px;
+        margin: 0 12px 32px 12px;
+        padding: 0;
+        border-bottom: 1px solid #298596;
+
+        .components-modal__header-heading,
+        h1 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #555758;
+        }
+    }
+
+    /* Checkboxes and Radio Buttons*/
+    .components-modal__content input[type="checkbox"]:checked::before, 
+    .components-popover input[type="checkbox"]:checked::before, 
+    .editor-block-list__block input[type="checkbox"]:checked::before,
+    .components-modal__content input[type="radio"]:checked::before, 
+    .components-popover input[type="radio"]:checked::before, 
+    .editor-block-list__block input[type="radio"]:checked::before {
+        color: black;
+    }
+    .components-modal__content input[type="radio"]:checked::before, 
+    .components-popover input[type="radio"]:checked::before, 
+    .editor-block-list__block input[type="radio"]:checked::before {
+        background: black;
+        margin: 4px 0 0 3px;
+        width: 8px;
+        height: 8px;
+    }
+    .components-modal__content input[type="checkbox"]:checked, 
+    .components-modal__content input[type="radio"]:checked, 
+    .components-popover input[type="checkbox"]:checked, 
+    .components-popover input[type="radio"]:checked, 
+    .editor-block-list__block input[type="checkbox"]:checked, 
+    .editor-block-list__block input[type="radio"]:checked {
+        background: white;
+        border: 1px solid #555758;
+    }
+    .components-modal__content input[type="checkbox"], 
+    .components-modal__content input[type="radio"], 
+    .components-popover input[type="checkbox"], 
+    .components-popover input[type="radio"],  
+    .editor-block-list__block input[type="checkbox"], 
+    .editor-block-list__block input[type="radio"] {
+        border: 1px solid #555758;
+    }
+    .components-modal__content input[type="checkbox"]:checked:focus, 
+    .components-modal__content input[type="radio"]:checked:focus, 
+    .components-popover input[type="checkbox"]:checked:focus, 
+    .components-popover input[type="radio"]:checked:focus, 
+    .editor-block-list__block input[type="checkbox"]:checked:focus, 
+    .editor-block-list__block input[type="radio"]:checked:focus,
+    .components-modal__content input[type="checkbox"]:focus, 
+    .components-modal__content input[type="radio"]:focus, 
+    .components-popover input[type="checkbox"]:focus, 
+    .components-popover input[type="radio"]:focus, 
+    .editor-block-list__block input[type="checkbox"]:focus, 
+    .editor-block-list__block input[type="radio"]:focus {
+        box-shadow: none;
+    }
+
+    /* Blockquote */
+    .wp-block-quote:not(.is-large):not(.is-style-large) {
+        border-left: 2px solid #298596;
+        color: #555758;
+        font-weight: normal;
+        font-size: 1.125rem;
+    }
+    .wp-block-quote__citation {
+        font-weight: 500;
+        text-align: right;
+        color: #298596;
+    }
+
+    /* Pullquote */
+    .wp-block-pullquote {
+        border-top: 2px solid #cbcbcb;
+        border-bottom: 2px solid #cbcbcb;
+        padding: 2rem 0;
+
+        .block-library-pullquote__content.editor-rich-text p {
+            font-size: 1.125rem;
+            color: #298596;
+            font-weight: 500;
+        }
+        .wp-block-pullquote__citation {
+            color: #555758;
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: italic;
+            text-transform: none;
+        }
+    }
+
+    /* Tables */
+    .wp-block-table th {
+        border-bottom: 1px solid #cbcbcb;
+    }
+    .wp-block-table td {
+        border: 1px solid #f2f2f2;
+    }
+
+    /* Tainacan Selection Modal */
+    .wp-block-tainacan-items-modal .modal-items-footer,
+    .wp-block-tainacan-terms-modal .modal-terms-footer,
+    .wp-block-tainacan-collections-modal .modal-collections-footer {
+        margin: 0;
+        border: none;
+        padding-top: 0;
+    }
+
+    .wp-block-tainacan-items-modal .modal-items-search-area,
+    .wp-block-tainacan-collections-modal .modal-collections-search-area,
+    .wp-block-tainacan-terms-modal .modal-terms-search-area {
+        padding: 0 14px;
+
+        .components-base-control {
+            width: 100%;
+
+            .components-base-control__field {
+                display: flex;
+                align-items: center;
+
+                label{
+                    flex-shrink: 0;
+                    margin-right: 12px;
+                }
+            }
+        }
     }
 
 }
