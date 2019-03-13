@@ -253,17 +253,12 @@
     }
 
     /* Tainacan Selection Modal */
-    .wp-block-tainacan-items-modal .modal-items-footer,
-    .wp-block-tainacan-terms-modal .modal-terms-footer,
-    .wp-block-tainacan-collections-modal .modal-collections-footer {
+    .wp-block-tainacan-modal .modal-footer-area{
         margin: 0;
         border: none;
         padding-top: 0;
     }
-
-    .wp-block-tainacan-items-modal .modal-items-search-area,
-    .wp-block-tainacan-collections-modal .modal-collections-search-area,
-    .wp-block-tainacan-terms-modal .modal-terms-search-area {
+    .wp-block-tainacan-modal .modal-search-area {
         padding: 0 14px;
 
         .components-base-control {

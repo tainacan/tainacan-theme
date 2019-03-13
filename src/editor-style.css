@@ -359,43 +359,23 @@
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-table td,
   .components-modal__screen-overlay .wp-block-table td {
     border: 1px solid #f2f2f2; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-footer,
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-footer,
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-footer,
-  .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-footer,
-  .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-footer,
-  .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-footer {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-footer-area,
+  .components-modal__screen-overlay .wp-block-tainacan-modal .modal-footer-area {
     margin: 0;
     border: none;
     padding-top: 0; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area,
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area,
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area,
-  .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area,
-  .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area,
-  .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-search-area,
+  .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area {
     padding: 0 14px; }
-    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control,
-    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control,
-    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control,
-    .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control,
-    .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control,
-    .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control {
+    .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-search-area .components-base-control,
+    .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area .components-base-control {
       width: 100%; }
-      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field,
-      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field,
-      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field,
-      .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field,
-      .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field,
-      .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field {
+      .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-search-area .components-base-control .components-base-control__field,
+      .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area .components-base-control .components-base-control__field {
         display: flex;
         align-items: center; }
-        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field label,
-        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field label,
-        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field label,
-        .components-modal__screen-overlay .wp-block-tainacan-items-modal .modal-items-search-area .components-base-control .components-base-control__field label,
-        .components-modal__screen-overlay .wp-block-tainacan-collections-modal .modal-collections-search-area .components-base-control .components-base-control__field label,
-        .components-modal__screen-overlay .wp-block-tainacan-terms-modal .modal-terms-search-area .components-base-control .components-base-control__field label {
+        .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-search-area .components-base-control .components-base-control__field label,
+        .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area .components-base-control .components-base-control__field label {
           flex-shrink: 0;
           margin-right: 12px; }
 
