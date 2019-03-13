@@ -15,7 +15,9 @@ $src = wp_get_attachment_image_src($image, 'full');
 
 	<div class="container-fluid m-0 p-0 d-flex flex-wrap">
 		<?php do_action( 'tainacan-interface-taxonomy-header' ); ?>
-		<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php if($src) : echo $src[0]; else : echo get_template_directory_uri() ?>/assets/images/capa.png<?php endif; ?>');"></div>
+		<?php if($src) : ?>
+			<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php echo $src[0]; ?>"></div>
+		<?php endif; ?>
 		<div class="col-12 col-sm p-0 page-header-content">
 			<div class="page-header-content-meta">
 				<div class="page-header-content-title d-inline-flex border-bottom">
@@ -28,12 +30,12 @@ $src = wp_get_attachment_image_src($image, 'full');
 					<a class="page-header-back ml-auto" href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
 				</div>
 				<?php $tainacan_term_description = tainacan_get_the_term_description(); ?>
-				<div class="page-header-hightlights d-flex flex-wrap">
-					<div class="col-12 col-lg-8 p-0 page-header-description">
+				<div class="page-header-hightlights d-flex flex-wrap justify-content-between">
+				<div class="col-12 <?php if($src) : ?>col-lg-8<?php else : ?>col-lg-6<?php endif; ?> p-0 page-header-description">
 						<?php echo $tainacan_term_description; ?>
 					</div>
 					<?php do_action( 'tainacan-interface-taxonoy-description' ); ?>
-					<div class="col-12 col-lg-4 d-flex flex-wrap page-header-share">
+					<div class="col-12 <?php if($src) : ?>col-lg-3<?php else : ?>col-lg-2<?php endif; ?> d-flex flex-wrap page-header-share pr-lg-0">
 						<div class="page-header-icons d-none">
 							<p class="share-title"><?php _e('Export', 'tainacan-interface'); ?></p>
 							<a href="" class="icon-export"><i class="mdi mdi-export"></i></a>
