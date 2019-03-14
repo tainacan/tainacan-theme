@@ -63,26 +63,29 @@ function tainacan_interface_the_breadcrumb() {
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			$post_type = get_post_type_object(get_post_type());
 			if(is_tax()) {
-				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+				$term = get_queried_object();
 				$taxonomy = get_taxonomy( $term->taxonomy );
-				echo '<a href="'.site_url($taxonomy->rewrite['slug']).'">'; _e( 'Taxonomy: ', 'tainacan-interface' ); echo $taxonomy->labels->name; echo '</a>&nbsp;' . $delimiter . '&nbsp;';
+				echo $taxonomy->labels->name; 
 				// Create a list of all the term's parents
 				$parent = $term->parent;
 				while ($parent):
-					$parents[] = $parent;
 					$new_parent = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
+					$parents[] = $new_parent;
 					$parent = $new_parent->parent;
 				endwhile;
 				if( !empty( $parents ) ) :
 					$parents = array_reverse($parents);
 				// For each parent, create a breadcrumb item
+				
 				foreach( $parents as $parent ) :
-					$item = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
-					$url = get_bloginfo( 'url' ).'/'.$item->taxonomy.'/'.$item->slug;
-					echo '<a href="'.$url.'">'.$item->name.'</a>';
+					//$item = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
+					$url = get_term_link($parent);
+					echo '&nbsp;' . $delimiter . '&nbsp;';
+					echo '<a href="' . esc_url($url) . '">'.$parent->name.'</a>';
 				endforeach;
 				endif;
 				// Display the current term in the breadcrumb
+				echo '&nbsp;' . $delimiter . '&nbsp;';
 				echo $before . $term->name . $after;
 			} elseif(!is_tax() && get_post_type() != 'tainacan-collection') {
 				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
