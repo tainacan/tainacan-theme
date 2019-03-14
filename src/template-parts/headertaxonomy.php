@@ -15,7 +15,7 @@ $src = wp_get_attachment_image_src($image, 'full');
 
 	<div class="container-fluid m-0 p-0 d-flex flex-wrap">
 		<?php do_action( 'tainacan-interface-taxonomy-header' ); ?>
-		<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php if($src) : echo $src[0]; else : echo get_template_directory_uri() ?>/assets/images/capa.png<?php endif; ?>');"></div>
+		<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php if($src) : echo $src[0]; else : echo esc_url(get_template_directory_uri()); ?>/assets/images/capa.png<?php endif; ?>');"></div>
 		<div class="col-12 col-sm p-0 page-header-content">
 			<div class="page-header-content-meta">
 				<div class="page-header-content-title d-inline-flex border-bottom">
