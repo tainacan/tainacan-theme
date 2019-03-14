@@ -35,10 +35,6 @@ $src = wp_get_attachment_image_src($image, 'full');
 					<?php do_action( 'tainacan-interface-taxonoy-description' ); ?>
 					<div class="col-12 col-lg-4 d-flex flex-wrap page-header-share">
 						<div class="page-header-icons">
-							<p class="share-title"><?php _e('Export', 'tainacan-interface'); ?></p>
-							<a href="" class="icon-export"><i class="mdi mdi-export"></i></a>
-						</div>
-						<div class="page-header-icons">
 							<p class="share-title"><?php _e('Share', 'tainacan-interface'); ?></p>
 							<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
 								<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="share-link" target="_blank">
