@@ -436,7 +436,6 @@ nav{
     }
     &.page-collection{
         height: auto;
-        padding-top: 250px;
         @media only screen and (max-width: 576px){
             padding-top: 89.62px;
         }
@@ -532,6 +531,17 @@ nav{
         }
     }
 }
+
+/* IMAGEM DO TOPO DA INTERNA */
+
+.page-header__image {
+    width: 100%;
+    min-height: 250px;
+    margin: 0 auto;
+    object-fit: cover;
+    display: block;
+}
+.page-header--image-full { display: block; }
 
 .tainacan-title{
     .tainacan-title-page{
