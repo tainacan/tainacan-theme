@@ -27,7 +27,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 */
 		$header_args = array(
 			'width'              => 2000,
-			'height'             => 280,
+			'height'             => 625,
 			'header-text'		 => false,
 			'flex-width'         => true,
 			'flex-height'        => true,
