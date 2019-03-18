@@ -579,16 +579,21 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-title-page,
 	.tainacan-list-post .blog-post .blog-content .blog-read,
 	.tainacan-list-post .blog-post .blog-content .blog-read:hover,
-	.tainacan-content .wp-block-button a,
-	.tainacan-content .wp-block-button a:hover {
+	.tainacan-content .wp-block-button:not(.is-style-outline) a,
+	.tainacan-content .wp-block-button:not(.is-style-outline) a:hover {
 		border-color: {$colors['tainacan_link_color']} !important;
 	}
 	.tainacan-list-post .blog-post .blog-content .blog-read,
 	.tainacan-list-post .blog-post .blog-content .blog-read:hover,
-	.tainacan-content .wp-block-button a,
-	.tainacan-content .wp-block-button a:hover {
+	.tainacan-content .wp-block-button:not(.is-style-outline) a,
+	.tainacan-content .wp-block-button:not(.is-style-outline) a:hover {
 		background-color: {$colors['tainacan_link_color']};
 	}
+	.tainacan-content .wp-block-button.is-style-outline a,
+	.tainacan-content .wp-block-button.is-style-outline a:hover {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+
 	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['backtransparent']};
 	}
@@ -599,6 +604,21 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 	footer hr.bg-scooter {
 		background-color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/* Blockquote */
+	.wp-block-quote:not(.is-large):not(.is-style-large) {
+		border-left-color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/* Pullquote */
+    .wp-block-pullquote p {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/* Code */
+    .wp-block-code code {
+		color: {$colors['tainacan_link_color']} !important;
 	}
 
 	/**

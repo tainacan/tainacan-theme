@@ -60,7 +60,7 @@
                 font-weight: 600;
             }
             h4 {
-                color: #898d8f;
+                color: #555758;
                 font-size: 1rem;
                 font-style: italic;
             }
@@ -75,7 +75,7 @@
                 font-weight: 400;
             }
             pre:not(.wp-block-code) {
-                color: #898d8f;
+                color: #555758;
                 font-size: 1rem;
                 font-weight: 400;
                 white-space: pre-line;
@@ -83,25 +83,32 @@
             .wp-block-code {
                 code {
                     font-size: 0.875rem;
-                    color: #e83e8c;
+                    color: #298596;
                     word-break: break-word;
                 }
             }
-            blockquote:not(.wp-block-pullquote), .wp-block-quote {
-                border-left:2px solid #298596;
-                margin-left: 4.16666666667%;
-                margin-right: 4.16666666667%;
+            .wp-block-quote {
+                margin: 3rem 8.33333%;
                 padding: 1rem;
                 p {
-                    color: #898d8f;
-                    font-size: 1.375rem;
-                    font-weight: 500;
+                    color: #555758;
+                    font-size: 1rem;
+                    font-weight: normal;
                 }
                 cite {
-                    color: #298596;
-                    float: right;
+                    color: #555758;
+                    display: block;
+                    width: 100%;
+                    text-align: right;
                     font-size: 1rem;
-                    font-weight: 400;
+                    font-weight: 500;
+                    font-style: italic;
+                }
+                &:not(.is-style-large) {
+                    border-left: 2px solid #298596;
+                }
+                &.is-style-large {
+                    font-size: 1.375rem;
                 }
             }
             .wp-block-separator {
@@ -125,12 +132,12 @@
             .table {
                 thead {
                     border-bottom: 1px solid #cbcbcb;
-                    color: #898d8f;
+                    color: #555758;
                     font-weight: 400;
                     font-size: 0.75rem;
                 }
                 tbody {
-                    font-size: 0.75rem;
+                    font-size: 0.875rem;
                     font-weight: 400;
                     color: #000;
                 }
@@ -174,6 +181,26 @@
                     content: "";
                 }
             }
+            .wp-block-columns {
+                display: flex;
+
+                @media only screen and (max-width: 781px){
+                    .wp-block-column {
+                        margin-left: 0 !important;
+                        margin-right: 0 !important;
+                    }
+                }
+
+                .wp-block-column {
+                    flex-basis: 100%;
+                }
+                .wp-block-column:not(:last-child) {
+                    margin-right: 4.16666667%;
+                }
+                .wp-block-column:not(:first-child) {
+                    margin-left: 4.16666667%;
+                }
+            }
             .alignleft {
                 float:left;
                 margin: 0 1em 1em 0;
@@ -193,8 +220,7 @@
                 }
             }
             img {
-                padding: 6px;
-                max-width: calc( 100% - 14px );
+                max-width: 100%;
                 &.alignleft {
                     float: left;
                     margin-right: 1.625em;
@@ -227,9 +253,6 @@
                     margin-left: auto;
                     margin-right: auto;
                 }
-            }
-            figure {
-                margin: 16px 40px;
             }
             .wp-block-cover-image{
                 width: 99.5vw;
@@ -279,18 +302,27 @@
                 }
             }
             .wp-block-pullquote{
-                border-top: 1px solid #cbcbcb;
-                border-bottom: 1px solid #cbcbcb;
-                p {
-                    color: #298596;
-                    font: {
-                        size: 1.375rem;
-                        weight: 500;
+                margin: 3rem 0;
+                padding: 0;
+                border: none;
+
+                blockquote {
+                    border-top: 2px solid #cbcbcb;
+                    border-bottom: 2px solid #cbcbcb;
+                    padding: 2rem 8.3333333%;
+
+                    p {
+                        font-size: 1.375rem;
+                        color: #298596;
+                        font-weight: 500;
                     }
-                }
-                cite {
-                    font-size: 1rem;
-                    color: #898d8f;
+                    cite {
+                        color: #555758;
+                        font-size: 1rem;
+                        font-weight: normal;
+                        font-style: italic;
+                        text-transform: none;
+                    }
                 }
             }
             .wp-caption, .gallery-caption {
