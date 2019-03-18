@@ -21,7 +21,7 @@ function tainacan_interface_the_breadcrumb() {
 
 	} else {
 
-		echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column text-jelly-bean "><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
+		echo '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column text-jelly-bean "><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
 
 		if ( is_category() ) {
 			$thisCat = get_category(get_query_var('cat'), false);
