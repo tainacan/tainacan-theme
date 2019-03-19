@@ -630,7 +630,12 @@ nav{
     object-fit: cover;
     display: block;
 }
-.page-header--image-full { display: block; }
+.page-header.page-header--image-full {
+    height: auto;
+    display: block;
+
+    .page-header__image { max-height: 400px; }
+}
 
 .tainacan-title{
     .tainacan-title-page{
