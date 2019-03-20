@@ -81,6 +81,68 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 
 		add_image_size( 'tainacan-interface-list-post', 300, 200, true );
 		add_image_size( 'tainacan-interface-item-attachments', 125, 125, true );
+		
+		
+		/**
+		 * Gutenberg support
+		 */
+	    add_theme_support( 'editor-color-palette', array(
+	        array(
+	            'name' => __( 'Default', 'tainacan-interface' ),
+	            'slug' => 'default',
+	            'color' => '#298596',
+	        ),
+	        array(
+	            'name' => __( 'Carmine', 'tainacan-interface' ),
+	            'slug' => 'carmine',
+	            'color' => '#8c442c',
+	        ),
+	        array(
+	            'name' => __( 'Cherry', 'tainacan-interface' ),
+	            'slug' => 'cherry',
+	            'color' => '#A12B42',
+	        ),
+	        array(
+	            'name' => __( 'Mustard', 'tainacan-interface' ),
+	            'slug' => 'mustard',
+	            'color' => '#754E24',
+			),
+			array(
+	            'name' => __( 'Mint Green', 'tainacan-interface' ),
+	            'slug' => 'mintgreen',
+	            'color' => '#255F56',
+			),
+			array(
+	            'name' => __( 'Dark Turquoise', 'tainacan-interface' ),
+	            'slug' => 'darkturquoise',
+	            'color' => '#205E6F',
+			),
+			array(
+	            'name' => __( 'Turquoise', 'tainacan-interface' ),
+	            'slug' => 'turquoise',
+	            'color' => '#185F6D',
+			),
+			array(
+	            'name' => __( 'Blue Heavenly', 'tainacan-interface' ),
+	            'slug' => 'blueheavenly',
+	            'color' => '#1D5C86',
+			),
+			array(
+	            'name' => __( 'Purple', 'tainacan-interface' ),
+	            'slug' => 'purple',
+	            'color' => '#4751a3',
+			),
+			array(
+	            'name' => __( 'Violet', 'tainacan-interface' ),
+	            'slug' => 'violet',
+	            'color' => '#955ba5',
+	        ),
+		) );
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-style' );
+		add_editor_style( 'editor-style.css' );
+	
+		
 	}
 } // End if().
 add_action( 'after_setup_theme', 'tainacan_setup' );
@@ -236,69 +298,6 @@ function tainacan_theme_collection_query( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_theme_collection_query' );
-
-/**
- * Gutenberg support
- */
-function tainacan_setup_theme_supported_features() {
-    add_theme_support( 'editor-color-palette', array(
-        array(
-            'name' => __( 'Default', 'tainacan-interface' ),
-            'slug' => 'default',
-            'color' => '#298596',
-        ),
-        array(
-            'name' => __( 'Carmine', 'tainacan-interface' ),
-            'slug' => 'carmine',
-            'color' => '#8c442c',
-        ),
-        array(
-            'name' => __( 'Cherry', 'tainacan-interface' ),
-            'slug' => 'cherry',
-            'color' => '#A12B42',
-        ),
-        array(
-            'name' => __( 'Mustard', 'tainacan-interface' ),
-            'slug' => 'mustard',
-            'color' => '#754E24',
-		),
-		array(
-            'name' => __( 'Mint Green', 'tainacan-interface' ),
-            'slug' => 'mintgreen',
-            'color' => '#255F56',
-		),
-		array(
-            'name' => __( 'Dark Turquoise', 'tainacan-interface' ),
-            'slug' => 'darkturquoise',
-            'color' => '#205E6F',
-		),
-		array(
-            'name' => __( 'Turquoise', 'tainacan-interface' ),
-            'slug' => 'turquoise',
-            'color' => '#185F6D',
-		),
-		array(
-            'name' => __( 'Blue Heavenly', 'tainacan-interface' ),
-            'slug' => 'blueheavenly',
-            'color' => '#1D5C86',
-		),
-		array(
-            'name' => __( 'Purple', 'tainacan-interface' ),
-            'slug' => 'purple',
-            'color' => '#4751a3',
-		),
-		array(
-            'name' => __( 'Violet', 'tainacan-interface' ),
-            'slug' => 'violet',
-            'color' => '#955ba5',
-        ),
-	) );
-	add_theme_support( 'align-wide' );
-	add_theme_support( 'editor-style' );
-	add_editor_style( 'editor-style.css' );
-}
-
-add_action( 'after_setup_theme', 'tainacan_setup_theme_supported_features' );
 
 /**
 * Enqueue editor styles for Gutenberg
