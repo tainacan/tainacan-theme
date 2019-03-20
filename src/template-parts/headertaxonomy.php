@@ -13,14 +13,14 @@ $src = wp_get_attachment_image_src($image, 'full');
 
 <div class="page-header-taxonomy <?php if(!$src) : echo 'page-header-taxonomy--height-auto'; endif; ?>">
 
-	<div class="container-fluid m-0 p-0 d-flex flex-wrap">
+	<div class="container-fluid mt-0 mb-0 p-0 d-flex flex-wrap <?php if ($src) { echo 'max-large margin-one-column'; } ?>">
 		<?php do_action( 'tainacan-interface-taxonomy-header' ); ?>
 
 		<?php if($src) : ?>
 		<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php echo $src[0]; ?>');"></div>
 		<?php endif; ?>
 		<div class="col-12 col-sm p-0 page-header-content">
-			<div class="page-header-content-meta max-large">
+			<div class="page-header-content-meta <?php if (!$src) { echo 'max-large'; } ?>">
 				<div class="page-header-content-title d-inline-flex border-bottom">
 					<h2 class="page-header-title">
 						<?php echo $taxonomy->labels->name . ':'; ?>

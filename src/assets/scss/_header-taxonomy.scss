@@ -33,15 +33,15 @@
             }
         }
         > .page-header-content {
-            @media only screen and (max-width: 768px) {
-                height: 270px;
-            }
-            @media only screen and (max-width: 640px) {
-                height: 329px;
-            }
-            @media only screen and (max-width: 576px) {
-                height: 386px;
-            }
+            // @media only screen and (max-width: 768px) {
+            //     height: 270px;
+            // }
+            // @media only screen and (max-width: 640px) {
+            //     height: 329px;
+            // }
+            // @media only screen and (max-width: 576px) {
+            //     height: 386px;
+            // }
             > .page-header-content-meta {
                 margin: 45px 4.16666666667%;
                 @media only screen and (max-width: 768px) {
