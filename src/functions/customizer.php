@@ -796,8 +796,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.slide-control-arrow .icon .mdi::before {
 		color: {$colors['tainacan_link_color']};
 	}
-	#tainacan-slide-container .tainacan-slide-item.active-item img {
-		border-bottom: 4px solid {$colors['tainacan_link_color']};
+	#tainacan-slide-container .tainacan-slide-item.active-item.active-item img {
+		border-bottom: 4px solid {$colors['tainacan_link_color']} !important;
 	}
 	.metadata-menu .metadata-menu-header hr {
 		background-color: {$colors['backtransparent']};
