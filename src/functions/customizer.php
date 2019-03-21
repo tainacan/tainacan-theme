@@ -75,7 +75,7 @@ function tainacan_customize_register( $wp_customize ) {
 	);
 
 	/**
-	 * Checkbox to display or no the Proudly Powered by Wordpress and Tainacan.
+	 * Checkbox to display or no the Proudly Powered by WordPress and Tainacan.
 	 */
 	$wp_customize->add_setting( 'tainacan_display_powered', array(
 		'type'       => 'theme_mod',
