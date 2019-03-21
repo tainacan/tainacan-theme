@@ -389,18 +389,6 @@ nav{
     border-bottom: 2px solid #ededed !important;
 }
 
-/*Bordar Navbar top*/
-.b-bottom-top{
-    border-bottom: 1px solid #298596;
-}
-
-/*Bordar Navbar bellow*/
-.b-bottom-bellow{
-    @media only screen and (min-width: 769px) {
-        border-bottom: 1px solid #cbcbcb;
-    }
-}
-
 .tainacan-search-form {
     width: 32px;
     height: 32px;
