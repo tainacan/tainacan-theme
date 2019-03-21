@@ -142,21 +142,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'    => 'tainacan_social_share',
 	) );
 
-	//Google Plus
-	$wp_customize->add_setting( 'tainacan_google_share', array(
-		'type'       => 'theme_mod',
-		'default'        => true,
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
-	) );
-
-	$wp_customize->add_control( 'tainacan_google_share', array(
-		'type' => 'checkbox',
-		'settings' => 'tainacan_google_share',
-		'section' => 'tainacan_social_share',
-		'label' => __( 'Display Google Plus button', 'tainacan-interface' ),
-	) );
-
 	/**
 	 * Add color scheme setting and control.
 	 */
@@ -597,6 +582,13 @@ function tainacan_get_color_scheme_css( $colors ) {
 	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['backtransparent']};
 	}
+	nav.menu-belowheader #menubelowHeader > ul > li.current_page_item > a, 
+	nav.menu-belowheader #menubelowHeader > ul > li.current-menu-item > a {
+		border-color: {$colors['tainacan_link_color']};
+	}
+	nav.menu-belowheader #menubelowHeader > ul > li.menu-item a:hover::before {
+		background-color: {$colors['tainacan_link_color']};
+	}
 	.tainacan-single-post #comments .title-leave,
 	.tainacan-single-post article .title-content-items,
 	.tainacan-single-post article .tainacan-content h1 {
@@ -619,6 +611,16 @@ function tainacan_get_color_scheme_css( $colors ) {
 	/* Code */
     .wp-block-code code {
 		color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/**
+	* Tainacan Taxonomy Archive Page
+	*/
+	.page-header-taxonomy > .container-fluid > .page-header-content > .page-header-content-meta > .page-header-content-title {
+		border-color: {$colors['tainacan_link_color']} !important;
+	}
+	.page-header-taxonomy > .container-fluid > .page-header-content > .page-header-content-meta > .page-header-content-title .page-header-title {
+		color: {$colors['tainacan_link_color']};
 	}
 
 	/**
