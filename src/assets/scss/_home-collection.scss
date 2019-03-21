@@ -225,7 +225,7 @@
         opacity: 0;
         z-index: -10;
         cursor: pointer;
-        transition: opacity 1s, z-index 0.3s, transform 1s;
+        transition: opacity 0.3s, z-index 0.3s, transform 0.3s;
         transform: translateX(0);
         color: #2c2d2d;
         .mdi {
@@ -258,8 +258,8 @@
     }
 
     &.active {
-        .btn-icon {
-            opacity: 1;
+        .btn {
+            opacity: 1 !important;
             z-index: 50;
         }
     }

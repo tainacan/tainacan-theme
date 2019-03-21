@@ -300,12 +300,33 @@ function tainacan_theme_collection_query( $query ) {
 add_action( 'pre_get_posts', 'tainacan_theme_collection_query' );
 
 /**
+ * Render customizer colors to Gutenberg.
+ */
+function tainacan_customizer_gutenberg_colors() {
+
+	// Retrieve the link color from the Customizer.
+	$link_color = get_theme_mod( 'tainacan_link_color', 'default' ); 
+
+	// Build styles.
+	$css  = '';
+	$css .= '.has-accent-color { color: ' . esc_attr( $link_color ) . ' !important; }';
+	$css .= '.has-accent-background-color { background-color: ' . esc_attr( $link_color ) . '; }';
+	return wp_strip_all_tags( $css );
+}
+
+/**
 * Enqueue editor styles for Gutenberg
 */
- 
 function tainacan_editor_styles() {
+
+	// Adds Tainacan editor style for Gutenberg.
     wp_enqueue_style( 'tainacan-editor-style', get_template_directory_uri() . '/editor-style.css' );
-    wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+	
+	// Adds Robot fonts to Gutenberg.
+	wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+	
+	// Adds customizer colors to Gutenberg.
+	//wp_add_inline_style( 'tainacan-customizer-editor-style', tainacan_customizer_gutenberg_colors() );
 }
 add_action( 'enqueue_block_editor_assets', 'tainacan_editor_styles' );
 

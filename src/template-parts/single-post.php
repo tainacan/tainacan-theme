@@ -17,11 +17,6 @@
 						<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
 					</a>
 				<?php endif; ?>
-				<?php if ( true == get_theme_mod( 'tainacan_google_share', true ) ) : ?> 
-					<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" class="">
-						<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/google-plus-circle.png'; ?>" alt="<?php esc_attr_e('Share this on google plus', 'tainacan-interface') ?>">
-					</a>
-				<?php endif; ?>
 			</div>
 		</div>
 		<?php the_post_thumbnail(); ?>
