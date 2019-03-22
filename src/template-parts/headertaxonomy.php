@@ -4,9 +4,9 @@
 	}
 </style>';
 
-$term = tainacan_get_term();
-$taxonomy = get_taxonomy( $term->taxonomy );
-$current_term = \Tainacan\Repositories\Terms::get_instance()->fetch($term->term_id, $term->taxonomy);
+$current_term = tainacan_get_term();
+$current_taxonomy = get_taxonomy( $current_term->taxonomy );
+$current_term = \Tainacan\Repositories\Terms::get_instance()->fetch($current_term->term_id, $current_term->taxonomy);
 $image =  $current_term->get_header_image_id();
 $src = wp_get_attachment_image_src($image, 'full');
 ?>
@@ -23,7 +23,7 @@ $src = wp_get_attachment_image_src($image, 'full');
 			<div class="page-header-content-meta <?php if (!$src) { echo 'max-large'; } ?>">
 				<div class="page-header-content-title d-inline-flex border-bottom">
 					<h2 class="page-header-title">
-						<?php echo $taxonomy->labels->name . ':'; ?>
+						<?php echo $current_taxonomy->labels->name . ':'; ?>
 						<span style="font-weight: 500;">
 							<?php tainacan_the_term_name(); ?>
 						</span>
