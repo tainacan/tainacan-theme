@@ -353,6 +353,22 @@ nav{
 }
 
 .navbar { border: none; }
+.navbar.navbar--border-bottom {
+
+    @media only screen and (max-width: 768px) {
+        max-height: inherit;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+
+        .navbar-brand {
+            white-space: normal;
+        }
+
+        .navbar-box {
+            margin-left: auto;
+        }
+    }
+}
 .navbar-box {
     display: flex;
     justify-content: flex-end;

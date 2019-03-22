@@ -742,7 +742,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 
 	/* Outline Button */
 	.theme-items-list .button.is-outlined,
-	.tainacan-modal-content .button.is-outlined {
+	.tainacan-modal-content .button.is-outlined,
+	.theme-items-list .button.is-outlined:hover,
+	.tainacan-modal-content .button.is-outlined:hover {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
@@ -788,9 +790,15 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Filter menu compress button */
-	#filter-menu-compress-button {
+	#filter-menu-compress-button,
+	#filter-menu-compress-button-mobile {
 		background-color: {$colors['backtransparent']} !important;
 		color: {$colors['tainacan_link_color']} !important;
+	}
+
+	#filters-mobile-modal .modal-close::before,
+	#filters-mobile-modal .modal-close::after {
+		background-color: {$colors['tainacan_link_color']} !important;
 	}
 
 	.slide-control-arrow .icon .mdi::before {
