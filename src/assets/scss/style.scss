@@ -537,7 +537,7 @@ nav{
     &.page-height{
         height: 400px;
         > div {
-            &.ph-title-description{
+            &.ph-title-description {
                 @media only screen and (min-width: 577px){
                     margin-bottom: 3.75rem;
                 }
@@ -558,6 +558,12 @@ nav{
         &.ph-title-description{
             @media only screen and (min-width: 768px){
                 margin-bottom: 0;
+            }
+            .title-header {
+                @media only screen and (min-width: 1526px) {
+                    padding-left: calc((100% - 1400px)/2) !important;
+                    padding-left: calc((100vw - 1400px)/2) !important;
+                }
             }
         }
         @media only screen and (max-width: 576px){
