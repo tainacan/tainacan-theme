@@ -13,7 +13,7 @@
 					<tr class="tainacan-list-collection" onclick="location.href='<?php the_permalink(); ?>'">
 						<td class="collection-miniature">
 							<?php if ( has_post_thumbnail() ) : 
-								the_post_thumbnail('tainacan-small', array('class' => 'img-fluid rounded-circle')); ?>
+								the_post_thumbnail('tainacan-small', array('class' => 'img-fluid')); ?>
 							<?php else : ?>
 								<div class="image-placeholder">
 									<h4>

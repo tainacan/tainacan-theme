@@ -630,10 +630,6 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-collection-list--simple-search .dropdown #dropdownMenuViewMode::after {
 		color: {$colors['tainacan_link_color']};
 	}
-	
-	.tainacan-list-post table thead th {
-		color: {$colors['tainacan_link_color']} !important;
-	}
 
 	/**
 	* Plugin Tainacan

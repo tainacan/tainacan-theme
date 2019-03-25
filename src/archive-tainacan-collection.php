@@ -19,15 +19,15 @@
 				</div>
 					
 				<a class="btn btn-white bg-white margin-one-column-left <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" href="<?php echo add_query_arg( 'order', 'ASC' ); ?>">
-					<i class="mdi mdi-sort-ascending"></i>
+					<i class="mdi mdi-18px mdi-sort-ascending"></i>
 				</a>
 				<a class="btn btn-white bg-white <?php tainacan_active( get_query_var( 'order' ), 'DESC' ); ?>" href="<?php echo add_query_arg( 'order', 'DESC' ); ?>">
-					<i class="mdi mdi-sort-descending"></i>
+					<i class="mdi mdi-18px mdi-sort-descending"></i>
 				</a>
 				
 				<div class="dropdown margin-one-column-left dropdown-viewMode">
 					<button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="mdi mdi-view-list text-oslo-gray"></i>
+						<i class="mdi mdi-18px mdi-view-list text-oslo-gray"></i>
 						<span class="d-none d-md-inline"><?php _e( 'View Mode', 'tainacan-interface' ); ?></span>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
@@ -45,7 +45,7 @@
 						<input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var( 's' ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />
 						<span class="input-group-append">
 							<button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
-								<i class="mdi mdi-magnify" style="line-height: inherit;"></i>
+								<i class="mdi mdi-18px mdi-magnify" style="line-height: inherit;"></i>
 							</button>
 						</span>
 					</div>

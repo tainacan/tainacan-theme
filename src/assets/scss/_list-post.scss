@@ -73,6 +73,7 @@
                     weight: 400;
                 }
                 border-top: none;
+                border-bottom: 1px solid #cbcbcb;
             }
         }
         .tainacan-list-collection{
@@ -81,18 +82,19 @@
                 background-color: #f2f2f2;
             }
             th, td{
-                vertical-align: baseline;
+                vertical-align: middle;
             }
             td {
                 border-top: none;
+                padding: 10px;
             }
-            .collection-checkbox{
+            .collection-checkbox {
                 width: 4.16666666667%;
                 text-align: right;
                 padding-right: 0;
             }
             .collection-miniature{
-                width: calc(4.16666666667% * 2);
+                padding-left: 20px;
                 text-align: center;
                 img{
                     width: 40px;
@@ -101,7 +103,6 @@
                 .image-placeholder {
                     height: 40px;
                     width: 40px;
-                    border-radius: 50%;
                 }
             }
             .collection-title{
@@ -116,7 +117,8 @@
                     }
                 }
             }
-            .collection-description, .collection-date{
+            .collection-description, .collection-date {
+                p { margin-bottom: 0; }
                 font: {
                     size: 0.75rem;
                     weight: 400;
@@ -166,6 +168,7 @@
                     weight: 400;
                 }
                 height: 40px;
+                line-height: 0.5rem;
             }
             .tainacan-list-collection--card-img {
                 width: 170px;
@@ -186,7 +189,8 @@
                         size: 0.6875rem;
                         weight: 400;
                     }
-                    padding-top: 10px;
+                    padding-top: 0.75rem;
+                    padding-right: 0.75rem;
                 }
             }
         }
@@ -206,6 +210,7 @@
                     weight: 400;
                 }
                 height: 45px;
+                line-height: 0.75rem;
             }
             .tainacan-list-collection--grid-img {
                 width: 275px;
