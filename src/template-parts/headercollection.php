@@ -47,7 +47,7 @@ echo '</style>';
 				</div>
 			<?php endif;
 			global $wp; ?>
-			<div class="collection-header--share" style="margin-right: 4.16666666667%;">
+			<div class="collection-header--share">
 				<div class="btn trigger">
 					<span class="mdi mdi-share-variant"></span>
 				</div>
@@ -74,10 +74,10 @@ echo '</style>';
 			</div>
 		</div>
 		<div class="row t-collection--info max-large margin-one-column" style="overflow-x: inherit;">
-			<div class="col-4 col-md-3 px-0 t-collection--col-3">
+			<div class="col-md-2 col-3 px-0">
 				
 			</div>
-			<div class="col-8 col-md-9 pl-0 t-collection--col-9 mt-md-3" style="z-index: 2">
+			<div class="col-md-10 col-9 pl-0 t-collection--col-9" style="z-index: 2">
 				<h2 class="t-collection--info-title text-white">
 					<?php tainacan_the_collection_name(); ?>
 				</h2>

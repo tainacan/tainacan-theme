@@ -1,5 +1,7 @@
 .collection-header {
-    @media only screen and (min-width: 1800px) {
+    // 1400px is the maximum the inner cointainer should get, so we 
+    // use 1526px - 1 column - 1 column;
+    @media only screen and (min-width: 1526px) {
         overflow: inherit;
     }
 }
@@ -14,54 +16,60 @@
     }
 
     .t-collection--info-img, .image-placeholder {
-        width: 205px;
-        height: 205px;
-        max-width: 205px;
-        bottom: -6rem;
+        width: calc(16.6666666667% - 8px);
+        width: calc(16.6666666667vw - 8px);
+        height: calc(16.6666666667% - 8px);
+        height: calc(16.6666666667vw - 8px);
+        max-height: 215px;
+        max-width: 215px;
+        bottom: -111px; // 215px/2 + 4px 
         border-width: 4px !important;
-        margin-left: 4.16666666667%;
-        @media only screen and (max-width: 1024px){
-            width: 165px;
-            height: 165px;
-            max-width: 165px;
-            bottom: -4rem;
+
+        // Above this point, the container should not be larger
+        // 1400px is the maximum the inner cointainer should get, so we 
+        // use 1526px - 1 column - 1 column;
+        @media only screen and (max-width: 1526px) {
+            margin-left: 4.16666666667%;
+            margin-left: 4.16666666667vw;
         }
-        @media only screen and (max-width: 992px){
-            bottom: -4rem;
-            width: 123px;
-            height: 123px;
-            max-width: 123px;
+        // Above this point, the circle will reach it's maximum size
+        @media only screen and (max-width: 1290px) {
+            bottom: calc(-8.33% + 4px);
+            bottom: calc(-8.33vw + 4px);
         }
-        @media only screen and (max-width: 576px){
-            width: 95px;
-            height: 95px;
-            max-width: 95px;
-            bottom: -3rem;
+        // Mobile
+        @media only screen and (max-width: 767px){
+            width: calc(25% - 8px);
+            width: calc(25vw - 8px);
+            height: calc(25% - 8px);
+            height: calc(25vw - 8px);
+            max-width: calc(25% - 8px);
+            max-width: calc(25vw - 8px);
+            bottom: calc(-12.5% - 4px);
+            bottom: calc(-12.5vw - 4px);
         }
-        @media only screen and (max-width: 360px){
-            width: 95px;
-            height: 95px;
-            max-width: 95px;
-            bottom: -3rem;
+
+        h4 {
+            font-size: 2rem;
         }
     }
     .t-collection--info {
         padding-top: 6px;
-        margin-right: calc(4.16666666667% * 3);
-        .t-collection--col-3{
-            flex: 0 0 18% !important;
-            max-width: 18% !important;
-            @media only screen and (max-width: 576px){
-                flex: 0 0 29% !important;
-                max-width: 29% !important;
+        justify-content: space-between;
+
+        .t-collection--col-9 {
+            padding-left: calc(4.16666666667% + 15px) !important;
+            padding-left: calc(4.16666666667vw + 15px) !important;
+            padding-right: 12.5% !important;
+            padding-right: 12.5vw !important;
+
+            @media only screen and (max-width: 767px){
+                padding-left: 4.16666666667% !important;
+                padding-left: 4.16666666667vw !important;
+                padding-right: 8.33% !important;
+                padding-right: 8.33vw !important;
             }
-            @media only screen and (min-width: 1400px){
-                flex: 0 0 16% !important;
-                max-width: 16% !important;
-            }
-        }
-        .t-collection--col-9{
-            margin-left: 4.16666666667%;
+
             h2 {
                 white-space: nowrap;
                 overflow: hidden;
@@ -71,13 +79,13 @@
         .t-collection--info-title {
             font: {
                 size: 1.5rem;
-                weight: 700;
+                weight: 600;
             }
             margin-top: 0.4rem;
-            @media only screen and (max-width: 767px){
+            @media only screen and (max-width: 768px){
                 font: {
                     size: 1.125rem;
-                    weight: 500;
+                    weight: 600;
                 }
             }
         }
@@ -211,6 +219,14 @@
     height: 35px;
     left: 94.833333%;
     top: -2px;
+
+    // 1400px is the maximum the inner cointainer should get, so we 
+    // use 1526px - 1 column - 1 column;
+    @media only screen and (max-width: 1526px) {
+        margin-right: 4.16666666667%;
+        margin-right: 4.16666666667vw;
+    }
+
     @media only screen and (max-width: 576px) {
         left: 90.833333%;
     }

@@ -501,6 +501,7 @@ nav{
         }
     }
     &.collection-page{
+        height: 100%;
         height: 100vh;
     }
     &.page-404{
@@ -580,6 +581,8 @@ nav{
         padding: 1.5rem;
         padding-left: 4.166667%;
         padding-right: 4.166667%;
+        padding-left: 4.166667vw;
+        padding-right: 4.166667vw;
         max-width: 87.5vw;
         word-break: break-word;
         @media only screen and (min-width: 769px){
@@ -588,9 +591,12 @@ nav{
             padding: 0rem;
             padding-left: 4.166667%;
             padding-right: 4.166667%;
+            padding-left: 4.166667vw;
+            padding-right: 4.166667vw;
             &.singular-title{
                 padding: 1.5rem;
                 padding-left: 4.166667%;
+                padding-left: 4.166667vw;
             }
         }
         @media only screen and (max-width: 768px){
@@ -598,6 +604,8 @@ nav{
             padding-top: 1.2rem;
             padding-left: 4.166667%;
             padding-right: 4.166667%;
+            padding-left: 4.166667vw;
+            padding-right: 4.166667vw;
             max-height: 100px;
         }
         @media only screen and (max-width: 576px){
@@ -629,7 +637,7 @@ nav{
 
 .page-header__image {
     width: 100%;
-    min-height: 250px;
+    width: 100vw;
     margin: 0 auto;
     object-fit: cover;
     display: block;
@@ -637,8 +645,6 @@ nav{
 .page-header.page-header--image-full {
     height: auto;
     display: block;
-
-    .page-header__image { max-height: 400px; }
 }
 
 .tainacan-title{
@@ -674,6 +680,7 @@ nav{
 
 .margin-one-column{
     margin: 0 4.16666666667%;
+    margin: 0 4.16666666667vw;
 }
 .form-control{
     border-color: #e5e5e5;
@@ -686,15 +693,19 @@ nav{
     @media only screen and (max-width: 768px){
         margin-left: 8.33333333334% !important;
         margin-right: 8.33333333334% !important;
+        margin-left: 8.33333333334vw !important;
+        margin-right: 8.33333333334vw !important;
     }
 }
 
 .margin-one-column-left{
     margin-left: 4.16666666667%;
+    margin-left: 4.16666666667vw;
 }
 
 .margin-two-column{
     margin: 0 8.33333333334%;
+    margin: 0 8.33333333334vw;
 }
 
 .margin-three-column{

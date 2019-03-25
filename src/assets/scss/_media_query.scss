@@ -349,7 +349,9 @@ footer{
     }
 }
 
-@media only screen and (min-width: 1800px){
+// 1400px is the maximum the inner cointainer should get, so we 
+// use 1526px - 1 column - 1 column;
+@media only screen and (min-width: 1526px){
     .max-large{
         max-width: 1400px;
         margin-left: auto !important;
