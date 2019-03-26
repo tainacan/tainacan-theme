@@ -25,7 +25,9 @@ body{
 }
 
 body.loading-content main {
+    min-height: calc(100% - 480px);
     min-height: calc(100vh - 480px);
+    width: 100%;
     width: 100vw;
     transition: min-height ease 0.3s,  height ease 0.3s; 
 }
@@ -77,6 +79,20 @@ body.loading-content main:before {
     }
 }
 
+// Bootstrap button
+.btn {
+    padding: .25rem 1.125rem;
+}
+
+// Bootstrao dropdown item
+.dropdown-menu {
+    padding: 0;
+    
+    .dropdown-item {
+        border-radius: 0 !important;
+    }
+}
+
 .menu-item-has-children {
     .dropdown-submenu {
         padding-left: 1.5rem !important;
@@ -103,6 +119,7 @@ body.loading-content main:before {
     position: fixed;
     bottom: 20px;
     right: 4.16666666667%;
+    right: 4.16666666667vw;
     background: rgb(0, 0, 0);
     background: #4ea2ad;
     width: 36px;
@@ -146,6 +163,7 @@ nav{
         border-bottom: none;
         .max-large{
             margin: 0 4.16666666667%;
+            margin: 0 4.16666666667vw;
             .tainacan-form-search{
                 padding-right: 1.875rem !important;
                 .tainacan-input-search{
@@ -456,7 +474,6 @@ nav{
             width: 30px;
             height: 30px;
             text-align: center;
-            color: #3596e0;
             font-size: 1.1875rem;
 
             &:before {

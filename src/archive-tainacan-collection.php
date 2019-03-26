@@ -18,7 +18,7 @@
 					</div>
 				</div>
 					
-				<a class="btn btn-white bg-white margin-one-column-left <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" href="<?php echo add_query_arg( 'order', 'ASC' ); ?>">
+				<a class="btn btn-white bg-white <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" href="<?php echo add_query_arg( 'order', 'ASC' ); ?>">
 					<i class="mdi mdi-18px mdi-sort-ascending"></i>
 				</a>
 				<a class="btn btn-white bg-white <?php tainacan_active( get_query_var( 'order' ), 'DESC' ); ?>" href="<?php echo add_query_arg( 'order', 'DESC' ); ?>">

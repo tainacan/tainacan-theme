@@ -53,13 +53,14 @@
     }
     #tainacan-collection-search {
         input{
+            height: calc(2.25rem - 3px);
             border-color: #cbcbcb !important;
             &:focus{
                 box-shadow: none;
                 border-right: none;
             }
             &::placeholder{
-                font-size: 0.6875rem;
+                font-size: 0.75rem;
                 color: #898d8f;
             }
         }

@@ -631,6 +631,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['tainacan_link_color']};
 	}
 
+	.tainacan-collection-list--simple-search .dropdown .dropdown-menu a:hover {
+		background-color: {$colors['backtransparent']};
+	}
+
 	/**
 	* Plugin Tainacan
 	*/
