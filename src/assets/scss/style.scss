@@ -215,8 +215,8 @@ nav{
                     margin: 0;
                 }
                 .logo {
-                    max-height: 23px;
-                    max-width: 134px;
+                    max-height: 30px;
+                    // max-width: 134px;
                 }
             }
         }
@@ -370,7 +370,12 @@ nav{
     }
 }
 
-.navbar { border: none; }
+.navbar { 
+    border: none; 
+    .navbar-brand {
+        padding: 0;
+    }
+}
 .navbar.navbar--border-bottom {
 
     @media only screen and (max-width: 768px) {
