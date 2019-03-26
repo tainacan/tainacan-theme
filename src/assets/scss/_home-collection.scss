@@ -47,10 +47,14 @@
             max-width: calc(25vw - 8px);
             bottom: calc(-12.5% - 4px);
             bottom: calc(-12.5vw - 4px);
+
+            h4 {
+                font-size: 2rem;
+            }
         }
 
         h4 {
-            font-size: 2rem;
+            font-size: 3rem;
         }
     }
     .t-collection--info {

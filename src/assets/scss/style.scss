@@ -726,7 +726,7 @@ nav{
 
 
 .image-placeholder {
-    background-color: #cbcbcb;
+    background-color: #dbdbdb;
     display: flex;
     margin: 0 auto;
     > h4 {
@@ -736,7 +736,8 @@ nav{
         flex: auto;
         margin-top: auto;
         margin-bottom: auto;
-        color: #fff
+        color: #555758;
+        font-weight: bold;
     }
 }
 

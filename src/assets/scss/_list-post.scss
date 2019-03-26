@@ -6,7 +6,7 @@
         }
     }
     .blog-post{
-        .blog-thumbnail{
+        .blog-thumbnail {
             padding-right: 0;
             margin-right: 4.16666666667%;
             @media screen {
@@ -16,10 +16,10 @@
             }
             img{
                 width: 300px;
-                height: 193px;
+                height: auto;
             }
         }
-        .blog-content{
+        .blog-content {
             font-size: 0.75rem;
             font-weight: 400;
             color: #898d8f;
@@ -160,6 +160,9 @@
                 .tainacan-list-collection--title {
                     background-color: #dbdbdb;
                 }
+                .image-placeholder {
+                    background-color: #cbcbcb;
+                }
             }
             .tainacan-list-collection--title {
                 background: #fff;
@@ -232,6 +235,9 @@
             background-color: #f2f2f2;
             .tainacan-list-collection--title, .tainacan-list-collection--grid-title {
                 background-color: #dbdbdb;
+            }
+            .image-placeholder {
+                background-color: #cbcbcb;
             }
         }
     }

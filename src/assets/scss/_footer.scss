@@ -17,9 +17,10 @@ footer{
                 }
             }
             a{
-                color: #898d8f;
+                color: #f9f9f9;
                 &:hover {
-                    color: #898d8f;
+                    color: white;
+                    font-weight: 600;
                     text-decoration: none;
                 }
             }
@@ -28,7 +29,7 @@ footer{
     .tainacan-footer-info {
         @media only screen and (max-width: 768px){
             margin: 0 calc(4.16666666667% * 1);
-            argin: 0 calc(4.16666666667vw * 1);
+            margin: 0 calc(4.16666666667vw * 1);
         }
         @media only screen and (max-width: 991px){
             margin: 0 calc(4.16666666667% * 2);
@@ -53,10 +54,11 @@ footer{
             color: #cbcbcb;
 
             a {
-                color: white;
+                color: #f9f9f9;
                 &:hover {
                     color: white;
-                    text-decoration: underline;
+                    font-weight: 600;
+                    text-decoration: none;
                 }
             }
         }
