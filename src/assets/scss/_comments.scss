@@ -84,22 +84,23 @@
                     padding: 0 2rem;
                 }
             }
-            /* textarea{
-                @media only screen {
-                    @media (max-width: 576px){
-                        width: 84.4vw;
-                    }
-                    @media (min-width: 768px){
-                        width: 61.2vw;
-                    }
-                    @media (min-width: 992px){
-                        width: 60vw;
-                    }
-                    @media (min-width: 1200px){
-                        width: 64.7vw;
-                    }
-                }
-            } */
+            textarea {
+                border-radius: 0;
+                // @media only screen {
+                //     @media (max-width: 576px){
+                //         width: 84.4vw;
+                //     }
+                //     @media (min-width: 768px){
+                //         width: 61.2vw;
+                //     }
+                //     @media (min-width: 992px){
+                //         width: 60vw;
+                //     }
+                //     @media (min-width: 1200px){
+                //         width: 64.7vw;
+                //     }
+                // }
+            }
             button, a{
                 &#submit, &#cancel-comment-reply-link{
                     @media screen {
