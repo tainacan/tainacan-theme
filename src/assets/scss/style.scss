@@ -322,6 +322,8 @@ nav{
                             padding: 0;
                             margin-right: 0.5rem;
                             margin-top: 0.5rem;
+
+                            &:hover:before { bottom: 0; }
                         }
                     }
                     .dropdown-menu {
