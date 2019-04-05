@@ -675,9 +675,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 		border-bottom: 4px solid {$colors['tainacan_link_color']};
 	}
 	/** Abas no modal de termos */
-	.tainacan-finder-columns-container .tabs li.is-active a {
+	.tainacan-modal-content .tabs li.is-active a {
 		border-bottom-color: {$colors['tainacan_link_color']};
-		color: black;
 	}
 	/* Setinhas no mesmo modal */
 	.tainacan-finder-columns-container a .tainacan-icon {

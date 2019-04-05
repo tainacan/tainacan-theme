@@ -144,17 +144,22 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, 425px);
         grid-gap: 30px;
+
         @media only screen and (max-width: 797px) {
-            grid-gap: 4px;
+            grid-gap: 12px;
         }
-        .tainacan-list-collection--card {
-            @media only screen and (max-width: 350px) {
-                padding: {
-                    left: 2rem;
-                    right: 0rem;
-                }
-                width: 100vw;
+        @media screen and (max-width: 480px) {
+            grid-template-columns: repeat(auto-fit, 100%);
+
+            .tainacan-list-collection--card-img,
+            .image-placeholder {
+                width: 130px !important;
+                height: 130px !important;
             }
+        }
+
+        .tainacan-list-collection--card {
+
             &:hover {
                 background: #f2f2f2 !important;
                 .tainacan-list-collection--title {
