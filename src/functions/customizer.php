@@ -764,7 +764,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	/* Checkbox modal title and arrow*/
 	.tainacan-modal-content h2,
 	.tainacan-modal-content h3,
-	.tainacan-modal-content .mdi-menu-right {
+	.tainacan-modal-content .tainacan-icon-arrowright {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
@@ -800,7 +800,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 		background-color: {$colors['tainacan_link_color']} !important;
 	}
 
-	.slide-control-arrow .icon .mdi::before {
+	.slide-control-arrow .icon .tainacan-icon::before {
 		color: {$colors['tainacan_link_color']};
 	}
 	#tainacan-slide-container .tainacan-slide-item.active-item.active-item img {

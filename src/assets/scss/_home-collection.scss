@@ -248,13 +248,18 @@
         transition: opacity 0.3s, z-index 0.3s, transform 0.3s;
         transform: translateX(0);
         color: #2c2d2d;
+
+        .tainacan-icon,
         .mdi {
             @extend .absolute-center;
             font-size: 1.5rem;
             transition: color 0.3s;
             color: #2c2d2d;
-            &.mdi-share-variant {
+            &.tainacan-icon-share {
                 left: 45%;
+            }
+            &.tainacan-icon-share:before {
+                margin-bottom: 2px;
             }
         }
         &.trigger {

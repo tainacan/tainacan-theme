@@ -146,7 +146,7 @@ body.loading-content main:before {
         margin: 0;
         position: relative;
         left: 2px;
-        top: -8px;
+        top: -10px;
         font-size: 2rem;
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
@@ -239,7 +239,7 @@ nav{
             i {
                 font-size: 1.1875rem;
             }
-            .mdi-close { display: none; }
+            .tainacan-icon-close { display: none; }
         }
         > .dropdown-menu {
             top: calc(100% + 2px);
@@ -260,8 +260,8 @@ nav{
         }
 
         &.show {
-            .mdi-magnify { display: none; }
-            .mdi-close { display: block !important; }
+            .tainacan-icon-search { display: none; }
+            .tainacan-icon-close { display: block !important; }
         }
     }
     .dropdown-menu{
@@ -410,8 +410,8 @@ nav{
 
     & > .navbar { margin-right: 16px; }
 
-    .mdi-menu,
-    .mdi-close {
+    .tainacan-icon-menu,
+    .tainacan-icon-close {
         margin-top: -4px;
         color: #01295C !important;
     }
@@ -419,12 +419,12 @@ nav{
     .navbar-toggler {
         outline: none;
 
-        .mdi-close { display: block; }
-        .mdi-menu { display: none; }
+        .tainacan-icon-close { display: block; }
+        .tainacan-icon-menu { display: none; }
 
         &.collapsed {
-            .mdi-close { display: none; }
-            .mdi-menu { display: block; }
+            .tainacan-icon-close { display: none; }
+            .tainacan-icon-menu { display: block; }
         }
     }
 }

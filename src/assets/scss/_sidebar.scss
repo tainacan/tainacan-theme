@@ -51,7 +51,7 @@
             form{
                 .input-group-append{
                     button{
-                        height: 27px;
+                        height: 30px;
                         padding: 0 5px 0 0px;
                         &:hover{
                             color: inherit;
@@ -65,8 +65,8 @@
             }
             #tainacan-search{
                 font-size: 0.75rem;
-                color: #898d8f;
-                height: 27px;
+                color: #555758;
+                height: 30px;
                 &:focus{
                     box-shadow: none;
                 }

@@ -46,8 +46,8 @@ jQuery( document ).ready(function( $ ) {
 	/**
 	 * Add the icon on previous and next pagination in comment list
 	 */
-	$( '<i class="mdi mdi-menu-left"></i>' ).insertBefore( "#comment-nav-below .float-left a" );
-	$( '<i class="mdi mdi-menu-right"></i>' ).insertAfter( "#comment-nav-below .float-right a" );
+	$( '<i class="tainacan-icon tainacan-icon-arrowleft"></i>' ).insertBefore( "#comment-nav-below .float-left a" );
+	$( '<i class="tainacan-icon tainacan-icon-arrowright"></i>' ).insertAfter( "#comment-nav-below .float-right a" );
 
 	$( '.comment-reply-link' ).on( 'click', function(){
 		//$('#cancel-comment-reply-link').remove();
@@ -65,8 +65,8 @@ jQuery( document ).ready(function( $ ) {
 	});
 
 	$( '.single-item-collection--attachments' ).slick({
-		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="mdi mdi-menu-left"></i></button>',
-		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="mdi mdi-menu-right"></i></button>',
+		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowleft"></i></button>',
+		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',
 		slidesToShow: 6,
 		slidesToScroll: 1,
 		autoplay: true,

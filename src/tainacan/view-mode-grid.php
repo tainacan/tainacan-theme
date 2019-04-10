@@ -35,7 +35,7 @@
 			<div class="content has-text-gray4 has-text-centered">
 				<p>
 					<span class="icon is-large">
-						<i class="mdi mdi-48px mdi-file-multiple"></i>
+						<i class="tainacan-icon tainacan-icon-48px tainacan-icon-items"></i>
 					</span>
 				</p>
 				<p><?php echo __( 'No item was found.','tainacan-interface' ); ?></p>

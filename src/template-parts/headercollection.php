@@ -49,7 +49,7 @@ echo '</style>';
 			global $wp; ?>
 			<div class="collection-header--share">
 				<div class="btn trigger">
-					<span class="mdi mdi-share-variant"></span>
+					<span class="tainacan-icon tainacan-icon-share"></span>
 				</div>
 				<div class="icons">
 					<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 

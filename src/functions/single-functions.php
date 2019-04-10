@@ -79,11 +79,11 @@ if ( ! function_exists( 'tainacan_pagination' ) ) :
 						'mid_size'  => 2,
 						'prev_text' => sprintf(
 							'%s',
-							'<i class="mdi mdi-menu-left"></i>'
+							'<i class="tainacan-icon tainacan-icon-arrowleft"></i>'
 						),
 						'next_text' => sprintf(
 							' %s',
-							'<i class="mdi mdi-menu-right"></i>'
+							'<i class="tainacan-icon tainacan-icon-arrowright"></i>'
 						),
 						'screen_reader_text' => ' '
 					)

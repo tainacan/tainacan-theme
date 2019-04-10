@@ -60,6 +60,11 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_style( 'tainacan_tainacanStyle' );
 			wp_register_script( 'tainacan_tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', '1.0', true );
 			wp_enqueue_script( 'tainacan_tainacanJS' );
+
+			// Tainacan Icons
+			wp_register_style( 'TainacanIconsFont', get_template_directory_uri() . '/assets/fonts/tainacan-icons-font/css/tainacanicons.css', '', '1.0.0', '' );
+			wp_enqueue_style( 'TainacanIconsFont' );
+
 		/**
 		 * Comments
 		 */
