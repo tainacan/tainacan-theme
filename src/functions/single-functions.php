@@ -49,7 +49,7 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 			?>
 			<?php if ( $args['has_children'] ) : ?>
 				<p>
-					<!-- <a href="#comments" class="hideChild-comments"><i class="material-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e( 'Hide reply', 'tainacan-interface' ); ?></a> -->
+					<!-- <a href="#comments" class="hideChild-comments"><i class="tainacan-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e( 'Hide reply', 'tainacan-interface' ); ?></a> -->
 				</p>
 			<?php endif; ?>
 		</div>

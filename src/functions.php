@@ -196,7 +196,7 @@ function tainacan_widgets_footer_init() {
 		'before_widget' => '<li class="border-left-0 border-right-0 tainacan-side"><input type="checkbox" checked><i></i>',
 		'after_widget'  => '</li>',
 		'before_title'  => '<h6 class="text-white font-weight-bold mb-lg-4">',
-		'after_title'   => ' <i class="material-icons mt-0 symbol"></i></h6>',
+		'after_title'   => ' <i class="tainacan-icons mt-0 symbol"></i></h6>',
 	) );
 }
 add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
