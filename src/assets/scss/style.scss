@@ -721,6 +721,12 @@ nav{
 .margin-one-column{
     margin: 0 4.16666666667%;
     margin: 0 4.16666666667vw;
+    
+    
+    @media only screen and (max-width: 1526px) {
+        max-width: calc(100vw - 8.33333333334%);
+        max-width: calc(100vw - 8.33333333334vw);
+    }
 }
 .form-control{
     border-color: #e5e5e5;
