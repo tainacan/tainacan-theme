@@ -502,6 +502,23 @@
                                 weight: 400;
                             }
                         }
+
+                        // Metadata type textarea has different separator
+                        .multivalue-separator {
+                            color: #cbcbcb;
+                            margin: 0 8px;    
+                        }
+                        .metadata-type-textarea {
+                            .multivalue-separator {
+                                display: block;
+                                max-height: 1px;
+                                width: 35px;
+                                background: #cbcbcb;
+                                content: none;
+                                color: transparent;
+                                margin: 0.875rem auto;
+                            }
+                        }
                     }
                 }
             }
