@@ -74,6 +74,10 @@
     }
 
     /* Heading */
+    .wp-block-heading h1 {
+        font-size: 1.125rem;
+        color: #298596;
+    }
     .wp-block-heading h2 {
         font-size: 1.125rem;
     }
@@ -86,6 +90,9 @@
         font-weight: normal;
         color: #555758;
     }
+
+    /* Links */
+    a { text-decoration: none;}
 
     /* Buttons */
     .components-button.is-button {
