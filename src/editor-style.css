@@ -298,7 +298,8 @@
     color: black; }
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__content,
   .components-modal__screen-overlay .components-modal__content {
-    padding: 32px; }
+    padding: 32px;
+    overflow: hidden; }
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__header,
   .components-modal__screen-overlay .components-modal__header {
     height: 32px;
@@ -441,6 +442,21 @@
   .components-modal__screen-overlay .wp-block-table td {
     border: 1px solid #f2f2f2;
     font-size: 0.875rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal.dynamic-modal iframe,
+  .components-modal__screen-overlay .wp-block-tainacan-modal.dynamic-modal iframe {
+    width: calc(100% + 64px);
+    height: calc(100% - 104px);
+    margin-left: -32px;
+    margin-bottom: -4px; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal.dynamic-modal .modal-footer-area,
+  .components-modal__screen-overlay .wp-block-tainacan-modal.dynamic-modal .modal-footer-area {
+    height: 72px;
+    width: calc(100% + 64px);
+    margin-left: -32px !important;
+    margin-bottom: -32px !important;
+    padding: 1.2rem 3rem !important;
+    background: #dbdbdb;
+    border-top: none; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-footer-area,
   .components-modal__screen-overlay .wp-block-tainacan-modal .modal-footer-area {
     margin: 0;
