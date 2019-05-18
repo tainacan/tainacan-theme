@@ -186,38 +186,6 @@ footer{
                     &:last-of-type{
                         padding-bottom: 0;
                     }
-                    i.symbol{
-                        position: absolute;
-                        transform: translate( -6px , 0 );
-                        margin-top: 16px;
-                        right: 0;
-                        font-size: 0.9375rem;
-                        &:before , &:after{
-                            content: "";
-                            @extend %transition;
-                        }
-                        &:before{
-                            transform: translate( -2px , 0 ) rotate( 45deg );
-                        }
-                        &:after{
-                            transform: translate( 2px , 0 ) rotate( -45deg );
-                        }
-                    }
-                    h6{
-                        i.symbol{
-                            &:before{
-                                content: "\F415";
-                                display: inline-block;
-                                font: normal normal normal 24px/1 "TainacanIcons";
-                                font-size: 1.125rem;
-                                text-rendering: auto;
-                                line-height: inherit;
-                                -webkit-font-smoothing: antialiased;
-                                -moz-osx-font-smoothing: grayscale;
-                                @extend %transition;
-                            }
-                        }
-                    }
                     input[type=checkbox]{
                         position: absolute;
                         cursor: pointer;
@@ -233,27 +201,27 @@ footer{
                                 display: none;
                                 transform: translate( 0 , 50% );
                             }
-                            &~i.symbol{
-                                &:before{
-                                    transform: translate( 2px , 0 ) rotate( 45deg );
-                                }
-                                &:after{
-                                    transform: translate( -2px , 0 ) rotate( -45deg );
+                            &~h6{
+                                position: relative;
+                                i:before{
+                                    content: "more";
+                                    letter-spacing: normal;
+                                    position: absolute;
+                                    right: 0;
+                                    height: 24px;
+                                    width: 24px;
                                 }
                             }
-                            &~h6{
-                                i{
-                                    &:before{
-                                        content: "\F156";
-                                        display: inline-block;
-                                        font: normal normal normal 24px/1 "TainacanIcons";
-                                        font-size: inherit;
-                                        text-rendering: auto;
-                                        line-height: inherit;
-                                        -webkit-font-smoothing: antialiased;
-                                        -moz-osx-font-smoothing: grayscale;
-                                    }
-                                }
+                        }
+                        &~h6{
+                            position: relative;
+                            i:before{
+                                content: "close";
+                                letter-spacing: normal;
+                                position: absolute;
+                                right: 0;
+                                height: 24px;
+                                width: 24px;
                             }
                         }
                     }

@@ -74,6 +74,10 @@
     }
 
     /* Heading */
+    .wp-block-heading h1 {
+        font-size: 1.125rem;
+        color: #298596;
+    }
     .wp-block-heading h2 {
         font-size: 1.125rem;
     }
@@ -86,6 +90,9 @@
         font-weight: normal;
         color: #555758;
     }
+
+    /* Links */
+    a { text-decoration: none;}
 
     /* Buttons */
     .components-button.is-button {
@@ -198,6 +205,7 @@
     /* Modal container */
     .components-modal__content {
         padding: 32px;
+        overflow: hidden;
     }
 
     /* Modal Header */
@@ -336,6 +344,25 @@
     }
 
     /* Tainacan Selection Modal */
+    .wp-block-tainacan-modal.dynamic-modal {
+        
+        iframe {
+            width: calc(100% + 64px);
+            height: calc(100% - 104px);
+            margin-left: -32px;
+            margin-bottom: -4px;
+        }
+
+        .modal-footer-area {
+            height: 72px;
+            width: calc(100% + 64px);
+            margin-left: -32px !important;
+            margin-bottom: -32px !important;
+            padding: 1.2rem 3rem !important;
+            background: #dbdbdb;
+            border-top: none;
+        }
+    }
     .wp-block-tainacan-modal .modal-footer-area{
         margin: 0;
         border: none;

@@ -7,6 +7,7 @@
   /* Columns */
   /* Post title */
   /* Heading */
+  /* Links */
   /* Buttons */
   /* Text input */
   /* Labels */
@@ -80,6 +81,10 @@
   .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block,
   .components-modal__screen-overlay .wp-block.editor-post-title__block {
     margin: 0; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h1,
+  .components-modal__screen-overlay .wp-block-heading h1 {
+    font-size: 1.125rem;
+    color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h2,
   .components-modal__screen-overlay .wp-block-heading h2 {
     font-size: 1.125rem; }
@@ -92,6 +97,9 @@
     font-style: italic;
     font-weight: normal;
     color: #555758; }
+  .edit-post-visual-editor.editor-styles-wrapper a,
+  .components-modal__screen-overlay a {
+    text-decoration: none; }
   .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button,
   .components-modal__screen-overlay .components-button.is-button {
     border: none;
@@ -290,7 +298,8 @@
     color: black; }
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__content,
   .components-modal__screen-overlay .components-modal__content {
-    padding: 32px; }
+    padding: 32px;
+    overflow: hidden; }
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__header,
   .components-modal__screen-overlay .components-modal__header {
     height: 32px;
@@ -443,6 +452,21 @@
   .components-modal__screen-overlay .wp-block-table td {
     border: 1px solid #f2f2f2;
     font-size: 0.875rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal.dynamic-modal iframe,
+  .components-modal__screen-overlay .wp-block-tainacan-modal.dynamic-modal iframe {
+    width: calc(100% + 64px);
+    height: calc(100% - 104px);
+    margin-left: -32px;
+    margin-bottom: -4px; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal.dynamic-modal .modal-footer-area,
+  .components-modal__screen-overlay .wp-block-tainacan-modal.dynamic-modal .modal-footer-area {
+    height: 72px;
+    width: calc(100% + 64px);
+    margin-left: -32px !important;
+    margin-bottom: -32px !important;
+    padding: 1.2rem 3rem !important;
+    background: #dbdbdb;
+    border-top: none; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-footer-area,
   .components-modal__screen-overlay .wp-block-tainacan-modal .modal-footer-area {
     margin: 0;
