@@ -1,8 +1,8 @@
 === Tainacan Interface ===
 Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila
 Requires at least: WordPress 4.8
-Tested up to: WordPress 5.1.1
-Version: 1.2
+Tested up to: WordPress 5.2
+Version: 1.3
 Requires PHP: 5.6
 Stable tag: trunk
 License: GNU General Public License v3
@@ -43,13 +43,6 @@ Source: https://github.com/FezVrasta/popper.js
 Slick, Copyright (c) 2017 Ken Wheeler
 License: MIT
 Source: http://github.com/kenwheeler/slick
-
-Material Design Icons, Copyright (c) 2014, Austin Andrews (http://materialdesignicons.com/),
-with Reserved Font Name Material Design Icons.
-Copyright (c) 2014, Google (http://www.google.com/design/)
-uses the license at https://github.com/google/material-design-icons/blob/master/LICENSE
-License: SIL OPEN FONT LICENSE Version 1.1
-Source: https://github.com/Templarian/MaterialDesign/blob/master/LICENSE
 
 Spectrum Colorpicker v1.8.0 Copyright (c) Brian Grinstead
 Licenses: MIT
