@@ -139,7 +139,7 @@ footer{
                     transform: translate( 0 , 0 )  ;
                     margin-top: 14px;
                     z-index: 2;
-                    font-size: 0.8rem;
+                    font-size: 1rem;
                     &:nth-of-type(1){
                         margin: 5px 0 0.5em 0;
                     }
@@ -258,6 +258,8 @@ footer{
                     &.tainacan-side{
                         margin-right: 4.16666666667%;
                         margin-right: 4.16666666667vw;
+                        flex-grow: 1;
+
                         &:last-child{
                             margin-right: 0;
                         }

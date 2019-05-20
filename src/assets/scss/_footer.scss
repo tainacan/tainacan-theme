@@ -1,6 +1,14 @@
 footer {
     &.tainacan-footer {
         background-color: #2c2d2d;
+        a {
+            color: #9f9f9f;
+            &:hover {
+                color: white;
+                font-weight: 600;
+                text-decoration: none;
+            }
+        }
         
         .tainacan-footer-widgets-area {
             @media only screen and (max-width: 991px){
@@ -14,9 +22,11 @@ footer {
             .tainacan-side ul,
             .tainacan-side ol {
                 list-style: inside;
+                
                 li{
                     color: white;
                     margin-bottom: 1rem;
+                    
                     &.tainacan-side {
                         h6 {
                             font: {
@@ -24,12 +34,12 @@ footer {
                             }
                         }
                     }
-                    p{
+                    p {
                         .fiber{
                             font-size: 0.5625rem;
                         }
                     }
-                    a{
+                    a {
                         color: #9f9f9f;
                         &:hover {
                             color: white;
