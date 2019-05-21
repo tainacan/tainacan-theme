@@ -370,16 +370,14 @@
                         }
                     }
                     .tainacan-embed-container{
-                        padding-bottom: 2rem;
+                        width: 100%;
+
                         iframe {
-                            position: relative;
+                            position: absolute;
                             top: 0;
                             left: 0;
-                            
-                            @media only screen and (min-width: 768px){
-                                width: 70vw;
-                                height: 70vh;
-                            }
+                            right: 0;
+                            bottom: 0;
                         }
                     }
                 }
