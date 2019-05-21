@@ -579,16 +579,19 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
+	/* Header Menu */
 	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['backtransparent']};
-	}
-	nav.menu-belowheader #menubelowHeader > ul > li.current_page_item > a, 
-	nav.menu-belowheader #menubelowHeader > ul > li.current-menu-item > a {
-		border-color: {$colors['tainacan_link_color']};
 	}
 	nav.menu-belowheader #menubelowHeader > ul > li.menu-item a:hover::before {
 		background-color: {$colors['tainacan_link_color']};
 	}
+	nav.menu-belowheader #menubelowHeader ul.show > li.current_page_item > a, 
+	nav.menu-belowheader #menubelowHeader ul.show > li.current-menu-item > a {
+		border-color: {$colors['tainacan_link_color']};
+		background-color: {$colors['backtransparent']};
+	}
+
 	.tainacan-single-post #comments .title-leave,
 	.tainacan-single-post article .title-content-items,
 	.tainacan-single-post article .tainacan-content h1 {

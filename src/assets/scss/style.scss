@@ -96,7 +96,8 @@ body.loading-content main:before {
 
 .menu-item-has-children {
     .dropdown-submenu {
-        padding-left: 1.5rem !important;
+        padding: 0.35rem 0 0.35rem 0.5rem !important;
+        margin-left: 0.5rem;
     }
     .dropdown-menu {
         .show {
@@ -265,11 +266,9 @@ nav{
             .tainacan-icon-close { display: block !important; }
         }
     }
-    .dropdown-menu{
-        .dropdown-item {
-            &:hover{
-                background-color: #cbcbcb;
-            }
+    .dropdown-menu .menu-item {
+        &:hover .dropdown-item {
+            background-color: #cbcbcb;
         }
     }
     &.menu-belowheader{
@@ -313,7 +312,6 @@ nav{
                                 }
                             }
                             &.dropdown-item {
-                                border: 1px solid #DBDBDB;
                                 padding-left: 1.25rem;
                                 padding-right: 1rem;
 
@@ -344,6 +342,7 @@ nav{
                     }
                     .dropdown-menu {
                         border-radius: 0;
+                        border: 1px solid #dbdbdb;
                     }
                 }
             }
@@ -351,7 +350,7 @@ nav{
                 position: absolute;
                 top: 42px;
                 right: 0;
-                border: 1px solid #E2E2E2;
+                border: 1px solid #dbdbdb;
                 background-color: #fff;
                 z-index: 2;
 
