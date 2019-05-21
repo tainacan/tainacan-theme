@@ -1,6 +1,8 @@
 .alignwide {
     margin-left: calc(-8.3333333333vw + 15px) !important;
     margin-right: calc(-8.3333333333vw + 15px) !important;
+    width: 116.66667%;
+    max-width: 1400px;
 
     // 1400px is the maximum the inner cointainer should get, so we 
     // use 1526px - 1 column - 1 column;

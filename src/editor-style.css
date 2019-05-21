@@ -333,9 +333,19 @@
   .components-modal__screen-overlay .components-popover input[type="radio"]:checked::before,
   .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:checked::before {
     background: black;
-    margin: 4px 0 0 3px;
+    margin: 3px 0 0 3px;
     width: 8px;
     height: 8px; }
+    @media screen and (max-width: 782px) {
+      .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:checked::before,
+      .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="radio"]:checked::before,
+      .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__block input[type="radio"]:checked::before,
+      .components-modal__screen-overlay .components-modal__content input[type="radio"]:checked::before,
+      .components-modal__screen-overlay .components-popover input[type="radio"]:checked::before,
+      .components-modal__screen-overlay .editor-block-list__block input[type="radio"]:checked::before {
+        margin: 4px 0 0 4px;
+        width: 15px;
+        height: 15px; } }
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="checkbox"]:checked,
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__content input[type="radio"]:checked,
   .edit-post-visual-editor.editor-styles-wrapper .components-popover input[type="checkbox"]:checked,
