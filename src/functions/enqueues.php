@@ -42,7 +42,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * Google
 		 */
 			// Google fonts Roboto
-			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i' );
 
 		/**
 		 * Tainacan Theme
@@ -59,7 +59,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_script( 'tainacan_tainacanJS' );
 
 			// Tainacan Icons
-			wp_register_style( 'TainacanIconsFont', get_template_directory_uri() . '/fonts/tainacan-icons-font/css/tainacanicons.min.css', '', '1.0.1', '' );
+			wp_register_style( 'TainacanIconsFont', get_template_directory_uri() . '/fonts/tainacan-icons-font/css/tainacanicons.min.css', '', '1.0.2', '' );
 			wp_enqueue_style( 'TainacanIconsFont' );
 
 		/**
