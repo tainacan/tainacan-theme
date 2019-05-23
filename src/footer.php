@@ -38,7 +38,15 @@
 				</p>
 			</div>
 			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-					<img src="<?php if ( get_theme_mod( 'tainacan_footer_logo' ) ) { echo esc_attr( get_theme_mod( 'tainacan_footer_logo' ) ); }else{ echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo-footer.svg<?php }?> ?>" class="tainacan-footer-info--logo" >
+					<?php
+					
+					if ( get_theme_mod( 'tainacan_footer_logo' ) ) {
+						$footerImage = esc_attr( get_theme_mod( 'tainacan_footer_logo' ) );
+					} else {
+						$footerImage = esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
+					}
+					?>
+					<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>
