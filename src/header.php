@@ -11,32 +11,32 @@
 </head>
 <body <?php body_class(); ?>>
 	<?php if ( true == get_theme_mod( 'tainacan_accessibility_setting', false ) ) { ?>
-		<!-- MENU DE ACESSIBILIDADE -->
+		<!-- ACESSIBILITY MENU -->
 		<div class="accessibility-bar">
 			<nav class="accessibility-bar__container">
 				<ul class="accessibility-shortcuts" role="menubar">
-					<li role="menuitem"><a href="#tainacan-site-content" accesskey="c"><span>c</span> Ir para o conteúdo</a></li>
-					<li role="menuitem"><a href="#tainacan-site-menu" accesskey="m"><span>m</span> Ir para o menu</a></li>
-					<li role="menuitem"><a href="#tainacan-site-search" accesskey="b"><span>b</span> Ir para a busca</a></li>
-					<li role="menuitem"><a href="#tainacan-site-footer" accesskey="r"><span>r</span> Ir para o rodapé</a></li>
+					<li role="menuitem"><a href="#tainacan-site-content" accesskey="c"><span>c</span><?php _e('Skip to content', 'tainacan-interface') ?></a></li>
+					<li role="menuitem"><a href="#tainacan-site-menu" accesskey="m"><span>m</span><?php _e('Skip to menu', 'tainacan-interface') ?></a></li>
+					<li role="menuitem"><a href="#tainacan-site-search" accesskey="b"><span>b</span><?php _e('Skip to search', 'tainacan-interface') ?></a></li>
+					<li role="menuitem"><a href="#tainacan-site-footer" accesskey="r"><span>r</span><?php _e('Skip to footer', 'tainacan-interface') ?></a></li>
 				</ul>
 
 				<ul class="accessibility-options" role="menubar">
 					<li role="menuitem">
-						<span>Fonte</span>
+						<span><?php _e('Font', 'tainacan-interface') ?></span>
 						<button type="button" class="button-text-minus" accesskey="5">A-</button>
 						<button type="button" class="button-text-default" accesskey="6">A</button>
 						<button type="button" class="button-text-plus" accesskey="7">A+</button>
 					</li>
 					<li role="menuitem">
-						<span>Contraste</span>
-						<button type="button" class="button-high-contrast" accesskey="8">Alto Contraste</button>
+						<span><?php _e('Contrast', 'tainacan-interface') ?></span>
+						<button type="button" class="button-high-contrast" accesskey="8"><?php _e('High contrast', 'tainacan-interface') ?></button>
 					</li>
 				</ul>
 			</nav>
 		</div>
 
-		<!-- AVISO DE ERRO CASO O JS ESTEJA DESATIVADO OU NÃO ESTEJA FUNCIONANDO -->
+		<!-- ERROR WARNING IN CASE JS IS NOT ACTIVATED OR IS NOT WORKING -->
 		<noscript>
 			<style>
 				noscript {
@@ -50,7 +50,7 @@
 				}
 			</style>
 
-			<span>Seu navegador não tem suporte a JavaScript ou o mesmo está desativado.</span>
+			<span><?php _e('Your browser does not support JavaScript or it is disabled.', 'tainacan-interface') ?></span>
 		</noscript>
 	<?php } ?>
 		
