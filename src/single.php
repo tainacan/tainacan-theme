@@ -3,7 +3,7 @@
 <!-- Get the banner to display -->
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
 
-<main role="main" class="mt-5 max-large margin-one-column">
+<main id="tainacan-site-content" role="main" class="mt-5 max-large margin-one-column">
 	<div class="row">
 		<div class="col col-sm mx-sm-auto">
 			<?php get_template_part( 'template-parts/loop', 'singular' ); ?>

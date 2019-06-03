@@ -4,7 +4,7 @@
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
 
 
-<main role="main" class="mt-5 max-large margin-one-column">
+<main id="tainacan-site-content" role="main" class="mt-5 max-large margin-one-column">
 	<div class="row justify-content-between">
 		<div class="col-12 <?php if ( is_active_sidebar( 'tainacan-sidebar-right' ) ) { ?>col-lg-8 pr-lg-0<?php } ?>">
 			<?php get_template_part( 'template-parts/loop' ); ?>

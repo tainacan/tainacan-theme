@@ -15,10 +15,10 @@
 		<div class="accessibility-bar">
 			<nav class="accessibility-bar__container">
 				<ul class="accessibility-shortcuts" role="menubar">
-					<li role="menuitem"><a href="#content" accesskey="c"><span>c</span> Ir para o conteúdo</a></li>
-					<li role="menuitem"><a href="#menu-menu-arcabouco" accesskey="m"><span>m</span> Ir para o menu</a></li>
-					<li role="menuitem"><a href="#tainacan-search-header" accesskey="b"><span>b</span> Ir para a busca</a></li>
-					<li role="menuitem"><a href="#footer" accesskey="r"><span>r</span> Ir para o rodapé</a></li>
+					<li role="menuitem"><a href="#tainacan-site-content" accesskey="c"><span>c</span> Ir para o conteúdo</a></li>
+					<li role="menuitem"><a href="#tainacan-site-menu" accesskey="m"><span>m</span> Ir para o menu</a></li>
+					<li role="menuitem"><a href="#tainacan-site-search" accesskey="b"><span>b</span> Ir para a busca</a></li>
+					<li role="menuitem"><a href="#tainacan-site-footer" accesskey="r"><span>r</span> Ir para o rodapé</a></li>
 				</ul>
 
 				<ul class="accessibility-options" role="menubar">
@@ -60,7 +60,7 @@
 
 			<div class="navbar-box">
 				<?php if ( has_nav_menu( 'navMenubelowHeader' ) ) : ?>
-					<nav class="navbar navbar-expand-md navbar-light px-0 menu-belowheader" role="navigation">
+					<nav id="tainacan-site-menu" class="navbar navbar-expand-md navbar-light px-0 menu-belowheader" role="navigation">
 						<div class="container-fluid max-large px-0 margin-one-column">
 							<!-- Brand and toggle get grouped for better mobile display -->	
 							<!-- <a class="navbar-brand d-md-none" href="#"></a> -->
@@ -84,7 +84,7 @@
 				<?php endif; ?>
 
 				<div class="btn-group">
-					<form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<form  id="tainacan-site-search" class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<div class="input-group">
 							<input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'tainacan-interface' ); ?>" class="form-control" formControlName="searchText" size="50">
 							<span class="text-midnight-blue input-group-btn tainacan-icon tainacan-icon-search form-control-feedback"></span>

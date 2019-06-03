@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="mt-5 max-large margin-one-column">
+<main id="tainacan-site-content" class="mt-5 max-large margin-one-column">
 	<div class="row">
 		<div class="col col-sm mx-sm-auto">
 			<?php if ( have_posts() ) : ?>
