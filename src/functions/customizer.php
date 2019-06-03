@@ -93,6 +93,29 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	/**
+	 * Accessibility bar
+	 */
+
+	$wp_customize->add_section('tainacan_accessibility_bar', array(
+		'title'  	 => __( 'Accessibility', 'tainacan-interface' ),
+		'priority'   => 210,
+	));
+
+	$wp_customize->add_setting( 'tainacan_accessibility_setting', array(
+		'type'       => 'theme_mod',
+		'default'        => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'tainacan_accessibility_setting', array(
+		'type' => 'checkbox',
+		'settings' => 'tainacan_accessibility_setting',
+		'section' => 'tainacan_accessibility_bar',
+		'label' => __( 'Display Accessibility bar', 'tainacan-interface' ),
+	) );
+
+	/**
 	 * Social Share Links
 	 */
 

@@ -846,3 +846,274 @@ nav{
         }
     }
 }
+
+/***
+- ACESSIBILIDADE
+***/
+
+/*
+- BARRA DE ACESSIBILIDADE
+*/
+
+.accessibility-bar {
+	width: 100%;
+	position: relative;
+	border-bottom: 1px solid #01295C;
+	background-color: #fff;
+	z-index: 4;
+}
+.accessibility-bar__container {
+	width: 100%;
+	max-width: 960px;
+	min-height: 40px;
+    margin: 0 auto;
+    padding: 0 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+.accessibility-shortcuts {
+	margin: 0 -10px;
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+.accessibility-shortcuts--hidden {
+	position: fixed;
+	top: -50px;
+	left: -50px;
+	opacity: 0;
+	z-index: -2;
+}
+.accessibility-shortcuts li { margin: 0 10px; }
+.accessibility-shortcuts a {
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	color: #000;
+	line-height: normal;
+	display: block;
+}
+.accessibility-shortcuts a span {
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	color: #fff;
+	line-height: 18px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 50%;
+	background: #01295C;
+}
+
+.accessibility-options { display: none; }
+body.js .accessibility-options {
+	height: 24px;
+	margin: 0 -10px;
+	padding: 0;
+	display: flex;
+	list-style: none;
+}
+.accessibility-options li {
+	height: 24px;
+	margin: 0 10px;
+	display: flex;
+	align-items: center;
+}
+.accessibility-options span {
+	height: 14px;
+	margin-right: 6px;
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	color: #000;
+	line-height: normal;
+	display: block;
+}
+.accessibility-options button {
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	font-size: 11px;
+	color: #fff;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+	display: block;
+	border-radius: 50%;
+	border: none;
+	background: #01295C;
+}
+.accessibility-options button + button { margin-left: 6px; }
+.accessibility-options .button-high-contrast {
+	text-indent: -99999px;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #000;
+	background-color: #fff;
+}
+.accessibility-options .button-high-contrast:after {
+	content: "";
+	width: 11px;
+	height: 22px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000;
+}
+
+@media screen and (max-width: 800px) {
+	.accessibility-bar__container {
+		padding: 20px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.accessibility-shortcuts {
+		flex-flow: row wrap;
+		justify-content: space-around;
+	}
+	.accessibility-options { margin-top: 20px; }
+}
+
+@media screen and (max-width: 800px) {
+    .accessibility-bar .accessibility-shortcuts {
+        position: absolute;
+        top: 0;
+        border: none;
+        background: none;
+        transform: translate(0,-100px);
+    }
+    .accessibility-bar .accessibility-shortcuts a {
+        padding: 5px 10px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        opacity: 0;
+        background-color: #fff;
+        z-index: -2;
+        transform: translate(-50%,130px);
+        white-space: nowrap;
+    }
+    .accessibility-bar .accessibility-shortcuts a:focus {
+        opacity: 1;
+        z-index: 2;
+    }
+}
+
+/*
+- ADICIONANDO JS NÃO OBSTRUSIVO
+*/
+
+.collapse:not(.show) { display: block; }
+body.js .collapse:not(.show) { display: none; }
+
+/*
+- ALTO CONTRASTE
+*/
+
+body.contraste,
+body.contraste *,
+body.contraste .page-header .title-header,
+body.contraste .button.is-outlined {
+	color: #fff !important;
+	border-color: #fff !important;
+	background-color: #000 !important;
+}
+
+body.contraste a { text-decoration: underline !important; }
+body.contraste a:visited { color: #FFF333 !important; }
+
+body.contraste .search-box,
+body.contraste .collection-header--type-b { border: 2px solid #fff !important; }
+
+body.contraste .page-header .title-header h2:after,
+body.contraste .highlights-list__title-box:after { display: none !important; }
+
+body.contraste .navbar,
+body.contraste .page-header.page-height,
+body.contraste .accessibility-bar { border-bottom: 1px solid #fff !important; }
+
+body.contraste footer.tainacan-footer { border-top: 1px solid #fff !important; }
+
+body.contraste .tainacan-single-post article header .header-meta,
+body.contraste .theme-items-list a,
+body.contraste .dropdown .dropdown-menu .dropdown-content .dropdown-item,
+body.contraste .dropdown .dropdown-menu .dropdown-content .has-link a,
+body.contraste .dropdown .dropdown-menu .has-link .dropdown-content a,
+body.contraste .autocomplete .dropdown-menu .dropdown-content .dropdown-item,
+body.contraste .autocomplete .dropdown .dropdown-menu .dropdown-content .has-link a,
+body.contraste .dropdown .autocomplete .dropdown-menu .dropdown-content .has-link a,
+body.contraste .autocomplete .dropdown .dropdown-menu .has-link .dropdown-content a,
+body.contraste .dropdown .autocomplete .dropdown-menu .has-link .dropdown-content a,
+body.contraste .select:not(.is-loading)::after,
+body.contraste .table-container .table-wrapper table.tainacan-table .column-main-content p,
+body.contraste .tainacan-title-page ul li,
+body.contraste .tainacan-title-page ul li a,
+body.contraste #menubelowHeader .menu-item a::after,
+body.contraste .menu-shadow button[data-toggle='dropdown']::after,
+body.contraste .tainacan-search-form .input-group .form-control::placeholder { color: #fff !important; }
+
+body.contraste .page-header .title-header.singular-title,
+body.contraste img,
+body.contraste .tainacan-form .control.has-icons-right .icon,
+body.contraste .accessibility-options button { border: 1px solid #fff !important; }
+
+body.contraste footer .tainacan-footer-info .tainacan-footer-info--logo,
+body.contraste .collection-header--type-b .btn.trigger,
+body.contraste .page-header .title-header.singular-title,
+body.contraste .tainacan-single-post article header .header-meta img { border: none !important; }
+
+body.contraste .page-header.page-height > div.ph-title-description,
+body.contraste .collection-header--share .rotater,
+body.contraste .collection-header--share,
+body.contraste .collection-header--share .btn .mdi.mdi-share-variant,
+body.contraste .collection-header--share .btn .mdi,
+body.contraste .t-bg-collection .t-collection--info .t-collection--info-title,
+body.contraste .t-bg-collection .t-collection--info .t-collection--col-9,
+body.contraste .image-placeholder>.title-initials,
+body.contraste .t-bg-collection .t-collection--info .t-collection--col-3,
+body.contraste .accessibility-shortcuts,
+body.contraste .accessibility-shortcuts li,
+body.contraste .tainacan-form .select select,
+body.contraste .page-header > div.ph-title-description,
+body.contraste .page-header .title-header.singular-title { background-color: transparent !important; }
+
+body.contraste .accessibility-shortcuts a span,
+body.contraste .tooltip .tooltip-inner {
+	color: #000 !important;
+	background-color: #fff !important;
+}
+body.contraste .accessibility-options .button-high-contrast,
+body.contraste .tainacan-logo img { background-color: #fff !important; }
+
+body.contraste .tainacan-search-form {
+	.input-group {
+		.form-control {
+			border: 1px solid transparent !important;
+
+			&:focus { border: 1px solid #fff !important; }
+		}
+		&:hover,
+		&.hover {
+			.form-control { border: 1px solid #fff !important; }
+		}
+	}
+}
+
+body.contraste #return-to-top {
+	background: #fff !important;
+
+	i {
+		color: #000 !important;
+		background: transparent !important;
+	}
+}
