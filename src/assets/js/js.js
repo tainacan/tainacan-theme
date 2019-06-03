@@ -127,38 +127,42 @@ jQuery( document ).ready(function( $ ) {
 	 * ACESSIBILIDADE
 	*/
 
-	accessibilityCounter = 0;
+	var $barra = jQuery('.accessibility-bar');
 
-	jQuery('.button-text-minus').on('click',function() {
-		if (accessibilityCounter > -3) {
-			var _html = jQuery('html'),
-				fonte = _html.css('font-size'),
-				tamanho = fonte.split('px');
-
-			_html.css('font-size', (parseInt(tamanho[0]) - 2));
-			accessibilityCounter--;
-		}
-	});
-
-	jQuery('.button-text-default').on('click',function() {
-		jQuery('html').css('font-size','1rem');
+	if ($barra.length > 0) {
 		accessibilityCounter = 0;
-	});
 
-	jQuery('.button-text-plus').on('click',function() {
-		if (accessibilityCounter < 3) {
-			var _html = jQuery('html'),
-				fonte = _html.css('font-size'),
-				tamanho = fonte.split('px');
+		jQuery('.button-text-minus').on('click',function() {
+			if (accessibilityCounter > -3) {
+				var _html = jQuery('html'),
+					fonte = _html.css('font-size'),
+					tamanho = fonte.split('px');
 
-			_html.css('font-size', (parseInt(tamanho[0]) + 3));
-			accessibilityCounter++;
-		}
-	});
+				_html.css('font-size', (parseInt(tamanho[0]) - 2));
+				accessibilityCounter--;
+			}
+		});
 
-	jQuery('.button-high-contrast').on('click',function() {
-		jQuery('body').toggleClass('contraste');
-	});
+		jQuery('.button-text-default').on('click',function() {
+			jQuery('html').css('font-size','1rem');
+			accessibilityCounter = 0;
+		});
+
+		jQuery('.button-text-plus').on('click',function() {
+			if (accessibilityCounter < 3) {
+				var _html = jQuery('html'),
+					fonte = _html.css('font-size'),
+					tamanho = fonte.split('px');
+
+				_html.css('font-size', (parseInt(tamanho[0]) + 3));
+				accessibilityCounter++;
+			}
+		});
+
+		jQuery('.button-high-contrast').on('click',function() {
+			jQuery('body').toggleClass('contraste');
+		});
+	}
 
 	/*
 	* ADICIONANDO JS NÃO OBSTRUSIVO
