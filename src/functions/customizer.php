@@ -586,6 +586,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 	nav.menu-belowheader #menubelowHeader > ul > li.menu-item a:hover::before {
 		background-color: {$colors['tainacan_link_color']};
 	}
+	nav.menu-belowheader #menubelowHeader ul > li.current_page_item > a, 
+	nav.menu-belowheader #menubelowHeader ul > li.current-menu-item > a {
+		border-color: {$colors['tainacan_link_color']} !important;
+	}
 	nav.menu-belowheader #menubelowHeader ul.show > li.current_page_item > a, 
 	nav.menu-belowheader #menubelowHeader ul.show > li.current-menu-item > a {
 		border-color: {$colors['tainacan_link_color']};
