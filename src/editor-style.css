@@ -24,6 +24,9 @@
   .components-modal__screen-overlay .editor-block-list__layout {
     padding-left: 8.3333333%;
     padding-right: 8.3333333%; }
+  .edit-post-visual-editor.editor-styles-wrapper .editor-writing-flow__click-redirect,
+  .components-modal__screen-overlay .editor-writing-flow__click-redirect {
+    width: auto; }
   .edit-post-visual-editor.editor-styles-wrapper .editor-inner-blocks,
   .edit-post-visual-editor.editor-styles-wrapper .editor-inner-blocks > .editor-block-list__layout,
   .components-modal__screen-overlay .editor-inner-blocks,

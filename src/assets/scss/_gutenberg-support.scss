@@ -1,14 +1,14 @@
 .alignwide {
-    margin-left: calc(-8.3333333333vw + 15px) !important;
-    margin-right: calc(-8.3333333333vw + 15px) !important;
+    margin-left: calc(-8.3333333333vw + 3.1%) !important;
+    margin-right: calc(-8.3333333333vw + 3.1%) !important;
     width: 116.66667%;
     max-width: 1400px;
 
     // 1400px is the maximum the inner cointainer should get, so we 
     // use 1526px - 1 column - 1 column;
     @media only screen and (min-width: 1526px) {
-        margin-left: calc(-1*(87.5vw - 1415px)/2) !important !important;
-        margin-right: calc(-1*(87.5vw - 1415px)/2) !important !important;
+        margin-left: calc(-1*(87.5vw - 1400px)/2) !important !important;
+        margin-right: calc(-1*(87.5vw - 1400px)/2) !important !important;
     }
 }
 
@@ -67,4 +67,15 @@
         padding: 0.75rem 4.16666667%;
         padding: 0.75rem 4.1666667vw;
     }
+}
+
+/* Carousel */
+.wp-block-tainacan-carousel-items-list.alignwide .tainacan-carousel{
+    width: 100%;
+    left: 0;
+}
+.wp-block-tainacan-carousel-items-list.alignfull .tainacan-carousel{
+    width: 100%;
+    width: 100vw;
+    left: 0;
 }
