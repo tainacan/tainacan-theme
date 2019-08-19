@@ -382,8 +382,9 @@
                     }
                 }
                 .single-item-collection--attachments {
-                    .single-item-collection--attachments-img {
+                    .single-item-collection--attachments-file {
                         margin: 10px;
+
                         img {
                             width: 125px;
                             height: 125px;
@@ -391,8 +392,18 @@
                                 outline: none;
                             }
                         }
-                        a:focus {
+                        a { 
+                            display: inline-block;
+                            font-size: 0.875rem; 
+                            text-align: center;
+                        }
+                        a,
+                        a:focus,
+                        a:hover {
                             outline: none;
+                            text-decoration: none;
+                            cursor: pointer;
+                            color: black;
                         }
                     }
                     .single-item-collection--attachments-prev {

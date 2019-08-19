@@ -584,6 +584,11 @@ function tainacan_get_color_scheme_css( $colors ) {
 		fill: {$colors['tainacan_link_color']} !important;
 	}
 
+	.tainacan-single-post	.single-item-collection--attachments .single-item-collection--attachments-next,
+	.tainacan-single-post	.single-item-collection--attachments .single-item-collection--attachments-prev {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+
 	/* Header Menu */
 	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['backtransparent']};
