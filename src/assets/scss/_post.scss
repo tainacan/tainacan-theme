@@ -393,9 +393,11 @@
                             }
                         }
                         a { 
+                            width: 125px;
                             display: inline-block;
                             font-size: 0.875rem; 
                             text-align: center;
+                            word-break: break-all;
                         }
                         a,
                         a:focus,
