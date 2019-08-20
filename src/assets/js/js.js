@@ -67,28 +67,49 @@ jQuery( document ).ready(function( $ ) {
 	$( '.single-item-collection--attachments' ).slick({
 		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowleft"></i></button>',
 		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',
-		slidesToShow: 6,
+		slidesToShow: 7,
 		slidesToScroll: 1,
-		autoplay: true,
+		autoplay: false,
 		autoplaySpeed: 2000,
 		responsive: [ {
-			breakpoint: 1024,
+			breakpoint: 1330,
+			settings: {
+				slidesToShow: 6,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 1200,
 			settings: {
 				slidesToShow: 5,
 				slidesToScroll: 1
 			}
 		},
 		{
-			breakpoint: 768,
+			breakpoint: 1024,
 			settings: {
 				slidesToShow: 4,
 				slidesToScroll: 1
 			}
 		},
 		{
-			breakpoint: 576,
+			breakpoint: 820,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 640,
 			settings: {
 				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 460,
+			settings: {
+				slidesToShow: 1,
 				slidesToScroll: 1
 			}
 		}
