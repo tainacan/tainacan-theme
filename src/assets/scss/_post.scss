@@ -385,6 +385,8 @@
                     .single-item-collection--attachments-file {
                         margin: 10px;
                         text-align: center;
+                        display: inline-block;
+                        vertical-align: top;
                         @media only screen and (max-width: 380px) {
                             margin: 10px 0;
                         }
