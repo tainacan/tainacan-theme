@@ -830,19 +830,4 @@ nav{
 
 @import "_header-taxonomy";
 
-.ekko-lightbox-nav-overlay {
-    a {
-        opacity: 1;
-        span {
-            padding: 0;
-        }
-        &:first-child {
-            left: -50px;
-            position: relative;
-        }
-        &:last-child {
-            right: -50px;
-            position: relative;
-        }
-    }
-}
+@import "_lightbox";
