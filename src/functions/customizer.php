@@ -580,7 +580,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	.tainacan-content .wp-block-tainacan-carousel-items-list .swiper-button-prev svg, 
-	.tainacan-content .wp-block-tainacan-carousel-items-list .swiper-button-next svg {
+	.tainacan-content .wp-block-tainacan-carousel-items-list .swiper-button-next svg,
+	.tainacan-content .wp-block-tainacan-carousel-collections-list .swiper-button-prev svg, 
+	.tainacan-content .wp-block-tainacan-carousel-collections-list .swiper-button-next svg {
 		fill: {$colors['tainacan_link_color']} !important;
 	}
 
