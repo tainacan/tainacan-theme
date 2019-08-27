@@ -1,0 +1,60 @@
+.modal-backdrop.show {
+    opacity: 1;
+    background-color: rgba(10,10,10,0.85);
+}
+.ekko-lightbox {
+
+    .modal-dialog {
+        margin: 3.75rem auto;
+    }
+
+    .modal-content {
+        border: none;
+
+        .modal-body {
+            padding: 0;
+
+            .ekko-lightbox-nav-overlay {
+                a {
+                    opacity: 1;
+                    span {
+                        padding: 0;
+                        color: white;
+                        font-size: 0;
+                    }
+                    span::before {
+                        display: inline-block;
+                        font: normal normal normal 64px/1 "TainacanIcons";
+                        font-size: 64px !important;
+                        line-height: 1;
+                        font-size: inherit;
+                        text-rendering: auto;
+                        vertical-align: middle;
+                        line-height: inherit;
+                    }
+                    &:hover {
+                        color: white;
+                    }
+                    &:first-child {
+                        left: -64px;
+                        position: relative;
+
+                        span:before {
+                            content: "arrowleft";
+                        }
+                    }
+                    &:last-child {
+                        right: -64px;
+                        position: relative;
+
+                        span:before {
+                            content: "arrowright";
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

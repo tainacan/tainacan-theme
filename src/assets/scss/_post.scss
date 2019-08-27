@@ -382,8 +382,15 @@
                     }
                 }
                 .single-item-collection--attachments {
-                    .single-item-collection--attachments-img {
+                    .single-item-collection--attachments-file {
                         margin: 10px;
+                        text-align: center;
+                        display: inline-block;
+                        vertical-align: top;
+                        @media only screen and (max-width: 380px) {
+                            margin: 10px 0;
+                        }
+
                         img {
                             width: 125px;
                             height: 125px;
@@ -391,17 +398,34 @@
                                 outline: none;
                             }
                         }
-                        a:focus {
+                        a {
+                            width: 100%;
+                            max-width: 125px;
+                            margin: 0 auto;
+                            display: inline-block;
+                            font-size: 0.875rem; 
+                            text-align: center;
+                            word-break: break-all;
+                        }
+                        a,
+                        a:focus,
+                        a:hover {
                             outline: none;
+                            text-decoration: none;
+                            cursor: pointer;
+                            color: black;
                         }
                     }
                     .single-item-collection--attachments-prev {
                         left: -50px;
+                        @media only screen and (max-width: 380px) {
+                            right: -40px;
+                        }
                     }
                     .single-item-collection--attachments-next {
-                        right: -10px;
-                        @media only screen and (min-width: 1500px) {
-                            right: -25px;
+                        right: -50px;
+                        @media only screen and (max-width: 380px) {
+                            right: -40px;
                         }
                     }
                     .single-item-collection--attachments-prev, .single-item-collection--attachments-next {
@@ -507,6 +531,9 @@
                         .multivalue-separator {
                             color: #cbcbcb;
                             margin: 0 8px;    
+                        }
+                        .hierarchy-separator {
+                            color: #cbcbcb;  
                         }
                         .metadata-type-textarea {
                             .multivalue-separator {

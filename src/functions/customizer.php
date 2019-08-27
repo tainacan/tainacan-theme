@@ -579,12 +579,28 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
+	.tainacan-content .wp-block-tainacan-carousel-items-list .swiper-button-prev svg, 
+	.tainacan-content .wp-block-tainacan-carousel-items-list .swiper-button-next svg,
+	.tainacan-content .wp-block-tainacan-carousel-collections-list .swiper-button-prev svg, 
+	.tainacan-content .wp-block-tainacan-carousel-collections-list .swiper-button-next svg {
+		fill: {$colors['tainacan_link_color']} !important;
+	}
+
+	.tainacan-single-post	.single-item-collection--attachments .single-item-collection--attachments-next,
+	.tainacan-single-post	.single-item-collection--attachments .single-item-collection--attachments-prev {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+
 	/* Header Menu */
 	nav .dropdown-menu .dropdown-item:hover {
 		background-color: {$colors['backtransparent']};
 	}
 	nav.menu-belowheader #menubelowHeader > ul > li.menu-item a:hover::before {
 		background-color: {$colors['tainacan_link_color']};
+	}
+	nav.menu-belowheader #menubelowHeader ul > li.current_page_item > a, 
+	nav.menu-belowheader #menubelowHeader ul > li.current-menu-item > a {
+		border-color: {$colors['tainacan_link_color']} !important;
 	}
 	nav.menu-belowheader #menubelowHeader ul.show > li.current_page_item > a, 
 	nav.menu-belowheader #menubelowHeader ul.show > li.current-menu-item > a {
@@ -713,6 +729,12 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
+	/* Buefy's Numberinput */
+	.theme-items-list .b-numberinput button .mdi::before,
+	.tainacan-modal-content .b-numberinput button .mdi::before {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+
 	/* Anchor tag, links, buttons styled as links */
 	.theme-items-list a, .theme-items-list a:hover,
 	.tainacan-modal-content a, .tainacan-modal-content a:hover,
@@ -740,6 +762,24 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.theme-items-list .pagination-area .pagination .pagination-previous, 
 	.theme-items-list .pagination-area .pagination .pagination-next {
 		color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/* Datepicker */
+	.theme-items-list .filter-item-forms .datepicker .datepicker-header a>span>i:before,
+	.tainacan-modal-content .filter-item-forms .datepicker .datepicker-header a>span>i:before {
+		color: {$colors['tainacan_link_color']} !important;
+	} 
+	.theme-items-list .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-selected,
+	.theme-items-list .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-selected:hover,
+	.tainacan-modal-content .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-selected,
+	.tainacan-modal-content .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-selected:hover {
+		background-color: {$colors['tainacan_link_color']} !important;
+	}
+	.theme-items-list .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-today,
+	.theme-items-list .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-today:hover,
+	.tainacan-modal-content .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-today,
+	.tainacan-modal-content .filter-item-forms .datepicker .datepicker-table .datepicker-cell.is-today:hover {
+		background-color: {$colors['tainacan_tooltip_color']} !important;
 	}
 
 	/* Outline Button */
