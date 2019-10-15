@@ -101,12 +101,14 @@
 
 /* Carousel */
 .wp-block-tainacan-carousel-items-list.alignwide .tainacan-carousel,
-.wp-block-tainacan-carousel-collections-list.alignwide .tainacan-carousel {
+.wp-block-tainacan-carousel-collections-list.alignwide .tainacan-carousel,
+.wp-block-tainacan-carousel-terms-list.alignwide .tainacan-carousel {
     width: 100%;
     left: 0;
 }
 .wp-block-tainacan-carousel-items-list.alignfull .tainacan-carousel,
-.wp-block-tainacan-carousel-collections-list.alignfull .tainacan-carousel  {
+.wp-block-tainacan-carousel-collections-list.alignfull .tainacan-carousel 
+.wp-block-tainacan-carousel-terms-list.alignfull .tainacan-carousel  {
     width: 100%;
     width: 100vw;
     left: 0;
