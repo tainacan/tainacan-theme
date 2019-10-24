@@ -404,9 +404,9 @@ msgstr "Nenhum"
 #~ msgstr "Cor que irá preencher a área de cabeçalho do tema"
 
 #~ msgid ""
-#~ "Authenticated as <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
+#~ "Authenticated as <a href=\"%1$s\" class=\"font-weight-normal\">%2$s</a>"
 #~ msgstr ""
-#~ "Conectado como <a href=\"%1$s\" class=\"font-weight-light\">%2$s</a>"
+#~ "Conectado como <a href=\"%1$s\" class=\"font-weight-normal\">%2$s</a>"
 
 #~ msgid "Anonymous"
 #~ msgstr "Anônimo"

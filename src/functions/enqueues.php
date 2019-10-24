@@ -42,7 +42,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * Google
 		 */
 			// Google fonts Roboto
-			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i' );
+			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
 
 		/**
 		 * Tainacan Theme

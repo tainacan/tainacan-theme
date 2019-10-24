@@ -36,7 +36,7 @@ if ( post_password_required() ) {
 				</div>
 
 				<?php
-					$user_link = sprintf( '<a href="%1$s" class="font-weight-light">%2$s</a>', get_author_posts_url( $current_user->ID ), $current_user->display_name );
+					$user_link = sprintf( '<a href="%1$s" class="font-weight-normal">%2$s</a>', get_author_posts_url( $current_user->ID ), $current_user->display_name );
 					$comment_args = array(
 						'logged_in_as' => '<span class="text-oslo-gray authenticated d-inline d-sm-none mb-4">' .
 						// translators: placeholder is the user name with link to its page

@@ -323,7 +323,7 @@ function tainacan_editor_styles() {
     wp_enqueue_style( 'tainacan-editor-style', get_template_directory_uri() . '/editor-style.css' );
 	
 	// Adds Robot fonts to Gutenberg.
-	wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+	wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
 	
 	// Adds customizer colors to Gutenberg.
 	//wp_add_inline_style( 'tainacan-customizer-editor-style', tainacan_customizer_gutenberg_colors() );
