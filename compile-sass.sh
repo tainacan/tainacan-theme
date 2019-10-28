@@ -25,14 +25,14 @@ echo "Style of Tainacan for Gutenberg Editor Compiled";
 sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
 echo "Bootstrap Compiled";
 rm -rf .sass-cache
-cd ../vendor/slick/scss
+cd ../vendor/slick
 sass slick.scss:slick.min.css --style compressed
 sass slick-theme.scss:slick-theme.min.css --style compressed
 echo "Slick for slider carousel Compiled";
 rm -rf slick-theme.min.css.map slick.min.css.map .sass-cache/
-cd ../../../scss
-rm -rf ../../style.css.map
-# rm -rf ../../editor-style.css.map
+cd ../../scss
+rm -rf ../style.css.map
+# rm -rf ../editor-style.css.map
 
 echo "Sass compilation Completed!"
 exit 0

@@ -21,7 +21,7 @@ echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
 echo "Copy Slick for Slider...\n\n";
     if (!file_exists("src/assets/vendor/slick")) {
         mkdir("src/assets/vendor/slick/", 0777, true);
-        mkdir("src/assets/vendor/slick/scss", 0777, true);
+        mkdir("src/assets/vendor/slick/css", 0777, true);
         mkdir("src/assets/vendor/slick/js", 0777, true);
         mkdir("src/assets/vendor/slick/fonts", 0777, true);
     }
