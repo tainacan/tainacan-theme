@@ -184,8 +184,9 @@ body.loading-content main:before {
 
 nav{
     &.menu-shadow{
-        max-height: 50px;
+        min-height: 50px;
         border-bottom: none;
+        padding: 0;
         .max-large{
             margin: 0 4.16666666667%;
             margin: 0 4.16666666667vw;
@@ -235,14 +236,20 @@ nav{
                 }
             }
             .tainacan-logo {
-                h1{
+                padding: 8px 0;
+                h1 {
                     font-size: 1.5rem;
                     margin: 0;
                 }
                 .logo {
-                    max-height: 30px;
                     width: auto;
-                    // max-width: 134px;
+                    height: auto;
+                    max-width: 220px;
+                    max-height: 125px;
+                }
+                @media only screen and (max-width: 576px){
+                    h1 { font-size: 1.125rem; }
+                    .logo { max-width: 175px; }
                 }
             }
         }
@@ -250,7 +257,7 @@ nav{
     .tainacan-search-form {
         .form-control {
             height: 27px;
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             font-weight: 400;
             color: #898d8f;
         }
@@ -277,7 +284,7 @@ nav{
             }
             .form-control {
                 border-radius: 0;
-                font-size: 0.75rem;
+                font-size: 0.875rem;
                 font-weight: 400;
                 color: #898d8f;
             }
@@ -291,15 +298,16 @@ nav{
     .dropdown-item:hover {
         background-color: #dbdbdb !important;
     }
-    &.menu-belowheader{
-        @media only screen and (min-width: 992px){
-            height: 70px;
-        }
+    &.menu-belowheader {
         #menubelowHeader{
             > ul{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+
                 > li{
                     &.menu-item {
-                        padding-right: 60px;
+                        padding-right: 48px;
 
                         a {
                             font-size: 0.875rem;
@@ -411,6 +419,7 @@ nav{
     border: none; 
     .navbar-brand {
         padding: 0;
+        margin-right: 0;
     }
 }
 .navbar.navbar--border-bottom {
@@ -442,7 +451,9 @@ nav{
         overflow: hidden;
     }
 
-    & > .navbar { margin-right: 16px; }
+    & > .navbar { 
+        margin-right: 16px !important; 
+    }
 
     .tainacan-icon-menu,
     .tainacan-icon-close {

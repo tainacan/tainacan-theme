@@ -50,7 +50,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		$logo_args = array(
 			'height'      => 30,
 			'width'       => 175,
-			'flex-height' => false,
+			'flex-height' => true,
 			'flex-width'  => true,
 		);
 		add_theme_support( 'custom-logo', $logo_args );
