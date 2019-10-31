@@ -240,16 +240,19 @@ nav{
                 width: auto;
                 h1 {
                     font-size: 1.5rem;
-                    margin: 0;
+                    margin: 0.36rem 0;
                 }
                 .logo {
                     width: auto;
                     height: auto;
-                    max-width: 220px;
-                    max-height: 125px;
+                    max-width: 225px;
+                    max-height: 120px;
                 }
                 @media only screen and (max-width: 576px){
-                    h1 { font-size: 1.125rem; }
+                    h1 {
+                        font-size: 1.125rem;
+                        margin: 0.36rem 0;
+                    }
                     .logo { max-width: 175px; }
                 }
             }
@@ -379,7 +382,7 @@ nav{
                 right: 0;
                 border: 1px solid #dbdbdb;
                 background-color: #fff;
-                z-index: 2;
+                z-index: 3;
 
                 & > ul > li.menu-item a {
                     margin: 0;
@@ -417,10 +420,14 @@ nav{
 }
 
 .navbar { 
-    border: none; 
+    border: none;
+    padding: 0.6rem 1rem;  
     .navbar-brand {
         padding: 0;
         margin-right: 0;
+    }
+    & > .container-fluid {
+        align-items: flex-end;
     }
 }
 .navbar.navbar--border-bottom {
