@@ -12,7 +12,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * Bootstrap 4.1.3
 		 */
 			//Style
-			wp_register_style( 'bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css' );
+			wp_register_style( 'bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/scss/bootstrap.min.css' );
 			wp_enqueue_style( 'bootstrap4CSS' );
 			//Javascript
 			wp_register_script( 'bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '', true );
@@ -33,16 +33,16 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Ekko Lightbox
 		 */
-			wp_register_style( 'EkkoLightboxCss', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/ekko-lightbox.min.css');
+			wp_register_style( 'EkkoLightboxCss', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/dist/ekko-lightbox.css');
 			wp_enqueue_style( 'EkkoLightboxCss' );
-			wp_register_script( 'EkkoLightboxJs', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/ekko-lightbox.min.js', array('jquery'), null, true);
+			wp_register_script( 'EkkoLightboxJs', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/dist/ekko-lightbox.min.js', array('jquery'), null, true);
 			wp_enqueue_script( 'EkkoLightboxJs' );
 
 		/**
 		 * Google
 		 */
 			// Google fonts Roboto
-			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i' );
+			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
 
 		/**
 		 * Tainacan Theme

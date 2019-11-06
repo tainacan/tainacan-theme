@@ -3,7 +3,7 @@ Theme Name: Tainacan Interface
 Author: MediaLab UFG
 Author URI: https://tainacan.org
 Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collectinons with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository. 
-Version: 1.4
+Version: 1.5
 License: GNU General Public License v3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 
@@ -92,28 +92,50 @@ body.loading-content main:before {
     .dropdown-item {
         border-radius: 0 !important;
     }
+    .menu-item-has-children .dropdown-toggle {
+        padding-left: 1.25rem !important;
+        padding-right: 1rem !important;
+    }
 }
 
-.menu-item-has-children {
-    .dropdown-submenu {
-        padding: 0.35rem 0 0.35rem 0.5rem !important;
-        margin-left: 0.5rem;
-    }
-    .dropdown-menu {
-        .show {
-            border-top: none;
-            margin-left: -1px;
-        }
-    }
+.dropdown.menu-item-has-children {
+    display: inline-flex;
+    flex-wrap: wrap;
 
+    .dropdown-submenu {
+        padding: 0.35rem 0 0.35rem 0.5rem;
+    }
     ul.show {
         li {
-            &.current_page_item, &.current-menu-item{
+            &.current_page_item, &.current-menu-item {
                 > a {
-                    border-bottom: 1px solid #298596;
+                    border: none;
                     background-color: #d9eced;
                 }
             }
+            .dropdown-menu {
+                &.show {
+                    position: relative;
+                    width: 100%;
+                    margin-left: 8px;
+                    border-left: none !important;
+                    border-right: none !important;
+                    animation: sub-menu-expand 0.5s linear;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        display: flex;
+
+        ul.show {
+            position: relative;
+            width: 100%;
+            top: 0;
+            margin-left: 16px;
+            border-left: none !important;
+            border-right: none !important;
+            animation: sub-menu-expand 0.5s linear;
         }
     }
 }
@@ -162,8 +184,9 @@ body.loading-content main:before {
 
 nav{
     &.menu-shadow{
-        max-height: 50px;
+        min-height: 50px;
         border-bottom: none;
+        padding: 0;
         .max-large{
             margin: 0 4.16666666667%;
             margin: 0 4.16666666667vw;
@@ -213,14 +236,24 @@ nav{
                 }
             }
             .tainacan-logo {
-                h1{
+                padding: 8px 0;
+                width: auto;
+                h1 {
                     font-size: 1.5rem;
-                    margin: 0;
+                    margin: 0.36rem 0;
                 }
                 .logo {
-                    max-height: 30px;
                     width: auto;
-                    // max-width: 134px;
+                    height: auto;
+                    max-width: 225px;
+                    max-height: 120px;
+                }
+                @media only screen and (max-width: 576px){
+                    h1 {
+                        font-size: 1.125rem;
+                        margin: 0.36rem 0;
+                    }
+                    .logo { max-width: 175px; }
                 }
             }
         }
@@ -228,7 +261,7 @@ nav{
     .tainacan-search-form {
         .form-control {
             height: 27px;
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             font-weight: 400;
             color: #898d8f;
         }
@@ -255,7 +288,7 @@ nav{
             }
             .form-control {
                 border-radius: 0;
-                font-size: 0.75rem;
+                font-size: 0.875rem;
                 font-weight: 400;
                 color: #898d8f;
             }
@@ -266,28 +299,24 @@ nav{
             .tainacan-icon-close { display: block !important; }
         }
     }
-    .dropdown-menu .menu-item {
-        &:hover .dropdown-item {
-            background-color: #cbcbcb;
-        }
+    .dropdown-item:hover {
+        background-color: #dbdbdb !important;
     }
-    &.menu-belowheader{
-        @media only screen and (min-width: 992px){
-            height: 70px;
-        }
+    &.menu-belowheader {
         #menubelowHeader{
             > ul{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+
                 > li{
                     &.menu-item {
-                        padding-right: 60px;
+                        padding-right: 48px;
 
-                        a{
+                        a {
                             font-size: 0.875rem;
                             font-weight: 400;
                             color: #000;
-                            margin-right: .5rem;
-                            padding-left: 0;
-                            padding-right: 0;
                             white-space: nowrap;
                             position: relative;
                             &::after{
@@ -295,10 +324,10 @@ nav{
                                 margin-left: 10px;
                                 margin-bottom: -2px;
                             }
-                            &:hover{
+                            &:hover {
                                 color: #000;
 
-                                &:before {
+                                &::before {
                                     content: "";
                                     width: 100%;
                                     height: 1px;
@@ -307,8 +336,8 @@ nav{
                                     display: block;
                                     position: absolute;
                                     left: 0;
-                                    bottom: 0.5rem;
-                                    background-color: #298596;;
+                                    bottom: 0.375rem;
+                                    background-color: #298596;
                                 }
                             }
                             &.dropdown-item {
@@ -334,8 +363,9 @@ nav{
                         > a {
                             border-bottom: 1px solid #298596;
                             padding: 0;
-                            margin-right: 0.5rem;
                             margin-top: 0.5rem;
+                            padding-right: .5rem;
+                            padding-left: .5rem;
 
                             &:hover:before { bottom: 0; }
                         }
@@ -352,11 +382,11 @@ nav{
                 right: 0;
                 border: 1px solid #dbdbdb;
                 background-color: #fff;
-                z-index: 2;
+                z-index: 3;
 
                 & > ul > li.menu-item a {
                     margin: 0;
-                    padding: 3px 12px;
+                    padding: 0.625rem 1.5rem !important;
 
                     &:before { display: none !important; }
 
@@ -390,9 +420,14 @@ nav{
 }
 
 .navbar { 
-    border: none; 
+    border: none;
+    padding: 0.6rem 1rem;  
     .navbar-brand {
         padding: 0;
+        margin-right: 0;
+    }
+    & > .container-fluid {
+        align-items: flex-end;
     }
 }
 .navbar.navbar--border-bottom {
@@ -420,10 +455,13 @@ nav{
 
     nav.menu-belowheader #menubelowHeader > ul > li.menu-item a {
         max-width: 240px;
+        width: 100%;
         overflow: hidden;
     }
 
-    & > .navbar { margin-right: 16px; }
+    & > .navbar { 
+        margin-right: 16px !important; 
+    }
 
     .tainacan-icon-menu,
     .tainacan-icon-close {
@@ -444,7 +482,7 @@ nav{
     }
 }
 .navbar--border-bottom {
-    border-bottom: 2px solid #ededed !important;
+    border-bottom: 1px solid #ededed !important;
 }
 
 .tainacan-search-form {
@@ -805,6 +843,20 @@ nav{
     to {
         opacity: 1;
         transform: translate(0, 0px);
+    }
+}
+
+// Sub menu animation for menu headers
+@keyframes sub-menu-expand {
+    from {
+        overflow-y: hidden;
+        opacity: 0.5;
+        max-height: 0px;
+    }
+    to {
+        overflow-y: auto;
+        opacity: 1;
+        max-height: 600px;
     }
 }
 

@@ -130,10 +130,7 @@ jQuery( document ).ready(function( $ ) {
 		}
 		var $subMenu = $(this).next(".dropdown-menu");
 		$subMenu.toggleClass('show');
-		if($subMenu.hasClass('show')) {
-			$subMenu.find('.dropdown-submenu').attr('style', 'padding-left: 3rem !important');
-			$subMenu.find('.dropdown-item').attr('style', 'padding-left: 3rem');
-		}
+
 		return false;
 	});
 	

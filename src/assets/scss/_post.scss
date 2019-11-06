@@ -276,11 +276,6 @@
                 .blocks-gallery-item{
                     figure{
                         margin: 0 !important;
-                        figcaption{
-                            padding: 10px 10px 5px;
-                            background: #fff;
-                            color: #000;
-                        }
                     }
                     img {
                         height: 100% !important;
@@ -356,6 +351,7 @@
                     }
                     display: flex;
                     justify-content: center;
+
                     > iframe, img.attachment-large {
                         display: block;
                         height: auto;
@@ -406,6 +402,7 @@
                             font-size: 0.875rem; 
                             text-align: center;
                             word-break: break-all;
+                            line-height: 1.5rem
                         }
                         a,
                         a:focus,
@@ -414,6 +411,10 @@
                             text-decoration: none;
                             cursor: pointer;
                             color: black;
+                        }
+                        .attachment-without-image img {
+                            padding: 42px;
+                            background-color: #dbdbdb;
                         }
                     }
                     .single-item-collection--attachments-prev {

@@ -1,3 +1,25 @@
+// Register palette classes for colors
+.has-default-color { color: #298596 !important; }
+.has-default-background-color { background-color: #298596 !important; }
+.has-carmine-color { color: #8c442c !important; }
+.has-carmine-background-color { background-color: #8c442c !important; }
+.has-cherry-color { color: #A12B42 !important; }
+.has-cherry-background-color { background-color: #A12B42 !important; }
+.has-mustard-color { color: #754E24 !important; }
+.has-mustard-background-color { background-color: #754E24 !important; }
+.has-mintgreen-color { color: #255F56 !important; }
+.has-mintgreen-background-color { background-color: #255F56 !important; }
+.has-darkturquoise-color { color: #205E6F !important; }
+.has-darkturquoise-background-color { background-color: #205E6F !important; }
+.has-turquoise-color { color: #185F6D !important; }
+.has-turquoise-background-color { background-color: #185F6D !important; }
+.has-blueheavenly-color { color: #1D5C86 !important; }
+.has-blueheavenly-background-color { background-color: #1D5C86 !important; }
+.has-purple-color { color: #4751a3 !important; }
+.has-purple-background-color { background-color: #4751a3 !important; }
+.has-violet-color { color: #955ba5 !important; }
+.has-violet-background-color { background-color: #955ba5 !important; }
+
 .alignwide {
     margin-left: calc(-8.3333333333vw + 3.1%) !important;
     margin-right: calc(-8.3333333333vw + 3.1%) !important;
@@ -22,7 +44,7 @@
     position: relative;
 
     @media only screen and (min-width: 1526px) {
-        left: 30px;
+        width: 100% !important;
     }
 }
 
@@ -69,14 +91,24 @@
     }
 }
 
+/* Cover block */
+.wp-block-cover__inner-container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 8.3333333333%;
+    padding: 0 8.3333333333vw;
+}
+
 /* Carousel */
 .wp-block-tainacan-carousel-items-list.alignwide .tainacan-carousel,
-.wp-block-tainacan-carousel-collections-list.alignwide .tainacan-carousel {
+.wp-block-tainacan-carousel-collections-list.alignwide .tainacan-carousel,
+.wp-block-tainacan-carousel-terms-list.alignwide .tainacan-carousel {
     width: 100%;
     left: 0;
 }
 .wp-block-tainacan-carousel-items-list.alignfull .tainacan-carousel,
-.wp-block-tainacan-carousel-collections-list.alignfull .tainacan-carousel  {
+.wp-block-tainacan-carousel-collections-list.alignfull .tainacan-carousel 
+.wp-block-tainacan-carousel-terms-list.alignfull .tainacan-carousel  {
     width: 100%;
     width: 100vw;
     left: 0;
