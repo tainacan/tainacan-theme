@@ -91,7 +91,7 @@
 											<div class="single-item-collection--attachments-file">
 												<a 
 													class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>"
-													href="<?php echo $href; ?>" data-toggle="lightbox" data-disable-external-check="true" data-gallery="example-gallery">
+													href="<?php echo $href; ?>" data-toggle="lightbox" data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
 														echo get_the_title( $attachment->ID );
