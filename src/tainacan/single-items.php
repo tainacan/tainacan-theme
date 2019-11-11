@@ -81,10 +81,17 @@
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachments as $attachment ) { ?>
+											<?php
+											if ( function_exists('tainacan_get_attachment_html_url') ) {
+												$href = tainacan_get_attachment_html_url($attachment->ID);
+											} else {
+												$href = wp_get_attachment_url($attachment->ID, 'large');
+											}
+											?>
 											<div class="single-item-collection--attachments-file">
 												<a 
 													class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>"
-													href="<?php echo wp_get_attachment_url($attachment->ID, 'large'); ?>" data-toggle="lightbox" data-disable-external-check="true" data-gallery="example-gallery">
+													href="<?php echo $href; ?>" data-toggle="lightbox" data-disable-external-check="true" data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
 														echo get_the_title( $attachment->ID );
