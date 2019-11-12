@@ -40,6 +40,10 @@
                    min-height: 80vh;
                    border: none;
                 }
+                & > audio {
+                    min-height: 54px;
+                    padding: 12px;
+                }
                 & > a,
                 & > p {
                     padding: 1rem 4.33337vw;
