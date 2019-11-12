@@ -6,6 +6,7 @@
 
     .modal-dialog {
         margin: 3.75rem auto;
+        max-width: calc(1400px - 16.667vw) !important;
     }
 
     .modal-content {
@@ -13,6 +14,39 @@
 
         .modal-body {
             padding: 0;
+            
+            .ekko-lightbox-container {
+                height: auto !important;
+                max-height: 100%;
+                max-height: 85vh;
+            }
+
+            .ekko-lightbox-item {
+                display: -ms-flexbox;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                & > * {
+                    width: 100%;
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 85vh;
+                }
+                & > img {
+                    width: auto;
+                }
+                & > iframe {
+                   min-height: 60vh;
+                   border: none;
+                }
+                & > a,
+                & > p {
+                    padding: 1rem 4.33337vw;
+                    background: white;
+                    border-radius: 3px;
+                }
+            }
 
             .ekko-lightbox-nav-overlay {
                 display: -ms-flexbox !important;
