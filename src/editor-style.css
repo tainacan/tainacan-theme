@@ -450,7 +450,9 @@
     color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-table th,
   .components-modal__screen-overlay .wp-block-table th {
-    border-bottom: 1px solid #cbcbcb; }
+    border-bottom: 1px solid #cbcbcb;
+    font-weight: normal;
+    font-size: 0.75rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-table td,
   .components-modal__screen-overlay .wp-block-table td {
     border: 1px solid #f2f2f2;

@@ -135,8 +135,10 @@
                 thead {
                     border-bottom: 1px solid #cbcbcb;
                     color: #555758;
-                    font-weight: 400;
-                    font-size: 0.75rem;
+                    th {
+                        font-weight: normal;
+                        font-size: 0.75rem;
+                    }
                 }
                 tbody {
                     font-size: 0.875rem;
@@ -185,6 +187,7 @@
             }
             .wp-block-columns {
                 display: flex;
+                margin: 0;
 
                 @media only screen and (max-width: 781px){
                     .wp-block-column {
@@ -205,11 +208,11 @@
             }
             .alignleft {
                 float:left;
-                margin: 0 1em 1em 0;
+                margin: 0.5rem 1rem 0.5rem 0;
             }
             .alignright {
                 float:right;
-                margin: 0 0 1em 1em;
+                margin: 0.5rem 0 0.5rem 1rem;
             }
             @media only screen and (max-width: 576px) {
                 .alignleft, .alignright {
