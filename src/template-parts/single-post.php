@@ -1,5 +1,5 @@
 <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
-	<?php if ( get_the_title()  != '') : ?>
+	<?php if (!is_page_template( 'page-templates/landing.php' ) ) : ?>
 		<header class="mb-4">
 			<div class="header-meta text-muted mb-5 d-flex">
 				<?php if ( ! is_singular( 'page' ) ) { ?>
