@@ -61,4 +61,6 @@
 
 	<a href="javascript:" id="return-to-top"><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
 
-	<?php tainacan_interface_the_breadcrumb(); ?>
+    <?php if ( !is_page_template( 'page-templates/landing.php' ) ) : ?>
+		<?php tainacan_interface_the_breadcrumb(); ?>
+	<?php endif; ?>
