@@ -634,6 +634,18 @@ function tainacan_get_color_scheme_css( $colors ) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
+	/* Extra title group class, that can be added for styling special headings */
+	.wp-block-group.tainacan-group-heading h1,
+	.wp-block-group.tainacan-group-heading h2,
+	.wp-block-group.tainacan-group-heading h3,
+	.wp-block-group.tainacan-group-heading h4 {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+	.wp-block-group.tainacan-group-heading hr.wp-block-separator {
+		background-color: {$colors['tainacan_link_color']};
+		border-color: {$colors['tainacan_link_color']};
+	}
+
 	/**
 	* Tainacan Taxonomy Archive Page
 	*/

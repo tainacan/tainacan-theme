@@ -116,6 +116,7 @@
             .wp-block-separator {
                 border-color: #cbcbcb;
                 width: 50%;
+                max-width: 300px;
                 &.is-style-wide{
                     width: 100%;
                 }
@@ -124,6 +125,20 @@
                         color: #cbcbcb;
                         font-weight: 600;
                     }
+                }
+            }
+            .tainacan-group-heading {
+                p {
+                    font-style: italic;
+                    color: #898d8f;
+                }
+                hr.wp-block-separator:not(.is-style-wide) {
+                    margin-left: 0;
+                    max-width: 200px;
+                }
+                hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+                    border-width: 3px;
+                    height: 3px;
                 }
             }
             ul {
@@ -156,6 +171,8 @@
                 font-style: italic;
             }
             p {
+                margin-top: 0.5rem;
+                margin-bottom: 1rem;
                 code {
                     border-radius: 5px; 
                     -moz-border-radius: 5px; 
@@ -189,13 +206,6 @@
                 display: flex;
                 margin: 0;
 
-                @media only screen and (max-width: 781px){
-                    .wp-block-column {
-                        margin-left: 0 !important;
-                        margin-right: 0 !important;
-                    }
-                }
-
                 .wp-block-column {
                     flex-basis: 100%;
                 }
@@ -208,11 +218,11 @@
             }
             .alignleft {
                 float:left;
-                margin: 0.5rem 1rem 0.5rem 0;
+                margin: 1rem 1rem 1rem 0;
             }
             .alignright {
                 float:right;
-                margin: 0.5rem 0 0.5rem 1rem;
+                margin: 1rem 0 1rem 1rem;
             }
             @media only screen and (max-width: 576px) {
                 .alignleft, .alignright {

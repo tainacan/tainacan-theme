@@ -19,7 +19,8 @@
   /* Pre */
   /* Code */
   /* Tables */
-  /* Tainacan Selection Modal */ }
+  /* Tainacan Selection Modal */
+  /* Extra title group class, that can be added for styling special headings */ }
   .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout,
   .components-modal__screen-overlay .editor-block-list__layout {
     padding-left: 8.3333333%;
@@ -491,5 +492,21 @@
         .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area .components-base-control .components-base-control__field label {
           flex-shrink: 0;
           margin-right: 12px; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading .wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading .wp-block-heading {
+    color: #298596 !important; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading p.wp-block-paragraph,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading p.wp-block-paragraph {
+    font-style: italic;
+    color: #898d8f; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide) {
+    margin-left: 0;
+    max-width: 200px;
+    border-color: #298596; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+    border-width: 3px;
+    height: 3px; }
 
 /*# sourceMappingURL=editor-style.css.map */
