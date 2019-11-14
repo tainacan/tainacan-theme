@@ -128,6 +128,10 @@
                 }
             }
             .tainacan-group-heading {
+                h1 { font-size: 1.5rem; }
+                h2 { font-size: 1.5rem; }
+                h3 { font-size: 1.25rem; }
+                h4 { font-size: 1.125rem; }
                 p {
                     font-style: italic;
                     color: #898d8f;
@@ -137,8 +141,8 @@
                     max-width: 200px;
                 }
                 hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-                    border-width: 3px;
-                    height: 3px;
+                    border-width: 4px;
+                    height: 4px;
                 }
             }
             ul {
@@ -210,10 +214,10 @@
                     flex-basis: 100%;
                 }
                 .wp-block-column:not(:last-child) {
-                    margin-right: 4.16666667%;
+                    margin-right: 2.0833333%; // Half column
                 }
                 .wp-block-column:not(:first-child) {
-                    margin-left: 4.16666667%;
+                    margin-left: 2.0833333%; // Half column
                 }
             }
             .alignleft {

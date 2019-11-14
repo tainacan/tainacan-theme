@@ -57,10 +57,10 @@
     margin-right: -8.3333333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child),
   .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child) {
-    margin-right: 4.1666667%; }
+    margin-right: 2.0833333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child),
   .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child) {
-    margin-left: 4.1666667%; }
+    margin-left: 2.0833333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"],
   .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"] {
     margin-left: 0;
@@ -495,6 +495,18 @@
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading .wp-block-heading,
   .components-modal__screen-overlay .wp-block-group.tainacan-group-heading .wp-block-heading {
     color: #298596 !important; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h1.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h1.wp-block-heading {
+    font-size: 1.5rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h2.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h2.wp-block-heading {
+    font-size: 1.5rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h3.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h3.wp-block-heading {
+    font-size: 1.25rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h4.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h4.wp-block-heading {
+    font-size: 1.25rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading p.wp-block-paragraph,
   .components-modal__screen-overlay .wp-block-group.tainacan-group-heading p.wp-block-paragraph {
     font-style: italic;
