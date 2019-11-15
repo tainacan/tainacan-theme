@@ -740,6 +740,13 @@ nav{
     display: block;
 }
 
+.page-template-landing article section.tainacan-content,
+.page-template-landing-breadcrumb article section.tainacan-content {
+    &>div {
+        margin-top: 0;
+    }
+}
+
 .tainacan-title{
     .tainacan-title-page{
         .title-page{

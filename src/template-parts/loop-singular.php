@@ -1,6 +1,6 @@
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<?php if (!is_page_template( 'page-templates/landing.php' ) ) : ?>
+		<?php if (!is_page_template( 'page-templates/landing.php' ) && !is_page_template( 'page-templates/landing-breadcrumb.php' ) ) : ?>
 			<div class="tainacan-title">
 				<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 					<ul class="list-inline mb-1">
