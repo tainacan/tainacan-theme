@@ -19,7 +19,8 @@
   /* Pre */
   /* Code */
   /* Tables */
-  /* Tainacan Selection Modal */ }
+  /* Tainacan Selection Modal */
+  /* Extra title group class, that can be added for styling special headings */ }
   .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout,
   .components-modal__screen-overlay .editor-block-list__layout {
     padding-left: 8.3333333%;
@@ -56,10 +57,10 @@
     margin-right: -8.3333333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child),
   .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child) {
-    margin-right: 4.1666667%; }
+    margin-right: 2.0833333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child),
   .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child) {
-    margin-left: 4.1666667%; }
+    margin-left: 2.0833333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"],
   .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"] {
     margin-left: 0;
@@ -450,7 +451,9 @@
     color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-table th,
   .components-modal__screen-overlay .wp-block-table th {
-    border-bottom: 1px solid #cbcbcb; }
+    border-bottom: 1px solid #cbcbcb;
+    font-weight: normal;
+    font-size: 0.75rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-table td,
   .components-modal__screen-overlay .wp-block-table td {
     border: 1px solid #f2f2f2;
@@ -489,5 +492,33 @@
         .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area .components-base-control .components-base-control__field label {
           flex-shrink: 0;
           margin-right: 12px; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading .wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading .wp-block-heading {
+    color: #298596 !important; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h1.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h1.wp-block-heading {
+    font-size: 1.5rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h2.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h2.wp-block-heading {
+    font-size: 1.5rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h3.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h3.wp-block-heading {
+    font-size: 1.25rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h4.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h4.wp-block-heading {
+    font-size: 1.125rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading p.wp-block-paragraph,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading p.wp-block-paragraph {
+    font-style: italic;
+    color: #898d8f; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide) {
+    margin-left: 0;
+    max-width: 200px;
+    border-color: #298596; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+    border-width: 4px;
+    height: 4px; }
 
 /*# sourceMappingURL=editor-style.css.map */

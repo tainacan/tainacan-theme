@@ -1,11 +1,11 @@
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<?php if ( get_the_title()  != '') : ?>
+		<?php if (!is_page_template( 'page-templates/landing.php' ) && !is_page_template( 'page-templates/landing-breadcrumb.php' ) ) : ?>
 			<div class="tainacan-title">
 				<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 					<ul class="list-inline mb-1">
 						<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-							<?php the_title(); ?>
+							<h1><?php the_title(); ?></h1>
 						</li>
 						<li class="list-inline-item float-right title-back"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
 					</ul>

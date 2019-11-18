@@ -10,7 +10,7 @@
 						<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 							<ul class="list-inline mb-1">
 								<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
-									<?php the_title(); ?> 
+									<h1><?php the_title(); ?></h1> 
 								</li>
 								<li class="list-inline-item float-right title-back">
 									<a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
@@ -81,10 +81,17 @@
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachments as $attachment ) { ?>
+											<?php
+											if ( function_exists('tainacan_get_attachment_html_url') ) {
+												$href = tainacan_get_attachment_html_url($attachment->ID);
+											} else {
+												$href = wp_get_attachment_url($attachment->ID, 'large');
+											}
+											?>
 											<div class="single-item-collection--attachments-file">
 												<a 
 													class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>"
-													href="<?php echo wp_get_attachment_url($attachment->ID, 'large'); ?>" data-toggle="lightbox" data-disable-external-check="true" data-gallery="example-gallery">
+													href="<?php echo $href; ?>" data-toggle="lightbox" data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
 														echo get_the_title( $attachment->ID );

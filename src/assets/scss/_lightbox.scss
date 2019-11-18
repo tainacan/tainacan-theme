@@ -6,6 +6,7 @@
 
     .modal-dialog {
         margin: 3.75rem auto;
+        max-width: calc(1400px - 16.667vw) !important;
     }
 
     .modal-content {
@@ -13,8 +14,48 @@
 
         .modal-body {
             padding: 0;
+            
+            .ekko-lightbox-container {
+                height: auto !important;
+                max-height: 100%;
+                max-height: 85vh;
+            }
+
+            .ekko-lightbox-item {
+                display: -ms-flexbox;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                & > * {
+                    width: 100%;
+                    max-width: calc(100% - 98px); // Enough to fit arrows aside
+                    height: auto;
+                    max-height: 85vh;
+                }
+                & > img {
+                    width: auto;
+                }
+                & > iframe {
+                   min-height: 80vh;
+                   border: none;
+                }
+                & > audio {
+                    min-height: 54px;
+                    padding: 12px;
+                }
+                & > a,
+                & > p {
+                    padding: 1rem 4.33337vw;
+                    background: white;
+                    border-radius: 3px;
+                    word-wrap: break-word;
+                }
+            }
 
             .ekko-lightbox-nav-overlay {
+                display: -ms-flexbox !important;
+                display: flex !important;
                 a {
                     opacity: 1;
                     span {
@@ -24,8 +65,8 @@
                     }
                     span::before {
                         display: inline-block;
-                        font: normal normal normal 64px/1 "TainacanIcons";
-                        font-size: 64px !important;
+                        font: normal normal normal 56px/1 "TainacanIcons";
+                        font-size: 56px !important;
                         line-height: 1;
                         font-size: inherit;
                         text-rendering: auto;
@@ -36,7 +77,7 @@
                         color: white;
                     }
                     &:first-child {
-                        left: -64px;
+                        left: -6px;
                         position: relative;
 
                         span:before {
@@ -44,7 +85,7 @@
                         }
                     }
                     &:last-child {
-                        right: -64px;
+                        right: -6px;
                         position: relative;
 
                         span:before {
