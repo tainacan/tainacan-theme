@@ -54,7 +54,7 @@
 					<div class="input-group">
 						<input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var( 's' ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />
 						<span class="input-group-append">
-							<button class="btn border border-left-0 rounded-0 bg-white " type="submit">
+							<button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
 								<i class="tainacan-icon tainacan-icon-20px tainacan-icon-search" style="line-height: inherit;"></i>
 							</button>
 						</span>
