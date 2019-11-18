@@ -145,12 +145,14 @@
                     height: 4px;
                 }
             }
-            &>ul {
+            &>ul,
+            &>ol {
                 font-size: 1rem;
                 font-weight: 400;
                 margin-left: 1.75rem;
             }
-            .wp-block-media-text__content>ul {
+            .wp-block-media-text__content>ul,
+            .wp-block-media-text__content>ol {
                 margin-left: 1.75rem;
             }
             .table {
