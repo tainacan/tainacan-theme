@@ -749,9 +749,12 @@ nav{
 
 .tainacan-title{
     .tainacan-title-page{
-        .title-page{
+        margin-bottom: 0.75rem;
+        .title-page h1{
             font-size: 1.25rem;
+            font-weight: bold;
             word-break: break-word;
+            margin: 0;
             @media only screen and (max-width: 576px){
                 width: 85%;
                 overflow: hidden;
@@ -767,7 +770,7 @@ nav{
                 size: 0.875rem;
                 weight: 400;
             }
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
         }
     }
 }

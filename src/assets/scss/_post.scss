@@ -145,10 +145,13 @@
                     height: 4px;
                 }
             }
-            ul {
+            &>ul {
                 font-size: 1rem;
                 font-weight: 400;
-                color: #000;
+                margin-left: 1.75rem;
+            }
+            .wp-block-media-text__content>ul {
+                margin-left: 1.75rem;
             }
             .table {
                 thead {
