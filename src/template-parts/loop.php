@@ -10,11 +10,29 @@
 						else :
 							_e( 'Blog Posts', 'tainacan-interface' );
 						endif;
+					} elseif ( is_singular() ) {
+						bloginfo( 'title' );
 					} elseif ( is_search() ) {
 						_e( 'Search Results for', 'tainacan-interface' );
 						echo ' "' , get_search_query(), '"';
+					} elseif ( is_tag() || is_category() || is_tax() ) {
+						single_term_title();
 					} elseif ( is_archive() ) {
-						echo ' ' . get_the_archive_title();
+						if ( have_posts() ) {
+							if ( is_day() ) :
+								printf( __( 'Daily Archives: %s', 'tainacan-interface' ), get_the_date() );
+							elseif ( is_month() ) :
+								printf( __( 'Monthly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'tainacan-interface' ) ) );
+							elseif ( is_year() ) :
+								printf( __( 'Yearly Archives: %s', 'tainacan-interface' ), get_the_date( _x( 'Y', 'yearly archives date format', 'tainacan-interface' ) ) );
+							elseif ( is_author() ) :
+								echo get_the_author();
+							elseif ( 'tainacan-collection' == get_post_type() ) :
+								echo tainacan_the_collection_name();
+							else :
+								echo get_the_archive_title();
+							endif;
+						}
 					} ?>
 					</h1>
 				</li>

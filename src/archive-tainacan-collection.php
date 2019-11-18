@@ -3,9 +3,19 @@
 <!-- Get the banner to display -->
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
 
-<main role="main" class="max-large margin-one-column">
+<main role="main" class="mt-5 max-large margin-one-column">
 	<div class="row">
 		<div class="col col-sm mx-sm-auto">
+			<div class="tainacan-title">
+				<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
+					<ul class="list-inline mb-1 d-flex">
+						<li class="list-inline-item  font-weight-bold title-page">
+							<h1><?php echo get_the_archive_title(); ?></h1>
+						</li>
+						<li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
+					</ul>
+				</div>
+			</div>
 			<div class="form-inline mt-4 tainacan-collection-list--simple-search justify-content-between">
 				
 				<div class="dropdown dropdown-sorting">
@@ -44,7 +54,7 @@
 					<div class="input-group">
 						<input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var( 's' ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />
 						<span class="input-group-append">
-							<button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
+							<button class="btn border border-left-0 rounded-0 bg-white " type="submit">
 								<i class="tainacan-icon tainacan-icon-20px tainacan-icon-search" style="line-height: inherit;"></i>
 							</button>
 						</span>

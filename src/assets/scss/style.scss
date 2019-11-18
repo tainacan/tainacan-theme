@@ -756,7 +756,7 @@ nav{
             word-break: break-word;
             margin: 0;
             @media only screen and (max-width: 576px){
-                width: 85%;
+                min-width: 85%;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
