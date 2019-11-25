@@ -1,6 +1,6 @@
 <article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
 	<?php if (!is_page_template( 'page-templates/landing.php' ) && !is_page_template( 'page-templates/landing-breadcrumb.php' ) ) : ?>
-		<header class="mb-4">
+		<header class="mb-4 tainacan-content">
 			<div class="header-meta text-muted mb-5 d-flex">
 				<?php if ( ! is_singular( 'page' ) ) { ?>
 					<?php tainacan_meta_date_author(); ?>

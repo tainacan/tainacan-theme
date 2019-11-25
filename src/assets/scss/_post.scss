@@ -223,6 +223,14 @@
                 .wp-block-column:not(:first-child) {
                     margin-left: 2.0833333%; // Half column
                 }
+                @media only screen and (max-width: 576px) {
+                    .wp-block-column:not(:last-child) {
+                        margin-right: 0;
+                    }
+                    .wp-block-column:not(:first-child) {
+                        margin-left: 0;
+                    }
+                }
             }
             .alignleft {
                 float:left;

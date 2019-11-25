@@ -23,7 +23,7 @@
 					
 					<div class="mt-3 tainacan-single-post collection-single-item">
 						<article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
-							<header class="mb-4">
+							<header class="mb-4 tainacan-content">
 								<div class="header-meta text-muted mb-5">
 									<span class="time"><?php tainacan_meta_date_author(); ?></span>
 									<?php if(function_exists('tainacan_the_item_edit_link')) {
