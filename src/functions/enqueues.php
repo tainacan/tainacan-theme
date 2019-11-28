@@ -33,9 +33,9 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Ekko Lightbox
 		 */
-			wp_register_style( 'EkkoLightboxCss', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/dist/ekko-lightbox.css');
+			wp_register_style( 'EkkoLightboxCss', get_template_directory_uri() . '/assets/css/ekko-lightbox.css');
 			wp_enqueue_style( 'EkkoLightboxCss' );
-			wp_register_script( 'EkkoLightboxJs', get_template_directory_uri() . '/assets/vendor/ekko-lightbox/dist/ekko-lightbox.min.js', array('jquery'), null, true);
+			wp_register_script( 'EkkoLightboxJs', get_template_directory_uri() . '/assets/js/ekko-lightbox.min.js', array('jquery'), null, true);
 			wp_enqueue_script( 'EkkoLightboxJs' );
 
 		/**

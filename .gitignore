@@ -4,6 +4,5 @@ build-config.cfg
 /src/assets/style.css.map
 /src/assets/scss/.sass-cache
 /src/assets/vendor/
-!/src/assets/vendor/ekko-lightbox/
 /src/style.css
 /src/vendor/
