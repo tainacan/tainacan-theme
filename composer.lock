@@ -1,62 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "39d18487fda0792bc6d9517f079e9e45",
+    "content-hash": "541310851eea37b91951008f7b4bfdf5",
     "packages": [
-        {
-            "name": "fabianobn/ekko-lightbox",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fabianobn/ekko-lightbox.git",
-                "reference": "a12102c8913e1b28da086d4072cfdcaa2ce2c92d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabianobn/ekko-lightbox/zipball/a12102c8913e1b28da086d4072cfdcaa2ce2c92d",
-                "reference": "a12102c8913e1b28da086d4072cfdcaa2ce2c92d",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "vendor": {
-                    "scripts": [
-                        "dist/ekko-lightbox.js",
-                        "dist/ekko-lightbox.min.js"
-                    ],
-                    "styles": [
-                        "dist/ekko-lightbox.css"
-                    ],
-                    "files": [
-                        "dist/ekko-lightbox.min.js.map",
-                        "dist/ekko-lightbox.js.map"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ashleydw",
-                    "email": "hello@ashleyd.ws"
-                }
-            ],
-            "description": "A lightbox gallery plugin for Bootstrap 4 based on the modal plugin",
-            "homepage": "https://github.com/ashleydw/lightbox",
-            "keywords": [
-                "bootstrap",
-                "gallery",
-                "jquery",
-                "lightbox",
-                "modal"
-            ],
-            "time": "2018-12-21T18:09:49+00:00"
-        },
         {
             "name": "fabianobn/slick",
             "version": "v1.8.2",
@@ -78,16 +27,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v4.2.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "d50ed9a2bde22067c0e5f21d1614e477e362165a"
+                "reference": "8fa0d3010112dca5dd6dd501173415856001ba8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/d50ed9a2bde22067c0e5f21d1614e477e362165a",
-                "reference": "d50ed9a2bde22067c0e5f21d1614e477e362165a",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8fa0d3010112dca5dd6dd501173415856001ba8b",
+                "reference": "8fa0d3010112dca5dd6dd501173415856001ba8b",
                 "shasum": ""
             },
             "replace": {
@@ -125,15 +74,13 @@
                 "sass",
                 "web"
             ],
-            "time": "2018-12-21T17:03:29+00:00"
+            "time": "2019-02-13T16:01:40+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "fabianobn/ekko-lightbox": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

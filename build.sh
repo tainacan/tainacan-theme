@@ -34,8 +34,4 @@ mv $destination/assets/vendor/slick/ajax-loader.gif $destination/assets/vendor/s
 mv $destination/assets/vendor/slick/fonts/ $destination/assets/vendor/slick/css/fonts/
 cp $destination/assets/vendor/slick/slick.min.js $destination/assets/vendor/slick/js/slick.min.js
 
-##clean 
-rm $destination/assets/vendor/ekko-lightbox/.gitignore
-rm -rf $destination/assets/vendor/ekko-lightbox/.git
-
 echo "Compilation Finish!!"

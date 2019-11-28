@@ -27,12 +27,6 @@ echo "Copy Slick for Slider...\n\n";
     }
     recurse_copy("vendor/fabianobn/slick/slick/", "src/assets/vendor/slick/");
     
-echo "Copy Ekko Lightbox...\n\n";
-    if (!file_exists("src/assets/vendor/ekko-lightbox")) {
-        mkdir("src/assets/vendor/ekko-lightbox/", 0777, true);
-    }
-    recurse_copy("vendor/fabianobn/ekko-lightbox/", "src/assets/vendor/ekko-lightbox/");
-
 echo "Finish Copy files! \n\n";
 
 function recurse_copy($src,$dst) {
