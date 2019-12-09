@@ -40,7 +40,7 @@
 					</nav>
 				<?php endif; ?>
 
-				<div class="btn-group">
+				<div class="btn-group" style="padding: 0.6rem 0rem;">
 					<form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<div class="input-group">
 							<input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'tainacan-interface' ); ?>" class="form-control" formControlName="searchText" size="50">
