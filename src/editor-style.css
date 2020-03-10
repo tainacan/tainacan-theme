@@ -22,22 +22,32 @@
   /* Tainacan Selection Modal */
   /* Extra title group class, that can be added for styling special headings */ }
   .edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout,
-  .components-modal__screen-overlay .editor-block-list__layout {
+  .edit-post-visual-editor.editor-styles-wrapper .block-editor-block-list__layout,
+  .components-modal__screen-overlay .editor-block-list__layout,
+  .components-modal__screen-overlay .block-editor-block-list__layout {
     padding-left: 8.3333333%;
     padding-right: 8.3333333%; }
   .edit-post-visual-editor.editor-styles-wrapper .editor-writing-flow__click-redirect,
   .components-modal__screen-overlay .editor-writing-flow__click-redirect {
     width: auto; }
   .edit-post-visual-editor.editor-styles-wrapper .editor-inner-blocks,
+  .edit-post-visual-editor.editor-styles-wrapper .block-editor-inner-blocks,
   .edit-post-visual-editor.editor-styles-wrapper .editor-inner-blocks > .editor-block-list__layout,
+  .edit-post-visual-editor.editor-styles-wrapper .block-editor-inner-blocks > .block-editor-block-list__layout,
   .components-modal__screen-overlay .editor-inner-blocks,
-  .components-modal__screen-overlay .editor-inner-blocks > .editor-block-list__layout {
+  .components-modal__screen-overlay .block-editor-inner-blocks,
+  .components-modal__screen-overlay .editor-inner-blocks > .editor-block-list__layout,
+  .components-modal__screen-overlay .block-editor-inner-blocks > .block-editor-block-list__layout {
     padding-left: 0;
     padding-right: 0; }
     .edit-post-visual-editor.editor-styles-wrapper .editor-inner-blocks .wp-block,
+    .edit-post-visual-editor.editor-styles-wrapper .block-editor-inner-blocks .wp-block,
     .edit-post-visual-editor.editor-styles-wrapper .editor-inner-blocks > .editor-block-list__layout .wp-block,
+    .edit-post-visual-editor.editor-styles-wrapper .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block,
     .components-modal__screen-overlay .editor-inner-blocks .wp-block,
-    .components-modal__screen-overlay .editor-inner-blocks > .editor-block-list__layout .wp-block {
+    .components-modal__screen-overlay .block-editor-inner-blocks .wp-block,
+    .components-modal__screen-overlay .editor-inner-blocks > .editor-block-list__layout .wp-block,
+    .components-modal__screen-overlay .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block {
       margin-right: 4.1666667%;
       margin-left: 4.1666667%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block,
@@ -51,23 +61,29 @@
     margin-right: auto; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-align="full"],
   .components-modal__screen-overlay .wp-block[data-align="full"] {
-    max-width: calc(100% + 16.6666667% + 25px);
-    width: calc(100% + 16.6666667% + 25px);
-    margin-left: calc(-8.3333333% - 19px);
-    margin-right: -8.3333333%; }
+    max-width: 120%;
+    width: 120%;
+    margin-left: -10%;
+    margin-right: -10%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child),
-  .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child) {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="core/column"]:not(:last-child),
+  .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:last-child),
+  .components-modal__screen-overlay .wp-block-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="core/column"]:not(:last-child) {
     margin-right: 2.0833333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child),
-  .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child) {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="core/column"]:not(:first-child),
+  .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"]:not(:first-child),
+  .components-modal__screen-overlay .wp-block-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="core/column"]:not(:first-child) {
     margin-left: 2.0833333%; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"],
-  .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"] {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="core/column"],
+  .components-modal__screen-overlay .wp-block-columns > .editor-inner-blocks > .editor-block-list__layout > [data-type="core/column"],
+  .components-modal__screen-overlay .wp-block-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="core/column"] {
     margin-left: 0;
     margin-right: 0; }
   .edit-post-visual-editor.editor-styles-wrapper .editor-post-title,
   .components-modal__screen-overlay .editor-post-title {
-    margin: 0 8.3333333% 3rem 8.3333333%;
+    margin: 0 8.3333333% 3em 8.3333333%;
     padding: 0;
     border-bottom: 2px solid #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block,
@@ -80,23 +96,31 @@
     .edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input textarea,
     .components-modal__screen-overlay .wp-block.editor-post-title__block textarea,
     .components-modal__screen-overlay .editor-post-title__block .editor-post-title__input textarea {
-      padding: 3px 6px;
+      padding: 3px 16px;
       color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block,
   .components-modal__screen-overlay .wp-block.editor-post-title__block {
     margin: 0; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h1,
-  .components-modal__screen-overlay .wp-block-heading h1 {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-type="core/heading"] h1,
+  .components-modal__screen-overlay .wp-block-heading h1,
+  .components-modal__screen-overlay .wp-block[data-type="core/heading"] h1 {
     font-size: 1.125rem;
     color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h2,
-  .components-modal__screen-overlay .wp-block-heading h2 {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-type="core/heading"] h2,
+  .components-modal__screen-overlay .wp-block-heading h2,
+  .components-modal__screen-overlay .wp-block[data-type="core/heading"] h2 {
     font-size: 1.125rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h3,
-  .components-modal__screen-overlay .wp-block-heading h3 {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-type="core/heading"] h3,
+  .components-modal__screen-overlay .wp-block-heading h3,
+  .components-modal__screen-overlay .wp-block[data-type="core/heading"] h3 {
     font-size: 1rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-heading h4,
-  .components-modal__screen-overlay .wp-block-heading h4 {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block[data-type="core/heading"] h4,
+  .components-modal__screen-overlay .wp-block-heading h4,
+  .components-modal__screen-overlay .wp-block[data-type="core/heading"] h4 {
     font-size: 1rem;
     font-style: italic;
     font-weight: normal;
@@ -518,7 +542,7 @@
     border-color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots),
   .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-    border-width: 4px;
-    height: 4px; }
+    border-width: 3px;
+    height: 3px; }
 
 /*# sourceMappingURL=editor-style.css.map */
