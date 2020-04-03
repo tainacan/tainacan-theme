@@ -85,16 +85,20 @@ body.loading-content main:before {
     box-shadow: none !important;
 }
 
-// Bootstrao dropdown item
-.dropdown-menu {
-    padding: 0;
-    
-    .dropdown-item {
-        border-radius: 0 !important;
-    }
-    .menu-item-has-children .dropdown-toggle {
-        padding-left: 1.25rem !important;
-        padding-right: 1rem !important;
+// Bootstrap dropdown item
+.dropdown {
+    .dropdown-menu {
+        padding: 0;
+        &:not(.show) {
+            display: none;
+        }
+        .dropdown-item {
+            border-radius: 0 !important;
+        }
+        .menu-item-has-children .dropdown-toggle {
+            padding-left: 1.25rem !important;
+            padding-right: 1rem !important;
+        }
     }
 }
 
