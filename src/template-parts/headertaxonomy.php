@@ -40,14 +40,14 @@ $src = wp_get_attachment_image_src($image, 'full');
 						<div class="page-header-icons">
 							<p class="share-title"><?php _e('Share', 'tainacan-interface'); ?></p>
 							<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
-								<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="share-link" target="_blank">
+								<a href="http://www.facebook.com/sharer.php?u=<?php echo get_term_link((int) $current_term->get_id()); ?>" class="share-link" target="_blank">
 									<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
 								<?php $twitter_option = get_option( 'tainacan_twitter_user' ); ?>
 								<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_option( 'tainacan_twitter_user' ) ) : ''; ?>
-								<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="share-link">
+								<a href="http://twitter.com/share?url=<?php echo get_term_link((int) $current_term->get_id()); ?>&amp;text=<?php echo $current_taxonomy->labels->name . ':' . $current_term->get_name(); ?><?php echo $via; ?>" target="_blank" class="share-link">
 									<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
