@@ -63,7 +63,7 @@ echo '</style>';
 					<?php endif; ?>
 					<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) && get_theme_mod( 'tainacan_twitter_user' ) ) : ?> 
 						<div class="rotater">
-							<a href="http://twitter.com/share?url=<?php echo esc_url( home_url( $wp->request ) ); ?>&amp;text=<?php the_title_attribute(); ?>&amp;via=<?php echo esc_attr( get_theme_mod( 'tainacan_twitter_user', '' ) ); ?>" target="_blank">
+							<a href="http://twitter.com/share?url=<?php echo esc_url( home_url( $wp->request ) ); ?>&amp;text=<?php tainacan_the_collection_name(); ?>&amp;via=<?php echo esc_attr( get_theme_mod( 'tainacan_twitter_user', '' ) ); ?>" target="_blank">
 								<div class="btn btn-icon">
 									<i class="tainacan-icon tainacan-icon-twitter"></i>
 								</div>
