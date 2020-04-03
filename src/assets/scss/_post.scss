@@ -551,7 +551,18 @@
                                 display: inline-block;
                             }
                         }
-                        p{
+                        h4,
+                        label {
+                            color: #454647;
+                            font-size: 0.875rem;
+                            font-weight: 500;
+                            padding-right: 0.875rem;
+                            width: 100%;
+                            &:first-of-type:last-of-type {
+                                display: inline-block;
+                            }
+                        }
+                        p {
                             color: #000;
                             word-wrap: break-word;
                             font: {
@@ -568,6 +579,7 @@
                         .hierarchy-separator {
                             color: #cbcbcb;  
                         }
+                        .metadata-type-compound,
                         .metadata-type-textarea {
                             .multivalue-separator {
                                 display: block;
@@ -578,6 +590,10 @@
                                 color: transparent;
                                 margin: 0.875rem auto;
                             }
+                        }
+                        .tainacan-compound-group {
+                            padding-left: 1.5rem;
+                            border-left: 1px solid #f2f2f2;
                         }
                     }
                 }
