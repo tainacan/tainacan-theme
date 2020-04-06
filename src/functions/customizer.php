@@ -193,7 +193,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
-	 * Adds option to control singe items page number of metadata columns.
+	 * Adds section to control singe items page.
 	 */
 	$wp_customize->add_section( 'tainacan_single_item_page', array(
 		'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
@@ -201,6 +201,10 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority' 	  => 160,
 		'capability'  => 'edit_theme_options'
 		) );
+	
+	/**
+	 * Adds options to control singe items page number of metadata columns.
+	 */
 	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_tablet', array(
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
@@ -212,7 +216,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority' 	  => 2, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
-		'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.' ),
+		'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
 		'input_attrs' => array(
 			'placeholder' => __( '2' ),
 			'min' => 1,
@@ -231,7 +235,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority'    => 4, // Within the section.
 		'section' 	  => 'tainacan_single_item_page',
 		'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
-		'description' => __( 'For screen sizes between 1025px and 1366px.' ),
+		'description' => __( 'For screen sizes between 1025px and 1366px.', 'tainacan-interface' ),
 		'input_attrs' => array(
 			'placeholder' => __( '3' ),
 			'min' => 1,
@@ -250,13 +254,27 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority' 	  => 4, // Within the section.
 		'section' 	  => 'tainacan_single_item_page',
 		'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
-		'description' => __( 'For screens larger than 1366px.' ),
+		'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
 		'input_attrs' => array(
 			'placeholder' => __( '3' ),
 			'min' => 1,
 			'max' => 4,
 			'step' => 1
 		)
+		) );
+	
+	$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 'true',
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 1, // Within the section.
+		'section'  	  => 'tainacan_single_item_page',
+		'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
+		'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
 		) );
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );

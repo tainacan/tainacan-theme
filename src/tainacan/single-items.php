@@ -126,7 +126,7 @@
 								<div class="single-item-collection--information justify-content-center">
 									<div class="row">
 										<div class="col s-item-collection--metadata">
-											<?php if (has_post_thumbnail()): ?>
+											<?php if (has_post_thumbnail() && get_theme_mod( 'tainacan_single_item_display_thumbnail', true )): ?>
 												<div class="card border-0 mb-3">
 													<div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
 														<h3><?php _e( 'Thumbnail', 'tainacan-interface' ); ?></h3>
