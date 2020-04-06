@@ -26,7 +26,7 @@
 							<header class="mb-4 tainacan-content">
 								<div class="header-meta text-muted mb-5">
 									<span class="time"><?php tainacan_meta_date_author(); ?></span>
-									<?php if(function_exists('tainacan_the_item_edit_link')) {
+									<?php if( function_exists('tainacan_the_item_edit_link') ) {
 										echo '<span class="tainacan-edit-item-collection">';
 											tainacan_the_item_edit_link(null, ' - ');
 										echo '</span>';
@@ -38,9 +38,9 @@
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--document">
 										<?php tainacan_the_document(); ?>
-										<?php if(function_exists('tainacan_the_item_document_download_link')) {
+										<?php if( function_exists('tainacan_the_item_document_download_link') && tainacan_the_item_document_download_link() != '' ) {
 											echo '<span class="tainacan-item-document-download">';
-												tainacan_the_item_document_download_link();
+											echo tainacan_the_item_document_download_link();
 											echo '</span>';
 										} ?>
 									</div>
