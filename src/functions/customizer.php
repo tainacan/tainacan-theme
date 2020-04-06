@@ -191,6 +191,39 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'       => __( 'Tooltip Color', 'tainacan-interface' ),
 		'section'     => 'colors',
 	) ) );
+
+	/**
+	 * Adds option to control singe items page number of metadata columns.
+	 */
+	$wp_customize->add_section( 'tainacan_single_item_page', array(
+		'title' => __( 'Tainacan Single Item Page', 'tainacan-interface' ),
+		'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
+		'priority' => 160,
+		'capability' => 'edit_theme_options'
+		) );
+	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count', array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '3',
+		'transport' => 'refresh',
+		'sanitize_callback' => '',
+		'sanitize_js_callback' => ''
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count', array(
+		'type' => 'number',
+		'priority' => 0, // Within the section.
+		'section' => 'tainacan_single_item_page', // Required, core or custom.
+		'label' => __( 'Número de Colunas de Metadados', 'tainacan-interface' ),
+		'description' => __( 'Escolha em quantas colunas (no máximo) devem ser exibidos os metadados na página de um item.' ),
+		'input_attrs' => array(
+			'placeholder' => __( '3' ),
+			'min' => 1,
+			'max' => 4,
+			'step' => 1
+		)//,
+		//'active_callback' => 'is_front_page',
+		) );
+
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
@@ -975,3 +1008,32 @@ function tainacan_tooltip_color_css() {
 	wp_add_inline_style( 'tainacan-style', sprintf( $css, $tooltip_color, $border_color ) );
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_tooltip_color_css', 11 );
+
+/**
+ * Enqueues front-end CSS for the single item page metadata columns.
+ *
+ * @since Tainacan Theme
+ *
+ * @see wp_add_inline_style()
+ */
+function tainacan_single_item_metadata_columns_count_output() {
+	$metadata_columns_count = get_theme_mod( 'tainacan_single_item_metadata_columns_count_output', '3' );
+
+	// If the value is not a number, return early.
+	if ( !is_numeric( $metadata_columns_count ) ) {
+		return;
+	}
+
+	$css = '
+		/* Custom Settings for Single Item Page Metadata Columns Count */
+		.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+			-moz-column-count: %1$s;
+			-webkit-column-count: %1$s;
+			column-count: %1$s;
+		}
+	';
+
+	wp_add_inline_style( 'tainacan-style', sprintf( $css, $metadata_columns_count ) );
+
+}
+add_action( 'wp_head', 'tainacan_single_item_metadata_columns_count_output');
