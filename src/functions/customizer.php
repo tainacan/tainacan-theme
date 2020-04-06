@@ -213,7 +213,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
 		'type' 	   	  => 'number',
-		'priority' 	  => 2, // Within the section.
+		'priority' 	  => 3, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
 		'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
@@ -251,7 +251,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
 		'type' 		  => 'number',
-		'priority' 	  => 4, // Within the section.
+		'priority' 	  => 5, // Within the section.
 		'section' 	  => 'tainacan_single_item_page',
 		'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
 		'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
@@ -262,7 +262,10 @@ function tainacan_customize_register( $wp_customize ) {
 			'step' => 1
 		)
 		) );
-	
+
+	/**
+	 * Adds options to display or not the thumbnail and share buttons on items page.
+	 */
 	$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
@@ -275,6 +278,19 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
 		'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
+		) );
+	$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 'true',
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 2, // Within the section.
+		'section'  	  => 'tainacan_single_item_page',
+		'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
+		'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section.', 'tainacan-interface' )
 		) );
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
