@@ -38,6 +38,11 @@
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--document">
 										<?php tainacan_the_document(); ?>
+										<?php if(function_exists('tainacan_the_item_document_download_link')) {
+											echo '<span class="tainacan-item-document-download">';
+												tainacan_the_item_document_download_link();
+											echo '</span>';
+										} ?>
 									</div>
 								</section>
 							<?php endif; ?>
