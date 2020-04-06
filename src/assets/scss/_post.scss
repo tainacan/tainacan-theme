@@ -519,7 +519,7 @@
                                 break-inside: auto;
                             }
                         }
-                        @media only screen and (min-width: 768px){
+                        @media only screen and (min-width: 768px) {
                             -moz-column-count: 2;
                             -moz-column-gap: 0;
                             -moz-column-rule: none;
@@ -530,7 +530,7 @@
                             column-gap: 4rem;;
                             column-rule: none;
                         }
-                        @media only screen and (min-width: 1367px){
+                        @media only screen and (min-width: 1366px) {
                             -moz-column-count: 3;
                             -moz-column-gap: 7rem;
                             -moz-column-rule: none;

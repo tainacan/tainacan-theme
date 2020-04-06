@@ -196,34 +196,68 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Adds option to control singe items page number of metadata columns.
 	 */
 	$wp_customize->add_section( 'tainacan_single_item_page', array(
-		'title' => __( 'Tainacan Single Item Page', 'tainacan-interface' ),
+		'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
 		'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
-		'priority' => 160,
-		'capability' => 'edit_theme_options'
+		'priority' 	  => 160,
+		'capability'  => 'edit_theme_options'
 		) );
-	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count', array(
-		'type' => 'theme_mod',
+	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_tablet', array(
+		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
-		'default' => '3',
-		'transport' => 'refresh',
-		'sanitize_callback' => '',
-		'sanitize_js_callback' => ''
+		'default' 	 => '2',
+		'transport'  => 'refresh'
 		) );
-	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count', array(
-		'type' => 'number',
-		'priority' => 0, // Within the section.
-		'section' => 'tainacan_single_item_page', // Required, core or custom.
-		'label' => __( 'Número de Colunas de Metadados', 'tainacan-interface' ),
-		'description' => __( 'Escolha em quantas colunas (no máximo) devem ser exibidos os metadados na página de um item.' ),
+	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
+		'type' 	   	  => 'number',
+		'priority' 	  => 2, // Within the section.
+		'section'  	  => 'tainacan_single_item_page',
+		'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
+		'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.' ),
+		'input_attrs' => array(
+			'placeholder' => __( '2' ),
+			'min' => 1,
+			'max' => 3,
+			'step' => 1
+		)
+		) );
+	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_desktop', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => '3',
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
+		'type' 		  => 'number',
+		'priority'    => 4, // Within the section.
+		'section' 	  => 'tainacan_single_item_page',
+		'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
+		'description' => __( 'For screen sizes between 1025px and 1366px.' ),
+		'input_attrs' => array(
+			'placeholder' => __( '3' ),
+			'min' => 1,
+			'max' => 3,
+			'step' => 1
+		)
+		) );
+	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_wide', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => '3',
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
+		'type' 		  => 'number',
+		'priority' 	  => 4, // Within the section.
+		'section' 	  => 'tainacan_single_item_page',
+		'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
+		'description' => __( 'For screens larger than 1366px.' ),
 		'input_attrs' => array(
 			'placeholder' => __( '3' ),
 			'min' => 1,
 			'max' => 4,
 			'step' => 1
-		)//,
-		//'active_callback' => 'is_front_page',
+		)
 		) );
-
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
@@ -1017,23 +1051,48 @@ add_action( 'wp_enqueue_scripts', 'tainacan_tooltip_color_css', 11 );
  * @see wp_add_inline_style()
  */
 function tainacan_single_item_metadata_columns_count_output() {
-	$metadata_columns_count = get_theme_mod( 'tainacan_single_item_metadata_columns_count_output', '3' );
+	$metadata_columns_count_tablet  = get_theme_mod( 'tainacan_single_item_metadata_columns_count_tablet', '2' );
+	$metadata_columns_count_desktop = get_theme_mod( 'tainacan_single_item_metadata_columns_count_desktop', '2' );
+	$metadata_columns_count_wide 	= get_theme_mod( 'tainacan_single_item_metadata_columns_count_wide', '3' );
 
 	// If the value is not a number, return early.
-	if ( !is_numeric( $metadata_columns_count ) ) {
+	if ( !is_numeric( $metadata_columns_count_tablet ) || !is_numeric( $metadata_columns_count_desktop ) || !is_numeric( $metadata_columns_count_wide )  ) {
 		return;
 	}
 
 	$css = '
 		/* Custom Settings for Single Item Page Metadata Columns Count */
-		.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
-			-moz-column-count: %1$s;
-			-webkit-column-count: %1$s;
-			column-count: %1$s;
+		
+		@media only screen and (max-width: 768px) { 
+			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+				-moz-column-count: 1 !important;
+				-webkit-column-count: 1 !important;
+				column-count: 1 !important;
+			}
+		}
+		@media only screen and (min-width: 769px) and (max-width: 1024px) { 
+			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+				-moz-column-count: %1$s !important;
+				-webkit-column-count: %1$s !important;
+				column-count: %1$s !important;
+			}
+		}
+		@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+				-moz-column-count: %2$s !important;
+				-webkit-column-count: %2$s !important;
+				column-count: %2$s !important;
+			}
+		}
+		@media only screen and (min-width: 1367px) {
+			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+				-moz-column-count: %3$s !important;
+				-webkit-column-count: %3$s !important;
+				column-count: %3$s !important;
+			}
 		}
 	';
-
-	wp_add_inline_style( 'tainacan-style', sprintf( $css, $metadata_columns_count ) );
-
+	
+	echo '<style type="text/css" id="tainacan-style-metadata">' . sprintf( $css, $metadata_columns_count_tablet, $metadata_columns_count_desktop, $metadata_columns_count_wide ) . '</style>';
 }
 add_action( 'wp_head', 'tainacan_single_item_metadata_columns_count_output');
