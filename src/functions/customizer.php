@@ -801,6 +801,11 @@ function tainacan_get_color_scheme_css( $colors ) {
 		background-color: {$colors['backtransparent']};
 	}
 
+	/* Document download button */
+	.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--document .tainacan-item-document-download {
+		background-color: {$colors['tainacan_link_color']} !important;
+	}
+
 	/* Select Arrow */
 	.theme-items-list .select:not(.is-loading)::after,
 	.tainacan-modal-content .select:not(.is-loading)::after,
