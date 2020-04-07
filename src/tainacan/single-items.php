@@ -1,27 +1,100 @@
 <?php get_header(); ?>
 
+<?php
+if (get_theme_mod('tainacan_single_item_collection_header', false))  {
+	echo ('<style>
+	nav.menu-belowheader #menubelowHeader ul.dropdown-menu {
+		min-width: 10rem !important;
+	}');
+
+	$background_color = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_background_color', true ) );
+	$text_color = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_color', true ) );
+	if ( $background_color ) {
+		echo ".t-bg-collection {
+			background-color: " . esc_attr($background_color) . " !important;
+		}";
+		echo ".t-bg-collection h1, .t-bg-collection h2, .t-bg-collection p {
+			color: " . esc_attr($text_color) . " !important;
+		}";
+
+		echo ".t-bg-collection a {
+			color: " . esc_attr($text_color) . " !important;
+			opacity: 1;
+		}";
+	}
+
+	echo '</style>';
+}
+?>
+
+
 <main class="mt-5 max-large margin-one-column">
 	<div class="row">
 		<div class="col col-sm mx-sm-auto">
 			<?php if ( have_posts() ) : ?>
 				<?php do_action( 'tainacan-interface-single-item-top' ); ?>
+
 				<?php while ( have_posts() ) : the_post(); ?>
-					<div class="tainacan-title">
-						<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
-							<ul class="list-inline mb-1">
-								<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
+
+					<?php if ( get_theme_mod('tainacan_single_item_collection_header', false) ): ?>
+						<div class="single-item-collection-banner tainacan-single-post">
+							<div class="t-bg-collection">
+								<div class="collection-name aside-thumbnail">
+									<div class="title-page">
+										<p><?php echo __('Collection', 'tainacan-interface') ?></p>
+										<h1><?php tainacan_the_collection_name(); ?></h1> 
+									</div>
+								</div>
+							</div>
+							<div class="collection-thumbnail">
+								<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
+									$thumbnail_id = get_post_thumbnail_id( $post->ID );
+									$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+									<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
+								<?php else : ?>
+									<div class="image-placeholder rounded-circle border border-white position-absolute">
+										<h4 class="text-center">
+										<?php
+											echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
+										?>
+										</h4>
+									</div>
+								<?php endif; ?>
+							</div>
+							<div class="item-title aside-thumbnail">
+								<div class="title-page">
+									<p><?php echo __('Item', 'tainacan-interface') ?></p>
 									<h1><?php the_title(); ?></h1> 
-								</li>
-								<li class="list-inline-item float-right title-back">
+								</div>
+								<div class="title-back">
 									<a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
-								</li>
-							</ul>
+								</div>
+							</div>
 						</div>
-					</div>
+					<?php else: ?>
+
+						<div class="tainacan-title">
+							<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
+								<ul class="list-inline mb-1">
+									<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
+										<h1><?php the_title(); ?></h1> 
+									</li>
+									<li class="list-inline-item float-right title-back">
+										<a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					<?php endif; ?>
 					
 					<?php do_action( 'tainacan-interface-single-item-after-title' ); ?>
 					
-					<div class="mt-3 tainacan-single-post collection-single-item">
+					<?php if ( get_theme_mod('tainacan_single_item_collection_header', false) ): ?>
+						<div class="mt-3 tainacan-single-post collection-single-item aside-thumbnail">
+					<?php else : ?>
+						<div class="mt-3 tainacan-single-post collection-single-item">
+					<?php endif; ?>
 						<article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
 							<header class="mb-4 tainacan-content">
 								<div class="header-meta text-muted mb-5">

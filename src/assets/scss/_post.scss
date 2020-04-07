@@ -1,9 +1,78 @@
-.tainacan-single-post{
+.tainacan-single-post {
     /* @media screen {
         @media (min-width: 768px) {
             padding: 0 2rem;
         }
     } */
+    &.aside-thumbnail,
+    .aside-thumbnail {
+        margin-left: calc(12.5% + 12px);
+        margin-left: calc(12.5vw + 12px);
+        p {
+            font-size: 0.875rem;
+            font-weight: normal;
+            margin: 0;
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            margin-left: calc(20.833333% + 12px);
+            margin-left: calc(20.833333vw + 12px);
+        }
+    }
+    &.single-item-collection-banner {
+        margin-left: -4.16666667%;
+        margin-right: -4.1666667%;
+        margin-left: -4.16666667vw;
+        margin-right: -4.1666667vw;
+        position: relative;
+
+        &>div {
+            padding: 8px 4.16666667% 12px 4.16666667%;
+            padding: 8px 4.16666667vw 12px 4.16666667vw;
+        }
+        .t-bg-collection {
+            min-height: 4.16666667%;
+            min-height: 4.16666667vw;
+        }
+
+        .collection-name {
+            margin-bottom: -2px;
+            margin-top: 38px;
+        }
+        .item-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            p, h1 {
+                display: inline-block;
+            }
+        }
+        .collection-thumbnail {
+            position: relative;
+            padding: 0px 4.16666667vw 0px 4.16666667vw;
+            
+            img {
+                max-width: calc(12.5% - 12px);
+                top: calc(-1 * (4.166667% + 12px));
+                max-width: calc(12.5vw - 12px);
+                top: calc(-1 * (4.166667vw + 12px));
+                border-width: 3px !important;
+
+                @media screen and (max-width: 768px) {
+                    max-width: calc(20.83333% - 12px);
+                    top: calc(-1 * (8.3333% + 12px));
+                    max-width: calc(20.83333vw - 12px);
+                    top: calc(-1 * (8.3333vw + 12px));
+                }
+            }
+        }
+    }
     article{
         header{
             .header-meta{
@@ -376,6 +445,7 @@
             &.single-item-collection{
                 min-height: 10vh;
                 position: relative;
+
                 .single-item-collection--document {
                     &:hover {
                         .tainacan-item-document-download {

@@ -213,7 +213,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
 		'type' 	   	  => 'number',
-		'priority' 	  => 3, // Within the section.
+		'priority' 	  => 4, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
 		'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
@@ -232,7 +232,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
 		'type' 		  => 'number',
-		'priority'    => 4, // Within the section.
+		'priority'    => 5, // Within the section.
 		'section' 	  => 'tainacan_single_item_page',
 		'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
 		'description' => __( 'For screen sizes between 1025px and 1366px.', 'tainacan-interface' ),
@@ -251,7 +251,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
 		'type' 		  => 'number',
-		'priority' 	  => 5, // Within the section.
+		'priority' 	  => 6, // Within the section.
 		'section' 	  => 'tainacan_single_item_page',
 		'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
 		'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
@@ -274,7 +274,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
 		'type' 	   	  => 'checkbox',
-		'priority' 	  => 1, // Within the section.
+		'priority' 	  => 2, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
 		'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
@@ -287,7 +287,7 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
 		'type' 	   	  => 'checkbox',
-		'priority' 	  => 2, // Within the section.
+		'priority' 	  => 3, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
 		'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section.', 'tainacan-interface' )
@@ -304,10 +304,28 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
 		'type' 	   	  => 'checkbox',
-		'priority' 	  => 0, // Within the section.
+		'priority' 	  => 1, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
 		'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
+		) );
+	
+
+	/**
+	 * Adds option to display Collection banner on the item single page.
+	 */
+	$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 0, // Within the section.
+		'section'  	  => 'tainacan_single_item_page',
+		'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
 		) );
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
