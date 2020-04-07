@@ -69,7 +69,6 @@ jQuery( document ).ready(function( $ ) {
 		slidesToScroll: 1,
 		arrows: false,
 		fade: true,
-		adaptiveHeight: true,
 		asNavFor: '.single-item-collection--gallery-items'
 	});
 
@@ -79,6 +78,8 @@ jQuery( document ).ready(function( $ ) {
 		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',
 		slidesToShow: 7,
 		slidesToScroll: 1,
+		centerMode: true,
+		focusOnSelect: true,
 		autoplay: false,
 		autoplaySpeed: 2000,
 		responsive: [ {

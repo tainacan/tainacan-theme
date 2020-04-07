@@ -395,6 +395,7 @@
                         display: block;
                         height: auto;
                         margin: 0 auto;
+                        border: none;
                     }
                     > audio {
                         width: 100%;
@@ -463,8 +464,20 @@
                     }
                 }
                 .single-item-collection--gallery {
+                    margin-bottom: 24px;
+                    .slick-track {
+                        display: flex;
+                        align-items: center;
+                    }
                     .tainacan-content {
                         margin: 0;
+                        max-height: 75vh;
+                        img {
+                            max-height: 60vh;
+                        }
+                    }
+                    .slick-slide {
+                        max-height: 60vh;
                     }
                 }
                 .single-item-collection--gallery-items,
