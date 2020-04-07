@@ -462,6 +462,12 @@
                         }
                     }
                 }
+                .single-item-collection--gallery {
+                    .tainacan-content {
+                        margin: 0;
+                    }
+                }
+                .single-item-collection--gallery-items,
                 .single-item-collection--attachments {
                     .single-item-collection--attachments-file {
                         margin: 10px;

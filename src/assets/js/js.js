@@ -69,7 +69,64 @@ jQuery( document ).ready(function( $ ) {
 		slidesToScroll: 1,
 		arrows: false,
 		fade: true,
-		asNavFor: '.single-item-collection--attachments'
+		adaptiveHeight: true,
+		asNavFor: '.single-item-collection--gallery-items'
+	});
+
+	$( '.single-item-collection--gallery-items' ).slick({
+		asNavFor: '.single-item-collection--gallery',
+		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowleft"></i></button>',
+		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',
+		slidesToShow: 7,
+		slidesToScroll: 1,
+		autoplay: false,
+		autoplaySpeed: 2000,
+		responsive: [ {
+			breakpoint: 1330,
+			settings: {
+				slidesToShow: 6,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 5,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 1024,
+			settings: {
+				slidesToShow: 4,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 820,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 640,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 460,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+			}
+		}
+		// You can unslick at a given breakpoint now by adding:
+		// settings: "unslick"
+		// instead of a settings object
+		]
 	});
 
 	$( '.single-item-collection--attachments' ).slick({
