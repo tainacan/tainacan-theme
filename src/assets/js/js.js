@@ -64,6 +64,14 @@ jQuery( document ).ready(function( $ ) {
 		window.location = $( '.tainacan-list-post .table .tainacan-list-collection' ).data( "href" );
 	});
 
+	$('.single-item-collection--gallery').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.single-item-collection--attachments'
+	});
+
 	$( '.single-item-collection--attachments' ).slick({
 		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowleft"></i></button>',
 		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',

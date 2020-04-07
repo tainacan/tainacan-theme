@@ -269,7 +269,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
-		'default' 	 => 'true',
+		'default' 	 => true,
 		'transport'  => 'refresh'
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
@@ -282,7 +282,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
-		'default' 	 => 'true',
+		'default' 	 => true,
 		'transport'  => 'refresh'
 		) );
 	$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
@@ -291,6 +291,23 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
 		'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section.', 'tainacan-interface' )
+		) );
+
+	/**
+	 * Adds option to display attachments and document as a gallery list.
+	 */
+	$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 0, // Within the section.
+		'section'  	  => 'tainacan_single_item_page',
+		'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
 		) );
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );

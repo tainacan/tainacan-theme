@@ -33,7 +33,7 @@
 									} ?>
 								</div>
 							</header>
-							<?php if ( tainacan_has_document() ) : ?>
+							<?php if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mode', false )) : ?>
 								<h1 class="title-content-items"><?php _e( 'Document', 'tainacan-interface' ); ?></h1>
 								<section class="tainacan-content single-item-collection margin-two-column">
 									<div class="single-item-collection--document">
@@ -82,8 +82,41 @@
 
 						<div class="mt-3 tainacan-single-post">
 							<article role="article">
-								<h1 class="title-content-items"><?php _e( 'Attachments', 'tainacan-interface' ); ?></h1>
+								<h1 class="title-content-items">
+									<?php 
+										if (get_theme_mod( 'tainacan_single_item_gallery_mode', false )) {
+											_e( 'Document and Attachments', 'tainacan-interface' ); 
+										} else {
+											_e( 'Attachments', 'tainacan-interface' ); 
+										}
+									?>
+								</h1>
+
 								<section class="tainacan-content single-item-collection margin-two-column">
+								<?php if (get_theme_mod( 'tainacan_single_item_gallery_mode', false )): ?>
+									<div class="single-item-collection--gallery">
+										<?php foreach ( $attachments as $attachment ) { ?>
+											<?php
+												if ( function_exists('tainacan_get_attachment_html_url') ) {
+													$href = tainacan_get_attachment_html_url($attachment->ID);
+												} else {
+													$href = wp_get_attachment_url($attachment->ID, 'large');
+												}
+												?>
+												<div class="single-item-collection--attachments-file">
+													<a 
+														class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>"
+														href="<?php echo $href; ?>">
+														<?php
+															echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
+															echo get_the_title( $attachment->ID );
+														?>
+													</a>
+												</div>
+											<?php }
+											?>
+										</div>
+									<?php endif; ?>
 									<div class="single-item-collection--attachments">
 										<?php foreach ( $attachments as $attachment ) { ?>
 											<?php
@@ -96,7 +129,9 @@
 											<div class="single-item-collection--attachments-file">
 												<a 
 													class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>"
-													href="<?php echo $href; ?>" data-toggle="lightbox" data-gallery="example-gallery">
+													href="<?php echo $href; ?>"
+													data-toggle="lightbox"
+													data-gallery="example-gallery">
 													<?php
 														echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
 														echo get_the_title( $attachment->ID );

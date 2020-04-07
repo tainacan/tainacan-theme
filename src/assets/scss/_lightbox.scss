@@ -5,12 +5,17 @@
 .ekko-lightbox {
 
     .modal-dialog {
+        width: 100% !important;
         margin: 3.75rem auto;
         max-width: calc(1400px - 16.667vw) !important;
+        display: flex !important;
+        align-items: center;
     }
 
     .modal-content {
+        background: transparent;
         border: none;
+        padding: 16px;
 
         .modal-body {
             padding: 0;
@@ -26,10 +31,11 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: relative;
                 
                 & > * {
                     width: 100%;
-                    max-width: calc(100% - 98px); // Enough to fit arrows aside
+                    max-width: calc(100% - 98px) !important; // Enough to fit arrows aside
                     height: auto;
                     max-height: 85vh;
                 }
