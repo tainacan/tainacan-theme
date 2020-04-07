@@ -471,13 +471,22 @@
                     }
                     .tainacan-content {
                         margin: 0;
-                        max-height: 75vh;
                         img {
                             max-height: 60vh;
                         }
                     }
                     .slick-slide {
                         max-height: 60vh;
+                    }
+                }
+                .single-item-collection--gallery-items {
+                    img {
+                        border-bottom: 4px solid transparent;
+                        margin-bottom: 4px;
+                        transition: border 0.3s ease;
+                    }
+                    .slick-current img {
+                        border-bottom: 4px solid #298596;
                     }
                 }
                 .single-item-collection--gallery-items,
