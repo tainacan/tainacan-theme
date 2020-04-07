@@ -535,11 +535,19 @@
                         @media only screen and (max-width: 380px) {
                             right: -40px;
                         }
+                        &.slick-disabled {
+                            display: none;
+                            visibility: hidden;
+                        }
                     }
                     .single-item-collection--attachments-next {
                         right: -50px;
                         @media only screen and (max-width: 380px) {
                             right: -40px;
+                        }
+                        &.slick-disabled {
+                            display: none;
+                            visibility: hidden;
                         }
                     }
                     .single-item-collection--attachments-prev, .single-item-collection--attachments-next {
