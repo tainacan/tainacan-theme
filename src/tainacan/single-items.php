@@ -151,14 +151,14 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 						
 					?>
 
-					<?php if ( !empty( $attachments )  || get_theme_mod( 'tainacan_single_item_gallery_mode', false && tainacan_has_document()) ) : ?>
+					<?php if ( !empty( $attachments )  || ( get_theme_mod( 'tainacan_single_item_gallery_mode', false) && tainacan_has_document() )) : ?>
 
 						<div class="mt-3 tainacan-single-post">
 							<article role="article">
 								<h2 class="title-content-items">
 									<?php 
 										if (get_theme_mod( 'tainacan_single_item_gallery_mode', false )) {
-											_e( 'Document and Attachments', 'tainacan-interface' ); 
+											_e( 'Documents', 'tainacan-interface' ); 
 										} else {
 											_e( 'Attachments', 'tainacan-interface' ); 
 										}
@@ -187,26 +187,28 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 												</section>	
 											<?php } ?>
 										</div>
-										<div class="single-item-collection--gallery-items">
-											<?php if ( tainacan_has_document() ) : ?>
-												<div class="single-item-collection--attachments-file">
-													<?php
-														tainacan_the_document(); 
-														echo __( 'Document', 'tainacan-interface' );
-													?>
-												</div>
-											<?php endif; ?>
-											<?php foreach ( $attachments as $attachment ) { ?>
-												<div class="single-item-collection--attachments-file">
-													<a class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>">
+										<?php if ( (tainacan_has_document() && $attachments && sizeof($attachments) > 0 ) || (!tainacan_has_document() && $attachments && sizeof($attachments) > 1 ) ) : ?>	
+											<div class="single-item-collection--gallery-items">
+												<?php if ( tainacan_has_document() ) : ?>
+													<div class="single-item-collection--attachments-file">
 														<?php
-															echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
-															echo get_the_title( $attachment->ID );
+															tainacan_the_document(); 
+															echo __( 'Document', 'tainacan-interface' );
 														?>
-													</a>
-												</div>
-											<?php } ?>
-										</div>
+													</div>
+												<?php endif; ?>
+												<?php foreach ( $attachments as $attachment ) { ?>
+													<div class="single-item-collection--attachments-file">
+														<a class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>">
+															<?php
+																echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
+																echo get_the_title( $attachment->ID );
+															?>
+														</a>
+													</div>
+												<?php } ?>
+											</div>
+										<?php endif; ?>
 									<?php else : ?>
 										<div class="single-item-collection--attachments">
 											<?php foreach ( $attachments as $attachment ) { ?>
