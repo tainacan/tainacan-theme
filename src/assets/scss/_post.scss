@@ -16,7 +16,7 @@
         h1 {
             font-size: 1.5rem;
             font-weight: bold;
-            margin: 0;
+            margin: 0 60px 0 0px;
         }
 
         @media screen and (max-width: 768px) {
@@ -41,6 +41,7 @@
         }
 
         .collection-name {
+            color: white;
             margin-bottom: -2px;
             margin-top: 38px;
         }
@@ -69,6 +70,50 @@
                     top: calc(-1 * (8.3333% + 12px));
                     max-width: calc(20.83333vw - 12px);
                     top: calc(-1 * (8.3333vw + 12px));
+                }
+            }
+            .image-placeholder {
+                height: calc(12.5% - 12px);
+                width: calc(12.5% - 12px);
+                max-width: calc(12.5% - 12px);
+                top: calc(-1 * (4.166667% + 12px));
+                height: calc(12.5vw - 12px);
+                width: calc(12.5vw - 12px);
+                max-width: calc(12.5vw - 12px);
+                top: calc(-1 * (4.166667vw + 12px));
+                border-width: 3px !important;
+
+                @media screen and (max-width: 768px) {
+                    height: calc(20.83333% - 12px);
+                    width: calc(20.83333% - 12px);
+                    max-width: calc(20.83333% - 12px);
+                    top: calc(-1 * (8.3333% + 12px));
+                    height: calc(20.83333vw - 12px);
+                    width: calc(20.83333vw - 12px);
+                    max-width: calc(20.83333vw - 12px);
+                    top: calc(-1 * (8.3333vw + 12px));
+        
+                    h4 {
+                        font-size: 2.0rem !important;
+                    }
+                }
+        
+                h4 {
+                    font-size: 3rem;
+                }
+            }
+        }
+        .collection-header--share {
+            position: relative;
+            float: left;
+            .btn {
+                max-width: 35px;
+                border: 2px solid white;
+                background: #2c2d2d;
+
+                .tainacan-icon {
+                    color: white;
+                    font-size: 1.25rem;
                 }
             }
         }

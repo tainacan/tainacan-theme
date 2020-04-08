@@ -61,14 +61,48 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 									</div>
 								<?php endif; ?>
 							</div>
+							<?php 
+								global $wp; 
+								if (get_theme_mod( 'tainacan_single_item_display_share_buttons', true )) : ?>
+								<div class="collection-header--share">
+									<div class="btn trigger">
+										<span class="tainacan-icon tainacan-icon-share"></span>
+									</div>
+
+									<div class="icons">
+										<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
+											<div class="rotater">
+												<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+													<div class="btn btn-icon">
+														<i class="tainacan-icon tainacan-icon-facebook"></i>
+													</div>
+												</a>
+											</div>
+										<?php endif; ?>
+										<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) && get_theme_mod( 'tainacan_twitter_user' ) ) : ?> 
+											<div class="rotater">
+												<?php
+													$twitter_option = get_theme_mod( 'tainacan_twitter_user' );
+													$via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_theme_mod( 'tainacan_twitter_user' ) ) : '';
+												?>
+												<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>"  target="_blank">
+													<div class="btn btn-icon">
+														<i class="tainacan-icon tainacan-icon-twitter"></i>
+													</div>
+												</a>
+											</div>
+										<?php endif; ?>
+									</div>
+								</div>
+							<?php endif; ?>
 							<div class="item-title aside-thumbnail">
 								<div class="title-page">
 									<p><?php echo __('Item', 'tainacan-interface') ?></p>
 									<h1><?php the_title(); ?></h1> 
 								</div>
-								<div class="title-back">
+								<!--<div class="title-back">
 									<a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
-								</div>
+								</div>-->
 							</div>
 						</div>
 					<?php else: ?>
@@ -91,7 +125,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 					<?php do_action( 'tainacan-interface-single-item-after-title' ); ?>
 					
 					<?php if ( get_theme_mod('tainacan_single_item_collection_header', false) ): ?>
-						<div class="mt-3 tainacan-single-post collection-single-item aside-thumbnail">
+						<div class="mt-2 tainacan-single-post collection-single-item aside-thumbnail">
 					<?php else : ?>
 						<div class="mt-3 tainacan-single-post collection-single-item">
 					<?php endif; ?>
@@ -121,6 +155,10 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 							<?php endif; ?>
 						</article>
 					</div>
+
+					<?php if ( get_theme_mod('tainacan_single_item_collection_header', false) ): ?>
+						<br>
+					<?php endif; ?>
 
 					<?php do_action( 'tainacan-interface-single-item-after-document' ); ?>
 
@@ -263,7 +301,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 													</div>
 												</div>
 											<?php endif; ?>
-											<?php if (get_theme_mod( 'tainacan_single_item_display_share_buttons', true )): ?>
+											<?php if (!get_theme_mod('tainacan_single_item_collection_header', false) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true )): ?>
 												<div class="card border-0 mb-3">
 													<div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
 														<h3><?php _e( 'Share', 'tainacan-interface' ); ?></h3>

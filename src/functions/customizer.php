@@ -290,7 +290,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'priority' 	  => 3, // Within the section.
 		'section'  	  => 'tainacan_single_item_page',
 		'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section.', 'tainacan-interface' )
+		'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
 		) );
 
 	/**
