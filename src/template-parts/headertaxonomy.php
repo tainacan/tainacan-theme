@@ -17,7 +17,8 @@ $src = wp_get_attachment_image_src($image, 'full');
 		<?php do_action( 'tainacan-interface-taxonomy-header' ); ?>
 
 		<?php if($src) : ?>
-		<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php echo $src[0]; ?>');"></div>
+		<!--<div class="col-12 col-sm-4 p-0 page-header-image" style="background-image: url('<?php echo $src[0]; ?>');"></div>-->
+		<img class="page-header-image" src="<?php echo $src[0]; ?>" alt="<?php tainacan_the_term_name(); ?>">
 		<?php endif; ?>
 		<div class="col-12 col-sm p-0 page-header-content">
 			<div class="page-header-content-meta <?php if (!$src) { echo 'max-large'; } ?>">
@@ -32,7 +33,7 @@ $src = wp_get_attachment_image_src($image, 'full');
 				</div>
 				<?php $tainacan_term_description = tainacan_get_the_term_description(); ?>
 				<div class="page-header-hightlights d-flex flex-wrap">
-					<div class="col-12 col-xl-10 col-lg-9 p-0 page-header-description">
+					<div class="col-12 col-xl-10 col-lg-9 page-header-description">
 						<?php echo $tainacan_term_description; ?>
 					</div>
 					<?php do_action( 'tainacan-interface-taxonoy-description' ); ?>
