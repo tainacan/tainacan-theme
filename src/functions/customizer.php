@@ -193,6 +193,36 @@ function tainacan_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
+	 * Adds option to hide Website Title on the Header Image cover, or the whole banner.
+	 */
+	$wp_customize->add_setting( 'tainacan_hide_site_title_on_header_banner', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_hide_site_title_on_header_banner', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 99, // Within the section.
+		'section'  	  => 'header_image',
+		'label'    	  => __( 'Hide the header banner site title', 'tainacan-interface' ),
+		'description' => __( 'Toggle to hide the site title row that appears over the header banner', 'tainacan-interface' )
+		) );
+	$wp_customize->add_setting( 'tainacan_hide_header_banner', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_hide_header_banner', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 98, // Within the section.
+		'section'  	  => 'header_image',
+		'label'    	  => __( 'Hide the header banner completely', 'tainacan-interface' ),
+		'description' => __( 'Toggle to hide the header banner from all pages of the site', 'tainacan-interface' )
+		) );
+
+	/**
 	 * Adds section to control singe items page.
 	 */
 	$wp_customize->add_section( 'tainacan_single_item_page', array(
