@@ -42,24 +42,28 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 								<div class="collection-name aside-thumbnail">
 									<div class="title-page">
 										<p><?php echo __('Collection', 'tainacan-interface') ?></p>
-										<h1><?php tainacan_the_collection_name(); ?></h1> 
+										<h1><a href="<?php tainacan_the_collection_url(); ?>">
+											<?php tainacan_the_collection_name(); ?>
+										</a></h1>
 									</div>
 								</div>
 							</div>
 							<div class="collection-thumbnail">
-								<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
-									$thumbnail_id = get_post_thumbnail_id( $post->ID );
-									$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
-									<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
-								<?php else : ?>
-									<div class="image-placeholder rounded-circle border border-white position-absolute">
-										<h4 class="text-center">search=ful
-										<?php
-											echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
-										?>
-										</h4>
-									</div>
-								<?php endif; ?>
+								<a href="<?php tainacan_the_collection_url(); ?>">
+									<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
+										$thumbnail_id = get_post_thumbnail_id( $post->ID );
+										$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+										<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
+									<?php else : ?>
+										<div class="image-placeholder rounded-circle border border-white position-absolute">
+											<h4 class="text-center">
+											<?php
+												echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
+											?>
+											</h4>
+										</div>
+									<?php endif; ?>
+								</a>
 							</div>
 							<?php 
 								global $wp; 
