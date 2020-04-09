@@ -611,6 +611,7 @@
                         text-align: center;
                         display: inline-block;
                         vertical-align: top;
+                        cursor: pointer;
                         @media only screen and (max-width: 380px) {
                             margin: 10px 0;
                         }
@@ -618,6 +619,7 @@
                         img {
                             width: 125px;
                             height: 125px;
+                            display: inline-block;
                             &:focus {
                                 outline: none;
                             }
@@ -643,6 +645,9 @@
                         .attachment-without-image img {
                             padding: 42px;
                             background-color: #dbdbdb;
+                        }
+                        .item-card--thumbnail {
+                            margin: 0 0 4px 0 !important;
                         }
                     }
                     .single-item-collection--attachments-prev {

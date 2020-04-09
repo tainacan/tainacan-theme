@@ -53,7 +53,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 									<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
 								<?php else : ?>
 									<div class="image-placeholder rounded-circle border border-white position-absolute">
-										<h4 class="text-center">
+										<h4 class="text-center">search=ful
 										<?php
 											echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
 										?>
@@ -230,19 +230,21 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 												<?php if ( tainacan_has_document() ) : ?>
 													<div class="single-item-collection--attachments-file">
 														<?php
-															tainacan_the_document(); 
+															the_post_thumbnail('tainacan-medium-full', array('class' => 'item-card--thumbnail mt-2'));
+															echo '<br>';
 															echo __( 'Document', 'tainacan-interface' );
 														?>
 													</div>
 												<?php endif; ?>
 												<?php foreach ( $attachments as $attachment ) { ?>
 													<div class="single-item-collection--attachments-file">
-														<a class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>">
+														<div class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>">
 															<?php
 																echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
+																echo '<br>';
 																echo get_the_title( $attachment->ID );
 															?>
-														</a>
+														</div>
 													</div>
 												<?php } ?>
 											</div>
@@ -265,6 +267,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 														data-gallery="example-gallery">
 														<?php
 															echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
+															echo '<br>';
 															echo get_the_title( $attachment->ID );
 														?>
 													</a>

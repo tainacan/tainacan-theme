@@ -357,6 +357,102 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
 		'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
 		) );
+
+	
+	/**
+	 * Adds section to control collection items page. ---------------------------------------------------------
+	 */
+	$wp_customize->add_section( 'tainacan_items_page', array(
+		'title' 	  => __( 'Tainacan items page', 'tainacan-interface' ),
+		'description' => __( 'Settings related to Tainacan items list pages.', 'tainacan-interface' ),
+		'priority' 	  => 161,
+		'capability'  => 'edit_theme_options'
+		) );
+
+	/**
+	 * Adds option to hide filters panel on every items list.
+	 */
+	$wp_customize->add_setting( 'tainacan_items_page_hide_filters', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_items_page_hide_filters', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 0, // Within the section.
+		'section'  	  => 'tainacan_items_page',
+		'label'    	  => __( 'Hide the filters panel.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to hide the filters panel completely.', 'tainacan-interface' )
+		) );
+
+	/**
+	 * Adds option to hide the "hide filters" button on every items list.
+	 */
+	$wp_customize->add_setting( 'tainacan_items_page_hide_hide_filters_button', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 1, // Within the section.
+		'section'  	  => 'tainacan_items_page',
+		'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to do not show the "Hide filters" button for users.', 'tainacan-interface' )
+		) );
+	
+	/**
+	 * Adds option to hide search control on every items list.
+	 */
+	$wp_customize->add_setting( 'tainacan_items_page_hide_search', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_items_page_hide_search', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 3, // Within the section.
+		'section'  	  => 'tainacan_items_page',
+		'label'    	  => __( 'Hide the Search block.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to do not show the  on the search control bar.', 'tainacan-interface' )
+		) );
+	
+	/**
+	 * Adds option to hide advanced search link on every items list.
+	 */
+	$wp_customize->add_setting( 'tainacan_items_page_hide_advanced_search', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_items_page_hide_advanced_search', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 3, // Within the section.
+		'section'  	  => 'tainacan_items_page',
+		'label'    	  => __( 'Hide the Advanced Search link.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to do not show the on the advanced search link on the control bar.', 'tainacan-interface' )
+		) );
+
+	/**
+	 * Adds option to hide the "sort by" button on every items list.
+	 */
+	$wp_customize->add_setting( 'tainacan_items_page_hide_sort_by_button', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh'
+		) );
+	$wp_customize->add_control( 'tainacan_items_page_hide_sort_by_button', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 3, // Within the section.
+		'section'  	  => 'tainacan_items_page',
+		'label'    	  => __( 'Hide the "Sort by" button.', 'tainacan-interface' ),
+		'description' => __( 'Toggle to do not show the "Sort by" button on the control bar.', 'tainacan-interface' )
+		) );
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
