@@ -69,7 +69,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 								global $wp; 
 								if (get_theme_mod( 'tainacan_single_item_display_share_buttons', true )) : ?>
 								<div class="collection-header--share">
-									<div class="btn trigger">
+									<div class="btn trigger tainacan-item-share-container">
 										<span class="tainacan-icon tainacan-icon-share"></span>
 									</div>
 
@@ -99,7 +99,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 									</div>
 								</div>
 							<?php endif; ?>
-							<div class="item-title aside-thumbnail">
+							<div class="tainacan-single-item-heading item-title aside-thumbnail">
 								<div class="title-page">
 									<p><?php echo __('Item', 'tainacan-interface') ?></p>
 									<h1><?php the_title(); ?></h1> 
@@ -111,7 +111,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 						</div>
 					<?php else: ?>
 
-						<div class="tainacan-title">
+						<div class="tainacan-single-item-heading tainacan-title">
 							<div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
 								<ul class="list-inline mb-1">
 									<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
@@ -301,7 +301,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 									<div class="row">
 										<div class="col s-item-collection--metadata">
 											<?php if (has_post_thumbnail() && get_theme_mod( 'tainacan_single_item_display_thumbnail', true )): ?>
-												<div class="card border-0 mb-3">
+												<div class="tainacan-item-thumbnail-container card border-0 mb-3">
 													<div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
 														<h3><?php _e( 'Thumbnail', 'tainacan-interface' ); ?></h3>
 														<?php the_post_thumbnail('tainacan-medium-full', array('class' => 'item-card--thumbnail mt-2')); ?>
@@ -310,7 +310,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 											<?php endif; ?>
 											<?php if (!get_theme_mod('tainacan_single_item_collection_header', false) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true )): ?>
 												<div class="card border-0 mb-3">
-													<div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
+													<div class="tainacan-item-share-container card-body bg-white border-0 pl-0 pt-0 pb-1">
 														<h3><?php _e( 'Share', 'tainacan-interface' ); ?></h3>
 														<div class="btn-group" role="group">
 															<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 

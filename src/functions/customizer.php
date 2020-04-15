@@ -262,7 +262,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => '3',
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
 			'type' 		  => 'number',
@@ -276,6 +276,12 @@ function tainacan_customize_register( $wp_customize ) {
 				'max' => 3,
 				'step' => 1
 			)
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_metadata_columns_count_desktop',
+			array(
+			   'selector' => '.single-item-collection--information .row',
+			   'render_callback' => '__return_false',
+			   'fallback_refresh' => true
 			) );
 		$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_wide', array(
 			'type' 		 => 'theme_mod',
@@ -298,13 +304,13 @@ function tainacan_customize_register( $wp_customize ) {
 			) );
 
 		/**
-		 * Adds options to display or not the thumbnail and share buttons on items page.
+		 * Adds options to display or not the thumbnail on items page.
 		 */
 		$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => true,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
 			'type' 	   	  => 'checkbox',
@@ -313,11 +319,21 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
 			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_thumbnail',
+			array(
+			   'selector' => '.tainacan-item-thumbnail-container',
+			   'render_callback' => '__return_false',
+			   'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds options to display or not hare buttons on items page.
+		 */	
 		$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => true,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
 			'type' 	   	  => 'checkbox',
@@ -325,6 +341,12 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_single_item_page',
 			'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_share_buttons',
+			array(
+			   'selector' => '.tainacan-item-share-container',
+			   'render_callback' => '__return_false',
+			   'fallback_refresh' => true
 			) );
 
 		/**
@@ -334,7 +356,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
 			'type' 	   	  => 'checkbox',
@@ -343,7 +365,12 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
 			) );
-		
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_gallery_mode',
+			array(
+			   'selector' => '.single-item-collection--gallery, .single-item-collection--attachments',
+			   'render_callback' => '__return_false',
+			   'fallback_refresh' => true
+			) );
 
 		/**
 		 * Adds option to display Collection banner on the item single page.
@@ -352,7 +379,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
 			'type' 	   	  => 'checkbox',
@@ -361,7 +388,12 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
 			) );
-
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header',
+			array(
+			   'selector' => '.tainacan-single-item-heading',
+			   'render_callback' => '__return_false',
+			   'fallback_refresh' => true
+			) );
 		
 		/**
 		 * Adds section to control collection items page. ---------------------------------------------------------
