@@ -223,373 +223,410 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 
 	/**
-	 * Adds section to control singe items page.
+	 * Bellow are customizer options exclusivelly related to Tainacan pages.
 	 */
-	$wp_customize->add_section( 'tainacan_single_item_page', array(
-		'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
-		'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
-		'priority' 	  => 160,
-		'capability'  => 'edit_theme_options'
-		) );
-	
-	/**
-	 * Adds options to control singe items page number of metadata columns.
-	 */
-	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_tablet', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => '2',
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
-		'type' 	   	  => 'number',
-		'priority' 	  => 4, // Within the section.
-		'section'  	  => 'tainacan_single_item_page',
-		'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
-		'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
-		'input_attrs' => array(
-			'placeholder' => __( '2' ),
-			'min' => 1,
-			'max' => 3,
-			'step' => 1
-		)
-		) );
-	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_desktop', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => '3',
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
-		'type' 		  => 'number',
-		'priority'    => 5, // Within the section.
-		'section' 	  => 'tainacan_single_item_page',
-		'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
-		'description' => __( 'For screen sizes between 1025px and 1366px.', 'tainacan-interface' ),
-		'input_attrs' => array(
-			'placeholder' => __( '3' ),
-			'min' => 1,
-			'max' => 3,
-			'step' => 1
-		)
-		) );
-	$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_wide', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => '3',
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
-		'type' 		  => 'number',
-		'priority' 	  => 6, // Within the section.
-		'section' 	  => 'tainacan_single_item_page',
-		'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
-		'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
-		'input_attrs' => array(
-			'placeholder' => __( '3' ),
-			'min' => 1,
-			'max' => 4,
-			'step' => 1
-		)
-		) );
+	if ( defined ( 'TAINACAN_VERSION' ) ) {	
+		/**
+		 * Adds section to control singe items page.
+		 */
+		$wp_customize->add_section( 'tainacan_single_item_page', array(
+			'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
+			'priority' 	  => 160,
+			'capability'  => 'edit_theme_options'
+			) );
+		
+		/**
+		 * Adds options to control singe items page number of metadata columns.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_tablet', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => '2',
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
+			'type' 	   	  => 'number',
+			'priority' 	  => 4, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
+			'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
+			'input_attrs' => array(
+				'placeholder' => __( '2' ),
+				'min' => 1,
+				'max' => 3,
+				'step' => 1
+			)
+			) );
+		$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_desktop', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => '3',
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
+			'type' 		  => 'number',
+			'priority'    => 5, // Within the section.
+			'section' 	  => 'tainacan_single_item_page',
+			'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
+			'description' => __( 'For screen sizes between 1025px and 1366px.', 'tainacan-interface' ),
+			'input_attrs' => array(
+				'placeholder' => __( '3' ),
+				'min' => 1,
+				'max' => 3,
+				'step' => 1
+			)
+			) );
+		$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_wide', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => '3',
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
+			'type' 		  => 'number',
+			'priority' 	  => 6, // Within the section.
+			'section' 	  => 'tainacan_single_item_page',
+			'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
+			'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
+			'input_attrs' => array(
+				'placeholder' => __( '3' ),
+				'min' => 1,
+				'max' => 4,
+				'step' => 1
+			)
+			) );
 
-	/**
-	 * Adds options to display or not the thumbnail and share buttons on items page.
-	 */
-	$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => true,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 2, // Within the section.
-		'section'  	  => 'tainacan_single_item_page',
-		'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
-		) );
-	$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => true,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 3, // Within the section.
-		'section'  	  => 'tainacan_single_item_page',
-		'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds options to display or not the thumbnail and share buttons on items page.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => true,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 2, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
+			) );
+		$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => true,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to display attachments and document as a gallery list.
-	 */
-	$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 1, // Within the section.
-		'section'  	  => 'tainacan_single_item_page',
-		'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
-		) );
-	
+		/**
+		 * Adds option to display attachments and document as a gallery list.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 1, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
+			) );
+		
 
-	/**
-	 * Adds option to display Collection banner on the item single page.
-	 */
-	$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 0, // Within the section.
-		'section'  	  => 'tainacan_single_item_page',
-		'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to display Collection banner on the item single page.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
+			) );
 
-	
-	/**
-	 * Adds section to control collection items page. ---------------------------------------------------------
-	 */
-	$wp_customize->add_section( 'tainacan_items_page', array(
-		'title' 	  => __( 'Tainacan items list page', 'tainacan-interface' ),
-		'description' => __( 'Settings related to Tainacan items list pages.', 'tainacan-interface' ),
-		'priority' 	  => 161,
-		'capability'  => 'edit_theme_options'
-		) );
+		
+		/**
+		 * Adds section to control collection items page. ---------------------------------------------------------
+		 */
+		$wp_customize->add_section( 'tainacan_items_page', array(
+			'title' 	  => __( 'Tainacan items list page', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan items list pages.', 'tainacan-interface' ),
+			'priority' 	  => 161,
+			'capability'  => 'edit_theme_options'
+			) );
 
-	/**
-	 * Adds option to hide filters panel on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_filters', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_filters', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 0, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the filters panel.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to hide the filters panel completely.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to select default view modes for terms and repository items list.
+		 */
+		$default_view_mode = '';
+		$enabled_view_modes = [];
+		if (function_exists('tainacan_get_the_view_modes')) {
+			$default_view_mode =  tainacan_get_the_view_modes()['default_view_mode'];
+			$enabled_view_modes = tainacan_get_the_view_modes()['enabled_view_modes'];
+		} else {
+			$default_view_mode = 'masonry';
+			$enabled_view_modes = [
+				'masonry' => __('Masonry', 'tainacan-interface'),
+				'cards' => __('Cards', 'tainacan-interface'),
+				'table' => __('Table', 'tainacan-interface'),
+				'grid' => __('Grid', 'tainacan-interface')
+			];
+		}
+		$wp_customize->add_setting( 'tainacan_items_repository_list_default_view_mode', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => $default_view_mode,
+			'transport'  => 'refresh'
+			) );	
+		$wp_customize->add_control( 'tainacan_items_repository_list_default_view_mode', array(
+			'type' 	   	  => 'select',
+			'priority' 	  => -1, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Default view mode for Terms and Repository Items list.', 'tainacan-interface' ),
+			'description' => __( 'Select a default view mode for Terms and Repository Items list.', 'tainacan-interface' ),
+			'choices'	  => $enabled_view_modes
+			) );
 
-	/**
-	 * Adds option to hide the "hide filters" button on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_hide_filters_button', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 1, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the "Hide filters" button for users.', 'tainacan-interface' )
-		) );
-	
-	/**
-	 * Adds option to hide search control on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_search', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_search', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 3, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the Search block.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the  on the search control bar.', 'tainacan-interface' )
-		) );
-	
-	/**
-	 * Adds option to hide advanced search link on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_advanced_search', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_advanced_search', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 3, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the Advanced Search link.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the on the advanced search link on the control bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to hide filters panel on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_filters', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_filters', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the filters panel.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to hide the filters panel completely.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to hide the "sort by" button on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_sort_by_button', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_sort_by_button', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 4, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the "Sort by" button.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the "Sort by" button on the control bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to hide the "hide filters" button on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_hide_filters_button', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 1, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the "Hide filters" button for users.', 'tainacan-interface' )
+			) );
+		
+		/**
+		 * Adds option to hide search control on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_search', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_search', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the Search block.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the  on the search control bar.', 'tainacan-interface' )
+			) );
+		
+		/**
+		 * Adds option to hide advanced search link on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_advanced_search', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_advanced_search', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the Advanced Search link.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the on the advanced search link on the control bar.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to hide the "View as..." button on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_exposers_button', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_exposers_button', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 5, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the "View as..." button.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the "View as..." button, also refered to as "Exposers modal" on the control bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to hide the "sort by" button on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_sort_by_button', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_sort_by_button', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 4, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the "Sort by" button.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the "Sort by" button on the control bar.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to hide the "Items per Page" button on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_items_per_page_button', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_items_per_page_button', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 6, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the "Items per Page" button.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the "Items per Page" button on the pagination bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to hide the "View as..." button on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_exposers_button', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_exposers_button', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 5, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the "View as..." button.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the "View as..." button, also refered to as "Exposers modal" on the control bar.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to hide the "Got to Page" button on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_hide_go_to_page_button', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_hide_go_to_page_button', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 7, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Hide the "Go to Page" button.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do not show the "Go to Page" button on the pagination bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to hide the "Items per Page" button on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_items_per_page_button', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_items_per_page_button', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 6, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the "Items per Page" button.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the "Items per Page" button on the pagination bar.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to show filters button inside the search control bar on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_show_filters_button_inside_search_control', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_show_filters_button_inside_search_control', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 8, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to do display the Filters button inside the search control bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to hide the "Got to Page" button on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_hide_go_to_page_button', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_hide_go_to_page_button', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 7, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Hide the "Go to Page" button.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do not show the "Go to Page" button on the pagination bar.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to start filters hidden by default on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_start_with_filters_hidden', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_start_with_filters_hidden', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 9, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Start with filters hidden.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to show filters button inside the search control bar on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_show_filters_button_inside_search_control', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_show_filters_button_inside_search_control', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 8, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to do display the Filters button inside the search control bar.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to display filters as a modal on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_filters_as_modal', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_filters_as_modal', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 10, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Filters as modal.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to start filters hidden by default on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_start_with_filters_hidden', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_start_with_filters_hidden', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 9, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Start with filters hidden.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' )
+			) );
 
-	/**
-	 * Adds option to show inline view mode options on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_show_inline_view_mode_options', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_show_inline_view_mode_options', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 11, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Show inline view mode options.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show view mode options as a group of buttons instead of a dropdown.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to display filters as a modal on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_filters_as_modal', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_filters_as_modal', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 10, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Filters as modal.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' )
+			) );
+
+		/**
+		 * Adds option to show inline view mode options on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_show_inline_view_mode_options', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_show_inline_view_mode_options', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 11, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Show inline view mode options.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show view mode options as a group of buttons instead of a dropdown.', 'tainacan-interface' )
+			) );
 
 
-	/**
-	 * Adds option to shos fullscreen with other view modes on every items list.
-	 */
-	$wp_customize->add_setting( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
-		'type' 		 => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'default' 	 => false,
-		'transport'  => 'refresh'
-		) );
-	$wp_customize->add_control( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
-		'type' 	   	  => 'checkbox',
-		'priority' 	  => 12, // Within the section.
-		'section'  	  => 'tainacan_items_page',
-		'label'    	  => __( 'Show "fullscreen" view modes with other view modes.', 'tainacan-interface' ),
-		'description' => __( 'Toggle to show "fullscreen" view modes with other view mode options instead of separate in the search control bar.', 'tainacan-interface' )
-		) );
+		/**
+		 * Adds option to shos fullscreen with other view modes on every items list.
+		 */
+		$wp_customize->add_setting( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 12, // Within the section.
+			'section'  	  => 'tainacan_items_page',
+			'label'    	  => __( 'Show "fullscreen" view modes with other view modes.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show "fullscreen" view modes with other view mode options instead of separate in the search control bar.', 'tainacan-interface' )
+			) );
+	}
 }
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
