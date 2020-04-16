@@ -36,7 +36,12 @@
                     <?php if ( tainacan_has_document() ) : ?>
                         <section class="tainacan-content single-item-collection margin-two-column">
                             <div class="single-item-collection--document">
-                                <?php tainacan_the_document(); ?>
+                                <?php 
+                                    tainacan_the_document(); 
+                                    if ( !get_theme_mod( 'tainacan_single_item_hide_download_document', false ) && function_exists('tainacan_the_item_document_download_link') && tainacan_the_item_document_download_link() != '' ) {
+                                        echo '<span class="tainacan-item-document-download">' . tainacan_the_item_document_download_link() . '</span>';
+                                    } 
+                                ?>
                             </div>
                         </section>
                     <?php endif; ?>
