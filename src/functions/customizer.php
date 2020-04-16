@@ -391,6 +391,45 @@ function tainacan_customize_register( $wp_customize ) {
 			) );
 		
 		/**
+		 * Adds options to display item autohr and publish date.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_hide_item_meta', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_hide_item_meta', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 2, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Hide the item publish date and author', 'tainacan-interface' ),
+			'description' => __( 'Toggle to not display the item publish date and author name below the item title.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_hide_item_meta', array(
+			'selector' => '.tainacan-single-post .header-meta .time',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds options to display or not the document download button.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_hide_download_document', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 2, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
+			'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
+			) );
+
+		/**
 		 * Adds options to display or not the thumbnail on items page.
 		 */
 		$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(

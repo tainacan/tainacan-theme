@@ -57,7 +57,5 @@
         </div>
     </section>
 </div>
-<div class="tainacan-title my-5">
-    <div class="border-bottom border-silver tainacan-title-page" style="border-width: 1px !important;">
-    </div>
-</div>
+
+<div class="my-5 border-bottom border-silver"></div>
