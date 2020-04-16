@@ -1,6 +1,10 @@
 <div class="mt-3 tainacan-single-post">
 
-    <!-- <h2 class="title-content-items"><?php _e( 'Information', 'tainacan-interface' ); ?></h2> -->
+    <?php if ( get_theme_mod('tainacan_single_item_metadata_section_label', '') != '') : ?>
+        <h2 class="title-content-items" id="single-item-metadata-label">
+            <?php echo get_theme_mod('tainacan_single_item_metadata_section_label', ''); ?>
+        </h2>
+    <?php endif; ?>
     <section class="tainacan-content single-item-collection margin-two-column">
         <div class="single-item-collection--information justify-content-center">
             <div class="row">

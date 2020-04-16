@@ -1,6 +1,10 @@
 <?php if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mode', false )) : ?>
     <div class="pt-4 tainacan-single-post">
-        <h2 class="title-content-items"><?php _e( 'Document', 'tainacan-interface' ); ?></h2>
+        <?php if ( get_theme_mod('tainacan_single_item_document_section_label', __( 'Document', 'tainacan-interface' )) != '') : ?>
+            <h2 class="title-content-items" id="single-item-document-label">
+                <?php echo get_theme_mod('tainacan_single_item_document_section_label', __( 'Document', 'tainacan-interface' )); ?>
+            </h2>
+        <?php endif; ?>
         <section class="tainacan-content single-item-collection margin-two-column">
             <div class="single-item-collection--document">
                 <?php tainacan_the_document(); ?>

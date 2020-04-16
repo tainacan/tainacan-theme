@@ -235,7 +235,205 @@ function tainacan_customize_register( $wp_customize ) {
 			'priority' 	  => 160,
 			'capability'  => 'edit_theme_options'
 			) );
+
+		/**
+		 * Adds option to change the order of some page sections
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_layout_sections_order', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => 'document-attachments-metadata',
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_layout_sections_order', array(
+			'type' 	   	  => 'select',
+			'priority' 	  => -1, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Layout sections order.', 'tainacan-interface' ),
+			'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
+			'choices'	  => array(
+				'document-attachments-metadata' => __('Document - Attachments - Metadata', 'tainacan-interface'),
+				'metadata-document-attachments' => __('Metadata - Document - Attachments', 'tainacan-interface'),
+				'document-metadata-attachments' => __('Document - Metadata - Attachments', 'tainacan-interface'),
+			)
+			) );
+
+		/**
+		 * Adds option to display Collection banner on the item single page.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header', array(
+			'selector' => '.tainacan-single-item-heading',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds option to display attachments and document as a gallery list.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Show "Documents" section: Document and Attachments grouped in one slider.', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_gallery_mode', array(
+			'selector' => '.single-item-collection--gallery, .single-item-collection--attachments',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds option to configure Document section label.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_document_section_label', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => __( 'Document', 'tainacan-interface' ),
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_document_section_label', array(
+			'type' 	   	  => 'text',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Label for the "Document" section', 'tainacan-interface' ),
+			'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_document_section_label', array(
+			'selector' => '#single-item-document-label',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds option to configure Attachments section label.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_attachments_section_label', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => __( 'Attachments', 'tainacan-interface' ),
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_attachments_section_label', array(
+			'type' 	   	  => 'text',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Label for the "Attachments" section', 'tainacan-interface' ),
+			'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_attachments_section_label', array(
+			'selector' => '#single-item-attachments-label',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
 		
+		/**
+		 * Adds option to configure Documents section label.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_documents_section_label', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => __( 'Documents', 'tainacan-interface' ),
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_documents_section_label', array(
+			'type' 	   	  => 'text',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Label for the "Documents" section', 'tainacan-interface' ),
+			'description' => __( 'Section that labels Document and Attachments grouped if this option is enabled. Leave blank it for not displaying any label.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_documents_section_label', array(
+			'selector' => '#single-item-documents-label',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds option to configure Metadata section label.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_metadata_section_label', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => '',
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_metadata_section_label', array(
+			'type' 	   	  => 'text',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Label for the "Metadata" section', 'tainacan-interface' ),
+			'description' => __( 'Leave blank it for not displaying any label (which is the default).', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_metadata_section_label', array(
+			'selector' => '#single-item-metadata-label',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+		
+		/**
+		 * Adds options to display or not the thumbnail on items page.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => true,
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 2, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_thumbnail', array(
+			'selector' => '.tainacan-item-thumbnail-container',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds options to display or not hare buttons on items page.
+		 */	
+		$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => true,
+			'transport'  => 'postMessage'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
+			'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_share_buttons', array(
+			'selector' => '.tainacan-item-share-container',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
 		/**
 		 * Adds options to control singe items page number of metadata columns.
 		 */
@@ -302,116 +500,6 @@ function tainacan_customize_register( $wp_customize ) {
 			)
 			) );
 
-		/**
-		 * Adds options to display or not the thumbnail on items page.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_display_thumbnail', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => true,
-			'transport'  => 'postMessage'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 2, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
-			'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
-			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_thumbnail', array(
-			'selector' => '.tainacan-item-thumbnail-container',
-			'render_callback' => '__return_false',
-			'fallback_refresh' => true
-			) );
-
-		/**
-		 * Adds options to display or not hare buttons on items page.
-		 */	
-		$wp_customize->add_setting( 'tainacan_single_item_display_share_buttons', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => true,
-			'transport'  => 'postMessage'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 3, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
-			'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
-			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_share_buttons', array(
-			'selector' => '.tainacan-item-share-container',
-			'render_callback' => '__return_false',
-			'fallback_refresh' => true
-			) );
-
-		/**
-		 * Adds option to display attachments and document as a gallery list.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => false,
-			'transport'  => 'postMessage'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 1, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
-			'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
-			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_gallery_mode', array(
-			'selector' => '.single-item-collection--gallery, .single-item-collection--attachments',
-			'render_callback' => '__return_false',
-			'fallback_refresh' => true
-			) );
-
-		/**
-		 * Adds option to display Collection banner on the item single page.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => false,
-			'transport'  => 'postMessage'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
-			'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
-			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header', array(
-			'selector' => '.tainacan-single-item-heading',
-			'render_callback' => '__return_false',
-			'fallback_refresh' => true
-			) );
-
-		
-		/**
-		 * Adds option to display attachments and document as a gallery list.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_layout_sections_order', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => 'document-attachments-metadata',
-			'transport'  => 'refresh'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_layout_sections_order', array(
-			'type' 	   	  => 'select',
-			'priority' 	  => -1, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Layout sections order.', 'tainacan-interface' ),
-			'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
-			'choices'	  => array(
-				'document-attachments-metadata' => __('Document - Attachments - Metadata', 'tainacan-interface'),
-				'metadata-document-attachments' => __('Metadata - Document - Attachments', 'tainacan-interface'),
-				'document-metadata-attachments' => __('Document - Metadata - Attachments', 'tainacan-interface'),
-			)
-			) );
 		
 		/**
 		 * Adds section to control collection items page. ---------------------------------------------------------

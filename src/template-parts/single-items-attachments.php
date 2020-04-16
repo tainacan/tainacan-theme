@@ -20,16 +20,16 @@
 <?php if ( !empty( $attachments )  || ( get_theme_mod( 'tainacan_single_item_gallery_mode', false) && tainacan_has_document() )) : ?>
 
     <div class="mt-3 tainacan-single-post">
-    
-        <h2 class="title-content-items">
-            <?php 
-                if (get_theme_mod( 'tainacan_single_item_gallery_mode', false )) {
-                    _e( 'Documents', 'tainacan-interface' ); 
-                } else {
-                    _e( 'Attachments', 'tainacan-interface' ); 
-                }
-            ?>
-        </h2>
+        <?php if ( !get_theme_mod( 'tainacan_single_item_gallery_mode', false ) && get_theme_mod('tainacan_single_item_attachments_section_label', __( 'Attachments', 'tainacan-interface' )) != '') : ?>
+            <h2 class="title-content-items" id="single-item-attachments-label">
+                <?php echo get_theme_mod('tainacan_single_item_attachments_section_label', __( 'Attachments', 'tainacan-interface' )); ?>
+            </h2>
+        <?php endif; ?>
+        <?php if ( get_theme_mod( 'tainacan_single_item_gallery_mode', false ) && get_theme_mod('tainacan_single_item_documents_section_label', __( 'Documents', 'tainacan-interface' )) != '') : ?>
+            <h2 class="title-content-items" id="single-item-documents-label">
+                <?php echo get_theme_mod('tainacan_single_item_documents_section_label', __( 'Documents', 'tainacan-interface' )); ?>
+            </h2>
+        <?php endif; ?>
         <section class="tainacan-content single-item-collection margin-two-column">
             <?php if (get_theme_mod( 'tainacan_single_item_gallery_mode', false )): ?>
                 <div class="single-item-collection--gallery">
