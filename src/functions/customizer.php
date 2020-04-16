@@ -277,11 +277,10 @@ function tainacan_customize_register( $wp_customize ) {
 				'step' => 1
 			)
 			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_metadata_columns_count_desktop',
-			array(
-			   'selector' => '.single-item-collection--information .row',
-			   'render_callback' => '__return_false',
-			   'fallback_refresh' => true
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_metadata_columns_count_desktop', array(
+			'selector' => '.single-item-collection--information .row',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 		$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_wide', array(
 			'type' 		 => 'theme_mod',
@@ -319,11 +318,10 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
 			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_thumbnail',
-			array(
-			   'selector' => '.tainacan-item-thumbnail-container',
-			   'render_callback' => '__return_false',
-			   'fallback_refresh' => true
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_thumbnail', array(
+			'selector' => '.tainacan-item-thumbnail-container',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -342,11 +340,10 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
 			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_share_buttons',
-			array(
-			   'selector' => '.tainacan-item-share-container',
-			   'render_callback' => '__return_false',
-			   'fallback_refresh' => true
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_share_buttons', array(
+			'selector' => '.tainacan-item-share-container',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -365,11 +362,10 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Show Document and Attachments grouped in one slider.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
 			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_gallery_mode',
-			array(
-			   'selector' => '.single-item-collection--gallery, .single-item-collection--attachments',
-			   'render_callback' => '__return_false',
-			   'fallback_refresh' => true
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_gallery_mode', array(
+			'selector' => '.single-item-collection--gallery, .single-item-collection--attachments',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -388,11 +384,10 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
 			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header',
-			array(
-			   'selector' => '.tainacan-single-item-heading',
-			   'render_callback' => '__return_false',
-			   'fallback_refresh' => true
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header', array(
+			'selector' => '.tainacan-single-item-heading',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 		
 		/**
@@ -426,7 +421,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => $default_view_mode,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );	
 		$wp_customize->add_control( 'tainacan_items_repository_list_default_view_mode', array(
 			'type' 	   	  => 'select',
@@ -435,6 +430,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Default view mode for Terms and Repository Items list.', 'tainacan-interface' ),
 			'description' => __( 'Select a default view mode for Terms and Repository Items list.', 'tainacan-interface' ),
 			'choices'	  => $enabled_view_modes
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_repository_list_default_view_mode', array(
+			'selector' => '.repository-level-page #items-list-results',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -461,7 +461,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
 			'type' 	   	  => 'checkbox',
@@ -470,7 +470,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do not show the "Hide filters" button for users.', 'tainacan-interface' )
 			) );
-		
+	
 		/**
 		 * Adds option to hide search control on every items list.
 		 */
@@ -478,7 +478,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_hide_search', array(
 			'type' 	   	  => 'checkbox',
@@ -486,6 +486,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_items_page',
 			'label'    	  => __( 'Hide the Search block.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do not show the  on the search control bar.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_search', array(
+			'selector' => '.theme-items-list .search-area',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 		
 		/**
@@ -495,7 +500,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_hide_advanced_search', array(
 			'type' 	   	  => 'checkbox',
@@ -503,6 +508,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_items_page',
 			'label'    	  => __( 'Hide the Advanced Search link.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do not show the on the advanced search link on the control bar.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_advanced_search', array(
+			'selector' => '.theme-items-list .search-area a.has-text-secondary ',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -512,7 +522,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_hide_sort_by_button', array(
 			'type' 	   	  => 'checkbox',
@@ -520,6 +530,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_items_page',
 			'label'    	  => __( 'Hide the "Sort by" button.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do not show the "Sort by" button on the control bar.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_sort_by_button', array(
+			'selector' => '.theme-items-list #tainacanSortByDropdown ',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -529,7 +544,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_hide_exposers_button', array(
 			'type' 	   	  => 'checkbox',
@@ -537,6 +552,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_items_page',
 			'label'    	  => __( 'Hide the "View as..." button.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do not show the "View as..." button, also refered to as "Exposers modal" on the control bar.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_exposers_button', array(
+			'selector' => '.theme-items-list #tainacanExposersButton ',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -555,7 +575,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Hide the "Items per Page" button.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do not show the "Items per Page" button on the pagination bar.', 'tainacan-interface' )
 			) );
-
+		
 		/**
 		 * Adds option to hide the "Got to Page" button on every items list.
 		 */
@@ -580,7 +600,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_show_filters_button_inside_search_control', array(
 			'type' 	   	  => 'checkbox',
@@ -588,6 +608,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_items_page',
 			'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to do display the Filters button inside the search control bar.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_show_filters_button_inside_search_control', array(
+			'selector' => '.theme-items-list #tainacanFiltersButton',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 
 		/**
@@ -631,7 +656,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'postMessage'
 			) );
 		$wp_customize->add_control( 'tainacan_items_page_show_inline_view_mode_options', array(
 			'type' 	   	  => 'checkbox',
@@ -640,7 +665,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Show inline view mode options.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show view mode options as a group of buttons instead of a dropdown.', 'tainacan-interface' )
 			) );
-
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_show_inline_view_mode_options', array(
+			'selector' => '.theme-items-list #tainacanViewModesSection',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
 
 		/**
 		 * Adds option to shos fullscreen with other view modes on every items list.
@@ -657,6 +686,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_items_page',
 			'label'    	  => __( 'Show "fullscreen" view modes with other view modes.', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show "fullscreen" view modes with other view mode options instead of separate in the search control bar.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
+			'selector' => '.theme-items-list #tainacanFullScreenViewMode',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
 			) );
 	}
 }
