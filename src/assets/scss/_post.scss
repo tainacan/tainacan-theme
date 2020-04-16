@@ -1,11 +1,6 @@
 .tainacan-single-post {
-    /* @media screen {
-        @media (min-width: 768px) {
-            padding: 0 2rem;
-        }
-    } */
-    &.aside-thumbnail,
-    .aside-thumbnail {
+    .aside-thumbnail,
+    &.aside-thumbnail {
         margin-left: calc(12.5% + 12px);
         margin-left: calc(12.5vw + 12px);
         p {
@@ -29,6 +24,7 @@
         margin-right: -4.1666667%;
         margin-left: -4.16666667vw;
         margin-right: -4.1666667vw;
+        margin-top: -2rem;
         position: relative;
 
         &>div {
@@ -121,696 +117,695 @@
             }
         }
     }
-    article{
-        header{
-            .header-meta{
-                color: #898d8f !important;
-                font: {
-                    size: 0.75rem;
-                    weight: 400;
-                }
-                align-items: center;
-                @media screen {
-                    @media (min-width: 768px){
-                        margin-top: -10px;
-                    }
-                }
-                img {
-                    height: 24px;
-                    padding-left: 1rem;
-                }
+    header {
+        .header-meta{
+            color: #898d8f !important;
+            font: {
+                size: 0.75rem;
+                weight: 400;
             }
-            img{
-                height: auto;
-                display: block;
-                margin: 0 auto;
-            }
-        }
-        .title-content-items {
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: #338591;
-            margin-left: 4.16666666667%;
-            margin-bottom: 2rem;
-        }
-        header.tainacan-content {
-            min-height: auto;
-        }
-        .tainacan-content {
-            font-size: 1rem;
-            min-height: 32.5vh;
-            @media only screen and (min-height: 1080px) {
-                min-height: 50vh;
-            }
-            &h1, &h2{
-                font-size: 1rem;
-            }
-            h1 {
-                color: #298596;
-                font-size: 1.125rem;
-                font-weight: 600;
-            }
-            h2 {
-                color: #000;
-                font-size: 1.125rem;
-                font-weight: 600;
-            }
-            h3 {
-                color: #000;
-                font-size: 1rem;
-                font-weight: 600;
-            }
-            h4 {
-                color: #555758;
-                font-size: 1rem;
-                font-style: italic;
-            }
-            h5 {
-                color: #000;
-                font-size: 0.875rem;
-                font-weight: 600;
-            }
-            h6 {
-                color: #298596;
-                font-size: 0.875rem;
-                font-weight: 400;
-            }
-            pre:not(.wp-block-code) {
-                color: #555758;
-                font-size: 1rem;
-                font-weight: 400;
-                white-space: pre-line;
-            }
-            .wp-block-code {
-                code {
-                    font-size: 0.875rem;
-                    color: #298596;
-                    word-break: break-word;
-                }
-            }
-            .wp-block-quote {
-                margin: 3rem 8.33333%;
-                padding: 1rem;
-                p {
-                    color: #555758;
-                    font-size: 1rem;
-                    font-weight: normal;
-                }
-                cite {
-                    color: #555758;
-                    display: block;
-                    width: 100%;
-                    text-align: right;
-                    font-size: 1rem;
-                    font-weight: 500;
-                    font-style: italic;
-                }
-                &:not(.is-style-large) {
-                    border-left: 2px solid #298596;
-                }
-                &.is-style-large {
-                    font-size: 1.375rem;
-                }
-            }
-            .wp-block-separator {
-                border-color: #cbcbcb;
-                width: 50%;
-                max-width: 300px;
-                &.is-style-wide{
-                    width: 100%;
-                }
-                &.is-style-dots{
-                    &::before {
-                        color: #cbcbcb;
-                        font-weight: 600;
-                    }
-                }
-            }
-            .tainacan-group-heading {
-                h1 { font-size: 1.5rem; }
-                h2 { font-size: 1.5rem; }
-                h3 { font-size: 1.25rem; }
-                h4 { font-size: 1.125rem; }
-                p {
-                    font-style: italic;
-                    color: #898d8f;
-                }
-                hr.wp-block-separator:not(.is-style-wide) {
-                    margin-left: 0;
-                    max-width: 200px;
-                }
-                hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-                    border-width: 4px;
-                    height: 4px;
-                }
-            }
-            &>ul,
-            &>ol {
-                font-size: 1rem;
-                font-weight: 400;
-                margin-left: 1.75rem;
-            }
-            .wp-block-media-text__content>ul,
-            .wp-block-media-text__content>ol {
-                margin-left: 1.75rem;
-            }
-            .table {
-                thead {
-                    border-bottom: 1px solid #cbcbcb;
-                    color: #555758;
-                    th {
-                        font-weight: normal;
-                        font-size: 0.75rem;
-                    }
-                }
-                tbody {
-                    font-size: 0.875rem;
-                    font-weight: 400;
-                    color: #000;
-                }
-            }
-            dl {
-                dd {
-                    margin-left: 2rem;
-                }
-            }
-            address {
-                font-size: 0.875rem;
-                font-style: italic;
-            }
-            p {
-                margin-top: 0.5rem;
-                margin-bottom: 1rem;
-                code {
-                    border-radius: 5px; 
-                    -moz-border-radius: 5px; 
-                    -webkit-border-radius: 5px; 
-                    border: 1px solid #BCBEC0;
-                    padding: 2px;
-                    font-size:12px;
-                }
-            }
-            img[class*="align"], 
-            img[class*="wp-image-"], 
-            .gallery {
-                .gallery-icon img {
-                    padding: 6px;
-                    max-width: 97.5%;
-                    max-width: calc( 100% - 14px );
-                }
-            }
-            img[class*="align"], img[class*="wp-image-"], img[class*="attachment-"] {
-                height: auto;
-            }
-            h1, h2, h3, h4, h5, h6 {
-                padding-top: .4rem;
-                &::after{
-                    display: block;
-                    clear: both;
-                    content: "";
-                }
-            }
-            .wp-block-columns {
-                display: flex;
-                margin: 0;
-
-                .wp-block-column {
-                    flex-basis: 100%;
-                }
-                .wp-block-column:not(:last-child) {
-                    margin-right: 2.0833333%; // Half column
-                }
-                .wp-block-column:not(:first-child) {
-                    margin-left: 2.0833333%; // Half column
-                }
-                @media only screen and (max-width: 576px) {
-                    .wp-block-column:not(:last-child) {
-                        margin-right: 0;
-                    }
-                    .wp-block-column:not(:first-child) {
-                        margin-left: 0;
-                    }
-                }
-            }
-            .alignleft {
-                float:left;
-                margin: 1rem 1rem 1rem 0;
-            }
-            .alignright {
-                float:right;
-                margin: 1rem 0 1rem 1rem;
-            }
-            @media only screen and (max-width: 576px) {
-                .alignleft, .alignright {
-                    float: none;
-                    text-align: center;
-                    margin: 0;
-                    img {
-                        width: 275px;
-                    }
+            align-items: center;
+            @media screen {
+                @media (min-width: 768px){
+                    margin-top: -10px;
                 }
             }
             img {
-                max-width: 100%;
-                &.alignleft {
-                    float: left;
-                    margin-right: 1.625em;
-                    margin-bottom: 1.625em;
-                    @media only screen and (max-width: 576px) {
-                        display: block;
-                        float: none;
-                        margin-left: 0;
-                        margin-right: 0;
-                    }
-                }
-                &.alignright {
-                    float: right;
-                    margin-left: 1.625em;
-                    @media only screen and (max-width: 576px) {
-                        display: block;
-                        float: none;
-                        margin-left: 0;
-                        margin-right: 0;
-                    }
-                }
-                &.size-full{
-                    max-width: 97.5%;
-                    width: auto;
-                    height: auto;
-                }
-                &.aligncenter {
-                    clear: both;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
+                height: 24px;
+                padding-left: 1rem;
+            }
+        }
+        img{
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .title-content-items {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #338591;
+        margin-left: 4.16666666667%;
+        margin-bottom: 2rem;
+    }
+    header.tainacan-content {
+        min-height: auto;
+    }
+    .tainacan-content {
+        font-size: 1rem;
+        min-height: 32.5vh;
+        @media only screen and (min-height: 1080px) {
+            min-height: 50vh;
+        }
+        &h1, &h2{
+            font-size: 1rem;
+        }
+        h1 {
+            color: #298596;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        h2 {
+            color: #000;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        h3 {
+            color: #000;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        h4 {
+            color: #555758;
+            font-size: 1rem;
+            font-style: italic;
+        }
+        h5 {
+            color: #000;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        h6 {
+            color: #298596;
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+        pre:not(.wp-block-code) {
+            color: #555758;
+            font-size: 1rem;
+            font-weight: 400;
+            white-space: pre-line;
+        }
+        .wp-block-code {
+            code {
+                font-size: 0.875rem;
+                color: #298596;
+                word-break: break-word;
+            }
+        }
+        .wp-block-quote {
+            margin: 3rem 8.33333%;
+            padding: 1rem;
+            p {
+                color: #555758;
+                font-size: 1rem;
+                font-weight: normal;
+            }
+            cite {
+                color: #555758;
+                display: block;
+                width: 100%;
+                text-align: right;
+                font-size: 1rem;
+                font-weight: 500;
+                font-style: italic;
+            }
+            &:not(.is-style-large) {
+                border-left: 2px solid #298596;
+            }
+            &.is-style-large {
+                font-size: 1.375rem;
+            }
+        }
+        .wp-block-separator {
+            border-color: #cbcbcb;
+            width: 50%;
+            max-width: 300px;
+            &.is-style-wide{
+                width: 100%;
+            }
+            &.is-style-dots{
+                &::before {
+                    color: #cbcbcb;
+                    font-weight: 600;
                 }
             }
-            .wp-block-cover-image{
-                width: 99.5vw;
-                position: relative;
-                left: 50%;
-                right: 50%;
-                margin-left: -50vw;
-                margin-right: -50vw;  
-                @media only screen and (max-width: 1200px){
-                    width: 100vw;
+        }
+        .tainacan-group-heading {
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.25rem; }
+            h4 { font-size: 1.125rem; }
+            p {
+                font-style: italic;
+                color: #898d8f;
+            }
+            hr.wp-block-separator:not(.is-style-wide) {
+                margin-left: 0;
+                max-width: 200px;
+            }
+            hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+                border-width: 4px;
+                height: 4px;
+            }
+        }
+        &>ul,
+        &>ol {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-left: 1.75rem;
+        }
+        .wp-block-media-text__content>ul,
+        .wp-block-media-text__content>ol {
+            margin-left: 1.75rem;
+        }
+        .table {
+            thead {
+                border-bottom: 1px solid #cbcbcb;
+                color: #555758;
+                th {
+                    font-weight: normal;
+                    font-size: 0.75rem;
                 }
             }
-            .wp-block-embed{
-                iframe{
-                    width: 100%;
-                }
+            tbody {
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: #000;
             }
-            .wp-block-gallery{
-                .blocks-gallery-item{
-                    figure{
-                        margin: 0 !important;
-                    }
-                    img {
-                        height: 100% !important;
-                    }
-                }
-                @media (max-width: 768px){
-                    padding-left: 0;
-                }
+        }
+        dl {
+            dd {
+                margin-left: 2rem;
             }
-            .wp-block-image {
-                &.is-resized {
-                    img {
-                        max-width: none !important;
-                    }
-                }
-                text-align: center;
-                figcaption{
-                    color: #000;
-                    font-size: 0.875rem;
-                    font-weight: 400;
-                }
+        }
+        address {
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+        p {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            code {
+                border-radius: 5px; 
+                -moz-border-radius: 5px; 
+                -webkit-border-radius: 5px; 
+                border: 1px solid #BCBEC0;
+                padding: 2px;
+                font-size:12px;
             }
-            .wp-block-pullquote{
-                margin: 3rem 0;
-                padding: 0;
-                border: none;
-
-                blockquote {
-                    border-top: 2px solid #cbcbcb;
-                    border-bottom: 2px solid #cbcbcb;
-                    padding: 2rem 8.3333333%;
-
-                    p {
-                        font-size: 1.375rem;
-                        color: #298596;
-                        font-weight: 500;
-                    }
-                    cite {
-                        color: #555758;
-                        font-size: 1rem;
-                        font-weight: normal;
-                        font-style: italic;
-                        text-transform: none;
-                    }
-                }
+        }
+        img[class*="align"], 
+        img[class*="wp-image-"], 
+        .gallery {
+            .gallery-icon img {
+                padding: 6px;
+                max-width: 97.5%;
+                max-width: calc( 100% - 14px );
             }
-            .wp-caption, .gallery-caption {
-                font-size: 0.8125rem;
-                max-width: 100%;
-                margin-top: 1em;
-                margin-bottom: 1.5em;
-                .wp-caption-text {
-                    margin: 0.8075em 0;
-                }
-                img[class*="wp-image-"]{
-                    height: auto;
-                    margin: 2% 0;
-                    width: 100%;
-                }
-            }
-            > p:last-child::after {
+        }
+        img[class*="align"], img[class*="wp-image-"], img[class*="attachment-"] {
+            height: auto;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            padding-top: .4rem;
+            &::after{
                 display: block;
                 clear: both;
                 content: "";
             }
-            &.single-item-collection{
-                min-height: 10vh;
-                position: relative;
+        }
+        .wp-block-columns {
+            display: flex;
+            margin: 0;
 
-                .single-item-collection--document {
-                    &:hover {
-                        .tainacan-item-document-download {
-                            opacity: 1;
-                            transform: scale(1);
-                        }
-                    }
-                    color: black;
-                    font : {
-                        size: 0.875rem;
-                        weight: 400;
-                    }
-                    display: flex;
-                    justify-content: center;
+            .wp-block-column {
+                flex-basis: 100%;
+            }
+            .wp-block-column:not(:last-child) {
+                margin-right: 2.0833333%; // Half column
+            }
+            .wp-block-column:not(:first-child) {
+                margin-left: 2.0833333%; // Half column
+            }
+            @media only screen and (max-width: 576px) {
+                .wp-block-column:not(:last-child) {
+                    margin-right: 0;
+                }
+                .wp-block-column:not(:first-child) {
+                    margin-left: 0;
+                }
+            }
+        }
+        .alignleft {
+            float:left;
+            margin: 1rem 1rem 1rem 0;
+        }
+        .alignright {
+            float:right;
+            margin: 1rem 0 1rem 1rem;
+        }
+        @media only screen and (max-width: 576px) {
+            .alignleft, .alignright {
+                float: none;
+                text-align: center;
+                margin: 0;
+                img {
+                    width: 275px;
+                }
+            }
+        }
+        img {
+            max-width: 100%;
+            &.alignleft {
+                float: left;
+                margin-right: 1.625em;
+                margin-bottom: 1.625em;
+                @media only screen and (max-width: 576px) {
+                    display: block;
+                    float: none;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+            &.alignright {
+                float: right;
+                margin-left: 1.625em;
+                @media only screen and (max-width: 576px) {
+                    display: block;
+                    float: none;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+            &.size-full{
+                max-width: 97.5%;
+                width: auto;
+                height: auto;
+            }
+            &.aligncenter {
+                clear: both;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        .wp-block-cover-image{
+            width: 99.5vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;  
+            @media only screen and (max-width: 1200px){
+                width: 100vw;
+            }
+        }
+        .wp-block-embed{
+            iframe{
+                width: 100%;
+            }
+        }
+        .wp-block-gallery{
+            .blocks-gallery-item{
+                figure{
+                    margin: 0 !important;
+                }
+                img {
+                    height: 100% !important;
+                }
+            }
+            @media (max-width: 768px){
+                padding-left: 0;
+            }
+        }
+        .wp-block-image {
+            &.is-resized {
+                img {
+                    max-width: none !important;
+                }
+            }
+            text-align: center;
+            figcaption{
+                color: #000;
+                font-size: 0.875rem;
+                font-weight: 400;
+            }
+        }
+        .wp-block-pullquote{
+            margin: 3rem 0;
+            padding: 0;
+            border: none;
 
-                    > iframe, img.attachment-large {
-                        display: block;
-                        height: auto;
-                        margin: 0 auto;
-                        border: none;
-                    }
-                    > audio {
-                        width: 100%;
-                    }
-                    > iframe {
-                        @media only screen and (min-width: 768px){
-                            min-height: 600px;
-                        }
-                        @media only screen and (max-width: 576px){
-                            min-height: 429px;
-                        }
-                    }
-                    .tainacan-embed-container{
-                        width: 100%;
+            blockquote {
+                border-top: 2px solid #cbcbcb;
+                border-bottom: 2px solid #cbcbcb;
+                padding: 2rem 8.3333333%;
 
-                        iframe {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                        }
-                    }
+                p {
+                    font-size: 1.375rem;
+                    color: #298596;
+                    font-weight: 500;
+                }
+                cite {
+                    color: #555758;
+                    font-size: 1rem;
+                    font-weight: normal;
+                    font-style: italic;
+                    text-transform: none;
+                }
+            }
+        }
+        .wp-caption, .gallery-caption {
+            font-size: 0.8125rem;
+            max-width: 100%;
+            margin-top: 1em;
+            margin-bottom: 1.5em;
+            .wp-caption-text {
+                margin: 0.8075em 0;
+            }
+            img[class*="wp-image-"]{
+                height: auto;
+                margin: 2% 0;
+                width: 100%;
+            }
+        }
+        > p:last-child::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+        &.single-item-collection{
+            min-height: 10vh;
+            position: relative;
+
+            .single-item-collection--document {
+                &:hover {
                     .tainacan-item-document-download {
-                        position: absolute;
-                        opacity: 0;
-                        transform: scale(0);
-                        border-radius: 24px;
-                        width: 36px;
-                        height: 36px;
-                        bottom: -18px;
-                        right: calc(50% - 18px);
-                        cursor: pointer;
-                        font-size: 0;
-                        background-color: #298596;
-                        color: white;
-                        transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
-
-                        a {
-                            height: 38px;
-                            width: 38px;
-                            display: block;
-                            position: relative;
-                            z-index: 99;
-                        }
-
-                        &::after {
-                            position: relative;
-                            top: -38px;
-                            display: inline-block;
-                            font: normal normal normal 20px/1 "TainacanIcons";
-                            font-size: 1.25rem !important;
-                            line-height: 2.25rem;
-                            text-rendering: auto;
-                            vertical-align: middle;
-                            -webkit-font-smoothing: antialiased;
-                            -moz-osx-font-smoothing: grayscale;
-                            font-size: 1.25em;
-                            text-transform: none !important;
-                            letter-spacing: normal !important;
-                            content: 'download';
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                        }
+                        opacity: 1;
+                        transform: scale(1);
                     }
                 }
-                .single-item-collection--gallery {
-                    margin-bottom: 24px;
-                    .slick-track {
+                color: black;
+                font : {
+                    size: 0.875rem;
+                    weight: 400;
+                }
+                display: flex;
+                justify-content: center;
+
+                > iframe, img.attachment-large {
+                    display: block;
+                    height: auto;
+                    margin: 0 auto;
+                    border: none;
+                }
+                > audio {
+                    width: 100%;
+                }
+                > iframe {
+                    @media only screen and (min-width: 768px){
+                        min-height: 600px;
+                    }
+                    @media only screen and (max-width: 576px){
+                        min-height: 429px;
+                    }
+                }
+                .tainacan-embed-container{
+                    width: 100%;
+
+                    iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                    }
+                }
+                .tainacan-item-document-download {
+                    position: absolute;
+                    opacity: 0;
+                    transform: scale(0);
+                    border-radius: 24px;
+                    width: 36px;
+                    height: 36px;
+                    bottom: -18px;
+                    right: calc(50% - 18px);
+                    cursor: pointer;
+                    font-size: 0;
+                    background-color: #298596;
+                    color: white;
+                    transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+
+                    a {
+                        height: 38px;
+                        width: 38px;
+                        display: block;
+                        position: relative;
+                        z-index: 99;
+                    }
+
+                    &::after {
+                        position: relative;
+                        top: -38px;
+                        display: inline-block;
+                        font: normal normal normal 20px/1 "TainacanIcons";
+                        font-size: 1.25rem !important;
+                        line-height: 2.25rem;
+                        text-rendering: auto;
+                        vertical-align: middle;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        font-size: 1.25em;
+                        text-transform: none !important;
+                        letter-spacing: normal !important;
+                        content: 'download';
                         display: flex;
+                        justify-content: center;
                         align-items: center;
                     }
-                    .tainacan-content {
-                        margin: 0;
-                        img {
-                            max-height: 60vh;
-                        }
-                    }
-                    .slick-slide {
+                }
+            }
+            .single-item-collection--gallery {
+                margin-bottom: 24px;
+                .slick-track {
+                    display: flex;
+                    align-items: center;
+                }
+                .tainacan-content {
+                    margin: 0;
+                    img {
                         max-height: 60vh;
                     }
                 }
-                .single-item-collection--gallery-items {
+                .slick-slide {
+                    max-height: 60vh;
+                }
+            }
+            .single-item-collection--gallery-items {
+                img {
+                    border-bottom: 4px solid transparent;
+                    margin-bottom: 4px;
+                    transition: border 0.3s ease;
+                }
+                .slick-current img {
+                    border-bottom: 4px solid #298596;
+                }
+            }
+            .single-item-collection--gallery-items,
+            .single-item-collection--attachments {
+                .single-item-collection--attachments-file {
+                    margin: 10px;
+                    text-align: center;
+                    display: inline-block;
+                    vertical-align: top;
+                    cursor: pointer;
+                    @media only screen and (max-width: 380px) {
+                        margin: 10px 0;
+                    }
+
                     img {
-                        border-bottom: 4px solid transparent;
-                        margin-bottom: 4px;
-                        transition: border 0.3s ease;
-                    }
-                    .slick-current img {
-                        border-bottom: 4px solid #298596;
-                    }
-                }
-                .single-item-collection--gallery-items,
-                .single-item-collection--attachments {
-                    .single-item-collection--attachments-file {
-                        margin: 10px;
-                        text-align: center;
+                        width: 125px;
+                        height: 125px;
                         display: inline-block;
-                        vertical-align: top;
-                        cursor: pointer;
-                        @media only screen and (max-width: 380px) {
-                            margin: 10px 0;
-                        }
-
-                        img {
-                            width: 125px;
-                            height: 125px;
-                            display: inline-block;
-                            &:focus {
-                                outline: none;
-                            }
-                        }
-                        a {
-                            width: 100%;
-                            max-width: 125px;
-                            margin: 0 auto;
-                            display: inline-block;
-                            font-size: 0.875rem; 
-                            text-align: center;
-                            word-break: break-all;
-                            line-height: 1.5rem
-                        }
-                        a,
-                        a:focus,
-                        a:hover {
+                        &:focus {
                             outline: none;
-                            text-decoration: none;
-                            cursor: pointer;
-                            color: black;
-                        }
-                        .attachment-without-image img {
-                            padding: 42px;
-                            background-color: #dbdbdb;
-                        }
-                        .item-card--thumbnail {
-                            margin: 0 0 4px 0 !important;
                         }
                     }
-                    .single-item-collection--attachments-prev {
-                        left: -50px;
-                        @media only screen and (max-width: 380px) {
-                            right: -40px;
-                        }
-                        &.slick-disabled {
-                            display: none;
-                            visibility: hidden;
-                        }
+                    a {
+                        width: 100%;
+                        max-width: 125px;
+                        margin: 0 auto;
+                        display: inline-block;
+                        font-size: 0.875rem; 
+                        text-align: center;
+                        word-break: break-all;
+                        line-height: 1.5rem
                     }
-                    .single-item-collection--attachments-next {
-                        right: -50px;
-                        @media only screen and (max-width: 380px) {
-                            right: -40px;
-                        }
-                        &.slick-disabled {
-                            display: none;
-                            visibility: hidden;
-                        }
-                    }
-                    .single-item-collection--attachments-prev, .single-item-collection--attachments-next {
-                        position: absolute;
-                        display: block;
-                        height: 33px;
-                        width: 45px;
-                        line-height: 0px;
-                        font-size: 3.75rem;
-                        color: #298596;
-                        cursor: pointer;
-                        background: transparent;
-                        top: 50%;
-                        -webkit-transform: translate(0, -50%);
-                        -ms-transform: translate(0, -50%);
-                        transform: translate(0, -50%);
-                        padding: 0;
-                        border: none;
+                    a,
+                    a:focus,
+                    a:hover {
                         outline: none;
+                        text-decoration: none;
+                        cursor: pointer;
+                        color: black;
                     }
-
+                    .attachment-without-image img {
+                        padding: 42px;
+                        background-color: #dbdbdb;
+                    }
+                    .item-card--thumbnail {
+                        margin: 0 0 4px 0 !important;
+                    }
                 }
-                .single-item-collection--information{
-                    .card{
-                        .item-card--thumbnail{
-                            height: auto;
-                            max-width: 250px;
+                .single-item-collection--attachments-prev {
+                    left: -50px;
+                    @media only screen and (max-width: 380px) {
+                        right: -40px;
+                    }
+                    &.slick-disabled {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+                .single-item-collection--attachments-next {
+                    right: -50px;
+                    @media only screen and (max-width: 380px) {
+                        right: -40px;
+                    }
+                    &.slick-disabled {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+                .single-item-collection--attachments-prev, .single-item-collection--attachments-next {
+                    position: absolute;
+                    display: block;
+                    height: 33px;
+                    width: 45px;
+                    line-height: 0px;
+                    font-size: 3.75rem;
+                    color: #298596;
+                    cursor: pointer;
+                    background: transparent;
+                    top: 50%;
+                    -webkit-transform: translate(0, -50%);
+                    -ms-transform: translate(0, -50%);
+                    transform: translate(0, -50%);
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                }
+
+            }
+            .single-item-collection--information{
+                .card{
+                    .item-card--thumbnail{
+                        height: auto;
+                        max-width: 250px;
+                        padding: 0;
+                    }
+                    h3{
+                        color: #000;
+                        font-size: 0.875rem;
+                        font-weight: 700;
+                    }
+                    p {
+                        color: #000;
+                        font-size: 0.75rem;
+                    }
+                    .item-card-link--sharing{
+                        margin-right: 0.5rem;
+                        img {
                             padding: 0;
-                        }
-                        h3{
-                            color: #000;
-                            font-size: 0.875rem;
-                            font-weight: 700;
-                        }
-                        p {
-                            color: #000;
-                            font-size: 0.75rem;
-                        }
-                        .item-card-link--sharing{
-                            margin-right: 0.5rem;
-                            img {
-                                padding: 0;
-                                max-width: 100%;
-                                width: 30px;
-                            }
+                            max-width: 100%;
+                            width: 30px;
                         }
                     }
-                    .s-item-collection--metadata {
-                        height: 100%;
-                        
-                        div {
-                            -webkit-column-break-inside: avoid;
-                            page-break-inside: avoid;
-                            break-inside: avoid;
-                            &:last-child {
-                                -webkit-column-break-inside: auto;
-                                page-break-inside: auto;
-                                break-inside: auto;
-                            }
+                }
+                .s-item-collection--metadata {
+                    height: 100%;
+                    
+                    div {
+                        -webkit-column-break-inside: avoid;
+                        page-break-inside: avoid;
+                        break-inside: avoid;
+                        &:last-child {
+                            -webkit-column-break-inside: auto;
+                            page-break-inside: auto;
+                            break-inside: auto;
                         }
-                        @media only screen and (min-width: 768px) {
-                            -moz-column-count: 2;
-                            -moz-column-gap: 0;
-                            -moz-column-rule: none;
-                            -webkit-column-count: 2;
-                            -webkit-column-gap: 0;
-                            -webkit-column-rule: none;
-                            column-count: 2;
-                            column-gap: 4rem;;
-                            column-rule: none;
+                    }
+                    @media only screen and (min-width: 768px) {
+                        -moz-column-count: 2;
+                        -moz-column-gap: 0;
+                        -moz-column-rule: none;
+                        -webkit-column-count: 2;
+                        -webkit-column-gap: 0;
+                        -webkit-column-rule: none;
+                        column-count: 2;
+                        column-gap: 4rem;;
+                        column-rule: none;
+                    }
+                    @media only screen and (min-width: 1366px) {
+                        -moz-column-count: 3;
+                        -moz-column-gap: 7rem;
+                        -moz-column-rule: none;
+                        -webkit-column-count: 3;
+                        -webkit-column-gap: 7rem;
+                        -webkit-column-rule: none;
+                        column-count: 3;
+                        column-gap: 7rem;
+                        column-rule: none;
+                    }
+                    h3{
+                        color: #000;
+                        font-size: 0.875rem;
+                        font-weight: 700;
+                        padding-right: 1rem;
+                        width: 100%;
+                        &:first-of-type:last-of-type {
+                            display: inline-block;
                         }
-                        @media only screen and (min-width: 1366px) {
-                            -moz-column-count: 3;
-                            -moz-column-gap: 7rem;
-                            -moz-column-rule: none;
-                            -webkit-column-count: 3;
-                            -webkit-column-gap: 7rem;
-                            -webkit-column-rule: none;
-                            column-count: 3;
-                            column-gap: 7rem;
-                            column-rule: none;
+                    }
+                    h4,
+                    label {
+                        color: #454647;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                        padding-right: 0.875rem;
+                        width: 100%;
+                        &:first-of-type:last-of-type {
+                            display: inline-block;
                         }
-                        h3{
-                            color: #000;
-                            font-size: 0.875rem;
-                            font-weight: 700;
-                            padding-right: 1rem;
-                            width: 100%;
-                            &:first-of-type:last-of-type {
-                                display: inline-block;
-                            }
+                    }
+                    p {
+                        color: #000;
+                        word-wrap: break-word;
+                        font: {
+                            size: 0.75rem;
+                            weight: 400;
                         }
-                        h4,
-                        label {
-                            color: #454647;
-                            font-size: 0.875rem;
-                            font-weight: 500;
-                            padding-right: 0.875rem;
-                            width: 100%;
-                            &:first-of-type:last-of-type {
-                                display: inline-block;
-                            }
-                        }
-                        p {
-                            color: #000;
-                            word-wrap: break-word;
-                            font: {
-                                size: 0.75rem;
-                                weight: 400;
-                            }
-                        }
+                    }
 
-                        // Metadata type textarea has different separator
+                    // Metadata type textarea has different separator
+                    .multivalue-separator {
+                        color: #cbcbcb;
+                        margin: 0 8px;    
+                    }
+                    .hierarchy-separator {
+                        color: #cbcbcb;  
+                    }
+                    .metadata-type-compound,
+                    .metadata-type-textarea {
                         .multivalue-separator {
-                            color: #cbcbcb;
-                            margin: 0 8px;    
+                            display: block;
+                            max-height: 1px;
+                            width: 35px;
+                            background: #cbcbcb;
+                            content: none;
+                            color: transparent;
+                            margin: 0.875rem auto;
                         }
-                        .hierarchy-separator {
-                            color: #cbcbcb;  
-                        }
-                        .metadata-type-compound,
-                        .metadata-type-textarea {
-                            .multivalue-separator {
-                                display: block;
-                                max-height: 1px;
-                                width: 35px;
-                                background: #cbcbcb;
-                                content: none;
-                                color: transparent;
-                                margin: 0.875rem auto;
-                            }
-                        }
-                        .tainacan-compound-group {
-                            padding-left: 1.5rem;
-                            border-left: 1px solid #f2f2f2;
-                        }
+                    }
+                    .tainacan-compound-group {
+                        padding-left: 1.5rem;
+                        border-left: 1px solid #f2f2f2;
                     }
                 }
             }
         }
+    
         footer {
             font-size: 0.875rem;
             color: #000;
