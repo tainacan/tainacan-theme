@@ -389,6 +389,29 @@ function tainacan_customize_register( $wp_customize ) {
 			'render_callback' => '__return_false',
 			'fallback_refresh' => true
 			) );
+
+		
+		/**
+		 * Adds option to display attachments and document as a gallery list.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_layout_sections_order', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => 'document-attachments-metadata',
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_layout_sections_order', array(
+			'type' 	   	  => 'select',
+			'priority' 	  => -1, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Layout sections order.', 'tainacan-interface' ),
+			'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
+			'choices'	  => array(
+				'document-attachments-metadata' => __('Document - Attachments - Metadata', 'tainacan-interface'),
+				'metadata-document-attachments' => __('Metadata - Document - Attachments', 'tainacan-interface'),
+				'document-metadata-attachments' => __('Document - Metadata - Attachments', 'tainacan-interface'),
+			)
+			) );
 		
 		/**
 		 * Adds section to control collection items page. ---------------------------------------------------------

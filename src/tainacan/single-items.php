@@ -14,14 +14,41 @@
 							get_template_part( 'template-parts/single-items-header' );
 							do_action( 'tainacan-interface-single-item-after-title' );
 
-							get_template_part( 'template-parts/single-items-document' );
-							do_action( 'tainacan-interface-single-item-after-document' );  
-			
-							get_template_part( 'template-parts/single-items-attachments' );
-							do_action( 'tainacan-interface-single-item-after-attachments' );
-							
-							get_template_part( 'template-parts/single-items-metadata' );
-							do_action( 'tainacan-interface-single-item-after-metadata' );
+							switch (get_theme_mod( 'tainacan_single_item_layout_sections_order', 'document-attachments-metadata')) {
+								case 'document-attachments-metadata':
+									get_template_part( 'template-parts/single-items-document' );
+									do_action( 'tainacan-interface-single-item-after-document' );  
+					
+									get_template_part( 'template-parts/single-items-attachments' );
+									do_action( 'tainacan-interface-single-item-after-attachments' );
+									
+									get_template_part( 'template-parts/single-items-metadata' );
+									do_action( 'tainacan-interface-single-item-after-metadata' );
+								break;
+
+								case 'metadata-document-attachments':
+									get_template_part( 'template-parts/single-items-metadata' );
+									do_action( 'tainacan-interface-single-item-after-metadata' );
+
+									get_template_part( 'template-parts/single-items-document' );
+									do_action( 'tainacan-interface-single-item-after-document' );  
+					
+									get_template_part( 'template-parts/single-items-attachments' );
+									do_action( 'tainacan-interface-single-item-after-attachments' );
+								break;
+
+								case 'document-metadata-attachments':
+									get_template_part( 'template-parts/single-items-document' );
+									do_action( 'tainacan-interface-single-item-after-document' );
+
+									get_template_part( 'template-parts/single-items-metadata' );
+									do_action( 'tainacan-interface-single-item-after-metadata' );  
+					
+									get_template_part( 'template-parts/single-items-attachments' );
+									do_action( 'tainacan-interface-single-item-after-attachments' );
+								break;
+									
+							}
 				
 							get_template_part( 'template-parts/single-items-comments' );
 						?>
