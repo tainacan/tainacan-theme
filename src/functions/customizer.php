@@ -225,13 +225,21 @@ function tainacan_customize_register( $wp_customize ) {
 	/**
 	 * Bellow are customizer options exclusivelly related to Tainacan pages.
 	 */
-	if ( defined ( 'TAINACAN_VERSION' ) ) {	
+	if ( defined ( 'TAINACAN_VERSION' ) ) {
+		
+		$wp_customize->add_panel( 'tainacan_pages', array(
+			'title' => __( 'Tainacan Pages' ),
+			'description' => __('Settings related only to Tainacan plugin such as the items page.'), 
+			'priority' => 160, // Mixed with top-level-section hierarchy.
+		) );
+		
 		/**
 		 * Adds section to control singe items page.
 		 */
 		$wp_customize->add_section( 'tainacan_single_item_page', array(
 			'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
 			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
+			'panel'		  => 'tainacan_pages',
 			'priority' 	  => 160,
 			'capability'  => 'edit_theme_options'
 			) );
@@ -546,6 +554,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_section( 'tainacan_items_page', array(
 			'title' 	  => __( 'Tainacan items list page', 'tainacan-interface' ),
 			'description' => __( 'Settings related to Tainacan items list pages.', 'tainacan-interface' ),
+			'panel'		  => 'tainacan_pages',
 			'priority' 	  => 161,
 			'capability'  => 'edit_theme_options'
 			) );
