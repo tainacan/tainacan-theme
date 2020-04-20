@@ -1686,28 +1686,28 @@ function tainacan_single_item_metadata_columns_count_output() {
 		/* Custom Settings for Single Item Page Metadata Columns Count */
 		
 		@media only screen and (max-width: 768px) { 
-			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+			.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
 				-moz-column-count: 1 !important;
 				-webkit-column-count: 1 !important;
 				column-count: 1 !important;
 			}
 		}
 		@media only screen and (min-width: 769px) and (max-width: 1024px) { 
-			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+			.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
 				-moz-column-count: %1$s !important;
 				-webkit-column-count: %1$s !important;
 				column-count: %1$s !important;
 			}
 		}
 		@media only screen and (min-width: 1025px) and (max-width: 1366px) {
-			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+			.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
 				-moz-column-count: %2$s !important;
 				-webkit-column-count: %2$s !important;
 				column-count: %2$s !important;
 			}
 		}
 		@media only screen and (min-width: 1367px) {
-			.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
+			.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--information .s-item-collection--metadata {			
 				-moz-column-count: %3$s !important;
 				-webkit-column-count: %3$s !important;
 				column-count: %3$s !important;
