@@ -28,7 +28,7 @@
 }
 
 .tainacan-collection--change-text-color .control {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .tainacan-collection--change-text-color input[type="radio"]::before {
@@ -45,8 +45,8 @@
     color: #fff;
     margin-right: 1rem;
     padding: 0.8rem;
-    border-radius: 3px;
-    padding: 0.7rem 1.25rem;
+    border-radius: 2px;
+    padding: 0.7rem 1.25rem 0.7rem 1.0rem;
     font-size: 0.875rem;
 }
 
@@ -55,7 +55,11 @@
     color: #000;
     margin-right: 1rem;
     padding: 0.8rem;
-    border-radius: 3px;
-    padding: 0.7rem 1.25rem;
+    border-radius: 2px;
+    padding: 0.7rem 1.25rem 0.7rem 1.0rem;
     font-size: 0.875rem;
+}
+.tainacan-collection--change-text-color .color-text input[type="radio"] {
+    border-color: white;
+    vertical-align: middle;
 }

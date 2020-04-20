@@ -93,19 +93,23 @@ class TainacanThemeCollectionColor {
 				</div>
 			</span>
 			<div class="control is-clearfix"> 
-				<input
-					type="radio" 
-					value="#fff" 
-					name="<?php echo $this->tainacan_text_color; ?>"
-					id="white" checked>
-					<label for="white" id="color-white" class="color-text">
-						<?php _e( 'White', 'tainacan-interface' ); ?></label>
-				<input
-					type="radio" 
-					value="#000" 
-					name="<?php echo $this->tainacan_text_color; ?>"
-					id="black">
-					<label for="black" id="color-black" class="color-text"><?php _e( 'Black', 'tainacan-interface' ); ?></label>
+				<label for="white" id="color-white" class="color-text">
+					<input
+						type="radio" 
+						value="#fff" 
+						name="<?php echo $this->tainacan_text_color; ?>"
+						id="white" checked>
+					<?php _e( 'White', 'tainacan-interface' ); ?>
+				</label>
+				
+				<label for="black" id="color-black" class="color-text">
+					<input
+						type="radio" 
+						value="#000" 
+						name="<?php echo $this->tainacan_text_color; ?>"
+						id="black">
+						<?php _e( 'Black', 'tainacan-interface' ); ?>
+				</label>
 			</div>
 		</div>
 

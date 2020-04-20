@@ -146,7 +146,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Add color scheme setting and control.
 	 */
 	$wp_customize->add_setting( 'tainacan_color_scheme', array(
-		'type'       => 'theme_mod',
+		'type'       		=> 'theme_mod',
 		'default'           => 'default',
 		'sanitize_callback' => 'tainacan_sanitize_color_scheme',
 		'transport'         => 'postMessage',
@@ -208,6 +208,11 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'    	  => __( 'Hide the header banner site title', 'tainacan-interface' ),
 		'description' => __( 'Toggle to hide the site title row that appears over the header banner', 'tainacan-interface' )
 		) );
+	$wp_customize->selective_refresh->add_partial( 'tainacan_hide_site_title_on_header_banner', array(
+			'selector' => '.page-header h1.text-truncate',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+		) );
 	$wp_customize->add_setting( 'tainacan_hide_header_banner', array(
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
@@ -221,6 +226,28 @@ function tainacan_customize_register( $wp_customize ) {
 		'label'    	  => __( 'Hide the header banner completely', 'tainacan-interface' ),
 		'description' => __( 'Toggle to hide the header banner from all pages of the site', 'tainacan-interface' )
 		) );
+	$wp_customize->add_setting( 'tainacan_hide_header_box_opacity', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 60,
+		'transport'  => 'postMessage'
+	) );
+	$wp_customize->add_control( 'tainacan_hide_header_box_opacity', array(
+		'type' => 'number',
+		'section' => 'header_image',
+		'label' => __( 'Title box opacity (%)' ),
+		'description' => __( 'Change the opacity of the white box that holds the banner site title' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 100,
+			'step' => 5
+		),
+	) );
+	$wp_customize->selective_refresh->add_partial( 'tainacan_hide_header_box_opacity', array(
+		'selector' => '.page-header .ph-title-description',
+		'render_callback' => '__return_false',
+		'fallback_refresh' => true
+	) );
 
 	/**
 	 * Bellow are customizer options exclusivelly related to Tainacan pages.
