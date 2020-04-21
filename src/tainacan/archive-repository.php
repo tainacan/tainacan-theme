@@ -5,6 +5,7 @@
 
 	<?php tainacan_the_faceted_search([
 		'default-view-mode' => get_theme_mod('tainacan_items_repository_list_default_view_mode', 'masonry'),
+		'default-items-per-page' => get_theme_mod('tainacan_items_page_default_items_per_page', 12),
 		'hide-filters' => get_theme_mod('tainacan_items_page_hide_filters', false),
 		'hide-hide-filters-button' => get_theme_mod('tainacan_items_page_hide_hide_filters_button', false),
 		'hide-search' => get_theme_mod('tainacan_items_page_hide_search', false),
