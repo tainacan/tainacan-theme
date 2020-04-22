@@ -6,7 +6,11 @@
     position: relative;
     background-color: #f2f2f2;
     @media only screen and (min-width: 641px) and (max-width: 992px) {
-        height: 240px;
+        height: 37.5%;
+        height: 37.5vw;
+        .page-header-share {
+            margin-top: 3px !important;
+        }
     }
     @media only screen and (max-width: 640px) {
         height: auto;
@@ -30,7 +34,8 @@
             background-position: center;
 
             @media only screen and (min-width: 641px) and (max-width: 992px) {
-                height: 240px;
+                height: 37.5%;
+                height: 37.5vw;
             }
             @media only screen and (max-width: 640px) {
                 height: auto;
@@ -40,20 +45,20 @@
         > .page-header-content {
 
             > .page-header-content-meta {
-                margin: 45px 0 45px 4.16666666667%;
-                margin: 45px 0 45px 4.16666666667vw;
+                margin: 35px 0 35px 4.16666666667%;
+                margin: 35px 0 35px 4.16666666667vw;
 
                 @media only screen and (max-width:992px) {
-                    margin-top: 30px;
+                    margin-top: 24px;
                     margin-bottom: 18px;
-                    margin-left: 4.16666666667%;
-                    margin-right: 4.16666666667%;
-                    margin-left: 4.16666666667vw;
-                    margin-right: 4.16666666667vw;
                 }
-                @media only screen and (max-width: 576px) {
+                @media only screen and (max-width: 640px) {
                     margin-top: 40px;
                     margin-bottom: 25px;
+                    margin-left: 8.333333%;
+                    margin-right: 8.333333%;
+                    margin-left: 8.333333vw;
+                    margin-right: 8.333333vw;
                 }
                 > .page-header-content-title {
                     width: 100%;
@@ -76,7 +81,7 @@
                 > .page-header-hightlights {
                     margin-top: 30px;
                     @media only screen and (max-width: 992px) {
-                        margin-top: 23px;
+                        margin-top: 14px;
                     }
                     > .page-header-description {
                         color: #000;
@@ -106,7 +111,7 @@
                         @media only screen and (max-width: 992px) {
                             margin-top: 12px;
                         }
-                        @media only screen and (max-width: 576px) {
+                        @media only screen and (max-width: 640px) {
                             margin-top: 24px;
                         }
                         .page-header-icons {
