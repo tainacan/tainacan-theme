@@ -738,6 +738,8 @@ nav{
     margin: 0 auto;
     object-fit: cover;
     display: block;
+    min-height: 140px; // Important when loading img source file.
+    background-color: #f2f2f2;
 }
 .page-header.page-header--image-full {
     height: auto;

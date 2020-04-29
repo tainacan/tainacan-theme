@@ -38,6 +38,7 @@
 // use 1526px - 1 column - 1 column;
 .wp-block-image.alignwide>img {
     max-width: 1400px !important;
+    width: calc(100% - 12.5%) !important;
     width: calc(100vw - 12.5vw) !important;
     padding: 0 !important;
     left: 0px;
