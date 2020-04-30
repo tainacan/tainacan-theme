@@ -578,6 +578,9 @@
             }
             .single-item-collection--gallery {
                 margin-bottom: 24px;
+                .slick-list  {
+                    overflow: visible;
+                }
                 .slick-track {
                     display: flex;
                     align-items: center;
@@ -586,6 +589,13 @@
                     margin: 0;
                     img {
                         max-height: 60vh;
+                    }
+                    video {
+                        width: auto;
+                    }
+                    iframe {
+                        min-height: 200px;
+                        height: 60vh;
                     }
                 }
                 .slick-slide {
