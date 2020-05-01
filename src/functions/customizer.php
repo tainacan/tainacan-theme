@@ -1491,7 +1491,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Document download button */
-	.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--document .tainacan-item-document-download {
+	.tainacan-single-post article .tainacan-content.single-item-collection .single-item-collection--document .tainacan-item-file-download {
 		background-color: {$colors['tainacan_link_color']} !important;
 	}
 

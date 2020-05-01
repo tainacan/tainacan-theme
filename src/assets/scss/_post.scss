@@ -485,13 +485,56 @@
             clear: both;
             content: "";
         }
-        &.single-item-collection{
+        &.single-item-collection {
             min-height: 10vh;
             position: relative;
 
+            .tainacan-item-file-download {
+                position: absolute;
+                opacity: 0;
+                transform: scale(0);
+                border-radius: 24px;
+                width: 36px;
+                height: 36px;
+                bottom: -18px;
+                right: calc(50% - 18px);
+                cursor: pointer;
+                font-size: 0;
+                background-color: #298596;
+                color: white;
+                transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+
+                a {
+                    height: 38px;
+                    width: 38px;
+                    display: block;
+                    position: relative;
+                    z-index: 99;
+                }
+
+                &::after {
+                    position: relative;
+                    top: -38px;
+                    display: inline-block;
+                    font: normal normal normal 20px/1 "TainacanIcons";
+                    font-size: 1.25rem !important;
+                    line-height: 2.25rem;
+                    text-rendering: auto;
+                    vertical-align: middle;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 1.25em;
+                    text-transform: none !important;
+                    letter-spacing: normal !important;
+                    content: 'download';
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
             .single-item-collection--document {
                 &:hover {
-                    .tainacan-item-document-download {
+                    .tainacan-item-file-download {
                         opacity: 1;
                         transform: scale(1);
                     }
@@ -532,49 +575,6 @@
                         bottom: 0;
                     }
                 }
-                .tainacan-item-document-download {
-                    position: absolute;
-                    opacity: 0;
-                    transform: scale(0);
-                    border-radius: 24px;
-                    width: 36px;
-                    height: 36px;
-                    bottom: -18px;
-                    right: calc(50% - 18px);
-                    cursor: pointer;
-                    font-size: 0;
-                    background-color: #298596;
-                    color: white;
-                    transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
-
-                    a {
-                        height: 38px;
-                        width: 38px;
-                        display: block;
-                        position: relative;
-                        z-index: 99;
-                    }
-
-                    &::after {
-                        position: relative;
-                        top: -38px;
-                        display: inline-block;
-                        font: normal normal normal 20px/1 "TainacanIcons";
-                        font-size: 1.25rem !important;
-                        line-height: 2.25rem;
-                        text-rendering: auto;
-                        vertical-align: middle;
-                        -webkit-font-smoothing: antialiased;
-                        -moz-osx-font-smoothing: grayscale;
-                        font-size: 1.25em;
-                        text-transform: none !important;
-                        letter-spacing: normal !important;
-                        content: 'download';
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                }
             }
             .single-item-collection--gallery {
                 margin-bottom: 24px;
@@ -612,6 +612,14 @@
                     border-bottom: 4px solid #298596;
                 }
             }
+            .single-item-collection--attachments-file {
+                &:hover {
+                    .tainacan-item-file-download {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            } 
             .single-item-collection--gallery-items,
             .single-item-collection--attachments {
                 .single-item-collection--attachments-file {
@@ -682,7 +690,8 @@
                         visibility: hidden;
                     }
                 }
-                .single-item-collection--attachments-prev, .single-item-collection--attachments-next {
+                .single-item-collection--attachments-prev,
+                .single-item-collection--attachments-next {
                     position: absolute;
                     display: block;
                     height: 33px;
