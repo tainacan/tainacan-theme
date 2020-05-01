@@ -620,6 +620,10 @@
                     display: inline-block;
                     vertical-align: top;
                     cursor: pointer;
+                    word-break: break-all;
+                    font-size: 0.875em;
+                    padding: 0 14px;
+                    
                     @media only screen and (max-width: 380px) {
                         margin: 10px 0;
                     }
