@@ -4,6 +4,7 @@
     height: 300px;
     margin: 0;
     position: relative;
+    overflow-y: auto;
     background-color: #f2f2f2;
     @media only screen and (min-width: 641px) and (max-width: 992px) {
         height: 37.5%;
@@ -99,9 +100,20 @@
                         a {
                             color: #298596;
                             font: {
-                                size: 0.875rem;
+                                size: inherit;
                                 weight: 400;
                             }   
+                        }
+                        &.tainacan-interface-truncate-term {
+                            .tainacan-interface-more-term, .tainacan-interface-less-term {
+                                color: #4f4f4f;
+                                white-space: nowrap;
+                                opacity: 0.75;
+                            }
+                            &.full-story {
+                                height: auto;
+                                margin-bottom: 2rem;
+                            }
                         }
                     }
                     > .page-header-share {

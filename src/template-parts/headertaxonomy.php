@@ -33,10 +33,11 @@ $src = wp_get_attachment_image_src($image, 'full');
 				</div>
 				<?php $tainacan_term_description = tainacan_get_the_term_description(); ?>
 				<div class="page-header-hightlights d-flex flex-wrap">
-					<div class="col-12 col-xl-10 col-lg-9 page-header-description">
+					<div class="col-12 col-xl-10 col-lg-9 page-header-description tainacan-interface-truncate-term">
 						<?php echo $tainacan_term_description; ?>
+						<?php do_action( 'tainacan-interface-collection-description' ); ?>
 					</div>
-					<?php do_action( 'tainacan-interface-taxonoy-description' ); ?>
+					<?php do_action( 'tainacan-interface-taxonomy-description' ); ?>
 					<div class="col-12 col-xl-2 col-lg-3 d-flex flex-wrap page-header-share">
 						<div class="page-header-icons">
 							<p class="share-title"><?php _e('Share', 'tainacan-interface'); ?></p>

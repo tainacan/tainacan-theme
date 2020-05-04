@@ -186,6 +186,7 @@ jQuery( document ).ready(function( $ ) {
 	});
 
 	$( '.tainacan-interface-truncate' ).tainacan_interface_truncate();
+	$( '.tainacan-interface-truncate-term' ).tainacan_interface_truncate_term();
 	$( ".trigger" ).click( function() {
 		$( ".collection-header--share" ).toggleClass( "active" );
 	});

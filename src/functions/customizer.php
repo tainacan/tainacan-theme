@@ -794,7 +794,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'refresh'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_show_filters_button_inside_search_control', array(
 				'type' 	   	  => 'checkbox',
@@ -803,12 +803,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
 				'description' => __( 'Toggle to do display the Filters button inside the search control bar.', 'tainacan-interface' )
 				) );
-			$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_show_filters_button_inside_search_control', array(
-				'selector' => '.theme-items-list #tainacanFiltersButton',
-				'render_callback' => '__return_false',
-				'fallback_refresh' => true
-				) );
-
+				
 			/**
 			 * Adds option to start filters hidden by default on every items list.
 			 */
