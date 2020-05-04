@@ -777,7 +777,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'refresh'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
 				'type' 	   	  => 'checkbox',
