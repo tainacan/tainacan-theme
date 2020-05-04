@@ -1,5 +1,8 @@
 <?php
 
+/** Theme version */
+const TAINACAN_INTERFACE_VERSION = '2.0';
+
 /**
  * Setup Theme
  */
@@ -320,7 +323,7 @@ function tainacan_customizer_gutenberg_colors() {
 function tainacan_editor_styles() {
 
 	// Adds Tainacan editor style for Gutenberg.
-    wp_enqueue_style( 'tainacan-editor-style', get_template_directory_uri() . '/editor-style.css' );
+    wp_enqueue_style( 'tainacan-editor-style', get_template_directory_uri() . '/editor-style.css', [], TAINACAN_INTERFACE_VERSION );
 	
 	// Adds Robot fonts to Gutenberg.
 	wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
