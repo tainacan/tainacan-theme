@@ -55,7 +55,7 @@
 		if (windowWidth <= 1860)
 			count = 890;
 
-		if (windowWidth <= 1366)
+		if (windowWidth <= 1365)
 			count = 580;
 	
 		if (windowWidth <= 920)

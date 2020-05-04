@@ -25,9 +25,10 @@
         .dropdown-menu {
             font-size: 0.875rem;
             border-radius: 0;
+            border: 1px solid #cbcbcb;
             a {
                 &:hover{
-                    background-color: #c1dae0;
+                    background-color: #f2f2f2;
                 }
                 &.active {
                     background-color: #c1dae0;
