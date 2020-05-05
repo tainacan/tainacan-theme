@@ -414,7 +414,24 @@ function tainacan_customize_register( $wp_customize ) {
 			) );
 		
 		/**
-		 * Adds options to display item autohr and publish date.
+		 * Adds options to hide attachments file names on carousel.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_hide_files_name', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_hide_files_name', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Hide the attchments label', 'tainacan-interface' ),
+			'description' => __( 'Toggle to not display the document and attachments name below its thumbnail.', 'tainacan-interface' )
+			) );
+
+		/**
+		 * Adds options to display item author and publish date.
 		 */
 		$wp_customize->add_setting( 'tainacan_single_item_hide_item_meta', array(
 			'type' 		 => 'theme_mod',

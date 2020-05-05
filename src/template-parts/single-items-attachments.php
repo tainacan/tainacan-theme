@@ -67,8 +67,8 @@
                                 <?php
                                     the_post_thumbnail('tainacan-medium-full', array('class' => 'item-card--thumbnail mt-2'));
                                     echo '<br>';
-                                    echo __( 'Document', 'tainacan-interface' );
                                 ?>
+                                <span class="single-item-file-name <?php if (get_theme_mod('tainacan_single_item_hide_files_name', false)) echo 'sr-only' ?>"><?php echo __( 'Document', 'tainacan-interface' ); ?></span>
                             </div>
                         <?php endif; ?>
                         <?php foreach ( $attachments as $attachment ) { ?>
@@ -77,8 +77,8 @@
                                     <?php
                                         echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
                                         echo '<br>';
-                                        echo get_the_title( $attachment->ID );
                                     ?>
+                                    <span class="single-item-file-name <?php if (get_theme_mod('tainacan_single_item_hide_files_name', false)) echo 'sr-only' ?>"><?php echo get_the_title( $attachment->ID ); ?></span>
                                 </div>
                             </div>
                         <?php } ?>
@@ -103,8 +103,8 @@
                                 <?php
                                     echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
                                     echo '<br>';
-                                    echo get_the_title( $attachment->ID );
                                 ?>
+                                <span class="single-item-file-name <?php if (get_theme_mod('tainacan_single_item_hide_files_name', false)) echo 'sr-only' ?>"><?php echo get_the_title( $attachment->ID ); ?></span>
                             </a>
                         </div>
                     <?php }
