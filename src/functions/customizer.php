@@ -286,44 +286,46 @@ function tainacan_customize_register( $wp_customize ) {
 			)
 			) );
 
-		/**
-		 * Adds option to display Collection banner on the item single page.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => false,
-			'transport'  => 'postMessage'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
-			'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
-			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header', array(
-			'selector' => '.tainacan-single-item-heading',
-			'render_callback' => '__return_false',
-			'fallback_refresh' => true
-			) );
-
-		/**
-		 * Adds option to display attachments and document as a gallery list.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => false,
-			'transport'  => 'refresh'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Show "Documents" section: Document and Attachments grouped in one slider.', 'tainacan-interface' ),
-			'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
-			) );
+		if (version_compare(TAINACAN_VERSION, '0.16') <= 0) {
+			/**
+			 * Adds option to display Collection banner on the item single page.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_collection_header', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => false,
+				'transport'  => 'postMessage'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 0, // Within the section.
+				'section'  	  => 'tainacan_single_item_page',
+				'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
+				'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
+				) );
+			$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_collection_header', array(
+				'selector' => '.tainacan-single-item-heading',
+				'render_callback' => '__return_false',
+				'fallback_refresh' => true
+				) );
+		
+			/**
+			 * Adds option to display attachments and document as a gallery list.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => false,
+				'transport'  => 'refresh'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 0, // Within the section.
+				'section'  	  => 'tainacan_single_item_page',
+				'label'    	  => __( 'Show "Documents" section: Document and Attachments grouped in one slider.', 'tainacan-interface' ),
+				'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
+				) );
+		}
 
 		/**
 		 * Adds option to configure Document section label.
@@ -452,22 +454,24 @@ function tainacan_customize_register( $wp_customize ) {
 			'fallback_refresh' => true
 			) );
 
-		/**
-		 * Adds options to display or not the document download button.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_hide_download_document', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => false,
-			'transport'  => 'refresh'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 2, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
-			'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
-			) );
+		if (version_compare(TAINACAN_VERSION, '0.16') <= 0) {
+			/**
+			 * Adds options to display or not the document download button.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_hide_download_document', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => false,
+				'transport'  => 'refresh'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 2, // Within the section.
+				'section'  	  => 'tainacan_single_item_page',
+				'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
+				'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
+				) );
+		}
 
 		/**
 		 * Adds options to display or not the thumbnail on items page.
