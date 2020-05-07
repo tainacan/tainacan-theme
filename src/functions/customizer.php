@@ -1356,8 +1356,20 @@ function tainacan_get_color_scheme_css( $colors ) {
 		fill: {$colors['tainacan_link_color']} !important;
 	}
 
-	.tainacan-single-post	.single-item-collection--attachments .single-item-collection--attachments-next,
-	.tainacan-single-post	.single-item-collection--attachments .single-item-collection--attachments-prev {
+	.tainacan-single-post .single-item-collection--attachments-next,
+	.tainacan-single-post .single-item-collection--attachments-prev {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+
+	.tainacan-single-post .single-item-collection .single-item-collection--gallery-items .slick-current img {
+		border-bottom: 4px solid {$colors['tainacan_link_color']} !important;
+	}
+
+	.tainacan-single-post .single-item-collection .tainacan-item-file-download {
+		background-color: {$colors['tainacan_link_color']} !important;
+	}
+
+	.tainacan-single-post .title-content-items {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 

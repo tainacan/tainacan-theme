@@ -67,18 +67,20 @@ jQuery( document ).ready(function( $ ) {
 	$('.single-item-collection--gallery').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		arrows: false,
+		arrows: true,
 		fade: true,
-		asNavFor: '.single-item-collection--gallery-items'
+		asNavFor: '.single-item-collection--gallery-items',
+		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowleft"></i></button>',
+		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',
 	});
 
 	$( '.single-item-collection--gallery-items' ).slick({
 		asNavFor: '.single-item-collection--gallery',
-		prevArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-prev" aria-label="Previous" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowleft"></i></button>',
-		nextArrow: '<button type="button" data-role="none" class="single-item-collection--attachments-next" aria-label="Next" role="button" style="display: block;"><i class="tainacan-icon tainacan-icon-arrowright"></i></button>',
+		arrows: false,
 		slidesToShow: 7,
 		slidesToScroll: 1,
 		infinite: false,
+		centerMode: false,
 		focusOnSelect: true,
 		autoplay: false,
 		autoplaySpeed: 2000,
@@ -136,6 +138,7 @@ jQuery( document ).ready(function( $ ) {
 		slidesToShow: 7,
 		slidesToScroll: 1,
 		autoplay: false,
+		infinite: true,
 		autoplaySpeed: 2000,
 		responsive: [ {
 			breakpoint: 1330,
