@@ -286,7 +286,7 @@ function tainacan_customize_register( $wp_customize ) {
 			)
 			) );
 
-		if (version_compare(TAINACAN_VERSION, '0.16') <= 0) {
+		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
 			/**
 			 * Adds option to display Collection banner on the item single page.
 			 */
@@ -454,7 +454,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'fallback_refresh' => true
 			) );
 
-		if (version_compare(TAINACAN_VERSION, '0.16') <= 0) {
+		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
 			/**
 			 * Adds options to display or not the document download button.
 			 */
@@ -583,7 +583,7 @@ function tainacan_customize_register( $wp_customize ) {
 			)
 			) );
 
-		if (version_compare(TAINACAN_VERSION, '0.16') <= 0) {
+		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
 
 			/**
 			 * Adds section to control collection items page. ---------------------------------------------------------
