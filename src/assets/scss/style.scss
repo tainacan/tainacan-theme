@@ -676,7 +676,6 @@ nav{
         word-break: break-word;
 
         @media only screen and (min-width: 769px){
-            max-height: 100px;
             min-width: 450px;
             padding: 0rem;
             padding-left: 4.166667%;
@@ -690,16 +689,14 @@ nav{
             }
         }
         @media only screen and (max-width: 768px){
-            padding: 0.7rem;
+            padding: 0.85rem 0.7rem;
             padding-top: 1.2rem;
             padding-left: 4.166667%;
             padding-right: 4.166667%;
             padding-left: 4.166667vw;
             padding-right: 4.166667vw;
-            max-height: 100px;
         }
         @media only screen and (max-width: 576px){
-            max-height: 50px;
             //padding: 0 1.3rem 0 4.16666666667%;
             padding: 1rem;
             padding-top: 0.8rem;

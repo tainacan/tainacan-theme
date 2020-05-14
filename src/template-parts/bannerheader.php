@@ -5,7 +5,7 @@
 				<div 
 						style="background-color: rgba(255, 255, 255, <?php echo (get_theme_mod('tainacan_hide_header_box_opacity', 65)/100) ?>) !important;"
 						class="title-header <?php if ( is_singular() || is_archive() || is_search() || is_home() ) { echo 'singular-title'; }?>">
-					<h1 class="mb-0 text-truncate">
+					<h1 class="mb-0">
 						<?php bloginfo( 'title' ) ?>
 					</h1>
 					<?php do_action( 'tainacan-interface-banner-header-description' ); ?>

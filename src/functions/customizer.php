@@ -209,7 +209,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'description' => __( 'Toggle to hide the site title row that appears over the header banner', 'tainacan-interface' )
 		) );
 	$wp_customize->selective_refresh->add_partial( 'tainacan_hide_site_title_on_header_banner', array(
-			'selector' => '.page-header h1.text-truncate',
+			'selector' => '.page-header .title-header h1',
 			'render_callback' => '__return_false',
 			'fallback_refresh' => true
 		) );
