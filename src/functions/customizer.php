@@ -661,7 +661,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'priority' 	  => 3, // Within the section.
 				'section'  	  => 'tainacan_items_page_search_area',
 				'label'    	  => __( 'Hide the Search block.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do not show the  on the search control bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to do not show the search block on the control bar.', 'tainacan-interface' )
 				) );
 			$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_search', array(
 				'selector' => '.theme-items-list .search-area',
@@ -684,7 +684,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'priority' 	  => 3, // Within the section.
 				'section'  	  => 'tainacan_items_page_search_area',
 				'label'    	  => __( 'Hide the Advanced Search link.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do not show the on the advanced search link on the control bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to do not show the advanced search link on the control bar.', 'tainacan-interface' )
 				) );
 			$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_advanced_search', array(
 				'selector' => '.theme-items-list .search-area a.has-text-secondary ',

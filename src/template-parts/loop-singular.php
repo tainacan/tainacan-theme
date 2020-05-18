@@ -21,8 +21,8 @@
 		<?php endif; ?>
 		<?php if ( ! is_singular( 'page' ) ) : ?>
 			<div class="row justify-content-between">
-				<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'tainacan-interface' ) ); ?></span>
-				<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'tainacan-interface' ) ); ?></span>
+				<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span>&nbsp;' . __( 'Previous', 'tainacan-interface' ) ); ?></span>
+				<span class="nav-next"><?php next_post_link( '%link', __( 'Next', 'tainacan-interface' ) . '&nbsp;<span class="meta-nav">&rarr;</span>' ); ?></span>
 			</div>
 		<?php endif; ?>
 	<?php endwhile; ?>
