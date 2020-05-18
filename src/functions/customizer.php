@@ -23,7 +23,7 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'tainacan_blogaddress', array(
 		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
-		'sanitize_callback'  => 'sanitize_text_field',
+		'sanitize_callback'  => 'sanitize_text_field'
 	) );
 
 	$wp_customize->add_control( 'tainacan_blogaddress', array(
@@ -81,7 +81,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 	) );
 
 	$wp_customize->add_control( 'tainacan_display_powered', array(
@@ -106,7 +106,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'tainacan_facebook_share', array(
@@ -121,7 +121,7 @@ function tainacan_customize_register( $wp_customize ) {
 		'type'       => 'theme_mod',
 		'default'        => true,
 		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'tainacan_display_callback_sanitize_checkbox',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
 	) );
 
 	$wp_customize->add_control( 'tainacan_twitter_share', array(
@@ -199,7 +199,8 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
 		'default' 	 => false,
-		'transport'  => 'refresh'
+		'transport'  => 'refresh',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 		) );
 	$wp_customize->add_control( 'tainacan_hide_site_title_on_header_banner', array(
 		'type' 	   	  => 'checkbox',
@@ -217,7 +218,8 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
 		'default' 	 => false,
-		'transport'  => 'refresh'
+		'transport'  => 'refresh',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 		) );
 	$wp_customize->add_control( 'tainacan_hide_header_banner', array(
 		'type' 	   	  => 'checkbox',
@@ -230,13 +232,14 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' 		 => 'theme_mod',
 		'capability' => 'edit_theme_options',
 		'default' 	 => 60,
-		'transport'  => 'postMessage'
+		'transport'  => 'postMessage',
+		'sanitize_callback'  => 'sanitize_text_field'
 	) );
 	$wp_customize->add_control( 'tainacan_hide_header_box_opacity', array(
 		'type' => 'number',
 		'section' => 'header_image',
-		'label' => __( 'Title box opacity (%)' ),
-		'description' => __( 'Change the opacity of the white box that holds the banner site title' ),
+		'label' => __( 'Title box opacity (%)', 'tainacan-interface' ),
+		'description' => __( 'Change the opacity of the white box that holds the banner site title', 'tainacan-interface' ),
 		'input_attrs' => array(
 			'min' => 0,
 			'max' => 100,
@@ -271,7 +274,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => 'document-attachments-metadata',
-			'transport'  => 'refresh'
+			'transport'  => 'refresh',
+			'sanitize_callback' => 'tainacan_sanitize_single_item_layout_sections_order',
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_layout_sections_order', array(
 			'type' 	   	  => 'select',
@@ -279,11 +283,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'section'  	  => 'tainacan_single_item_page',
 			'label'    	  => __( 'Layout sections order.', 'tainacan-interface' ),
 			'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
-			'choices'	  => array(
-				'document-attachments-metadata' => __('Document - Attachments - Metadata', 'tainacan-interface'),
-				'metadata-document-attachments' => __('Metadata - Document - Attachments', 'tainacan-interface'),
-				'document-metadata-attachments' => __('Document - Metadata - Attachments', 'tainacan-interface'),
-			)
+			'choices'	  => tainacan_get_single_item_layout_sections_order_options()
 			) );
 
 		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
@@ -294,7 +294,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
 				'type' 	   	  => 'checkbox',
@@ -316,7 +317,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
 				'type' 	   	  => 'checkbox',
@@ -334,7 +336,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => __( 'Document', 'tainacan-interface' ),
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_document_section_label', array(
 			'type' 	   	  => 'text',
@@ -356,7 +359,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => __( 'Attachments', 'tainacan-interface' ),
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_attachments_section_label', array(
 			'type' 	   	  => 'text',
@@ -378,7 +382,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => __( 'Documents', 'tainacan-interface' ),
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_documents_section_label', array(
 			'type' 	   	  => 'text',
@@ -400,7 +405,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => '',
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_metadata_section_label', array(
 			'type' 	   	  => 'text',
@@ -422,7 +428,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'refresh',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_hide_files_name', array(
 			'type' 	   	  => 'checkbox',
@@ -439,7 +446,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => false,
-			'transport'  => 'refresh'
+			'transport'  => 'refresh',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_hide_item_meta', array(
 			'type' 	   	  => 'checkbox',
@@ -462,7 +470,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
 				'type' 	   	  => 'checkbox',
@@ -480,7 +489,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => true,
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
 			'type' 	   	  => 'checkbox',
@@ -502,7 +512,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => true,
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
 			'type' 	   	  => 'checkbox',
@@ -524,7 +535,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => '2',
-			'transport'  => 'refresh'
+			'transport'  => 'refresh',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
 			'type' 	   	  => 'number',
@@ -533,7 +545,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
 			'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
 			'input_attrs' => array(
-				'placeholder' => __( '2' ),
+				'placeholder' => '2',
 				'min' => 1,
 				'max' => 3,
 				'step' => 1
@@ -543,7 +555,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => '3',
-			'transport'  => 'postMessage'
+			'transport'  => 'postMessage',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
 			'type' 		  => 'number',
@@ -552,7 +565,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
 			'description' => __( 'For screen sizes between 1025px and 1366px.', 'tainacan-interface' ),
 			'input_attrs' => array(
-				'placeholder' => __( '3' ),
+				'placeholder' => '3',
 				'min' => 1,
 				'max' => 3,
 				'step' => 1
@@ -567,7 +580,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' 	 => '3',
-			'transport'  => 'refresh'
+			'transport'  => 'refresh',
+			'sanitize_callback'  => 'sanitize_text_field'
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
 			'type' 		  => 'number',
@@ -576,7 +590,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
 			'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
 			'input_attrs' => array(
-				'placeholder' => __( '3' ),
+				'placeholder' => '3',
 				'min' => 1,
 				'max' => 4,
 				'step' => 1
@@ -614,7 +628,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => $view_modes['default_view_mode'],
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_sanitize_items_repository_list_default_view_mode'
 				) );	
 			$wp_customize->add_control( 'tainacan_items_repository_list_default_view_mode', array(
 				'type' 	   	  => 'select',
@@ -638,7 +653,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_search', array(
 				'type' 	   	  => 'checkbox',
@@ -660,7 +676,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_advanced_search', array(
 				'type' 	   	  => 'checkbox',
@@ -682,7 +699,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_sort_by_button', array(
 				'type' 	   	  => 'checkbox',
@@ -704,7 +722,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_exposers_button', array(
 				'type' 	   	  => 'checkbox',
@@ -726,7 +745,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'postMessage'
+				'transport'  => 'postMessage',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_show_inline_view_mode_options', array(
 				'type' 	   	  => 'checkbox',
@@ -748,7 +768,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
 				'type' 	   	  => 'checkbox',
@@ -781,7 +802,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_filters', array(
 				'type' 	   	  => 'checkbox',
@@ -798,7 +820,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
 				'type' 	   	  => 'checkbox',
@@ -815,7 +838,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_show_filters_button_inside_search_control', array(
 				'type' 	   	  => 'checkbox',
@@ -832,7 +856,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_start_with_filters_hidden', array(
 				'type' 	   	  => 'checkbox',
@@ -849,7 +874,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_filters_as_modal', array(
 				'type' 	   	  => 'checkbox',
@@ -879,13 +905,14 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => 12,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback'  => 'sanitize_text_field'
 			) );
 			$wp_customize->add_control( 'tainacan_items_page_default_items_per_page', array(
 				'type' => 'number',
 				'section' => 'tainacan_items_page_pagination',
-				'label' => __( 'Default number of items per page' ),
-				'description' => __( 'Change the default value for items loaded per page. Note that this affects loading duration.' ),
+				'label' => __( 'Default number of items per page', 'tainacan-interface' ),
+				'description' => __( 'Change the default value for items loaded per page. Note that this affects loading duration.', 'tainacan-interface' ),
 				'input_attrs' => array(
 					'min' => 1,
 					'max' => $TAINACAN_API_MAX_ITEMS_PER_PAGE,
@@ -900,7 +927,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_items_per_page_button', array(
 				'type' 	   	  => 'checkbox',
@@ -917,7 +945,8 @@ function tainacan_customize_register( $wp_customize ) {
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
 				'default' 	 => false,
-				'transport'  => 'refresh'
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 				) );
 			$wp_customize->add_control( 'tainacan_items_page_hide_go_to_page_button', array(
 				'type' 	   	  => 'checkbox',
@@ -932,10 +961,9 @@ function tainacan_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'tainacan_customize_register', 11 );
 
 /**
- * Callback to Checkbox to display or no the
- * Proudly Powered by Wordpress and Tainacan.
+ * Callback to Sanitize Checkboxes.
  */
-function tainacan_display_callback_sanitize_checkbox( $checked ) {
+function tainacan_callback_sanitize_checkbox( $checked ) {
 	// Boolean check.
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
@@ -1164,6 +1192,29 @@ function tainacan_get_default_view_mode_choices () {
 	];
 }
 
+if ( ! function_exists( 'tainacan_sanitize_items_repository_list_default_view_mode' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Theme items repository list default view mode.
+	 *
+	 * Create your own tainacan_sanitize_items_repository_list_default_view_mode() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $value a valid view mode slug.
+	 * @return string view mode slug.
+	 */
+	function tainacan_sanitize_items_repository_list_default_view_mode( $value ) {
+		$view_mode_options = tainacan_get_default_view_mode_choices();
+
+		if ( ! array_key_exists( $value, $view_mode_options['enabled_view_modes'] ) ) {
+			return 'masonry';
+		}
+
+		return $value;
+	}
+endif; // tainacan_sanitize_items_repository_list_default_view_mode
+
 if ( ! function_exists( 'tainacan_get_color_scheme' ) ) :
 	/**
 	 * Retrieves the current Tainacan Theme color scheme.
@@ -1238,6 +1289,50 @@ if ( ! function_exists( 'tainacan_sanitize_color_scheme' ) ) :
 		return $value;
 	}
 endif; // tainacan_sanitize_color_scheme
+
+if ( ! function_exists( 'tainacan_get_single_item_layout_sections_order_options' ) ) :
+	/**
+	 * Retrieves an array of options for single item page sections order for Tainacan Theme.
+	 *
+	 * Create your own tainacan_get_single_item_layout_sections_order_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array $order - a string with slugs to the section order, separated by hiphen.
+	 */
+	function tainacan_get_single_item_layout_sections_order_options() {
+		$section_orders = array(
+			'document-attachments-metadata' => __('Document - Attachments - Metadata', 'tainacan-interface'),
+			'metadata-document-attachments' => __('Metadata - Document - Attachments', 'tainacan-interface'),
+			'document-metadata-attachments' => __('Document - Metadata - Attachments', 'tainacan-interface'),
+		);
+		return $section_orders;
+	}
+endif; // tainacan_get_single_item_layout_sections_order_options
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_layout_sections_order' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Themeitem page laout sections order
+	 *
+	 * Create your own tainacan_sanitize_single_item_layout_sections_order() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $order - a string with slugs to the section order, separated by hiphen
+	 * @return string the selected order.
+	 */
+	function tainacan_sanitize_single_item_layout_sections_order( $order ) {
+		$section_orders = tainacan_get_single_item_layout_sections_order_options();
+
+		if ( ! array_key_exists( $order, $section_orders ) ) {
+			return 'document-attachments-metadata';
+		}
+
+		return $order;
+	}
+endif; // tainacan_sanitize_single_item_layout_sections_order
 
 /**
  * Enqueues front-end CSS for color scheme.
