@@ -1,8 +1,8 @@
 === Tainacan Interface ===
 Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila
 Requires at least: WordPress 4.8
-Tested up to: WordPress 5.3
-Version: 1.6
+Tested up to: WordPress 5.4
+Version: 2.0
 Requires PHP: 5.6
 Stable tag: trunk
 License: GNU General Public License v3
@@ -11,13 +11,13 @@ Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, c
 
 == Description ==
 
-This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collectinons with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository. 
+This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries, and anyone who have a digital repository. 
 
 For more information about Tainacan and Tainacan Interface please go to http://tainacan.org
 
 == Copyright ==
 
-Tainacan Interface WordPress Theme, Copyright 2018 Tainacan.org
+Tainacan Interface WordPress Theme, Copyright 2020 Tainacan.org
 Tainacan Interface is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
