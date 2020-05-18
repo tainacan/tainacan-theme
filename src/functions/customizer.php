@@ -730,7 +730,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'priority' 	  => 5, // Within the section.
 				'section'  	  => 'tainacan_items_page_search_area',
 				'label'    	  => __( 'Hide the "View as..." button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do not show the "View as..." button, also refered to as "Exposers modal" on the control bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to do not show the "View as..." button, also referred to as "Exposers modal" on the control bar.', 'tainacan-interface' )
 				) );
 			$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_exposers_button', array(
 				'selector' => '.theme-items-list #tainacanExposersButton ',

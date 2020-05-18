@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2020-05-18 12:11-0300\n"
+"POT-Creation-Date: 2020-05-18 17:00-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -530,7 +530,7 @@ msgstr "Para telas de tamanho entre 1025px e 1366px."
 
 #: functions/customizer.php:590
 msgid "Number of metadata columns (wide)"
-msgstr "Número de colunas d metadados (largo)"
+msgstr "Número de colunas de metadados (largo)"
 
 #: functions/customizer.php:591
 msgid "For screens larger than 1366px."
@@ -606,7 +606,7 @@ msgstr "Esconder o botão \"Ver como...\"."
 
 #: functions/customizer.php:733
 msgid ""
-"Toggle to do not show the \"View as...\" button, also refered to as "
+"Toggle to do not show the \"View as...\" button, also referred to as "
 "\"Exposers modal\" on the control bar."
 msgstr ""
 "Troque para não esconder o botão \"Ver como...\", também chamado de  \"Modal "
