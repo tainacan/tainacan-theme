@@ -408,6 +408,9 @@ nav{
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #cbcbcb;
         font-size: 0.875rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         .breadcrumb{
             background: transparent;
             @media only screen and (min-width: 992px){
