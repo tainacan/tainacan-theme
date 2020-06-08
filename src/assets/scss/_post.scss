@@ -22,18 +22,21 @@
     &.single-item-collection-banner {
         margin-left: -4.16666667%;
         margin-right: -4.1666667%;
-        margin-left: -4.16666667vw;
-        margin-right: -4.1666667vw;
+        margin-left:  calc(-1 * ((100vw - 100%)/2));
+        margin-right: calc(-1 * ((100vw - 100%)/2));
         margin-top: -2rem;
         position: relative;
+        width: 100%;
+        width: 100vw;
 
         &>div {
             padding: 8px 4.16666667% 12px 4.16666667%;
-            padding: 8px 4.16666667vw 12px 4.16666667vw;
+            padding: 8px calc((100vw - 1400px)/2) 12px calc((100vw - 1400px)/2);
         }
         .t-bg-collection {
             min-height: 4.16666667%;
             min-height: 4.16666667vw;
+            position: relative;
         }
 
         .collection-name {
@@ -48,6 +51,7 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            width: calc(100% - (12.5vw + 12px));
 
             p, h1 {
                 display: inline-block;
@@ -55,15 +59,22 @@
         }
         .collection-thumbnail {
             position: relative;
-            padding: 0px 4.16666667vw 0px 4.16666667vw;
+            padding-top: 0;
+            padding-bottom: 0;
+            z-index: 9;
             
             img {
+                max-height: 185px;
                 max-width: calc(12.5% - 12px);
-                top: calc(-1 * (4.166667% + 12px));
                 max-width: calc(12.5vw - 12px);
-                top: calc(-1 * (4.166667vw + 12px));
+                top: -88px;
                 border-width: 3px !important;
 
+                @media screen and (max-width: 1400px) {
+                    top: -56px; 
+                    top: -6vw;
+                    margin-left: 12px;
+                }
                 @media screen and (max-width: 768px) {
                     max-width: calc(20.83333% - 12px);
                     top: calc(-1 * (8.3333% + 12px));
@@ -103,8 +114,12 @@
             }
         }
         .collection-header--share {
-            position: relative;
+            position: absolute;
             float: left;
+            padding-top: 0;
+            padding-bottom: 0;
+            top: initial;
+            
             .btn {
                 max-width: 35px;
                 border: 2px solid white;
@@ -114,6 +129,17 @@
                     color: white;
                     font-size: 1.25rem;
                 }
+            }
+            .rotater:nth-child(1) .btn-icon {
+                transform: translateX(-4em) translateY(1em) rotate(22.5deg);
+            }
+            .rotater:nth-child(2) .btn-icon {
+                transform: translateX(-3em) translateY(-1em) rotate(-22.5deg);
+            }
+            .icons {
+                position: absolute;
+                top: 0;
+                left: 0;  
             }
         }
     }

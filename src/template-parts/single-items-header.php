@@ -47,7 +47,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
             <?php if ( function_exists('tainacan_the_collection_url') ): ?>
                 <a href="<?php tainacan_the_collection_url(); ?>">
                     <?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
-                        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                        $thumbnail_id = get_post_thumbnail_id( tainacan_get_collection_id() );
                         $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
                         <img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
                     <?php else : ?>
@@ -59,24 +59,24 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
                             </h4>
                         </div>
                     <?php endif; ?>
-                <?php else : ?>
-                    <span>
-                        <?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
-                            $thumbnail_id = get_post_thumbnail_id( $post->ID );
-                            $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
-                            <img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
-                        <?php else : ?>
-                            <div class="image-placeholder rounded-circle border border-white position-absolute">
-                                <h4 class="text-center">
-                                <?php
-                                    echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
-                                ?>
-                                </h4>
-                            </div>
-                        <?php endif; ?>
-                    </span>
-                <?php endif; ?>
-            </a>
+                </a>
+            <?php else : ?>
+                <span>
+                    <?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
+                        $thumbnail_id = get_post_thumbnail_id( tainacan_get_collection_id());
+                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
+                        <img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
+                    <?php else : ?>
+                        <div class="image-placeholder rounded-circle border border-white position-absolute">
+                            <h4 class="text-center">
+                            <?php
+                                echo esc_html( tainacan_get_initials( tainacan_get_the_collection_name() ) );
+                            ?>
+                            </h4>
+                        </div>
+                    <?php endif; ?>
+                </span>
+            <?php endif; ?>
         </div>
         <?php 
             global $wp; 
