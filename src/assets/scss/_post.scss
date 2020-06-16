@@ -1,8 +1,7 @@
 .tainacan-single-post {
     .aside-thumbnail,
     &.aside-thumbnail {
-        margin-left: calc(12.5% + 12px);
-        margin-left: calc(12.5vw + 12px);
+        margin-left: 200px;
         p {
             font-size: 0.875rem;
             font-weight: normal;
@@ -14,9 +13,12 @@
             margin: 0 60px 0 0px;
         }
 
+        @media screen and (max-width: 1526px) {
+            margin-left: calc(4.166667% + 165px);
+        }
+
         @media screen and (max-width: 768px) {
-            margin-left: calc(20.833333% + 12px);
-            margin-left: calc(20.833333vw + 12px);
+            margin-left: calc(4.166667% + 115px);
         }
     }
     &.single-item-collection-banner {
@@ -51,7 +53,6 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            width: calc(100% - (12.5vw + 12px));
 
             p, h1 {
                 display: inline-block;
@@ -64,22 +65,21 @@
             z-index: 9;
             
             img {
-                max-height: 185px;
-                max-width: calc(12.5% - 12px);
-                max-width: calc(12.5vw - 12px);
+                width: 185px;
+                height: 185px;
                 top: -88px;
                 border-width: 3px !important;
 
-                @media screen and (max-width: 1400px) {
-                    top: -56px; 
-                    top: -6vw;
-                    margin-left: 12px;
+                @media screen and (max-width: 1526px) {
+                    left: 4.1666667vw;
+                    top: -68px;
+                    height: 150px;
+                    width: 150px;
                 }
                 @media screen and (max-width: 768px) {
-                    max-width: calc(20.83333% - 12px);
-                    top: calc(-1 * (8.3333% + 12px));
-                    max-width: calc(20.83333vw - 12px);
-                    top: calc(-1 * (8.3333vw + 12px));
+                    top: -45px;
+                    height: 110px;
+                    width: 110px;
                 }
             }
             .image-placeholder {
@@ -118,6 +118,7 @@
             float: left;
             padding-top: 0;
             padding-bottom: 0;
+            padding-left: 0;
             top: initial;
             
             .btn {
@@ -130,16 +131,9 @@
                     font-size: 1.25rem;
                 }
             }
-            .rotater:nth-child(1) .btn-icon {
-                transform: translateX(-4em) translateY(1em) rotate(22.5deg);
-            }
-            .rotater:nth-child(2) .btn-icon {
-                transform: translateX(-3em) translateY(-1em) rotate(-22.5deg);
-            }
             .icons {
-                position: absolute;
-                top: 0;
-                left: 0;  
+                position: relative;
+                top: 50%; 
             }
         }
     }

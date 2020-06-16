@@ -89,7 +89,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
                 <div class="icons">
                     <?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
                         <div class="rotater">
-                            <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+                            <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>">
                                 <div class="btn btn-icon">
                                     <i class="tainacan-icon tainacan-icon-facebook"></i>
                                 </div>
@@ -102,18 +102,43 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
                                 $twitter_option = get_theme_mod( 'tainacan_twitter_user' );
                                 $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_theme_mod( 'tainacan_twitter_user' ) ) : '';
                             ?>
-                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>"  target="_blank">
+                            <a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>"  target="_blank" title="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
                                 <div class="btn btn-icon">
                                     <i class="tainacan-icon tainacan-icon-twitter"></i>
                                 </div>
                             </a>
                         </div>
                     <?php endif; ?>
+                    <?php if ( true == get_theme_mod( 'tainacan_whatsapp_share', false ) ) : ?>
+                        <div class="rotater">
+                            <a href="https://api.whatsapp.com/send?1=pt_BR&text=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
+                                <div class="btn btn-icon">
+                                    <i class="tainacan-icon tainacan-icon-whatsapp"></i>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ( true == get_theme_mod( 'tainacan_telegram_share', false ) ) : ?>
+                        <div class="rotater">
+                            <a href="https://t.me/share/url?url=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
+                                <div class="btn btn-icon">
+                                    <i class="tainacan-icon tainacan-icon-telegram"></i>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                    <div class="rotater">
+						<button onclick="copyTextToClipboard('<?php the_permalink(); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
+							<div class="btn btn-icon">
+								<i class="tainacan-icon tainacan-icon-url"></i>
+							</div>
+						</button>
+					</div>
                 </div>
             </div>
         <?php endif; ?>
-        <div class="tainacan-single-item-heading item-title aside-thumbnail">
-            <div class="title-page">
+        <div class="tainacan-single-item-heading item-title">
+            <div class="title-page aside-thumbnail">
                 <p><?php echo __('Item', 'tainacan-interface') ?></p>
                 <h1><?php the_title(); ?></h1> 
             </div>
@@ -145,7 +170,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
     <div class="mt-3 tainacan-single-post collection-single-item">
 <?php endif; ?>
         <header class="mb-4 tainacan-content">
-            <div class="header-meta text-muted mb-5">
+            <div class="header-meta text-muted mb-2">
                 <?php 
                     if ( !get_theme_mod('tainacan_single_item_hide_item_meta', false) ) {
                         echo '<span class="time">';

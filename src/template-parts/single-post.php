@@ -7,17 +7,30 @@
 				<?php } ?>
 				<div class="btn-group ml-auto" role="group">
 					<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
-						<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" class="" target="_blank">
+						<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>">
 							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>">
 						</a>
 					<?php endif; ?>
 					<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
 						<?php $twitter_option = get_theme_mod( 'tainacan_twitter_user' ); ?>
 						<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_theme_mod( 'tainacan_twitter_user' ) ) : ''; ?>
-						<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" class="">
+						<a href="http://twitter.com/share?url=<?php the_permalink(); ?>&amp;text=<?php the_title_attribute(); ?><?php echo $via; ?>" target="_blank" title="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
 							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>">
 						</a>
 					<?php endif; ?>
+					<?php if ( true == get_theme_mod( 'tainacan_whatsapp_share', false ) ) : ?>
+						<a href="https://api.whatsapp.com/send?1=pt_BR&text=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
+							<img src="<?php echo get_template_directory_uri() . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>" class="share-images">
+						</a>
+					<?php endif; ?>
+					<?php if ( true == get_theme_mod( 'tainacan_telegram_share', false ) ) : ?>
+						<a href="https://t.me/share/url?url=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
+							<img src="<?php echo get_template_directory_uri() . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
+						</a>
+					<?php endif; ?>
+					<button onclick="copyTextToClipboard('<?php the_permalink(); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
+						<img src="<?php echo get_template_directory_uri() . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
+					</button>
 				</div>
 			</div>
 			<?php the_post_thumbnail(); ?>

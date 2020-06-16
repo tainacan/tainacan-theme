@@ -852,6 +852,15 @@ nav{
 .page-link {
     margin: 12px auto;
 }
+.tainacan-copy-link-button,
+.tainacan-copy-link-button:hover,
+.tainacan-copy-link-button:focus {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
 
 // Item appear animation, used in some view modes.
 @keyframes item-appear {

@@ -142,6 +142,36 @@ function tainacan_customize_register( $wp_customize ) {
 		'section'    => 'tainacan_social_share',
 	) );
 
+	// WhatsApp
+	$wp_customize->add_setting( 'tainacan_whatsapp_share', array(
+		'type'       => 'theme_mod',
+		'default'        => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'tainacan_whatsapp_share', array(
+		'type' => 'checkbox',
+		'settings' => 'tainacan_whatsapp_share',
+		'section' => 'tainacan_social_share',
+		'label' => __( 'Display WhatsApp button', 'tainacan-interface' ),
+	) );
+
+	// Telegram
+	$wp_customize->add_setting( 'tainacan_telegram_share', array(
+		'type'       => 'theme_mod',
+		'default'        => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'tainacan_telegram_share', array(
+		'type' => 'checkbox',
+		'settings' => 'tainacan_telegram_share',
+		'section' => 'tainacan_social_share',
+		'label' => __( 'Display Telegram button', 'tainacan-interface' ),
+	) );
+
 	/**
 	 * Add color scheme setting and control.
 	 */
