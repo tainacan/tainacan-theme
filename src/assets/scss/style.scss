@@ -744,6 +744,11 @@ nav{
 .page-header.page-header--image-full {
     height: auto;
     display: block;
+
+    &>img {
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 .page-template-landing article section.tainacan-content,
