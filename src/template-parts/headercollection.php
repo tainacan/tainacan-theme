@@ -37,7 +37,7 @@ echo '</style>';
 		<div class="collection-header position-relative max-large" style="">
 			<?php do_action( 'tainacan-interface-collection-header' ); ?>
 			<?php if ( has_post_thumbnail( tainacan_get_collection_id() ) ) : 
-				$thumbnail_id = get_post_thumbnail_id( $post->ID );
+				$thumbnail_id = get_post_thumbnail_id( tainacan_get_collection_id() );
 				$alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
 				<img src="<?php echo get_the_post_thumbnail_url( tainacan_get_collection_id() ); ?>" class="t-collection--info-img rounded-circle img-fluid border border-white position-absolute text-left" alt="<?php echo esc_attr($alt); ?>">
 			<?php else : ?>
