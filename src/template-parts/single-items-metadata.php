@@ -11,7 +11,7 @@
                 <div class="col s-item-collection--metadata">
                     <?php if (has_post_thumbnail() && get_theme_mod( 'tainacan_single_item_display_thumbnail', true )): ?>
                         <div class="tainacan-item-thumbnail-container card border-0 mb-3">
-                            <div class="card-body bg-white border-0 pl-0 pt-0 pb-1">
+                            <div class="card-body border-0 pl-0 pt-0 pb-1">
                                 <h3><?php _e( 'Thumbnail', 'tainacan-interface' ); ?></h3>
                                 <?php the_post_thumbnail('tainacan-medium-full', array('class' => 'item-card--thumbnail mt-2')); ?>
                             </div>
@@ -19,7 +19,7 @@
                     <?php endif; ?>
                     <?php if (!get_theme_mod('tainacan_single_item_collection_header', false) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true )): ?>
                         <div class="card border-0 mb-3">
-                            <div class="tainacan-item-share-container card-body bg-white border-0 pl-0 pt-0 pb-1">
+                            <div class="tainacan-item-share-container card-body border-0 pl-0 pt-0 pb-1">
                                 <h3><?php _e( 'Share', 'tainacan-interface' ); ?></h3>
                                 <div class="btn-group" role="group">
                                     <?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 

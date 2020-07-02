@@ -7,7 +7,7 @@
     &.sidebar{
         .widget{
             .widget-title{
-                font-size: 0.875rem;
+                font-size: 1rem;
                 font-weight: bold;
                 color: #1d1d1b;
             }
@@ -36,6 +36,13 @@
             }
             &.widget_text{
                 font-size: 0.75rem;
+            }
+            table.wp-calendar-table {
+                font-size: 0.875rem;
+
+                td {
+                    padding: 2px;
+                }
             }
             ul{
                 padding-left: 0;

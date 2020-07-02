@@ -19,7 +19,7 @@
 			<div class="form-inline mt-4 tainacan-collection-list--simple-search justify-content-between">
 				
 				<div class="dropdown dropdown-sorting">
-					<button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<button class="btn dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<?php _e( 'Sorting', 'tainacan-interface' ); ?>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuSorting">
@@ -28,22 +28,22 @@
 					</div>
 				</div>
 					
-				<a class="btn btn-white bg-white <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" href="<?php echo add_query_arg( 'order', 'ASC' ); ?>">
-					<i class="tainacan-icon tainacan-icon-18px tainacan-icon-sortascending"></i>
+				<a class="btn btn-white <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" style="width: 2rem;" href="<?php echo add_query_arg( 'order', 'ASC' ); ?>">
+					<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-sortascending"></i>
 				</a>
-				<a class="btn btn-white bg-white <?php tainacan_active( get_query_var( 'order' ), 'DESC' ); ?>" href="<?php echo add_query_arg( 'order', 'DESC' ); ?>">
-					<i class="tainacan-icon tainacan-icon-18px tainacan-icon-sortdescending"></i>
+				<a class="btn btn-white <?php tainacan_active( get_query_var( 'order' ), 'DESC' ); ?>" style="width: 2rem;" href="<?php echo add_query_arg( 'order', 'DESC' ); ?>">
+					<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-sortdescending"></i>
 				</a>
 				
 				<div class="dropdown margin-one-column-left dropdown-viewMode">
-					<button class="btn bg-white dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="tainacan-icon tainacan-icon-18px tainacan-icon-viewtable text-oslo-gray"></i>
+					<button class="btn dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>
 						<span class="d-none d-md-inline"><?php _e( 'View Mode', 'tainacan-interface' ); ?></span>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'cards' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'cards' ); ?>"><?php _e( 'Cards', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'grid' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'grid' ); ?>"><?php _e( 'Thumbnails', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'table' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'table' ); ?>"><?php _e( 'Table', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'cards' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'cards' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewcards text-oslo-gray"></i>&nbsp;<?php _e( 'Cards', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'grid' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'grid' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewminiature text-oslo-gray"></i>&nbsp;<?php _e( 'Thumbnails', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'table' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'table' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>&nbsp;<?php _e( 'Table', 'tainacan-interface' ); ?></a>
 					</div>
 				</div>
 				

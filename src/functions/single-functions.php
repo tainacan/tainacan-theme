@@ -71,7 +71,7 @@ if ( ! function_exists( 'tainacan_pagination' ) ) :
 		<div class="d-flex margin-pagination justify-content-between border-top pt-2">
 			<div class="col-sm-3 d-none d-lg-block pl-0 view-items">
 				<?php //translators: Example - Viewing Items: 1 to 12 of 345 ?>
-				<?php printf( __('Viewing Items: %1$d to %2$d of %3$d', 'tainacan-interface'), $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts ); ?>
+				<?php printf( __('Viewing collections: %1$d to %2$d of %3$d', 'tainacan-interface'), $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts ); ?>
 			</div>
 			<div class="col-sm-5 pr-md-0 justify-content-md-end">
 				<?php the_posts_pagination(
@@ -79,11 +79,11 @@ if ( ! function_exists( 'tainacan_pagination' ) ) :
 						'mid_size'  => 2,
 						'prev_text' => sprintf(
 							'%s',
-							'<i class="tainacan-icon tainacan-icon-arrowleft"></i>'
+							'<i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-1-25em"></i>'
 						),
 						'next_text' => sprintf(
 							' %s',
-							'<i class="tainacan-icon tainacan-icon-arrowright"></i>'
+							'<i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-1-25em"></i>'
 						),
 						'screen_reader_text' => ' '
 					)
