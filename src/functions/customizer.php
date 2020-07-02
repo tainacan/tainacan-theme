@@ -18,7 +18,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_section('tainacan_footer_info', array(
 		'title'  	 => __( 'Footer settings', 'tainacan-interface' ),
-		'priority'   => 200,
+		'priority'   => 170,
 	));
 	$wp_customize->add_setting( 'tainacan_blogaddress', array(
 		'type'       => 'theme_mod',
@@ -98,7 +98,7 @@ function tainacan_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section('tainacan_social_share', array(
 		'title'  	 => __( 'Social Share', 'tainacan-interface' ),
-		'priority'   => 200,
+		'priority'   => 171,
 	));
 
 	//Facebook
