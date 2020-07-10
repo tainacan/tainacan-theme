@@ -551,7 +551,7 @@
   .components-modal__screen-overlay .wp-block-tainacan-modal .modal-footer-area {
     margin: 0;
     border: none;
-    padding-top: 1px; }
+    padding-top: 0px; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-search-area,
   .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area {
     padding: 0 14px; }
