@@ -418,14 +418,13 @@
             margin-left: -32px !important;
             margin-bottom: -32px !important;
             padding: 1.2rem 3rem !important;
-            background: #dbdbdb;
-            border-top: none;
+            border-top: 1px solid #898d8f;
         }
     }
     .wp-block-tainacan-modal .modal-footer-area{
         margin: 0;
         border: none;
-        padding-top: 0;
+        padding-top: 1px;
     }
     .wp-block-tainacan-modal .modal-search-area {
         padding: 0 14px;

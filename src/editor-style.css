@@ -112,6 +112,9 @@
     margin: 0 4.1666667% 3em 4.1666667%;
     padding: 0;
     border-bottom: 2px solid #298596; }
+    .edit-post-visual-editor.editor-styles-wrapper .editor-post-title > .wp-block,
+    .components-modal__screen-overlay .editor-post-title > .wp-block {
+      margin: 0 14px !important; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block.editor-post-title__block,
   .edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
   .components-modal__screen-overlay .wp-block.editor-post-title__block,
@@ -543,13 +546,12 @@
     margin-left: -32px !important;
     margin-bottom: -32px !important;
     padding: 1.2rem 3rem !important;
-    background: #dbdbdb;
-    border-top: none; }
+    border-top: 1px solid #898d8f; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-footer-area,
   .components-modal__screen-overlay .wp-block-tainacan-modal .modal-footer-area {
     margin: 0;
     border: none;
-    padding-top: 0; }
+    padding-top: 1px; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-tainacan-modal .modal-search-area,
   .components-modal__screen-overlay .wp-block-tainacan-modal .modal-search-area {
     padding: 0 14px; }
