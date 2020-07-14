@@ -150,7 +150,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 <?php else: ?>
 
     <div class="tainacan-single-post tainacan-single-item-heading tainacan-title">
-        <div class="border-bottom border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
+        <div class="border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
             <ul class="list-inline mb-1">
                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                     <h1><?php the_title(); ?></h1> 

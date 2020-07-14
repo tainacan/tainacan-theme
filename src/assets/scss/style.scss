@@ -192,8 +192,8 @@ nav{
         border-bottom: none;
         padding: 0;
         .max-large{
-            margin: 0 4.16666666667%;
-            margin: 0 4.16666666667vw;
+            margin: 0 calc(4.16666666667% - 48px) 0 4.16666666667%;
+            margin: 0 calc(4.16666666667vw - 48px) 0 4.16666666667vw;
             .tainacan-form-search{
                 padding-right: 1.875rem !important;
                 .tainacan-input-search{
@@ -244,6 +244,7 @@ nav{
                 width: auto;
                 h1 {
                     font-size: 1.5rem;
+                    font-weight: normal;
                     margin: 0.36rem 0;
                 }
                 .logo {
@@ -761,6 +762,7 @@ nav{
 .tainacan-title{
     .tainacan-title-page{
         margin-bottom: 0.75rem;
+        border-bottom: 2px solid #298596;
         .title-page h1{
             font-size: 1.25rem;
             font-weight: bold;
