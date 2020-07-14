@@ -65,16 +65,12 @@
         justify-content: space-between;
 
         .t-collection--col-9 {
-            padding-left: calc(4.16666666667% + 15px) !important;
-            padding-left: calc(4.16666666667vw + 15px) !important;
+            padding-left: calc(4.16666666667% + 2.75rem) !important;
             padding-right: 12.5% !important;
-            padding-right: 12.5vw !important;
 
             @media only screen and (max-width: 767px){
-                padding-left: 4.16666666667% !important;
-                padding-left: 4.16666666667vw !important;
+                padding-left: calc(4.16666666667% + 1.25rem) !important;
                 padding-right: 8.33% !important;
-                padding-right: 8.33vw !important;
             }
 
             h2 {
