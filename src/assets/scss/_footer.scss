@@ -52,6 +52,7 @@ footer {
         }
         .tainacan-footer-info {
             font-size: 0.875rem;
+            width: auto;
 
             @media only screen and (max-width: 991px){
                 margin: 0 calc(4.16666666667% * 1);
