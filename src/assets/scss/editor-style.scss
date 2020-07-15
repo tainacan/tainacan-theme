@@ -449,12 +449,32 @@
         .wp-block-heading {
             color: #298596 !important;
         }
-        h1.wp-block-heading { font-size: 1.5rem; }
-        h2.wp-block-heading { font-size: 1.5rem; }
-        h3.wp-block-heading { font-size: 1.25rem; }
-        h4.wp-block-heading { font-size: 1.125rem; }
-        p.wp-block-paragraph {
+        h1:not(.has-text-color),
+        h2:not(.has-text-color),
+        h3:not(.has-text-color),
+        h4:not(.has-text-color) {
+            color: #298596;
+        }
+        h1.wp-block-heading,
+        h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+            font-size: 1.6rem;
+        }
+        h2.wp-block-heading,
+        h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+            font-size: 1.5rem;
+        }
+        h3.wp-block-heading,
+        h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+            font-size: 1.25rem;
+        }
+        h4.wp-block-heading,
+        h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+            font-size: 1.125rem;
+        }
+        p {
             font-style: italic;
+        }
+        p:not(.has-text-color) {
             color: #898d8f;
         }
         hr.wp-block-separator:not(.is-style-wide) {
@@ -466,5 +486,26 @@
             border-width: 2px;
             height: 3px;
         }
+    }
+}
+.tainacan-heading-section-pattern-pattern {
+    h1,
+    h2,
+    h3,
+    h4 {
+        margin-bottom: 0px !important;
+    }
+    p {
+        font-style: italic;
+        margin-bottom: 0 !important;
+    }
+    hr.wp-block-separator:not(.is-style-wide) {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        max-width: 200px;
+    }
+    hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+        border-width: 2px;
+        height: 3px;
     }
 }

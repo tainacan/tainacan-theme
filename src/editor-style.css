@@ -569,21 +569,40 @@
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading .wp-block-heading,
   .components-modal__screen-overlay .wp-block-group.tainacan-group-heading .wp-block-heading {
     color: #298596 !important; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h1:not(.has-text-color),
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h2:not(.has-text-color),
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h3:not(.has-text-color),
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h4:not(.has-text-color),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h1:not(.has-text-color),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h2:not(.has-text-color),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h3:not(.has-text-color),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h4:not(.has-text-color) {
+    color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h1.wp-block-heading,
-  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h1.wp-block-heading {
-    font-size: 1.5rem; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h1.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
+    font-size: 1.6rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h2.wp-block-heading,
-  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h2.wp-block-heading {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h2.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
     font-size: 1.5rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h3.wp-block-heading,
-  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h3.wp-block-heading {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h3.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
     font-size: 1.25rem; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h4.wp-block-heading,
-  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h4.wp-block-heading {
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h4.wp-block-heading,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
     font-size: 1.125rem; }
-  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading p.wp-block-paragraph,
-  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading p.wp-block-paragraph {
-    font-style: italic;
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading p,
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading p {
+    font-style: italic; }
+  .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading p:not(.has-text-color),
+  .components-modal__screen-overlay .wp-block-group.tainacan-group-heading p:not(.has-text-color) {
     color: #898d8f; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide),
   .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide) {
@@ -592,7 +611,23 @@
     border-color: #298596; }
   .edit-post-visual-editor.editor-styles-wrapper .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots),
   .components-modal__screen-overlay .wp-block-group.tainacan-group-heading hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-    border-width: 3px;
+    border-width: 2px;
     height: 3px; }
+
+.tainacan-heading-section-pattern-pattern h1,
+.tainacan-heading-section-pattern-pattern h2,
+.tainacan-heading-section-pattern-pattern h3,
+.tainacan-heading-section-pattern-pattern h4 {
+  margin-bottom: 0px !important; }
+.tainacan-heading-section-pattern-pattern p {
+  font-style: italic;
+  margin-bottom: 0 !important; }
+.tainacan-heading-section-pattern-pattern hr.wp-block-separator:not(.is-style-wide) {
+  margin-left: 0;
+  margin-top: 0.5rem;
+  max-width: 200px; }
+.tainacan-heading-section-pattern-pattern hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  border-width: 2px;
+  height: 3px; }
 
 /*# sourceMappingURL=editor-style.css.map */

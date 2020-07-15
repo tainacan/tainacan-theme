@@ -1484,6 +1484,13 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-content .wp-block-tainacan-carousel-terms-list .swiper-button-next svg {
 		fill: {$colors['tainacan_link_color']} !important;
 	}
+	.tainacan-content .wp-block-tainacan-facets-list .show-more-button {
+		background-color: {$colors['tainacan_link_color']} !important;
+	}
+	.wp-block-tainacan-facets-list ul.facets-list.facets-layout-cloud li.facet-list-item:hover a,
+	.wp-block-tainacan-facets-list ul.facets-list-edit.facets-layout-cloud li.facet-list-item:hover a {
+		color: {$colors['tainacan_link_color']} !important;
+	}
 
 	.tainacan-single-post .single-item-collection--attachments-next,
 	.tainacan-single-post .single-item-collection--attachments-prev {
@@ -1544,10 +1551,10 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 
 	/* Extra title group class, that can be added for styling special headings */
-	.wp-block-group.tainacan-group-heading h1,
-	.wp-block-group.tainacan-group-heading h2,
-	.wp-block-group.tainacan-group-heading h3,
-	.wp-block-group.tainacan-group-heading h4 {
+	.wp-block-group.tainacan-group-heading h1:not(.has-text-color),
+	.wp-block-group.tainacan-group-heading h2:not(.has-text-color),
+	.wp-block-group.tainacan-group-heading h3:not(.has-text-color),
+	.wp-block-group.tainacan-group-heading h4:not(.has-text-color) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 	.wp-block-group.tainacan-group-heading hr.wp-block-separator {

@@ -204,6 +204,32 @@ function tainacan_widgets_footer_init() {
 }
 add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
 
+/*
+* Register Tainacan Heading Section Pattern
+*/
+function tainacan_block_patterns_init() {
+	global $wp_version;
+
+	if ((is_plugin_active('gutenberg/gutenberg.php') || $wp_version >= '5') && function_exists('register_block_pattern_category')) {
+		register_block_pattern_category( 
+			'tainacan-interface',
+			array( 'label' => _x( 'Tainacan Interface', 'Block pattern category', 'tainacan-interface' ) ) );
+	}
+
+	if ((is_plugin_active('gutenberg/gutenberg.php') || $wp_version >= '5') && function_exists('register_block_pattern')) {
+		register_block_pattern(
+			'tainacan-interface/tainacan-heading-section-pattern',
+			array(
+				'title'       => __( 'Tainacan heading section', 'tainacan-interface' ),
+				'description' => _x( 'A left-aligned heading section containing a light sub-heading and an underline bellow the title.', 'Block pattern description', 'tainacan-interface' ),
+				'content'     => '<!-- wp:group {"className":"tainacan-heading-section-pattern-pattern"} --><div class="wp-block-group tainacan-heading-section-pattern-pattern"><div class="wp-block-group__inner-container"><!-- wp:heading {"textColor":"default","style":{"typography":{"fontSize":24}}} --><h2 class="has-default-color has-text-color" style="font-size:24px">' . esc_html__( 'Section heading', 'tainacan-interface' ) . '</h2><!-- /wp:heading --><!-- wp:paragraph {"style":{"color":{"text":"#838386"}}} --><p class="has-text-color" style="color:#898d8f">' . esc_html__( 'Section optional description...', 'tainacan-interface' ) . '</p><!-- /wp:paragraph --><!-- wp:separator {"color":"default"} --><hr class="wp-block-separator has-text-color has-background has-default-background-color has-default-color"/><!-- /wp:separator --><!-- wp:spacer {"height":32} --><div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div><!-- /wp:spacer --></div></div><!-- /wp:group -->',
+				'categories'  => array('tainacan-interface')	
+			)
+		);
+	}
+}
+add_action( 'init', 'tainacan_block_patterns_init' );
+
 /**
  * get Logo function
  *

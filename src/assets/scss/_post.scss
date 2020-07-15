@@ -178,38 +178,47 @@
         @media only screen and (min-height: 1080px) {
             min-height: 50vh;
         }
-        &h1, &h2{
-            font-size: 1rem;
-        }
-        h1 {
-            color: #298596;
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-        h2 {
-            color: #000;
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-        h3 {
-            color: #000;
-            font-size: 1rem;
+        h1,
+        h2,
+        h3,
+        h5 {
             font-weight: 600;
         }
         h4 {
-            color: #555758;
-            font-size: 1rem;
             font-style: italic;
         }
-        h5 {
-            color: #000;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
         h6 {
+            font-style: 400;
+        }
+        h1:not(.has-text-color),
+        h6:not(.has-text-color) {
             color: #298596;
+        }
+        h2:not(.has-text-color),
+        h3:not(.has-text-color),
+        h5:not(.has-text-color) {
+            color: #000;
+        }
+        h4:not(.has-text-color) {
+            color:#555758;
+        }
+        h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
+            font-size: 1.125rem;
+        }
+        h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
+            font-size: 1.125rem;
+        }
+        h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size)  {
+            font-size: 1rem;
+        }
+        h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size)  {
+            font-size: 1rem;
+        }
+        h5:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size)  {
             font-size: 0.875rem;
-            font-weight: 400;
+        }
+        h6:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size)  {
+            font-size: 0.875rem;
         }
         pre:not(.wp-block-code) {
             color: #555758;
@@ -263,12 +272,21 @@
             }
         }
         .tainacan-group-heading {
-            h1 { font-size: 1.5rem; }
-            h2 { font-size: 1.5rem; }
-            h3 { font-size: 1.25rem; }
-            h4 { font-size: 1.125rem; }
+            h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.6rem; }
+            h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.5rem; }
+            h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.25rem; }
+            h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.125rem; }
+            
+            h1:not(.has-text-color),
+            h2:not(.has-text-color),
+            h3:not(.has-text-color),
+            h4:not(.has-text-color) {
+                color: #298596;
+            }
             p {
                 font-style: italic;
+            }
+            p:not(.has-text-color) {
                 color: #898d8f;
             }
             hr.wp-block-separator:not(.is-style-wide) {
@@ -867,5 +885,26 @@
             color: #000;
             font-weight: 400;
         }
+    }
+}
+.tainacan-heading-section-pattern-pattern {
+    h1,
+    h2,
+    h3,
+    h4 {
+        margin-bottom: 0px !important;
+    }
+    p {
+        font-style: italic;
+        margin-bottom: 0 !important;
+    }
+    hr.wp-block-separator:not(.is-style-wide) {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        max-width: 200px;
+    }
+    hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+        border-width: 2px;
+        height: 3px;
     }
 }
