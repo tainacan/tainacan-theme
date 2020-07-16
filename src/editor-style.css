@@ -15,6 +15,7 @@
   /* Buttons */
   /* Text input */
   /* Labels */
+  /* Cover block */
   /* Modal container */
   /* Modal Header */
   /* Checkboxes and Radio Buttons*/
@@ -179,6 +180,11 @@
   .edit-post-visual-editor.editor-styles-wrapper a,
   .components-modal__screen-overlay a {
     text-decoration: none; }
+  .edit-post-visual-editor.editor-styles-wrapper .has-text-color > a,
+  .edit-post-visual-editor.editor-styles-wrapper .has-text-color > a:hover,
+  .components-modal__screen-overlay .has-text-color > a,
+  .components-modal__screen-overlay .has-text-color > a:hover {
+    color: inherit; }
   .edit-post-visual-editor.editor-styles-wrapper .components-button.is-button,
   .components-modal__screen-overlay .components-button.is-button {
     border: none;
@@ -375,6 +381,19 @@
   .components-modal__screen-overlay .components-base-control__label {
     font-weight: 600;
     color: black; }
+  .edit-post-visual-editor.editor-styles-wrapper :not([data-align="wide"]):not([data-align="full"]) > .wp-block-cover,
+  .components-modal__screen-overlay :not([data-align="wide"]):not([data-align="full"]) > .wp-block-cover {
+    width: auto; }
+  .edit-post-visual-editor.editor-styles-wrapper [data-align="full"] .wp-block-cover__inner-container,
+  .components-modal__screen-overlay [data-align="full"] .wp-block-cover__inner-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 8.3333333333%;
+    padding: 0 8.3333333333vw; }
+    .edit-post-visual-editor.editor-styles-wrapper [data-align="full"] .wp-block-cover__inner-container > .wp-block,
+    .components-modal__screen-overlay [data-align="full"] .wp-block-cover__inner-container > .wp-block {
+      max-width: 100%;
+      margin: 0; }
   .edit-post-visual-editor.editor-styles-wrapper .components-modal__content,
   .components-modal__screen-overlay .components-modal__content {
     padding: 32px;

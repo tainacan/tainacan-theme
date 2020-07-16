@@ -29,9 +29,14 @@
     // 1400px is the maximum the inner cointainer should get, so we 
     // use 1526px - 1 column - 1 column;
     @media only screen and (min-width: 1526px) {
-        margin-left: calc(-1*(87.5vw - 1400px)/2) !important !important;
-        margin-right: calc(-1*(87.5vw - 1400px)/2) !important !important;
+        margin-left: calc(-1*(87.5vw - 1400px)/2) !important;
+        margin-right: calc(-1*(87.5vw - 1400px)/2) !important;
     }
+}
+
+.has-text-color>a,
+.has-text-color>a:hover {
+    color: inherit;
 }
 
 // 1400px is the maximum the inner cointainer should get, so we 
@@ -93,7 +98,7 @@
 }
 
 /* Cover block */
-.wp-block-cover__inner-container{
+.wp-block-cover__inner-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 8.3333333333%;

@@ -149,7 +149,12 @@
     }
 
     /* Links */
-    a { text-decoration: none;}
+    a { text-decoration: none; }
+    .has-text-color>a,
+    .has-text-color>a:hover {
+        color: inherit;
+    }
+
 
     /* Buttons */
     .components-button.is-button {
@@ -257,6 +262,22 @@
     .components-base-control__label {
         font-weight: 600;
         color: black;
+    }
+
+    /* Cover block */
+    :not([data-align="wide"]):not([data-align="full"])>.wp-block-cover {
+        width: auto;
+    }
+    [data-align="full"] .wp-block-cover__inner-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 8.3333333333%;
+        padding: 0 8.3333333333vw;
+
+        &>.wp-block {
+            max-width: 100%;
+            margin: 0;
+        }
     }
 
     /* Modal container */
