@@ -1442,6 +1442,13 @@ function tainacan_get_color_scheme_css( $colors ) {
 	return <<<CSS
 	/* Color Scheme */
 	
+	.has-default-color { 
+		color: {$colors['tainacan_link_color']} !important;
+	}
+	.has-default-background-color {
+		background-color: {$colors['tainacan_link_color']} !important;
+	}
+
 	body a,
 	body a:hover, 
 	.tainacan-title-page ul li a:hover, 
@@ -1467,12 +1474,12 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 	.tainacan-list-post .blog-post .blog-content .blog-read,
 	.tainacan-list-post .blog-post .blog-content .blog-read:hover,
-	.tainacan-content .wp-block-button:not(.is-style-outline) a,
-	.tainacan-content .wp-block-button:not(.is-style-outline) a:hover {
+	.tainacan-content .wp-block-button:not(.is-style-outline):not(.has-background) a,
+	.tainacan-content .wp-block-button:not(.is-style-outline):not(.has-background) a:hover {
 		background-color: {$colors['tainacan_link_color']};
 	}
-	.tainacan-content .wp-block-button.is-style-outline a,
-	.tainacan-content .wp-block-button.is-style-outline a:hover {
+	.tainacan-content .wp-block-button.is-style-outline a:not(.has-text-color),
+	.tainacan-content .wp-block-button.is-style-outline a:hover:not(.has-text-color) {
 		color: {$colors['tainacan_link_color']} !important;
 	}
 
@@ -1540,9 +1547,20 @@ function tainacan_get_color_scheme_css( $colors ) {
 		border-left-color: {$colors['tainacan_link_color']} !important;
 	}
 
-	/* Pullquote */
-    .wp-block-pullquote p {
+	/* Separator */ 
+    .wp-block-separator:not(.has-background-color) {
+		border-color: {$colors['tainacan_link_color']} !important;
+	}
+	.wp-block-separator.is-style-dots:not(.has-background-color)::before {
 		color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/* Pullquote */
+    .wp-block-pullquote blockquote:not(.has-text-color) p {
+		color: {$colors['tainacan_link_color']} !important;
+	}
+	.wp-block-pullquote:not(.is-style-solid-color)  {
+		border-color: {$colors['tainacan_link_color']} !important;
 	}
 
 	/* Code */

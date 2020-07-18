@@ -1,6 +1,4 @@
 // Register palette classes for colors
-.has-default-color { color: #298596 !important; }
-.has-default-background-color { background-color: #298596 !important; }
 .has-carmine-color { color: #8c442c !important; }
 .has-carmine-background-color { background-color: #8c442c !important; }
 .has-cherry-color { color: #A12B42 !important; }
@@ -29,8 +27,7 @@
     // 1400px is the maximum the inner cointainer should get, so we 
     // use 1526px - 1 column - 1 column;
     @media only screen and (min-width: 1526px) {
-        margin-left: calc(-1*(87.5vw - 1400px)/2) !important;
-        margin-right: calc(-1*(87.5vw - 1400px)/2) !important;
+        width: 116.66667vw;
     }
 }
 
@@ -68,6 +65,12 @@
     max-width: 100vw !important;
     width: 100vw !important;
     padding: 0 !important;
+}
+
+/* Columns */
+.wp-block-columns.alignfull {
+    padding-left: 8.333333%;
+    padding-right: 8.333333%;
 }
 
 /* Buttons */

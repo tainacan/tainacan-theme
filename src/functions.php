@@ -85,15 +85,23 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_image_size( 'tainacan-interface-list-post', 300, 200, true );
 		add_image_size( 'tainacan-interface-item-attachments', 125, 125, true );
 		
-		
 		/**
 		 * Gutenberg support
 		 */
+		$default_color = '#298596';
+		
+		if (function_exists('tainacan_get_color_scheme')) {
+			$color_scheme = tainacan_get_color_scheme();
+
+			if ($color_scheme && $color_scheme[2]) {
+				$default_color = $color_scheme[2];
+			}
+		}
 	    add_theme_support( 'editor-color-palette', array(
 	        array(
 	            'name' => __( 'Default', 'tainacan-interface' ),
 	            'slug' => 'default',
-	            'color' => '#298596',
+	            'color' => $default_color
 	        ),
 	        array(
 	            'name' => __( 'Carmine', 'tainacan-interface' ),
@@ -149,6 +157,33 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	}
 } // End if().
 add_action( 'after_setup_theme', 'tainacan_setup' );
+
+/**
+ * Passes the custom color to a css variable used on the theme-side editor style
+ *
+ */
+function tainacan_customize_editor_css() {
+
+	$default_color = '#298596';
+		
+	if (function_exists('tainacan_get_color_scheme')) {
+		$color_scheme = tainacan_get_color_scheme();
+
+		if ($color_scheme && $color_scheme[2]) {
+			$default_color = $color_scheme[2];
+		}
+	}
+
+	?>
+	<style>
+		.editor-styles-wrapper { 
+			--tainacan-color-default: <?php echo $color_scheme[2] ?>;
+			--tainacan-block-primary: <?php echo $color_scheme[2] ?>;
+		}
+	</style>
+	<?php
+}
+add_action( 'admin_head', 'tainacan_customize_editor_css');
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -236,14 +271,17 @@ function tainacan_block_patterns_init() {
 				<div class="wp-block-cover alignfull has-default-background-color has-background-dim">
 					
 					<div class="wp-block-cover__inner-container">
+						<!-- wp:spacer {"height": 24} -->
+						<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
+						<!-- /wp:spacer -->
 						<!-- wp:heading {"style":{"color":{"text":"#ffffff"}}} -->
 						<h2 class="has-text-color" style="color:#ffffff">' . esc_html__( 'Section title', 'tainacan-interface' ) . '</h2>
 						<!-- /wp:heading -->
 						<!-- wp:spacer {"height": 16} -->
 						<div style="height:16px" aria-hidden="true" class="wp-block-spacer"></div>
 						<!-- /wp:spacer -->
-						<!-- wp:columns -->
-						<div class="wp-block-columns">
+						<!-- wp:columns {"style":{"color":{"text":"#ffffff"}}} -->
+						<div class="wp-block-columns has-text-color" style="color:#ffffff">
 							<!-- wp:column {"width":33.33} -->
 							<div class="wp-block-column" style="flex-basis:33.33%">
 								<!-- wp:image {"id":152274,"sizeSlug":"large"} -->
@@ -265,6 +303,9 @@ function tainacan_block_patterns_init() {
 							<!-- /wp:column -->
 						</div>
 						<!-- /wp:columns -->
+						<!-- wp:spacer {"height": 32} -->
+						<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
+						<!-- /wp:spacer -->
 					</div>
 				</div>
 				<!-- /wp:cover -->',
@@ -280,9 +321,11 @@ function tainacan_block_patterns_init() {
 				<!-- wp:cover {"customOverlayColor":"#01295c","align":"full"} -->
 				<div class="wp-block-cover alignfull has-background-dim" style="background-color:#01295c">
 					<div class="wp-block-cover__inner-container">
-
-						<!-- wp:columns -->
-						<div class="wp-block-columns">
+						<!-- wp:spacer {"height": 16} -->
+						<div style="height:16px" aria-hidden="true" class="wp-block-spacer"></div>
+						<!-- /wp:spacer -->
+						<!-- wp:columns {"style":{"color":{"text":"#ffffff"}}} -->
+						<div class="wp-block-columns has-text-color" style="color:#ffffff">
 							<!-- wp:column {"width":33.33} -->
 							<div class="wp-block-column" style="flex-basis:33.33%">
 								<!-- wp:image {"id":152274,"sizeSlug":"large"} -->
@@ -449,9 +492,7 @@ function tainacan_editor_styles() {
 	
 	// Adds Robot fonts to Gutenberg.
 	wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
-	
-	// Adds customizer colors to Gutenberg.
-	//wp_add_inline_style( 'tainacan-customizer-editor-style', tainacan_customizer_gutenberg_colors() );
+
 }
 add_action( 'enqueue_block_editor_assets', 'tainacan_editor_styles' );
 

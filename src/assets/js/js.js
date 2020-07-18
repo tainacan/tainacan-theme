@@ -58,7 +58,7 @@ jQuery( document ).ready(function( $ ) {
 	/**
 	 * Change the class of guttenberg button
 	 */
-	$( '.wp-block-button a' ).toggleClass().addClass( 'btn btn-jelly-bean' );
+	$( '.wp-block-button a' ).addClass( 'btn btn-jelly-bean' );
 
 	$( '.tainacan-list-post .table .tainacan-list-collection td' ).click( function(){
 		window.location = $( '.tainacan-list-post .table .tainacan-list-collection' ).data( "href" );

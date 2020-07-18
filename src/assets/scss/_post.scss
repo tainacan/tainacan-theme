@@ -258,15 +258,19 @@
             }
         }
         .wp-block-separator {
-            border-color: #cbcbcb;
+            &:not(.has-background-color) {
+                border-color: #cbcbcb;
+            }
             width: 50%;
             max-width: 300px;
-            &.is-style-wide{
+            &.is-style-wide {
                 width: 100%;
             }
-            &.is-style-dots{
-                &::before {
+            &.is-style-dots {
+                &:not(.has-background-color)::before {
                     color: #cbcbcb;
+                }
+                &::before {
                     font-weight: 600;
                 }
             }
@@ -475,26 +479,34 @@
                 }
             }
             text-align: center;
-            figcaption{
-                color: #000;
+            figcaption {
+                color: inherit;
                 font-size: 0.875rem;
                 font-weight: 400;
             }
         }
-        .wp-block-pullquote{
+        .wp-block-pullquote {
             margin: 3rem 0;
             padding: 0;
-            border: none;
+            
+            &:not(.is-style-solid-color) {
+                border-color:#298596;
+                border-top-width: 2px;
+                border-bottom-width: 2px;
+                border-top-style: solid;
+                border-bottom-style: solid;
+            }
 
             blockquote {
-                border-top: 2px solid #cbcbcb;
-                border-bottom: 2px solid #cbcbcb;
                 padding: 2rem 8.3333333%;
+                margin: 0;
 
                 p {
                     font-size: 1.375rem;
-                    color: #298596;
                     font-weight: 500;
+                }
+                :not(.has-text-color) p {
+                    color: #298596;
                 }
                 cite {
                     color: #555758;
