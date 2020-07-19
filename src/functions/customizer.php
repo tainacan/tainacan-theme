@@ -559,7 +559,7 @@ function tainacan_customize_register( $wp_customize ) {
 			) );
 
 		/**
-		 * Adds options to control singe items page number of metadata columns.
+		 * Adds options to control single items page number of metadata columns.
 		 */
 		$wp_customize->add_setting( 'tainacan_single_item_metadata_columns_count_tablet', array(
 			'type' 		 => 'theme_mod',
@@ -625,6 +625,24 @@ function tainacan_customize_register( $wp_customize ) {
 				'max' => 4,
 				'step' => 1
 			)
+			) );
+
+		/**
+		 * Adds options to display previous/next links on item single page.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_show_next_previous_links', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_show_next_previous_links', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Show previous and next items links', 'tainacan-interface' ),
+			'description' => __( 'Toggle to display previous and next items links at te end of the page. This pagination is sorted by creation date only.', 'tainacan-interface' )
 			) );
 
 		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
