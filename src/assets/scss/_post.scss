@@ -899,6 +899,46 @@
         }
     }
 }
+#item-single-navigation {
+    .pagination {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    a {
+        position: relative;
+        left: 0;
+        transition: left 0.3s ease;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    a[rel=prev]:hover {
+        left: -7px;
+    }
+    a[rel=next]:hover {
+        left: 7px;
+    }
+    a.has-small-thumbnail img {
+        height: 38px;
+        width: auto;
+        margin: 0.5rem;
+    }
+    a.has-large-thumbnail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    a.has-large-thumbnail img {
+        height: 170px;
+        width: auto;
+        margin: 0.5rem;
+    }
+    @media screen and (max-width: 768px) {
+        a.has-large-thumbnail img {
+            height: 84px;
+        }
+    }
+}
 .tainacan-heading-section-pattern-pattern {
     h1,
     h2,

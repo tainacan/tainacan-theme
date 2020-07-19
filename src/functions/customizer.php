@@ -630,19 +630,20 @@ function tainacan_customize_register( $wp_customize ) {
 		/**
 		 * Adds options to display previous/next links on item single page.
 		 */
-		$wp_customize->add_setting( 'tainacan_single_item_show_next_previous_links', array(
+		$wp_customize->add_setting( 'tainacan_single_item_navigation_options', array(
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' 	 => false,
+			'default' 	 => 'none',
 			'transport'  => 'refresh',
-			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+			'sanitize_callback' => 'tainacan_sanitize_single_item_navigation_links_options',
 			) );
-		$wp_customize->add_control( 'tainacan_single_item_show_next_previous_links', array(
-			'type' 	   	  => 'checkbox',
+		$wp_customize->add_control( 'tainacan_single_item_navigation_options', array(
+			'type' 	   	  => 'select',
 			'priority' 	  => 3, // Within the section.
 			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Show previous and next items links', 'tainacan-interface' ),
-			'description' => __( 'Toggle to display previous and next items links at te end of the page. This pagination is sorted by creation date only.', 'tainacan-interface' )
+			'label'    	  => __( 'Navigation links to other items', 'tainacan-interface' ),
+			'description' => __( 'Sets how next and previous items links will be displayed. This links only obey creation date order inside their collection.', 'tainacan-interface' ),
+			'choices'	  => tainacan_get_single_item_navigation_links_options()
 			) );
 
 		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
@@ -1361,7 +1362,7 @@ endif; // tainacan_get_single_item_layout_sections_order_options
 
 if ( ! function_exists( 'tainacan_sanitize_single_item_layout_sections_order' ) ) :
 	/**
-	 * Handles sanitization for Tainacan Themeitem page laout sections order
+	 * Handles sanitization for Tainacan Themeitem page layout sections order
 	 *
 	 * Create your own tainacan_sanitize_single_item_layout_sections_order() function to override
 	 * in a child theme.
@@ -1381,6 +1382,51 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_layout_sections_order' ) 
 		return $order;
 	}
 endif; // tainacan_sanitize_single_item_layout_sections_order
+
+if ( ! function_exists( 'tainacan_get_single_item_navigation_links_options' ) ) :
+	/**
+	 * Retrieves an array of options for single item page navigation options for Tainacan Theme.
+	 *
+	 * Create your own tainacan_get_single_item_navigation_links_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array $option - a string with options for displaying the naviation links.
+	 */
+	function tainacan_get_single_item_navigation_links_options() {
+		$navigation_options = array(
+			'none' => __('Do not display items links', 'tainacan-interface'),
+			'link' => __('Show only items Link', 'tainacan-interface'),
+			'thumbnail_small' => __('Show items links with a small thumbnail', 'tainacan-interface'),
+			'thumbnail_large' => __('Show items links with a large thumbnail', 'tainacan-interface'),
+		);
+		return $navigation_options;
+	}
+endif; // tainacan_get_single_item_navigation_links_options
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_navigation_links_options' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Theme item page navigation link options
+	 *
+	 * Create your own tainacan_sanitize_single_item_navigation_links_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $option - a string with options for displaying the naviation links.
+	 * @return string the selected option.
+	 */
+	function tainacan_sanitize_single_item_navigation_links_options( $option ) {
+		$navigation_options = tainacan_get_single_item_navigation_links_options();
+
+		if ( ! array_key_exists( $option, $navigation_options ) ) {
+			return 'none';
+		}
+
+		return $option;
+	}
+endif; // tainacan_sanitize_single_item_navigation_links_options
 
 /**
  * Enqueues front-end CSS for color scheme.
