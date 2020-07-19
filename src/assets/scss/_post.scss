@@ -912,6 +912,9 @@
         flex-wrap: nowrap;
         align-items: center;
     }
+    a:hover {
+        text-decoration: none;
+    }
     a[rel=prev]:hover {
         left: -7px;
     }
@@ -923,7 +926,7 @@
         width: auto;
         margin: 0.5rem;
     }
-    a.has-large-thumbnail {
+    a.has-large-thumbnail>div {
         display: flex;
         flex-direction: column;
         align-items: center;
