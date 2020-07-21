@@ -1,12 +1,25 @@
 <?php 
 
-    //Get the links to the Previous and Next Post
-    $previous_link_url = get_permalink( get_previous_post() );
-    $next_link_url = get_permalink( get_next_post() );
+    if (function_exists('tainacan_get_adjacent_items')) {
+        $adjacent_items = tainacan_get_adjacent_items();
 
-    //Get the title of the previous post and next post
-    $previous_title = get_the_title( get_previous_post() );
-    $next_title = get_the_title( get_next_post() );
+        if ($adjacent_items['next']) {
+            $next_link_url = $adjacent_items['next']['url'];
+            $next_title = $adjacent_items['next']['title'];
+        }
+        if ($adjacent_items['previous']) {
+            $previous_link_url = $adjacent_items['previous']['url'];
+            $previous_title = $adjacent_items['previous']['title'];
+        }
+    } else {
+        //Get the links to the Previous and Next Post
+        $previous_link_url = get_permalink( get_previous_post() );
+        $next_link_url = get_permalink( get_next_post() );
+
+        //Get the title of the previous post and next post
+        $previous_title = get_the_title( get_previous_post() );
+        $next_title = get_the_title( get_next_post() );
+    }
     
     $previous = '';
     $next = '';
@@ -20,8 +33,17 @@
 
         case 'thumbnail_small':
             //Get the thumnail url of the previous and next post
-            $previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-small' );
-            $next_thumb = get_the_post_thumbnail_url( get_next_post(), 'tainacan-small' );
+            if (function_exists('tainacan_get_adjacent_items')) {
+                if ($adjacent_items['next']) {
+                    $next_thumb = $adjacent_items['next']['thumbnail']['tainacan-small'][0];
+                }
+                if ($adjacent_items['previous']) {
+                    $previous_thumb = $adjacent_items['previous']['thumbnail']['tainacan-small'][0];
+                }
+            } else {
+                $previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-small' );
+                $next_thumb = get_the_post_thumbnail_url( get_next_post(), 'tainacan-small' );
+            }
 
             // Creates the links
             $previous = 
@@ -37,17 +59,19 @@
         break;
 
         case 'thumbnail_large':
-            //Get the thumnail url of the previous and next post
-            $previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-medium' );
-            $next_thumb = get_the_post_thumbnail_url( get_next_post(), 'tainacan-medium' );
 
-            //Get the links to the Previous and Next Post
-            $previous_link_url = get_permalink( get_previous_post() );
-            $next_link_url = get_permalink( get_next_post() );
-
-            //Get the title of the previous post and next post
-            $previous_title = get_the_title( get_previous_post() );
-            $next_title = get_the_title( get_next_post() );
+            if (function_exists('tainacan_get_adjacent_items')) {
+                if ($adjacent_items['next']) {
+                    $next_thumb = $adjacent_items['next']['thumbnail']['tainacan-medium'][0];
+                }
+                if ($adjacent_items['previous']) {
+                    $previous_thumb = $adjacent_items['previous']['thumbnail']['tainacan-medium'][0];
+                }
+            } else {
+                //Get the thumnail url of the previous and next post
+                $previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-medium' );
+                $next_thumb = get_the_post_thumbnail_url( get_next_post(), 'tainacan-medium' );
+            }
 
             // Creates the links
             $previous = 
