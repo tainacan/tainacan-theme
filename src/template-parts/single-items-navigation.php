@@ -95,14 +95,16 @@
     }
 ?>
 
-<div class="tainacan-single-post">
-    <h2 class="title-content-items"><?php echo __('Also in this collection', 'tainacan-interface') ?></h2>
-    <div id="item-single-navigation" class="d-flex justify-content-between margin-two-column">
-        <div class="pagination">
-            <?php if($previous_link_url !== false) previous_post_link($previous); ?>
-        </div>
-        <div class="pagination">
-            <?php if($next_link_url !== false) next_post_link($next); ?>
+<?php if($previous_link_url !== false || $next_link_url !== false): ?>
+    <div class="tainacan-single-post">
+        <h2 class="title-content-items"><?php echo __('Also in this collection', 'tainacan-interface') ?></h2>
+        <div id="item-single-navigation" class="d-flex justify-content-between margin-two-column">
+            <div class="pagination">
+                <?php if($previous_link_url !== false) previous_post_link($previous); ?>
+            </div>
+            <div class="pagination">
+                <?php if($next_link_url !== false) next_post_link($next); ?>
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
