@@ -139,7 +139,7 @@
         }
     }
     header {
-        .header-meta{
+        .header-meta {
             color: #898d8f !important;
             font: {
                 size: 0.75rem;
@@ -154,6 +154,14 @@
             img {
                 height: 24px;
                 padding-left: 1rem;
+            }
+            .pagination {
+                a:hover {
+                    text-decoration: none;
+                }
+                span {
+                    display: none;
+                }
             }
         }
         img{

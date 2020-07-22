@@ -23,6 +23,10 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 
 	echo '</style>';
 }
+
+$adjacent_links = tainacan_get_adjacent_item_links();
+$previous = $adjacent_links['previous'];
+$next = $adjacent_links['next'];
 ?>
 
 <?php if ( get_theme_mod('tainacan_single_item_collection_header', false) ): ?>
@@ -170,7 +174,7 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
     <div class="mt-3 tainacan-single-post collection-single-item">
 <?php endif; ?>
         <header class="mb-4 tainacan-content">
-            <div class="header-meta text-muted mb-2">
+            <div class="header-meta text-muted mb-2 d-flex ">
                 <?php 
                     if ( !get_theme_mod('tainacan_single_item_hide_item_meta', false) ) {
                         echo '<span class="time">';
@@ -183,6 +187,17 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
                         echo '</span>';
                     }
                 ?>
+                <div style="height: 1.125rem;" class="ml-auto d-flex justify-content-between">
+                    <div class="pagination">
+                        <?php echo $previous; ?>
+                    </div>
+                    <div class="pagination">
+                        <a href="<?php tainacan_the_collection_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
+                    </div>
+                    <div class="pagination">
+                        <?php echo $next; ?>
+                    </div>
+                </div>
             </div>
         </header>
     </div>
