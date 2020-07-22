@@ -14,6 +14,17 @@
         } else {
             $previous_link_url = false;
         }
+
+        // In this case, the user entered the page without any query params.
+        if (!isset($adjacent_items['previous']) && !isset($adjacent_items['previous'])) {
+             //Get the links to the Previous and Next Post
+            $previous_link_url = get_permalink( get_previous_post() );
+            $next_link_url = get_permalink( get_next_post() );
+
+            //Get the title of the previous post and next post
+            $previous_title = get_the_title( get_previous_post() );
+            $next_title = get_the_title( get_next_post() );
+        }
     } else {
         //Get the links to the Previous and Next Post
         $previous_link_url = get_permalink( get_previous_post() );
@@ -27,7 +38,7 @@
     $previous = '';
     $next = '';
 
-    switch (get_theme_mod('tainacan_single_item_navigation_options', 'none')) {
+    switch (get_theme_mod('tainacan_single_item_navigation_options', 'thumbnail_small')) {
 
         case 'link':
             $previous = $previous_link_url === false ? '' : '<a rel="prev" href="' . $previous_link_url . '"><i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-30px"></i>&nbsp; ' . $previous_title . '</a>';
@@ -94,9 +105,13 @@
         return '';
     }
 ?>
-<?php if ($previous !== '' && $next !== '') : ?>
+<?php if ($previous !== '' || $next !== '') : ?>
     <div class="tainacan-single-post">
-        <h2 class="title-content-items"><?php echo __('Also in this collection', 'tainacan-interface') ?></h2>
+        <?php if ( get_theme_mod('tainacan_single_item_navigation_section_label', __( 'Continue browsing', 'tainacan-interface' )) != '') : ?>
+            <h2 class="title-content-items" id="single-item-navigation-label">
+                <?php echo get_theme_mod('tainacan_single_item_navigation_section_label', __('Continue browsing', 'tainacan-interface')); ?>
+            </h2>
+        <?php endif; ?>
         <div id="item-single-navigation" class="d-flex justify-content-between margin-two-column">
             <div class="pagination">
                 <?php echo $previous; ?>

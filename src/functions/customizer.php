@@ -450,6 +450,29 @@ function tainacan_customize_register( $wp_customize ) {
 			'render_callback' => '__return_false',
 			'fallback_refresh' => true
 			) );
+
+		/**
+		 * Adds option to configure Item Navigation section label.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_navigation_section_label', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => __('Continue browsing', 'tainacan-interface'),
+			'transport'  => 'postMessage',
+			'sanitize_callback'  => 'sanitize_text_field'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_navigation_section_label', array(
+			'type' 	   	  => 'text',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Label for the "Items navigation" or "Continue browsing" section', 'tainacan-interface' ),
+			'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_navigation_section_label', array(
+			'selector' => '#single-item-navigation-label',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
 		
 		/**
 		 * Adds options to hide attachments file names on carousel.
@@ -633,7 +656,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'tainacan_single_item_navigation_options', array(
 			'type' 		 => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' 	 => 'none',
+			'default' 	 => 'thumbnail_small',
 			'transport'  => 'refresh',
 			'sanitize_callback' => 'tainacan_sanitize_single_item_navigation_links_options',
 			) );
@@ -641,8 +664,8 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 	   	  => 'select',
 			'priority' 	  => 3, // Within the section.
 			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Navigation links to other items', 'tainacan-interface' ),
-			'description' => __( 'Sets how next and previous items links will be displayed. This links only obey creation date order inside their collection.', 'tainacan-interface' ),
+			'label'    	  => __( 'Navigation links to adjacent items', 'tainacan-interface' ),
+			'description' => __( 'Sets how next and previous items links will be displayed. If your Tainacan version is bellow 0.17, this links only obey creation date order inside their collection.', 'tainacan-interface' ),
 			'choices'	  => tainacan_get_single_item_navigation_links_options()
 			) );
 
