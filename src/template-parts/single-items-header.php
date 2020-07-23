@@ -187,17 +187,21 @@ $next = $adjacent_links['next'];
                         echo '</span>';
                     }
                 ?>
-                <div style="height: 1.125rem;" class="ml-auto d-flex justify-content-between">
-                    <div class="pagination">
-                        <?php echo $previous; ?>
+                <?php if (get_theme_mod('tainacan_single_item_show_navigation_options', false)) : ?>
+                    <div 
+                            id="header-meta_pagination"
+                            style="height: 1.125rem;" class="ml-auto d-flex justify-content-between">
+                        <div class="pagination">
+                            <?php echo $previous; ?>
+                        </div>
+                        <div class="pagination">
+                            <a href="<?php echo tainacan_get_source_item_list_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-30px"></i></a>
+                        </div>
+                        <div class="pagination">
+                            <?php echo $next; ?>
+                        </div>
                     </div>
-                    <div class="pagination">
-                        <a href="<?php tainacan_the_collection_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
-                    </div>
-                    <div class="pagination">
-                        <?php echo $next; ?>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </header>
     </div>

@@ -125,7 +125,6 @@ function tainacan_filter_cancel_comment_reply_link( $formatted_link, $link, $tex
 }
 add_filter( 'cancel_comment_reply_link', 'tainacan_filter_cancel_comment_reply_link', 10, 3 );
 
-
 /**
  * Retrieves an item adjacent link, either using WP strategy or Tainacan plugin tainacan_get_adjacent_items()
  * 
@@ -225,4 +224,23 @@ function tainacan_get_adjacent_item_links($thumbnail = null) {
 	}
 
 	return ['next' => $next, 'previous' => $previous];
+}
+
+/**
+ * Retrieves the current items list source link
+ */
+function tainacan_get_source_item_list_url() {
+	$args = $_GET;
+	if (isset($args['ref'])) {
+		$ref = $_GET['ref'];
+		unset($args['pos']);
+		unset($args['ref']);
+		unset($args['source_list']);
+		return $ref . '?' . http_build_query(array_merge($args));
+	} else {
+		unset($args['pos']);
+		unset($args['ref']);
+		unset($args['source_list']);
+		return tainacan_the_collection_url() . '?' . http_build_query(array_merge($args));
+	}
 }
