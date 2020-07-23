@@ -38,6 +38,11 @@
                 <?php echo $previous; ?>
             </div>
             <div class="pagination">
+                <a class="d-inline-flex align-items-center" href="<?php echo tainacan_get_source_item_list_url(); ?>">
+                <i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i>&nbsp;<span><?php echo __('Back to the items list', 'tainacan') ?></span>
+                </a>  
+            </div>
+            <div class="pagination">
                 <?php echo $next; ?>
             </div>
         </div>

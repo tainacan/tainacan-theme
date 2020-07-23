@@ -156,6 +156,7 @@
                 padding-left: 1rem;
             }
             .pagination {
+                margin: 0 0.1rem;
                 a:hover {
                     text-decoration: none;
                 }
@@ -178,6 +179,7 @@
         font-weight: 500;
         color: #338591;
         margin-left: 4.16666666667%;
+        margin-right: 4.16666666667%;
         margin-bottom: 2rem;
     }
     header.tainacan-content {
@@ -849,11 +851,12 @@
                         column-gap: 7rem;
                         column-rule: none;
                     }
-                    h3{
+                    h3 {
                         color: #000;
                         font-size: 0.875rem;
                         font-weight: 700;
                         padding-right: 1rem;
+                        margin-bottom: 0.25rem;
                         width: 100%;
                         &:first-of-type:last-of-type {
                             display: inline-block;
@@ -915,9 +918,17 @@
     }
 }
 #item-single-navigation {
+    flex-wrap: wrap;
+
     .pagination {
         flex-wrap: nowrap;
         align-items: center;
+        margin-bottom: 0.25rem;
+
+        &:not(:last-child):not(:first-child) {
+            margin-right: 0.1rem;
+            margin-left: 0.1rem;
+        }
     }
     a {
         position: relative;
