@@ -137,7 +137,7 @@ function tainacan_interface_the_breadcrumb() {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
 		}
 
-		if (get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
+		if (is_single() && get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
 
 			$adjacent_links = tainacan_get_adjacent_item_links();
 			$previous = $adjacent_links['previous'];
