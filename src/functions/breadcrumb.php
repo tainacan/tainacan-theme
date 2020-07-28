@@ -137,28 +137,32 @@ function tainacan_interface_the_breadcrumb() {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
 		}
 
-		if (is_single() && get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
+		if ( defined ( 'TAINACAN_VERSION' ) ) {
+			$theme_helper = \Tainacan\Theme_Helper::get_instance();
 
-			$adjacent_links = tainacan_get_adjacent_item_links();
-			$previous = $adjacent_links['previous'];
-			$next = $adjacent_links['next'];
+			if ($theme_helper->is_post_an_item(get_post()) && is_single() && get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
 
-			if ($previous !== '' || $next !== '') {
-			?>
-				<div 
-						id="header-meta_pagination"
-						style="height: 1.125rem;" class="ml-auto d-flex align-items-center">
-					<div class="pagination">
-						<a href="<?php echo tainacan_get_source_item_list_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
+				$adjacent_links = tainacan_get_adjacent_item_links();
+				$previous = $adjacent_links['previous'];
+				$next = $adjacent_links['next'];
+
+				if ($previous !== '' || $next !== '') {
+				?>
+					<div 
+							id="breadcrumb-single-item-pagination"
+							style="height: 1.125rem;" class="ml-auto d-flex align-items-center">
+						<div class="pagination">
+							<?php echo $previous; ?>
+						</div>
+						<div class="pagination">
+							<?php echo $next; ?>
+						</div>
+						<div class="pagination">
+							<a href="<?php echo tainacan_get_source_item_list_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
+						</div>
 					</div>
-					<div class="pagination">
-						<?php echo $previous; ?>
-					</div>
-					<div class="pagination">
-						<?php echo $next; ?>
-					</div>
-				</div>
-			<?php
+				<?php
+				}
 			}
 		}
 

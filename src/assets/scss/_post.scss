@@ -918,13 +918,13 @@
         }
     }
 }
-#header-meta_pagination {
+#breadcrumb-single-item-pagination {
     font-size: 0.875rem;
 
     .pagination {
-        padding: 0 6px;
+        padding: 0;
         &:last-child {
-            padding: 0;
+            padding: 0 6px;
         }
         a span {
             display: none;

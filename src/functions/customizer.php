@@ -533,7 +533,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'description' => __( 'Toggle to display two and a list icon for navigating directly from the item page breadcrumb section.', 'tainacan-interface' )
 			) );
 		$wp_customize->selective_refresh->add_partial( 'tainacan_single_show_hide_navigation_options', array(
-			'selector' => '#header-meta_pagination',
+			'selector' => '#breadcrumb-single-item-pagination',
 			'render_callback' => '__return_false',
 			'fallback_refresh' => true
 			) );
