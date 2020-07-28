@@ -529,11 +529,11 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 2, // Within the section.
 			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Show the item navigation options in the page header', 'tainacan-interface' ),
-			'description' => __( 'Toggle to display tow arros and a list icon for navigating directly from the item page header.', 'tainacan-interface' )
+			'label'    	  => __( 'Show the item navigation options in the breadcrumb section', 'tainacan-interface' ),
+			'description' => __( 'Toggle to display two and a list icon for navigating directly from the item page breadcrumb section.', 'tainacan-interface' )
 			) );
 		$wp_customize->selective_refresh->add_partial( 'tainacan_single_show_hide_navigation_options', array(
-			'selector' => '.tainacan-single-post #header-meta_pagination',
+			'selector' => '#header-meta_pagination',
 			'render_callback' => '__return_false',
 			'fallback_refresh' => true
 			) );
