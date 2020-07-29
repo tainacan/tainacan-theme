@@ -67,7 +67,7 @@
 		</div>
 	</nav>
 
-	<a href="javascript:" id="return-to-top"><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
+	<a href="javascript:" id="return-to-top" style="<?php echo (get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'colored' ? 'border: 1px solid white;' : '') ?>"><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
 
     <?php if ( !is_page_template( 'page-templates/landing.php' ) ) : ?>
 		<?php tainacan_interface_the_breadcrumb(); ?>

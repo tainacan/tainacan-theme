@@ -1,5 +1,5 @@
 <?php if ( ! is_404() ) : ?>
-	<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer" style="padding-bottom: 0 !important;">
+	<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer <?php echo ('tainacan-footer-' . get_theme_mod( 'tainacan_footer_color', 'dark' )) ?>" style="padding-bottom: 0 !important;">
 		<?php if ( is_active_sidebar( 'tainacan-sidebar-footer' ) ) { ?>
 			<div class="row tainacan-footer-widgets-area">
 				<div class="col-12 col-lg">
@@ -43,7 +43,7 @@
 					if ( get_theme_mod( 'tainacan_footer_logo' ) ) {
 						$footerImage = esc_attr( get_theme_mod( 'tainacan_footer_logo' ) );
 					} else {
-						$footerImage = esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
+						$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg' : esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
 					}
 					?>
 					<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >

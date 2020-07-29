@@ -20,23 +20,23 @@ function tainacan_customize_register( $wp_customize ) {
 		'title'  	 => __( 'Footer settings', 'tainacan-interface' ),
 		'priority'   => 170,
 	));
+
 	$wp_customize->add_setting( 'tainacan_blogaddress', array(
 		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'sanitize_text_field'
 	) );
-
 	$wp_customize->add_control( 'tainacan_blogaddress', array(
 		'type'       => 'theme_mod',
 		'label'      => __( 'Address', 'tainacan-interface' ),
 		'section'    => 'tainacan_footer_info',
 	) );
+
 	$wp_customize->add_setting( 'tainacan_blogphone', array(
 		'type'       => 'theme_mod',
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'tainacan_sanitize_phone',
 	) );
-
 	$wp_customize->add_control( 'tainacan_blogphone', array(
 		'type'       => 'theme_mod',
 		'label'      => __( 'Phone Number', 'tainacan-interface' ),
@@ -48,12 +48,26 @@ function tainacan_customize_register( $wp_customize ) {
 		'capability' => 'manage_options',
 		'sanitize_callback'  => 'tainacan_sanitize_email',
 	) );
-
 	$wp_customize->add_control( 'tainacan_blogemail', array(
 		'type'       => 'theme_mod',
 		'label'      => __( 'E-mail', 'tainacan-interface' ),
 		'section'    => 'tainacan_footer_info',
 	) );
+
+	$wp_customize->add_setting( 'tainacan_footer_color', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 'dark',
+		'transport'  => 'refresh',
+		'sanitize_callback' => 'tainacan_sanitize_footer_color_options',
+		) );
+	$wp_customize->add_control( 'tainacan_footer_color', array(
+		'type' 	   	  => 'select',
+		'priority' 	  => 6, // Within the section.
+		'section'  	  => 'tainacan_footer_info',
+		'label'    	  => __( 'Footer color scheme', 'tainacan-interface' ),
+		'choices'	  => tainacan_get_footer_color_options()
+		) );
 
 	/**
 	 * Footer Logo customizer
@@ -220,7 +234,7 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Add link color setting and control.
 	 */
 	$wp_customize->add_setting( 'tainacan_link_color', array(
-		'type'       => 'theme_mod',
+		'type'       		=> 'theme_mod',
 		'default'           => $color_scheme[2],
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage',
@@ -232,7 +246,7 @@ function tainacan_customize_register( $wp_customize ) {
 	) ) );
 
 	$wp_customize->add_setting( 'tainacan_tooltip_color', array(
-		'type'       => 'theme_mod',
+		'type'       		=> 'theme_mod',
 		'default'           => $color_scheme[3],
 		'sanitize_callback' => 'sanitize_hex_color',
 		'transport'         => 'postMessage',
@@ -1450,6 +1464,52 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_layout_sections_order' ) 
 	}
 endif; // tainacan_sanitize_single_item_layout_sections_order
 
+
+if ( ! function_exists( 'tainacan_get_footer_color_options' ) ) :
+	/**
+	 * Retrieves an array of options for footer color on Tainacan Theme.
+	 *
+	 * Create your own tainacan_get_footer_color_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array $color_options - a string describing the color style option
+	 */
+	function tainacan_get_footer_color_options() {
+		$color_options = array(
+			'dark' 		=> __('Dark', 'tainacan-interface'),
+			'light' 	=> __('Light', 'tainacan-interface'),
+			'colored' 	=> __('Colored', 'tainacan-interface'),
+		);
+		return $color_options;
+	}
+endif; // tainacan_get_footer_color_options
+
+if ( ! function_exists( 'tainacan_sanitize_footer_color_options' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Theme footer color style
+	 *
+	 * Create your own tainacan_sanitize_footer_color_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $option - a string describing the color style for the footer
+	 * @return string the selected option.
+	 */
+	function tainacan_sanitize_footer_color_options( $option ) {
+		$color_options = tainacan_get_footer_color_options();
+
+		if ( ! array_key_exists( $option, $color_options ) ) {
+			return 'dark';
+		}
+
+		return $option;
+	}
+endif; // tainacan_sanitize_footer_color_options
+
+
 if ( ! function_exists( 'tainacan_get_single_item_navigation_links_options' ) ) :
 	/**
 	 * Retrieves an array of options for single item page navigation options for Tainacan Theme.
@@ -1671,6 +1731,33 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 	footer hr.bg-scooter {
 		background-color: {$colors['tainacan_link_color']} !important;
+	}
+
+	/* Colored version of footer */
+	footer.tainacan-footer-colored {
+		background-color: {$colors['tainacan_link_color']} !important;
+	}
+	footer.tainacan-footer-colored  hr.bg-scooter {
+		background-color: {$colors['tainacan_tooltip_color']} !important;
+	}
+	footer.tainacan-footer-colored a,
+	footer.tainacan-footer-colored .tainacan-footer-widgets-area .tainacan-side ul li a,
+	footer.tainacan-footer-colored .tainacan-footer-widgets-area .tainacan-side ol li a,
+	footer.tainacan-footer-colored .tainacan-side .textwidget,
+	footer.tainacan-footer-colored .tainacan-side .recentcomments,
+	footer.tainacan-footer-colored .tainacan-side .calendar_wrap,
+	footer.tainacan-footer-colored .tainacan-side ul li,
+	footer.tainacan-footer-colored .tainacan-side div li,
+	footer.tainacan-footer-colored .tainacan-side div,
+	footer.tainacan-footer-colored .tainacan-side ul,
+	footer.tainacan-footer-colored .tainacan-side li,
+	footer.tainacan-footer-colored .tainacan-footer-info .tainacan-powered {
+		color: {$colors['tainacan_tooltip_color']} !important;
+	}
+    @media screen and (max-width: 991.98px) {
+		footer.tainacan-footer-colored .tainacan-side {
+			border-top-color: {$colors['tainacan_tooltip_color']} !important;
+		}
 	}
 
 	/* Blockquote */

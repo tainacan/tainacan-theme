@@ -1,12 +1,12 @@
-.header{
-    .header-img{
-        @media only screen{
-            @media (max-width: 768px){
+.header {
+    .header-img {
+        @media only screen {
+            @media (max-width: 768px) {
                 min-height: 240px;
             }
         }
     }
-    .header-icon{
+    .header-icon {
         @media only screen{
             @media (max-width: 414px){
                 right: 1.4vw;
@@ -100,7 +100,7 @@
     }
 }
 
-footer{
+footer {
     @media only screen {
         @media (max-width: 991.98px){
             %transition {
@@ -316,6 +316,40 @@ footer{
     .tainacan-side{
         .textwidget, .recentcomments, .calendar_wrap, ul li, div li, div, ul, li {
             color: #cbcbcb;
+        }
+    }
+    &.tainacan-footer-light {
+        .tainacan-side{
+            .textwidget, .recentcomments, .calendar_wrap, ul li, div li, div, ul, li {
+                color: #464748;
+            }
+            @media only screen {
+                @media (max-width: 991.98px){
+                    &{
+                        border-top: 1px solid #555758;
+                    }
+                    &:nth-last-child(1){
+                        border-bottom: 1px solid #555758;
+                    }
+                }
+            }
+        }
+    }
+    &.tainacan-footer-colored {
+        .tainacan-side {
+            .textwidget, .recentcomments, .calendar_wrap, ul li, div li, div, ul, li {
+                color: #e6f6f8;
+            }
+            @media only screen {
+                @media (max-width: 991.98px){
+                    &{
+                        border-top: 1px solid #e6f6f8;
+                    }
+                    &:nth-last-child(1){
+                        border-bottom: 0px solid #e6f6f8;
+                    }
+                }
+            }
         }
     }
 }
