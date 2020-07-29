@@ -93,9 +93,30 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	/**
+	 * Header settings
+	 */
+	$wp_customize->add_section('tainacan_header_settings', array(
+		'title'  	 => __( 'Header settings', 'tainacan-interface' ),
+		'priority'   => 61,
+	));
+
+	// Hide search input on header
+	$wp_customize->add_setting( 'tainacan_hide_search_input', array(
+		'type'       => 'theme_mod',
+		'default'    => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'tainacan_hide_search_input', array(
+		'type' 		=> 'checkbox',
+		'settings' 	=> 'tainacan_hide_search_input',
+		'section' 	=> 'tainacan_header_settings',
+		'label' => __( 'Hide search icon and input', 'tainacan-interface' ),
+	) );
+
+	/**
 	 * Social Share Links
 	 */
-
 	$wp_customize->add_section('tainacan_social_share', array(
 		'title'  	 => __( 'Social Share', 'tainacan-interface' ),
 		'priority'   => 171,
@@ -1748,7 +1769,8 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.tainacan-slide-main-view .slide-control-arrow .icon .tainacan-icon::before {
 		color: {$colors['tainacan_link_color']};
 	}
-	.tainacan-slides-list #tainacan-slide-container .tainacan-slide-item.active-item img {
+	.tainacan-slides-list #tainacan-slide-container .tainacan-slide-item.active-item img,
+	.tainacan-slides-list #tainacan-slide-container .swiper-slide.swiper-slide-active img {
 		border-bottom: 4px solid {$colors['tainacan_link_color']};
 	}
 	/** Abas no modal de termos */
@@ -1909,14 +1931,12 @@ function tainacan_get_color_scheme_css( $colors ) {
 	.slide-control-arrow .icon .tainacan-icon::before {
 		color: {$colors['tainacan_link_color']};
 	}
-	#tainacan-slide-container .tainacan-slide-item.active-item.active-item img {
-		border-bottom: 4px solid {$colors['tainacan_link_color']} !important;
-	}
 	.metadata-menu .metadata-menu-header hr {
 		background-color: {$colors['backtransparent']};
 	}
 
-	.slide-title-area .play-button .icon {
+	.slide-title-area .play-button .icon,
+	.slide-title-area .play-button:hover .icon {
 		border: 3px solid {$colors['tainacan_link_color']};
 	}
 

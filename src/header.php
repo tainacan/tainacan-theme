@@ -41,19 +41,27 @@
 				<?php endif; ?>
 
 				<div class="btn-group" style="padding: 0.6rem 0rem;">
+				
+				<?php if (!get_theme_mod('tainacan_hide_search_input', false)) : ?>
 					<form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<div class="input-group">
 							<input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'tainacan-interface' ); ?>" class="form-control" formControlName="searchText" size="50">
-							<span class="text-midnight-blue input-group-btn tainacan-icon tainacan-icon-search form-control-feedback"></span>
+							<span class="text-midnight-blue input-group-btn icon form-control-feedback">
+								<i class="tainacan-icon tainacan-icon-search"></i>
+							</span>
 						</div>
 					</form>
 					<div class="dropdown tainacan-form-dropdown d-md-none">
-						<a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="tainacan-icon tainacan-icon-search"></i><i class="tainacan-icon tainacan-icon-close"></i></a>
-
+						<a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="tainacan-icon tainacan-icon-search"></i>
+							<i class="tainacan-icon tainacan-icon-close"></i>
+						</a>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<?php get_search_form(); ?>
 						</div>
 					</div>
+				<?php endif; ?>
+
 				</div>
 			</div>
 		</div>
