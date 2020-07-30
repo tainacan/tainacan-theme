@@ -20,9 +20,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		/**
 		 * Display in gutenberg plugin the full width for image
 		 */
-		add_theme_support( 'align-wide' );
-
-		add_theme_support( 'html5', array( 'comment-list', 'comment-form' ) );
+		add_theme_support( 'html5', array( 'navigation-widgets', 'comment-list', 'comment-form' ) );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
 		/**
@@ -150,6 +148,8 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	        ),
 		) );
 		add_theme_support( 'align-wide' );
+		add_theme_support( 'custom-line-height' );
+		add_theme_support( 'custom-units' );
 		add_theme_support( 'editor-style' );
 		add_editor_style( 'editor-style.css' );
 	
