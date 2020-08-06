@@ -638,6 +638,29 @@ function tainacan_customize_register( $wp_customize ) {
 			'render_callback' => '__return_false',
 			'fallback_refresh' => true
 			) );
+		
+		/**
+		 * Adds options to hide or no the core metadada in the metadada list.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_hide_core_title_metadata', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'postMessage',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_hide_core_title_metadata', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 2, // Within the section.
+			'section'  	  => 'tainacan_single_item_page',
+			'label'    	  => __( 'Hide core title from metadata list', 'tainacan-interface' ),
+			'description' => __( 'Toggle to hide or not the core title from the metadada list, as it already appears on the page title.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_hide_core_title_metadata', array(
+			'selector' => '.metadata-type-core_title',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
 
 		/**
 		 * Adds options to control single items page number of metadata columns.

@@ -60,6 +60,7 @@
                             'after_title' => '</h3>',
                             'before_value' => '<p>',
                             'after_value' => '</p></div>',
+                            'exclude_title' => get_theme_mod('tainacan_single_item_hide_core_title_metadata', false)
                         );
                         //$field = null;
                         tainacan_the_metadata( $args );
