@@ -2,12 +2,15 @@
 
 	<div class="tainacan-grid-container">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php $item_index = 0; while ( have_posts() ) : the_post(); ?>
 			
 			<a class="tainacan-grid-item" href="<?php the_permalink(); ?>">
-				<p class="metadata-title">     
-					<?php the_title(); ?>           
-				</p>
+				<div class="metadata-title">     
+					<p><?php the_title(); ?></p>
+					<a href="?<?php echo $_SERVER['QUERY_STRING'] ?>&slideshow-from=<?php echo $item_index ?>" class="icon slideshow-icon">
+						<i class="tainacan-icon tainacan-icon-viewgallery tainacan-icon-1-125em"></i>
+					</a>          
+				</div>
 				<?php if ( has_post_thumbnail() ) : ?>
 					<div 
 							style="background-image: url(<?php the_post_thumbnail_url( 'tainacan-medium' ) ?>)"
@@ -25,7 +28,7 @@
 				<?php endif; ?>  
 			</a>	
 		
-		<?php endwhile; ?>
+		<?php $item_index++; endwhile; ?>
 	
 	</div>
 

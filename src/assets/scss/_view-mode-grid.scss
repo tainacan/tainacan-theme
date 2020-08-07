@@ -56,21 +56,43 @@
 
         &:hover {
             background-color: #dbdbdb;
-            p.metadata-title { text-decoration: none !important; }
+            .metadata-title { text-decoration: none !important; }
         }
 
-        p.metadata-title {
+        .metadata-title {
             flex-shrink: 0;
-            font-size: 0.875rem;
-            margin-bottom: 0;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
             padding: 0.6rem 1.5rem;
             text-align: left;
             color: #1d1d1d;
             text-decoration: none !important;
-        }    
+            position: relative;
+
+            p {
+                font-size: 0.875rem;
+                margin-bottom: 0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            button.slideshow-icon {
+                border: none;
+                background: none;
+                box-shadow: none;
+                color: var(--tainacan-info-color); 
+                position: absolute;
+                right: 7px;
+                top: 9px;
+                transform: scale(0.0);
+                transition: transform 0.2s ease;
+            }
+        } 
+        &:hover,
+        &:focus {
+            button.slideshow-icon {
+                transform: scale(1.0);
+            }
+        } 
     
     }
 }
