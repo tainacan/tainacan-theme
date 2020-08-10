@@ -63,8 +63,6 @@
             flex-shrink: 0;
             padding: 0.6rem 1.5rem;
             text-align: left;
-            color: #1d1d1d;
-            text-decoration: none !important;
             position: relative;
 
             p {
@@ -73,9 +71,14 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
+                a,
+                a:hover {
+                    color: #1d1d1d !important;
+                    text-decoration: none !important;
+                }
             }
 
-            button.slideshow-icon {
+            .slideshow-icon {
                 border: none;
                 background: none;
                 box-shadow: none;
@@ -89,7 +92,7 @@
         } 
         &:hover,
         &:focus {
-            button.slideshow-icon {
+            .slideshow-icon {
                 transform: scale(1.0);
             }
         } 
