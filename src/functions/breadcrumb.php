@@ -140,7 +140,7 @@ function tainacan_interface_the_breadcrumb() {
 		if ( defined ( 'TAINACAN_VERSION' ) ) {
 			$theme_helper = \Tainacan\Theme_Helper::get_instance();
 
-			if ($theme_helper->is_post_an_item(get_post()) && is_single() && get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
+			if (get_post() && $theme_helper->is_post_an_item(get_post()) && is_single() && get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
 
 				$adjacent_links = tainacan_get_adjacent_item_links();
 				$previous = $adjacent_links['previous'];
