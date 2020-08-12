@@ -125,7 +125,22 @@ function tainacan_customize_register( $wp_customize ) {
 		'type' 		=> 'checkbox',
 		'settings' 	=> 'tainacan_hide_search_input',
 		'section' 	=> 'tainacan_header_settings',
-		'label' => __( 'Hide search icon and input', 'tainacan-interface' ),
+		'label' => __( 'Hide search icon and input', 'tainacan-interface' )
+	) );
+
+	// Includes tainacan itens on search results
+	$wp_customize->add_setting( 'tainacan_search_include_items', array(
+		'type'       => 'theme_mod',
+		'default'    => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'tainacan_search_include_items', array(
+		'type' 		=> 'checkbox',
+		'settings' 	=> 'tainacan_search_include_items',
+		'section' 	=> 'tainacan_header_settings',
+		'label'		=> __( 'Include tainacan itens on the search results list', 'tainacan-interface' ),
+		'description' => __( 'Toggle to include tainacan itens on the search results list. By default it only lists WordPress Posts and Pages. The items will be displayed with the same appearence of posts, with their title, thumbnail and description.', 'tainacan-interface' )
 	) );
 
 	/**
