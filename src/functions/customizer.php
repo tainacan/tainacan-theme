@@ -1687,6 +1687,9 @@ function tainacan_get_color_scheme_css( $colors ) {
 	#comments .list-comments .media .media-body .comment-edit-link {
 		color: {$colors['tainacan_link_color']};
 	}
+	.tainacan-list-post .blog-content h4 {
+		background-color: {$colors['tainacan_tooltip_color']} !important;
+	}
 	.tainacan-title-page ul li, 
 	.tainacan-title-page ul li a,
 	#menubelowHeader .menu-item a::after,
