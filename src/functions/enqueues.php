@@ -58,6 +58,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_register_script( 'tainacan_tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', TAINACAN_INTERFACE_VERSION, true );
 			wp_enqueue_script( 'tainacan_tainacanJS' );
 
+			wp_enqueue_script( 'tainacan_searchBarRedirect', get_template_directory_uri() . '/assets/js/search-bar-redirect.js', [] , TAINACAN_INTERFACE_VERSION, false );
 			wp_enqueue_script( 'tainacan_copyLink', get_template_directory_uri() . '/assets/js/copy-link.js', [] , TAINACAN_INTERFACE_VERSION, false );
 			wp_localize_script( 'tainacan_copyLink', 'tainacan_copyLinkVars', array(
 				'linkCopied' => __( 'Copied! Link sent to the transfer area.', 'tainacan-interface' )

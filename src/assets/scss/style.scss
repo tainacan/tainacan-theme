@@ -263,16 +263,25 @@ nav{
             }
         }
     }
-    .tainacan-search-form {
-        .form-control {
-            height: 27px;
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: #898d8f;
+    @keyframes searchFormAppear {
+        from {
+            max-height: 0px;
+            max-height: 0vh;
+            opacity: 0;
+            width: 32px;
+            right: 0px;
+        }
+        to {
+            opacity: 1.0;
+            max-height: 400px;
+            max-height: 100vh;
+            width: 260px;
+            right: -4px;
         }
     }
     .tainacan-form-dropdown {
         #dropdownMenuLink {
+            padding-right: 0.25rem !important;
             &::after {
                 content: none;
             }
@@ -282,26 +291,64 @@ nav{
             .tainacan-icon-close { display: none; }
         }
         > .dropdown-menu {
-            top: calc(100% + 2px);
-            right: 0;
-            width: 204px;
-            height: 27px;
+            top: 0;
+            right: -4px;
+            width: 260px;
+            height: auto;
             padding: 0;
             left: inherit;
+            overflow: hidden;
+
             .input-group {
-                border: 0;
+                background: white;
+                padding: 0rem;
+                align-items: center;
+                height: 2.75rem;
             }
             .form-control {
+                height: 100%;
                 border-radius: 0;
                 font-size: 0.875rem;
                 font-weight: 400;
                 color: #898d8f;
+                padding-right: 2rem;
+
+                &:focus {
+                    color: #454647;
+                    box-shadow: none;
+                    border: 1px solid #555758 !important;
+                }
+            }
+            .search-controls {
+                background: #f2f2f2;
+                border-bottom: 1px solid #dee2e6;
+                border-left: 1px solid #dee2e6;
+                border-right: 1px solid #dee2e6;
+                padding: 0.75rem 0.875rem 0.125rem 0.875rem;
+                font-size: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                label {
+                    white-space: nowrap;
+                    display: flex;
+                    input {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+            &.show {
+               animation: searchFormAppear 0.4s ease;
             }
         }
 
         &.show {
+            .input-group-append { display: none !important; }
             .tainacan-icon-search { display: none; }
-            .tainacan-icon-close { display: block !important; }
+            .tainacan-icon-close {
+                position: relative;
+                z-index: 999999; 
+                display: block !important;
+            }
         }
     }
     .dropdown-item:hover {
@@ -316,7 +363,9 @@ nav{
 
                 > li{
                     &.menu-item {
-                        padding-left: 42px;
+                        @media screen and (min-width: 769px){
+                            padding-left: 42px;   
+                        }
 
                         a {
                             font-size: 0.875rem;
@@ -358,6 +407,7 @@ nav{
                         @media only screen and (max-width: 1024px) {
                             padding-right: 4.1666667%;
                             padding-right: 4.1666667vw;
+                            padding-left: 0;
                         }
                         @media only screen and (max-width: 768px) {
                             padding-right: 0;
@@ -383,8 +433,8 @@ nav{
             }
             @media only screen and (max-width: 768px) {
                 position: absolute;
-                top: 42px;
-                right: 0;
+                top: 48px;
+                right: -24px;
                 border: 1px solid #dbdbdb;
                 background-color: #fff;
                 z-index: 3;
@@ -471,9 +521,7 @@ nav{
         margin-right: 32px !important; 
     }
 
-    .tainacan-icon-menu,
-    .tainacan-icon-close {
-        margin-top: -4px;
+    .tainacan-icon {
         color: #01295C !important;
     }
 
@@ -491,69 +539,6 @@ nav{
 }
 .navbar--border-bottom {
     border-bottom: 1px solid #ededed !important;
-}
-
-.tainacan-search-form {
-    width: 32px;
-    height: 32px;
-    position: relative;
-
-    .input-group {
-        transition: all 0.35s, border-radius 0s;
-        width: 32px;
-        height: 32px;
-        cursor: pointer;
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        right: 0;
-        overflow: hidden;
-        border: 1px solid transparent;
-        //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-        //border-radius: 25px;
-        //border: 1px solid #ccc;
-        .form-control {
-            //margin-left: -25px;
-            border:none;
-            background: transparent;
-            box-shadow: none;
-            display:block;
-            padding: 1rem 2rem;
-            padding-left: 1rem;
-            &::-webkit-input-placeholder {
-                display: none;
-            }
-            &:-moz-placeholder {
-                /* Firefox 18- */
-                display: none;
-            }
-            &:-ms-input-placeholder {
-                display: none;
-            }
-        }
-        &:hover, &.hover {
-            width: 350px;
-            //border-radius: 25px 25px 25px 25px;
-            border: 1px solid #ccc;
-        }
-        .form-control-feedback {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: block;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            font-size: 1.1875rem;
-
-            &:before {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
-            }
-        }
-    }
 }
 
 

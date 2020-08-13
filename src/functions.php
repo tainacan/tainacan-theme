@@ -152,7 +152,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_theme_support( 'custom-units' );
 		add_theme_support( 'editor-style' );
 		add_editor_style( 'editor-style.css' );
-		
+
 	}
 } // End if().
 add_action( 'after_setup_theme', 'tainacan_setup' );
@@ -191,12 +191,9 @@ add_action( 'admin_head', 'tainacan_customize_editor_css');
  * @param object $query The main WordPress query.
  */
 function tainacan_include_items_in_search_results( $query ) {
-
-	if ( get_theme_mod( 'tainacan_search_include_items', false ) ) {	
-		if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-			$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
-			$query->set( 'post_type', array_merge( ['post'], $collections_post_types ) );
-		}
+	if ( $query->is_main_query() && $query->is_search() && ! is_admin()) {
+		$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
+		$query->set( 'post_type', array_merge( ['post'], $collections_post_types ) );
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_include_items_in_search_results' );

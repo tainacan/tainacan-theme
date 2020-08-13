@@ -19,9 +19,7 @@
 				<?php if ( has_nav_menu( 'navMenubelowHeader' ) ) : ?>
 					<nav class="navbar navbar-expand-md navbar-light px-0 menu-belowheader" role="navigation">
 						<div class="container-fluid max-large px-0 margin-one-column">
-							<!-- Brand and toggle get grouped for better mobile display -->	
-							<!-- <a class="navbar-brand d-md-none" href="#"></a> -->
-							<button class="navbar-toggler text-heavy-metal border-0 px-2 pt-2 collapsed" type="button" data-toggle="collapse" data-target="#menubelowHeader" aria-controls="menubelowHeader" aria-expanded="false" aria-label="Toggle navigation">
+							<button class="navbar-toggler text-heavy-metal border-0 p-2 collapsed" type="button" data-toggle="collapse" data-target="#menubelowHeader" aria-controls="menubelowHeader" aria-expanded="false" aria-label="<?php _e('Open navigation menu', 'tainacan-interface') ?>">
 								<span class="tainacan-icon tainacan-icon-menu"></span>
 								<span class="tainacan-icon tainacan-icon-close"></span>
 							</button>
@@ -43,19 +41,11 @@
 				<div class="btn-group" style="padding: 0.6rem 0rem;">
 				
 				<?php if (!get_theme_mod('tainacan_hide_search_input', false)) : ?>
-					<form class="form-horizontal my-2 my-md-0 tainacan-search-form d-none d-md-block" [formGroup]="searchForm" role="form" (keyup.enter)="onSubmit()" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<div class="input-group">
-							<input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'tainacan-interface' ); ?>" class="form-control" formControlName="searchText" size="50">
-							<span class="text-midnight-blue input-group-btn icon form-control-feedback">
-								<i class="tainacan-icon tainacan-icon-search"></i>
-							</span>
-						</div>
-					</form>
-					<div class="dropdown tainacan-form-dropdown d-md-none">
-						<a class="btn btn-link text-midnight-blue px-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div class="dropdown tainacan-form-dropdown">
+						<button class="btn btn-link text-midnight-blue px-1 dropdown-toggle" type="button" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<i class="tainacan-icon tainacan-icon-search"></i>
 							<i class="tainacan-icon tainacan-icon-close"></i>
-						</a>
+						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<?php get_search_form(); ?>
 						</div>
