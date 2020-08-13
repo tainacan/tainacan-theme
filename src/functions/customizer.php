@@ -109,8 +109,8 @@ function tainacan_customize_register( $wp_customize ) {
 	/**
 	 * Header settings
 	 */
-	$wp_customize->add_section('tainacan_header_settings', array(
-		'title'  	 => __( 'Header settings', 'tainacan-interface' ),
+	$wp_customize->add_section('tainacan_header_search', array(
+		'title'  	 => __( 'Header search', 'tainacan-interface' ),
 		'priority'   => 61,
 	));
 
@@ -124,23 +124,51 @@ function tainacan_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'tainacan_hide_search_input', array(
 		'type' 		=> 'checkbox',
 		'settings' 	=> 'tainacan_hide_search_input',
-		'section' 	=> 'tainacan_header_settings',
+		'section' 	=> 'tainacan_header_search',
 		'label' => __( 'Hide search icon and input', 'tainacan-interface' )
 	) );
 
-	// Includes tainacan itens on search results
-	$wp_customize->add_setting( 'tainacan_search_include_items', array(
+	// Option to search directly on repository items list
+	$wp_customize->add_setting( 'tainacan_search_on_items', array(
 		'type'       => 'theme_mod',
 		'default'    => false,
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
 	) );
-	$wp_customize->add_control( 'tainacan_search_include_items', array(
+	$wp_customize->add_control( 'tainacan_search_on_items', array(
 		'type' 		=> 'checkbox',
-		'settings' 	=> 'tainacan_search_include_items',
-		'section' 	=> 'tainacan_header_settings',
-		'label'		=> __( 'Include tainacan itens on the search results list', 'tainacan-interface' ),
-		'description' => __( 'Toggle to include tainacan itens on the search results list. By default it only lists WordPress Posts and Pages. The items will be displayed with the same appearence of posts, with their title, thumbnail and description.', 'tainacan-interface' )
+		'settings' 	=> 'tainacan_search_on_items',
+		'section' 	=> 'tainacan_header_search',
+		'label'		=> __( 'Display option to search on tainacan items repository list', 'tainacan-interface' )
+	) );
+
+	// Option to search directly on collections list
+	$wp_customize->add_setting( 'tainacan_search_on_collections', array(
+		'type'       => 'theme_mod',
+		'default'    => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'tainacan_search_on_collections', array(
+		'type' 		=> 'checkbox',
+		'settings' 	=> 'tainacan_search_on_collections',
+		'section' 	=> 'tainacan_header_search',
+		'label'		=> __( 'Display option to search on tainacan collections list', 'tainacan-interface' )
+	) );
+
+	// Option to search globally posts, iem and collections
+	$wp_customize->add_setting( 'tainacan_search_global', array(
+		'type'       => 'theme_mod',
+		'default'    => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'tainacan_search_global', array(
+		'type' 		=> 'checkbox',
+		'settings' 	=> 'tainacan_search_global',
+		'section' 	=> 'tainacan_header_search',
+		'label'		=> __( 'Display option to search globally on items, collections and posts', 'tainacan-interface' ),
+		'description'=> __( 'By searching via this mode, the list result will include posts, items and collecitions. You wil be able do distinguish them by a tag next to the title.', 'tainacan-interface' )
 	) );
 
 	/**

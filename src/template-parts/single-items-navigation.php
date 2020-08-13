@@ -47,7 +47,7 @@
 
             <div style="margin: 0 4.1666667%"  class="pagination">
                 <a class="d-inline-flex align-items-center" href="<?php echo tainacan_get_source_item_list_url(); ?>">
-                    <i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i>&nbsp;&nbsp;<span><?php echo __('Back to items list', 'tainacan') ?></span>
+                    <i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i>&nbsp;&nbsp;<span><?php echo __('Back to items list', 'tainacan-interface') ?></span>
                 </a>  
             </div>
 

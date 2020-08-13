@@ -191,9 +191,14 @@ add_action( 'admin_head', 'tainacan_customize_editor_css');
  * @param object $query The main WordPress query.
  */
 function tainacan_include_items_in_search_results( $query ) {
-	if ( $query->is_main_query() && $query->is_search() && ! is_admin()) {
+	if ( $_GET['everywhere'] && $query->is_main_query() && $query->is_search() && ! is_admin()) {
 		$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
-		$query->set( 'post_type', array_merge( ['post', 'tainacan-collection'], $collections_post_types ) );
+		$existing_post_types = $query->get( 'post_type' );
+
+		if ( !is_array($existing_post_types) )
+			$existing_post_types = [ $existing_post_types ];
+			
+		$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'tainacan-collection'], $collections_post_types ) );
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_include_items_in_search_results' );
