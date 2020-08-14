@@ -275,7 +275,7 @@ nav{
             opacity: 1.0;
             max-height: 400px;
             max-height: 100vh;
-            width: 260px;
+            width: 280px;
             right: -4px;
         }
     }
@@ -293,7 +293,7 @@ nav{
         > .dropdown-menu {
             top: 0;
             right: -4px;
-            width: 260px;
+            width: 280px;
             height: auto;
             padding: 0;
             left: inherit;
@@ -324,10 +324,9 @@ nav{
                 border-bottom: 1px solid #dee2e6;
                 border-left: 1px solid #dee2e6;
                 border-right: 1px solid #dee2e6;
-                padding: 0.75rem 0.875rem 0.125rem 0.875rem;
+                padding: 0.75rem 0.875rem 0.5rem 0.875rem;
                 font-size: 0.75rem;
-                display: flex;
-                flex-direction: column;
+                column-count: 2;
                 label {
                     white-space: nowrap;
                     display: flex;
@@ -337,7 +336,7 @@ nav{
                 }
             }
             &.show {
-               animation: searchFormAppear 0.4s ease;
+               animation: searchFormAppear 0.35s ease;
             }
         }
 

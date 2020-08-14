@@ -17,18 +17,43 @@
 					name="archive"
 					checked="checked"
 					id="search-global">
-					<?php _e( 'Global search', 'tainacan-interface' ); ?>
+				<?php echo get_theme_mod('tainacan_search_global_label', __( 'Global', 'tainacan-interface' ) ); ?>
 			</label>
+
+			<?php if ( get_theme_mod('tainacan_search_on_posts', false) ) : ?>
+				<label for="search-on-posts">
+					<input
+						type="radio" 
+						value="posts" 
+						name="archive"
+						id="search-on-posts">
+					<?php echo get_theme_mod('tainacan_search_on_posts_label', __( 'Posts', 'tainacan-interface' ) ); ?>
+				</label>
+
+			<?php endif;
+				if ( get_theme_mod('tainacan_search_on_pages', false) ) : ?>
+				
+				<label for="search-on-pages">
+					<input
+						type="radio" 
+						value="pages" 
+						name="archive"
+						id="search-on-pages">
+					<?php echo get_theme_mod('tainacan_search_on_pages_label', __( 'Pages', 'tainacan-interface' ) ); ?>
+				</label>
 	
-			<?php if ( get_theme_mod('tainacan_search_on_items', false) ) : ?>
+			<?php endif;
+				if ( get_theme_mod('tainacan_search_on_items', false) ) : ?>
+				
 				<label for="search-on-items">
 					<input
 						type="radio" 
 						value="tainacan-items" 
 						name="archive"
 						id="search-on-items">
-						<?php _e( 'Archive items', 'tainacan-interface' ); ?>
+					<?php echo get_theme_mod('tainacan_search_on_items_label', __( 'Items', 'tainacan-interface' ) ); ?>
 				</label>
+
 			<?php endif; 
 				if ( get_theme_mod('tainacan_search_on_collections', false) ) : ?>
 
@@ -38,20 +63,9 @@
 						value="tainacan-collections" 
 						name="archive"
 						id="search-on-collections">
-						<?php _e( 'Archive collections', 'tainacan-interface' ); ?>
+					<?php echo get_theme_mod('tainacan_search_on_collections_label', __( 'Collections', 'tainacan-interface' ) ); ?>
 				</label>
-			
-			<?php endif; 
-				if ( get_theme_mod('tainacan_search_on_posts', false) ) : ?>
-					<label for="search-on-posts">
-						<input
-							type="radio" 
-							value="posts" 
-							name="archive"
-							id="search-on-posts">
-						<?php _e( 'Site posts', 'tainacan-interface' ); ?>
-					</label>
-				
+
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>

@@ -13,6 +13,9 @@ function onTainacanSearchSubmit($event) {
                 case 'posts':
                     document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?onlyposts=true&s=' +  document['tainacan-search-form'].s.value : '');
                     break;
+                case 'pages':
+                    document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?onlypages=true&s=' +  document['tainacan-search-form'].s.value : '');
+                    break;
                 case 'global':
                 default:
                     document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?s=' +  document['tainacan-search-form'].s.value : '');

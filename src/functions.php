@@ -192,14 +192,18 @@ add_action( 'admin_head', 'tainacan_customize_editor_css');
  */
 function tainacan_include_items_in_search_results( $query ) {
 
-	if ( $query->get( 'post_type' ) !== 'tainacan-collection' && !$_GET['onlyposts'] && $query->is_main_query() && $query->is_search() && ! is_admin()) {
+	if ( $query->get( 'post_type' ) !== 'tainacan-collection' && !$_GET['onlyposts'] && !$_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin()) {
 		$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
 		$existing_post_types = $query->get( 'post_type' );
 
 		if ( !is_array($existing_post_types) )
 			$existing_post_types = [ $existing_post_types ];
 			
-		$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'tainacan-collection'], $collections_post_types ) );
+		$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'page', 'tainacan-collection'], $collections_post_types ) );
+	} else if ( $_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+		$query->set( 'post_type', 'page' );
+	} else if ( $_GET['onlyposts'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+		$query->set( 'post_type', 'posts' );
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_include_items_in_search_results' );
