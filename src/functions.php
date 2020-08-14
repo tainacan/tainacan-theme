@@ -191,7 +191,8 @@ add_action( 'admin_head', 'tainacan_customize_editor_css');
  * @param object $query The main WordPress query.
  */
 function tainacan_include_items_in_search_results( $query ) {
-	if ( $_GET['everywhere'] && $query->is_main_query() && $query->is_search() && ! is_admin()) {
+
+	if ( $query->get( 'post_type' ) !== 'tainacan-collection' && !$_GET['onlyposts'] && $query->is_main_query() && $query->is_search() && ! is_admin()) {
 		$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
 		$existing_post_types = $query->get( 'post_type' );
 

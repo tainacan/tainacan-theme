@@ -7,17 +7,17 @@
 			</button>
 		</span>
 	</div>
-	<?php if ( defined ( 'TAINACAN_VERSION' ) && (get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_global', false) ) )  : ?>
+	<?php if ( defined ( 'TAINACAN_VERSION' ) && (get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_on_posts', false) ) )  : ?>
 		<div class="search-controls">
 
-			<label for="search-on-posts">
+			<label for="search-global">
 				<input
 					type="radio" 
-					value="posts" 
+					value="global" 
 					name="archive"
 					checked="checked"
-					id="search-on-posts">
-				<?php _e( 'Site posts', 'tainacan-interface' ); ?>
+					id="search-global">
+					<?php _e( 'Global search', 'tainacan-interface' ); ?>
 			</label>
 	
 			<?php if ( get_theme_mod('tainacan_search_on_items', false) ) : ?>
@@ -42,16 +42,16 @@
 				</label>
 			
 			<?php endif; 
-				if ( get_theme_mod('tainacan_search_global', false) ) : ?>
-
-				<label for="search-everywhere">
-					<input
-						type="radio" 
-						value="everywhere" 
-						name="archive"
-						id="search-everywhere">
-						<?php _e( 'Everywhere', 'tainacan-interface' ); ?>
-				</label>
+				if ( get_theme_mod('tainacan_search_on_posts', false) ) : ?>
+					<label for="search-on-posts">
+						<input
+							type="radio" 
+							value="posts" 
+							name="archive"
+							id="search-on-posts">
+						<?php _e( 'Site posts', 'tainacan-interface' ); ?>
+					</label>
+				
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
