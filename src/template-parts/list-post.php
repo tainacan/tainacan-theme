@@ -1,5 +1,5 @@
 <?php
-	if ( !$_GET['onlyposts'] && !$_GET['onlypages'] && is_search() ) {
+	if ( defined ('TAINACAN_VERSION') && !$_GET['onlyposts'] && !$_GET['onlypages'] && is_search() ) {
 		$post_type = get_post_type();
 		$post_type_object = get_post_type_object($post_type);
 		$post_type_label = $post_type_object->labels->singular_name;
@@ -15,7 +15,7 @@
 		</div>
 	<?php endif; ?>
 	<div class="col-xs-12 blog-content <?php if ( has_post_thumbnail() ) :?>col-md-8 blog-flex<?php else : ?>col-md-12<?php endif; ?> align-self-center">
-		<?php if ( !$_GET['onlyposts'] && !$_GET['onlypages'] && is_search() ) : ?>
+		<?php if ( defined ('TAINACAN_VERSION') && !$_GET['onlyposts'] && !$_GET['onlypages'] && is_search() ) : ?>
 			<div class="title-area">
 				<h3 class="mb-3">
 					<a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
