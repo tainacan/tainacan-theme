@@ -64,12 +64,11 @@
 	</footer>
 	<?php } ?>
 </article>
-<div class="row">
-	<!-- Container -->
-	<div class="col mt-3 mx-auto">
-		<?php
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif; ?>
+<?php if ( comments_open() || get_comments_number() ) : ?>
+	<div class="row">
+		<!-- Container -->
+		<div class="col mt-3 mx-auto">
+			<?php comments_template(); ?>
+		</div>
 	</div>
-</div>
+<?php endif; ?>

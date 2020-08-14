@@ -186,7 +186,7 @@ body.loading-content main:before {
 
 @import "_media_query";
 
-nav{
+nav {
     &.menu-shadow{
         min-height: 50px;
         border-bottom: none;
@@ -245,7 +245,7 @@ nav{
                 h1 {
                     font-size: 1.5rem;
                     font-weight: normal;
-                    margin: 0.36rem 0;
+                    margin: 0.3rem 0 0.36rem 0;
                 }
                 .logo {
                     width: auto;
@@ -745,6 +745,10 @@ nav{
         margin-top: 0;
         margin-bottom: 0;
     }
+}
+.page-template-landing .tainacan-footer,
+.page-template-landing-breadcrumb .tainacan-footer {
+    margin-top: 0px !important;
 }
 
 .tainacan-title{

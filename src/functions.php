@@ -268,6 +268,8 @@ add_action( 'widgets_init', 'tainacan_widgets_footer_init' );
 function tainacan_block_patterns_init() {
 	global $wp_version;
 
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 	if ((is_plugin_active('gutenberg/gutenberg.php') || $wp_version >= '5') && function_exists('register_block_pattern_category')) {
 		register_block_pattern_category( 
 			'tainacan-interface',
