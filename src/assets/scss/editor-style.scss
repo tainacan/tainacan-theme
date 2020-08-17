@@ -116,6 +116,13 @@
         margin-bottom: initial;
     }
 
+    /* Social Icons do not have all that padding */
+    .wp-block-social-link {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
     /* Columns */
     .wp-block-columns>.editor-inner-blocks >.editor-block-list__layout> [data-type="core/column"]:not(:last-child),
     .wp-block-columns>.block-editor-inner-blocks >.block-editor-block-list__layout> [data-type="core/column"]:not(:last-child) {
