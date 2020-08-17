@@ -12,7 +12,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * Bootstrap 4.1.3
 		 */
 			//Style
-			wp_register_style( 'bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/scss/bootstrap.min.css' );
+			wp_register_style( 'bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/scss/bootstrap.min.css', [], TAINACAN_INTERFACE_VERSION );
 			wp_enqueue_style( 'bootstrap4CSS' );
 			//Javascript
 			wp_register_script( 'bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
