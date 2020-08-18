@@ -20,16 +20,16 @@
 					<?php endif; ?>
 					<?php if ( true == get_theme_mod( 'tainacan_whatsapp_share', false ) ) : ?>
 						<a href="https://api.whatsapp.com/send?1=pt_BR&text=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
-							<img src="<?php echo get_template_directory_uri() . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>" class="share-images">
+							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>" class="share-images">
 						</a>
 					<?php endif; ?>
 					<?php if ( true == get_theme_mod( 'tainacan_telegram_share', false ) ) : ?>
 						<a href="https://t.me/share/url?url=<?php the_permalink(); ?>" target="_blank" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
-							<img src="<?php echo get_template_directory_uri() . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
+							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
 						</a>
 					<?php endif; ?>
 					<button onclick="copyTextToClipboard('<?php the_permalink(); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
+						<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
 					</button>
 				</div>
 			</div>

@@ -10,7 +10,14 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-		
+
+	<?php
+		if ( function_exists( 'wp_body_open' ) ) {
+			wp_body_open();
+		} else {
+			do_action( 'wp_body_open' );
+		}
+	?>
 	<nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-0 navbar--border-bottom">
 		<div class="container-fluid max-large px-0 margin-one-column" id="topNavbar">
 			<?php echo tainacan_get_logo(); ?>

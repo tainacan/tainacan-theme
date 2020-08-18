@@ -32,7 +32,7 @@
 
             <?php if ( get_theme_mod('tainacan_single_item_navigation_section_label', __( 'Continue browsing', 'tainacan-interface' )) != '') : ?>
                 <h2 class="mb-0 title-content-items" id="single-item-navigation-label">
-                    <?php echo get_theme_mod('tainacan_single_item_navigation_section_label', __('Continue browsing', 'tainacan-interface')); ?>
+                    <?php echo esc_html( get_theme_mod( 'tainacan_single_item_navigation_section_label', __('Continue browsing', 'tainacan-interface') ) ); ?>
                 </h2>
             <?php endif; ?>
 

@@ -143,7 +143,7 @@ function tainacan_customize_register( $wp_customize ) {
 			'settings'	  => 'tainacan_search_global_label',
 			'section'  	  => 'tainacan_header_search',
 			'label'    	  => __( 'Label for "Global" search option', 'tainacan-interface' ),
-			'description' => __( 'The Global search is the default. Its option will only be visible if at least one of the bellow are selected.')
+			'description' => __( 'The Global search is the default. Its option will only be visible if at least one of the bellow are selected.', 'tainacan-interface')
 			) );
 		
 		// Option to search directly on repository items list

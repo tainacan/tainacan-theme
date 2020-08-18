@@ -17,7 +17,7 @@
 					name="archive"
 					checked="checked"
 					id="search-global">
-				<?php echo get_theme_mod('tainacan_search_global_label', __( 'Global', 'tainacan-interface' ) ); ?>
+				<?php echo esc_html( get_theme_mod('tainacan_search_global_label', __( 'Global', 'tainacan-interface' ) ) ); ?>
 			</label>
 
 			<?php if ( get_theme_mod('tainacan_search_on_posts', false) ) : ?>
@@ -27,7 +27,7 @@
 						value="posts" 
 						name="archive"
 						id="search-on-posts">
-					<?php echo get_theme_mod('tainacan_search_on_posts_label', __( 'Posts', 'tainacan-interface' ) ); ?>
+					<?php echo esc_html( get_theme_mod('tainacan_search_on_posts_label', __( 'Posts', 'tainacan-interface' ) ) ); ?>
 				</label>
 
 			<?php endif;
@@ -39,7 +39,7 @@
 						value="pages" 
 						name="archive"
 						id="search-on-pages">
-					<?php echo get_theme_mod('tainacan_search_on_pages_label', __( 'Pages', 'tainacan-interface' ) ); ?>
+					<?php echo esc_html( get_theme_mod('tainacan_search_on_pages_label', __( 'Pages', 'tainacan-interface' ) ) ); ?>
 				</label>
 	
 			<?php endif;
@@ -51,7 +51,7 @@
 						value="tainacan-items" 
 						name="archive"
 						id="search-on-items">
-					<?php echo get_theme_mod('tainacan_search_on_items_label', __( 'Items', 'tainacan-interface' ) ); ?>
+					<?php echo esc_html( get_theme_mod('tainacan_search_on_items_label', __( 'Items', 'tainacan-interface' ) ) ); ?>
 				</label>
 
 			<?php endif; 
@@ -63,7 +63,7 @@
 						value="tainacan-collections" 
 						name="archive"
 						id="search-on-collections">
-					<?php echo get_theme_mod('tainacan_search_on_collections_label', __( 'Collections', 'tainacan-interface' ) ); ?>
+					<?php echo esc_html( get_theme_mod('tainacan_search_on_collections_label', __( 'Collections', 'tainacan-interface' ) ) ); ?>
 				</label>
 
 			<?php endif; ?>

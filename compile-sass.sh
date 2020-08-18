@@ -20,19 +20,25 @@ echo "Compiling Sass..."
 cd src/assets/scss
 sass -E 'UTF-8' style.scss:../../style.css
 echo "Style of Tainacan Compiled";
+
 sass -E 'UTF-8' editor-style.scss:../../editor-style.css
 echo "Style of Tainacan for Gutenberg Editor Compiled";
+
 sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
 echo "Bootstrap Compiled";
+
 rm -rf .sass-cache
 cd ../vendor/slick
 sass slick.scss:slick.min.css --style compressed
 sass slick-theme.scss:slick-theme.min.css --style compressed
 echo "Slick for slider carousel Compiled";
+
 rm -rf slick-theme.min.css.map slick.min.css.map .sass-cache/
-cd ../../scss
-rm -rf ../style.css.map
-# rm -rf ../editor-style.css.map
+cd ../../../
+rm -rf style.css.map
+rm -rf editor-style.css.map
+rm -rf assets/vendor/bootstrap/scss/bootstrap.min.css.map
+echo "CSS map files removed";
 
 echo "Sass compilation Completed!"
 exit 0

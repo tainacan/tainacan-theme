@@ -2,7 +2,7 @@
 
     <?php if ( get_theme_mod('tainacan_single_item_metadata_section_label', '') != '') : ?>
         <h2 class="title-content-items" id="single-item-metadata-label">
-            <?php echo get_theme_mod('tainacan_single_item_metadata_section_label', ''); ?>
+            <?php echo esc_html( get_theme_mod('tainacan_single_item_metadata_section_label', '') ); ?>
         </h2>
     <?php endif; ?>
     <section class="tainacan-content single-item-collection margin-two-column">
@@ -38,16 +38,16 @@
                                     <?php endif; ?>
                                     <?php if ( true == get_theme_mod( 'tainacan_whatsapp_share', false ) ) : ?>
                                         <a href="https://api.whatsapp.com/send?1=pt_BR&text=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
-                                            <img src="<?php echo get_template_directory_uri() . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
+                                            <img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
                                         </a>
                                     <?php endif; ?>
                                     <?php if ( true == get_theme_mod( 'tainacan_telegram_share', false ) ) : ?>
                                         <a href="https://t.me/share/url?url=<?php the_permalink(); ?>" target="_blank" class="item-card-link--sharing" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
-                                            <img src="<?php echo get_template_directory_uri() . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
+                                            <img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
                                         </a>
                                     <?php endif; ?>
                                     <button onclick="copyTextToClipboard('<?php the_permalink(); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="item-card-link--sharing tainacan-copy-link-button">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>">
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>">
                                     </button>
                                 </div>
                             </div>

@@ -43,28 +43,28 @@ $src = wp_get_attachment_image_src($image, 'full');
 							<p class="share-title"><?php _e('Share', 'tainacan-interface'); ?></p>
 							<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
 								<a href="http://www.facebook.com/sharer.php?u=<?php echo get_term_link((int) $current_term->get_id()); ?>" title="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-link" target="_blank">
-									<img src="<?php echo get_template_directory_uri() . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-images">
+									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
 								<?php $twitter_option = get_option( 'tainacan_twitter_user' ); ?>
 								<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_option( 'tainacan_twitter_user' ) ) : ''; ?>
 								<a href="http://twitter.com/share?url=<?php echo get_term_link((int) $current_term->get_id()); ?>&amp;text=<?php echo $current_taxonomy->labels->name . ':' . $current_term->get_name(); ?><?php echo $via; ?>" target="_blank" title="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-link">
-									<img src="<?php echo get_template_directory_uri() . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-images">
+									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_whatsapp_share', false ) ) : ?>
 								<a href="https://api.whatsapp.com/send?1=pt_BR&text=<?php echo get_term_link((int) $current_term->get_id()); ?>" class="share-link" target="_blank" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
-									<img src="<?php echo get_template_directory_uri() . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>" class="share-images">
+									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_telegram_share', false ) ) : ?>
 								<a href="https://t.me/share/url?url=<?php echo get_term_link((int) $current_term->get_id()); ?>" class="share-link" target="_blank" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
-									<img src="<?php echo get_template_directory_uri() . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
+									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<button onclick="copyTextToClipboard('<?php echo get_term_link((int) $current_term->get_id()); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-link tainacan-copy-link-button">
-								<img src="<?php echo get_template_directory_uri() . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
+								<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
 							</button>
 						</div>
 					</div>

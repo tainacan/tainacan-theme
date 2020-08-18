@@ -22,12 +22,12 @@
     <div class="mt-3 tainacan-single-post">
         <?php if ( !get_theme_mod( 'tainacan_single_item_gallery_mode', false ) && get_theme_mod('tainacan_single_item_attachments_section_label', __( 'Attachments', 'tainacan-interface' )) != '') : ?>
             <h2 class="title-content-items" id="single-item-attachments-label">
-                <?php echo get_theme_mod('tainacan_single_item_attachments_section_label', __( 'Attachments', 'tainacan-interface' )); ?>
+                <?php echo esc_html( get_theme_mod('tainacan_single_item_attachments_section_label', __( 'Attachments', 'tainacan-interface' )) ); ?>
             </h2>
         <?php endif; ?>
         <?php if ( get_theme_mod( 'tainacan_single_item_gallery_mode', false ) && get_theme_mod('tainacan_single_item_documents_section_label', __( 'Documents', 'tainacan-interface' )) != '') : ?>
             <h2 class="title-content-items" id="single-item-documents-label">
-                <?php echo get_theme_mod('tainacan_single_item_documents_section_label', __( 'Documents', 'tainacan-interface' )); ?>
+                <?php echo esc_html( get_theme_mod('tainacan_single_item_documents_section_label', __( 'Documents', 'tainacan-interface' )) ); ?>
             </h2>
         <?php endif; ?>
         <section class="tainacan-content single-item-collection margin-two-column">
