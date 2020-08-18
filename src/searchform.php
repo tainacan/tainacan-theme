@@ -1,4 +1,4 @@
-<form role="search" method="post" name="tainacan-search-form" class="search-form" onsubmit="return onTainacanSearchSubmit()">
+<form role="search" method="post" name="tainacan-search-form" class="search-form" onsubmit="return onTainacanSearchSubmit()" style="margin-block-end: 0px;">
 	<div class="input-group">
 		<input class="form-control py-2" type="search" name="s" placeholder="<?php esc_attr_e( 'Search', 'tainacan-interface' ); ?>" id="tainacan-search">
 		<span class="input-group-append d-none d-md-block">

@@ -201,9 +201,9 @@ function tainacan_include_items_in_search_results( $query ) {
 			
 		$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'page', 'tainacan-collection'], $collections_post_types ) );
 	} else if ( $_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-		$query->set( 'post_type', 'page' );
+		$query->set( 'post_type', 'pages' );
 	} else if ( $_GET['onlyposts'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-		$query->set( 'post_type', 'posts' );
+		$query->set( 'post_type', 'post' );
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_include_items_in_search_results' );

@@ -920,8 +920,10 @@
 }
 #breadcrumb-single-item-pagination {
     font-size: 0.875rem;
+    height: 1.3rem;
 
     .pagination {
+        margin-bottom: 0;
         padding: 0;
         &:last-child {
             padding: 0 6px;

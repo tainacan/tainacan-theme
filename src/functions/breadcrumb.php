@@ -148,9 +148,7 @@ function tainacan_interface_the_breadcrumb() {
 
 				if ($previous !== '' || $next !== '') {
 				?>
-					<div 
-							id="breadcrumb-single-item-pagination"
-							style="height: 1.125rem;" class="ml-auto d-flex align-items-center">
+					<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center">
 						<div class="pagination">
 							<?php echo $previous; ?>
 						</div>
