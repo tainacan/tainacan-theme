@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Tainacan Interface\n"
-"POT-Creation-Date: 2020-08-14 13:43-0300\n"
+"POT-Creation-Date: 2020-08-19 16:15-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your Name <you@example.com>\n"
 "Language-Team: \n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "View Mode"
 msgstr ""
 
-#: archive-tainacan-collection.php:44 functions/customizer.php:1474
+#: archive-tainacan-collection.php:44 functions/customizer.php:1476
 msgid "Cards"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Thumbnails"
 msgstr ""
 
-#: archive-tainacan-collection.php:46 functions/customizer.php:1475
+#: archive-tainacan-collection.php:46 functions/customizer.php:1477
 msgid "Table"
 msgstr ""
 
@@ -132,43 +132,43 @@ msgstr ""
 msgid "A thumbnail grid view, showing only title and thumbnail"
 msgstr ""
 
-#: functions.php:100 functions/customizer.php:1358
+#: functions.php:100 functions/customizer.php:1360
 msgid "Default"
 msgstr ""
 
-#: functions.php:105 functions/customizer.php:1367
+#: functions.php:105 functions/customizer.php:1369
 msgid "Carmine"
 msgstr ""
 
-#: functions.php:110 functions/customizer.php:1376
+#: functions.php:110 functions/customizer.php:1378
 msgid "Cherry"
 msgstr ""
 
-#: functions.php:115 functions/customizer.php:1385
+#: functions.php:115 functions/customizer.php:1387
 msgid "Mustard"
 msgstr ""
 
-#: functions.php:120 functions/customizer.php:1394
+#: functions.php:120 functions/customizer.php:1396
 msgid "Mint Green"
 msgstr ""
 
-#: functions.php:125 functions/customizer.php:1403
+#: functions.php:125 functions/customizer.php:1405
 msgid "Dark Turquoise"
 msgstr ""
 
-#: functions.php:130 functions/customizer.php:1412
+#: functions.php:130 functions/customizer.php:1414
 msgid "Turquoise"
 msgstr ""
 
-#: functions.php:135 functions/customizer.php:1421
+#: functions.php:135 functions/customizer.php:1423
 msgid "Blue Heavenly"
 msgstr ""
 
-#: functions.php:140 functions/customizer.php:1430
+#: functions.php:140 functions/customizer.php:1432
 msgid "Purple"
 msgstr ""
 
-#: functions.php:145 functions/customizer.php:1439
+#: functions.php:145 functions/customizer.php:1441
 msgid "Violet"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgid "Navigation menu below header"
 msgstr ""
 
 #: functions.php:482 functions/breadcrumb.php:51 functions/breadcrumb.php:91
-#: functions/customizer.php:198 searchform.php:66
+#: functions/customizer.php:199 searchform.php:66
 msgid "Collections"
 msgstr ""
 
@@ -361,532 +361,532 @@ msgstr ""
 msgid "Hide search icon and input"
 msgstr ""
 
-#: functions/customizer.php:137 searchform.php:20
+#: functions/customizer.php:138 searchform.php:20
 msgid "Global"
 msgstr ""
 
-#: functions/customizer.php:144
+#: functions/customizer.php:145
 msgid "Label for \"Global\" search option"
 msgstr ""
 
-#: functions/customizer.php:145
+#: functions/customizer.php:146
 msgid ""
 "The Global search is the default. Its option will only be visible if at "
 "least one of the bellow are selected."
 msgstr ""
 
-#: functions/customizer.php:159
+#: functions/customizer.php:160
 msgid "Display option to search on tainacan items repository list"
 msgstr ""
 
-#: functions/customizer.php:168 searchform.php:54
+#: functions/customizer.php:169 searchform.php:54
 msgid "Items"
 msgstr ""
 
-#: functions/customizer.php:175
+#: functions/customizer.php:176
 msgid "Label for the \"items\" search option"
 msgstr ""
 
-#: functions/customizer.php:189
+#: functions/customizer.php:190
 msgid "Display option to search on tainacan collections list"
 msgstr ""
 
-#: functions/customizer.php:205
+#: functions/customizer.php:206
 msgid "Label for the \"Collections\" search option"
 msgstr ""
 
-#: functions/customizer.php:219
+#: functions/customizer.php:220
 msgid "Display option to search only on WordPress posts"
 msgstr ""
 
-#: functions/customizer.php:228 searchform.php:30
+#: functions/customizer.php:229 searchform.php:30
 msgid "Posts"
 msgstr ""
 
-#: functions/customizer.php:235
+#: functions/customizer.php:236
 msgid "Label for the \"Posts\" search option"
 msgstr ""
 
-#: functions/customizer.php:249
+#: functions/customizer.php:250
 msgid "Display option to search only on WordPress pages"
 msgstr ""
 
-#: functions/customizer.php:258 searchform.php:42
+#: functions/customizer.php:259 searchform.php:42
 msgid "Pages"
 msgstr ""
 
-#: functions/customizer.php:265
+#: functions/customizer.php:266
 msgid "Label for the \"Pages\" search option"
 msgstr ""
 
-#: functions/customizer.php:272
+#: functions/customizer.php:274
 msgid "Social Share"
 msgstr ""
 
-#: functions/customizer.php:288
+#: functions/customizer.php:290
 msgid "Display Facebook button"
 msgstr ""
 
-#: functions/customizer.php:303
+#: functions/customizer.php:305
 msgid "Display Twitter button"
 msgstr ""
 
-#: functions/customizer.php:313
+#: functions/customizer.php:315
 msgid "Twitter User to be cited in tweets (via @user)"
 msgstr ""
 
-#: functions/customizer.php:329
+#: functions/customizer.php:331
 msgid "Display WhatsApp button"
 msgstr ""
 
-#: functions/customizer.php:344
+#: functions/customizer.php:346
 msgid "Display Telegram button"
 msgstr ""
 
-#: functions/customizer.php:358
+#: functions/customizer.php:360
 msgid "Choose a Color Scheme"
 msgstr ""
 
-#: functions/customizer.php:381
+#: functions/customizer.php:383
 msgid "Or pick any color"
 msgstr ""
 
-#: functions/customizer.php:393
+#: functions/customizer.php:395
 msgid "Tooltip Color"
 msgstr ""
 
-#: functions/customizer.php:411
+#: functions/customizer.php:413
 msgid "Hide the header banner site title"
 msgstr ""
 
-#: functions/customizer.php:412
+#: functions/customizer.php:414
 msgid "Toggle to hide the site title row that appears over the header banner"
 msgstr ""
 
-#: functions/customizer.php:430
+#: functions/customizer.php:432
 msgid "Hide the header banner completely"
 msgstr ""
 
-#: functions/customizer.php:431
+#: functions/customizer.php:433
 msgid "Toggle to hide the header banner from all pages of the site"
 msgstr ""
 
-#: functions/customizer.php:443
+#: functions/customizer.php:445
 msgid "Title box opacity (%)"
 msgstr ""
 
-#: functions/customizer.php:444
+#: functions/customizer.php:446
 msgid "Change the opacity of the white box that holds the banner site title"
 msgstr ""
 
-#: functions/customizer.php:466
+#: functions/customizer.php:468
 msgid "Tainacan single item page"
 msgstr ""
 
-#: functions/customizer.php:467
+#: functions/customizer.php:469
 msgid "Settings related to Tainacan single Items page only."
 msgstr ""
 
-#: functions/customizer.php:486
+#: functions/customizer.php:488
 msgid "Layout sections order."
 msgstr ""
 
-#: functions/customizer.php:487
+#: functions/customizer.php:489
 msgid ""
 "Display the document, attachments and metadata sections in different order."
 msgstr ""
 
-#: functions/customizer.php:506
+#: functions/customizer.php:508
 msgid "Display a header of the related collection."
 msgstr ""
 
-#: functions/customizer.php:507
+#: functions/customizer.php:509
 msgid ""
 "Toggle to show a banner with name, thumbnail and color of the related "
 "collection."
 msgstr ""
 
-#: functions/customizer.php:529
+#: functions/customizer.php:531
 msgid ""
 "Show \"Documents\" section: Document and Attachments grouped in one slider."
 msgstr ""
 
-#: functions/customizer.php:530
+#: functions/customizer.php:532
 msgid ""
 "Toggle to show the document and attachments in the same list, a carousel "
 "with the current item on top."
 msgstr ""
 
-#: functions/customizer.php:540 template-parts/single-items-attachments.php:71
+#: functions/customizer.php:542 template-parts/single-items-attachments.php:71
 #: template-parts/single-items-document.php:3
 #: template-parts/single-items-document.php:5
 msgid "Document"
 msgstr ""
 
-#: functions/customizer.php:548
+#: functions/customizer.php:550
 msgid "Label for the \"Document\" section"
 msgstr ""
 
-#: functions/customizer.php:549 functions/customizer.php:572
-#: functions/customizer.php:641
+#: functions/customizer.php:551 functions/customizer.php:574
+#: functions/customizer.php:643
 msgid "Leave blank it for not displaying any label."
 msgstr ""
 
-#: functions/customizer.php:563 template-parts/single-items-attachments.php:23
+#: functions/customizer.php:565 template-parts/single-items-attachments.php:23
 #: template-parts/single-items-attachments.php:25
 msgid "Attachments"
 msgstr ""
 
-#: functions/customizer.php:571
+#: functions/customizer.php:573
 msgid "Label for the \"Attachments\" section"
 msgstr ""
 
-#: functions/customizer.php:586 template-parts/single-items-attachments.php:28
+#: functions/customizer.php:588 template-parts/single-items-attachments.php:28
 #: template-parts/single-items-attachments.php:30
 msgid "Documents"
 msgstr ""
 
-#: functions/customizer.php:594
+#: functions/customizer.php:596
 msgid "Label for the \"Documents\" section"
 msgstr ""
 
-#: functions/customizer.php:595
+#: functions/customizer.php:597
 msgid ""
 "Section that labels Document and Attachments grouped if this option is "
 "enabled. Leave blank it for not displaying any label."
 msgstr ""
 
-#: functions/customizer.php:617
+#: functions/customizer.php:619
 msgid "Label for the \"Metadata\" section"
 msgstr ""
 
-#: functions/customizer.php:618
+#: functions/customizer.php:620
 msgid "Leave blank it for not displaying any label (which is the default)."
 msgstr ""
 
-#: functions/customizer.php:632 template-parts/single-items-navigation.php:33
+#: functions/customizer.php:634 template-parts/single-items-navigation.php:33
 #: template-parts/single-items-navigation.php:35
 msgid "Continue browsing"
 msgstr ""
 
-#: functions/customizer.php:640
+#: functions/customizer.php:642
 msgid "Label for the \"Items navigation\" or \"Continue browsing\" section"
 msgstr ""
 
-#: functions/customizer.php:663
+#: functions/customizer.php:665
 msgid "Hide the attchments label"
 msgstr ""
 
-#: functions/customizer.php:664
+#: functions/customizer.php:666
 msgid ""
 "Toggle to not display the document and attachments name below its thumbnail."
 msgstr ""
 
-#: functions/customizer.php:681
+#: functions/customizer.php:683
 msgid "Hide the item publish date and author"
 msgstr ""
 
-#: functions/customizer.php:682
+#: functions/customizer.php:684
 msgid ""
 "Toggle to not display the item publish date and author name below the item "
 "title."
 msgstr ""
 
-#: functions/customizer.php:704
+#: functions/customizer.php:706
 msgid "Show the item navigation options in the breadcrumb section"
 msgstr ""
 
-#: functions/customizer.php:705
+#: functions/customizer.php:707
 msgid ""
-"Toggle to display two and a list icon for navigating directly from the item "
-"page breadcrumb section."
+"Toggle to display two arrows and a list icon for navigating directly from "
+"the item page breadcrumb section."
 msgstr ""
 
-#: functions/customizer.php:728
+#: functions/customizer.php:730
 msgid "Hide Document download button"
 msgstr ""
 
-#: functions/customizer.php:729
+#: functions/customizer.php:731
 msgid ""
 "Toggle to never display a \"Download\" button when hovering the document."
 msgstr ""
 
-#: functions/customizer.php:747
+#: functions/customizer.php:749
 msgid "Display item thumbnail"
 msgstr ""
 
-#: functions/customizer.php:748
+#: functions/customizer.php:750
 msgid ""
 "Toggle to show or not the item thumbnail, within the metadata list section."
 msgstr ""
 
-#: functions/customizer.php:770
+#: functions/customizer.php:772
 msgid "Display share buttons"
 msgstr ""
 
-#: functions/customizer.php:771
+#: functions/customizer.php:773
 msgid ""
 "Toggle to show or not the social icon share buttons, within the metadata "
 "list section or collection banner."
 msgstr ""
 
-#: functions/customizer.php:793
+#: functions/customizer.php:795
 msgid "Hide core title from metadata list"
 msgstr ""
 
-#: functions/customizer.php:794
+#: functions/customizer.php:796
 msgid ""
 "Toggle to hide or not the core title from the metadada list, as it already "
 "appears on the page title."
 msgstr ""
 
-#: functions/customizer.php:816
+#: functions/customizer.php:818
 msgid "Number of metadata columns (tablet)"
 msgstr ""
 
-#: functions/customizer.php:817
+#: functions/customizer.php:819
 msgid ""
 "Choose how many metadata columns should be listed, for screen sizes between "
 "728px and 1024px."
 msgstr ""
 
-#: functions/customizer.php:836
+#: functions/customizer.php:838
 msgid "Number of metadata columns (desktop)"
 msgstr ""
 
-#: functions/customizer.php:837
+#: functions/customizer.php:839
 msgid "For screen sizes between 1025px and 1366px."
 msgstr ""
 
-#: functions/customizer.php:861
+#: functions/customizer.php:863
 msgid "Number of metadata columns (wide)"
 msgstr ""
 
-#: functions/customizer.php:862
+#: functions/customizer.php:864
 msgid "For screens larger than 1366px."
 msgstr ""
 
-#: functions/customizer.php:885
+#: functions/customizer.php:887
 msgid "Navigation links to adjacent items"
 msgstr ""
 
-#: functions/customizer.php:886
+#: functions/customizer.php:888
 msgid ""
 "Sets how next and previous items links will be displayed. If your Tainacan "
 "version is bellow 0.17, this links only obey creation date order inside "
 "their collection."
 msgstr ""
 
-#: functions/customizer.php:896
+#: functions/customizer.php:898
 msgid "Tainacan items list page"
 msgstr ""
 
-#: functions/customizer.php:897
+#: functions/customizer.php:899
 msgid ""
 "Settings related to Tainacan items list pages, such as the repository items "
 "list, the colleciton item list and the term items list. Some settings ins "
 "this section may be overrided by collection settings or user preference."
 msgstr ""
 
-#: functions/customizer.php:905
+#: functions/customizer.php:907
 msgid "Search control area"
 msgstr ""
 
-#: functions/customizer.php:906
+#: functions/customizer.php:908
 msgid ""
 "Settings related to Tainacan items list search control area. This is the bar "
 "over the items list container."
 msgstr ""
 
-#: functions/customizer.php:928
+#: functions/customizer.php:930
 msgid "Default view mode for Terms and Repository Items list."
 msgstr ""
 
-#: functions/customizer.php:929
+#: functions/customizer.php:931
 msgid "Select a default view mode for Terms and Repository Items list."
 msgstr ""
 
-#: functions/customizer.php:953
+#: functions/customizer.php:955
 msgid "Hide the Search block."
 msgstr ""
 
-#: functions/customizer.php:954
+#: functions/customizer.php:956
 msgid "Toggle to do not show the search block on the control bar."
 msgstr ""
 
-#: functions/customizer.php:976
+#: functions/customizer.php:978
 msgid "Hide the Advanced Search link."
 msgstr ""
 
-#: functions/customizer.php:977
+#: functions/customizer.php:979
 msgid "Toggle to do not show the advanced search link on the control bar."
 msgstr ""
 
-#: functions/customizer.php:999
+#: functions/customizer.php:1001
 msgid "Hide the \"Sort by\" button."
 msgstr ""
 
-#: functions/customizer.php:1000
+#: functions/customizer.php:1002
 msgid "Toggle to do not show the \"Sort by\" button on the control bar."
 msgstr ""
 
-#: functions/customizer.php:1022
+#: functions/customizer.php:1024
 msgid "Hide the \"View as...\" button."
 msgstr ""
 
-#: functions/customizer.php:1023
+#: functions/customizer.php:1025
 msgid ""
 "Toggle to do not show the \"View as...\" button, also referred to as "
 "\"Exposers modal\" on the control bar."
 msgstr ""
 
-#: functions/customizer.php:1045
+#: functions/customizer.php:1047
 msgid "Show inline view mode options."
 msgstr ""
 
-#: functions/customizer.php:1046
+#: functions/customizer.php:1048
 msgid ""
 "Toggle to show view mode options as a group of buttons instead of a dropdown."
 msgstr ""
 
-#: functions/customizer.php:1068
+#: functions/customizer.php:1070
 msgid "Show \"fullscreen\" view modes with other view modes."
 msgstr ""
 
-#: functions/customizer.php:1069
+#: functions/customizer.php:1071
 msgid ""
 "Toggle to show \"fullscreen\" view modes with other view mode options "
 "instead of separate in the search control bar."
 msgstr ""
 
-#: functions/customizer.php:1081
+#: functions/customizer.php:1083
 msgid "Filters panel"
 msgstr ""
 
-#: functions/customizer.php:1082
+#: functions/customizer.php:1084
 msgid "Settings related to Tainacan items list filters panel."
 msgstr ""
 
-#: functions/customizer.php:1102
+#: functions/customizer.php:1104
 msgid "Hide the filters panel."
 msgstr ""
 
-#: functions/customizer.php:1103
+#: functions/customizer.php:1105
 msgid "Toggle to hide the filters panel completely."
 msgstr ""
 
-#: functions/customizer.php:1120
+#: functions/customizer.php:1122
 msgid "Hide the \"Hide filters\" button."
 msgstr ""
 
-#: functions/customizer.php:1121
+#: functions/customizer.php:1123
 msgid "Toggle to do not show the \"Hide filters\" button for users."
 msgstr ""
 
-#: functions/customizer.php:1138
+#: functions/customizer.php:1140
 msgid "Show Filters button inside the search control bar."
 msgstr ""
 
-#: functions/customizer.php:1139
+#: functions/customizer.php:1141
 msgid "Toggle to do display the Filters button inside the search control bar."
 msgstr ""
 
-#: functions/customizer.php:1156
+#: functions/customizer.php:1158
 msgid "Start with filters hidden."
 msgstr ""
 
-#: functions/customizer.php:1157
+#: functions/customizer.php:1159
 msgid "Toggle to make filters start hidden by default."
 msgstr ""
 
-#: functions/customizer.php:1174
+#: functions/customizer.php:1176
 msgid "Filters as modal."
 msgstr ""
 
-#: functions/customizer.php:1175
+#: functions/customizer.php:1177
 msgid "Toggle to make filters load inside a modal instead of a side panel."
 msgstr ""
 
-#: functions/customizer.php:1182
+#: functions/customizer.php:1184
 msgid "Pagination section"
 msgstr ""
 
-#: functions/customizer.php:1183
+#: functions/customizer.php:1185
 msgid "Settings related to Tainacan items list pagination section."
 msgstr ""
 
-#: functions/customizer.php:1204
+#: functions/customizer.php:1206
 msgid "Default number of items per page"
 msgstr ""
 
-#: functions/customizer.php:1205
+#: functions/customizer.php:1207
 msgid ""
 "Change the default value for items loaded per page. Note that this affects "
 "loading duration."
 msgstr ""
 
-#: functions/customizer.php:1227
+#: functions/customizer.php:1229
 msgid "Hide the \"Items per Page\" button."
 msgstr ""
 
-#: functions/customizer.php:1228
+#: functions/customizer.php:1230
 msgid ""
 "Toggle to do not show the \"Items per Page\" button on the pagination bar."
 msgstr ""
 
-#: functions/customizer.php:1245
+#: functions/customizer.php:1247
 msgid "Hide the \"Go to Page\" button."
 msgstr ""
 
-#: functions/customizer.php:1246
+#: functions/customizer.php:1248
 msgid "Toggle to do not show the \"Go to Page\" button on the pagination bar."
 msgstr ""
 
-#: functions/customizer.php:1473
+#: functions/customizer.php:1475
 msgid "Masonry"
 msgstr ""
 
-#: functions/customizer.php:1476
+#: functions/customizer.php:1478
 msgid "Grid"
 msgstr ""
 
-#: functions/customizer.php:1596
+#: functions/customizer.php:1598
 msgid "Document - Attachments - Metadata"
 msgstr ""
 
-#: functions/customizer.php:1597
+#: functions/customizer.php:1599
 msgid "Metadata - Document - Attachments"
 msgstr ""
 
-#: functions/customizer.php:1598
+#: functions/customizer.php:1600
 msgid "Document - Metadata - Attachments"
 msgstr ""
 
-#: functions/customizer.php:1641
+#: functions/customizer.php:1643
 msgid "Dark"
 msgstr ""
 
-#: functions/customizer.php:1642
+#: functions/customizer.php:1644
 msgid "Light"
 msgstr ""
 
-#: functions/customizer.php:1643
+#: functions/customizer.php:1645
 msgid "Colored"
 msgstr ""
 
-#: functions/customizer.php:1686
+#: functions/customizer.php:1688
 msgid "Do not display items links"
 msgstr ""
 
-#: functions/customizer.php:1687
+#: functions/customizer.php:1689
 msgid "Show only items Link"
 msgstr ""
 
-#: functions/customizer.php:1688
+#: functions/customizer.php:1690
 msgid "Show items links with a small thumbnail"
 msgstr ""
 
-#: functions/customizer.php:1689
+#: functions/customizer.php:1691
 msgid "Show items links with a large thumbnail"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "&nbsp;by&nbsp;"
 msgstr ""
 
-#: header.php:22
+#: header.php:29
 msgid "Open navigation menu"
 msgstr ""
 
