@@ -176,8 +176,8 @@ function tainacan_customize_editor_css() {
 	?>
 	<style>
 		.editor-styles-wrapper { 
-			--tainacan-color-default: <?php echo $color_scheme[2] ?>;
-			--tainacan-block-primary: <?php echo $color_scheme[2] ?>;
+			--tainacan-color-default: <?php echo $default_color == 'default' ? '#298596' : $default_color; ?>;
+			--tainacan-block-primary: <?php echo $default_color == 'default' ? '#298596' : $default_color;?>;
 		}
 	</style>
 	<?php

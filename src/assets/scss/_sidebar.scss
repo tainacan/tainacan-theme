@@ -55,7 +55,7 @@
                     }
                 }
             }
-            form{
+            form {
                 .input-group-append{
                     button{
                         height: 30px;
@@ -73,9 +73,30 @@
             #tainacan-search{
                 font-size: 0.75rem;
                 color: #555758;
+                border-color: #dbdbdb;
                 height: 30px;
+                border-radius: 0px;
                 &:focus{
                     box-shadow: none;
+                    border-color: #555758;
+                }
+                &+.input-group-append button {
+                    border-left-width: 0;
+                    border-color: #dbdbdb;
+                    border-radius: 0px;
+                    padding: 0 5px;
+                }
+            }
+        }
+        .search-controls {
+            padding: 0.75rem 0.875rem 0.5rem 0.875rem;
+            font-size: 0.75rem;
+            column-count: 2;
+            label {
+                white-space: normal;
+                display: flex;
+                input {
+                    margin-right: 0.5rem;
                 }
             }
         }

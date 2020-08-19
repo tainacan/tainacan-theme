@@ -939,8 +939,21 @@
 #item-single-navigation {
     flex-wrap: nowrap;
     flex-grow: 2;
+    max-width: 50%;
+
+    @media screen and (max-width: 768px) {
+        & {
+            max-width: 100%;
+        }
+    }
+    @media screen and (max-width: 986px) {
+        & {
+            max-width: 66%;
+        }
+    }
 
     .pagination {
+        max-width: 50%;
         flex-basis: 50%;
         flex-wrap: nowrap;
         align-items: center;
@@ -965,7 +978,7 @@
             margin-left: 0.1rem;
         }
         span {
-            max-width: 50%;
+            max-width: 75%;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;

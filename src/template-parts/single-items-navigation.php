@@ -36,7 +36,7 @@
                 </h2>
             <?php endif; ?>
 
-            <div id="item-single-navigation" class="d-flex align-items-center justify-center margin-one-column">
+            <div id="item-single-navigation" class="d-flex align-items-center justify-center">
                 <div class="pagination">
                     <?php echo $previous; ?>
                 </div>
