@@ -28,7 +28,7 @@
 ?>
 <?php if ($previous !== '' || $next !== '') : ?>
     <div class="tainacan-single-post">
-        <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
 
             <?php if ( get_theme_mod('tainacan_single_item_navigation_section_label', __( 'Continue browsing', 'tainacan-interface' )) != '') : ?>
                 <h2 class="mb-0 title-content-items" id="single-item-navigation-label">

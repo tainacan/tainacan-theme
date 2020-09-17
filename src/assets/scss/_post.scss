@@ -597,6 +597,7 @@
                 }
             }
             .single-item-collection--document {
+                position: relative;
                 &:hover {
                     .tainacan-item-file-download {
                         opacity: 1;
@@ -610,6 +611,8 @@
                 }
                 display: flex;
                 justify-content: center;
+                align-items: center;
+                min-height: 10vh;
 
                 > iframe, img.attachment-large {
                     display: block;
@@ -618,7 +621,7 @@
                     border: none;
                 }
                 > audio {
-                    width: 100%;
+                    width: 95%;
                 }
                 > iframe {
                     @media only screen and (min-width: 768px){
@@ -757,6 +760,7 @@
                         width: 125px;
                         height: 125px;
                         display: inline-block;
+                        object-fit: cover;
                         &:focus {
                             outline: none;
                         }
@@ -780,8 +784,9 @@
                         color: black;
                     }
                     .attachment-without-image img {
-                        padding: 42px;
+                        padding: 36px;
                         background-color: #dbdbdb;
+                        object-fit: contain;
                     }
                     .item-card--thumbnail {
                         margin: 0 0 4px 0 !important;
