@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2020-08-19 16:16-0300\n"
+"POT-Creation-Date: 2020-09-29 18:50-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -1109,8 +1109,8 @@ msgid "Description"
 msgstr "Descrição"
 
 #: template-parts/loop-tainacan-collection.php:24
-msgid "Description not informed"
-msgstr "Descrição não informada"
+msgid "No description provided"
+msgstr "Nenhuma descrição informada"
 
 #: template-parts/loop.php:10
 msgid "Blog Posts"
