@@ -514,9 +514,10 @@ nav {
     .dropdown-menu { border: none; }
 
     nav.menu-belowheader #menubelowHeader > ul > li.menu-item a {
-        max-width: 240px;
+        max-width: 250px;
         width: 100%;
         overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     & > .navbar { 
