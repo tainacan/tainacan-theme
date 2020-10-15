@@ -96,7 +96,7 @@ endif;
 /**
  * Display date of post.
  */
-if ( function_exists('tainacan_meta_date_author') ) {
+if ( ! function_exists('tainacan_meta_date_author') ) {
 	function tainacan_meta_date_author( $echo = true ) {
 		$time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
@@ -118,7 +118,6 @@ if ( function_exists('tainacan_meta_date_author') ) {
 		}
 	}
 }
-endif;
 
 // define the cancel_comment_reply_link callback
 function tainacan_filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
