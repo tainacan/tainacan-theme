@@ -96,24 +96,26 @@ endif;
 /**
  * Display date of post.
  */
-function tainacan_meta_date_author( $echo = true ) {
-	$time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+if ( ! function_exists('tainacan_meta_date_author') ) {
+	function tainacan_meta_date_author( $echo = true ) {
+		$time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
-	$time_string = sprintf( $time,
-		esc_attr( get_the_date( 'c' ) ),
-		get_the_date()
-	);
+		$time_string = sprintf( $time,
+			esc_attr( get_the_date( 'c' ) ),
+			get_the_date()
+		);
 
-	$string = $time_string;
-	$string .= __( '&nbsp;by&nbsp;', 'tainacan-interface' );
-	$string .= get_the_author_posts_link();
+		$string = $time_string;
+		$string .= __( '&nbsp;by&nbsp;', 'tainacan-interface' );
+		$string .= get_the_author_posts_link();
 
-	$string = apply_filters( 'tainacan-meta-date-author', $string );
+		$string = apply_filters( 'tainacan-meta-date-author', $string );
 
-	if ( $echo ) {
-		echo $string;
-	} else {
-		return $string;
+		if ( $echo ) {
+			echo $string;
+		} else {
+			return $string;
+		}
 	}
 }
 
