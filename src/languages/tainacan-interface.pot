@@ -1031,7 +1031,7 @@ msgid "Description"
 msgstr ""
 
 #: template-parts/loop-tainacan-collection.php:24
-msgid "Description not informed"
+msgid "No description provided"
 msgstr ""
 
 #: template-parts/loop.php:10
