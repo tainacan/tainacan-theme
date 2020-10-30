@@ -1175,7 +1175,7 @@ function tainacan_customize_register( $wp_customize ) {
 					'priority' 	  => 10, // Within the section.
 					'section'  	  => 'tainacan_items_page_filters_panel',
 					'label'    	  => __( 'Filters side panel fixed on scroll', 'tainacan-interface' ),
-					'description' => __( 'Toggle to make filters get fixed on screen when scrolling down the items list. This will only take effect if the items list itself is taller than the screen height.', 'tainacan-interface' )
+					'description' => __( 'Toggle to if you don\'t want filters panel to get fixed on screen when scrolling down the items list. This will only take effect if the items list itself is taller than the screen height.', 'tainacan-interface' )
 					) );
 			}
 

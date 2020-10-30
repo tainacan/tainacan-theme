@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2020-09-29 18:50-0300\n"
+"POT-Creation-Date: 2020-10-30 17:29-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -59,7 +59,7 @@ msgstr "Título"
 msgid "View Mode"
 msgstr "Modo de visualização"
 
-#: archive-tainacan-collection.php:44 functions/customizer.php:1476
+#: archive-tainacan-collection.php:44 functions/customizer.php:1496
 msgid "Cards"
 msgstr "Cartões"
 
@@ -67,7 +67,7 @@ msgstr "Cartões"
 msgid "Thumbnails"
 msgstr "Miniaturas"
 
-#: archive-tainacan-collection.php:46 functions/customizer.php:1477
+#: archive-tainacan-collection.php:46 functions/customizer.php:1497
 msgid "Table"
 msgstr "Tabela"
 
@@ -132,43 +132,43 @@ msgstr "Miniatura"
 msgid "A thumbnail grid view, showing only title and thumbnail"
 msgstr "Uma visão em grade de miniaturas, mostrando apenas o título e a imagem"
 
-#: functions.php:100 functions/customizer.php:1360
+#: functions.php:100 functions/customizer.php:1380
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.php:105 functions/customizer.php:1369
+#: functions.php:105 functions/customizer.php:1389
 msgid "Carmine"
 msgstr "Carmim"
 
-#: functions.php:110 functions/customizer.php:1378
+#: functions.php:110 functions/customizer.php:1398
 msgid "Cherry"
 msgstr "Cereja"
 
-#: functions.php:115 functions/customizer.php:1387
+#: functions.php:115 functions/customizer.php:1407
 msgid "Mustard"
 msgstr "Mostarda"
 
-#: functions.php:120 functions/customizer.php:1396
+#: functions.php:120 functions/customizer.php:1416
 msgid "Mint Green"
 msgstr "Verde Menta"
 
-#: functions.php:125 functions/customizer.php:1405
+#: functions.php:125 functions/customizer.php:1425
 msgid "Dark Turquoise"
 msgstr "Turquesa Escuro"
 
-#: functions.php:130 functions/customizer.php:1414
+#: functions.php:130 functions/customizer.php:1434
 msgid "Turquoise"
 msgstr "Turquesa"
 
-#: functions.php:135 functions/customizer.php:1423
+#: functions.php:135 functions/customizer.php:1443
 msgid "Blue Heavenly"
 msgstr "Azul Celeste"
 
-#: functions.php:140 functions/customizer.php:1432
+#: functions.php:140 functions/customizer.php:1452
 msgid "Purple"
 msgstr "Roxo"
 
-#: functions.php:145 functions/customizer.php:1441
+#: functions.php:145 functions/customizer.php:1461
 msgid "Violet"
 msgstr "Violeta"
 
@@ -869,31 +869,45 @@ msgstr "Começar com os filtros escondidos."
 msgid "Toggle to make filters start hidden by default."
 msgstr "Troque para fazer com que os filtros iniciem escondidos por padrão."
 
-#: functions/customizer.php:1176
+#: functions/customizer.php:1177
+msgid "Filters side panel fixed on scroll"
+msgstr "Painel lateral dos filtros fixo no scroll"
+
+#: functions/customizer.php:1178
+msgid ""
+"Toggle to if you don't want filters panel to get fixed on screen when "
+"scrolling down the items list. This will only take effect if the items list "
+"itself is taller than the screen height."
+msgstr ""
+"Troque se você não quiser que o painel de filtros fique fixado na tela "
+"quando se aplica scroll para baixo na lista de itens. Isto só tem efeito se "
+"a lista de itens em si é mais alta que a altura da tela."
+
+#: functions/customizer.php:1196
 msgid "Filters as modal."
 msgstr "Filtros em uma modal."
 
-#: functions/customizer.php:1177
+#: functions/customizer.php:1197
 msgid "Toggle to make filters load inside a modal instead of a side panel."
 msgstr ""
 "Troque para fazer com que os filtros seja carregados em uma modal ao invés "
 "de um painel lateral."
 
-#: functions/customizer.php:1184
+#: functions/customizer.php:1204
 msgid "Pagination section"
 msgstr "Sessão de paginação"
 
-#: functions/customizer.php:1185
+#: functions/customizer.php:1205
 msgid "Settings related to Tainacan items list pagination section."
 msgstr ""
 "Configurações relacionadas à sessão de paginação das listas de itens do "
 "Tainacan."
 
-#: functions/customizer.php:1206
+#: functions/customizer.php:1226
 msgid "Default number of items per page"
 msgstr "Número de itens por página padrão"
 
-#: functions/customizer.php:1207
+#: functions/customizer.php:1227
 msgid ""
 "Change the default value for items loaded per page. Note that this affects "
 "loading duration."
@@ -901,70 +915,70 @@ msgstr ""
 "Mude o valor padrão para os itens por página carregados. Note que isto afeta "
 "a duração do carregamento."
 
-#: functions/customizer.php:1229
+#: functions/customizer.php:1249
 msgid "Hide the \"Items per Page\" button."
 msgstr "Esconder o botão \"Itens por Página\"."
 
-#: functions/customizer.php:1230
+#: functions/customizer.php:1250
 msgid ""
 "Toggle to do not show the \"Items per Page\" button on the pagination bar."
 msgstr ""
 "Troque para não mostrar o botão \"Itens por Página\" na barra de paginação."
 
-#: functions/customizer.php:1247
+#: functions/customizer.php:1267
 msgid "Hide the \"Go to Page\" button."
 msgstr "Esconder o botão \"Ir para a página\"."
 
-#: functions/customizer.php:1248
+#: functions/customizer.php:1268
 msgid "Toggle to do not show the \"Go to Page\" button on the pagination bar."
 msgstr ""
 "Toque para não mostrar o botão \"Ir para a página\" na barra de paginação."
 
-#: functions/customizer.php:1475
+#: functions/customizer.php:1495
 msgid "Masonry"
 msgstr "Mosaico"
 
-#: functions/customizer.php:1478
+#: functions/customizer.php:1498
 msgid "Grid"
 msgstr "Miniaturas"
 
-#: functions/customizer.php:1598
+#: functions/customizer.php:1618
 msgid "Document - Attachments - Metadata"
 msgstr "Documento - Anexos - Metadados"
 
-#: functions/customizer.php:1599
+#: functions/customizer.php:1619
 msgid "Metadata - Document - Attachments"
 msgstr "Metadados - Documento - Anexos"
 
-#: functions/customizer.php:1600
+#: functions/customizer.php:1620
 msgid "Document - Metadata - Attachments"
 msgstr "Documento - Metadados - Anexos"
 
-#: functions/customizer.php:1643
+#: functions/customizer.php:1663
 msgid "Dark"
 msgstr "Escuro"
 
-#: functions/customizer.php:1644
+#: functions/customizer.php:1664
 msgid "Light"
 msgstr "Claro"
 
-#: functions/customizer.php:1645
+#: functions/customizer.php:1665
 msgid "Colored"
 msgstr "Colorido"
 
-#: functions/customizer.php:1688
+#: functions/customizer.php:1708
 msgid "Do not display items links"
 msgstr "Não mostrar links dos itens"
 
-#: functions/customizer.php:1689
+#: functions/customizer.php:1709
 msgid "Show only items Link"
 msgstr "Mostrar apenas links dos itens"
 
-#: functions/customizer.php:1690
+#: functions/customizer.php:1710
 msgid "Show items links with a small thumbnail"
 msgstr "Mostrar links dos itens com uma imagem pequena"
 
-#: functions/customizer.php:1691
+#: functions/customizer.php:1711
 msgid "Show items links with a large thumbnail"
 msgstr "Mostrar links dos itens com uma imagem grande"
 
@@ -1006,7 +1020,7 @@ msgstr "Esconder resposta"
 msgid "Viewing results: %1$d to %2$d of %3$d"
 msgstr "Vendo resultados: %1$d a %2$d de %3$d"
 
-#: functions/single-functions.php:108
+#: functions/single-functions.php:109
 msgid "&nbsp;by&nbsp;"
 msgstr "&nbsp;por&nbsp;"
 
