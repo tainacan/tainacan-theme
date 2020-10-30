@@ -1159,6 +1159,26 @@ function tainacan_customize_register( $wp_customize ) {
 				'description' => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' )
 				) );
 
+			if (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) {
+				/**
+				 * Adds option to display filters as a modal on every items list.
+				 */
+				$wp_customize->add_setting( 'tainacan_items_page_filters_fixed_on_scroll', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => true,
+					'transport'  => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+					) );
+				$wp_customize->add_control( 'tainacan_items_page_filters_fixed_on_scroll', array(
+					'type' 	   	  => 'checkbox',
+					'priority' 	  => 10, // Within the section.
+					'section'  	  => 'tainacan_items_page_filters_panel',
+					'label'    	  => __( 'Filters side panel fixed on scroll', 'tainacan-interface' ),
+					'description' => __( 'Toggle to make filters get fixed on screen when scrolling down the items list. This will only take effect if the items list itself is taller than the screen height.', 'tainacan-interface' )
+					) );
+			}
+
 			/**
 			 * Adds option to display filters as a modal on every items list.
 			 */
@@ -2350,3 +2370,45 @@ function tainacan_single_item_metadata_columns_count_output() {
 	echo '<style type="text/css" id="tainacan-style-metadata">' . sprintf( $css, $metadata_columns_count_tablet, $metadata_columns_count_desktop, $metadata_columns_count_wide ) . '</style>';
 }
 add_action( 'wp_head', 'tainacan_single_item_metadata_columns_count_output');
+
+/**
+ * Enqueues front-end CSS for the items page fixed filters logic.
+ *
+ * @since Tainacan Theme
+ *
+ * @see wp_add_inline_style()
+ */
+function tainacan_items_page_filters_fixed_on_scroll_output() {
+	$should_use_fixed_filters_logic = get_theme_mod( 'tainacan_items_page_filters_fixed_on_scroll', true );
+	
+	if (!$should_use_fixed_filters_logic)
+		return;
+		
+	$css = '
+	/* Items list fixed filter logic (Introduced in Tainacan 0.17) */
+	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top .items-list-area {
+		margin-left: var(--tainacan-filter-menu-width-theme) !important;
+	}
+	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top .filters-menu:not(.filters-menu-modal) {
+		position: fixed;
+		top: 0px !important;
+	}
+	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top .filters-menu:not(.filters-menu-modal) .modal-content {
+		position: absolute;
+		top: 0px;
+		height: auto !important;
+		background: var(--tainacan-background-color, inherit);
+	}
+	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top.is-filters-menu-fixed-at-bottom .filters-menu:not(.filters-menu-modal) {
+		position: absolute;
+	}
+	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top.is-filters-menu-fixed-at-bottom .filters-menu:not(.filters-menu-modal) .modal-content {
+		top: auto;
+		bottom: 0;
+	}
+	';
+	echo '<style type="text/css" id="tainacan-fixed-filters-style">' . sprintf( $css ) . '</style>';
+
+}
+add_action( 'wp_head', 'tainacan_items_page_filters_fixed_on_scroll_output');
+
