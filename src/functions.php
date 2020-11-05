@@ -192,18 +192,27 @@ add_action( 'admin_head', 'tainacan_customize_editor_css');
  */
 function tainacan_include_items_in_search_results( $query ) {
 
-	if ( defined ('TAINACAN_VERSION') && $query->get( 'post_type' ) !== 'tainacan-collection' && (!isset($_GET['onlyposts']) || !$_GET['onlyposts']) && (!isset($_GET['onlypages']) || !$_GET['onlypages']) && $query->is_main_query() && $query->is_search() && ! is_admin()) {
-		$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
-		$existing_post_types = $query->get( 'post_type' );
+	if ( !is_post_type_archive() && isset($_GET['s']) ) {
+		if ( defined ('TAINACAN_VERSION') &&
+			 $query->get( 'post_type' ) !== 'tainacan-collection' &&
+			 (!isset($_GET['onlyposts']) || !$_GET['onlyposts']) &&
+			 (!isset($_GET['onlypages']) || !$_GET['onlypages']) &&
+			 $query->is_main_query() &&
+			 $query->is_search() &&
+			 !is_admin()
+		) {
+			$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
+			$existing_post_types = $query->get( 'post_type' );
 
-		if ( !is_array($existing_post_types) )
-			$existing_post_types = [ $existing_post_types ];
+			if ( !is_array($existing_post_types) )
+					$existing_post_types = [ $existing_post_types ];
 			
-		$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'page', 'tainacan-collection'], $collections_post_types ) );
-	} else if ( isset($_GET['onlypages']) && $_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-		$query->set( 'post_type', 'pages' );
-	} else if ( isset($_GET['onlyposts']) && $_GET['onlyposts'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-		$query->set( 'post_type', 'post' );
+			$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'page', 'tainacan-collection'], $collections_post_types ) );
+		} else if ( isset($_GET['onlypages']) && $_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+			$query->set( 'post_type', 'pages' );
+		} else if ( isset($_GET['onlyposts']) && $_GET['onlyposts'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+			$query->set( 'post_type', 'post' );
+		}
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_include_items_in_search_results' );
