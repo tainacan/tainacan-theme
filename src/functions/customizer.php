@@ -1166,7 +1166,7 @@ function tainacan_customize_register( $wp_customize ) {
 				$wp_customize->add_setting( 'tainacan_items_page_filters_fixed_on_scroll', array(
 					'type' 		 => 'theme_mod',
 					'capability' => 'edit_theme_options',
-					'default' 	 => true,
+					'default' 	 => false,
 					'transport'  => 'refresh',
 					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
 					) );
@@ -1175,7 +1175,7 @@ function tainacan_customize_register( $wp_customize ) {
 					'priority' 	  => 10, // Within the section.
 					'section'  	  => 'tainacan_items_page_filters_panel',
 					'label'    	  => __( 'Filters side panel fixed on scroll', 'tainacan-interface' ),
-					'description' => __( 'Toggle to if you don\'t want filters panel to get fixed on screen when scrolling down the items list. This will only take effect if the items list itself is taller than the screen height.', 'tainacan-interface' )
+					'description' => __( 'Toggle to if you want filters panel to get fixed on screen when scrolling down the items list. This will only take effect if the items list itself is taller than the screen height.', 'tainacan-interface' )
 					) );
 			}
 
@@ -2379,7 +2379,7 @@ add_action( 'wp_head', 'tainacan_single_item_metadata_columns_count_output');
  * @see wp_add_inline_style()
  */
 function tainacan_items_page_filters_fixed_on_scroll_output() {
-	$should_use_fixed_filters_logic = get_theme_mod( 'tainacan_items_page_filters_fixed_on_scroll', true );
+	$should_use_fixed_filters_logic = (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) && get_theme_mod( 'tainacan_items_page_filters_fixed_on_scroll', false );
 	
 	if (!$should_use_fixed_filters_logic)
 		return;
@@ -2392,6 +2392,7 @@ function tainacan_items_page_filters_fixed_on_scroll_output() {
 	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top .filters-menu:not(.filters-menu-modal) {
 		position: fixed;
 		top: 0px !important;
+		z-index: 9;
 	}
 	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top .filters-menu:not(.filters-menu-modal) .modal-content {
 		position: absolute;

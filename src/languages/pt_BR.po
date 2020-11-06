@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2020-10-30 17:30-0300\n"
+"POT-Creation-Date: 2020-11-06 15:47-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -172,24 +172,24 @@ msgstr "Roxo"
 msgid "Violet"
 msgstr "Violeta"
 
-#: functions.php:240
+#: functions.php:249
 msgid "Tainacan Sidebar Right"
 msgstr "Barra lateral direita do Tainacan"
 
-#: functions.php:255
+#: functions.php:264
 msgid "Tainacan Sidebar Footer"
 msgstr "Rodapé do Tainacan"
 
-#: functions.php:276
+#: functions.php:285
 msgctxt "Block pattern category"
 msgid "Tainacan Interface"
 msgstr "Tainacan Interface"
 
-#: functions.php:283
+#: functions.php:292
 msgid "Tainacan heading section"
 msgstr "Sessão de título Tainacan"
 
-#: functions.php:284
+#: functions.php:293
 msgctxt "Block pattern description"
 msgid ""
 "A left-aligned heading section containing a light sub-heading and an "
@@ -198,33 +198,33 @@ msgstr ""
 "Uma sessão de título alinhada à esquerda contendo um discreto sub-título e "
 "uma linha abaixo do título."
 
-#: functions.php:285 functions.php:303 functions.php:365
+#: functions.php:294 functions.php:312 functions.php:374
 msgid "Section title"
 msgstr "Título da sessão"
 
-#: functions.php:285
+#: functions.php:294
 msgid "Section optional description..."
 msgstr "Descrição opcional da sessão..."
 
-#: functions.php:292
+#: functions.php:301
 msgid "Tainacan highlight section"
 msgstr "Sessão de destaque Tainacan"
 
-#: functions.php:293
+#: functions.php:302
 msgctxt "Block pattern description"
 msgid "A hero section with a background color and columns for image and text."
 msgstr ""
 "Uma sessão de destaque com uma cor de fundo e colunas para imagem e texto."
 
-#: functions.php:325 functions.php:381
+#: functions.php:334 functions.php:390
 msgid "View more..."
 msgstr "Veja mais..."
 
-#: functions.php:343
+#: functions.php:352
 msgid "Tainacan highlight section (alt)"
 msgstr "Sessão de destaque Tainacan (alt)"
 
-#: functions.php:344
+#: functions.php:353
 msgctxt "Block pattern description"
 msgid ""
 "Another hero section with a background color and columns for image headings "
@@ -233,11 +233,11 @@ msgstr ""
 "Outra sessão de destaque com um fundo colorido e colunas para imagens, "
 "títulos e texto."
 
-#: functions.php:437
+#: functions.php:446
 msgid "Navigation menu below header"
 msgstr "Menu de navegação abaixo do cabeçalho"
 
-#: functions.php:482 functions/breadcrumb.php:51 functions/breadcrumb.php:91
+#: functions.php:491 functions/breadcrumb.php:51 functions/breadcrumb.php:91
 #: functions/customizer.php:199 searchform.php:66
 msgid "Collections"
 msgstr "Coleções"
@@ -875,13 +875,13 @@ msgstr "Painel lateral dos filtros fixo no scroll"
 
 #: functions/customizer.php:1178
 msgid ""
-"Toggle to if you don't want filters panel to get fixed on screen when "
-"scrolling down the items list. This will only take effect if the items list "
-"itself is taller than the screen height."
+"Toggle to if you want filters panel to get fixed on screen when scrolling "
+"down the items list. This will only take effect if the items list itself is "
+"taller than the screen height."
 msgstr ""
-"Troque se você não quiser que o painel de filtros fique fixado na tela "
-"quando se aplica scroll para baixo na lista de itens. Isto só tem efeito se "
-"a lista de itens em si é mais alta que a altura da tela."
+"Troque se você quiser que o painel de filtros fique fixado na tela quando se "
+"aplica scroll para baixo na lista de itens. Isto só tem efeito se a lista de "
+"itens em si é mais alta que a altura da tela."
 
 #: functions/customizer.php:1196
 msgid "Filters as modal."
