@@ -821,7 +821,9 @@
                 }
                 .s-item-collection--metadata {
                     height: 100%;
-                    
+                    .card {
+                        box-shadow: none;
+                    }
                     div {
                         -webkit-column-break-inside: avoid;
                         page-break-inside: avoid;
