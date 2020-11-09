@@ -26,6 +26,9 @@ mkdir $destination/assets/vendor/bootstrap/css
 cp $destination/assets/vendor/bootstrap/scss/bootstrap.min.css $destination/assets/vendor/bootstrap/css/bootstrap.min.css
 rm -rf $destination/vendor
 
+##Bootstrap
+rm -rf $destination/assets/vendor/ekko-lightbox
+
 ##Slick
 mkdir $destination/assets/vendor/slick/css
 cp $destination/assets/vendor/slick/slick.min.css $destination/assets/vendor/slick/css/slick.min.css
