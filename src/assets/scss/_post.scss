@@ -748,7 +748,7 @@
                     display: inline-block;
                     vertical-align: top;
                     cursor: pointer;
-                    word-break: break-all;
+                    word-break: break-word;
                     font-size: 0.875em;
                     padding: 0 14px;
                     
@@ -772,7 +772,7 @@
                         display: inline-block;
                         font-size: 0.875rem; 
                         text-align: center;
-                        word-break: break-all;
+                        word-break: break-word;
                         line-height: 1.5rem
                     }
                     a,

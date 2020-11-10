@@ -4,9 +4,11 @@
 	}
 </style>';
 
-$current_term = tainacan_get_term();
-$current_taxonomy = get_taxonomy( $current_term->taxonomy );
-$current_term = \Tainacan\Repositories\Terms::get_instance()->fetch($current_term->term_id, $current_term->taxonomy);
+$current_wpterm = tainacan_get_term();
+
+$current_taxonomy = get_taxonomy( $current_wpterm->taxonomy );
+$current_term = \Tainacan\Repositories\Terms::get_instance()->fetch($current_wpterm->term_id, $current_wpterm->taxonomy);
+
 $image =  $current_term->get_header_image_id();
 $src = wp_get_attachment_image_src($image, 'full');
 ?>
@@ -31,11 +33,10 @@ $src = wp_get_attachment_image_src($image, 'full');
 					</h2>
 					<a class="page-header-back ml-auto" href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
 				</div>
-				<?php $tainacan_term_description = tainacan_get_the_term_description(); ?>
 				<div class="page-header-hightlights d-flex flex-wrap">
 					<div class="col-12 col-xl-10 col-lg-9 page-header-description tainacan-interface-truncate-term">
-						<?php echo $tainacan_term_description; ?>
-						<?php do_action( 'tainacan-interface-collection-description' ); ?>
+						<?php tainacan_the_term_description(); ?>
+						<?php do_action( 'tainacan-interface-term-description' ); ?>
 					</div>
 					<?php do_action( 'tainacan-interface-taxonomy-description' ); ?>
 					<div class="col-12 col-xl-2 col-lg-3 d-flex flex-wrap page-header-share">
