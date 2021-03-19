@@ -1,12 +1,12 @@
 #!/bin/bash
 command -v sass >/dev/null 2>&1 || {
-  echo >&2 "REQUIRE: SASS installed to compile the SCSS archives to CSS.";
+  echo >&2 "REQUIRED: Sass installed to compile SCSS archives to CSS.";
   exit 1;
 }
 
 source build-config.cfg
 
-echo "Updating files of theme"
+echo "Updating theme files"
 rm -rf $destination
 mkdir $destination
 
@@ -37,4 +37,4 @@ mv $destination/assets/vendor/slick/ajax-loader.gif $destination/assets/vendor/s
 mv $destination/assets/vendor/slick/fonts/ $destination/assets/vendor/slick/css/fonts/
 cp $destination/assets/vendor/slick/slick.min.js $destination/assets/vendor/slick/js/slick.min.js
 
-echo "Compilation Finish!!"
+echo "Compilation finished!"
