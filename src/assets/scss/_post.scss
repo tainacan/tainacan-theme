@@ -732,11 +732,13 @@
                     }
                 }   
             }
-            .single-item-collection--attachments-file {
+            .single-item-collection--attachments-file,
+            .tainacan-media-component__swiper-main .swiper-slide {
                 &:hover {
                     .tainacan-item-file-download {
                         opacity: 1;
                         transform: scale(1);
+                        a { background-color: transparent; }
                     }
                 }
             } 
@@ -794,7 +796,9 @@
                 }
             }
             .single-item-collection--information{
-                .card{
+                .card {
+                    background-color: transparent;
+                    box-shadow: none;
                     .item-card--thumbnail{
                         height: auto;
                         max-width: 250px;

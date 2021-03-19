@@ -662,9 +662,65 @@ function tainacan_customize_register( $wp_customize ) {
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 3, // Within the section.
 			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Hide the attchments label', 'tainacan-interface' ),
+			'label'    	  => __( 'Hide the attachments label (on carousel)', 'tainacan-interface' ),
 			'description' => __( 'Toggle to not display the document and attachments name below its thumbnail.', 'tainacan-interface' )
 			) );
+
+		if (version_compare(TAINACAN_VERSION, '0.18RC') >= 0) {
+			/**
+			 * Adds options to hide attachments file names on the main slider.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_hide_files_name_main', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => true,
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_hide_files_name_main', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 3, // Within the section.
+				'section'  	  => 'tainacan_single_item_page',
+				'label'    	  => __( 'Hide the attachments label (on the main slider)', 'tainacan-interface' ),
+				'description' => __( 'Toggle to not display the document and attachments name.', 'tainacan-interface' )
+				) );
+
+			/**
+			 * Adds options to hide attachments file caption on the main slider.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_hide_files_caption_main', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => true,
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_hide_files_caption_main', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 3, // Within the section.
+				'section'  	  => 'tainacan_single_item_page',
+				'label'    	  => __( 'Hide the attachments caption (on the main slider)', 'tainacan-interface' ),
+				'description' => __( 'Toggle to not display the document and attachments caption.', 'tainacan-interface' )
+				) );
+
+			/**
+			 * Adds options to hide attachments file description on the main slider.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_hide_files_description_main', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => true,
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_hide_files_description_main', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 3, // Within the section.
+				'section'  	  => 'tainacan_single_item_page',
+				'label'    	  => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
+				'description' => __( 'Toggle to not display the document and attachments description.', 'tainacan-interface' )
+				) );
+		}
 
 		/**
 		 * Adds options to display item author and publish date.

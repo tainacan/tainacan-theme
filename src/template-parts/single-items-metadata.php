@@ -56,6 +56,7 @@
                     <?php do_action( 'tainacan-interface-single-item-metadata-begin' ); ?>
                     <?php
                         $args = array(
+                            'display_slug_as_class' => true,
                             'before_title' => '<div><h3>',
                             'after_title' => '</h3>',
                             'before_value' => '<p>',
