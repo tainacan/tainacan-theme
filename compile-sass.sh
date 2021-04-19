@@ -19,19 +19,19 @@ echo "Compiling Sass..."
 #cd ../../../../assets/scss
 cd src/assets/scss
 sass -E 'UTF-8' style.scss:../../style.css
-echo "Style of Tainacan Compiled";
+echo "Tainacan's style compiled.";
 
 sass -E 'UTF-8' editor-style.scss:../../editor-style.css
-echo "Style of Tainacan for Gutenberg Editor Compiled";
+echo "Tainacan's Gutenberg Editor style compiled";
 
 sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
-echo "Bootstrap Compiled";
+echo "Bootstrap style compiled";
 
 rm -rf .sass-cache
 cd ../vendor/slick
 sass slick.scss:slick.min.css --style compressed
 sass slick-theme.scss:slick-theme.min.css --style compressed
-echo "Slick for slider carousel Compiled";
+echo "Slick for slider carousel compiled";
 
 rm -rf slick-theme.min.css.map slick.min.css.map .sass-cache/
 cd ../../../
