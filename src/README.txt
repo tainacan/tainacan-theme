@@ -1,5 +1,5 @@
 === Tainacan Interface ===
-Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila
+Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila, r-guimaraes
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.5.3
 Version: 2.2.1
