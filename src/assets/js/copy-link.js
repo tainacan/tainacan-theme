@@ -22,7 +22,6 @@ function fallbackCopyTextToClipboard(text) {
 }
 
 function copyTextToClipboard(text) {
-
     if (!navigator.clipboard) {
         fallbackCopyTextToClipboard(text);
         return;

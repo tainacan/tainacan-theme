@@ -3,7 +3,7 @@ php -r '
 echo "\n ..::Tainacan Theme::..\n";
 
 echo "\nInitiating the installation with composer ... please wait!!\n";
-echo "\Copying files ...\n";
+echo "Copying files ...\n";
 
 echo "\nCopying Bootstrap Framework ...\n\n";
 
@@ -49,12 +49,12 @@ function delete_files($target) {
         $files = glob( $target . "*", GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
 
         foreach( $files as $file ){
-            delete_files( $file );      
+            delete_files( $file );
         }
 
         rmdir( $target );
     } elseif(is_file($target)) {
-        unlink( $target );  
+        unlink( $target );
     }
 }
 '

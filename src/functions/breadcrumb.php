@@ -15,11 +15,8 @@ function tainacan_interface_the_breadcrumb() {
 	$homeLink = esc_url( home_url() );
 
 	if (is_home() || is_front_page()) {
-
 		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a></nav>';
-
 	} else {
-
 		echo '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
 
 		if ( is_category() ) {

@@ -5,7 +5,7 @@
 
 if ( ! function_exists( 'tainacan_enqueues' ) ) {
 	/**
-	 * Inclui os scripts javascript e os styles necessários ao front-end do thema
+	 * Inclui os scripts javascript e os styles necessários ao front-end do tema
 	 */
 	function tainacan_enqueues() {
 		/**
@@ -65,7 +65,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 				'linkCopied' => __( 'Copied! Link sent to the transfer area.', 'tainacan-interface' )
 			));
 
-
 			// Tainacan Icons
 			wp_register_style( 'TainacanIconsFont', get_template_directory_uri() . '/assets/fonts/tainacan-icons-font/css/tainacanicons.min.css', '', '1.0.3', '' );
 			wp_enqueue_style( 'TainacanIconsFont' );
@@ -77,6 +76,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 		
-	}
-} // End if().
+	} // tainacan_enqueues
+}
 add_action( 'wp_enqueue_scripts', 'tainacan_enqueues' );
