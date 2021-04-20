@@ -17,7 +17,7 @@ For more information about Tainacan and Tainacan Interface please go to http://t
 
 == Copyright ==
 
-Tainacan Interface WordPress Theme, Copyright 2020 Tainacan.org
+Tainacan Interface WordPress Theme, Copyright 2021 Tainacan.org
 Tainacan Interface is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
