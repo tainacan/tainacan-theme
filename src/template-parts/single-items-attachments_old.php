@@ -73,9 +73,9 @@
                         <?php endif; ?>
                         <?php foreach ( $attachments as $attachment ) { ?>
                             <div class="single-item-collection--attachments-file">
-                                <div class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>">
+                                <div class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-medium')) echo'attachment-without-image'; ?>">
                                     <?php
-                                        echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
+                                        echo wp_get_attachment_image( $attachment->ID, 'tainacan-medium', true );
                                         echo '<br>';
                                     ?>
                                     <span class="single-item-file-name <?php if (get_theme_mod('tainacan_single_item_hide_files_name', false)) echo 'sr-only' ?>"><?php echo get_the_title( $attachment->ID ); ?></span>
@@ -96,12 +96,12 @@
                         ?>
                         <div class="single-item-collection--attachments-file">
                             <a 
-                                class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments')) echo'attachment-without-image'; ?>"
+                                class="<?php if (!wp_get_attachment_image( $attachment->ID, 'tainacan-medium')) echo'attachment-without-image'; ?>"
                                 href="<?php echo $href; ?>"
                                 data-toggle="lightbox"
                                 data-gallery="example-gallery">
                                 <?php
-                                    echo wp_get_attachment_image( $attachment->ID, 'tainacan-interface-item-attachments', true );
+                                    echo wp_get_attachment_image( $attachment->ID, 'tainacan-medium', true );
                                     echo '<br>';
                                 ?>
                                 <span class="single-item-file-name <?php if (get_theme_mod('tainacan_single_item_hide_files_name', false)) echo 'sr-only' ?>"><?php echo get_the_title( $attachment->ID ); ?></span>

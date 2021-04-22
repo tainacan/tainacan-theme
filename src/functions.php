@@ -79,9 +79,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 							</div>'
 			));
 		}
-
-		add_image_size( 'tainacan-interface-list-post', 300, 200, true );
-		add_image_size( 'tainacan-interface-item-attachments', 125, 125, true );
 		
 		/**
 		 * Gutenberg support
