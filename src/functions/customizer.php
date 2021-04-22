@@ -471,34 +471,48 @@ function tainacan_customize_register( $wp_customize ) {
 	 * Bellow are customizer options exclusivelly related to Tainacan pages.
 	 */
 	if ( defined ( 'TAINACAN_VERSION' ) ) {
+
+		/**
+		 * Adds panel to control single items page. ---------------------------------------------------------
+		 */
+		$wp_customize->add_panel( 'tainacan_single_item_page', array(
+			'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ), 
+			'priority' 	  => 160, // Mixed with top-level-section hierarchy.,
+			'capability'  => 'edit_theme_options'
+		) );
 		
 		/**
-		 * Adds section to control singe items page.
+		 * Adds section to control single items page metadata section.
 		 */
-		$wp_customize->add_section( 'tainacan_single_item_page', array(
-			'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
-			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
-			'priority' 	  => 160,
+		$wp_customize->add_section( 'tainacan_single_item_page_metadata', array(
+			'title' 	  => __( 'Items metadata', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan single Items metadata section.', 'tainacan-interface' ),
+			'panel'		  => 'tainacan_single_item_page',
+			'priority' 	  => 161,
+			'capability'  => 'edit_theme_options'
+			) );
+		
+		/**
+		 * Adds section to control single items page documents section.
+		 */
+		$wp_customize->add_section( 'tainacan_single_item_page_document', array(
+			'title' 	  => __( 'Items document and attachments', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan single Items document and attachments sections.', 'tainacan-interface' ),
+			'panel'		  => 'tainacan_single_item_page',
+			'priority' 	  => 162,
 			'capability'  => 'edit_theme_options'
 			) );
 
 		/**
-		 * Adds option to change the order of some page sections
+		 * Adds section to control single items page general settings.
 		 */
-		$wp_customize->add_setting( 'tainacan_single_item_layout_sections_order', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => 'document-attachments-metadata',
-			'transport'  => 'refresh',
-			'sanitize_callback' => 'tainacan_sanitize_single_item_layout_sections_order',
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_layout_sections_order', array(
-			'type' 	   	  => 'select',
-			'priority' 	  => -1, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Layout sections order.', 'tainacan-interface' ),
-			'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
-			'choices'	  => tainacan_get_single_item_layout_sections_order_options()
+		$wp_customize->add_section( 'tainacan_single_item_page_general', array(
+			'title' 	  => __( 'Items page layout and elements', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan single Items general page layout and elements.', 'tainacan-interface' ),
+			'panel'		  => 'tainacan_single_item_page',
+			'priority' 	  => 160,
+			'capability'  => 'edit_theme_options'
 			) );
 
 		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
@@ -515,7 +529,7 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_collection_header', array(
 				'type' 	   	  => 'checkbox',
 				'priority' 	  => 0, // Within the section.
-				'section'  	  => 'tainacan_single_item_page',
+				'section'  	  => 'tainacan_single_item_page_general',
 				'label'    	  => __( 'Display a header of the related collection.', 'tainacan-interface' ),
 				'description' => __( 'Toggle to show a banner with name, thumbnail and color of the related collection.', 'tainacan-interface' )
 				) );
@@ -538,11 +552,53 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
 				'type' 	   	  => 'checkbox',
 				'priority' 	  => 0, // Within the section.
-				'section'  	  => 'tainacan_single_item_page',
+				'section'  	  => 'tainacan_single_item_page_document',
 				'label'    	  => __( 'Show "Documents" section: Document and Attachments grouped in one slider.', 'tainacan-interface' ),
 				'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
 				) );
 		}
+
+		/**
+		 * Adds options to display item author and publish date.
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_hide_item_meta', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => false,
+			'transport'  => 'refresh',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_hide_item_meta', array(
+			'type' 	   	  => 'checkbox',
+			'priority' 	  => 0, // Within the section.
+			'section'  	  => 'tainacan_single_item_page_general',
+			'label'    	  => __( 'Hide the item publish date and author', 'tainacan-interface' ),
+			'description' => __( 'Toggle to not display the item publish date and author name below the item title.', 'tainacan-interface' )
+			) );
+		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_hide_item_meta', array(
+			'selector' => '.tainacan-single-post .header-meta .time',
+			'render_callback' => '__return_false',
+			'fallback_refresh' => true
+			) );
+
+		/**
+		 * Adds option to change the order of some page sections
+		 */
+		$wp_customize->add_setting( 'tainacan_single_item_layout_sections_order', array(
+			'type' 		 => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' 	 => 'document-attachments-metadata',
+			'transport'  => 'refresh',
+			'sanitize_callback' => 'tainacan_sanitize_single_item_layout_sections_order',
+			) );
+		$wp_customize->add_control( 'tainacan_single_item_layout_sections_order', array(
+			'type' 	   	  => 'select',
+			'priority' 	  => 1, // Within the section.
+			'section'  	  => 'tainacan_single_item_page_general',
+			'label'    	  => __( 'Layout sections order.', 'tainacan-interface' ),
+			'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
+			'choices'	  => tainacan_get_single_item_layout_sections_order_options()
+			) );
 
 		/**
 		 * Adds option to configure Document section label.
@@ -557,7 +613,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_document_section_label', array(
 			'type' 	   	  => 'text',
 			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_document',
 			'label'    	  => __( 'Label for the "Document" section', 'tainacan-interface' ),
 			'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
 			) );
@@ -580,7 +636,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_attachments_section_label', array(
 			'type' 	   	  => 'text',
 			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_document',
 			'label'    	  => __( 'Label for the "Attachments" section', 'tainacan-interface' ),
 			'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
 			) );
@@ -603,7 +659,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_documents_section_label', array(
 			'type' 	   	  => 'text',
 			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_document',
 			'label'    	  => __( 'Label for the "Documents" section', 'tainacan-interface' ),
 			'description' => __( 'Section that labels Document and Attachments grouped if this option is enabled. Leave blank it for not displaying any label.', 'tainacan-interface' )
 			) );
@@ -626,7 +682,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_metadata_section_label', array(
 			'type' 	   	  => 'text',
 			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_metadata',
 			'label'    	  => __( 'Label for the "Metadata" section', 'tainacan-interface' ),
 			'description' => __( 'Leave blank it for not displaying any label (which is the default).', 'tainacan-interface' )
 			) );
@@ -648,8 +704,8 @@ function tainacan_customize_register( $wp_customize ) {
 			) );
 		$wp_customize->add_control( 'tainacan_single_item_navigation_section_label', array(
 			'type' 	   	  => 'text',
-			'priority' 	  => 0, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'priority' 	  => 3, // Within the section.
+			'section'  	  => 'tainacan_single_item_page_general',
 			'label'    	  => __( 'Label for the "Items navigation" or "Continue browsing" section', 'tainacan-interface' ),
 			'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
 			) );
@@ -672,7 +728,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_hide_files_name', array(
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 3, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_document',
 			'label'    	  => __( 'Hide the attachments label (on carousel)', 'tainacan-interface' ),
 			'description' => __( 'Toggle to not display the document and attachments name below its thumbnail.', 'tainacan-interface' )
 			) );
@@ -691,7 +747,7 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_hide_files_name_main', array(
 				'type' 	   	  => 'checkbox',
 				'priority' 	  => 3, // Within the section.
-				'section'  	  => 'tainacan_single_item_page',
+				'section'  	  => 'tainacan_single_item_page_document',
 				'label'    	  => __( 'Hide the attachments label (on the main slider)', 'tainacan-interface' ),
 				'description' => __( 'Toggle to not display the document and attachments name.', 'tainacan-interface' )
 				) );
@@ -709,7 +765,7 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_hide_files_caption_main', array(
 				'type' 	   	  => 'checkbox',
 				'priority' 	  => 3, // Within the section.
-				'section'  	  => 'tainacan_single_item_page',
+				'section'  	  => 'tainacan_single_item_page_document',
 				'label'    	  => __( 'Hide the attachments caption (on the main slider)', 'tainacan-interface' ),
 				'description' => __( 'Toggle to not display the document and attachments caption.', 'tainacan-interface' )
 				) );
@@ -727,34 +783,12 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_hide_files_description_main', array(
 				'type' 	   	  => 'checkbox',
 				'priority' 	  => 3, // Within the section.
-				'section'  	  => 'tainacan_single_item_page',
+				'section'  	  => 'tainacan_single_item_page_document',
 				'label'    	  => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
 				'description' => __( 'Toggle to not display the document and attachments description.', 'tainacan-interface' )
 				) );
 		}
 
-		/**
-		 * Adds options to display item author and publish date.
-		 */
-		$wp_customize->add_setting( 'tainacan_single_item_hide_item_meta', array(
-			'type' 		 => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' 	 => false,
-			'transport'  => 'refresh',
-			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-			) );
-		$wp_customize->add_control( 'tainacan_single_item_hide_item_meta', array(
-			'type' 	   	  => 'checkbox',
-			'priority' 	  => 2, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
-			'label'    	  => __( 'Hide the item publish date and author', 'tainacan-interface' ),
-			'description' => __( 'Toggle to not display the item publish date and author name below the item title.', 'tainacan-interface' )
-			) );
-		$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_hide_item_meta', array(
-			'selector' => '.tainacan-single-post .header-meta .time',
-			'render_callback' => '__return_false',
-			'fallback_refresh' => true
-			) );
 
 		/**
 		 * Adds options to hide item naviagtion options.
@@ -769,7 +803,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_show_navigation_options', array(
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 2, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_general',
 			'label'    	  => __( 'Show the item navigation options in the breadcrumb section', 'tainacan-interface' ),
 			'description' => __( 'Toggle to display two arrows and a list icon for navigating directly from the item page breadcrumb section.', 'tainacan-interface' )
 			) );
@@ -793,7 +827,7 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
 				'type' 	   	  => 'checkbox',
 				'priority' 	  => 2, // Within the section.
-				'section'  	  => 'tainacan_single_item_page',
+				'section'  	  => 'tainacan_single_item_page_document',
 				'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
 				'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
 				) );
@@ -813,7 +847,7 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_document_max_height', array(
 				'type' => 'number',
 				'priority' 	  => 2, // Within the section.
-				'section' => 'tainacan_single_item_page',
+				'section' => 'tainacan_single_item_page_document',
 				'label' => __( 'Document maximum height (vh)', 'tainacan-interface' ),
 				'description' => __( 'Set the maximum height for the document. The unit of measure is relative to the screen, for example: 60vh is 60% of the height of the browser window height.', 'tainacan-interface' ),
 				'input_attrs' => array(
@@ -836,7 +870,7 @@ function tainacan_customize_register( $wp_customize ) {
 			$wp_customize->add_control( 'tainacan_single_item_attachments_thumbnail_size', array(
 				'type' => 'number',
 				'priority' 	  => 2, // Within the section.
-				'section' => 'tainacan_single_item_page',
+				'section' => 'tainacan_single_item_page_document',
 				'label' => __( 'Attachment thumbnail size on carousel (px)', 'tainacan-interface' ),
 				'input_attrs' => array(
 					'min' => 12,
@@ -859,7 +893,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_display_thumbnail', array(
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 2, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_metadata',
 			'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
 			) );
@@ -882,7 +916,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_display_share_buttons', array(
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 3, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_metadata',
 			'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
 			'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
 			) );
@@ -905,7 +939,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_hide_core_title_metadata', array(
 			'type' 	   	  => 'checkbox',
 			'priority' 	  => 2, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_metadata',
 			'label'    	  => __( 'Hide core title from metadata list', 'tainacan-interface' ),
 			'description' => __( 'Toggle to hide or not the core title from the metadada list, as it already appears on the page title.', 'tainacan-interface' )
 			) );
@@ -928,7 +962,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_tablet', array(
 			'type' 	   	  => 'number',
 			'priority' 	  => 4, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_metadata',
 			'label'    	  => __( 'Number of metadata columns (tablet)', 'tainacan-interface' ),
 			'description' => __( 'Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px.', 'tainacan-interface' ),
 			'input_attrs' => array(
@@ -948,7 +982,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_desktop', array(
 			'type' 		  => 'number',
 			'priority'    => 5, // Within the section.
-			'section' 	  => 'tainacan_single_item_page',
+			'section' 	  => 'tainacan_single_item_page_metadata',
 			'label' 	  => __( 'Number of metadata columns (desktop)', 'tainacan-interface' ),
 			'description' => __( 'For screen sizes between 1025px and 1366px.', 'tainacan-interface' ),
 			'input_attrs' => array(
@@ -973,7 +1007,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_metadata_columns_count_wide', array(
 			'type' 		  => 'number',
 			'priority' 	  => 6, // Within the section.
-			'section' 	  => 'tainacan_single_item_page',
+			'section' 	  => 'tainacan_single_item_page_metadata',
 			'label' 	  => __( 'Number of metadata columns (wide)', 'tainacan-interface' ),
 			'description' => __( 'For screens larger than 1366px.', 'tainacan-interface' ),
 			'input_attrs' => array(
@@ -997,7 +1031,7 @@ function tainacan_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'tainacan_single_item_navigation_options', array(
 			'type' 	   	  => 'select',
 			'priority' 	  => 3, // Within the section.
-			'section'  	  => 'tainacan_single_item_page',
+			'section'  	  => 'tainacan_single_item_page_general',
 			'label'    	  => __( 'Navigation links to adjacent items', 'tainacan-interface' ),
 			'description' => __( 'Sets how next and previous items links will be displayed. If your Tainacan version is bellow 0.17, this links only obey creation date order inside their collection.', 'tainacan-interface' ),
 			'choices'	  => tainacan_get_single_item_navigation_links_options()
