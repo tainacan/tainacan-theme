@@ -2825,6 +2825,11 @@ function tainacan_header_settings_style_output() {
 		.tainacan-logo .logo {
 			max-height: ' . $header_logo_max_height . 'px !important;
 			max-width: ' . $header_logo_max_width . 'px !important;
+		}
+		@media only screen and (max-width: 768px) {
+			.tainacan-logo .logo {
+				max-width: 100% !important;
+			}
 		}' . ( $is_fixed_header ? 
 		'body nav.navbar { 
 			position: sticky;
