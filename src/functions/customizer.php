@@ -788,7 +788,7 @@ function tainacan_customize_register( $wp_customize ) {
 				) );
 		}
 
-		if (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) {
+		if (version_compare(TAINACAN_VERSION, '0.18RC') >= 0) {
 			/**
 			 * Allows setting max heigth for the document ---------------------------------------------------------
 			 */
@@ -809,6 +809,28 @@ function tainacan_customize_register( $wp_customize ) {
 					'min' => 10,
 					'max' => 150,
 					'step' => 5
+				),
+			) );
+
+			/**
+			 * Allows setting attachment carousel thumbnail size ---------------------------------------------------------
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_attachments_thumbnail_size', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => 136,
+				'transport'  => 'refresh',
+				'sanitize_callback'  => 'sanitize_text_field'
+			) );
+			$wp_customize->add_control( 'tainacan_single_item_attachments_thumbnail_size', array(
+				'type' => 'number',
+				'priority' 	  => 2, // Within the section.
+				'section' => 'tainacan_single_item_page',
+				'label' => __( 'Attachment thumbnail size on carousel (px)', 'tainacan-interface' ),
+				'input_attrs' => array(
+					'min' => 12,
+					'max' => 240,
+					'step' => 2
 				),
 			) );
 		}
@@ -2526,6 +2548,35 @@ function tainacan_single_item_document_max_height_output() {
 	echo '<style type="text/css" id="tainacan-style-document">' . $css . '</style>';
 }
 add_action( 'wp_head', 'tainacan_single_item_document_max_height_output');
+
+
+/**
+ * Enqueues front-end CSS for the single item page attachments carousel thumbnail size.
+ *
+ * @since Tainacan Theme
+ *
+ * @see wp_add_inline_style()
+ */
+function tainacan_single_item_attachments_thumbnail_size_output() {
+	$thumbnail_size = get_theme_mod( 'tainacan_single_item_attachments_thumbnail_size', 136 );
+
+	// If the value is not a number, return early.
+	if ( !is_numeric( $thumbnail_size )  ) {
+		return;
+	}
+
+	$css = '
+		/* Custom Settings for Single Item Page Attachments Carousel thumbnail size */
+	
+		.tainacan-single-post .tainacan-content.single-item-collection .tainacan-media-component {
+			--tainacan-media-thumbs-carousel-item-size: ' . $thumbnail_size . 'px;
+		}
+	';
+	
+	echo '<style type="text/css" id="tainacan-style-attachments">' . $css . '</style>';
+}
+add_action( 'wp_head', 'tainacan_single_item_attachments_thumbnail_size_output');
+
 
 /**
  * Enqueues front-end CSS for the items page fixed filters logic.
