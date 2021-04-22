@@ -488,6 +488,24 @@ nav {
         align-items: flex-end;
     }
 
+    &.tainacan-header-layout--left #topNavbar {
+        flex-direction: column;
+        align-items: flex-start;
+
+        nav.menu-belowheader {
+            .container-fluid {
+                margin: 0px 16px 0px 0px !important;
+            }
+            #menubelowHeader > ul > li.menu-item {
+                padding-left: 0px;
+                padding-right: 42px;
+            }
+            #menubelowHeader > ul {
+                justify-content: flex-start;
+            }
+        }
+    }
+
     &.tainacan-header-layout--center #topNavbar {
         flex-direction: column;
         align-items: center;

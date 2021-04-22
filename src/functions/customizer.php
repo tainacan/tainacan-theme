@@ -2072,7 +2072,7 @@ if ( ! function_exists( 'tainacan_get_header_alignment_options' ) ) :
 	function tainacan_get_header_alignment_options() {
 		$header_alignment_options = array(
 			'default' => __('One line, spaced', 'tainacan-interface'),
-			// 'left' => __('Two lines, to the left', 'tainacan-interface'),
+			'left' => __('Two lines, to the left', 'tainacan-interface'),
 			'center' => __('Two lines, centered', 'tainacan-interface')
 		);
 		return $header_alignment_options;
