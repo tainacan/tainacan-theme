@@ -18,7 +18,9 @@
 			do_action( 'wp_body_open' );
 		}
 	?>
-	<nav class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-0 navbar--border-bottom">
+	<nav 
+			style="min-height: <?php echo get_theme_mod('tainacan_header_min_height', 50) ?>px;"
+			class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-0 navbar--border-bottom">
 		<div class="container-fluid max-large px-0 margin-one-column" id="topNavbar">
 			<?php echo tainacan_get_logo(); ?>
 

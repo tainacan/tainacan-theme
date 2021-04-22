@@ -117,12 +117,126 @@ function tainacan_customize_register( $wp_customize ) {
 		'description' => __( 'This checkbox shows the "Proudly Powered by Tainacan and Wordpress" sentence.', 'tainacan-interface' ),
 	) );
 
+
+
 	/**
-	 * Header settings
+	 * Adds panel to control header settings. ---------------------------------------------------------
+	 */
+	$wp_customize->add_panel( 'tainacan_header_settings', array(
+		'title' 	  => __( 'Site header settings', 'tainacan-interface' ),
+		'description' => __( 'Settings related to the site header, such as the menu and logo position.', 'tainacan-interface' ), 
+		'priority' 	  => 40, // Mixed with top-level-section hierarchy.,
+		'capability'  => 'edit_theme_options'
+	) );
+
+	/**
+	 * Adds section to control Header search settings
+	 */
+	$wp_customize->add_section('tainacan_header_general', array(
+		'title'  	 => __( 'Header layout and elements', 'tainacan-interface' ),
+		'priority'   => 60,
+		'panel' 	 => 'tainacan_header_settings'
+	));
+
+	// Fixed header
+	$wp_customize->add_setting( 'tainacan_fixed_header', array(
+		'type'       => 'theme_mod',
+		'default'    => false,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'tainacan_fixed_header', array(
+		'type' 		=> 'checkbox',
+		'settings' 	=> 'tainacan_fixed_header',
+		'section' 	=> 'tainacan_header_general',
+		'label' => __( 'Fix header position after scroll', 'tainacan-interface' )
+	) );
+	
+	/**
+	 * Allows setting min heigth of site header ---------------------------------------------------------
+	 */
+	$wp_customize->add_setting( 'tainacan_header_min_height', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 50,
+		'transport'  => 'postMessage',
+		'sanitize_callback'  => 'sanitize_text_field'
+	) );
+	$wp_customize->add_control( 'tainacan_header_min_height', array(
+		'type' => 'number',
+		'section' => 'tainacan_header_general',
+		'label' => __( 'Site header minimum height (px)', 'tainacan-interface' ),
+		'input_attrs' => array(
+			'min' => 42,
+			'max' => 320,
+			'step' => 2
+		),
+	) );
+	$wp_customize->selective_refresh->add_partial( 'tainacan_header_min_height', array(
+		'selector' => 'nav.navbar',
+		'render_callback' => '__return_false',
+		'fallback_refresh' => true
+	) );
+
+	/**
+	 * Allows setting max heigth of site logo ---------------------------------------------------------
+	 */
+	$wp_customize->add_setting( 'tainacan_header_logo_max_height', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 120,
+		'transport'  => 'postMessage',
+		'sanitize_callback'  => 'sanitize_text_field'
+	) );
+	$wp_customize->add_control( 'tainacan_header_logo_max_height', array(
+		'type' => 'number',
+		'section' => 'tainacan_header_general',
+		'label' => __( 'Site header logo max height (px)', 'tainacan-interface' ),
+		'input_attrs' => array(
+			'min' => 42,
+			'max' => 220,
+			'step' => 2
+		),
+	) );
+	$wp_customize->selective_refresh->add_partial( 'tainacan_header_logo_max_height', array(
+		'selector' => '.tainacan-logo img.logo',
+		'render_callback' => '__return_false',
+		'fallback_refresh' => true
+	) );
+
+	/**
+	 * Allows setting max width of site logo ---------------------------------------------------------
+	 */
+	$wp_customize->add_setting( 'tainacan_header_logo_max_width', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 225,
+		'transport'  => 'postMessage',
+		'sanitize_callback'  => 'sanitize_text_field'
+	) );
+	$wp_customize->add_control( 'tainacan_header_logo_max_width', array(
+		'type' => 'number',
+		'section' => 'tainacan_header_general',
+		'label' => __( 'Site header logo max width (px)', 'tainacan-interface' ),
+		'input_attrs' => array(
+			'min' => 42,
+			'max' => 680,
+			'step' => 2
+		),
+	) );
+	$wp_customize->selective_refresh->add_partial( 'tainacan_header_logo_max_width', array(
+		'selector' => '.tainacan-logo img.logo',
+		'render_callback' => '__return_false',
+		'fallback_refresh' => true
+	) );
+
+	/**
+	 * Adds section to control Header search settings
 	 */
 	$wp_customize->add_section('tainacan_header_search', array(
 		'title'  	 => __( 'Header search', 'tainacan-interface' ),
 		'priority'   => 61,
+		'panel' 	 => 'tainacan_header_settings'
 	));
 
 	// Hide search input on header
@@ -2621,6 +2735,35 @@ function tainacan_single_item_attachments_thumbnail_size_output() {
 	echo '<style type="text/css" id="tainacan-style-attachments">' . $css . '</style>';
 }
 add_action( 'wp_head', 'tainacan_single_item_attachments_thumbnail_size_output');
+
+
+/**
+ * Enqueues front-end CSS for the single item page attachments carousel thumbnail size.
+ *
+ * @since Tainacan Theme
+ *
+ * @see wp_add_inline_style()
+ */
+function tainacan_header_settings_style_output() {
+	$header_logo_max_height = get_theme_mod( 'tainacan_header_logo_max_height', 120 );
+	$header_logo_max_width = get_theme_mod( 'tainacan_header_logo_max_width', 225 );
+	$is_fixed_header = get_theme_mod( 'tainacan_fixed_header', false );
+
+	// If the value is not a number, return early.
+	if ( !is_numeric( $header_logo_max_height ) || !is_numeric( $header_logo_max_width ) || !is_bool($is_fixed_header) ) {
+		return;
+	}
+
+	$css = '
+		/* Custom Settings for Site Header */
+		.tainacan-logo .logo {
+			max-height: ' . $header_logo_max_height . 'px !important;
+			max-width: ' . $header_logo_max_width . 'px !important;
+		}' . ( $is_fixed_header ? 'nav.navbar { position: sticky; top: 0; z-index: 9999; }' : '');
+	
+	echo '<style type="text/css" id="tainacan-style-header-custom">' . $css . '</style>';
+}
+add_action( 'wp_head', 'tainacan_header_settings_style_output');
 
 
 /**
