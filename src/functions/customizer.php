@@ -955,6 +955,46 @@ function tainacan_customize_register( $wp_customize ) {
 				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the colleciton item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ), 
 				'priority' 	  => 160 // Mixed with top-level-section hierarchy.,
 			) );
+
+
+			/**
+			 * Adds section to settings related to search control . ---------------------------------------------------------
+			 */
+			$wp_customize->add_section( 'tainacan_items_page_collection_banner', array(
+				'title' 	  => __( 'Collection Header', 'tainacan-interface' ),
+				'description' => __( 'Settings related to Tainacan items list colleciton header.', 'tainacan-interface' ),
+				'panel'		  => 'tainacan_items_page',
+				'priority' 	  => 160,
+				'capability'  => 'edit_theme_options'
+				) );
+
+			/**
+			 * Allows setting max heigth of collection banner ---------------------------------------------------------
+			 */
+			$wp_customize->add_setting( 'tainacan_collection_banner_max_height', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => 624,
+				'transport'  => 'postMessage',
+				'sanitize_callback'  => 'sanitize_text_field'
+			) );
+			$wp_customize->add_control( 'tainacan_collection_banner_max_height', array(
+				'type' => 'number',
+				'section' => 'tainacan_items_page_collection_banner',
+				'label' => __( 'Collection banner image maximum height (px)', 'tainacan-interface' ),
+				'input_attrs' => array(
+					'min' => 142,
+					'max' => 624,
+					'step' => 1
+				),
+			) );
+			$wp_customize->selective_refresh->add_partial( 'tainacan_collection_banner_max_height', array(
+				'selector' => '.page-header img',
+				'render_callback' => '__return_false',
+				'fallback_refresh' => true
+			) );
+
+
 				
 			/**
 			 * Adds section to settings related to search control . ---------------------------------------------------------

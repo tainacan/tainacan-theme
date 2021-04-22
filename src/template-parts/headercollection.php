@@ -25,13 +25,13 @@ echo '</style>';
 
 <?php if ( get_header_image_tag() ) : ?>
 	<div class="page-header header-filter page-height page-header--image-full">
-		<?php echo get_header_image_tag() ?>
+		<?php echo get_header_image_tag(array( "style" => "max-height: " . get_theme_mod('tainacan_collection_banner_max_height', 624 ) . 'px;' )) ?>
 <?php elseif ( get_header_image() ) : ?>
 	<div class="page-header header-filter page-height page-header--image-full">
-		<img class="page-header__image" src="<?php header_image(); ?>" alt="Imagem">
+		<img class="page-header__image" src="<?php header_image(); ?>" alt="">
 <?php else : ?>
 	<div class="page-header header-filter page-collection page-header--image-full">
-		<img class="page-header__image" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/capa.png" alt="Imagem">
+		<img class="page-header__image" src="<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/capa.png" alt="">
 <?php endif; ?>
 	<div class="container-fluid px-0 t-bg-collection" style="<!-- z-index: 0; -->">
 		<div class="collection-header position-relative max-large" style="">
