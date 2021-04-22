@@ -984,7 +984,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'label' => __( 'Collection banner image maximum height (px)', 'tainacan-interface' ),
 				'input_attrs' => array(
 					'min' => 142,
-					'max' => 624,
+					'max' => 680,
 					'step' => 1
 				),
 			) );
