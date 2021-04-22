@@ -2759,7 +2759,18 @@ function tainacan_header_settings_style_output() {
 		.tainacan-logo .logo {
 			max-height: ' . $header_logo_max_height . 'px !important;
 			max-width: ' . $header_logo_max_width . 'px !important;
-		}' . ( $is_fixed_header ? 'nav.navbar { position: sticky; top: 0; z-index: 9999; }' : '');
+		}' . ( $is_fixed_header ? 
+		'body nav.navbar { 
+			position: sticky;
+			z-index: 9999;
+		}
+		body:not(.admin-bar) nav.navbar { 
+			top: 0;
+		}
+		body.admin-bar nav.navbar { 
+			top: 32px;
+		}' 
+		: '');
 	
 	echo '<style type="text/css" id="tainacan-style-header-custom">' . $css . '</style>';
 }
