@@ -138,6 +138,24 @@ function tainacan_customize_register( $wp_customize ) {
 		'panel' 	 => 'tainacan_header_settings'
 	));
 
+	/**
+	 * Adds options to align header elements
+	 */
+	$wp_customize->add_setting( 'tainacan_header_alignment_options', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => 'default',
+		'transport'  => 'refresh',
+		'sanitize_callback' => 'tainacan_sanitize_header_alignment_options',
+		) );
+	$wp_customize->add_control( 'tainacan_header_alignment_options', array(
+		'type' 	   	  => 'select',
+		'section'  	  => 'tainacan_header_general',
+		'label'    	  => __( 'Header elements alignment', 'tainacan-interface' ),
+		'description' => __( 'Sets how the header elements, such as the logo and navigation menu are aligned.', 'tainacan-interface' ),
+		'choices'	  => tainacan_get_header_alignment_options()
+		) );
+
 	// Fixed header
 	$wp_customize->add_setting( 'tainacan_fixed_header', array(
 		'type'       => 'theme_mod',
@@ -2037,6 +2055,54 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_navigation_links_options'
 		return $option;
 	}
 endif; // tainacan_sanitize_single_item_navigation_links_options
+
+
+
+if ( ! function_exists( 'tainacan_get_header_alignment_options' ) ) :
+	/**
+	 * Retrieves an array of options for  header alignment options for Tainacan Theme.
+	 *
+	 * Create your own tainacan_get_header_alignment_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array $option - a string with options for header alignments.
+	 */
+	function tainacan_get_header_alignment_options() {
+		$header_alignment_options = array(
+			'default' => __('One line, spaced', 'tainacan-interface'),
+			// 'left' => __('Two lines, to the left', 'tainacan-interface'),
+			'center' => __('Two lines, centered', 'tainacan-interface')
+		);
+		return $header_alignment_options;
+	}
+endif; // tainacan_get_header_alignment_options
+
+if ( ! function_exists( 'tainacan_sanitize_header_alignment_options' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Theme item page navigation link options
+	 *
+	 * Create your own tainacan_sanitize_header_alignment_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $option - a string with options for hader alignments.
+	 * @return string the selected option.
+	 */
+	function tainacan_sanitize_header_alignment_options( $option ) {
+		$header_alignment_options = tainacan_get_header_alignment_options();
+
+		if ( ! array_key_exists( $option, $header_alignment_options ) ) {
+			return 'default';
+		}
+
+		return $option;
+	}
+endif; // tainacan_sanitize_header_alignment_options
+
+
 
 /**
  * Enqueues front-end CSS for color scheme.
