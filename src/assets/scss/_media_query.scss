@@ -144,20 +144,6 @@ footer {
                         margin: 5px 0 0.5em 0;
                     }
                 }
-
-                .gallery{
-                    display: grid;
-                    max-height: 485px;
-                    overflow: hidden;
-                    justify-content: center;
-                    .gallery-item{
-                        margin: 5px 0 !important;
-                    }
-                    br{
-                        display: none;
-                    }
-                }
-
                 &{
                     border-top: 1px solid white;
                 }
@@ -194,7 +180,7 @@ footer {
                         z-index: 1;
                         opacity: 0;
                         &:checked{
-                            &~h6~p, &~h6~div, &~h6~ul, &~h6~img{
+                            &~h6~p, &~h6~div, &~h6~ul, &~h6~img, &~h6~nav, &~h6~form {
                                 margin-top: 0;
                                 max-height: 0;
                                 opacity: 0;
@@ -204,7 +190,7 @@ footer {
                             &~h6{
                                 position: relative;
                                 i:before{
-                                    content: "more";
+                                    content: "plus";
                                     letter-spacing: normal;
                                     position: absolute;
                                     right: 0;
@@ -259,6 +245,7 @@ footer {
                         margin-right: 4.16666666667%;
                         margin-right: 4.16666666667vw;
                         flex-grow: 1;
+                        flex-basis: 18%;
 
                         &:last-child{
                             margin-right: 0;
@@ -297,17 +284,7 @@ footer {
                         .textwidget{
                             max-width: 200px;
                         }
-                        .gallery{
-                            display: grid;
-                            max-height: 485px;
-                            overflow: hidden;
-                            .gallery-item{
-                                margin: 5px 0 !important;
-                            }
-                            br{
-                                display: none;
-                            }
-                        }
+                
                     }
                 }
             }
@@ -354,6 +331,12 @@ footer {
     }
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1280px) {
+    footer ul li.tainacan-side {
+        flex-basis: 24%;
+    }
+}
+
 // 1400px is the maximum the inner cointainer should get, so we 
 // use 1526px - 1 column - 1 column;
 @media only screen and (min-width: 1526px){
@@ -366,6 +349,9 @@ footer {
         > .pr-lg-5{
             padding-left: 2.6rem;
         }
+    }
+    footer ul li.tainacan-side {
+        flex-basis: 13%;
     }
     /* #comments {
         #form-comment{

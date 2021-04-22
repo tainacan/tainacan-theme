@@ -263,7 +263,7 @@ function tainacan_widgets_footer_init() {
 	register_sidebar( array(
 		'name'          => __( 'Tainacan Sidebar Footer', 'tainacan-interface' ),
 		'id'            => 'tainacan-sidebar-footer',
-		'before_widget' => '<li class="border-left-0 border-right-0 tainacan-side"><input type="checkbox" checked><i></i>',
+		'before_widget' => '<li class="mb-lg-4 border-left-0 border-right-0 border-bottom-0 tainacan-side"><input type="checkbox" checked><i></i>',
 		'after_widget'  => '</li>',
 		'before_title'  => '<h6 class="text-white font-weight-bold mb-lg-4">',
 		'after_title'   => ' <i class="tainacan-icon mt-0"></i></h6>',

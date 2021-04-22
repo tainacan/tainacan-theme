@@ -19,6 +19,9 @@ footer {
                 margin: 0 calc(4.16666666667% * 2);
                 margin: 0 calc(4.16666666667vw * 2);
             }
+            nav {
+                border: none;
+            }
             .tainacan-side ul,
             .tainacan-side ol {
                 list-style: inside;
@@ -48,6 +51,32 @@ footer {
                         }
                     }
                 }
+            }
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                max-height: 485px;
+                overflow: hidden;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .gallery-item{
+                    margin: 5px !important;
+                    width: auto !important;
+
+                    img {
+                        border: none !important;
+                    }
+                }
+                .gallery-caption {
+                    display: none;
+                }
+                br{
+                    display: none;
+                }
+            }
+            .image {
+                max-width: 100%;
+                height: auto;
             }
         }
         .tainacan-footer-info {
