@@ -44,13 +44,15 @@
 						$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg' : esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
 					}
 					?>
-					<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
+					<a href="<?php echo get_theme_mod('tainacan_footer_logo_link', 'https://tainacan.org') ?>">
+						<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
+					</a>
 			</div>
 			<div class="col-12 tainacan-powered">
 				<span>
 					<?php if ( true == get_theme_mod( 'tainacan_display_powered', false ) ) {
 						/* translators: 1: WordPress; 2: Tainacan*/
-						printf( __( 'Proudly powered by %1$s and %2$s.', 'tainacan-interface' ), '<a href="https://wordpress.org/">WordPress</a>', '<a href="http://tainacan.org/">Tainacan</a>' ); } ?>
+						printf( __( 'Proudly powered by %1$s and %2$s.', 'tainacan-interface' ), '<a href="https://wordpress.org/">WordPress</a>', '<a href="https://tainacan.org/">Tainacan</a>' ); } ?>
 				</span>
 			</div>
 		</div>

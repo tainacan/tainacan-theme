@@ -77,7 +77,6 @@ function tainacan_customize_register( $wp_customize ) {
 		'capability' => 'manage_options',
 		'sanitize_callback' => 'tainacan_sanitize_upload',
 	) );
-
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control($wp_customize, 'tainacan_footer_logo',
 			array(
@@ -87,6 +86,18 @@ function tainacan_customize_register( $wp_customize ) {
 			)
 		)
 	);
+
+	$wp_customize->add_setting( 'tainacan_footer_logo_link', array(
+		'type'       => 'theme_mod',
+		'capability' => 'manage_options',
+		'default' 	 => 'https://tainacan.org',
+		'sanitize_callback'  => 'sanitize_text_field',
+	) );
+	$wp_customize->add_control( 'tainacan_footer_logo_link', array(
+		'type'       => 'theme_mod',
+		'label'      => __( 'Logo link', 'tainacan-interface' ),
+		'section'    => 'tainacan_footer_info',
+	) );
 
 	/**
 	 * Checkbox to display or no the Proudly Powered by WordPress and Tainacan.
