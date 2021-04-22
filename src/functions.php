@@ -9,9 +9,9 @@ const TAINACAN_INTERFACE_VERSION = '2.2.1';
 if ( ! function_exists( 'tainacan_setup' ) ) {
 
 	/**
-	 * Execulta após o tema ser inicializado.
+	 * Executa após o tema ser inicializado.
 	 * Isso é usado para a configuração básica do tema, registro dos recursos do tema e init hooks.
-	 * Observe que esta função está conectada ao gancho after_setup_theme, que é executado antes do gancho de init.
+	 * Observe que esta função está conectada ao gancho (`hook`) `after_setup_theme`, que é executado antes do gancho de init.
 	 */
 	function tainacan_setup() {
 		
@@ -154,7 +154,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_editor_style( 'editor-style.css' );
 
 	}
-} // End if().
+} // tainacan_setup check
 add_action( 'after_setup_theme', 'tainacan_setup' );
 
 /**
@@ -404,9 +404,9 @@ function tainacan_block_patterns_init() {
 add_action( 'init', 'tainacan_block_patterns_init' );
 
 /**
- * get Logo function
+ * get Tainacan's logo function HTML
  *
- * return custom logo or the default logo
+ * return custom or default Tainacan's logo
  */
 function tainacan_get_logo() {
 	if ( has_custom_logo() ) {
@@ -426,7 +426,6 @@ function tainacan_get_logo() {
  * @return void
  */
 function tainacan_change_logo_class( $html ) {
-
 	$html = str_replace( 'custom-logo-link', 'navbar-brand tainacan-logo', $html );
 	$html = str_replace( 'custom-logo', 'logo', $html );
 
@@ -475,7 +474,6 @@ function tainacan_collections_viewmode( $public_query_vars ) {
 add_filter( 'query_vars', 'tainacan_collections_viewmode' );
 
 function tainacan_active( $selected, $current = true, $echo = true ) {
-
 	$return = $selected == $current ? 'active' : '';
 
 	if ( $echo ) {
@@ -483,7 +481,6 @@ function tainacan_active( $selected, $current = true, $echo = true ) {
 	}
 
 	return $return;
-
 }
 
 function tainacan_theme_collection_title( $title ) {

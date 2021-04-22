@@ -1,26 +1,22 @@
 <?php
 
-/** The breadcrump function
+/** The breadcrumb function
  * Display parent and current page
  **/    
 function tainacan_interface_the_breadcrumb() {
-
 	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
 	$delimiter = '>'; // delimiter between crumbs
 	$home = __('Home', 'tainacan-interface'); // text for the 'Home' link
 	$showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-	$before = '<span class="current text-black">'; // tag before the current crumb
+	$before = '<span class="current text-black"> '; // tag before the current crumb
 	$after = '</span>'; // tag after the current crumb
 
 	global $post;
 	$homeLink = esc_url( home_url() );
 
 	if (is_home() || is_front_page()) {
-
 		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a></nav>';
-
 	} else {
-
 		echo '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
 
 		if ( is_category() ) {
@@ -165,6 +161,5 @@ function tainacan_interface_the_breadcrumb() {
 		}
 
 		echo '</nav>';
-
 	}
 } // end tainacan_interface_the_breadcrumb()

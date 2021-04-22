@@ -178,12 +178,12 @@ $next = $adjacent_links['next'];
                 <?php 
                     if ( !get_theme_mod('tainacan_single_item_hide_item_meta', false) ) {
                         echo '<span class="time">';
-                            tainacan_meta_date_author(); 
-                        echo '</span>';
+                            tainacan_meta_date_author();
+                        echo '</span> &nbsp';
                     }
                     if ( function_exists('tainacan_the_item_edit_link') ) {
                         echo '<span class="tainacan-edit-item-collection">';
-                            tainacan_the_item_edit_link(null, ' - ');
+                            tainacan_the_item_edit_link(null, ' - ', ' ');
                         echo '</span>';
                     }
                 ?>

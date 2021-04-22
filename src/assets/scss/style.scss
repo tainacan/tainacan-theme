@@ -3,7 +3,7 @@ Theme Name: Tainacan Interface
 Author: Tainacan
 Author URI: https://tainacan.org
 Theme URI: https://tainacan.org/blog/category/tema/
-Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collectinons with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository. 
+Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository.
 Version: 2.2.1
 Tested up to: 5.5.3
 Requires PHP: 5.6
@@ -156,7 +156,6 @@ body.loading-content main:before {
     background: #4ea2ad;
     width: 36px;
     height: 36px;
-    display: block;
     text-decoration: none;
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;

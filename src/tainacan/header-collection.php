@@ -3,7 +3,7 @@
 
 <?php
 /**
- * This template adss Collections details to the header
+ * This template adds Collections details to the header
  *
  * It will only work with tainacan plugin enabled.
  *

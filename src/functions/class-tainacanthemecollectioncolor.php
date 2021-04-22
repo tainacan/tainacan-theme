@@ -3,8 +3,6 @@
  * Class that hooks in the tainacan plugin (if present) to add new options to Collections
  */
 class TainacanThemeCollectionColor {
-
-
 	public $tainacan_background_color = 'tainacan_theme_collection_background_color';
 	public $tainacan_text_color = 'tainacan_theme_collection_color';
 
@@ -40,7 +38,6 @@ class TainacanThemeCollectionColor {
 	}
 
 	function form() {
-
 		if ( ! function_exists( 'tainacan_get_api_postdata' ) ) {
 			return '';
 		}
@@ -114,9 +111,7 @@ class TainacanThemeCollectionColor {
 		</div>
 
 		<?php
-
 		return ob_get_clean();
-
 	}
 
 	function add_meta_to_response( $extra_meta, $request ) {
@@ -142,12 +137,8 @@ class TainacanThemeCollectionColor {
 				update_post_meta( $object->get_id(), $this->tainacan_text_color, $post->{$this->tainacan_text_color} );
 			}
 		}
-
 	}
-
 
 }
 
 new TainacanThemeCollectionColor();
-
-?>

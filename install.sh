@@ -3,10 +3,9 @@ php -r '
 echo "\n ..::Tainacan Theme::..\n";
 
 echo "\nInitiating the installation with composer ... please wait!!\n";
+echo "Copying files ...\n";
 
-echo "\nInitiating the copying of files...\n\n";
-
-echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
+echo "\nCopying Bootstrap Framework ...\n\n";
 
     if (!file_exists("src/assets/vendor/bootstrap")) { 
         mkdir("src/assets/vendor/", 0777, true);
@@ -18,7 +17,7 @@ echo "\nCopy Frameword CSS - Bootstrap ...\n\n";
     copy("vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
     recurse_copy("vendor/twbs/bootstrap/js/src", "src/assets/vendor/bootstrap/js/src");
 
-echo "Copy Slick for Slider...\n\n";
+echo "Copying Slick Slider...\n\n";
     if (!file_exists("src/assets/vendor/slick")) {
         mkdir("src/assets/vendor/slick/", 0777, true);
         mkdir("src/assets/vendor/slick/css", 0777, true);
@@ -27,7 +26,7 @@ echo "Copy Slick for Slider...\n\n";
     }
     recurse_copy("vendor/fabianobn/slick/slick/", "src/assets/vendor/slick/");
     
-echo "Finish Copy files! \n\n";
+echo "Finished copying files! \n\n";
 
 function recurse_copy($src,$dst) {
     $dir = opendir($src);
@@ -50,12 +49,12 @@ function delete_files($target) {
         $files = glob( $target . "*", GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
 
         foreach( $files as $file ){
-            delete_files( $file );      
+            delete_files( $file );
         }
 
         rmdir( $target );
     } elseif(is_file($target)) {
-        unlink( $target );  
+        unlink( $target );
     }
 }
 '

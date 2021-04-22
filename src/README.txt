@@ -1,5 +1,5 @@
 === Tainacan Interface ===
-Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila
+Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila, r-guimaraes
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.5.3
 Version: 2.2.1
@@ -17,7 +17,7 @@ For more information about Tainacan and Tainacan Interface please go to http://t
 
 == Copyright ==
 
-Tainacan Interface WordPress Theme, Copyright 2020 Tainacan.org
+Tainacan Interface WordPress Theme, Copyright 2021 Tainacan.org
 Tainacan Interface is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify

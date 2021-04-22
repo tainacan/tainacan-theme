@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php $view_mode = get_query_var( 'tainacan_collections_viewmode' ); ?>
+
 <!-- Get the banner to display -->
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
 
@@ -41,16 +43,16 @@
 						<span class="d-none d-md-inline"><?php _e( 'View Mode', 'tainacan-interface' ); ?></span>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'cards' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'cards' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewcards text-oslo-gray"></i>&nbsp;<?php _e( 'Cards', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'grid' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'grid' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewminiature text-oslo-gray"></i>&nbsp;<?php _e( 'Thumbnails', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'tainacan_collections_viewmode' ), 'table' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'table' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>&nbsp;<?php _e( 'Table', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'cards' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'cards' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewcards text-oslo-gray"></i>&nbsp;<?php _e( 'Cards', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'grid' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'grid' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewminiature text-oslo-gray"></i>&nbsp;<?php _e( 'Thumbnails', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'table' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'table' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>&nbsp;<?php _e( 'Table', 'tainacan-interface' ); ?></a>
 					</div>
 				</div>
 				
 				<form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
 					<input type="hidden" name="orderby" value="<?php echo get_query_var( 'orderby' ); ?>" />
 					<input type="hidden" name="order" value="<?php echo get_query_var( 'order' ); ?>" />
-					<input type="hidden" name="tainacan_collections_viewmode" value="<?php echo get_query_var( 'tainacan_collections_viewmode' ); ?>" />
+					<input type="hidden" name="tainacan_collections_viewmode" value="<?php echo $view_mode; ?>" />
 					<div class="input-group">
 						<input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var( 's' ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />
 						<span class="input-group-append">
@@ -62,7 +64,7 @@
 				</form>
 			</div>
 
-			<?php get_template_part( 'template-parts/loop-tainacan-collection', get_query_var( 'tainacan_collections_viewmode' ) ); ?>
+			<?php get_template_part( 'template-parts/loop-tainacan-collection', $view_mode ); ?>
 		</div>
 	</div><!-- /.row -->
 </main>
