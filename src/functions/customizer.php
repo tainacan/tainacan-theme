@@ -788,6 +788,31 @@ function tainacan_customize_register( $wp_customize ) {
 				) );
 		}
 
+		if (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) {
+			/**
+			 * Allows setting max heigth for the document ---------------------------------------------------------
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_document_max_height', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => 60,
+				'transport'  => 'refresh',
+				'sanitize_callback'  => 'sanitize_text_field'
+			) );
+			$wp_customize->add_control( 'tainacan_single_item_document_max_height', array(
+				'type' => 'number',
+				'priority' 	  => 2, // Within the section.
+				'section' => 'tainacan_single_item_page',
+				'label' => __( 'Document maximum height (vh)', 'tainacan-interface' ),
+				'description' => __( 'Set the maximum height for the document. The unit of measure is relative to the screen, for example: 60vh is 60% of the height of the browser window height.', 'tainacan-interface' ),
+				'input_attrs' => array(
+					'min' => 10,
+					'max' => 150,
+					'step' => 5
+				),
+			) );
+		}
+
 		/**
 		 * Adds options to display or not the thumbnail on items page.
 		 */
@@ -993,7 +1018,6 @@ function tainacan_customize_register( $wp_customize ) {
 				'render_callback' => '__return_false',
 				'fallback_refresh' => true
 			) );
-
 
 				
 			/**
@@ -2466,6 +2490,42 @@ function tainacan_single_item_metadata_columns_count_output() {
 	echo '<style type="text/css" id="tainacan-style-metadata">' . sprintf( $css, $metadata_columns_count_tablet, $metadata_columns_count_desktop, $metadata_columns_count_wide ) . '</style>';
 }
 add_action( 'wp_head', 'tainacan_single_item_metadata_columns_count_output');
+
+
+/**
+ * Enqueues front-end CSS for the single item page document max-height.
+ *
+ * @since Tainacan Theme
+ *
+ * @see wp_add_inline_style()
+ */
+function tainacan_single_item_document_max_height_output() {
+	$max_document_height = get_theme_mod( 'tainacan_single_item_document_max_height', 60 );
+
+	// If the value is not a number, return early.
+	if ( !is_numeric( $max_document_height )  ) {
+		return;
+	}
+
+	$css = '
+		/* Custom Settings for Single Item Page Document Height */
+	
+		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document img,
+		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document video,
+		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document audio,
+		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document iframe {
+			max-height: ' . $max_document_height . '%;
+			max-height: ' . $max_document_height . 'vh;
+		}
+		.tainacan-single-post .tainacan-content.single-item-collection .tainacan-media-component {
+			--tainacan-media-main-carousel-height: ' . $max_document_height . '%;
+			--tainacan-media-main-carousel-height: ' . $max_document_height . 'vh;
+		}
+	';
+	
+	echo '<style type="text/css" id="tainacan-style-document">' . $css . '</style>';
+}
+add_action( 'wp_head', 'tainacan_single_item_document_max_height_output');
 
 /**
  * Enqueues front-end CSS for the items page fixed filters logic.
