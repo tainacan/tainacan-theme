@@ -33,7 +33,11 @@
 					</button>
 				</div>
 			</div>
-			<?php the_post_thumbnail(); ?>
+			<?php 
+				if ( get_theme_mod('tainacan_featured_image_on_header_banner', false) == false ) {
+					the_post_thumbnail();
+				 } 
+			?>
 		</header>
 	<?php endif; ?>
 	<section class="tainacan-content text-black margin-two-column">

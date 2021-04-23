@@ -1,5 +1,9 @@
-<?php if ( false == get_theme_mod( 'tainacan_hide_header_banner', false ) ) : ?>
-	<div <?php if ( get_header_image() ) : ?>class="page-header header-filter clear-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else : ?>class="page-header header-filter clear-filter align-items-center" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/capa.png')"<?php endif; ?>>
+<?php if ( false == get_theme_mod( 'tainacan_hide_header_banner', false ) ) :
+	if ( !is_singular() || false == get_theme_mod('tainacan_featured_image_on_header_banner', false) || !has_post_thumbnail() ) : ?>
+		<div <?php if ( get_header_image() ) : ?>class="page-header header-filter clear-filter page-height" style="background-image: url('<?php header_image(); ?>')"<?php else : ?>class="page-header header-filter clear-filter align-items-center" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ) ?>/assets/images/capa.png')"<?php endif; ?>>
+	<?php else: ?>
+		<div class="page-header header-filter clear-filter page-height" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')">
+	<?php endif; ?>
 		<div class="container-fluid p-0 ph-title-description">
 			<?php if ( false == get_theme_mod( 'tainacan_hide_site_title_on_header_banner', false ) ) : ?>
 				<div 

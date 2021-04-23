@@ -600,6 +600,24 @@ function tainacan_customize_register( $wp_customize ) {
 	) );
 
 	/**
+	 * Adds option to display featured image on site header
+	 */
+	$wp_customize->add_setting( 'tainacan_featured_image_on_header_banner', array(
+		'type' 		 => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' 	 => false,
+		'transport'  => 'refresh',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+		) );
+	$wp_customize->add_control( 'tainacan_featured_image_on_header_banner', array(
+		'type' 	   	  => 'checkbox',
+		'priority' 	  => 99, // Within the section.
+		'section'  	  => 'header_image',
+		'label'    	  => __( 'Display post or page featured image on the header banner', 'tainacan-interface' ),
+		'description' => __( 'Toggle to display the current post or page featured image, if available on the header banner instead of the default image. This feature also hides the featured image in the post content.', 'tainacan-interface' )
+		) );
+
+	/**
 	 * Bellow are customizer options exclusivelly related to Tainacan pages.
 	 */
 	if ( defined ( 'TAINACAN_VERSION' ) ) {
