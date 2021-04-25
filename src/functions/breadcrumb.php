@@ -2,7 +2,7 @@
 
 /** The breadcrumb function
  * Display parent and current page
- **/    
+ **/
 function tainacan_interface_the_breadcrumb() {
 	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
 	$delimiter = '>'; // delimiter between crumbs
@@ -73,7 +73,7 @@ function tainacan_interface_the_breadcrumb() {
 					$parents = array_reverse($parents);
 				// For each parent, create a breadcrumb item
 				
-				foreach( $parents as $parent ) :
+				foreach ($parents as $parent):
 					//$item = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
 					$url = get_term_link($parent);
 					echo '&nbsp;' . $delimiter . '&nbsp;';
@@ -84,9 +84,16 @@ function tainacan_interface_the_breadcrumb() {
 				echo '&nbsp;' . $delimiter . '&nbsp;';
 				echo $before . $term->name . $after;
 			} elseif(!is_tax() && get_post_type() != 'tainacan-collection') {
-				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
-
-				echo $before . $post_type->labels->singular_name . $after;
+				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">';
+				    _e( 'Collections', 'tainacan-interface' );
+				echo '</a>&nbsp;' . $delimiter . '&nbsp;';
+				
+				if (is_post_type_archive()) {
+					$str = $post_type->labels->singular_name;
+				} else {
+					$str = __('All items', 'tainacan-interface');
+				}
+				echo $before . $str . $after;
 			} else {
 				echo $before . $post_type->labels->singular_name . $after;
 			}

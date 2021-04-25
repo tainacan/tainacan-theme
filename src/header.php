@@ -47,7 +47,7 @@
 					</nav>
 				<?php endif; ?>
 
-				<div class="btn-group" style="padding: 0.6rem 0rem;">
+				<div class="btn-group" style="padding: 0.6rem 0;">
 				
 				<?php if (!get_theme_mod('tainacan_hide_search_input', false)) : ?>
 					<div class="dropdown tainacan-form-dropdown">
