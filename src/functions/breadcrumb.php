@@ -95,7 +95,12 @@ function tainacan_interface_the_breadcrumb() {
 				}
 				echo $before . $str . $after;
 			} else {
-				echo $before . $post_type->labels->singular_name . $after;
+			    if ( is_archive() ) {
+			        $str = __( 'Collections', 'tainacan-interface' );
+                } else {
+				    $str = $post_type->labels->singular_name;
+                }
+				echo $before . $str . $after;
 			}
 		} elseif ( is_attachment() ) {
 			$parent = get_post($post->post_parent);
