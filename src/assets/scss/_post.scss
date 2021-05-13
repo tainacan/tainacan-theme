@@ -598,26 +598,27 @@
             }
             .single-item-collection--document {
                 position: relative;
+                color: black;
+                text-align: center;
+                font-size: 0.875rem;
+                font-weight: 400;
+                display: block;
+                min-height: 10vh;
+                img {
+                    width: auto;
+                }
                 &:hover {
                     .tainacan-item-file-download {
                         opacity: 1;
                         transform: scale(1);
                     }
                 }
-                color: black;
-                font : {
-                    size: 0.875rem;
-                    weight: 400;
+                > iframe {
+                    display: block;
+                    margin: 0 auto;
+                    border: none;
                 }
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                min-height: 10vh;
-                img {
-                    width: auto;
-                }
-                > iframe, img.attachment-large {
+                img.attachment-large {
                     display: block;
                     height: auto;
                     margin: 0 auto;
@@ -627,27 +628,51 @@
                     width: 95%;
                 }
                 > iframe {
-                    @media only screen and (min-width: 768px){
-                        min-height: 600px;
-                    }
-                    @media only screen and (max-width: 576px){
-                        min-height: 429px;
-                    }
+                    min-height: 10vh;
                 }
-                .tainacan-embed-container{
+                >.twitter-tweet {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .tainacan-content-embed {
                     width: 100%;
-
-                    iframe {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
+                    height: auto;
+        
+                    &.tainacan-has-aspect-ratio {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 2) / 1); /* Default to 2:1 aspect ratio. */
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    &.tainacan-embed-aspect-21-9 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 21) / 9);
+                    }
+                    &.tainacan-embed-aspect-18-9 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 18) / 9);
+                    }
+                    &.tainacan-embed-aspect-16-9 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 16) / 9);
+                    }
+                    &.tainacan-embed-aspect-4-3 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 4) / 3);
+                    }
+                    &.tainacan-embed-aspect-1-1 {
+                        max-width: var(--tainacan-media-main-carousel-height, 60vh);
+                    }
+                    &.tainacan-embed-aspect-3-4 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 3) / 4);
+                    }
+                    &.tainacan-embed-aspect-9-16 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 9) / 16);
+                    }
+                    &.tainacan-embed-aspect-1-2 {
+                        max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 1) / 2);
                     }
                 }
                 
                 .document-metadata {
                     text-align: center;
+                    width: 100%;
+                    display: block;
         
                     &.hide-name .document-metadata__name {
                         display: none;

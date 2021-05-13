@@ -299,6 +299,7 @@ nav {
             padding: 0;
             left: inherit;
             overflow: hidden;
+            z-index: 9999;
 
             .input-group {
                 background: white;

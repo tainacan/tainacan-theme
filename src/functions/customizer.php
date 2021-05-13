@@ -2774,14 +2774,13 @@ function tainacan_single_item_document_max_height_output() {
 
 	$css = '
 		/* Custom Settings for Single Item Page Document Height */
-	
 		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document img,
 		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document video,
-		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document audio,
-		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document iframe {
+		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document audio {
 			max-height: ' . $max_document_height . '%;
 			max-height: ' . $max_document_height . 'vh;
 		}
+		.tainacan-single-post .tainacan-content.single-item-collection .single-item-collection--document,
 		.tainacan-single-post .tainacan-content.single-item-collection .tainacan-media-component {
 			--tainacan-media-main-carousel-height: ' . $max_document_height . '%;
 			--tainacan-media-main-carousel-height: ' . $max_document_height . 'vh;
