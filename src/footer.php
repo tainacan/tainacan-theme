@@ -35,19 +35,21 @@
 					} ?>
 				</p>
 			</div>
-			<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
-					<?php
-					
-					if ( get_theme_mod( 'tainacan_footer_logo' ) ) {
-						$footerImage = esc_attr( get_theme_mod( 'tainacan_footer_logo' ) );
-					} else {
-						$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg' : esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
-					}
-					?>
-					<a href="<?php echo get_theme_mod('tainacan_footer_logo_link', 'https://tainacan.org') ?>">
-						<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
-					</a>
-			</div>
+			<?php if (get_theme_mod('tainacan_display_footer_logo', true) == true) : ?>
+				<div class="col-auto pr-0 pr-md-3 d-none d-md-block align-self-md-top">
+						<?php
+						
+						if ( get_theme_mod( 'tainacan_footer_logo' ) ) {
+							$footerImage = esc_attr( get_theme_mod( 'tainacan_footer_logo' ) );
+						} else {
+							$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg' : esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
+						}
+						?>
+						<a href="<?php echo get_theme_mod('tainacan_footer_logo_link', 'https://tainacan.org') ?>">
+							<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
+						</a>
+				</div>
+			<?php endif; ?>
 			<div class="col-12 tainacan-powered">
 				<span>
 					<?php if ( true == get_theme_mod( 'tainacan_display_powered', false ) ) {

@@ -70,6 +70,24 @@ function tainacan_customize_register( $wp_customize ) {
 		) );
 
 	/**
+	 * Checkbox to display or no the Logo.
+	 */
+	$wp_customize->add_setting( 'tainacan_display_footer_logo', array(
+		'type'       => 'theme_mod',
+		'default'        => true,
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+	) );
+
+	$wp_customize->add_control( 'tainacan_display_footer_logo', array(
+		'type' => 'checkbox',
+		'settings' => 'tainacan_display_footer_logo',
+		'section' => 'tainacan_footer_info',
+		'label' => __( 'Display logo', 'tainacan-interface' ),
+		'description' => __( 'Toggle to display or not a logo on the bottom left corner.', 'tainacan-interface' ),
+	) );
+
+	/**
 	 * Footer Logo customizer
 	 */
 	$wp_customize->add_setting( 'tainacan_footer_logo', array(
