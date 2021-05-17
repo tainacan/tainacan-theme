@@ -78,6 +78,51 @@ footer {
                 max-width: 100%;
                 height: auto;
             }
+            .input-group {
+                background: white;
+                padding: 0rem;
+                align-items: center;
+                height: 2.5rem;
+                .btn {
+                    border-radius: 0px;
+                    border-color: #dbdbdb;
+                    min-height: 40px;
+                    &:hover {
+                        color: #454647;
+                    }
+                }
+            }
+            .form-control {
+                height: 100%;
+                border-radius: 0;
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: #898d8f;
+                padding-right: 2rem;
+
+                &:focus {
+                    color: #454647;
+                    box-shadow: none;
+                    border: 1px solid #555758 !important;
+                }
+            }
+            .search-controls {
+                background: #f2f2f2;
+                border-bottom: 1px solid #dee2e6;
+                border-left: 1px solid #dee2e6;
+                border-right: 1px solid #dee2e6;
+                padding: 0.75rem 0.875rem 0.5rem 0.875rem;
+                font-size: 0.75rem;
+                column-count: 2;
+                label {
+                    white-space: normal;
+                    display: flex;
+                    color: #454647;
+                    input {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
         }
         .tainacan-footer-info {
             font-size: 0.875rem;
