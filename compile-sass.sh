@@ -18,10 +18,10 @@ echo "Compiling Sass..."
 #Style do Tema
 #cd ../../../../assets/scss
 cd src/assets/scss
-sass -E 'UTF-8' style.scss:../../style.css
+sass -E 'UTF-8' -t compressed style.scss:../../style.css
 echo "Tainacan's style compiled.";
 
-sass -E 'UTF-8' editor-style.scss:../../editor-style.css
+sass -E 'UTF-8' -t compressed editor-style.scss:../../editor-style.css
 echo "Tainacan's Gutenberg Editor style compiled";
 
 sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
