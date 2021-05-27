@@ -1212,7 +1212,7 @@ function tainacan_customize_register( $wp_customize ) {
 			 */
 			$wp_customize->add_panel( 'tainacan_items_page', array(
 				'title' 	  => __( 'Tainacan items list page', 'tainacan-interface' ),
-				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the colleciton item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ), 
+				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the collection item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ), 
 				'priority' 	  => 160 // Mixed with top-level-section hierarchy.,
 			) );
 
@@ -1222,7 +1222,7 @@ function tainacan_customize_register( $wp_customize ) {
 			 */
 			$wp_customize->add_section( 'tainacan_items_page_collection_banner', array(
 				'title' 	  => __( 'Collection Header', 'tainacan-interface' ),
-				'description' => __( 'Settings related to Tainacan items list colleciton header.', 'tainacan-interface' ),
+				'description' => __( 'Settings related to Tainacan items list collection header.', 'tainacan-interface' ),
 				'panel'		  => 'tainacan_items_page',
 				'priority' 	  => 160,
 				'capability'  => 'edit_theme_options'

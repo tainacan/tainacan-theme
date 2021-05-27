@@ -684,7 +684,7 @@ msgstr ""
 #: functions/customizer.php:899
 msgid ""
 "Settings related to Tainacan items list pages, such as the repository items "
-"list, the colleciton item list and the term items list. Some settings ins "
+"list, the collection item list and the term items list. Some settings ins "
 "this section may be overrided by collection settings or user preference."
 msgstr ""
 

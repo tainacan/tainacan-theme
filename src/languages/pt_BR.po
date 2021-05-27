@@ -903,7 +903,7 @@ msgstr "Página de Lista de Itens do Tainacan"
 #: functions/customizer.php:1197
 msgid ""
 "Settings related to Tainacan items list pages, such as the repository items "
-"list, the colleciton item list and the term items list. Some settings ins "
+"list, the collection item list and the term items list. Some settings ins "
 "this section may be overrided by collection settings or user preference."
 msgstr ""
 "Configurações relacionadas apenas à páginas de lista de itens do Tainacan, "
@@ -921,7 +921,7 @@ msgstr "Coleção"
 #: functions/customizer.php:1207
 #, fuzzy
 #| msgid "Settings related to Tainacan items list filters panel."
-msgid "Settings related to Tainacan items list colleciton header."
+msgid "Settings related to Tainacan items list collection header."
 msgstr ""
 "Configurações relacionadas ao painel de filtros das listas de itens do "
 "Tainacan."

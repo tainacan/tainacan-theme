@@ -45,7 +45,7 @@
 							$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg' : esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
 						}
 						?>
-						<a href="<?php echo get_theme_mod('tainacan_footer_logo_link', 'https://tainacan.org') ?>">
+						<a href="<?php echo esc_url(get_theme_mod('tainacan_footer_logo_link', 'https://tainacan.org')) ?>">
 							<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
 						</a>
 				</div>

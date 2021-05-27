@@ -22,14 +22,14 @@ jQuery( document ).ready(function( $ ) {
 	});
 
 	// ===== Scroll to Top ====
-	$( window ).scroll( function() {
+	$( window ).on('scroll', function() {
 		if ( $( this ).scrollTop() >= 100 ) {        // If page is scrolled more than 50px
 			$( '#return-to-top' ).fadeIn( 200 );    // Fade in the arrow
 		} else {
 			$( '#return-to-top' ).fadeOut( 200 );   // Else fade out the arrow
 		}
 	} );
-	$( '#return-to-top' ).click( function() {      // When arrow is clicked
+	$( '#return-to-top' ).on('click', function() {      // When arrow is clicked
 		$( 'body,html' ).animate( {
 			scrollTop : 0                       // Scroll to top of body
 		}, 500 );
@@ -59,7 +59,7 @@ jQuery( document ).ready(function( $ ) {
 	 */
 	$( '.wp-block-button a' ).addClass( 'btn btn-jelly-bean' );
 
-	$( '.tainacan-list-post .table .tainacan-list-collection td' ).click( function(){
+	$( '.tainacan-list-post .table .tainacan-list-collection td' ).on('click', function(){
 		window.location = $( '.tainacan-list-post .table .tainacan-list-collection' ).data( "href" );
 	});
 
@@ -189,7 +189,7 @@ jQuery( document ).ready(function( $ ) {
 
 	$( '.tainacan-interface-truncate' ).tainacan_interface_truncate();
 	$( '.tainacan-interface-truncate-term' ).tainacan_interface_truncate_term();
-	$( ".trigger" ).click( function() {
+	$( ".trigger" ).on('click', function() {
 		$( ".collection-header--share" ).toggleClass( "active" );
 	});
 	$('#menubelowHeader .dropdown-menu a.dropdown-toggle').addClass('dropdown-submenu');

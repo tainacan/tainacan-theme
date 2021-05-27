@@ -31,14 +31,14 @@
 
 		});
 
-		$( 'a.tainacan-interface-more', minimized_elements ).click(function(event){
+		$( 'a.tainacan-interface-more', minimized_elements ).on('click',function(event){
 			event.preventDefault();
 			minimized_elements.addClass( 'full-story' );
 			$( this ).hide().prev().hide();
 			$( this ).next().show();
 		});
 
-		$( 'a.tainacan-interface-less', minimized_elements ).click(function(event){
+		$( 'a.tainacan-interface-less', minimized_elements ).on('click',function(event){
 			event.preventDefault();
 			minimized_elements.removeClass( 'full-story' );
 			$( this ).parent().hide().prev().show().prev().show();
@@ -88,14 +88,14 @@
 
 		});
 
-		$( 'a.tainacan-interface-more-term', minimized_elements ).click(function(event){
+		$( 'a.tainacan-interface-more-term', minimized_elements ).on('click',function(event){
 			event.preventDefault();
 			minimized_elements.addClass( 'full-story' );
 			$( this ).hide().prev().hide();
 			$( this ).next().show();
 		});
 
-		$( 'a.tainacan-interface-less-term', minimized_elements ).click(function(event){
+		$( 'a.tainacan-interface-less-term', minimized_elements ).on('click',function(event){
 			event.preventDefault();
 			minimized_elements.removeClass( 'full-story' );
 			$( this ).parent().hide().prev().show().prev().show();
