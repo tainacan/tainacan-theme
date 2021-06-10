@@ -2892,7 +2892,6 @@ add_action( 'wp_head', 'tainacan_header_settings_style_output');
  */
 function tainacan_items_page_filters_fixed_on_scroll_output() {
     if (!defined('TAINACAN_VERSION')) {
-        _e('Tainacan plugin not activated!', 'tainacan-interface');
         return;
     }
 	$should_use_fixed_filters_logic = (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) && get_theme_mod( 'tainacan_items_page_filters_fixed_on_scroll', false );

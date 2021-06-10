@@ -58,8 +58,16 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_register_script( 'tainacan_tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', TAINACAN_INTERFACE_VERSION, true );
 			wp_enqueue_script( 'tainacan_tainacanJS' );
 
-			wp_register_script( 'tainacan_searchBarRedirect', get_template_directory_uri() . '/assets/js/search-bar-redirect.js', '', TAINACAN_INTERFACE_VERSION, false );
-			wp_enqueue_script( 'tainacan_searchBarRedirect' );
+			if ( defined ('TAINACAN_VERSION' ) ) {
+				$settings = array(
+					'theme_items_list_url' 		=> esc_url_raw( get_site_url() ) . '/' . \Tainacan\Theme_Helper::get_instance()->get_items_list_slug(),
+					'theme_collection_list_url' => get_post_type_archive_link( 'tainacan-collection' ),
+				);
+				wp_register_script( 'tainacan_searchBarRedirect', get_template_directory_uri() . '/assets/js/search-bar-redirect.js', '', TAINACAN_INTERFACE_VERSION, false );
+				wp_enqueue_script( 'tainacan_searchBarRedirect' );
+				wp_localize_script( 'tainacan_searchBarRedirect', 'tainacan_search_info', $settings );
+			}
+
 			wp_enqueue_script( 'tainacan_copyLink', get_template_directory_uri() . '/assets/js/copy-link.js', [] , TAINACAN_INTERFACE_VERSION, false );
 			wp_localize_script( 'tainacan_copyLink', 'tainacan_copyLinkVars', array(
 				'linkCopied' => __( 'Copied! Link sent to the transfer area.', 'tainacan-interface' )

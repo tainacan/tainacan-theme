@@ -1,27 +1,36 @@
 function onTainacanSearchSubmit($event) {
 
 	if (document['tainacan-search-form']) {
-
-        if (document['tainacan-search-form'].archive && tainacan_plugin !== undefined) {
-            switch (document['tainacan-search-form'].archive.value) {
+        var selectedForm = document['tainacan-search-form'];
+        
+        if (document['tainacan-search-form'] instanceof HTMLCollection) {
+            for (const child of document['tainacan-search-form']) {
+                if (child.s && child.s.value)
+                    selectedForm = child;
+            }
+        }
+        
+        if (selectedForm.archive && tainacan_search_info !== undefined) {
+            switch (selectedForm.archive.value) {
                 case 'tainacan-items':
-                    document['tainacan-search-form'].action = tainacan_plugin.theme_items_list_url + (document['tainacan-search-form'].s ? '?search=' + document['tainacan-search-form'].s.value : '');
+                    console.log(tainacan_search_info.theme_items_list_url)
+                    selectedForm.action = tainacan_search_info.theme_items_list_url + (selectedForm.s ? '?search=' + selectedForm.s.value : '');
                     break;
                 case 'tainacan-collections':
-                    document['tainacan-search-form'].action = tainacan_plugin.theme_collection_list_url + (document['tainacan-search-form'].s ? '?s=' +  document['tainacan-search-form'].s.value : '');
+                    selectedForm.action = tainacan_search_info.theme_collection_list_url + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
                     break;
                 case 'posts':
-                    document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?onlyposts=true&s=' +  document['tainacan-search-form'].s.value : '');
+                    selectedForm.action = '/' + (selectedForm.s ? '?onlyposts=true&s=' +  selectedForm.s.value : '');
                     break;
                 case 'pages':
-                    document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?onlypages=true&s=' +  document['tainacan-search-form'].s.value : '');
+                    selectedForm.action = '/' + (selectedForm.s ? '?onlypages=true&s=' +  selectedForm.s.value : '');
                     break;
                 case 'global':
                 default:
-                    document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?s=' +  document['tainacan-search-form'].s.value : '');
+                    selectedForm.action = '/' + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
             }
         } else {
-            document['tainacan-search-form'].action = '/' + (document['tainacan-search-form'].s ? '?s=' +  document['tainacan-search-form'].s.value : '');
+            selectedForm.action = '/' + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
         }
         
         if ($event)

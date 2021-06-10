@@ -226,6 +226,22 @@ if ( ! isset( $content_width ) ) {
 }
 
 /**
+ * Alert user if Tainacan plugin is not installed.
+ *
+ * @since Tainacan Theme
+ */
+function tainacan_interface_admin_notice() {
+	global $pagenow;
+
+    if ( !defined('TAINACAN_VERSION') && $pagenow == 'themes.php' ) {
+		echo '<div class="notice notice-warning is-dismissible">
+            <p>' . __('Warning: <a href="https://wordpress.org/plugins/tainacan/" >Tainacan plugin</a> is not activated! While you may use this theme without it, we made it to take full advantage of the plugin features.', 'tainacan-interface') . '</p>
+        </div>';
+    }
+}
+add_action('admin_notices', 'tainacan_interface_admin_notice');
+
+/**
  * Adds extra classes dp body tag. has-not-finished-loading is removed
  * from tag after jQuery.document(ready). It is used to style page while
  * not all DOM and JS is finished.
