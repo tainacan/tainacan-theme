@@ -388,7 +388,8 @@
     .components-popover input[type="radio"]:checked::before, 
     .editor-block-list__block input[type="radio"]:checked::before {
         background: black;
-        margin: 3px 0 0 3px;
+        margin: 0;
+        border: none;
         width: 8px;
         height: 8px;
 
