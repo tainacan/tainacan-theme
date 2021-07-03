@@ -2314,6 +2314,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	}
 	.tainacan-title-page ul li, 
 	.tainacan-title-page ul li a,
+	.tainacan-title-page ul li h1,
 	#menubelowHeader .menu-item a::after,
 	.menu-shadow button[data-toggle='dropdown']::after{
 		color: {$colors['tainacan_link_color']} !important;
