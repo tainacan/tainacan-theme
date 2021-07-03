@@ -51,8 +51,12 @@
 								break;
 									
 							}
+
 							echo '</div>';
 						?>
+
+						<?php get_template_part( 'template-parts/single-items-related-items' );
+							  do_action( 'tainacan-interface-single-item-after-reated-items' ); ?>
 
 						<?php get_template_part( 'template-parts/single-items-navigation' ); ?>
 
