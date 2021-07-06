@@ -1,7 +1,7 @@
 <?php
 
 /** Theme version */
-const TAINACAN_INTERFACE_VERSION = '2.3.2';
+const TAINACAN_INTERFACE_VERSION = '2.4';
 
 /**
  * Setup Theme
@@ -24,6 +24,11 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'responsive-embeds' );
+
+		/**
+		 * Removes support for Gutenberg widgets editor, by now...
+		 */
+		remove_theme_support( 'widgets-block-editor' );
 		
 		/**
 		 * Custom header to change the banner image
