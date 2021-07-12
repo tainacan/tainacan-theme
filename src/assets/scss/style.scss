@@ -25,6 +25,9 @@ body{
     &.error404 {
         overflow: hidden;
     }
+    p {
+        font-size: revert;
+    }
 }
 
 body.loading-content main {
