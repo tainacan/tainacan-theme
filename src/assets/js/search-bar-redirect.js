@@ -9,28 +9,28 @@ function onTainacanSearchSubmit($event) {
                     selectedForm = child;
             }
         }
-        
-        if (selectedForm.archive && tainacan_search_info !== undefined) {
-            switch (selectedForm.archive.value) {
-                case 'tainacan-items':
-                    console.log(tainacan_search_info.theme_items_list_url)
-                    selectedForm.action = tainacan_search_info.theme_items_list_url + (selectedForm.s ? '?search=' + selectedForm.s.value : '');
-                    break;
-                case 'tainacan-collections':
-                    selectedForm.action = tainacan_search_info.theme_collection_list_url + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
-                    break;
-                case 'posts':
-                    selectedForm.action = '/' + (selectedForm.s ? '?onlyposts=true&s=' +  selectedForm.s.value : '');
-                    break;
-                case 'pages':
-                    selectedForm.action = '/' + (selectedForm.s ? '?onlypages=true&s=' +  selectedForm.s.value : '');
-                    break;
-                case 'global':
-                default:
-                    selectedForm.action = '/' + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
+        if (tainacan_search_info !== undefined) {
+            if (selectedForm.archive) {
+                switch (selectedForm.archive.value) {
+                    case 'tainacan-items':
+                        selectedForm.action = tainacan_search_info.theme_items_list_url + (selectedForm.s ? '?search=' + selectedForm.s.value : '');
+                        break;
+                    case 'tainacan-collections':
+                        selectedForm.action = tainacan_search_info.theme_collection_list_url + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
+                        break;
+                    case 'posts':
+                        selectedForm.action = tainacan_search_info.site_url + '/' + (selectedForm.s ? '?onlyposts=true&s=' +  selectedForm.s.value : '');
+                        break;
+                    case 'pages':
+                        selectedForm.action = tainacan_search_info.site_url + '/' + (selectedForm.s ? '?onlypages=true&s=' +  selectedForm.s.value : '');
+                        break;
+                    case 'global':
+                    default:
+                        selectedForm.action = tainacan_search_info.site_url + '/' + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
+                }
+            } else {
+                selectedForm.action = tainacan_search_info.site_url + '/' + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
             }
-        } else {
-            selectedForm.action = '/' + (selectedForm.s ? '?s=' +  selectedForm.s.value : '');
         }
         
         if ($event)

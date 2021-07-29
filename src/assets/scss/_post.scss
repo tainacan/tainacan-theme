@@ -180,6 +180,8 @@
         color: #338591;
         margin-left: 4.16666666667%;
         margin-right: 4.16666666667%;
+        margin-left: 4.16666666667vw;
+        margin-right: 4.16666666667vw;
         margin-bottom: 2rem;
     }
     header.tainacan-content {
@@ -560,7 +562,7 @@
                 border-radius: 24px;
                 width: 36px;
                 height: 36px;
-                bottom: -18px;
+                bottom: 0px;
                 right: calc(50% - 18px);
                 cursor: pointer;
                 font-size: 0;
@@ -887,6 +889,8 @@
                     height: 100%;
                     .card {
                         box-shadow: none;
+                        padding: 0;
+                        margin: 0;
                     }
                     div {
                         -webkit-column-break-inside: avoid;
@@ -925,8 +929,8 @@
                         column-rule: none;
                     }
                     h3 {
-                        color: #000;
-                        font-size: 0.875rem;
+                        color: #1d1d1d;
+                        font-size: 0.875rem !important;
                         font-weight: 700;
                         padding-right: 1rem;
                         margin-bottom: 0.25rem;
@@ -938,7 +942,7 @@
                     h4,
                     label {
                         color: #454647;
-                        font-size: 0.85rem;
+                        font-size: 0.85rem !important;
                         font-weight: 500;
                         padding-right: 0.875rem;
                         width: 100%;
@@ -968,7 +972,7 @@
                         .multivalue-separator {
                             display: block;
                             max-height: 1px;
-                            width: 35px;
+                            width: 70px;
                             background: #cbcbcb;
                             content: none;
                             color: transparent;
@@ -977,7 +981,7 @@
                     }
                     .tainacan-compound-group {
                         padding-left: 1.5rem;
-                        border-left: 1px solid #f2f2f2;
+                        border-left: 1px solid #dbdbdb;
                     }
                 }
             }

@@ -375,62 +375,6 @@
         }
     }
 
-    /* Checkboxes and Radio Buttons*/
-    .components-modal__content input[type="checkbox"]:checked::before, 
-    .components-popover input[type="checkbox"]:checked::before, 
-    .editor-block-list__block input[type="checkbox"]:checked::before,
-    .components-modal__content input[type="radio"]:checked::before, 
-    .components-popover input[type="radio"]:checked::before, 
-    .editor-block-list__block input[type="radio"]:checked::before {
-        color: black;
-    }
-    .components-modal__content input[type="radio"]:checked::before, 
-    .components-popover input[type="radio"]:checked::before, 
-    .editor-block-list__block input[type="radio"]:checked::before {
-        background: black;
-        margin: 0;
-        border: none;
-        width: 8px;
-        height: 8px;
-
-        @media screen and (max-width: 782px) {
-            margin: 4px 0 0 4px;
-            width: 15px;
-            height: 15px;  
-        }
-    }
-    .components-modal__content input[type="checkbox"]:checked, 
-    .components-modal__content input[type="radio"]:checked, 
-    .components-popover input[type="checkbox"]:checked, 
-    .components-popover input[type="radio"]:checked, 
-    .editor-block-list__block input[type="checkbox"]:checked, 
-    .editor-block-list__block input[type="radio"]:checked {
-        background: white;
-        border: 1px solid #555758;
-    }
-    .components-modal__content input[type="checkbox"], 
-    .components-modal__content input[type="radio"], 
-    .components-popover input[type="checkbox"], 
-    .components-popover input[type="radio"],  
-    .editor-block-list__block input[type="checkbox"], 
-    .editor-block-list__block input[type="radio"] {
-        border: 1px solid #555758;
-    }
-    .components-modal__content input[type="checkbox"]:checked:focus, 
-    .components-modal__content input[type="radio"]:checked:focus, 
-    .components-popover input[type="checkbox"]:checked:focus, 
-    .components-popover input[type="radio"]:checked:focus, 
-    .editor-block-list__block input[type="checkbox"]:checked:focus, 
-    .editor-block-list__block input[type="radio"]:checked:focus,
-    .components-modal__content input[type="checkbox"]:focus, 
-    .components-modal__content input[type="radio"]:focus, 
-    .components-popover input[type="checkbox"]:focus, 
-    .components-popover input[type="radio"]:focus, 
-    .editor-block-list__block input[type="checkbox"]:focus, 
-    .editor-block-list__block input[type="radio"]:focus {
-        box-shadow: none;
-    }
-
     /* Blockquote */
     .wp-block-quote {
         margin: 3rem 8.33333%;
@@ -540,7 +484,7 @@
             width: calc(100% + 64px);
             height: calc(100% - 104px);
             margin-left: -32px;
-            margin-bottom: -4px;
+            margin-bottom: 0px;
         }
 
         .modal-footer-area {
