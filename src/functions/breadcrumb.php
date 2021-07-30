@@ -104,10 +104,15 @@ function tainacan_interface_the_breadcrumb() {
 			}
 		} elseif ( is_attachment() ) {
 			$parent = get_post($post->post_parent);
-			$cat = get_the_category($parent->ID); $cat = $cat[0];
-			echo get_category_parents($cat, TRUE, '&nbsp;' . $delimiter . '&nbsp;');
-			echo '<a href="' . esc_url(get_permalink($parent)) . '">' . $parent->post_title . '</a>';
-			if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
+			
+			$cat = get_the_category($parent->ID);
+			if ( !empty($cat) && is_array($cat) && count($cat) ) {
+				$cat = $cat[0];
+				echo get_category_parents($cat, TRUE, '&nbsp;' . $delimiter . '&nbsp;');
+				echo '<a href="' . esc_url(get_permalink($parent)) . '">' . $parent->post_title . '</a>&nbsp;' . $delimiter;
+			}
+			if ($showCurrent == 1)
+				echo '&nbsp;' . $before . get_the_title() . $after;
 
 		} elseif ( is_page() && !$post->post_parent ) {
 			if ($showCurrent == 1) echo $before . get_the_title() . $after;
