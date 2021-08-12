@@ -41,11 +41,11 @@
                 justify-content: space-between;
                 align-items: baseline;
             }
-            h3{
-                font-size: 1.125rem;
+            h3 {
+                font-size: 1.125rem !important;
             }
             h4 {
-                font-size: 0.75rem;
+                font-size: 0.75rem !important;
                 margin-bottom: 0.75rem;
                 background: #e6f6f8;
                 display: inline-block;
@@ -192,7 +192,7 @@
             .tainacan-list-collection--title {
                 background: #fff;
                 font: {
-                    size: 0.875rem;
+                    size: 0.875rem !important;
                     weight: 400;
                 }
                 height: 40px;

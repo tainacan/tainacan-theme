@@ -28,6 +28,351 @@ body{
     p {
         font-size: revert;
     }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+    }
+    h1:not(.has-text-color),
+    h2:not(.has-text-color),
+    h3:not(.has-text-color),
+    h4:not(.has-text-color),
+    h5:not(.has-text-color),
+    h6:not(.has-text-color) {
+        color: #1d1d1d;
+    }
+    h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label) {
+        font-size: 1.802rem;
+    }
+    h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label) {
+        font-size: 1.602rem;
+    }
+    h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label) {
+        font-size: 1.424rem;
+    }
+    h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label) {
+        font-size: 1.266rem;
+    }
+    h5:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label) {
+        font-size: 1.125rem;
+    }
+    h6:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label) {
+        font-size: 1rem;
+    }
+    pre:not(.wp-block-code) {
+        color: #555758;
+        font-size: 1rem;
+        font-weight: 400;
+        white-space: pre-line;
+    }
+    .wp-block-code {
+        code {
+            font-size: 0.875rem;
+            color: #298596;
+            word-break: break-word;
+        }
+    }
+    .wp-block-quote {
+        margin: 3rem 8.33333%;
+        padding: 1rem;
+        p {
+            color: #555758;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        cite {
+            color: #555758;
+            display: block;
+            width: 100%;
+            text-align: right;
+            font-size: 1rem;
+            font-weight: 500;
+            font-style: italic;
+        }
+        &:not(.is-style-large) {
+            border-left: 2px solid #298596;
+        }
+        &.is-style-large {
+            font-size: 1.375rem;
+        }
+    }
+    .wp-block-separator {
+        &:not(.has-background-color) {
+            border-color: #cbcbcb;
+        }
+        width: 50%;
+        max-width: 300px;
+        &.is-style-wide {
+            width: 100%;
+        }
+        &.is-style-dots {
+            &:not(.has-background-color)::before {
+                color: #cbcbcb;
+            }
+            &::before {
+                font-weight: 600;
+            }
+        }
+    }
+    .tainacan-group-heading {
+        h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.6rem; }
+        h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.5rem; }
+        h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.25rem; }
+        h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { font-size: 1.125rem; }
+        
+        h1:not(.has-text-color),
+        h2:not(.has-text-color),
+        h3:not(.has-text-color),
+        h4:not(.has-text-color) {
+            color: #298596;
+        }
+        p {
+            font-style: italic;
+        }
+        p:not(.has-text-color) {
+            color: #898d8f;
+        }
+        hr.wp-block-separator:not(.is-style-wide) {
+            margin-left: 0;
+            max-width: 200px;
+        }
+        hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+            border-width: 2px;
+            height: 3px;
+        }
+    }
+    &>ul,
+    &>ol {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-left: 1.75rem;
+    }
+    .wp-block-media-text__content>ul,
+    .wp-block-media-text__content>ol {
+        margin-left: 1.75rem;
+    }
+    .table {
+        thead {
+            border-bottom: 1px solid #cbcbcb;
+            color: #555758;
+            th {
+                font-weight: normal;
+                font-size: 0.75rem;
+            }
+        }
+        tbody {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #000;
+        }
+    }
+    dl {
+        dd {
+            margin-left: 2rem;
+        }
+    }
+    address {
+        font-size: 0.875rem;
+        font-style: italic;
+    }
+    p {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        code {
+            border-radius: 5px; 
+            -moz-border-radius: 5px; 
+            -webkit-border-radius: 5px; 
+            border: 1px solid #BCBEC0;
+            padding: 2px;
+            font-size:12px;
+        }
+    }
+    img[class*="align"], 
+    img[class*="wp-image-"], 
+    .gallery {
+        .gallery-icon img {
+            padding: 6px;
+            max-width: 97.5%;
+            max-width: calc( 100% - 14px );
+        }
+    }
+    img[class*="align"], img[class*="wp-image-"], img[class*="attachment-"] {
+        height: auto;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        padding-top: .4rem;
+        &::after{
+            display: block;
+            clear: both;
+            content: "";
+        }
+    }
+    .wp-block-columns {
+        display: flex;
+        margin: 0;
+
+        .wp-block-column {
+            flex-basis: 100%;
+        }
+        .wp-block-column:not(:last-child) {
+            margin-right: 2.0833333%; // Half column
+        }
+        .wp-block-column:not(:first-child) {
+            margin-left: 2.0833333%; // Half column
+        }
+        @media only screen and (max-width: 576px) {
+            .wp-block-column:not(:last-child) {
+                margin-right: 0;
+            }
+            .wp-block-column:not(:first-child) {
+                margin-left: 0;
+            }
+        }
+    }
+    .alignleft {
+        float:left;
+        margin: 1rem 1rem 1rem 0;
+    }
+    .alignright {
+        float:right;
+        margin: 1rem 0 1rem 1rem;
+    }
+    @media only screen and (max-width: 576px) {
+        .alignleft, .alignright {
+            float: none;
+            text-align: center;
+            margin: 0;
+            img {
+                width: 275px;
+            }
+        }
+    }
+    img {
+        max-width: 100%;
+        &.alignleft {
+            float: left;
+            margin-right: 1.625em;
+            margin-bottom: 1.625em;
+            @media only screen and (max-width: 576px) {
+                display: block;
+                float: none;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        &.alignright {
+            float: right;
+            margin-left: 1.625em;
+            @media only screen and (max-width: 576px) {
+                display: block;
+                float: none;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        &.size-full{
+            max-width: 97.5%;
+            width: auto;
+            height: auto;
+        }
+        &.aligncenter {
+            clear: both;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .wp-block-cover-image{
+        width: 99.5vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;  
+        @media only screen and (max-width: 1200px){
+            width: 100vw;
+        }
+    }
+    .wp-block-embed{
+        iframe{
+            width: 100%;
+        }
+    }
+    .wp-block-gallery{
+        .blocks-gallery-item{
+            figure{
+                margin: 0 !important;
+            }
+            img {
+                height: 100% !important;
+            }
+        }
+        @media (max-width: 768px){
+            padding-left: 0;
+        }
+    }
+    .wp-block-image {
+        &.is-resized {
+            img {
+                max-width: none !important;
+            }
+        }
+        text-align: center;
+        figcaption {
+            color: inherit;
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+    }
+    .wp-block-pullquote {
+        margin: 3rem 0;
+        padding: 0;
+        
+        &:not(.is-style-solid-color) {
+            border-color:#298596;
+            border-top-width: 2px;
+            border-bottom-width: 2px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+        }
+
+        blockquote {
+            padding: 2rem 8.3333333%;
+            margin: 0;
+
+            p {
+                font-size: 1.375rem;
+                font-weight: 500;
+            }
+            :not(.has-text-color) p {
+                color: #298596;
+            }
+            cite {
+                color: #555758;
+                font-size: 1rem;
+                font-weight: normal;
+                font-style: italic;
+                text-transform: none;
+            }
+        }
+    }
+    .wp-caption, .gallery-caption {
+        font-size: 0.8125rem;
+        max-width: 100%;
+        margin-top: 1em;
+        margin-bottom: 1.5em;
+        .wp-caption-text {
+            margin: 0.8075em 0;
+        }
+        img[class*="wp-image-"]{
+            height: auto;
+            margin: 2% 0;
+            width: 100%;
+        }
+    }
 }
 
 body.loading-content main {
@@ -756,16 +1101,17 @@ nav {
         }
         h1{
             color: #000;
-            font-size: 3rem;
+            font-size: 3rem !important;
             font-weight: 800;
+            padding-top: 0;
 
             @media only screen and (max-width: 768px){
-                font-size: 2rem;
+                font-size: 2rem !important;
                 line-height: 2rem;
             }
 
             @media only screen and (max-width: 576px){
-                font-size: 1.5rem;
+                font-size: 1.5rem !important;
                 line-height: 1.5rem;
             }
         }
@@ -821,7 +1167,7 @@ nav {
         margin-bottom: 0.75rem;
         border-bottom: 2px solid #298596;
         .title-page h1{
-            font-size: 1.25rem;
+            font-size: 1.25rem !important;
             font-weight: bold;
             word-break: break-word;
             margin: 0;
@@ -831,7 +1177,7 @@ nav {
                 text-overflow: ellipsis;
             }
             .tainacan-edit-item-collection {
-                font-size: 1rem;
+                font-size: 1rem !important;
             }
         }
         .title-back{
@@ -975,3 +1321,5 @@ nav {
 @import "_header-taxonomy";
 
 @import "_lightbox";
+
+@import "_single-item-collection";

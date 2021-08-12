@@ -1,0 +1,757 @@
+.tainacan-single-post .aside-thumbnail,
+.tainacan-single-post.aside-thumbnail {
+    margin-left: 200px;
+    p {
+        font-size: 0.875rem;
+        font-weight: normal;
+        margin: 0;
+    }
+    h1 {
+        font-size: 1.5rem !important;
+        font-weight: bold;
+        margin: 0 60px 0 0px;
+    }
+
+    @media screen and (max-width: 1526px) {
+        margin-left: calc(4.166667% + 165px);
+    }
+
+    @media screen and (max-width: 768px) {
+        margin-left: calc(4.166667% + 115px);
+    }
+}
+.title-content-items {
+    font-size: 1.125rem !important;
+    font-weight: 500;
+    color: #338591;
+    margin-left: 4.16666666667%;
+    margin-right: 4.16666666667%;
+    margin-left: 4.16666666667vw;
+    margin-right: 4.16666666667vw;
+    margin-bottom: 2rem;
+}
+.single-item-collection-banner {
+    margin-left: -4.16666667%;
+    margin-right: -4.1666667%;
+    margin-left:  calc(-1 * ((100vw - 100%)/2));
+    margin-right: calc(-1 * ((100vw - 100%)/2));
+    margin-top: -2.0rem;
+    position: relative;
+    width: 100%;
+    width: 100vw;
+
+    &>div {
+        padding: 8px 4.16666667% 12px 4.16666667%;
+        padding: 8px calc((100vw - 1400px)/2) 12px calc((100vw - 1400px)/2);
+    }
+    .t-bg-collection {
+        min-height: 4.16666667%;
+        min-height: 4.16666667vw;
+        position: relative;
+    }
+
+    .collection-name {
+        color: white;
+        margin-bottom: -2px;
+        margin-top: 38px;
+        a {
+            color: white;
+        }
+    }
+    .item-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        p, h1 {
+            display: inline-block;
+        }
+    }
+    .collection-thumbnail {
+        position: relative;
+        padding-top: 0;
+        padding-bottom: 0;
+        z-index: 9;
+        
+        img {
+            width: 185px;
+            height: 185px;
+            top: -88px;
+            border-width: 3px !important;
+
+            @media screen and (max-width: 1526px) {
+                left: 4.1666667vw;
+                top: -68px;
+                height: 150px;
+                width: 150px;
+            }
+            @media screen and (max-width: 768px) {
+                top: -45px;
+                height: 110px;
+                width: 110px;
+            }
+        }
+        .image-placeholder {
+            width: 185px;
+            height: 185px;
+            top: -88px;
+            border-width: 3px !important;
+
+            @media screen and (max-width: 1526px) {
+                left: 4.1666667vw;
+                top: -68px;
+                height: 150px;
+                width: 150px;
+    
+                h4 {
+                    font-size: 2.5rem !important;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                top: -45px;
+                height: 110px;
+                width: 110px;
+    
+                h4 {
+                    font-size: 2.0rem !important;
+                }
+            }
+    
+            h4 {
+                font-size: 3rem;
+            }
+        }
+    }
+    .collection-header--share {
+        position: absolute;
+        float: left;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        top: initial;
+        
+        .btn {
+            max-width: 35px;
+            border: 2px solid white;
+            background: #2c2d2d;
+
+            .tainacan-icon {
+                color: white;
+                font-size: 1.25rem;
+            }
+        }
+        .icons {
+            position: relative;
+            top: 50%; 
+        }
+    }
+}
+.single-item-collection {
+    min-height: 10vh;
+    position: relative;
+
+    .tainacan-item-file-download {
+        position: absolute;
+        opacity: 0;
+        transform: scale(0);
+        border-radius: 24px;
+        width: 36px;
+        height: 36px;
+        bottom: 0px;
+        right: calc(50% - 18px);
+        cursor: pointer;
+        font-size: 0;
+        background-color: #298596;
+        color: white;
+        transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+
+        a {
+            height: 38px;
+            width: 38px;
+            display: block;
+            position: relative;
+            z-index: 99;
+            padding: 0;
+        }
+
+        &::after {
+            position: relative;
+            top: -38px;
+            display: inline-block;
+            font: normal normal normal 20px/1 "TainacanIcons";
+            font-size: 1.25rem !important;
+            line-height: 2.25rem;
+            text-rendering: auto;
+            vertical-align: middle;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 1.25em;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+            content: 'download';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .single-item-collection--document {
+        position: relative;
+        color: black;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 400;
+        display: block;
+        min-height: 10vh;
+        img {
+            width: auto;
+        }
+        &:hover {
+            .tainacan-item-file-download {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        > iframe {
+            display: block;
+            margin: 0 auto;
+            border: none;
+        }
+        img.attachment-large {
+            display: block;
+            height: auto;
+            margin: 0 auto;
+            border: none;
+        }
+        > audio {
+            width: 95%;
+        }
+        > iframe {
+            min-height: 10vh;
+        }
+        >.twitter-tweet {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tainacan-content-embed {
+            width: 100%;
+            height: auto;
+
+            &.tainacan-has-aspect-ratio {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 2) / 1); /* Default to 2:1 aspect ratio. */
+                margin-left: auto;
+                margin-right: auto;
+            }
+            &.tainacan-embed-aspect-21-9 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 21) / 9);
+            }
+            &.tainacan-embed-aspect-18-9 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 18) / 9);
+            }
+            &.tainacan-embed-aspect-16-9 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 16) / 9);
+            }
+            &.tainacan-embed-aspect-4-3 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 4) / 3);
+            }
+            &.tainacan-embed-aspect-1-1 {
+                max-width: var(--tainacan-media-main-carousel-height, 60vh);
+            }
+            &.tainacan-embed-aspect-3-4 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 3) / 4);
+            }
+            &.tainacan-embed-aspect-9-16 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 9) / 16);
+            }
+            &.tainacan-embed-aspect-1-2 {
+                max-width: calc((var(--tainacan-media-main-carousel-height, 60vh) * 1) / 2);
+            }
+        }
+        
+        .document-metadata {
+            text-align: center;
+            width: 100%;
+            display: block;
+
+            &.hide-name .document-metadata__name {
+                display: none;
+                visibility: hidden;
+            }
+            &.hide-description .document-metadata__description {
+                display: none;
+                visibility: hidden;
+            }
+            &.hide-caption .document-metadata__caption {
+                display: none;
+                visibility: hidden;
+            }
+        }
+
+        .document-metadata__name {
+            font-size: 1em;
+            font-weight: bold;
+            color: var(--tainacan-label-color, #454647);
+        }
+        .document-metadata__caption {
+            font-size: 0.9375em;
+            color: var(--tainacan-input-color, #1d1d1d);
+        }
+        .document-metadata__caption {
+            font-size: 0.875em;
+            color: var(--tainacan-info-color, #555758);
+        }
+    }
+    .single-item-collection--attachments-prev,
+    .single-item-collection--attachments-next {
+        position: absolute;
+        display: block;
+        height: 33px;
+        width: 45px;
+        line-height: 0px;
+        font-size: 3.75rem;
+        color: #298596;
+        cursor: pointer;
+        background: transparent;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        padding: 0;
+        border: none;
+        outline: none;
+    }
+
+    .single-item-collection--attachments-prev {
+        left: -50px;
+        @media only screen and (max-width: 380px) {
+            right: -40px;
+        }
+        &.slick-disabled {
+            display: none;
+            visibility: hidden;
+        }
+    }
+    .single-item-collection--attachments-next {
+        right: -50px;
+        @media only screen and (max-width: 380px) {
+            right: -40px;
+        }
+        &.slick-disabled {
+            display: none;
+            visibility: hidden;
+        }
+    }
+    .single-item-collection--gallery {
+        margin-bottom: 24px;
+        .slick-list  {
+            overflow: visible;
+        }
+        .slick-track {
+            display: flex;
+            align-items: center;
+        }
+        .tainacan-content {
+            margin: 0;
+            img {
+                max-height: 60vh;
+                width: auto;
+            }
+            video {
+                width: auto;
+            }
+            iframe {
+                min-height: 200px;
+                height: 60vh;
+            }
+        }
+        .slick-slide {
+            max-height: 60vh;
+        }
+        .single-item-collection--attachments-next .tainacan-icon-arrowright::before {
+            content: 'next';
+        }
+        .single-item-collection--attachments-prev .tainacan-icon-arrowleft::before {
+            content: 'previous';
+        }
+    }
+    .single-item-collection--gallery-items {
+        font-weight: normal;
+        transition: font-weight 0.3s ease;
+
+        img {
+            border-bottom: 4px solid transparent;
+            margin-bottom: 4px;
+            transition: border 0.3s ease;
+        }
+        .slick-current{
+            font-weight: bold;
+            img {
+                border-bottom: 4px solid #298596;
+            }
+        }   
+    }
+    .single-item-collection--attachments-file,
+    .tainacan-media-component__swiper-main .swiper-slide {
+        &:hover {
+            .tainacan-item-file-download {
+                opacity: 1;
+                transform: scale(1);
+                a { background-color: transparent; }
+            }
+        }
+    } 
+    .single-item-collection--gallery-items,
+    .single-item-collection--attachments {
+        .single-item-collection--attachments-file {
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+            word-break: break-word;
+            font-size: 0.875em;
+            padding: 0 14px;
+            
+            @media only screen and (max-width: 380px) {
+                margin: 10px 0;
+            }
+
+            img {
+                width: 125px;
+                height: 125px;
+                display: inline-block;
+                object-fit: cover;
+                &:focus {
+                    outline: none;
+                }
+            }
+            a {
+                width: 100%;
+                max-width: 125px;
+                margin: 0 auto;
+                display: inline-block;
+                font-size: 0.875rem; 
+                text-align: center;
+                word-break: break-word;
+                line-height: 1.5rem
+            }
+            a,
+            a:focus,
+            a:hover {
+                outline: none;
+                text-decoration: none;
+                cursor: pointer;
+                color: black;
+            }
+            .attachment-without-image img {
+                padding: 36px;
+                background-color: #dbdbdb;
+                object-fit: contain;
+            }
+            .item-card--thumbnail {
+                margin: 0 0 4px 0 !important;
+            }
+        }
+    }
+    .single-item-collection--information{
+        .card {
+            background-color: transparent;
+            box-shadow: none;
+            .item-card--thumbnail{
+                height: auto;
+                max-width: 250px;
+                padding: 0;
+            }
+            h3{
+                color: #000;
+                font-size: 0.875rem !important;
+                font-weight: 700;
+            }
+            p {
+                color: #000;
+                font-size: 0.75rem;
+            }
+            .item-card-link--sharing{
+                margin-right: 0.5rem;
+                margin-top: 0.25rem;
+                img {
+                    padding: 0;
+                    max-width: 100%;
+                    width: 30px;
+                }
+            }
+        }
+        .s-item-collection--metadata {
+            height: 100%;
+            .card {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+            }
+            div {
+                -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                display: inline-block;
+                width: 100%;
+                &:last-child {
+                    -webkit-column-break-inside: auto;
+                    page-break-inside: auto;
+                    break-inside: auto;
+                    display: inline-block;
+                    width: 100%;
+                }
+            }
+            @media only screen and (min-width: 768px) {
+                -moz-column-count: 2;
+                -moz-column-gap: 0;
+                -moz-column-rule: none;
+                -webkit-column-count: 2;
+                -webkit-column-gap: 0;
+                -webkit-column-rule: none;
+                column-count: 2;
+                column-gap: 4rem;;
+                column-rule: none;
+            }
+            @media only screen and (min-width: 1366px) {
+                -moz-column-count: 3;
+                -moz-column-gap: 7rem;
+                -moz-column-rule: none;
+                -webkit-column-count: 3;
+                -webkit-column-gap: 7rem;
+                -webkit-column-rule: none;
+                column-count: 3;
+                column-gap: 7rem;
+                column-rule: none;
+            }
+            h3 {
+                color: #1d1d1d;
+                font-size: 0.875rem !important;
+                font-weight: 700;
+                padding-right: 1rem;
+                margin-bottom: 0.25rem;
+                width: 100%;
+                &:first-of-type:last-of-type {
+                    display: inline-block;
+                }
+            }
+            h4,
+            label {
+                color: #454647;
+                font-size: 0.85rem !important;
+                font-weight: 500;
+                padding-right: 0.875rem;
+                width: 100%;
+                &:first-of-type:last-of-type {
+                    display: inline-block;
+                }
+            }
+            p {
+                color: #000;
+                word-wrap: break-word;
+                font: {
+                    size: 0.75rem;
+                    weight: 400;
+                }
+            }
+            p:empty {
+                display: none;
+                visibility: hidden;
+            }
+
+            // Metadata type textarea has different separator
+            .multivalue-separator {
+                color: #cbcbcb;
+                margin: 0 8px;    
+            }
+            .hierarchy-separator {
+                color: #cbcbcb;  
+            }
+            .metadata-type-compound,
+            .metadata-type-textarea {
+                .multivalue-separator {
+                    display: block;
+                    max-height: 1px;
+                    width: 70px;
+                    background: #cbcbcb;
+                    content: none;
+                    color: transparent;
+                    margin: 0.875rem auto;
+                }
+            }
+            .tainacan-compound-group {
+                padding-left: 1.5rem;
+                border-left: 1px solid #dbdbdb;
+
+                .label {
+                    margin: 0;
+                    padding: 0;
+                    font-style: normal;
+                }
+                p {
+                    margin-top: 0rem;
+                    margin-bottom: 0.5rem;
+                }
+            }
+            .tainacan-relationship-group {
+                .tainacan-relationship-metadatum {
+                    .tainacan-relationship-metadatum-header {
+                        display: flex;
+                        align-items: center;
+                        img {
+                            margin-right: 12px;
+                            max-width: 28px;
+                            max-height: 28px;
+                        }
+                        .label {
+                            font-weight: normal;
+                            font-style: normal;
+                            margin-top: 0;
+                            margin-left: 0;
+                            margin-bottom: 0;
+                            margin-right: 0;
+                            padding: 0;
+                        }
+                    }
+                    .tainacan-metadatum {
+                        margin-left: 40px;
+                        .label {
+                            font-size: 0.8125em !important;
+                            line-height: 1em;
+                            margin-top: 0px;
+                            margin-bottom: 2px;
+                        }
+                        p {
+                            margin-top: 0.25rem;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                }
+                &>.multivalue-separator {
+                    display: block;
+                    max-height: 1px;
+                    width: calc(100% - 40px);
+                    background: var(--tainacan-gray2);
+                    content: none;
+                    color: transparent;
+                    margin: 0.5em 0 0.5em 40px;
+                }
+            }
+        }
+    }
+    .single-item-collection--related-items {
+        .wp-block-tainacan-carousel-related-items {
+            h3 {
+                font-size: 1rem !important;
+            }
+            p {
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+#breadcrumb-single-item-pagination {
+    font-size: 0.875rem;
+    height: 1.3rem;
+
+    .pagination {
+        margin-bottom: 0;
+        padding: 0;
+        &:last-child {
+            padding: 0 6px;
+        }
+        a span {
+            display: none;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
+}
+#item-single-navigation {
+    flex-wrap: nowrap;
+    flex-grow: 2;
+    max-width: 50%;
+
+    @media screen and (max-width: 768px) {
+        & {
+            max-width: 100%;
+        }
+    }
+    @media screen and (max-width: 986px) {
+        & {
+            max-width: 66%;
+        }
+    }
+
+    .pagination {
+        max-width: 50%;
+        flex-basis: 50%;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        padding: 0 12px;
+
+        &:first-child {
+            justify-content: flex-end;
+            a {
+                justify-content: flex-end;
+            }
+        }
+        &:last-child {
+            justify-content: flex-start;
+            a {
+                justify-content: flex-start;
+            }
+        }
+        &:not(:last-child):not(:first-child) {
+            margin-right: 0.1rem;
+            margin-left: 0.1rem;
+        }
+        span {
+            max-width: 75%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+    a {
+        position: relative;
+        left: 0;
+        transition: left 0.3s ease;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: 100%;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    a[rel=prev]:hover {
+        left: -7px;
+    }
+    a[rel=next]:hover {
+        left: 7px;
+    }
+    a.has-small-thumbnail img {
+        height: 38px;
+        width: auto;
+        margin: 0.5rem;
+    }
+    a.has-large-thumbnail>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    a.has-large-thumbnail img {
+        height: 170px;
+        width: auto;
+        margin: 0.5rem;
+    }
+    @media screen and (max-width: 768px) {
+        a.has-large-thumbnail img {
+            height: 84px;
+        }
+    }
+}
