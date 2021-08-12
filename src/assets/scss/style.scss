@@ -592,9 +592,10 @@ nav {
                 padding: 8px 0;
                 width: auto;
                 h1 {
-                    font-size: 1.5rem;
+                    font-size: 1.5rem !important;
                     font-weight: normal;
                     margin: 0.3rem 0 0.38rem 0;
+                    padding: 0;
                 }
                 .logo {
                     width: auto;
@@ -604,7 +605,7 @@ nav {
                 }
                 @media only screen and (max-width: 576px){
                     h1 {
-                        font-size: 1.125rem;
+                        font-size: 1.125rem !important;
                         margin: 0.6rem 0;
                     }
                     .logo { max-width: 175px; }
@@ -1171,6 +1172,7 @@ nav {
             font-weight: bold;
             word-break: break-word;
             margin: 0;
+            padding-top: 0;
             @media only screen and (max-width: 576px){
                 min-width: 85%;
                 overflow: hidden;
