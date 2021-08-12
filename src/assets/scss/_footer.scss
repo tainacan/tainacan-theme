@@ -1,156 +1,49 @@
-footer {
-    &.tainacan-footer {
-        background-color: #2c2d2d;
-        a {
-            color: #9f9f9f;
-            &:hover {
+footer.tainacan-footer {
+    background-color: #2c2d2d;
+    color: white;
+    a {
+        color: #9f9f9f;
+        &:hover {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
+    
+    .tainacan-footer-widgets-area {
+        @media only screen and (max-width: 991px){
+            margin: 0 calc(4.16666666667% * 1);
+            margin: 0 calc(4.16666666667vw * 1);
+        }
+        @media only screen and (min-width: 992px){
+            margin: 0 calc(4.16666666667% * 2);
+            margin: 0 calc(4.16666666667vw * 2);
+        }
+        nav {
+            border: none;
+        }
+        .tainacan-side ul,
+        .tainacan-side ol {
+            list-style: inside;
+            
+            li{
                 color: white;
-                font-weight: 600;
-                text-decoration: none;
-            }
-        }
-        
-        .tainacan-footer-widgets-area {
-            @media only screen and (max-width: 991px){
-                margin: 0 calc(4.16666666667% * 1);
-                margin: 0 calc(4.16666666667vw * 1);
-            }
-            @media only screen and (min-width: 992px){
-                margin: 0 calc(4.16666666667% * 2);
-                margin: 0 calc(4.16666666667vw * 2);
-            }
-            nav {
-                border: none;
-            }
-            .tainacan-side ul,
-            .tainacan-side ol {
-                list-style: inside;
+                margin-bottom: 0.875rem;
                 
-                li{
-                    color: white;
-                    margin-bottom: 0.875rem;
-                    
-                    &.tainacan-side {
-                        h6 {
-                            font: {
-                                size: 1.125rem;
-                            }
-                        }
-                    }
-                    p {
-                        .fiber{
-                            font-size: 0.5625rem;
-                        }
-                    }
-                    a {
-                        color: #9f9f9f;
-                        &:hover {
-                            color: white;
-                            font-weight: 600;
-                            text-decoration: none;
+                &.tainacan-side {
+                    h6 {
+                        font: {
+                            size: 1.125rem;
                         }
                     }
                 }
-            }
-            .gallery {
-                display: flex;
-                flex-wrap: wrap;
-                max-height: 485px;
-                overflow: hidden;
-                justify-content: flex-start;
-                align-items: flex-start;
-                .gallery-item{
-                    margin: 5px !important;
-                    width: auto !important;
-
-                    img {
-                        border: none !important;
+                p {
+                    .fiber{
+                        font-size: 0.5625rem;
                     }
                 }
-                .gallery-caption {
-                    display: none;
-                }
-                br{
-                    display: none;
-                }
-            }
-            .image {
-                max-width: 100%;
-                height: auto;
-            }
-            .input-group {
-                background: white;
-                padding: 0rem;
-                align-items: center;
-                height: 2.5rem;
-                .btn {
-                    border-radius: 0px;
-                    border-color: #dbdbdb;
-                    min-height: 40px;
-                    &:hover {
-                        color: #454647;
-                    }
-                }
-            }
-            .form-control {
-                height: 100%;
-                border-radius: 0;
-                font-size: 0.875rem;
-                font-weight: 400;
-                color: #898d8f;
-                padding-right: 2rem;
-
-                &:focus {
-                    color: #454647;
-                    box-shadow: none;
-                    border: 1px solid #555758 !important;
-                }
-            }
-            .search-controls {
-                background: #f2f2f2;
-                border-bottom: 1px solid #dee2e6;
-                border-left: 1px solid #dee2e6;
-                border-right: 1px solid #dee2e6;
-                padding: 0.75rem 0.875rem 0.5rem 0.875rem;
-                font-size: 0.75rem;
-                column-count: 2;
-                label {
-                    white-space: normal;
-                    display: flex;
-                    color: #454647;
-                    align-items: center;
-                    input {
-                        margin-right: 0.5rem;
-                    }
-                }
-            }
-        }
-        .tainacan-footer-info {
-            font-size: 0.875rem;
-            width: auto;
-
-            @media only screen and (max-width: 991px){
-                margin: 0 calc(4.16666666667% * 1);
-                margin: 0 calc(4.16666666667vw * 1);
-            }
-            @media only screen and (min-width: 992px){
-                margin: 0 calc(4.16666666667% * 2);
-                margin: 0 calc(4.16666666667vw * 2);
-            }
-
-            .tainacan-footer-info--blog {
-                font-weight: 400;
-                margin-bottom: 2rem;
-            }
-            .tainacan-footer-info--logo {
-                width: 120px;
-            }
-            .tainacan-powered {
-                font-weight: 400;
-                color: #cbcbcb;
-
                 a {
-                    color: #f9f9f9;
+                    color: #9f9f9f;
                     &:hover {
                         color: white;
                         font-weight: 600;
@@ -159,61 +52,176 @@ footer {
                 }
             }
         }
-        &.tainacan-footer-colored {
-            background-color: #298596;
-            a {
-                color: #e6f6f8;
-            }
-            .tainacan-footer-widgets-area {
-                .tainacan-side ul,
-                .tainacan-side ol {
-                    li {
-                        a {
-                            color: #e6f6f8;
-                        }
-                    }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: white;
+            font-size: 1.125rem !important;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            max-height: 485px;
+            overflow: hidden;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .gallery-item{
+                margin: 5px !important;
+                width: auto !important;
+
+                img {
+                    border: none !important;
                 }
             }
-            .tainacan-footer-info {
-                .tainacan-powered {
-                    color: #e6f6f8;
+            .gallery-caption {
+                display: none;
+            }
+            br{
+                display: none;
+            }
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+        .input-group {
+            background: white;
+            padding: 0rem;
+            align-items: center;
+            height: 2.5rem;
+            .btn {
+                border-radius: 0px;
+                border-color: #dbdbdb;
+                min-height: 40px;
+                &:hover {
+                    color: #454647;
                 }
             }
         }
-        &.tainacan-footer-light {
-            background-color: #f2f2f2;
-            .text-white {
-                color: #454647 !important;
-            }
-            a {
+        .form-control {
+            height: 100%;
+            border-radius: 0;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #898d8f;
+            padding-right: 2rem;
+
+            &:focus {
                 color: #454647;
-                &:hover {
-                    color: black;
+                box-shadow: none;
+                border: 1px solid #555758 !important;
+            }
+        }
+        .search-controls {
+            background: #f2f2f2;
+            border-bottom: 1px solid #dee2e6;
+            border-left: 1px solid #dee2e6;
+            border-right: 1px solid #dee2e6;
+            padding: 0.75rem 0.875rem 0.5rem 0.875rem;
+            font-size: 0.75rem;
+            column-count: 2;
+            label {
+                white-space: normal;
+                display: flex;
+                color: #454647;
+                align-items: center;
+                input {
+                    margin-right: 0.5rem;
                 }
             }
-            
-            .tainacan-footer-widgets-area {
-                .tainacan-side ul,
-                .tainacan-side ol {
-                    li{
-                        color: black;
-                        a {
-                            color: #454647;
-                            &:hover {
-                                color: black;
-                            }
+        }
+    }
+    .tainacan-footer-info {
+        font-size: 0.875rem;
+        width: auto;
+
+        @media only screen and (max-width: 991px){
+            margin: 0 calc(4.16666666667% * 1);
+            margin: 0 calc(4.16666666667vw * 1);
+        }
+        @media only screen and (min-width: 992px){
+            margin: 0 calc(4.16666666667% * 2);
+            margin: 0 calc(4.16666666667vw * 2);
+        }
+
+        .tainacan-footer-info--blog {
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        .tainacan-footer-info--logo {
+            width: 120px;
+        }
+        .tainacan-powered {
+            font-weight: 400;
+            color: #cbcbcb;
+
+            a {
+                color: #f9f9f9;
+                &:hover {
+                    color: white;
+                    font-weight: 600;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &.tainacan-footer-colored {
+        background-color: #298596;
+        a {
+            color: #e6f6f8;
+        }
+        .tainacan-footer-widgets-area {
+            .tainacan-side ul,
+            .tainacan-side ol {
+                li {
+                    a {
+                        color: #e6f6f8;
+                    }
+                }
+            }
+        }
+        .tainacan-footer-info {
+            .tainacan-powered {
+                color: #e6f6f8;
+            }
+        }
+    }
+    &.tainacan-footer-light {
+        background-color: #f2f2f2;
+        .text-white {
+            color: #454647 !important;
+        }
+        a {
+            color: #454647;
+            &:hover {
+                color: black;
+            }
+        }
+        
+        .tainacan-footer-widgets-area {
+            .tainacan-side ul,
+            .tainacan-side ol {
+                li{
+                    color: black;
+                    a {
+                        color: #454647;
+                        &:hover {
+                            color: black;
                         }
                     }
                 }
             }
-            .tainacan-footer-info {
-                .tainacan-powered {
-                    color: #454647;
-                    a {
-                        color: #222;
-                        &:hover {
-                            color: black;
-                        }
+        }
+        .tainacan-footer-info {
+            .tainacan-powered {
+                color: #454647;
+                a {
+                    color: #222;
+                    &:hover {
+                        color: black;
                     }
                 }
             }
