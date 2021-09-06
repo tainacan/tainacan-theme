@@ -1051,6 +1051,24 @@ function tainacan_customize_register( $wp_customize ) {
 				'label'    	  => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
 				'description' => __( 'Toggle to not display the document and attachments description.', 'tainacan-interface' )
 				) );
+
+			/**
+			 * Light color palette to the media component gallery
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_gallery_color_scheme', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => 'dark',
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_color_scheme_options',
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_gallery_color_scheme', array(
+				'type' 	   	  => 'select',
+				'priority' 	  => 4, // Within the section.
+				'section'  	  => 'tainacan_single_item_page_document',
+				'label'    	  => __( 'Color scheme of the media gallery modal', 'tainacan-interface' ),
+				'choices'	  => tainacan_get_single_item_gallery_color_scheme_options()
+				) );
 		}
 
 
@@ -2237,6 +2255,52 @@ endif; // tainacan_sanitize_single_item_navigation_links_options
 
 
 
+
+if ( ! function_exists( 'tainacan_get_single_item_gallery_color_scheme_options' ) ) :
+	/**
+	 * Retrieves an array of options for single item page gallery color scheme options for Tainacan Theme.
+	 *
+	 * Create your own tainacan_get_single_item_gallery_color_scheme_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @return array $option - a string with options for the color scheme.
+	 */
+	function tainacan_get_single_item_gallery_color_scheme_options() {
+		$color_scheme = array(
+			'dark' => __('Dark', 'tainacan-interface'),
+			'light' => __('Light', 'tainacan-interface')
+		);
+		return $color_scheme;
+	}
+endif; // tainacan_get_single_item_gallery_color_scheme_options
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_color_scheme_options' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Theme item page gallery color scheme options for Tainacan Theme
+	 *
+	 * Create your own tainacan_sanitize_single_item_gallery_color_scheme_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Theme
+	 *
+	 * @param string $option - a string with options for the color scheme.
+	 * @return string the selected option.
+	 */
+	function tainacan_sanitize_single_item_gallery_color_scheme_options( $option ) {
+		$color_scheme = tainacan_get_single_item_gallery_color_scheme_options();
+
+		if ( ! array_key_exists( $option, $color_scheme ) ) {
+			return 'dark';
+		}
+
+		return $option;
+	}
+endif; // tainacan_sanitize_single_item_gallery_color_scheme_options
+
+
+
 if ( ! function_exists( 'tainacan_get_header_alignment_options' ) ) :
 	/**
 	 * Retrieves an array of options for  header alignment options for Tainacan Theme.
@@ -3071,3 +3135,42 @@ function tainacan_items_page_filters_fixed_on_scroll_output() {
 }
 add_action( 'wp_head', 'tainacan_items_page_filters_fixed_on_scroll_output');
 
+
+/**
+ * Enqueues front-end CSS for the light scheme of the photoswipe layer
+ */
+if ( !function_exists('tainacan_blocksy_gallery_light_color_scheme') ) {
+	function tainacan_blocksy_gallery_light_color_scheme() {
+
+		$has_light_dark_color_scheme = get_theme_mod( 'tainacan_single_item_gallery_color_scheme', 'dark' ) == 'light';
+		
+		if (!$has_light_dark_color_scheme)
+			return;
+			
+		$css = '
+		/* Photoswipe layer for the gallery dark */
+		.tainacan-photoswipe-layer .pswp__bg {
+			background-color: rgba(255, 255, 255, 0.85) !important;
+		}
+		.tainacan-photoswipe-layer .pswp__ui--fit .pswp__top-bar,
+		.tainacan-photoswipe-layer .pswp__ui--fit .pswp__caption {
+			background-color: rgba(255, 255, 255, 0.7) !important;
+		}
+		.tainacan-photoswipe-layer .pswp__top-bar .pswp__name,
+		.tainacan-photoswipe-layer .pswp__caption__center {
+			color: black !important;
+		}
+		.tainacan-photoswipe-layer .pswp__button,
+		.tainacan-photoswipe-layer .pswp__button--arrow--left::before,
+		.tainacan-photoswipe-layer .pswp__button--arrow--right::before {
+			filter: invert(100) !important;
+		}
+		.tainacan-photoswipe-layer .pswp--css_animation .pswp__preloader__donut {
+			border: 2px solid #000000 !important;
+		}
+		';
+		echo '<style type="text/css" id="tainacan-gallery-color-scheme">' . sprintf( $css ) . '</style>';
+
+	}
+}
+add_action( 'wp_head', 'tainacan_blocksy_gallery_light_color_scheme');
