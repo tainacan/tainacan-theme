@@ -745,6 +745,25 @@ function tainacan_customize_register( $wp_customize ) {
 				'label'    	  => __( 'Show "Documents" section: Document and Attachments grouped in one slider.', 'tainacan-interface' ),
 				'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
 				) );
+
+			/**
+			 * Disable gallery lightbox.
+			 */
+			$wp_customize->add_setting( 'tainacan_single_item_disable_gallery_lightbox', array(
+				'type' 		 => 'theme_mod',
+				'capability' => 'edit_theme_options',
+				'default' 	 => false,
+				'transport'  => 'refresh',
+				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+				) );
+			$wp_customize->add_control( 'tainacan_single_item_disable_gallery_lightbox', array(
+				'type' 	   	  => 'checkbox',
+				'priority' 	  => 0, // Within the section.
+				'section'  	  => 'tainacan_single_item_page_document',
+				'label'    	  => __( 'Disable the gallery lightbox modal', 'tainacan-interface' ),
+				'description' => __( 'Toggle to not display a modal with the main slider when clicking in a gallery item of the "Documents" section.', 'tainacan-interface' )
+				) );
+		
 		}
 
 		/**
@@ -1051,6 +1070,7 @@ function tainacan_customize_register( $wp_customize ) {
 				'label'    	  => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
 				'description' => __( 'Toggle to not display the document and attachments description.', 'tainacan-interface' )
 				) );
+
 
 			/**
 			 * Light color palette to the media component gallery

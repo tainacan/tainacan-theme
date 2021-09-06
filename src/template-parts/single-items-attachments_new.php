@@ -5,6 +5,7 @@ $is_gallery_mode = get_theme_mod( 'tainacan_single_item_gallery_mode', false );
 $hide_file_name = get_theme_mod('tainacan_single_item_hide_files_name_main', true);
 $hide_file_caption = get_theme_mod('tainacan_single_item_hide_files_caption_main', true);
 $hide_file_description = get_theme_mod('tainacan_single_item_hide_files_description_main', true);
+$disable_gallery_lightbox = get_theme_mod('tainacan_single_item_disable_gallery_lightbox', false);
 
 if ( !empty( $attachments )  || ( get_theme_mod( 'tainacan_single_item_gallery_mode', false) && tainacan_has_document() ) ) {
 ?>
@@ -111,14 +112,19 @@ if ( !empty( $attachments )  || ( get_theme_mod( 'tainacan_single_item_gallery_m
                             'navigation' => array(
                                 'nextEl' => '.swiper-navigation-next_' . 'tainacan-item-attachments_id-' . $post->ID . '-thumbs',
                                 'prevEl' => '.swiper-navigation-prev_' . 'tainacan-item-attachments_id-' . $post->ID . '-thumbs',
+                                'preloadImages' => false,
+                                'lazy' => true
                             )
                         ),
                         'swiper_main_options' => $is_gallery_mode ? array(
                             'navigation' => array(
                                 'nextEl' => '.swiper-navigation-next_' . 'tainacan-item-attachments_id-' . $post->ID . '-main',
                                 'prevEl' => '.swiper-navigation-prev_' . 'tainacan-item-attachments_id-' . $post->ID . '-main',
-                            ) 
-                        ) : ''
+                                'preloadImages' => false,
+                                'lazy' => true
+                            )
+                        ) : '',
+                        'disable_lightbox' => $is_gallery_mode ? $disable_gallery_lightbox : false,
                     )
                 );
             ?>

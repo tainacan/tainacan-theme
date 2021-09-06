@@ -5,6 +5,7 @@ if (version_compare(TAINACAN_VERSION, '0.18RC') >= 0) {
     $hide_file_caption = get_theme_mod('tainacan_single_item_hide_files_caption_main', true);
     $hide_file_description = get_theme_mod('tainacan_single_item_hide_files_description_main', true);
     $is_document_type_attachment = tainacan_get_the_document_type() === 'attachment';
+    $disable_gallery_lightbox = get_theme_mod('tainacan_single_item_disable_gallery_lightbox', false);
 
     $class_slide_metadata = '';
 
@@ -34,7 +35,7 @@ if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mo
                     if ( !get_theme_mod( 'tainacan_single_item_hide_download_document', false ) && function_exists('tainacan_the_item_document_download_link') && tainacan_the_item_document_download_link() != '' )
                         echo '<span class="tainacan-item-file-download">' . tainacan_the_item_document_download_link() . '</span>';
                     
-                    if ( version_compare(TAINACAN_VERSION, '0.18RC') >= 0 ) {?>
+                    if ( version_compare(TAINACAN_VERSION, '0.18RC') >= 0 ) { ?>
                         <div class="document-metadata  <?php echo $class_slide_metadata ?>">
                             <?php if ( !$hide_file_caption && $is_document_type_attachment ): ?>
                                 <span class="document-metadata__caption">
@@ -97,8 +98,11 @@ if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mo
                                 'navigation' => array(
                                     'nextEl' => '.swiper-navigation-next_' . 'tainacan-item-document_id-' . $post->ID . '-main',
                                     'prevEl' => '.swiper-navigation-prev_' . 'tainacan-item-document_id-' . $post->ID . '-main',
+                                    'preloadImages' => false,
+                                    'lazy' => true
                                 ) 
-                            )
+                            ),
+                            'disable_lightbox' => $disable_gallery_lightbox
                         )
                     );
 
