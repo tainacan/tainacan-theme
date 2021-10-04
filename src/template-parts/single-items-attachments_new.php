@@ -21,7 +21,9 @@ if ( !empty( $attachments )  || ( get_theme_mod( 'tainacan_single_item_gallery_m
                 <?php echo esc_html( get_theme_mod('tainacan_single_item_documents_section_label', __( 'Documents', 'tainacan-interface' )) ); ?>
             </h2>
         <?php endif; ?>
-        <section class="tainacan-content single-item-collection margin-two-column">
+        <section 
+                style="<?php echo (!$is_gallery_mode ? 'min-height: 10vh;' : '') ?>"
+                class="tainacan-content single-item-collection margin-two-column">
             <?php 
 
                 $media_items_thumbs = array();

@@ -130,3 +130,21 @@
 .wp-social-link {
     padding: 0;
 }
+
+/* Fixes for cases where previos block-based widgets are loaded in the theme */
+#sidebar .alignfull,
+#sidebar .alignwide {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* Search block with some details */
+.wp-block-search__label {
+    font-weight: bold;
+    font-size: 1em;
+}
+.wp-block-search__inside-wrapper .wp-block-search__button {
+    margin-left: 0;
+}

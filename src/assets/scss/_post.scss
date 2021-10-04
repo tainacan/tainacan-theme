@@ -41,6 +41,7 @@
     .tainacan-content {
         font-size: 1rem;
         min-height: 32.5vh;
+        
         @media only screen and (min-height: 1080px) {
             min-height: 50vh;
         }
@@ -55,6 +56,10 @@
             color: #000;
             font-weight: 400;
         }
+    }
+    .tainacan-content>* {
+        margin-top: 28px;
+        margin-bottom: 28px;
     }
 }
 .tainacan-heading-section-pattern-pattern {

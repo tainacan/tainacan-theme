@@ -40,7 +40,7 @@
 			?>
 		</header>
 	<?php endif; ?>
-	<section class="tainacan-content text-black margin-two-column">
+	<section class="tainacan-content margin-two-column">
 		<?php
 			the_content();
 		?>
