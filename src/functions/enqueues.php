@@ -45,7 +45,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
 
 		/**
-		 * Tainacan Theme
+		 * Tainacan Interface theme
 		 */
 			wp_enqueue_script( 'tainacan_tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, false );
 			wp_localize_script( 'tainacan_tainacanTruncate', 'tainacan_trucanteVars', array(
