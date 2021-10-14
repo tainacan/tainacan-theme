@@ -36,7 +36,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 				) );
 			$wp_customize->add_control( 'tainacan_single_item_related_items_section_label', array(
 				'type' 	   	  => 'text',
-				'priority' 	  => 0, // Within the section.
+				'priority' 	  => 2, // Within the section.
 				'section'  	  => 'tainacan_single_item_page_related_items',
 				'label'    	  => __( 'Label for the "Items related to this" section', 'tainacan-interface' ),
 				'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
@@ -59,14 +59,58 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 				) );
 			$wp_customize->add_control( 'tainacan_single_item_enable_related_items_section', array(
 				'type' 	   	  => 'checkbox',
-				'priority' 	  => 9, // Within the section.
+				'priority' 	  => 0, // Within the section.
 				'section'  	  => 'tainacan_single_item_page_related_items',
 				'label'    	  => __( 'Enable the "Items related to this" section', 'tainacan-interface' ),
 				'description' => __( 'Toggle to display or not the "Items related to this" section. This also depends on the collection settings and existence of items related to the current one.', 'tainacan-interface' )
 				) );
 
+			if ( function_exists('tainacan_the_related_items') ) {
+			
+				/**
+				 * Adds options to select a layout for the related items list.
+				 */
+				$wp_customize->add_setting( 'tainacan_single_item_related_items_layout', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => 'carousel',
+					'transport'  => 'refresh',
+					'sanitize_callback' => 'tainacan_sanitize_single_item_related_items_layout_options',
+					) );
+				$wp_customize->add_control( 'tainacan_single_item_related_items_layout', array(
+					'type' 	   	  => 'select',
+					'priority' 	  => 3, // Within the section.
+					'section'  	  => 'tainacan_single_item_page_related_items',
+					'label'    	  => __( 'Layout for the related items list', 'tainacan-interface' ),
+					'choices'	  => tainacan_get_single_item_related_items_layout_options()
+					) );
+
+				/**
+				 * Allows setting max columns count on grid and list layout ---------------------------------------------------------
+				 */
+				$wp_customize->add_setting( 'tainacan_single_item_related_items_max_columns_count', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => 4,
+					'transport'  => 'refresh',
+					'sanitize_callback'  => 'sanitize_text_field'
+				) );
+				$wp_customize->add_control( 'tainacan_single_item_related_items_max_columns_count', array(
+					'type' => 'number',
+					'priority' 	  => 5, // Within the section.
+					'section' => 'tainacan_single_item_page_related_items',
+					'label' => __( 'Maximum number of columns', 'tainacan-interface' ),
+					'description' => __( 'Sets how many columns of items slides will appear (on a large screen) for the layouts "grid" and "list". In the "grid" layout, the smaller this number is, the greater the item thumbnail will be.', 'tainacan-interface' ),
+					'input_attrs' => array(
+						'min' => 1,
+						'max' => 8,
+						'step' => 1
+					),
+				) );
+			}
+
 			/**
-			 * Allows setting max heigth for the document ---------------------------------------------------------
+			 * Allows setting max items per screen on carousel layout ---------------------------------------------------------
 			 */
 			$wp_customize->add_setting( 'tainacan_single_item_related_items_max_items_per_screen', array(
 				'type' 		 => 'theme_mod',
@@ -77,17 +121,64 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 			) );
 			$wp_customize->add_control( 'tainacan_single_item_related_items_max_items_per_screen', array(
 				'type' => 'number',
-				'priority' 	  => 0, // Within the section.
+				'priority' 	  => 4, // Within the section.
 				'section' => 'tainacan_single_item_page_related_items',
 				'label' => __( 'Maximum number of slides per screen', 'tainacan-interface' ),
-				'description' => __( 'Sets how many slides per row of the carousel will appear (on a large screen). The smaller this number is, the greater the item thumbnail will be and depending of the size, there might not exist a cropped version of the image.', 'tainacan-interface' ),
+				'description' => __( 'Sets how many slides per row of the carousel will appear (on a large screen) for the layout "carousel". The smaller this number is, the greater the item thumbnail will be.', 'tainacan-interface' ),
 				'input_attrs' => array(
 					'min' => 1,
 					'max' => 10,
 					'step' => 1
 				),
 			) );
+
         }
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_tainacan_single_item_page_related_items', 11 );
 }
+
+
+if ( ! function_exists( 'tainacan_get_single_item_related_items_layout_options' ) ) :
+	/**
+	 * Retrieves an array of options for single item page related items layout options for Tainacan Interface theme.
+	 *
+	 * Create your own tainacan_get_single_item_related_items_layout_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Interface theme
+	 *
+	 * @return array $option - a string with options for displaying the related items layout
+	 */
+	function tainacan_get_single_item_related_items_layout_options() {
+		$related_items_layout_options = array(
+			'carousel' => __('Carousel of items, with large thumbnails', 'tainacan-interface'),
+			'grid' => __('Grid of items, with large thumbnails', 'tainacan-interface'),
+			'list' => __('List of items, with smaller thumbnails', 'tainacan-interface')
+		);
+		return $related_items_layout_options;
+	}
+endif; // tainacan_get_single_item_related_items_layout_options
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_related_items_layout_options' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Interface theme item page related items section layout options
+	 *
+	 * Create your own tainacan_sanitize_single_item_related_items_layout_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Interface theme
+	 *
+	 * @param string $option - a string with options for displaying the related items layout.
+	 * @return string the selected option.
+	 */
+	function tainacan_sanitize_single_item_related_items_layout_options( $option ) {
+		$related_items_layout_options = tainacan_get_single_item_related_items_layout_options();
+
+		if ( ! array_key_exists( $option, $related_items_layout_options ) ) {
+			return 'carousel';
+		}
+
+		return $option;
+	}
+endif; // tainacan_sanitize_single_item_related_items_layout_options
+

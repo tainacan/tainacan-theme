@@ -16,7 +16,11 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
                 tainacan_the_related_items_carousel([
                     // 'class_name' => 'mt-2 tainacan-single-post',
                     // 'collection_heading_class_name' => 'title-content-items',
+                    'items_list_layout' => get_theme_mod( 'tainacan_single_item_related_items_layout', 'carousel' ),
                     'collection_heading_tag' => 'h3',
+                    'dynamic_items_args' => [
+                        'max_columns_count' => get_theme_mod('tainacan_single_item_related_items_max_columns_count', 4)
+                    ],
                     'carousel_args' => [
                         'max_items_per_screen' => get_theme_mod('tainacan_single_item_related_items_max_items_per_screen', 6)
                     ]
