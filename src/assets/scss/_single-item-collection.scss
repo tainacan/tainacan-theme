@@ -392,6 +392,9 @@
             }
         }   
     }
+    .tainacan-media-component {
+        --tainacan-media-background: white;
+    }
     .single-item-collection--attachments-file,
     .tainacan-media-component__swiper-main .swiper-slide {
         &:hover {

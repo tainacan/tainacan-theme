@@ -416,17 +416,16 @@ if ( !function_exists('tainacan_gallery_light_color_scheme') ) {
 		.tainacan-photoswipe-layer .pswp__bg {
 			background-color: rgba(255, 255, 255, 0.85) !important;
 		}
-		.tainacan-photoswipe-layer .pswp__ui--fit .pswp__top-bar,
-		.tainacan-photoswipe-layer .pswp__ui--fit .pswp__caption {
+		.tainacan-photoswipe-layer .pswp__ui .pswp__top-bar,
+		.tainacan-photoswipe-layer .pswp__ui .pswp__caption {
 			background-color: rgba(255, 255, 255, 0.7) !important;
 		}
 		.tainacan-photoswipe-layer .pswp__top-bar .pswp__name,
-		.tainacan-photoswipe-layer .pswp__caption__center {
+		.tainacan-photoswipe-layer .pswp__caption__center,
+        .tainacan-photoswipe-layer .pswp__counter {
 			color: black !important;
 		}
-		.tainacan-photoswipe-layer .pswp__button,
-		.tainacan-photoswipe-layer .pswp__button--arrow--left::before,
-		.tainacan-photoswipe-layer .pswp__button--arrow--right::before {
+		.tainacan-photoswipe-layer .pswp__button {
 			filter: invert(100) !important;
 		}
 		.tainacan-photoswipe-layer .pswp--css_animation .pswp__preloader__donut {
