@@ -1,0 +1,6 @@
+.tainacan-modal,
+.theme-items-list,
+.vue-tooltip-theme {
+    --tainacan-secondary: var(--tainacan-interface--link-color, #298596);
+    --tainacan-primary: var(--tainacan-interface--tooltip-color, #e6f6f8);
+}

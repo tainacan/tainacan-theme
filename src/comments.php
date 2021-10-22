@@ -15,7 +15,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="comments" class="border-top border-jelly-bean" style="border-width: 2px !important;">
+<div id="comments" class="border-top" style="border-width: 2px !important;">
 	<!--show the form-->
 	<?php if ( 'open' == $post->comment_status ) : ?>
 		<div id="respond" class="clearfix mt-5 <?php if ( ! wp_is_mobile() ) { ?>margin-two-column<?php } ?>">  
@@ -26,7 +26,7 @@ if ( post_password_required() ) {
 				</p>        
 			<?php else : ?>      
 				<div for="comment" class="d-flex mb-2">
-					<span class="text-jelly-bean title-leave"><?php _e( 'Leave your comment', 'tainacan-interface' ); ?></span>
+					<span class="title-leave"><?php _e( 'Leave your comment', 'tainacan-interface' ); ?></span>
 					<?php if ( is_user_logged_in() ) { ?>
 						<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
 						<?php _e( 'Authenticated as:', 'tainacan-interface' );

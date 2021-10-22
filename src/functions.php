@@ -150,6 +150,21 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	            'slug' => 'violet',
 	            'color' => '#955ba5',
 	        ),
+			array(
+	            'name' => __( 'White', 'tainacan-interface' ),
+	            'slug' => 'white',
+	            'color' => '#ffffff',
+	        ),
+			array(
+	            'name' => __( 'Light gray', 'tainacan-interface' ),
+	            'slug' => 'lightgray',
+	            'color' => '#f2f2f2',
+	        ),
+			array(
+	            'name' => __( 'Dark gray', 'tainacan-interface' ),
+	            'slug' => 'darkgray',
+	            'color' => '#555758',
+	        ),
 		) );
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'custom-line-height' );
@@ -180,8 +195,8 @@ function tainacan_customize_editor_css() {
 	?>
 	<style>
 		.editor-styles-wrapper { 
-			--tainacan-color-default: <?php echo $default_color == 'default' ? '#298596' : $default_color; ?>;
-			--tainacan-block-primary: <?php echo $default_color == 'default' ? '#298596' : $default_color;?>;
+			--tainacan-color-default: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color,  #298596)' : $default_color; ?>;
+			--tainacan-block-primary: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color,  #298596)' : $default_color;?>;
 		}
 	</style>
 	<?php

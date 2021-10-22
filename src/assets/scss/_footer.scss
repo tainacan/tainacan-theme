@@ -9,6 +9,9 @@ footer.tainacan-footer {
             text-decoration: none;
         }
     }
+    .tainacan-footer-area-separator {
+        background-color: var(--tainacan-interface--link-color,  #298596);
+    }
     
     .tainacan-footer-widgets-area {
         @media only screen and (max-width: 991px){
@@ -169,7 +172,7 @@ footer.tainacan-footer {
         }
     }
     &.tainacan-footer-colored {
-        background-color: #298596;
+        background-color: var(--tainacan-interface--link-color,  #298596);
         a {
             color: #e6f6f8;
         }

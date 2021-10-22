@@ -1,0 +1,6 @@
+/* CSS Variables for the theme palette */
+:root {
+    --tainacan-interface--link-color: #298596;
+    --tainacan-interface--tooltip-color: #e6f6f8;
+    --tainacan-block-primary: var(--tainacan-interface--link-color, #298596);
+}

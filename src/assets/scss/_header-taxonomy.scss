@@ -64,7 +64,7 @@
                 }
                 > .page-header-content-title {
                     width: 100%;
-                    border-color: #298596 !important;
+                    border-color: var(--tainacan-interface--link-color,  #298596) !important;
                     .page-header-title {
                         color: #01295c;
                         font: {
@@ -98,7 +98,7 @@
                             padding-right: 0;
                         }
                         a {
-                            color: #298596;
+                            color: var(--tainacan-interface--link-color,  #298596);
                             font: {
                                 size: inherit;
                                 weight: 400;
@@ -149,7 +149,7 @@
                                 }
                             }
                             .icon-export {
-                                background-color: #298596;
+                                background-color: var(--tainacan-interface--link-color,  #298596);
                                 color: #fff;
                                 border-radius: 100%;
                                 padding: .282rem .4rem;

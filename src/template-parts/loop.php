@@ -1,5 +1,5 @@
 <div class="tainacan-title">
-	<div class="border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
+	<div class="tainacan-title-page" style="border-width: 2px !important;">
 		<ul class="list-inline mb-1 d-flex">
 			<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
 				<h1>

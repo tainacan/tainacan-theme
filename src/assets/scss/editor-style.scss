@@ -1,3 +1,5 @@
+@import url('./_variables.scss');
+
 .editor-styles-wrapper {
     background: white;
     padding: 3rem 0px 0px 0px !important;
@@ -28,6 +30,12 @@
     .has-purple-background-color { background-color: #4751a3 }
     .has-violet-color { color: #955ba5 }
     .has-violet-background-color { background-color: #955ba5 }
+    .has-white-color { color: #ffffff; }
+    .has-white-background-color { background-color: #ffffff; }
+    .has-lightgray-color { color: #f2f2f2; }
+    .has-lightgray-background-color { background-color: #f2f2f2; }
+    .has-darkgray-color { color: #555758; }
+    .has-darkgray-background-color { background-color: #555758; }
 
     // Editor Block list side spacing
     .editor-block-list__layout,
@@ -92,8 +100,8 @@
         padding: 0;
         max-width: calc(1400px - 4.1666667%);
         width: calc(100% - 8.33333%);
-        border-bottom: 2px solid #298596;
-        border-bottom: 2px solid var(--tainacan-color-default, #298596);
+        border-bottom: 2px solid var(--tainacan-interface--link-color,  #298596);
+        border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         
         &>.wp-block {
             margin: 0 !important;
@@ -106,8 +114,8 @@
         font-family: 'Roboto', sans-serif;   
         textarea {
             padding: 3px 6px;
-            color: #298596;
-            color: var(--tainacan-color-default, #298596); 
+            color: var(--tainacan-interface--link-color,  #298596);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596)); 
         }
     }
 
@@ -157,8 +165,8 @@
     .wp-block[data-type="core/heading"] h1,
     h1.wp-block[data-type="core/heading"] {
         font-size: 1.802rem;
-        color: #298596;
-        color: var(--tainacan-color-default, #298596);
+        color: var(--tainacan-interface--link-color,  #298596);
+        color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         padding-top: .4rem;
         margin-bottom: .5rem;
     }
@@ -239,14 +247,14 @@
         line-height: 1.2rem;
     }
     .components-button.is-button.is-primary {
-        background-color: #298596;
-        background-color: var(--tainacan-color-default, #298596);
+        background-color: var(--tainacan-interface--link-color,  #298596);
+        background-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
     }
     .components-button.is-button.is-default {
         background: white;
         border: 1px solid #555758;
-        color: #298596;
-        color: var(--tainacan-color-default, #298596);
+        color: var(--tainacan-interface--link-color,  #298596);
+        color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
     }
     .components-icon-button:hover:not(.is-default),
     .components-icon-button:focus:not(.is-default),
@@ -267,19 +275,19 @@
     }
     .wp-block-button__link {
         &:not(.has-background) {
-            background-color: #298596;
-            background-color: var(--tainacan-color-default, #298596);
+            background-color: var(--tainacan-interface--link-color,  #298596);
+            background-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
-        border-radius: 6px;
+        border-radius: 4px;
         font-size: 0.875rem;
         padding: 6px 18px;
     }
     .is-style-outline .wp-block-button__link {
-        background-color: white;
+        background-color: transparent !important;
         border: 1px solid #555758;
         &:not(.has-text-color) {
-            color: #298596;
-            color: var(--tainacan-color-default, #298596);
+            color: var(--tainacan-interface--link-color,  #298596);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
     }
     .is-style-squared .wp-block-button__link {
@@ -367,7 +375,7 @@
         height: 32px;
         margin: 0 12px 32px 12px;
         padding: 0;
-        border-bottom: 1px solid var(--tainacan-color-default, #298596);
+        border-bottom: 1px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
 
         .components-modal__header-heading,
         h1 {
@@ -390,7 +398,7 @@
         font-family: 'Roboto', sans-serif;
     }
     .wp-block-quote:not(.is-style-large):not(.is-large) {
-        border-left: 2px solid var(--tainacan-color-default, #298596);
+        border-left: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
     }
     .wp-block-quote__citation {
         font-weight: 500;
@@ -403,8 +411,8 @@
     /* Pullquote */
     .wp-block-pullquote {
         &:not(.is-style-solid-color) {
-            border-top: 2px solid var(--tainacan-color-default, #298596);
-            border-bottom: 2px solid var(--tainacan-color-default, #298596);
+            border-top: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
         padding: 0;
 
@@ -420,8 +428,8 @@
         }
         :not(.has-text-color) .block-library-pullquote__content.editor-rich-text p,
         :not(.has-text-color) .rich-text.block-editor-rich-text__editable p {
-            color: #298596;
-            color: var(--tainacan-color-default, #298596);
+            color: var(--tainacan-interface--link-color,  #298596);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
         .wp-block-pullquote__citation {
             color: #555758;
@@ -435,8 +443,8 @@
     /* Separator */ 
     .wp-block-separator {
         &:not(.has-background-color) {
-            border-color: #298596;
-            border-color: var(--tainacan-color-default, #298596);
+            border-color: var(--tainacan-interface--link-color,  #298596);
+            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
         width: 50%;
         max-width: 300px;
@@ -445,8 +453,8 @@
         }
         &.is-style-dots {
             &:not(.has-background-color)::before {
-                color: #298596;
-                color: var(--tainacan-color-default, #298596);
+                color: var(--tainacan-interface--link-color,  #298596);
+                color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
             }
             &::before {
                 font-weight: 600;
@@ -464,8 +472,8 @@
 
     /* Code */
     .wp-block-code textarea {
-        color: #298596;
-        color: var(--tainacan-color-default, #298596);
+        color: var(--tainacan-interface--link-color,  #298596);
+        color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
     }
 
     /* Tables */
@@ -524,15 +532,15 @@
     /* Extra title group class, that can be added for styling special headings */
     .wp-block-group.tainacan-group-heading {
         .wp-block-heading {
-            color: #298596 !important;
-            color: var(--tainacan-color-default, #298596) !important;
+            color: var(--tainacan-interface--link-color,  #298596) !important;
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596)) !important;
         }
         h1:not(.has-text-color),
         h2:not(.has-text-color),
         h3:not(.has-text-color),
         h4:not(.has-text-color) {
-            color: #298596 !important;
-            color: var(--tainacan-color-default, #298596);
+            color: var(--tainacan-interface--link-color,  #298596) !important;
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
         h1.wp-block-heading,
         h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
@@ -559,8 +567,8 @@
         hr.wp-block-separator:not(.is-style-wide) {
             margin-left: 0;
             max-width: 200px;
-            border-color: #298596;
-            border-color: var(--tainacan-color-default, #298596);
+            border-color: var(--tainacan-interface--link-color,  #298596);
+            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
         }
         hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
             border-width: 2px;

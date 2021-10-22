@@ -7,7 +7,7 @@
 				</ul>
 			</div>
 		<?php } ?>
-		<hr class="bg-scooter"/>
+		<hr class="tainacan-footer-area-separator"/>
 		<div class="row pt-3 pb-4 pl-0 pr-0 tainacan-footer-info">
 			<div class="col text-white font-weight-normal">
 				<p class="tainacan-footer-info--blog">

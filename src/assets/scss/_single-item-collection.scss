@@ -24,7 +24,7 @@
 .title-content-items {
     font-size: 1.125rem !important;
     font-weight: 500;
-    color: #338591;
+    color: var(--tainacan-interface--link-color,  #298596);
     margin-left: 4.16666666667%;
     margin-right: 4.16666666667%;
     margin-left: 4.16666666667vw;
@@ -153,6 +153,10 @@
     min-height: 10vh;
     position: relative;
 
+    .tainacan-media-component {
+		--swiper-navigation-color: var(--tainacan-interface--link-color,  #298596);
+	}
+
     .tainacan-item-file-download {
         position: absolute;
         opacity: 0;
@@ -164,7 +168,7 @@
         right: calc(50% - 18px);
         cursor: pointer;
         font-size: 0;
-        background-color: #298596;
+        background-color: var(--tainacan-interface--link-color,  #298596);
         color: white;
         transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
 
@@ -311,7 +315,7 @@
         width: 45px;
         line-height: 0px;
         font-size: 3.75rem;
-        color: #298596;
+        color: var(--tainacan-interface--link-color,  #298596);
         cursor: pointer;
         background: transparent;
         top: 50%;
@@ -388,7 +392,7 @@
         .slick-current{
             font-weight: bold;
             img {
-                border-bottom: 4px solid #298596;
+                border-bottom: 4px solid var(--tainacan-interface--link-color,  #298596);
             }
         }   
     }

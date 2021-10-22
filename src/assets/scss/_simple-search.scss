@@ -6,7 +6,7 @@
                 box-shadow: none;
             }
             &::after {
-                color: #298596;
+                color: var(--tainacan-interface--link-color,  #298596);
             }
         }
         &.dropdown-sorting{

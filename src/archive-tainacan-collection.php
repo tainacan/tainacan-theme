@@ -9,7 +9,7 @@
 	<div class="row">
 		<div class="col col-sm mx-sm-auto">
 			<div class="tainacan-title">
-				<div class="border-jelly-bean tainacan-title-page" style="border-width: 2px !important;">
+				<div class="tainacan-title-page" style="border-width: 2px !important;">
 					<ul class="list-inline mb-1 d-flex">
 						<li class="list-inline-item  font-weight-bold title-page">
 							<h1><?php echo get_the_archive_title(); ?></h1>

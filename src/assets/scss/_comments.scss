@@ -1,9 +1,11 @@
 #comments{
+    border-top-color: var(--tainacan-interface--link-color,  #298596) !important;
+
     div[for=comment]{
         span{
             font-size: 1.125rem;
         }
-        .authenticated{
+        .authenticated {
             font-size: 0.625rem;
         }
     }
@@ -147,7 +149,7 @@
                     }
                 }
                 .comment-reply-link, .comment-edit-link{
-                    color: #2cb4c1;
+                    color: var(--tainacan-interface--link-color,  #298596);
                     font-size: 0.75rem;
                 }
             }
