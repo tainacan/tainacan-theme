@@ -193,7 +193,7 @@ msgstr ""
 msgctxt "Block pattern description"
 msgid ""
 "A left-aligned heading section containing a light sub-heading and an "
-"underline bellow the title."
+"underline below the title."
 msgstr ""
 
 #: functions.php:285 functions.php:303 functions.php:365
@@ -290,7 +290,7 @@ msgid "No Color Selected"
 msgstr ""
 
 #: functions/class-tainacanthemecollectioncolor.php:52
-msgid "Taincan theme header settings"
+msgid "Tainacan theme header settings"
 msgstr ""
 
 #: functions/class-tainacanthemecollectioncolor.php:57
@@ -349,7 +349,7 @@ msgstr ""
 
 #: functions/customizer.php:106
 msgid ""
-"This checkbox shows the \"Proudly Powered by Tainacan and Wordpress\" "
+"This checkbox shows the \"Proudly Powered by WordPress and Tainacan\" "
 "sentence."
 msgstr ""
 
@@ -372,11 +372,11 @@ msgstr ""
 #: functions/customizer.php:146
 msgid ""
 "The Global search is the default. Its option will only be visible if at "
-"least one of the bellow are selected."
+"least one of the below are selected."
 msgstr ""
 
 #: functions/customizer.php:160
-msgid "Display option to search on tainacan items repository list"
+msgid "Display option to search on Tainacan items repository list"
 msgstr ""
 
 #: functions/customizer.php:169 searchform.php:54
@@ -388,7 +388,7 @@ msgid "Label for the \"items\" search option"
 msgstr ""
 
 #: functions/customizer.php:190
-msgid "Display option to search on tainacan collections list"
+msgid "Display option to search on Tainacan collections list"
 msgstr ""
 
 #: functions/customizer.php:206
@@ -579,7 +579,7 @@ msgstr ""
 
 #: functions/customizer.php:666
 msgid ""
-"Toggle to not display the document and attachments name below its thumbnail."
+"Toggle to not display the document and attachments name below their thumbnails."
 msgstr ""
 
 #: functions/customizer.php:683
@@ -636,7 +636,7 @@ msgstr ""
 
 #: functions/customizer.php:796
 msgid ""
-"Toggle to hide or not the core title from the metadada list, as it already "
+"Toggle to hide or not the core title from the metadata list, as it already "
 "appears on the page title."
 msgstr ""
 
@@ -673,7 +673,7 @@ msgstr ""
 #: functions/customizer.php:888
 msgid ""
 "Sets how next and previous items links will be displayed. If your Tainacan "
-"version is bellow 0.17, this links only obey creation date order inside "
+"version is below 0.17, these links only obey creation date order inside "
 "their collection."
 msgstr ""
 
@@ -711,7 +711,7 @@ msgid "Hide the Search block."
 msgstr ""
 
 #: functions/customizer.php:956
-msgid "Toggle to do not show the search block on the control bar."
+msgid "Toggle to not show the search block on the control bar."
 msgstr ""
 
 #: functions/customizer.php:978
@@ -719,7 +719,7 @@ msgid "Hide the Advanced Search link."
 msgstr ""
 
 #: functions/customizer.php:979
-msgid "Toggle to do not show the advanced search link on the control bar."
+msgid "Toggle to not show the advanced search link on the control bar."
 msgstr ""
 
 #: functions/customizer.php:1001
@@ -727,7 +727,7 @@ msgid "Hide the \"Sort by\" button."
 msgstr ""
 
 #: functions/customizer.php:1002
-msgid "Toggle to do not show the \"Sort by\" button on the control bar."
+msgid "Toggle to not show the \"Sort by\" button on the control bar."
 msgstr ""
 
 #: functions/customizer.php:1024
@@ -736,7 +736,7 @@ msgstr ""
 
 #: functions/customizer.php:1025
 msgid ""
-"Toggle to do not show the \"View as...\" button, also referred to as "
+"Toggle to not show the \"View as...\" button, also referred to as "
 "\"Exposers modal\" on the control bar."
 msgstr ""
 
@@ -780,7 +780,7 @@ msgid "Hide the \"Hide filters\" button."
 msgstr ""
 
 #: functions/customizer.php:1123
-msgid "Toggle to do not show the \"Hide filters\" button for users."
+msgid "Toggle to not show the \"Hide filters\" button for users."
 msgstr ""
 
 #: functions/customizer.php:1140
@@ -788,7 +788,7 @@ msgid "Show Filters button inside the search control bar."
 msgstr ""
 
 #: functions/customizer.php:1141
-msgid "Toggle to do display the Filters button inside the search control bar."
+msgid "Toggle to display the Filters button inside the search control bar."
 msgstr ""
 
 #: functions/customizer.php:1158
@@ -831,7 +831,7 @@ msgstr ""
 
 #: functions/customizer.php:1230
 msgid ""
-"Toggle to do not show the \"Items per Page\" button on the pagination bar."
+"Toggle to not show the \"Items per Page\" button on the pagination bar."
 msgstr ""
 
 #: functions/customizer.php:1247
@@ -839,7 +839,7 @@ msgid "Hide the \"Go to Page\" button."
 msgstr ""
 
 #: functions/customizer.php:1248
-msgid "Toggle to do not show the \"Go to Page\" button on the pagination bar."
+msgid "Toggle to not show the \"Go to Page\" button on the pagination bar."
 msgstr ""
 
 #: functions/customizer.php:1475
@@ -899,7 +899,7 @@ msgid "Show less"
 msgstr ""
 
 #: functions/enqueues.php:65
-msgid "Copied! Link sent to the transfer area."
+msgid "Copied! Link copied to clipboard."
 msgstr ""
 
 #: functions/single-functions.php:28

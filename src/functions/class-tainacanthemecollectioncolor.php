@@ -46,7 +46,7 @@ class TainacanThemeCollectionColor {
 		?>
 
 		<div class="field tainacan-collection--section-header">
-			<h4><?php _e( 'Taincan theme header settings', 'tainacan-interface' ); ?></h4>
+			<h4><?php _e( 'Tainacan theme header settings', 'tainacan-interface' ); ?></h4>
 			<hr>
 		</div>
 

@@ -3,12 +3,12 @@
 /**
  * Functions that register the options for the customizer
  * related to the header general settings
- * 
+ *
  */
 if ( !function_exists('tainacan_interface_customize_register_header_general') ) {
 
 	function tainacan_interface_customize_register_header_general( $wp_customize ) {
-	
+
 		/**
 		 * Adds section to control Header search settings
 		 */
@@ -47,9 +47,9 @@ if ( !function_exists('tainacan_interface_customize_register_header_general') ) 
 			'type' 		=> 'checkbox',
 			'settings' 	=> 'tainacan_fixed_header',
 			'section' 	=> 'tainacan_header_general',
-			'label' => __( 'Fix header position after scroll', 'tainacan-interface' )
+			'label' => __( 'Fix header position during scroll', 'tainacan-interface' )
 		) );
-		
+
 		/**
 		 * Allows setting min heigth of site header ---------------------------------------------------------
 		 */
@@ -205,20 +205,19 @@ function tainacan_header_settings_style_output() {
 			.tainacan-logo .logo {
 				max-width: 100% !important;
 			}
-		}' . ( $is_fixed_header ? 
-		'body nav.navbar { 
+		}' . ( $is_fixed_header ?
+		'body nav.navbar {
 			position: sticky;
 			z-index: 9999;
 		}
-		body:not(.admin-bar) nav.navbar { 
+		body:not(.admin-bar) nav.navbar {
 			top: 0;
 		}
-		body.admin-bar nav.navbar { 
+		body.admin-bar nav.navbar {
 			top: 32px;
-		}' 
+		}'
 		: '');
-	
+
 	echo '<style type="text/css" id="tainacan-style-header-custom">' . $css . '</style>';
 }
 add_action( 'wp_head', 'tainacan_header_settings_style_output');
-

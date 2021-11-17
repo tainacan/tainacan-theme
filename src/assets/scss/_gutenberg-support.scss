@@ -91,12 +91,12 @@
         border-color: transparent;
     }
     &:not(.is-style-outline) .btn.btn-jelly-bean {
-        background-color: var(--tainacan-interface--link-color,  #298596);
+        background-color: var(--tainacan-interface--link-color, #298596);
     }
 }
 .wp-block-button.is-style-outline .btn {
     background: transparent !important;
-    color: var(--tainacan-interface--link-color,  #298596);
+    color: var(--tainacan-interface--link-color, #298596);
     border: 1px solid #555758 !important;
 }
 .wp-block-button.aligncenter,

@@ -71,7 +71,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 
 			wp_enqueue_script( 'tainacan_copyLink', get_template_directory_uri() . '/assets/js/copy-link.js', [] , TAINACAN_INTERFACE_VERSION, false );
 			wp_localize_script( 'tainacan_copyLink', 'tainacan_copyLinkVars', array(
-				'linkCopied' => __( 'Copied! Link sent to the transfer area.', 'tainacan-interface' )
+				'linkCopied' => __( 'Copied! Link copied to clipboard.', 'tainacan-interface' )
 			));
 
 			// Tainacan Icons
@@ -84,7 +84,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
-		
+
 	} // tainacan_enqueues
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_enqueues' );

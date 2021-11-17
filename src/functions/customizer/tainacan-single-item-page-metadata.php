@@ -93,7 +93,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
             
             /**
-             * Adds options to hide or no the core metadada in the metadada list.
+             * Adds options to hide or no the core metadata in the metadata list.
              */
             $wp_customize->add_setting( 'tainacan_single_item_hide_core_title_metadata', array(
                 'type' 		 => 'theme_mod',
@@ -107,7 +107,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 'priority' 	  => 2, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_metadata',
                 'label'    	  => __( 'Hide core title from metadata list', 'tainacan-interface' ),
-                'description' => __( 'Toggle to hide or not the core title from the metadada list, as it already appears on the page title.', 'tainacan-interface' )
+                'description' => __( 'Toggle to hide or not the core title from the metadata list, as it already appears on the page title.', 'tainacan-interface' )
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_hide_core_title_metadata', array(
                 'selector' => '.metadata-type-core_title',
