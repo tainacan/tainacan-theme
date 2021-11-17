@@ -1165,7 +1165,7 @@ nav {
     margin-top: 0px !important;
 }
 
-.tainacan-title{
+.tainacan-title {
     .tainacan-title-page{
         margin-bottom: 0.75rem;
         border-bottom: 2px solid var(--tainacan-interface--link-color, #298596);
@@ -1175,6 +1175,7 @@ nav {
             word-break: break-word;
             margin: 0;
             padding-top: 0;
+            color: var(--tainacan-interface--link-color,  #298596);
             @media only screen and (max-width: 576px){
                 min-width: 85%;
                 overflow: hidden;

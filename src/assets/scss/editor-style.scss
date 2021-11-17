@@ -130,6 +130,10 @@
         padding-right: 0;
     }
 
+    /* List Block has some weird alignment...*/
+    .wp-block-list {
+        box-sizing: border-box;
+    }
 
     /* Columns */
     .wp-block-columns>.editor-inner-blocks >.editor-block-list__layout> [data-type="core/column"]:not(:last-child),
