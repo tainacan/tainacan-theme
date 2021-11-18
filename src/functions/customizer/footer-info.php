@@ -127,7 +127,7 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'settings' => 'tainacan_display_powered',
 			'section' => 'tainacan_interface_footer_info',
 			'label' => __( 'Display "Proudly Powered by..."', 'tainacan-interface' ),
-			'description' => __( 'This checkbox shows the "Proudly Powered by Tainacan and Wordpress" sentence.', 'tainacan-interface' ),
+			'description' => __( 'This checkbox shows the "Proudly Powered by WordPress and Tainacan" sentence.', 'tainacan-interface' ),
 		) );
 
 

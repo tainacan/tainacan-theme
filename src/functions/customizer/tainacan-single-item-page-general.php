@@ -3,12 +3,12 @@
 /**
  * Functions that register the options for the customizer
  * related to the Tainacan plugin Item single page - General layout settings.
- * 
+ *
  */
 if ( !function_exists('tainacan_interface_customize_register_tainacan_single_item_page_general') ) {
-	
+
 	function tainacan_interface_customize_register_tainacan_single_item_page_general( $wp_customize ) {
-		
+
         /* If the Tainacan plugin is installed */
 		if (defined ( 'TAINACAN_VERSION' ) ) {
 
@@ -128,7 +128,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     'priority' 	  => 3, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_general',
                     'label'    	  => __( 'Navigation links to adjacent items', 'tainacan-interface' ),
-                    'description' => __( 'Sets how next and previous items links will be displayed. If your Tainacan version is bellow 0.17, this links only obey creation date order inside their collection.', 'tainacan-interface' ),
+                    'description' => __( 'Sets how next and previous items links will be displayed. If your Tainacan version is below 0.17, these links only obey creation date order inside their collection.', 'tainacan-interface' ),
                     'choices'	  => tainacan_get_single_item_navigation_links_options()
                     ) );
 
@@ -251,4 +251,3 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_navigation_links_options'
 		return $option;
 	}
 endif; // tainacan_sanitize_single_item_navigation_links_options
-

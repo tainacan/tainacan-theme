@@ -193,7 +193,7 @@ msgstr "Sessão de título Tainacan"
 msgctxt "Block pattern description"
 msgid ""
 "A left-aligned heading section containing a light sub-heading and an "
-"underline bellow the title."
+"underline below the title."
 msgstr ""
 "Uma sessão de título alinhada à esquerda contendo um discreto sub-título e "
 "uma linha abaixo do título."
@@ -299,7 +299,7 @@ msgid "No Color Selected"
 msgstr "Nenhuma Cor Selecionada"
 
 #: functions/class-tainacanthemecollectioncolor.php:49
-msgid "Taincan theme header settings"
+msgid "Tainacan theme header settings"
 msgstr "Configurações de cabeçalho do tema Tainacan"
 
 #: functions/class-tainacanthemecollectioncolor.php:54
@@ -370,10 +370,10 @@ msgstr "Exibir \"Orgulhosamente feito com...\""
 
 #: functions/customizer.php:135
 msgid ""
-"This checkbox shows the \"Proudly Powered by Tainacan and Wordpress\" "
+"This checkbox shows the \"Proudly Powered by WordPress and Tainacan\" "
 "sentence."
 msgstr ""
-"Este checkbox mostra a frase \"Orgulhosamente feito com Tainacan e Wordpress"
+"Este checkbox mostra a frase \"Orgulhosamente feito com Tainacan e WordPress"
 "\"."
 
 #: functions/customizer.php:144
@@ -438,13 +438,13 @@ msgstr "Rótulo para a opção de busca \"Global\""
 #: functions/customizer.php:307
 msgid ""
 "The Global search is the default. Its option will only be visible if at "
-"least one of the bellow are selected."
+"least one of the below are selected."
 msgstr ""
 "A busca Global é a padrão. Esta opção só estará visível se pelo menos uma "
 "das a seguir estiver selecionada."
 
 #: functions/customizer.php:321
-msgid "Display option to search on tainacan items repository list"
+msgid "Display option to search on Tainacan items repository list"
 msgstr "Mostrar opção de busca específica para a lista de itens do Tainacan"
 
 #: functions/customizer.php:330 searchform.php:54
@@ -456,7 +456,7 @@ msgid "Label for the \"items\" search option"
 msgstr "Rótulo para a opção de busca \"Itens\""
 
 #: functions/customizer.php:351
-msgid "Display option to search on tainacan collections list"
+msgid "Display option to search on Tainacan collections list"
 msgstr ""
 "Mostrar opção de busca específica para as lista de coleções do tainacan"
 
@@ -730,7 +730,7 @@ msgstr "Esconder  rótulo dos anexos (no carrossel)"
 
 #: functions/customizer.php:901
 msgid ""
-"Toggle to not display the document and attachments name below its thumbnail."
+"Toggle to not display the document and attachments name below their thumbnails."
 msgstr ""
 "Troque para não mostrar o nome do documento ou anexos abaixo de suas "
 "miniaturas."
@@ -831,7 +831,7 @@ msgstr "Esconder o título principal da lista de metadados"
 
 #: functions/customizer.php:1112
 msgid ""
-"Toggle to hide or not the core title from the metadada list, as it already "
+"Toggle to hide or not the core title from the metadata list, as it already "
 "appears on the page title."
 msgstr ""
 "Troque para esconder a faixa com o título do site que aparece sobre o banner "
@@ -872,7 +872,7 @@ msgstr "Links de navegação para os itens adjacentes"
 #: functions/customizer.php:1204
 msgid ""
 "Sets how next and previous items links will be displayed. If your Tainacan "
-"version is bellow 0.17, this links only obey creation date order inside "
+"version is below 0.17, these links only obey creation date order inside "
 "their collection."
 msgstr ""
 "Determina como os links de itens próximos e anteriores serão exibidos. Se a "
@@ -937,7 +937,7 @@ msgid "Hide the Search block."
 msgstr "Esconder o bloco de Busca."
 
 #: functions/customizer.php:1311
-msgid "Toggle to do not show the search block on the control bar."
+msgid "Toggle to not show the search block on the control bar."
 msgstr "Troque para não mostrar o bloco de busca na barra de controle."
 
 #: functions/customizer.php:1333
@@ -945,7 +945,7 @@ msgid "Hide the Advanced Search link."
 msgstr "Esconder o link para a Busca Avançada."
 
 #: functions/customizer.php:1334
-msgid "Toggle to do not show the advanced search link on the control bar."
+msgid "Toggle to not show the advanced search link on the control bar."
 msgstr ""
 "Troque para não mostrar o link para a busca avançada na barra de controle."
 
@@ -954,7 +954,7 @@ msgid "Hide the \"Sort by\" button."
 msgstr "Esconder o botão \"Ordenar por\"."
 
 #: functions/customizer.php:1357
-msgid "Toggle to do not show the \"Sort by\" button on the control bar."
+msgid "Toggle to not show the \"Sort by\" button on the control bar."
 msgstr "Troque para não esconder  botão \"Ordenar por\" na barra de controle ."
 
 #: functions/customizer.php:1379
@@ -963,7 +963,7 @@ msgstr "Esconder o botão \"Ver como...\"."
 
 #: functions/customizer.php:1380
 msgid ""
-"Toggle to do not show the \"View as...\" button, also referred to as "
+"Toggle to not show the \"View as...\" button, also referred to as "
 "\"Exposers modal\" on the control bar."
 msgstr ""
 "Troque para não esconder o botão \"Ver como...\", também chamado de  \"Modal "
@@ -1017,7 +1017,7 @@ msgid "Hide the \"Hide filters\" button."
 msgstr "Esconder o botão \"Esconder filtros\"."
 
 #: functions/customizer.php:1478
-msgid "Toggle to do not show the \"Hide filters\" button for users."
+msgid "Toggle to not show the \"Hide filters\" button for users."
 msgstr "Troque para não mostrar o botão \"Esconder filtros\" para usuários."
 
 #: functions/customizer.php:1495
@@ -1025,7 +1025,7 @@ msgid "Show Filters button inside the search control bar."
 msgstr "Mostrar o botão de filtros dentro da barra de controle da busca."
 
 #: functions/customizer.php:1496
-msgid "Toggle to do display the Filters button inside the search control bar."
+msgid "Toggle to display the Filters button inside the search control bar."
 msgstr ""
 "Troque para mostrar o botão de Filtros dentro da lista de controle da busca."
 
@@ -1089,7 +1089,7 @@ msgstr "Esconder o botão \"Itens por Página\"."
 
 #: functions/customizer.php:1605
 msgid ""
-"Toggle to do not show the \"Items per Page\" button on the pagination bar."
+"Toggle to not show the \"Items per Page\" button on the pagination bar."
 msgstr ""
 "Troque para não mostrar o botão \"Itens por Página\" na barra de paginação."
 
@@ -1098,7 +1098,7 @@ msgid "Hide the \"Go to Page\" button."
 msgstr "Esconder o botão \"Ir para a página\"."
 
 #: functions/customizer.php:1623
-msgid "Toggle to do not show the \"Go to Page\" button on the pagination bar."
+msgid "Toggle to not show the \"Go to Page\" button on the pagination bar."
 msgstr ""
 "Toque para não mostrar o botão \"Ir para a página\" na barra de paginação."
 

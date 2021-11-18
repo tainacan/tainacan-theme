@@ -56,7 +56,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 1, // Within the section.
 				'section'  	  => 'tainacan_items_page_filters_panel',
 				'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do not show the "Hide filters" button for users.', 'tainacan-interface' )
+				'description' => __( 'Toggle to not show the "Hide filters" button for users.', 'tainacan-interface' )
 				) );
 
 			/**
@@ -74,7 +74,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 8, // Within the section.
 				'section'  	  => 'tainacan_items_page_filters_panel',
 				'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do display the Filters button inside the search control bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to display the Filters button inside the search control bar.', 'tainacan-interface' )
 				) );
 				
 			/**

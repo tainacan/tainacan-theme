@@ -1,5 +1,5 @@
 #comments{
-    border-top-color: var(--tainacan-interface--link-color,  #298596) !important;
+    border-top-color: var(--tainacan-interface--link-color, #298596) !important;
 
     div[for=comment]{
         span{
@@ -149,7 +149,7 @@
                     }
                 }
                 .comment-reply-link, .comment-edit-link{
-                    color: var(--tainacan-interface--link-color,  #298596);
+                    color: var(--tainacan-interface--link-color, #298596);
                     font-size: 0.75rem;
                 }
             }

@@ -66,5 +66,5 @@ License: CC0
 4. https://pxhere.com/en/photo/1432253
 License: CC0
 
-Bundled images, Copyright Taincan.org
+Bundled images, Copyright Tainacan.org
 License: CC0 1.0 Universal (CC0 1.0)

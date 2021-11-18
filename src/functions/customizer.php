@@ -17,14 +17,14 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_panel( 'tainacan_header_settings', array(
 		'title' 	  => __( 'Site header settings', 'tainacan-interface' ),
-		'description' => __( 'Settings related to the site header, such as the menu and logo position.', 'tainacan-interface' ), 
+		'description' => __( 'Settings related to the site header, such as the menu and logo position.', 'tainacan-interface' ),
 		'priority' 	  => 40, // Mixed with top-level-section hierarchy.,
 		'capability'  => 'edit_theme_options'
 	) );
 
 
 	/**
-	 * Bellow are customizer options exclusivelly related to Tainacan pages.
+	 * Below are customizer options exclusivelly related to Tainacan pages.
 	 */
 	if ( defined ( 'TAINACAN_VERSION' ) ) {
 
@@ -33,7 +33,7 @@ function tainacan_customize_register( $wp_customize ) {
 		 */
 		$wp_customize->add_panel( 'tainacan_single_item_page', array(
 			'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
-			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ), 
+			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
 			'priority' 	  => 160, // Mixed with top-level-section hierarchy.,
 			'capability'  => 'edit_theme_options'
 		) );
@@ -46,7 +46,7 @@ function tainacan_customize_register( $wp_customize ) {
 			 */
 			$wp_customize->add_panel( 'tainacan_items_page', array(
 				'title' 	  => __( 'Tainacan items list page', 'tainacan-interface' ),
-				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the collection item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ), 
+				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the collection item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ),
 				'priority' 	  => 160 // Mixed with top-level-section hierarchy.,
 			) );
 

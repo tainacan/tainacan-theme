@@ -51,7 +51,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 6, // Within the section.
 				'section'  	  => 'tainacan_items_page_pagination',
 				'label'    	  => __( 'Hide the "Items per Page" button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do not show the "Items per Page" button on the pagination bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to not show the "Items per Page" button on the pagination bar.', 'tainacan-interface' )
 				) );
 			
 			/**
@@ -69,7 +69,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 7, // Within the section.
 				'section'  	  => 'tainacan_items_page_pagination',
 				'label'    	  => __( 'Hide the "Go to Page" button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to do not show the "Go to Page" button on the pagination bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to not show the "Go to Page" button on the pagination bar.', 'tainacan-interface' )
 				) );
 			
         }

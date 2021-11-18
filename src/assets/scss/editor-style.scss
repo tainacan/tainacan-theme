@@ -10,7 +10,7 @@
 .editor-styles-wrapper,
 .components-modal__screen-overlay {
     font-family: 'Roboto', sans-serif !important;
-    
+
     // Register palette classes for colors
     .has-carmine-color { color: #8c442c  }
     .has-carmine-background-color { background-color: #8c442c }
@@ -100,9 +100,9 @@
         padding: 0;
         max-width: calc(1400px - 4.1666667%);
         width: calc(100% - 8.33333%);
-        border-bottom: 2px solid var(--tainacan-interface--link-color,  #298596);
-        border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
-        
+        border-bottom: 2px solid var(--tainacan-interface--link-color, #298596);
+        border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+
         &>.wp-block {
             margin: 0 !important;
             padding: 0px;
@@ -111,11 +111,11 @@
     .wp-block.editor-post-title__block,
     .editor-post-title__block .editor-post-title__input{
         font-size: 1.25rem;
-        font-family: 'Roboto', sans-serif;   
+        font-family: 'Roboto', sans-serif;
         textarea {
             padding: 3px 6px;
-            color: var(--tainacan-interface--link-color,  #298596);
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596)); 
+            color: var(--tainacan-interface--link-color, #298596);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
     }
 
@@ -151,10 +151,10 @@
         margin-right: 0;
         padding: 0;
     }
-    .wp-block-columns>.wp-block-column[data-type="core/column"]:not(:first-child) { 
+    .wp-block-columns>.wp-block-column[data-type="core/column"]:not(:first-child) {
         padding-left: 2.0833333%; // Half column
     }
-    .wp-block-columns>.wp-block-column[data-type="core/column"]:not(:last-child) { 
+    .wp-block-columns>.wp-block-column[data-type="core/column"]:not(:last-child) {
         padding-right: 2.0833333%; // Half column
     }
     .wp-block-columns>.wp-block-column[data-type="core/column"]>.wp-block {
@@ -169,8 +169,8 @@
     .wp-block[data-type="core/heading"] h1,
     h1.wp-block[data-type="core/heading"] {
         font-size: 1.802rem;
-        color: var(--tainacan-interface--link-color,  #298596);
-        color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+        color: var(--tainacan-interface--link-color, #298596);
+        color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         padding-top: .4rem;
         margin-bottom: .5rem;
     }
@@ -251,14 +251,14 @@
         line-height: 1.2rem;
     }
     .components-button.is-button.is-primary {
-        background-color: var(--tainacan-interface--link-color,  #298596);
-        background-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+        background-color: var(--tainacan-interface--link-color, #298596);
+        background-color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
     }
     .components-button.is-button.is-default {
         background: white;
         border: 1px solid #555758;
-        color: var(--tainacan-interface--link-color,  #298596);
-        color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+        color: var(--tainacan-interface--link-color, #298596);
+        color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
     }
     .components-icon-button:hover:not(.is-default),
     .components-icon-button:focus:not(.is-default),
@@ -279,8 +279,8 @@
     }
     .wp-block-button__link {
         &:not(.has-background) {
-            background-color: var(--tainacan-interface--link-color,  #298596);
-            background-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            background-color: var(--tainacan-interface--link-color, #298596);
+            background-color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
         border-radius: 4px;
         font-size: 0.875rem;
@@ -290,8 +290,8 @@
         background-color: transparent !important;
         border: 1px solid #555758;
         &:not(.has-text-color) {
-            color: var(--tainacan-interface--link-color,  #298596);
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            color: var(--tainacan-interface--link-color, #298596);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
     }
     .is-style-squared .wp-block-button__link {
@@ -299,37 +299,37 @@
     }
 
     /* Text input */
-    .components-modal__content .input-control, 
-    .components-modal__content input[type="date"], 
-    .components-modal__content input[type="datetime-local"], 
-    .components-modal__content input[type="datetime"], 
-    .components-modal__content input[type="email"], 
-    .components-modal__content input[type="month"], 
-    .components-modal__content input[type="number"], 
+    .components-modal__content .input-control,
+    .components-modal__content input[type="date"],
+    .components-modal__content input[type="datetime-local"],
+    .components-modal__content input[type="datetime"],
+    .components-modal__content input[type="email"],
+    .components-modal__content input[type="month"],
+    .components-modal__content input[type="number"],
     .components-modal__content input[type="password"],
-    .components-modal__content input[type="search"], 
-    .components-modal__content input[type="tel"], 
-    .components-modal__content input[type="text"], 
-    .components-modal__content input[type="time"], 
-    .components-modal__content input[type="url"], 
-    .components-modal__content input[type="week"], 
-    .components-modal__content select, 
-    .components-modal__content textarea, 
+    .components-modal__content input[type="search"],
+    .components-modal__content input[type="tel"],
+    .components-modal__content input[type="text"],
+    .components-modal__content input[type="time"],
+    .components-modal__content input[type="url"],
+    .components-modal__content input[type="week"],
+    .components-modal__content select,
+    .components-modal__content textarea,
     .components-popover .input-control,
-    .components-popover input[type="date"], 
-    .components-popover input[type="datetime-local"], 
-    .components-popover input[type="datetime"], 
-    .components-popover input[type="email"], 
-    .components-popover input[type="month"], 
-    .components-popover input[type="number"], 
+    .components-popover input[type="date"],
+    .components-popover input[type="datetime-local"],
+    .components-popover input[type="datetime"],
+    .components-popover input[type="email"],
+    .components-popover input[type="month"],
+    .components-popover input[type="number"],
     .components-popover input[type="password"],
-    .components-popover input[type="search"], 
-    .components-popover input[type="tel"], 
-    .components-popover input[type="text"], 
-    .components-popover input[type="time"], 
-    .components-popover input[type="url"], 
-    .components-popover input[type="week"], 
-    .components-popover select, 
+    .components-popover input[type="search"],
+    .components-popover input[type="tel"],
+    .components-popover input[type="text"],
+    .components-popover input[type="time"],
+    .components-popover input[type="url"],
+    .components-popover input[type="week"],
+    .components-popover select,
     .components-popover textarea {
         border-radius: 0;
         border-color: #cbcbcb;
@@ -379,7 +379,7 @@
         height: 32px;
         margin: 0 12px 32px 12px;
         padding: 0;
-        border-bottom: 1px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+        border-bottom: 1px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
 
         .components-modal__header-heading,
         h1 {
@@ -402,7 +402,7 @@
         font-family: 'Roboto', sans-serif;
     }
     .wp-block-quote:not(.is-style-large):not(.is-large) {
-        border-left: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+        border-left: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
     }
     .wp-block-quote__citation {
         font-weight: 500;
@@ -415,8 +415,8 @@
     /* Pullquote */
     .wp-block-pullquote {
         &:not(.is-style-solid-color) {
-            border-top: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
-            border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            border-top: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+            border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
         padding: 0;
 
@@ -432,8 +432,8 @@
         }
         :not(.has-text-color) .block-library-pullquote__content.editor-rich-text p,
         :not(.has-text-color) .rich-text.block-editor-rich-text__editable p {
-            color: var(--tainacan-interface--link-color,  #298596);
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            color: var(--tainacan-interface--link-color, #298596);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
         .wp-block-pullquote__citation {
             color: #555758;
@@ -444,11 +444,11 @@
         }
     }
 
-    /* Separator */ 
+    /* Separator */
     .wp-block-separator {
         &:not(.has-background-color) {
-            border-color: var(--tainacan-interface--link-color,  #298596);
-            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            border-color: var(--tainacan-interface--link-color, #298596);
+            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
         width: 50%;
         max-width: 300px;
@@ -457,8 +457,8 @@
         }
         &.is-style-dots {
             &:not(.has-background-color)::before {
-                color: var(--tainacan-interface--link-color,  #298596);
-                color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+                color: var(--tainacan-interface--link-color, #298596);
+                color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
             }
             &::before {
                 font-weight: 600;
@@ -476,8 +476,8 @@
 
     /* Code */
     .wp-block-code textarea {
-        color: var(--tainacan-interface--link-color,  #298596);
-        color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+        color: var(--tainacan-interface--link-color, #298596);
+        color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
     }
 
     /* Tables */
@@ -493,7 +493,7 @@
 
     /* Tainacan Selection Modal */
     .wp-block-tainacan-modal.dynamic-modal {
-        
+
         iframe {
             width: calc(100% + 64px);
             height: calc(100% - 104px);
@@ -536,30 +536,30 @@
     /* Extra title group class, that can be added for styling special headings */
     .wp-block-group.tainacan-group-heading {
         .wp-block-heading {
-            color: var(--tainacan-interface--link-color,  #298596) !important;
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596)) !important;
+            color: var(--tainacan-interface--link-color, #298596) !important;
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596)) !important;
         }
         h1:not(.has-text-color),
         h2:not(.has-text-color),
         h3:not(.has-text-color),
         h4:not(.has-text-color) {
-            color: var(--tainacan-interface--link-color,  #298596) !important;
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            color: var(--tainacan-interface--link-color, #298596) !important;
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
         h1.wp-block-heading,
-        h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+        h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
             font-size: 1.6rem;
         }
         h2.wp-block-heading,
-        h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+        h2:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
             font-size: 1.5rem;
         }
         h3.wp-block-heading,
-        h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+        h3:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
             font-size: 1.25rem;
         }
         h4.wp-block-heading,
-        h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) { 
+        h4:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size) {
             font-size: 1.125rem;
         }
         p {
@@ -571,8 +571,8 @@
         hr.wp-block-separator:not(.is-style-wide) {
             margin-left: 0;
             max-width: 200px;
-            border-color: var(--tainacan-interface--link-color,  #298596);
-            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color,  #298596));
+            border-color: var(--tainacan-interface--link-color, #298596);
+            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
         }
         hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
             border-width: 2px;

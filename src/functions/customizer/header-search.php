@@ -3,12 +3,12 @@
 /**
  * Functions that register the options for the customizer
  * related to the header search settings
- * 
+ *
  */
 if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 
 	function tainacan_interface_customize_register_header_search( $wp_customize ) {
-	
+
 		/**
 		 * Adds section to control Header search settings
 		 */
@@ -49,7 +49,7 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 				'settings'	  => 'tainacan_search_global_label',
 				'section'  	  => 'tainacan_header_search',
 				'label'    	  => __( 'Label for "Global" search option', 'tainacan-interface' ),
-				'description' => __( 'Includes all kinds of post types. This option will only be visible if at least one of the bellow are selected.', 'tainacan-interface')
+				'description' => __( 'Includes all kinds of post types. This option will only be visible if at least one of the below are selected.', 'tainacan-interface')
 				) );
 
 			/**
@@ -68,10 +68,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 				'settings'	  => 'tainacan_search_default_option',
 				'section'  	  => 'tainacan_header_search',
 				'label'    	  => __( 'Default search option', 'tainacan-interface' ),
-				'description' => __( 'This option will only be valid if at least one of the bellow are selected, otherwise the default search happens on WordPress posts.', 'tainacan-interface'),
+				'description' => __( 'This option will only be valid if at least one of the below are selected, otherwise the default search happens on WordPress posts.', 'tainacan-interface'),
 				'choices'	  => tainacan_get_search_options()
 				) );
-			
+
 			// Option to search directly on repository items list
 			$wp_customize->add_setting( 'tainacan_search_on_items', array(
 				'type'       => 'theme_mod',
@@ -83,7 +83,7 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 				'type' 		=> 'checkbox',
 				'settings' 	=> 'tainacan_search_on_items',
 				'section' 	=> 'tainacan_header_search',
-				'label'		=> __( 'Display option to search on tainacan items repository list', 'tainacan-interface' )
+				'label'		=> __( 'Display option to search on Tainacan items repository list', 'tainacan-interface' )
 			) );
 
 			/**
@@ -113,7 +113,7 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 				'type' 		=> 'checkbox',
 				'settings' 	=> 'tainacan_search_on_collections',
 				'section' 	=> 'tainacan_header_search',
-				'label'		=> __( 'Display option to search on tainacan collections list', 'tainacan-interface' )
+				'label'		=> __( 'Display option to search on Tainacan collections list', 'tainacan-interface' )
 			) );
 
 			/**

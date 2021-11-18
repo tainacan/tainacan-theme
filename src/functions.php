@@ -14,9 +14,9 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	 * Observe que esta função está conectada ao gancho (`hook`) `after_setup_theme`, que é executado antes do gancho de init.
 	 */
 	function tainacan_setup() {
-		
+
 		load_theme_textdomain( 'tainacan-interface', get_template_directory() . '/languages' );
-		
+
 		/**
 		 * Display in gutenberg plugin the full width for image
 		 */
@@ -29,7 +29,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		 * Removes support for Gutenberg widgets editor, by now...
 		 */
 		remove_theme_support( 'widgets-block-editor' );
-		
+
 		/**
 		 * Custom header to change the banner image
 		 */
@@ -86,12 +86,12 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 							</div>'
 			));
 		}
-		
+
 		/**
 		 * Gutenberg support
 		 */
 		$default_color = '#298596';
-		
+
 		if (function_exists('tainacan_get_color_scheme')) {
 			$color_scheme = tainacan_get_color_scheme();
 
@@ -183,7 +183,7 @@ add_action( 'after_setup_theme', 'tainacan_setup' );
 function tainacan_customize_editor_css() {
 
 	$default_color = '#298596';
-		
+
 	if (function_exists('tainacan_get_color_scheme')) {
 		$color_scheme = tainacan_get_color_scheme();
 
@@ -194,9 +194,9 @@ function tainacan_customize_editor_css() {
 
 	?>
 	<style>
-		.editor-styles-wrapper { 
-			--tainacan-color-default: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color,  #298596)' : $default_color; ?>;
-			--tainacan-block-primary: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color,  #298596)' : $default_color;?>;
+		.editor-styles-wrapper {
+			--tainacan-color-default: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color; ?>;
+			--tainacan-block-primary: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color;?>;
 		}
 	</style>
 	<?php
@@ -204,7 +204,7 @@ function tainacan_customize_editor_css() {
 add_action( 'admin_head', 'tainacan_customize_editor_css');
 
 /**
- * This function modifies the main WordPress query to include an array of 
+ * This function modifies the main WordPress query to include an array of
  * post types instead of the default 'post' post type.
  *
  * @param object $query The main WordPress query.
@@ -225,7 +225,7 @@ function tainacan_include_items_in_search_results( $query ) {
 
 			if ( !is_array($existing_post_types) )
 					$existing_post_types = [ $existing_post_types ];
-			
+
 			$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'page', 'tainacan-collection'], $collections_post_types ) );
 		} else if ( isset($_GET['onlypages']) && $_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
 			$query->set( 'post_type', 'pages' );
@@ -315,7 +315,7 @@ function tainacan_block_patterns_init() {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 	if ((is_plugin_active('gutenberg/gutenberg.php') || $wp_version >= '5') && function_exists('register_block_pattern_category')) {
-		register_block_pattern_category( 
+		register_block_pattern_category(
 			'tainacan-interface',
 			array( 'label' => _x( 'Tainacan Interface', 'Block pattern category', 'tainacan-interface' ) ) );
 	}
@@ -325,9 +325,9 @@ function tainacan_block_patterns_init() {
 			'tainacan-interface/tainacan-heading-section-pattern',
 			array(
 				'title'       => __( 'Tainacan heading section', 'tainacan-interface' ),
-				'description' => _x( 'A left-aligned heading section containing a light sub-heading and an underline bellow the title.', 'Block pattern description', 'tainacan-interface' ),
+				'description' => _x( 'A left-aligned heading section containing a light sub-heading and an underline below the title.', 'Block pattern description', 'tainacan-interface' ),
 				'content'     => '<!-- wp:group {"className":"tainacan-heading-section-pattern-pattern"} --><div class="wp-block-group tainacan-heading-section-pattern-pattern"><div class="wp-block-group__inner-container"><!-- wp:heading {"textColor":"default","style":{"typography":{"fontSize":24}}} --><h2 class="has-default-color has-text-color" style="font-size:24px">' . esc_html__( 'Section title', 'tainacan-interface' ) . '</h2><!-- /wp:heading --><!-- wp:paragraph {"style":{"color":{"text":"#838386"}}} --><p class="has-text-color" style="color:#898d8f">' . esc_html__( 'Section optional description...', 'tainacan-interface' ) . '</p><!-- /wp:paragraph --><!-- wp:separator {"color":"default"} --><hr class="wp-block-separator has-text-color has-background has-default-background-color has-default-color"/><!-- /wp:separator --><!-- wp:spacer {"height":32} --><div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div><!-- /wp:spacer --></div></div><!-- /wp:group -->',
-				'categories'  => array('tainacan-interface')	
+				'categories'  => array('tainacan-interface')
 			)
 		);
 		register_block_pattern(
@@ -338,7 +338,7 @@ function tainacan_block_patterns_init() {
 				'content'     => '
 				<!-- wp:cover {"overlayColor":"default","align":"full"} -->
 				<div class="wp-block-cover alignfull has-default-background-color has-background-dim">
-					
+
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:spacer {"height": 24} -->
 						<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
@@ -358,13 +358,13 @@ function tainacan_block_patterns_init() {
 								<!-- /wp:image -->
 							</div>
 							<!-- /wp:column -->
-							
+
 							<!-- wp:column {"width":66.66} -->
 							<div class="wp-block-column" style="flex-basis:66.66%">
 								<!-- wp:paragraph {"fontSize":"normal"} -->
 								<p class="has-normal-font-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								<!-- /wp:paragraph -->
-								
+
 								<!-- wp:paragraph {"align":"right","style":{"color":{"text":"#ffffff"}}} -->
 								<p class="has-text-align-right has-text-color" style="color:#ffffff"><a href="/"> ' .esc_html__( 'View more...', 'tainacan-interface' ) . '</a></p>
 								<!-- /wp:paragraph -->
@@ -402,13 +402,13 @@ function tainacan_block_patterns_init() {
 								<!-- /wp:image -->
 							</div>
 							<!-- /wp:column -->
-							
+
 							<!-- wp:column {"width":33.33} -->
 							<div class="wp-block-column" style="flex-basis:33.33%">
 								<!-- wp:heading {"style":{"color":{"text":"#ffffff"}}} -->
 								<h2 class="has-text-color" style="color:#ffffff">' . esc_html__( 'Section title', 'tainacan-interface' ) . '</h2>
 								<!-- /wp:heading -->
-								
+
 								<!-- wp:paragraph {"fontSize":"normal"} -->
 								<p class="has-normal-font-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								<!-- /wp:paragraph -->
@@ -420,7 +420,7 @@ function tainacan_block_patterns_init() {
 								<!-- wp:paragraph {"fontSize":"normal"} -->
 								<p class="has-normal-font-size">Sed at orci ex. Nulla pulvinar, lorem vel eleifend maximus, nunc elit porta felis, id placerat orci dui sit amet ligula. Mauris fermentum dui quam, eget blandit ligula vulputate sit amet. Integer aliquet eget urna ac tempor. Nunc viverra faucibus magna ac aliquet. Integer ullamcorper lacinia elit quis gravida. Duis placerat pulvinar arcu nec faucibus. Sed sit amet enim iaculis, facilisis est non, venenatis nibh.</p>
 								<!-- /wp:paragraph -->
-								
+
 								<!-- wp:paragraph {"align":"right","style":{"color":{"text":"#ffffff"}}} -->
 								<p class="has-text-align-right has-text-color" style="color:#ffffff"><a href="/"> ' .esc_html__( 'View more...', 'tainacan-interface' ) . '</a></p>
 								<!-- /wp:paragraph -->
@@ -539,7 +539,7 @@ add_action( 'pre_get_posts', 'tainacan_theme_collection_query' );
 function tainacan_customizer_gutenberg_colors() {
 
 	// Retrieve the link color from the Customizer.
-	$link_color = get_theme_mod( 'tainacan_link_color', 'default' ); 
+	$link_color = get_theme_mod( 'tainacan_link_color', 'default' );
 
 	// Build styles.
 	$css  = '';
@@ -555,7 +555,7 @@ function tainacan_editor_styles() {
 
 	// Adds Tainacan editor style for Gutenberg.
     wp_enqueue_style( 'tainacan-editor-style', get_template_directory_uri() . '/editor-style.css', [], TAINACAN_INTERFACE_VERSION );
-	
+
 	// Adds Robot fonts to Gutenberg.
 	wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
 

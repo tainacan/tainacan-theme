@@ -164,7 +164,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 'priority' 	  => 3, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_document',
                 'label'    	  => __( 'Hide the attachments label (on carousel)', 'tainacan-interface' ),
-                'description' => __( 'Toggle to not display the document and attachments name below its thumbnail.', 'tainacan-interface' )
+                'description' => __( 'Toggle to not display the document and attachments name below their thumbnails.', 'tainacan-interface' )
                 ) );
 
             if (version_compare(TAINACAN_VERSION, '0.18RC') >= 0) {
