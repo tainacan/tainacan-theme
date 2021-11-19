@@ -581,7 +581,7 @@
                 .multivalue-separator {
                     display: block;
                     max-height: 1px;
-                    width: 70px;
+                    width: 45%;
                     background: #cbcbcb;
                     content: none;
                     color: transparent;
@@ -600,6 +600,9 @@
                 p {
                     margin-top: 0rem;
                     margin-bottom: 0.5rem;
+                }
+                &>.multivalue-separator {
+                    margin: 0.5em auto 1.0em -1.5em;
                 }
             }
             .tainacan-relationship-group {
