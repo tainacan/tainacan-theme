@@ -39,7 +39,20 @@
 				
 				<div class="dropdown margin-one-column-left dropdown-viewMode">
 					<button class="btn dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>
+						<?php 
+							switch($view_mode) {
+								case 'table':
+									echo '<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>';
+									break;
+								case 'grid':
+									echo '<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewminiature text-oslo-gray"></i>';
+									break;
+								case 'cards':
+								 default:
+									echo '<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewcards text-oslo-gray"></i>';
+									break;
+							}
+						?>
 						<span class="d-none d-md-inline"><?php _e( 'View Mode', 'tainacan-interface' ); ?></span>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
