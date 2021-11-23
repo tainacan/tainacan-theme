@@ -1,6 +1,18 @@
 <?php get_header(); ?>
 
-<?php $view_mode = get_query_var( 'tainacan_collections_viewmode' ); ?>
+<?php 
+	// Gets the current view mode
+	$view_mode = get_query_var( 'tainacan_collections_viewmode' );
+
+	// Builds an array of possible taxonomies and terms to be used
+	$collection_taxonomies = get_object_taxonomies( 'tainacan-collection', 'objects' );
+	$collection_taxonomies_terms = [];
+	$has_collection_taxonomies = !empty($collection_taxonomies);
+
+	if ($has_collection_taxonomies) {
+		$collection_taxonomies_terms = get_terms( get_object_taxonomies( 'tainacan-collection') );
+	}
+?>
 
 <!-- Get the banner to display -->
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
@@ -37,7 +49,7 @@
 					<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-sortdescending"></i>
 				</a>
 				
-				<div class="dropdown margin-one-column-left dropdown-viewMode">
+				<div class="dropdown margin-one-column dropdown-viewMode">
 					<button class="btn dropdown-toggle text-black" type="button" id="dropdownMenuViewMode" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<?php 
 							switch($view_mode) {
@@ -61,6 +73,32 @@
 						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'table' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'table' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>&nbsp;<?php _e( 'Table', 'tainacan-interface' ); ?></a>
 					</div>
 				</div>
+
+				<?php if ( $has_collection_taxonomies && !empty( $collection_taxonomies_terms ) ) : ?>
+					<?php foreach($collection_taxonomies as $collection_taxonomy_slug => $collection_taxonomy) : ?>
+						<div class="dropdown dropdown-sorting margin-one-column-right">
+							<button class="btn dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<?php echo $collection_taxonomy->label; ?>
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuSorting">
+								<a
+										class="dropdown-item text-black <?php echo ( isset($_GET['taxquery']) && isset($_GET['taxquery'][0]) && isset($_GET['taxquery'][0]['terms']) ) ? '' : 'active'; ?>"
+										href="<?php echo remove_query_arg( 'taxquery' ); ?>">
+									<?php _e('None', 'tainacan-interface'); ?>
+								</a>
+								<?php foreach($collection_taxonomies_terms as $collection_taxonomy_term) : ?>
+									<?php if ( $collection_taxonomy_term->taxonomy == $collection_taxonomy_slug ) : ?>
+										<a
+												class="dropdown-item text-black <?php ( isset($_GET['taxquery']) && isset($_GET['taxquery'][0]) && isset($_GET['taxquery'][0]['terms']) ) ? tainacan_active( $_GET['taxquery'][0]['terms'], $collection_taxonomy_term->term_id ) : ''; ?>"
+												href="<?php echo add_query_arg( 'taxquery', [ [ 'taxonomy' => $collection_taxonomy_slug, 'terms' => $collection_taxonomy_term->term_id ] ] ); ?>">
+											<?php echo $collection_taxonomy_term->name; ?>
+										</a>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				<?php endif; ?>
 				
 				<form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
 					<input type="hidden" name="orderby" value="<?php echo get_query_var( 'orderby' ); ?>" />
