@@ -3,6 +3,11 @@
 .editor-styles-wrapper {
     background: white;
     padding: 3rem 0px 0px 0px !important;
+    font-size: 1rem !important;
+    --wp--preset--font-size--small: 14px !important;
+    --wp--preset--font-size--regular: 16px !important;
+    --wp--preset--font-size--large: 18px !important;
+    --wp--preset--font-size--huge: 24px !important;
 }
 .block-editor-block-preview__content {
     font-family: 'Roboto', sans-serif;
@@ -228,7 +233,6 @@
         color: inherit;
     }
 
-
     /* Buttons */
     .components-button.is-button {
         border: none;
@@ -368,26 +372,27 @@
         color: inherit;
     }
 
-    /* Modal container */
-    .wp-block-tainacan-modal .components-modal__content {
-        padding: 32px;
-        overflow: hidden;
-    }
+    /* From WP version 5.9 on, we decided to remove this styling because it can cause too many conflicts */
+    // /* Modal container */
+    // .wp-block-tainacan-modal .components-modal__content {
+    //     padding: 32px;
+    //     overflow: hidden;
+    // }
 
-    /* Modal Header */
-    .wp-block-tainacan-modal .components-modal__header {
-        height: 32px;
-        margin: 0 12px 32px 12px;
-        padding: 0;
-        border-bottom: 1px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+    // /* Modal Header */
+    // .wp-block-tainacan-modal .components-modal__header {
+    //     height: 32px;
+    //     margin: 0 12px 32px 12px;
+    //     padding: 0;
+    //     border-bottom: 1px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
 
-        .components-modal__header-heading,
-        h1 {
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: #555758;
-        }
-    }
+    //     .components-modal__header-heading,
+    //     h1 {
+    //         font-size: 1.125rem;
+    //         font-weight: 500;
+    //         color: #555758;
+    //     }
+    // }
 
     /* Blockquote */
     .wp-block-quote {
@@ -489,48 +494,6 @@
     .wp-block-table td {
         border: 1px solid #f2f2f2;
         font-size: 0.875rem;
-    }
-
-    /* Tainacan Selection Modal */
-    .wp-block-tainacan-modal.dynamic-modal {
-
-        iframe {
-            width: calc(100% + 64px);
-            height: calc(100% - 104px);
-            margin-left: -32px;
-            margin-bottom: 0px;
-        }
-
-        .modal-footer-area {
-            height: 72px;
-            width: calc(100% + 64px);
-            margin-left: -32px !important;
-            margin-bottom: -32px !important;
-            padding: 1.2rem 3rem !important;
-            border-top: 1px solid #898d8f;
-        }
-    }
-    .wp-block-tainacan-modal .modal-footer-area{
-        margin: 0;
-        border: none;
-        padding-top: 0px;
-    }
-    .wp-block-tainacan-modal .modal-search-area {
-        padding: 0 14px;
-
-        .components-base-control {
-            width: 100%;
-
-            .components-base-control__field {
-                display: flex;
-                align-items: center;
-
-                label{
-                    flex-shrink: 0;
-                    margin-right: 12px;
-                }
-            }
-        }
     }
 
     /* Extra title group class, that can be added for styling special headings */

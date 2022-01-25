@@ -203,7 +203,7 @@ jQuery( document ).ready(function( $ ) {
 		return false;
 	});
 	
-	$('.margin-pagination .navigation.pagination[role="navigation"]').addClass('justify-content-center justify-content-md-end');
+	$('.margin-pagination .navigation.pagination').addClass('justify-content-center justify-content-md-end');
 
 	$(document).on('click', '[data-toggle="lightbox"]', function(event) {
 		event.preventDefault();

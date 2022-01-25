@@ -15,10 +15,15 @@ Text Domain: tainacan-interface
 
 @import '_variables';
 
-body{
+body {
     font-family: 'Roboto' !important;
     overflow-x: hidden;
-    a{
+    --wp--preset--font-size--small: 14px;
+    --wp--preset--font-size--regular: 16px;
+    --wp--preset--font-size--large: 18px;
+    --wp--preset--font-size--huge: 24px;
+
+    a {
         color: var(--tainacan-interface--link-color, #298596);
         &:hover{
             color: var(--tainacan-interface--link-color, #298596);

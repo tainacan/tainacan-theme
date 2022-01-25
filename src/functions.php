@@ -169,6 +169,28 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'custom-line-height' );
 		add_theme_support( 'custom-units' );
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+				'name' => esc_attr__( 'Small', 'tainacan-interface' ),
+				'size' => 14,
+				'slug' => 'small'
+			),
+			array(
+				'name' => esc_attr__( 'Regular', 'tainacan-interface' ),
+				'size' => 16,
+				'slug' => 'regular'
+			),
+			array(
+				'name' => esc_attr__( 'Large', 'tainacan-interface' ),
+				'size' => 18,
+				'slug' => 'large'
+			),
+			array(
+				'name' => esc_attr__( 'Huge', 'tainacan-interface' ),
+				'size' => 24,
+				'slug' => 'huge'
+			)
+		) );
 		add_theme_support( 'editor-style' );
 		add_editor_style( 'editor-style.css' );
 

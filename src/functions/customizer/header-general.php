@@ -215,6 +215,7 @@ function tainacan_header_settings_style_output() {
 		}
 		body.admin-bar nav.navbar {
 			top: 32px;
+			top: var(--wp-admin--admin-bar--height, 32px);
 		}'
 		: '');
 
