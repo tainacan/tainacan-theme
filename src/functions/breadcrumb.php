@@ -87,11 +87,13 @@ function tainacan_interface_the_breadcrumb() {
 				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">';
 				    _e( 'Collections', 'tainacan-interface' );
 				echo '</a>&nbsp;' . $delimiter . '&nbsp;';
-				
-				if (is_post_type_archive()) {
-					$str = $post_type->labels->singular_name;
-				} else {
-					$str = __('All items', 'tainacan-interface');
+				$str = '';
+				if ( ($post_type) ) {
+					if (is_post_type_archive()) {
+						$str = $post_type->labels->singular_name;
+					} else {
+						$str = __('All items', 'tainacan-interface');
+					}
 				}
 				echo $before . $str . $after;
 			} else {
