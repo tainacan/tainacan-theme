@@ -30,7 +30,7 @@ rm -rf $destination/vendor
 rm -rf $destination/assets/vendor/ekko-lightbox
 
 ##Slick
-mkdir $destination/assets/vendor/slick/css
+mkdir -p $destination/assets/vendor/slick/css
 cp $destination/assets/vendor/slick/slick.min.css $destination/assets/vendor/slick/css/slick.min.css
 cp $destination/assets/vendor/slick/slick-theme.min.css $destination/assets/vendor/slick/css/slick-theme.min.css
 mv $destination/assets/vendor/slick/ajax-loader.gif $destination/assets/vendor/slick/css/ajax-loader.gif
