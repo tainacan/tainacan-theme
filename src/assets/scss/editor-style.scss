@@ -114,9 +114,11 @@
         }
     }
     .wp-block.editor-post-title__block,
-    .editor-post-title__block .editor-post-title__input{
+    .editor-post-title__block .editor-post-title__input,
+    .editor-post-title.editor-post-title__input {
         font-size: 1.25rem;
         font-family: 'Roboto', sans-serif;
+        color: var(--tainacan-interface--link-color, #298596);
         textarea {
             padding: 3px 6px;
             color: var(--tainacan-interface--link-color, #298596);
