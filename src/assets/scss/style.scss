@@ -18,10 +18,26 @@ Text Domain: tainacan-interface
 body {
     font-family: 'Roboto' !important;
     overflow-x: hidden;
+    --tainacan-interface--link-color: #298596;
+    --tainacan-interface--tooltip-color: #e6f6f8;
+    --tainacan-block-primary: var(--tainacan-interface--link-color, #298596);
     --wp--preset--font-size--small: 14px;
     --wp--preset--font-size--regular: 16px;
     --wp--preset--font-size--large: 18px;
     --wp--preset--font-size--huge: 24px;
+    --wp--preset--color--default: var(--tainacan-color-default, #298596); 
+    --wp--preset--color--carmine: #8c442c;
+    --wp--preset--color--cherry: #A12B42;
+    --wp--preset--color--mustard: #754E24;
+    --wp--preset--color--mintgreen: #255F56;
+    --wp--preset--color--darkturquoise: #205E6F;
+    --wp--preset--color--turquoise: #185F6D;
+    --wp--preset--color--blueheavenly: #1D5C86;
+    --wp--preset--color--purple: #4751a3;
+    --wp--preset--color--violet: #955ba5;
+    --wp--preset--color--white: #ffffff;
+    --wp--preset--color--lightgray: #f2f2f2;
+    --wp--preset--color--darkgray: #555758;
 
     a {
         color: var(--tainacan-interface--link-color, #298596);
