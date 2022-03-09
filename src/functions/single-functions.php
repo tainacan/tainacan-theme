@@ -169,10 +169,10 @@ function tainacan_get_adjacent_item_links($thumbnail = null) {
 			//Get the thumnail url of the previous and next post
 			if (function_exists('tainacan_get_adjacent_items') && isset($_GET['pos'])) {
 				if ($adjacent_items['next']) {
-					$next_thumb = $adjacent_items['next']['thumbnail']['tainacan-small'][0];
+					$next_thumb = isset($adjacent_items['next']['thumbnail']['tainacan-small'][0]) ? $adjacent_items['next']['thumbnail']['tainacan-small'][0] : false;
 				}
 				if ($adjacent_items['previous']) {
-					$previous_thumb = $adjacent_items['previous']['thumbnail']['tainacan-small'][0];
+					$previous_thumb = isset($adjacent_items['previous']['thumbnail']['tainacan-small'][0]) ? $adjacent_items['previous']['thumbnail']['tainacan-small'][0] : false;
 				}
 			} else {
 				$previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-small' );
@@ -183,11 +183,13 @@ function tainacan_get_adjacent_item_links($thumbnail = null) {
 			$previous = $previous_link_url === false ? '' :
 				'<a class="has-small-thumbnail" rel="prev" href="' . $previous_link_url . '">' . 
 					'<i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-30px"></i>&nbsp;<span>' . 
-					$previous_title . '</span><img src="' . $previous_thumb . '" alt="">' .
+					$previous_title . '</span>' . 
+					($previous_thumb !== false ? '<img src="' . $previous_thumb . '" alt="" />' : '') .
 				'</a>';
 			$next = $next_link_url === false ? '' :
 				'<a class="has-small-thumbnail" rel="next" href="' . $next_link_url . '">' . 
-					'<img src="' . $next_thumb . '" alt=""><span>' . $next_title . 
+					($next_thumb !== false ? '<img src="' . $next_thumb . '" alt="" />' : '') .
+					'<span>' . $next_title . 
 					'</span>&nbsp;<i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-30px"></i>' .
 				'</a>';
 		break;
