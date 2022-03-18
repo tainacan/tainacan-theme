@@ -4,18 +4,17 @@ if (version_compare(TAINACAN_VERSION, '0.18RC') >= 0) {
     $hide_file_name = get_theme_mod('tainacan_single_item_hide_files_name_main', true);
     $hide_file_caption = get_theme_mod('tainacan_single_item_hide_files_caption_main', true);
     $hide_file_description = get_theme_mod('tainacan_single_item_hide_files_description_main', true);
+    $hide_thumbnail_info = get_theme_mod('tainacan_single_item_hide_files_name', false);
     $is_document_type_attachment = tainacan_get_the_document_type() === 'attachment';
     $disable_gallery_lightbox = get_theme_mod('tainacan_single_item_disable_gallery_lightbox', false);
+    $hide_download_button = get_theme_mod( 'tainacan_single_item_hide_download_document', false );
+    $has_light_dark_color_scheme = get_theme_mod( 'tainacan_single_item_gallery_color_scheme', 'dark' ) == 'light';
 
-    $class_slide_metadata = '';
-
-    if ($hide_file_name)
-        $class_slide_metadata .= ' hide-name';
-    if ($hide_file_description)
-        $class_slide_metadata .= ' hide-description';
-    if ($hide_file_caption)
-        $class_slide_metadata .= ' hide-caption';
-
+    if ( function_exists('tainacan_the_item_gallery') ) {
+        $hide_file_name_lightbox = get_theme_mod('tainacan_single_item_hide_files_name_lightbox', false);
+        $hide_file_caption_lightbox = get_theme_mod('tainacan_single_item_hide_files_caption_lightbox', false);
+        $hide_file_description_lightbox = get_theme_mod('tainacan_single_item_hide_files_description_lightbox', false);
+    }
     global $post;
 }
 
@@ -28,37 +27,28 @@ if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mo
         <?php endif; ?>
         <section class="tainacan-content single-item-collection margin-two-column">
             <div class="single-item-collection--document">
-            <?php if ( !function_exists('tainacan_get_the_media_component') ) {
+            <?php if ( function_exists('tainacan_the_item_gallery') ) {
             
-                    tainacan_the_document(); 
-
-                    if ( !get_theme_mod( 'tainacan_single_item_hide_download_document', false ) && function_exists('tainacan_the_item_document_download_link') && tainacan_the_item_document_download_link() != '' )
-                        echo '<span class="tainacan-item-file-download">' . tainacan_the_item_document_download_link() . '</span>';
-                    
-                    if ( version_compare(TAINACAN_VERSION, '0.18RC') >= 0 ) { ?>
-                        <div class="document-metadata  <?php echo $class_slide_metadata ?>">
-                            <?php if ( !$hide_file_caption && $is_document_type_attachment ): ?>
-                                <span class="document-metadata__caption">
-                                    <?php echo wp_get_attachment_caption(tainacan_get_the_document_raw()); ?>
-                                    <br>
-                                </span>
-                            <?php endif; ?>
-                            <?php if ( !$hide_file_name && $is_document_type_attachment ): ?>
-                                <span class="document-metadata__name">
-                                    <?php echo get_the_title(tainacan_get_the_document_raw()); ?>
-                                </span>
-                            <?php endif; ?>
-                            <br>
-                            <?php if ( !$hide_file_description && $is_document_type_attachment ): ?>
-                                <span class="document-metadata__description">
-                                    <?php echo get_the_content(tainacan_get_the_document_raw()); ?>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                    <?php
-                    }
+                    tainacan_the_item_gallery([
+                        'blockId'                       => 'tainacan-item-document_id-' . $post->ID,
+                        'layoutElements'                => array( 'main' => true, 'thumbnails' => false ),
+                        'mediaSources'                  => array( 'document' => true, 'attachments' => false, 'metadata' => false),
+                        'hideFileNameMain'              => $hide_file_name,
+                        'hideFileCaptionMain'           => $hide_file_caption, 
+                        'hideFileDescriptionMain'       => $hide_file_description,
+                        'hideFileNameThumbnails'        => $hide_thumbnail_info, 
+                        'hideFileCaptionThumbnails'     => true, 
+                        'hideFileDescriptionThumbnails' => true,  
+                        'showDownloadButtonMain'        => !$hide_download_button,
+                        'showArrowsAsSVG'               => false,
+                        'hideFileNameLightbox'          => $hide_file_name_lightbox,
+                        'hideFileCaptionLightbox'       => $hide_file_caption_lightbox, 
+                        'hideFileDescriptionLightbox'   => $hide_file_description_lightbox,
+                        'openLightboxOnClick'           => !$disable_gallery_lightbox,
+                        'lightboxHasLightBackground'    => $has_light_dark_color_scheme 
+                    ]);
                 
-                } else {
+                } else if (function_exists('tainacan_get_the_media_component')) {
                     $media_items_main = array();
 
                     $class_slide_metadata = '';
@@ -73,7 +63,7 @@ if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mo
                         $is_document_type_attachment = tainacan_get_the_document_type() === 'attachment';
                         $media_items_main[] =
                             tainacan_get_the_media_component_slide(array(
-                                'after_slide_metadata' => (( !get_theme_mod( 'tainacan_single_item_hide_download_document', false ) && tainacan_the_item_document_download_link() != '' ) ?
+                                'after_slide_metadata' => (( !$hide_download_button && tainacan_the_item_document_download_link() != '' ) ?
                                                                 ('<span class="tainacan-item-file-download">' . tainacan_the_item_document_download_link() . '</span>')
                                                         : ''),
                                 'media_content' => tainacan_get_the_document(),
@@ -106,6 +96,12 @@ if ( tainacan_has_document() && !get_theme_mod( 'tainacan_single_item_gallery_mo
                         )
                     );
 
+                } else {
+                    ?>
+                    <div style="text-aling: center; max-width: 600px; margin: 2em auto; width: 100%; font-style: italic;">
+                        <p><?php __('It seems that you are using a legacy vesion of the Tainacan plugin. Please update in order to use the latest features for displaying item media.', 'tainacan-interface') ?></p>
+                    </div>
+                    <?php
                 }?>
             </div>
         </section>

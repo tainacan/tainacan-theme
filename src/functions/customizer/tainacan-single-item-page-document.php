@@ -287,6 +287,63 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ),
                 ) );
             }
+
+            if ( function_exists('tainacan_the_item_gallery') ) {
+
+                /**
+                 * Adds options to hide attachments file names on the lightbox.
+                 */
+                $wp_customize->add_setting( 'tainacan_single_item_hide_files_name_lightbox', array(
+                    'type' 		 => 'theme_mod',
+                    'capability' => 'edit_theme_options',
+                    'default' 	 => false,
+                    'transport'  => 'refresh',
+                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+                    ) );
+                $wp_customize->add_control( 'tainacan_single_item_hide_files_name_lightbox', array(
+                    'type' 	   	  => 'checkbox',
+                    'priority' 	  => 4, // Within the section.
+                    'section'  	  => 'tainacan_single_item_page_document',
+                    'label'    	  => __( 'Hide the attachments label (in the lightbox)', 'tainacan-interface' ),
+                    'description' => __( 'Toggle to not display the document and attachments name in the lightbox.', 'tainacan-interface' )
+                    ) );
+
+                /**
+                 * Adds options to hide attachments file caption on the lightbox.
+                 */
+                $wp_customize->add_setting( 'tainacan_single_item_hide_files_caption_lightbox', array(
+                    'type' 		 => 'theme_mod',
+                    'capability' => 'edit_theme_options',
+                    'default' 	 => false,
+                    'transport'  => 'refresh',
+                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+                    ) );
+                $wp_customize->add_control( 'tainacan_single_item_hide_files_caption_lightbox', array(
+                    'type' 	   	  => 'checkbox',
+                    'priority' 	  => 4, // Within the section.
+                    'section'  	  => 'tainacan_single_item_page_document',
+                    'label'    	  => __( 'Hide the attachments caption (in the lightbox)', 'tainacan-interface' ),
+                    'description' => __( 'Toggle to not display the document and attachments caption in the lightbox.', 'tainacan-interface' )
+                    ) );
+
+                /**
+                 * Adds options to hide attachments file description on the lightbox.
+                 */
+                $wp_customize->add_setting( 'tainacan_single_item_hide_files_description_lightbox', array(
+                    'type' 		 => 'theme_mod',
+                    'capability' => 'edit_theme_options',
+                    'default' 	 => false,
+                    'transport'  => 'refresh',
+                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+                    ) );
+                $wp_customize->add_control( 'tainacan_single_item_hide_files_description_lightbox', array(
+                    'type' 	   	  => 'checkbox',
+                    'priority' 	  => 4, // Within the section.
+                    'section'  	  => 'tainacan_single_item_page_document',
+                    'label'    	  => __( 'Hide the attachments description (in the lightbox)', 'tainacan-interface' ),
+                    'description' => __( 'Toggle to not display the document and attachments description in the lightbox.', 'tainacan-interface' )
+                    ) );
+            }
         }
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_tainacan_single_item_page_document', 11 );
@@ -408,7 +465,7 @@ if ( !function_exists('tainacan_gallery_light_color_scheme') ) {
 
 		$has_light_dark_color_scheme = get_theme_mod( 'tainacan_single_item_gallery_color_scheme', 'dark' ) == 'light';
 		
-		if (!$has_light_dark_color_scheme)
+		if (!$has_light_dark_color_scheme || function_exists('tainacan_the_item_gallery'))
 			return;
 			
 		$css = '
