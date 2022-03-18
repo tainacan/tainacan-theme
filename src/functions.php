@@ -1,7 +1,7 @@
 <?php
 
 /** Theme version */
-const TAINACAN_INTERFACE_VERSION = '2.4.4';
+const TAINACAN_INTERFACE_VERSION = '2.5';
 
 /**
  * Setup Theme

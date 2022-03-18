@@ -28,12 +28,7 @@ sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style co
 echo "Bootstrap style compiled";
 
 rm -rf .sass-cache
-cd ../vendor/slick
-sass slick.scss:slick.min.css --style compressed
-sass slick-theme.scss:slick-theme.min.css --style compressed
-echo "Slick for slider carousel compiled";
 
-rm -rf slick-theme.min.css.map slick.min.css.map .sass-cache/
 cd ../../../
 rm -rf style.css.map
 rm -rf editor-style.css.map

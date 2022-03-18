@@ -13,15 +13,6 @@ echo "Copying Bootstrap Framework ...\n";
     recurse_copy("vendor/twbs/bootstrap/scss", "src/assets/vendor/bootstrap/scss");
     copy("vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js", "src/assets/vendor/bootstrap/js/bootstrap.min.js");
     recurse_copy("vendor/twbs/bootstrap/js/src", "src/assets/vendor/bootstrap/js/src");
-
-echo "Copying Slick Slider...\n";
-    if (!file_exists("src/assets/vendor/slick")) {
-        mkdir("src/assets/vendor/slick/", 0777, true);
-        mkdir("src/assets/vendor/slick/css", 0777, true);
-        mkdir("src/assets/vendor/slick/js", 0777, true);
-        mkdir("src/assets/vendor/slick/fonts", 0777, true);
-    }
-    recurse_copy("vendor/fabianobn/slick/slick/", "src/assets/vendor/slick/");
     
 echo "Finished copying files! \n";
 

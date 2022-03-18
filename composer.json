@@ -6,8 +6,7 @@
         }
     ],
     "require": {
-        "twbs/bootstrap": "4.*",
-        "fabianobn/slick": "v1.8.*"
+        "twbs/bootstrap": "4.*"
     },
     "scripts": {
         "post-install-cmd": "bash install.sh",

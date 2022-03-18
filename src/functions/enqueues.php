@@ -19,26 +19,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_script( 'bootstrap4JS' );
 
 		/**
-		 * Slick Slider Carousel
-		 */
-			//Styles
-			wp_register_style( 'SlickCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick.min.css', '', '1.6.1', '' );
-			wp_register_style( 'SlickThemeCss', get_template_directory_uri() . '/assets/vendor/slick/css/slick-theme.min.css', '', '1.6.1', '' );
-			wp_enqueue_style( 'SlickCss' );
-			wp_enqueue_style( 'SlickThemeCss' );
-			//Javascript
-			wp_register_script( 'SlickJS', get_template_directory_uri() . '/assets/vendor/slick/js/slick.min.js', array( 'jquery' ), '1.6.1', true );
-			wp_enqueue_script( 'SlickJS' );
-
-		/**
-		 * Ekko Lightbox
-		 */
-			wp_register_style( 'EkkoLightboxCss', get_template_directory_uri() . '/assets/css/ekko-lightbox.css', [], TAINACAN_INTERFACE_VERSION);
-			wp_enqueue_style( 'EkkoLightboxCss' );
-			wp_register_script( 'EkkoLightboxJs', get_template_directory_uri() . '/assets/js/ekko-lightbox.min.js', array('jquery'), TAINACAN_INTERFACE_VERSION, true);
-			wp_enqueue_script( 'EkkoLightboxJs' );
-
-		/**
 		 * Google
 		 */
 			// Google fonts Roboto

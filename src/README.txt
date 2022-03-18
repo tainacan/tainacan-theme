@@ -2,7 +2,7 @@
 Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila, r-guimaraes
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.9
-Version: 2.4.4
+Version: 2.5
 Requires PHP: 5.6
 Stable tag: trunk
 License: GNU General Public License v3
@@ -39,10 +39,6 @@ Source: https://github.com/twbs/bootstrap
 Popper  Copyright (C) Federico Zivolo 2018
 Licenses: MIT
 Source: https://github.com/FezVrasta/popper.js
-
-Slick, Copyright (c) 2017 Ken Wheeler
-License: MIT
-Source: http://github.com/kenwheeler/slick
 
 Spectrum Colorpicker v1.8.0 Copyright (c) Brian Grinstead
 Licenses: MIT

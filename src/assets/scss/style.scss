@@ -4,7 +4,7 @@ Author: Tainacan
 Author URI: https://tainacan.org
 Theme URI: https://tainacan.org/blog/category/tema/
 Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository.
-Version: 2.4.4
+Version: 2.5
 Tested up to: 5.9
 Requires PHP: 5.6
 License: GNU General Public License v3
@@ -1345,8 +1345,6 @@ nav {
 @import "_view-mode-grid";
 
 @import "_header-taxonomy";
-
-@import "_lightbox";
 
 @import "_single-item-collection";
 
