@@ -200,32 +200,34 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
  *
  * @return array An associative array with view mode options and the default one
  */
-function tainacan_get_default_view_mode_choices() {
-	$default_view_mode = '';
-	$enabled_view_modes = [];
-
-	if (function_exists('tainacan_get_the_view_modes')) {
-		$view_modes = tainacan_get_the_view_modes();
-		$default_view_mode = $view_modes['default_view_mode'];
+if ( !function_exists('tainacan_get_default_view_mode_choices') ) {
+	function tainacan_get_default_view_mode_choices() {
+		$default_view_mode = '';
 		$enabled_view_modes = [];
-		
-		foreach ($view_modes['registered_view_modes'] as $key => $view_mode) {
-			if (!$view_mode['full_screen'])
-				$enabled_view_modes[$key] = $view_mode['label'];
+
+		if (function_exists('tainacan_get_the_view_modes')) {
+			$view_modes = tainacan_get_the_view_modes();
+			$default_view_mode = $view_modes['default_view_mode'];
+			$enabled_view_modes = [];
+			
+			foreach ($view_modes['registered_view_modes'] as $key => $view_mode) {
+				if (!$view_mode['full_screen'])
+					$enabled_view_modes[$key] = $view_mode['label'];
+			}
+		} else {
+			$default_view_mode = 'masonry';
+			$enabled_view_modes = [
+				'masonry' => __('Masonry', 'tainacan-interface'),
+				'cards' => __('Cards', 'tainacan-interface'),
+				'table' => __('Table', 'tainacan-interface'),
+				'grid' => __('Grid', 'tainacan-interface')
+			];
 		}
-	} else {
-		$default_view_mode = 'masonry';
-		$enabled_view_modes = [
-			'masonry' => __('Masonry', 'tainacan-interface'),
-			'cards' => __('Cards', 'tainacan-interface'),
-			'table' => __('Table', 'tainacan-interface'),
-			'grid' => __('Grid', 'tainacan-interface')
+		return [
+			'default_view_mode' => $default_view_mode,
+			'enabled_view_modes' => $enabled_view_modes
 		];
 	}
-	return [
-		'default_view_mode' => $default_view_mode,
-		'enabled_view_modes' => $enabled_view_modes
-	];
 }
 
 if ( ! function_exists( 'tainacan_sanitize_items_repository_list_default_view_mode' ) ) :
