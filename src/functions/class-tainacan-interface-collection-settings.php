@@ -49,56 +49,6 @@ class TainacanInterfaceCollectionSettings {
 			<hr>
 		</div>
 
-		<div>
-			<label class="label"><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></label>
-			<span class="help-wrapper">
-				<a class="help-button has-text-secondary">
-					<span class="icon is-small">
-						<i class="tainacan-icon tainacan-icon-help"/></i>
-					</span>
-				</a>
-				<div class="help-tooltip">
-					<div class="help-tooltip-header">
-						<h5><?php _e( 'Collection items list header colorsr', 'tainacan-interface' ); ?></h5>
-					</div> 
-					<div class="help-tooltip-body">
-						<p><?php _e( 'Select which color will be used for the text and background of your collection items list header.', 'tainacan-interface' ); ?></p>
-					</div>
-				</div>
-			</span>
-		</div>
-		<div class="columns">
-			<div class="column is-one-third field tainacan-collection--change-color-picker">
-				<label class="label"><?php _e( 'Background', 'tainacan-interface' ); ?></label>
-				<div class="control is-clearfix"> 
-					<input type="text" value="" id="colorpicker" name="<?php echo $this->tainacan_background_color; ?>">
-				</div>
-			</div>
-
-			<div class="column is-two-thirds field tainacan-collection--change-text-color">
-				<label class="label"><?php _e( 'Text', 'tainacan-interface' ); ?></label>
-				<div class="control is-clearfix"> 
-					<label for="white" id="color-white" class="color-text">
-						<input
-							type="radio" 
-							value="#fff" 
-							name="<?php echo $this->tainacan_text_color; ?>"
-							id="white" checked>
-						<?php _e( 'White', 'tainacan-interface' ); ?>
-					</label>
-
-					<label for="black" id="color-black" class="color-text">
-						<input
-							type="radio" 
-							value="#000" 
-							name="<?php echo $this->tainacan_text_color; ?>"
-							id="black">
-							<?php _e( 'Black', 'tainacan-interface' ); ?>
-					</label>
-				</div>
-			</div>
-		</div>
-
 		<div class="field tainacan-metadata-section--change-section-layout">
 			<label class="label"><?php _e( 'Metadata sections layout', 'tainacan-interface' ); ?></label>
 			<span class="help-wrapper">
@@ -156,6 +106,56 @@ class TainacanInterfaceCollectionSettings {
 					<img src="<?php echo esc_url( get_template_directory_uri()); ?>/assets/images/section_accordion.png" alt="<?php _e( 'Accordion', 'tainacan-interface' ); ?>"  />
 					<?php _e( 'Accordion', 'tainacan-interface' ); ?>
 				</label>
+			</div>
+		</div>
+
+		<div>
+			<label class="label"><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></label>
+			<span class="help-wrapper">
+				<a class="help-button has-text-secondary">
+					<span class="icon is-small">
+						<i class="tainacan-icon tainacan-icon-help"/></i>
+					</span>
+				</a>
+				<div class="help-tooltip">
+					<div class="help-tooltip-header">
+						<h5><?php _e( 'Collection items list header colorsr', 'tainacan-interface' ); ?></h5>
+					</div> 
+					<div class="help-tooltip-body">
+						<p><?php _e( 'Select which color will be used for the text and background of your collection items list header.', 'tainacan-interface' ); ?></p>
+					</div>
+				</div>
+			</span>
+		</div>
+		<div class="columns is-multiline">
+			<div class="column is-one-third-desktop is-full-tablet is-one-third-mobile field tainacan-collection--change-color-picker">
+				<label class="label"><?php _e( 'Background', 'tainacan-interface' ); ?></label>
+				<div class="control is-clearfix"> 
+					<input type="text" value="" id="colorpicker" name="<?php echo $this->tainacan_background_color; ?>">
+				</div>
+			</div>
+
+			<div class="column is-two-thirds-desktop is-full-tablet is-two-thirds-mobile field tainacan-collection--change-text-color">
+				<label class="label"><?php _e( 'Text', 'tainacan-interface' ); ?></label>
+				<div class="control is-clearfix"> 
+					<label for="white" id="color-white" class="color-text">
+						<input
+							type="radio" 
+							value="#fff" 
+							name="<?php echo $this->tainacan_text_color; ?>"
+							id="white" checked>
+						<?php _e( 'White', 'tainacan-interface' ); ?>
+					</label>
+
+					<label for="black" id="color-black" class="color-text">
+						<input
+							type="radio" 
+							value="#000" 
+							name="<?php echo $this->tainacan_text_color; ?>"
+							id="black">
+							<?php _e( 'Black', 'tainacan-interface' ); ?>
+					</label>
+				</div>
 			</div>
 		</div>
 

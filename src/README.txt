@@ -40,7 +40,7 @@ Popper  Copyright (C) Federico Zivolo 2018
 Licenses: MIT
 Source: https://github.com/FezVrasta/popper.js
 
-Spectrum Colorpicker v1.8.0 Copyright (c) Brian Grinstead
+Spectrum Colorpicker v1.8.1 Copyright (c) Brian Grinstead
 Licenses: MIT
 Source: https://github.com/bgrins/spectrum
 
