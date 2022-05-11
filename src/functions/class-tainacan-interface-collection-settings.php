@@ -16,7 +16,7 @@ class TainacanInterfaceCollectionSettings {
 
 	function action_tainacan_enqueue_admin_scripts() {
 		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/assets/js/collection-color.js', false, false, true );
-		wp_enqueue_style( 'tainacan_colorWellStyle', get_template_directory_uri() . '/assets/css/collection-color.css', [], TAINACAN_INTERFACE_VERSION  );
+		wp_enqueue_style( 'tainacan_collection_extra_options', get_template_directory_uri() . '/assets/css/collection-extra-options.css', [], TAINACAN_INTERFACE_VERSION  );
 		wp_localize_script( 'tainacan_colorWell', 'tainacan_colorPickerVars', array(
 			'cancelText' => __( 'Cancel', 'tainacan-interface' ),
 			'chooseText' => __( 'Choose', 'tainacan-interface' ),
@@ -32,7 +32,7 @@ class TainacanInterfaceCollectionSettings {
 
 	function register_hook() {
 		if ( function_exists( 'tainacan_register_admin_hook' ) ) {
-			tainacan_register_admin_hook( 'collection', array( $this, 'form' ) );
+			tainacan_register_admin_hook( 'collection', array( $this, 'form' ), 'end-right' );
 		}
 	}
 
