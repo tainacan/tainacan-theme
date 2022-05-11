@@ -27,10 +27,6 @@
     border-width: 2px;
 }
 
-.tainacan-collection--change-text-color .control {
-    margin-top: 0.5rem;
-}
-
 .tainacan-collection--change-text-color input[type="radio"]::before {
     background-color: #000;
 }
@@ -48,6 +44,7 @@
     border-radius: 2px;
     padding: 0.7rem 1.25rem 0.7rem 1.0rem;
     font-size: 0.875rem;
+    display: inline-block;
 }
 
 .tainacan-collection--change-text-color .color-text[for="black"] {
@@ -58,8 +55,45 @@
     border-radius: 2px;
     padding: 0.7rem 1.25rem 0.7rem 1.0rem;
     font-size: 0.875rem;
+    display: inline-block;
 }
 .tainacan-collection--change-text-color .color-text input[type="radio"] {
     border-color: white;
     vertical-align: middle;
+}
+
+.metadata-section-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.metadata-section-options label {
+    width: 94px;
+    margin: 5px 12px 5px 0px;
+}
+.metadata-section-options label img {
+    border-radius: 2px;
+    border: 1px solid #dbdbdb;
+    width: 94px;
+    opacity: 0.8;
+    transition: border 0.2s ease, opacity 0.2s ease;
+}
+
+.metadata-section-options label:hover img,
+.metadata-section-options label:focus img {
+    border: 1px solid var(--tainacan-gray4, #555758);
+    opacity: 0.9;
+}
+
+.metadata-section-options label input:checked+img {
+    opacity: 1.0;
+    border: 2px solid var(--tainacan-interface--link-color, #298596);
+}
+
+.metadata-section-options label input {
+    position: absolute;
+    opacity: 0.0;
 }

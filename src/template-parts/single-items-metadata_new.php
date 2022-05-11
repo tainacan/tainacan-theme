@@ -113,23 +113,124 @@
         'after_value' => '</p></div>',
         'exclude_title' => get_theme_mod('tainacan_single_item_hide_core_title_metadata', false)
     );
-    $args = array(
-        'before' => '<div class="mt-3 tainacan-single-post">',
-        'after' => '</div><div class="my-5 border-bottom border-silver"></div>',
-        'before_name' => '<h2 class="title-content-items">',
-        'after_name' => '</h2>',
-        'before_metadata_list' => do_action( 'tainacan-interface-single-item-metadata-begin' ). '
-            <section class="single-item-collection margin-two-column">
-                <div class="single-item-collection--information justify-content-center">
-                    <div class="row">
-                        <div class="col s-item-collection--metadata">',
-        'after_metadata_list' => '
+
+    $section_layout = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_interface_section_layout', 'default' ) );
+    
+    if ( $section_layout == 'tabs') {
+
+        add_filter('tainacan-get-metadata-section-as-html-before-name--index-0', function($before, $item_metadatum) {
+            return str_replace('<input', '<input checked="checked"', $before);
+        }, 10, 2);
+
+        $args = array(
+            'before' => '',
+            'after' => '',
+            'before_name' => '<input name="tabs" type="radio" id="tab-section-$id" />
+                        <label for="tab-section-$id">
+                            <h2 class="title-content-items" id="metadata-section-$slug">',
+            'after_name' => '</h2>
+                        </label>',
+            'before_metadata_list' => do_action( 'tainacan-interface-single-item-metadata-begin' ). '
+                <section class="single-item-collection tainacan-metadata-section" aria-labelledby="metadata-section-$slug">
+                    <div class="single-item-collection--information justify-content-center">
+                        <div class="row">
+                            <div class="col s-item-collection--metadata">',
+            'after_metadata_list' => '
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
-        'metadata_list_args' => $metadata_args
-    );
+                </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
+            'metadata_list_args' => $metadata_args
+        );
+        
+        echo '<div class="single-item-collection--section-metadata--layout-tabs mt-3 tainacan-single-post">';
+        tainacan_the_metadata_sections( $args );
+        echo '</div><div class="my-5 border-bottom border-silver"></div>';
 
-    tainacan_the_metadata_sections( $args );
+    } else  if ( $section_layout == 'collapses') {
+
+        add_filter('tainacan-get-metadata-section-as-html-before-name--index-0', function($before, $item_metadatum) {
+            return str_replace('<input', '<input checked="checked"', $before);
+        }, 10, 2);
+
+        $args = array(
+            'before' => '',
+            'after' => '',
+            'before_name' => '<input name="collapses" type="checkbox" id="collapse-section-$id"/>
+                        <label for="collapse-section-$id">
+                            <i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-30px"></i>
+                            <h2 class="title-content-items" id="metadata-section-$slug">',
+            'after_name' => '</h2>
+                        </label>',
+            'before_metadata_list' => do_action( 'tainacan-interface-single-item-metadata-begin' ). '
+                <section class="single-item-collection tainacan-metadata-section" aria-labelledby="metadata-section-$slug">
+                    <div class="single-item-collection--information justify-content-center">
+                        <div class="row">
+                            <div class="col s-item-collection--metadata">',
+            'after_metadata_list' => '
+                            </div>
+                        </div>
+                    </div>
+                </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
+            'metadata_list_args' => $metadata_args
+        );
+
+        echo '<div class="single-item-collection--section-metadata--layout-collapses mt-3 tainacan-single-post">';
+        tainacan_the_metadata_sections( $args );
+        echo '</div><div class="my-5 border-bottom border-silver"></div>';
+
+    } else if ( $section_layout == 'accordion') {
+
+        add_filter('tainacan-get-metadata-section-as-html-before-name--index-0', function($before, $item_metadatum) {
+            return str_replace('<input', '<input checked="checked"', $before);
+        }, 10, 2);
+
+        $args = array(
+            'before' => '',
+            'after' => '',
+            'before_name' => '<input name="accordion" type="radio" id="accordion-section-$id"/>
+                        <label for="accordion-section-$id">
+                            <i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-30px"></i>
+                            <h2 class="title-content-items" id="metadata-section-$slug">',
+            'after_name' => '</h2>
+                        </label>',
+            'before_metadata_list' => do_action( 'tainacan-interface-single-item-metadata-begin' ). '
+                <section class="single-item-collection tainacan-metadata-section" aria-labelledby="metadata-section-$slug">
+                    <div class="single-item-collection--information justify-content-center">
+                        <div class="row">
+                            <div class="col s-item-collection--metadata">',
+            'after_metadata_list' => '
+                            </div>
+                        </div>
+                    </div>
+                </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
+            'metadata_list_args' => $metadata_args
+        );
+
+        echo '<div class="single-item-collection--section-metadata--layout-accordion mt-3 tainacan-single-post">';
+        tainacan_the_metadata_sections( $args );
+        echo '</div><div class="my-5 border-bottom border-silver"></div>';
+
+    } else {
+        $args = array(
+            'before' => '<div class="mt-3 tainacan-single-post">',
+            'after' => '</div><div class="my-5 border-bottom border-silver"></div>',
+            'before_name' => '<h2 class="title-content-items" id="metadata-section-$slug">',
+            'after_name' => '</h2>',
+            'before_metadata_list' => do_action( 'tainacan-interface-single-item-metadata-begin' ). '
+                <section class="single-item-collection margin-two-column tainacan-metadata-section" aria-labelledby="metadata-section-$slug">
+                    <div class="single-item-collection--information justify-content-center">
+                        <div class="row">
+                            <div class="col s-item-collection--metadata">',
+            'after_metadata_list' => '
+                            </div>
+                        </div>
+                    </div>
+                </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
+            'metadata_list_args' => $metadata_args
+        );
+        tainacan_the_metadata_sections( $args );
+    }
+
+    
 ?>

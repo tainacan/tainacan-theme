@@ -586,5 +586,5 @@ add_action( 'enqueue_block_editor_assets', 'tainacan_editor_styles' );
 
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/single-functions.php';
-require get_template_directory() . '/functions/class-tainacanthemecollectioncolor.php';
+require get_template_directory() . '/functions/class-tainacan-interface-collection-settings.php';
 require get_template_directory() . '/functions/breadcrumb.php';

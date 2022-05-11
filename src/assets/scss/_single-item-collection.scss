@@ -642,6 +642,103 @@
         }
     }
 }
+.single-item-collection--section-metadata--layout-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0 4.16667vw 0 4.16667vw;
+    
+    .tainacan-metadata-section {
+        display: none;
+        padding: 2rem 4.16667vw 1rem 4.16667vw;
+        border-top: 1px solid #cbcbcb;
+    }
+    label {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        cursor: pointer;
+        opacity: 0.85;
+        border-bottom: 3px solid transparent;
+        transition: border-bottom 0.2s ease;
+
+        h1,h2,h3,h4 {
+            font-size: 1.0rem !important;
+            margin: 0.75rem 1.5rem;
+        }
+
+        &:hover {
+            opacity: 1.0;
+        }
+    }
+    input {
+        position: absolute;
+        opacity: 0;
+    }
+    input:checked+label {
+        opacity: 1.0;
+        border-bottom-color: var(--tainacan-interface--link-color, #298596);
+    }
+    input:checked+label+.tainacan-metadata-section {
+        display: block;
+    }    
+    @media screen and (min-width: 768px) {
+        label {
+            width: auto;
+        }
+        .tainacan-metadata-section {
+            order: 99;
+        }
+    }      
+}
+.single-item-collection--section-metadata--layout-collapses,
+.single-item-collection--section-metadata--layout-accordion {
+    box-sizing: border-box;
+    padding: 0 4.16667vw 0 4.16667vw;
+    
+    .tainacan-metadata-section {
+        display: none;
+        padding: 2rem 4.16667vw 1rem 4.16667vw;
+        border-bottom: 1px solid #cbcbcb;
+    }
+    label {
+        width: 100%;
+        margin: 0;
+        cursor: pointer;
+        opacity: 0.85;
+        border-bottom: 1px solid #cbcbcb;
+        transition: opacity 0.2s ease;
+
+        h1,h2,h3,h4 {
+            font-size: 1.0rem !important;
+            margin: 0.75rem 1.5rem 0.75rem 2.25rem;
+        }
+        .tainacan-icon {
+            color: var(--tainacan-interface--link-color, #298596);
+            position: absolute;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+        &:hover {
+            opacity: 1.0;
+            border-bottom: 1px solid #dbdbdb;
+        }
+    }
+    input {
+        position: absolute;
+        opacity: 0;
+    }
+    input:checked+label {
+        opacity: 1.0;
+
+        .tainacan-icon {
+            transform: rotate(90deg);
+        }
+    }
+    input:checked+label+.tainacan-metadata-section {
+        display: block;
+    }         
+}
 #breadcrumb-single-item-pagination {
     font-size: 0.875rem;
     height: 1.3rem;
