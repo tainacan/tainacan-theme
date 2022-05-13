@@ -15,7 +15,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="comments" class="border-top" style="border-width: 2px !important;">
+<div id="comments" class="border-top" style="border-top-width: 2px !important;">
 	<!--show the form-->
 	<?php if ( 'open' == $post->comment_status ) : ?>
 		<div id="respond" class="clearfix mt-5 <?php if ( ! wp_is_mobile() ) { ?>margin-two-column<?php } ?>">  

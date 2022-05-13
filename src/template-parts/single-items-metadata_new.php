@@ -188,6 +188,7 @@
         $args = array(
             'before' => '',
             'after' => '',
+            'metadata_sections__not_in' => ['default_section'],
             'before_name' => '<input name="accordion" type="radio" id="accordion-section-$id"/>
                         <label for="accordion-section-$id">
                             <i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-30px"></i>

@@ -2,7 +2,7 @@
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php if (!is_page_template( 'page-templates/landing.php' ) && !is_page_template( 'page-templates/landing-breadcrumb.php' ) ) : ?>
 			<div class="tainacan-title">
-				<div class="tainacan-title-page" style="border-width: 2px !important;">
+				<div class="tainacan-title-page">
 					<ul class="list-inline mb-1">
 						<li class="list-inline-item text-midnight-blue font-weight-bold title-page">
 							<h1><?php the_title(); ?></h1>

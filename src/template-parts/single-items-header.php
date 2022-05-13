@@ -154,7 +154,7 @@ $next = $adjacent_links['next'];
 <?php else: ?>
 
     <div class="tainacan-single-post tainacan-single-item-heading tainacan-title">
-        <div class="tainacan-title-page" style="border-width: 2px !important;">
+        <div class="tainacan-title-page">
             <ul class="list-inline mb-1">
                 <li class="list-inline-item text-midnight-blue font-weight-bold title-page">
                     <h1><?php the_title(); ?></h1> 
