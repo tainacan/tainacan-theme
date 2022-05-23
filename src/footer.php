@@ -1,5 +1,5 @@
 <?php if ( ! is_404() ) : ?>
-	<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer <?php echo ('tainacan-footer-' . get_theme_mod( 'tainacan_footer_color', 'dark' )) ?>" style="padding-bottom: 0 !important;">
+	<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer <?php echo esc_attr( ('tainacan-footer-' . get_theme_mod( 'tainacan_footer_color', 'dark' )) ) ?>" style="padding-bottom: 0 !important;">
 		<?php if ( is_active_sidebar( 'tainacan-sidebar-footer' ) ) { ?>
 			<div class="row tainacan-footer-widgets-area">
 				<ul class="col-12 col-lg pt-3 pb-3 pl-0 pr-0 d-lg-flex flex-wrap justify-content-xs-center mb-md-0">

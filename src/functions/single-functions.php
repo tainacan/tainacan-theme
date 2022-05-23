@@ -14,12 +14,12 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 			$arg = array(
 				'class' => 'img-fluid rounded-circle mr-sm-3',
 			);
-			echo get_avatar( $comment, 60, '', '', $arg );
+			echo wp_kses_post( get_avatar( $comment, 60, '', '', $arg ) );
 		?>
 		<div class="media-body">
 			<h5 class="media-heading comment-author vcard ml-2">
-				<a href="<?php echo get_author_posts_url( $comment->user_id ); ?>" class="text-black font-weight-bold bypostauthor">
-					<?php comment_author( $comment->comment_ID ); ?>
+				<a href="<?php echo esc_url(get_author_posts_url( $comment->user_id )); ?>" class="text-black font-weight-bold bypostauthor">
+					<?php wp_kses_post( comment_author( $comment->comment_ID ) ); ?>
 				</a>
 				<p class="comment-time text-oslo-gray my-sm-1">
 					<?php
@@ -37,21 +37,18 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 					<?php _e( 'Your comment is awaiting moderation.','tainacan-interface' ); ?>
 				</p>
 			<?php endif; ?>
-			<?php comment_text(); ?>
-			<?php comment_reply_link( array(
-				'reply_text' => __( 'Reply', 'tainacan-interface' ),
-				'depth'      => $depth,
-				'max_depth'  => $args['max_depth'],
-				'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
-				'after'     => '</li>',
-			));
-			edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
+			<?php wp_kses_post( comment_text() ); ?>
+			<?php wp_kses_post(
+					comment_reply_link( array(
+					'reply_text' => __( 'Reply', 'tainacan-interface' ),
+					'depth'      => $depth,
+					'max_depth'  => $args['max_depth'],
+					'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
+					'after'     => '</li>',
+				))
+			);
+			wp_kses_post( edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' ) );
 			?>
-			<?php if ( $args['has_children'] ) : ?>
-				<p>
-					<!-- <a href="#comments" class="hideChild-comments"><i class="tainacan-icons align-top text-jelly-bean">arrow_drop_up</i><?php _e( 'Hide reply', 'tainacan-interface' ); ?></a> -->
-				</p>
-			<?php endif; ?>
 		</div>
 	</div>
 <?php }
@@ -112,7 +109,7 @@ if ( ! function_exists('tainacan_meta_date_author') ) {
 		$string = apply_filters( 'tainacan-meta-date-author', $string );
 
 		if ( $echo ) {
-			echo $string;
+			echo wp_kses_post($string);
 		} else {
 			return $string;
 		}

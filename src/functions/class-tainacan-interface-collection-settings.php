@@ -71,7 +71,7 @@ class TainacanInterfaceCollectionSettings {
 					<input
 						type="radio" 
 						value="default" 
-						name="<?php echo $this->tainacan_sections_layout; ?>"
+						name="<?php echo esc_attr($this->tainacan_sections_layout); ?>"
 						id="default" checked>
 					<img src="<?php echo esc_url( get_template_directory_uri()); ?>/assets/images/section_default.png" alt="<?php _e( 'Default', 'tainacan-interface' ); ?>"  />
 					<?php _e( 'Default', 'tainacan-interface' ); ?>
@@ -81,7 +81,7 @@ class TainacanInterfaceCollectionSettings {
 					<input
 						type="radio" 
 						value="tabs" 
-						name="<?php echo $this->tainacan_sections_layout; ?>"
+						name="<?php echo esc_attr($this->tainacan_sections_layout); ?>"
 						id="tabs">
 					<img src="<?php echo esc_url( get_template_directory_uri()); ?>/assets/images/section_tabs.png" alt="<?php _e( 'Tabs', 'tainacan-interface' ); ?>"  />
 					<?php _e( 'Tabs', 'tainacan-interface' ); ?>
@@ -91,7 +91,7 @@ class TainacanInterfaceCollectionSettings {
 					<input
 						type="radio" 
 						value="collapses" 
-						name="<?php echo $this->tainacan_sections_layout; ?>"
+						name="<?php echo esc_attr($this->tainacan_sections_layout); ?>"
 						id="collapses">
 					<img src="<?php echo esc_url( get_template_directory_uri()); ?>/assets/images/section_collapse.png" alt="<?php _e( 'Collapses', 'tainacan-interface' ); ?>"  />
 					<?php _e( 'Collapses', 'tainacan-interface' ); ?>
@@ -101,7 +101,7 @@ class TainacanInterfaceCollectionSettings {
 					<input
 						type="radio" 
 						value="accordion" 
-						name="<?php echo $this->tainacan_sections_layout; ?>"
+						name="<?php echo esc_attr($this->tainacan_sections_layout); ?>"
 						id="accordion">
 					<img src="<?php echo esc_url( get_template_directory_uri()); ?>/assets/images/section_accordion.png" alt="<?php _e( 'Accordion', 'tainacan-interface' ); ?>"  />
 					<?php _e( 'Accordion', 'tainacan-interface' ); ?>
@@ -131,7 +131,7 @@ class TainacanInterfaceCollectionSettings {
 			<div class="column is-one-third-desktop is-full-tablet is-one-third-mobile field tainacan-collection--change-color-picker">
 				<label class="label"><?php _e( 'Background', 'tainacan-interface' ); ?></label>
 				<div class="control is-clearfix"> 
-					<input type="text" value="" id="colorpicker" name="<?php echo $this->tainacan_background_color; ?>">
+					<input type="text" value="" id="colorpicker" name="<?php echo esc_attr($this->tainacan_background_color); ?>">
 				</div>
 			</div>
 
@@ -142,7 +142,7 @@ class TainacanInterfaceCollectionSettings {
 						<input
 							type="radio" 
 							value="#fff" 
-							name="<?php echo $this->tainacan_text_color; ?>"
+							name="<?php echo esc_attr($this->tainacan_text_color); ?>"
 							id="white" checked>
 						<?php _e( 'White', 'tainacan-interface' ); ?>
 					</label>
@@ -151,7 +151,7 @@ class TainacanInterfaceCollectionSettings {
 						<input
 							type="radio" 
 							value="#000" 
-							name="<?php echo $this->tainacan_text_color; ?>"
+							name="<?php echo esc_attr($this->tainacan_text_color); ?>"
 							id="black">
 							<?php _e( 'Black', 'tainacan-interface' ); ?>
 					</label>

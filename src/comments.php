@@ -30,7 +30,7 @@ if ( post_password_required() ) {
 					<?php if ( is_user_logged_in() ) { ?>
 						<span class="text-oslo-gray authenticated ml-sm-3 d-none d-sm-block align-self-center">
 						<?php _e( 'Authenticated as:', 'tainacan-interface' );
-						echo ' <a href="' . get_author_posts_url( $current_user->ID ) . '">' . $current_user->display_name . '</a>'; ?>
+						echo ' <a href="' . esc_url(get_author_posts_url( $current_user->ID )) . '">' . $current_user->display_name . '</a>'; ?>
 					<?php } ?>
 					</span>
 				</div>

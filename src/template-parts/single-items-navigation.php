@@ -38,15 +38,15 @@
 
             <div id="item-single-navigation" class="d-flex align-items-center justify-center">
                 <div class="pagination">
-                    <?php echo $previous; ?>
+                    <?php echo wp_kses_post($previous); ?>
                 </div>
                 <div class="pagination">
-                    <?php echo $next; ?>
+                    <?php echo wp_kses_post($next); ?>
                 </div>
             </div>
 
             <div style="margin: 0 4.1666667%"  class="pagination">
-                <a class="d-inline-flex align-items-center" href="<?php echo tainacan_get_source_item_list_url(); ?>">
+                <a class="d-inline-flex align-items-center" href="<?php echo esc_url(tainacan_get_source_item_list_url()); ?>">
                     <i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i>&nbsp;&nbsp;<span><?php echo __('Back to items list', 'tainacan-interface') ?></span>
                 </a>  
             </div>

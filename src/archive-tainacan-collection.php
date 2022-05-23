@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php $view_mode = get_query_var( 'tainacan_collections_viewmode' ); ?>
+<?php $view_mode = esc_attr(get_query_var( 'tainacan_collections_viewmode' )); ?>
 
 <!-- Get the banner to display -->
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
@@ -63,8 +63,8 @@
 				</div>
 				
 				<form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
-					<input type="hidden" name="orderby" value="<?php echo get_query_var( 'orderby' ); ?>" />
-					<input type="hidden" name="order" value="<?php echo get_query_var( 'order' ); ?>" />
+					<input type="hidden" name="orderby" value="<?php echo esc_attr(get_query_var( 'orderby' )); ?>" />
+					<input type="hidden" name="order" value="<?php echo esc_attr(get_query_var( 'order' )); ?>" />
 					<input type="hidden" name="tainacan_collections_viewmode" value="<?php echo $view_mode; ?>" />
 					<div class="input-group">
 						<input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var( 's' ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />

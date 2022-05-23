@@ -98,7 +98,7 @@ function tainacan_interface_the_breadcrumb() {
 				echo $before . $str . $after;
 			} else {
 			    if ( is_archive() ) {
-			        $str = __( 'Collections', 'tainacan-interface' );
+			        $str = __( 'Collections', 'tainacan-interface' ) . '&nbsp;';
                 } else {
 				    $str = $post_type->labels->singular_name;
                 }

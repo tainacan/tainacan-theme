@@ -328,8 +328,7 @@ function tainacan_color_scheme_css() {
 
 	$color_scheme_css = tainacan_get_color_scheme_css( $colors );
 
-	echo '<style type="text/css" id="custom-theme-css">' .
-	$color_scheme_css . '</style>';
+	echo '<style type="text/css" id="custom-theme-css">' . $color_scheme_css . '</style>';
 }
 add_action( 'wp_head', 'tainacan_color_scheme_css' );
 

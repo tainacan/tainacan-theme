@@ -231,7 +231,11 @@
     /* Links */
     a { text-decoration: none; }
     .has-text-color>a,
-    .has-text-color>a:hover {
+    .has-text-color>a:hover,
+    .has-text-color>a>strong,
+    .has-text-color>a:hover>strong,
+    .has-text-color>a>em,
+    .has-text-color>a:hover>em {
         color: inherit;
     }
 

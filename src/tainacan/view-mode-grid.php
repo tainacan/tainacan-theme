@@ -13,7 +13,7 @@
 				<div class="metadata-title">     
 					<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 					<?php if ( $is_slideshow_available ) : ?>
-						<a href="?<?php echo $_SERVER['QUERY_STRING'] ?>&slideshow-from=<?php echo $item_index ?>" class="icon slideshow-icon">
+						<a href="<?php echo esc_url('?' . $_SERVER['QUERY_STRING'] . '&slideshow-from=' . $item_index ); ?>" class="icon slideshow-icon">
 							<i class="tainacan-icon tainacan-icon-viewgallery tainacan-icon-1-125em"></i>
 						</a>
 					<?php endif; ?> 
