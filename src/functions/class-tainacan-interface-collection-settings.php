@@ -49,6 +49,7 @@ class TainacanInterfaceCollectionSettings {
 			<hr>
 		</div>
 
+		<?php if ( function_exists('tainacan_get_the_metadata_sections') ) : ?> <!-- if (version_compare(TAINACAN_VERSION, '0.19') >= 0)-->
 		<div class="field tainacan-metadata-section--change-section-layout">
 			<label class="label"><?php _e( 'Metadata sections layout', 'tainacan-interface' ); ?></label>
 			<span class="help-wrapper">
@@ -108,7 +109,7 @@ class TainacanInterfaceCollectionSettings {
 				</label>
 			</div>
 		</div>
-
+		<?php endif; ?>
 		<div>
 			<label class="label"><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></label>
 			<span class="help-wrapper">
@@ -119,7 +120,7 @@ class TainacanInterfaceCollectionSettings {
 				</a>
 				<div class="help-tooltip">
 					<div class="help-tooltip-header">
-						<h5><?php _e( 'Collection items list header colorsr', 'tainacan-interface' ); ?></h5>
+						<h5><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></h5>
 					</div> 
 					<div class="help-tooltip-body">
 						<p><?php _e( 'Select which color will be used for the text and background of your collection items list header.', 'tainacan-interface' ); ?></p>
