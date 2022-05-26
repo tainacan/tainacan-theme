@@ -24,6 +24,9 @@ echo "Tainacan's style compiled.";
 sass -E 'UTF-8' -t compressed editor-style.scss:../../editor-style.css
 echo "Tainacan's Gutenberg Editor style compiled";
 
+sass -E 'UTF-8' -t compressed editor-style-legacy.scss:../../editor-style-legacy.css
+echo "Tainacan's Gutenberg Editor legacy style compiled";
+
 sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
 echo "Bootstrap style compiled";
 

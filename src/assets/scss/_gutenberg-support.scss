@@ -23,6 +23,8 @@
 .has-lightgray-background-color { background-color: #f2f2f2 !important; }
 .has-darkgray-color { color: #555758 !important; }
 .has-darkgray-background-color { background-color: #555758 !important; }
+.has-default-color { color: var(--tainacan-interface--link-color, #298596) !important; }
+.has-default-background-color { background-color: var(--tainacan-interface--link-color, #298596) !important; }
 
 .alignwide {
     margin-left: calc(-8.3333333333vw + 3.1%) !important;
@@ -117,7 +119,7 @@
 }
 
 /* Cover block */
-.wp-block-cover__inner-container {
+.wp-block-cover__inner-container>.wp-block-group:where(:not(.alignleft):not(.alignright)) {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 8.3333333333%;

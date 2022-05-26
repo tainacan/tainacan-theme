@@ -236,23 +236,10 @@ body {
     .wp-block-columns {
         display: flex;
         margin: 0;
+        gap: 4.16667%;
 
         .wp-block-column {
             flex-basis: 100%;
-        }
-        .wp-block-column:not(:last-child) {
-            margin-right: 2.0833333%; // Half column
-        }
-        .wp-block-column:not(:first-child) {
-            margin-left: 2.0833333%; // Half column
-        }
-        @media only screen and (max-width: 576px) {
-            .wp-block-column:not(:last-child) {
-                margin-right: 0;
-            }
-            .wp-block-column:not(:first-child) {
-                margin-left: 0;
-            }
         }
     }
     .alignleft {
