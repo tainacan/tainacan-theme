@@ -140,7 +140,8 @@
                         </div>
                     </div>
                 </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
-            'metadata_list_args' => $metadata_args
+            'metadata_list_args' => $metadata_args,
+            'hide_empty' => true
         );
         
         echo '<div class="single-item-collection--section-metadata--layout-tabs mt-3 tainacan-single-post">';
@@ -172,7 +173,8 @@
                         </div>
                     </div>
                 </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
-            'metadata_list_args' => $metadata_args
+            'metadata_list_args' => $metadata_args,
+            'hide_empty' => true
         );
 
         echo '<div class="single-item-collection--section-metadata--layout-collapses mt-3 tainacan-single-post">';
@@ -205,7 +207,8 @@
                         </div>
                     </div>
                 </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
-            'metadata_list_args' => $metadata_args
+            'metadata_list_args' => $metadata_args,
+            'hide_empty' => true
         );
 
         echo '<div class="single-item-collection--section-metadata--layout-accordion mt-3 tainacan-single-post">';
@@ -228,7 +231,8 @@
                         </div>
                     </div>
                 </section>' . do_action( 'tainacan-interface-single-item-metadata-end' ),
-            'metadata_list_args' => $metadata_args
+            'metadata_list_args' => $metadata_args,
+            'hide_empty' => true
         );
         tainacan_the_metadata_sections( $args );
     }
