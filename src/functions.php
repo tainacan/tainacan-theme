@@ -191,6 +191,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 				'slug' => 'huge'
 			)
 		) );
+		add_theme_support( 'appearance-tools' );
 		add_theme_support( 'editor-style' );
 		add_editor_style( 'editor-style.css' );
 
