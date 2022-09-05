@@ -119,9 +119,10 @@
 }
 
 /* Cover block */
-.wp-block-cover__inner-container>.wp-block-group:where(:not(.alignleft):not(.alignright)) {
+.wp-block-cover__inner-container>*:where(:not(.alignleft):not(.alignright)) {
     max-width: 1400px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 8.3333333333%;
     padding: 0 8.3333333333vw;
 }

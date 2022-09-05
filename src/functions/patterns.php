@@ -65,13 +65,15 @@ function tainacan_block_patterns_init() {
                     <!-- /wp:column -->
 
                     <!-- wp:column {"width":"66.66%"} -->
-                    <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:paragraph {"fontSize":"normal"} -->
+                    <div class="wp-block-column" style="flex-basis:66.66%">
+                    <!-- wp:paragraph {"fontSize":"normal"} -->
                     <p class="has-normal-font-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <!-- /wp:paragraph -->
 
-                    <!-- wp:paragraph {"align":"right","style":{"color":{"text":"#ffffff"}}} -->
-                    <p class="has-text-align-right has-text-color" style="color:#ffffff"><a href="/"> ' .esc_html__( 'View more...', 'tainacan-interface' ) . '</a></p>
-								<!-- /wp:paragraph --></div>
+                    <!-- wp:paragraph {"align":"right","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"fontSize":"normal"} -->
+                        <p class="has-text-align-right has-link-color has-normal-font-size"><a href="/">Veja mais...</a></p>
+                    <!-- /wp:paragraph -->
+                    </div>
                     <!-- /wp:column --></div>
                     <!-- /wp:columns --></div>
                     <!-- /wp:group --></div></div>

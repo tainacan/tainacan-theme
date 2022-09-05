@@ -94,9 +94,9 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 
 		if (function_exists('tainacan_get_color_scheme')) {
 			$color_scheme = tainacan_get_color_scheme();
-
+			
 			if ($color_scheme && $color_scheme[2]) {
-				$default_color = $color_scheme[2];
+				$default_color = $color_scheme[2] == 'default' ? '#298596' : $color_scheme[2];
 			}
 		}
 	    add_theme_support( 'editor-color-palette', array(
@@ -218,8 +218,8 @@ function tainacan_customize_editor_css() {
 	?>
 	<style>
 		.editor-styles-wrapper {
-			--tainacan-color-default: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color; ?>;
-			--tainacan-block-primary: <?php echo $default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color;?>;
+			--tainacan-color-default: <?php echo ($default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color ); ?>;
+			--tainacan-block-primary: <?php echo ($default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color ); ?>;
 		}
 	</style>
 	<?php
