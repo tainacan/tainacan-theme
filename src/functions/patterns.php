@@ -32,7 +32,7 @@ function tainacan_block_patterns_init() {
                         <!-- /wp:paragraph -->
                 
                         <!-- wp:separator {"opacity":"css","backgroundColor":"default"} -->
-                        <hr class="wp-block-separator has-text-color has-default-color has-css-opacity has-default-background-color has-background"/>
+                        <hr class="wp-block-separator has-text-color has-default-color has-css-opacity has-default-background-color has-background-color"/>
                         <!-- /wp:separator -->
                         
                         <!-- wp:spacer {"height":"32px"} -->
@@ -70,9 +70,9 @@ function tainacan_block_patterns_init() {
                     <p class="has-normal-font-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <!-- /wp:paragraph -->
 
-                    <!-- wp:paragraph {"align":"right","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"fontSize":"normal"} -->
-                        <p class="has-text-align-right has-link-color has-normal-font-size"><a href="/">Veja mais...</a></p>
-                    <!-- /wp:paragraph -->
+                    <!-- wp:paragraph {"align":"right","style":{"color":{"text":"#ffffff"}}} -->
+						<p class="has-text-align-right has-text-color" style="color:#ffffff"><a href="/"> ' .esc_html__( 'View more...', 'tainacan-interface' ) . '</a></p>
+					<!-- /wp:paragraph -->
                     </div>
                     <!-- /wp:column --></div>
                     <!-- /wp:columns --></div>
@@ -132,9 +132,7 @@ function tainacan_block_patterns_init() {
 				'content'     => $wp_version >= '5.9'
                     ?  
                     '<!-- wp:cover {"customOverlayColor":"#01295c","align":"full"} -->
-                    <div class="wp-block-cover alignfull"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#01295c"></span><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"16px"} -->
-                    <div style="height:16px" aria-hidden="true" class="wp-block-spacer"></div>
-                    <!-- /wp:spacer -->
+                    <div class="wp-block-cover alignfull"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#01295c"></span><div class="wp-block-cover__inner-container">
                     
                     <!-- wp:group {"layout":{"inherit":true}} -->
                     <div class="wp-block-group"><!-- wp:columns {"style":{"color":{"text":"#ffffff"},"spacing":{"blockGap":"4.2%"}}} -->
@@ -200,8 +198,12 @@ function tainacan_block_patterns_init() {
                                     <p class="has-normal-font-size">Sed at orci ex. Nulla pulvinar, lorem vel eleifend maximus, nunc elit porta felis, id placerat orci dui sit amet ligula. Mauris fermentum dui quam, eget blandit ligula vulputate sit amet. Integer aliquet eget urna ac tempor. Nunc viverra faucibus magna ac aliquet. Integer ullamcorper lacinia elit quis gravida. Duis placerat pulvinar arcu nec faucibus. Sed sit amet enim iaculis, facilisis est non, venenatis nibh.</p>
                                     <!-- /wp:paragraph -->
 
-                                    <!-- wp:paragraph {"align":"right","style":{"color":{"text":"#ffffff"}}} -->
-                                    <p class="has-text-align-right has-text-color" style="color:#ffffff"><a href="/"> ' .esc_html__( 'View more...', 'tainacan-interface' ) . '</a></p>
+                                    <!-- wp:paragraph {"align":"right","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} -->
+                                    <p class="has-text-align-right has-white-color has-text-color has-link-color">
+                                        <p class="has-text-align-right has-text-color" style="color:#ffffff">
+                                            <a href="/">' .esc_html__( 'View more...', 'tainacan-interface' ) . '</a>
+                                        </p>
+                                    </p>
                                     <!-- /wp:paragraph -->
                                 </div>
                                 <!-- /wp:column -->
