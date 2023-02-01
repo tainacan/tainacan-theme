@@ -25,7 +25,7 @@ echo '</style>';
 
 <?php if ( get_header_image_tag() ) : ?>
 	<div class="page-header header-filter page-height page-header--image-full">
-		<?php echo get_header_image_tag(array( "style" => "max-height: " . get_theme_mod('tainacan_collection_banner_max_height', 624 ) . 'px;' )) ?>
+		<?php echo get_header_image_tag(array( "style" => "max-height: " . get_theme_mod('tainacan_collection_banner_max_height', 368 ) . 'px;' )) ?>
 <?php elseif ( get_header_image() ) : ?>
 	<div class="page-header header-filter page-height page-header--image-full">
 		<img class="page-header__image" src="<?php header_image(); ?>" alt="">

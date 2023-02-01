@@ -4,7 +4,7 @@ Author: Tainacan
 Author URI: https://tainacan.org
 Theme URI: https://tainacan.org/blog/category/tema/
 Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository.
-Version: 2.5
+Version: 2.6
 Tested up to: 6.0
 Requires PHP: 5.6
 License: GNU General Public License v3
@@ -39,7 +39,7 @@ body {
     --wp--preset--color--lightgray: #f2f2f2;
     --wp--preset--color--darkgray: #555758;
 
-    a {
+    *:not(.has-link-color)>*:not(.has-link-color)>a:not(.has-link-color) {
         color: var(--tainacan-interface--link-color, #298596);
         &:hover{
             color: var(--tainacan-interface--link-color, #298596);
@@ -59,12 +59,12 @@ body {
     h6 {
         font-weight: 600;
     }
-    h1:not(.has-text-color),
-    h2:not(.has-text-color),
-    h3:not(.has-text-color),
-    h4:not(.has-text-color),
-    h5:not(.has-text-color),
-    h6:not(.has-text-color) {
+    *:not(.has-text-color)>*:not(.has-text-color)>h1:not(.has-text-color),
+    *:not(.has-text-color)>*:not(.has-text-color)>h2:not(.has-text-color),
+    *:not(.has-text-color)>*:not(.has-text-color)>h3:not(.has-text-color),
+    *:not(.has-text-color)>*:not(.has-text-color)>h4:not(.has-text-color),
+    *:not(.has-text-color)>*:not(.has-text-color)>h5:not(.has-text-color),
+    *:not(.has-text-color)>*:not(.has-text-color)>h6:not(.has-text-color) {
         color: #1d1d1d;
     }
     h1:not(.has-huge-font-size):not(.has-large-font-size):not(.has-medium-font-size):not(.has-normal-font-size):not(.has-small-font-size):not(.metadata-label):not(.label) {
@@ -235,24 +235,10 @@ body {
     }
     .wp-block-columns {
         display: flex;
-        margin: 0;
+        gap: 4.16667%;
 
         .wp-block-column {
             flex-basis: 100%;
-        }
-        .wp-block-column:not(:last-child) {
-            margin-right: 2.0833333%; // Half column
-        }
-        .wp-block-column:not(:first-child) {
-            margin-left: 2.0833333%; // Half column
-        }
-        @media only screen and (max-width: 576px) {
-            .wp-block-column:not(:last-child) {
-                margin-right: 0;
-            }
-            .wp-block-column:not(:first-child) {
-                margin-left: 0;
-            }
         }
     }
     .alignleft {

@@ -29,7 +29,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 			$wp_customize->add_setting( 'tainacan_collection_banner_max_height', array(
 				'type' 		 => 'theme_mod',
 				'capability' => 'edit_theme_options',
-				'default' 	 => 624,
+				'default' 	 => 368,
 				'transport'  => 'postMessage',
 				'sanitize_callback'  => 'sanitize_text_field'
 			) );

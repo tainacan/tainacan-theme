@@ -478,14 +478,17 @@
                 page-break-inside: avoid;
                 break-inside: avoid;
                 display: inline-block;
-                width: 100%;
+                
                 &:last-child {
                     -webkit-column-break-inside: auto;
                     page-break-inside: auto;
                     break-inside: auto;
                     display: inline-block;
-                    width: 100%;
                 }
+            }
+            &>div,
+            .tainacan-metadatum {
+                width: 100%;
             }
             @media only screen and (min-width: 768px) {
                 -moz-column-count: 2;
@@ -500,13 +503,13 @@
             }
             @media only screen and (min-width: 1366px) {
                 -moz-column-count: 3;
-                -moz-column-gap: 7rem;
+                -moz-column-gap: 5rem;
                 -moz-column-rule: none;
                 -webkit-column-count: 3;
-                -webkit-column-gap: 7rem;
+                -webkit-column-gap: 5rem;
                 -webkit-column-rule: none;
                 column-count: 3;
-                column-gap: 7rem;
+                column-gap: 5rem;
                 column-rule: none;
             }
             h3 {
@@ -551,6 +554,12 @@
             }
             .hierarchy-separator {
                 color: #cbcbcb;  
+            }
+            .metadata-type-compound {
+                margin-bottom: 1rem;
+            }
+            .metadata-type-geocoordinate>div {
+                width: 100%;
             }
             .metadata-type-compound,
             .metadata-type-textarea {
@@ -681,6 +690,7 @@
     }
     input:checked+label+.tainacan-metadata-section {
         display: block;
+        width: 100%;
     }    
     @media screen and (min-width: 768px) {
         label {

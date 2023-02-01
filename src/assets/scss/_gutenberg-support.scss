@@ -23,6 +23,8 @@
 .has-lightgray-background-color { background-color: #f2f2f2 !important; }
 .has-darkgray-color { color: #555758 !important; }
 .has-darkgray-background-color { background-color: #555758 !important; }
+.has-default-color { color: var(--tainacan-interface--link-color, #298596) !important; }
+.has-default-background-color { background-color: var(--tainacan-interface--link-color, #298596) !important; }
 
 .alignwide {
     margin-left: calc(-8.3333333333vw + 3.1%) !important;
@@ -90,15 +92,26 @@
         padding: .25rem 1.125rem;
         border-color: transparent;
     }
-    &:not(.is-style-outline) .btn.btn-jelly-bean {
+    &:not(.is-style-outline) .btn.btn-jelly-bean,
+    &:not(.is-style-outline) .btn.btn-jelly-bean:hover,
+    &:not(.is-style-outline) .btn.btn-jelly-bean:focus {
         background-color: var(--tainacan-interface--link-color, #298596);
+        color: var(--wp--preset--color--white, #fff);
+    }
+    &.is-style-outline > .wp-block-button__link,
+    & > .wp-block-button__link.is-style-outline {
+        padding: .25rem 1.125rem;
+        border: 1px solid #555758 !important;
+
+        &:not(.has-text-color) {
+            color: var(--tainacan-interface--link-color, #298596);
+        }
     }
 }
-.wp-block-button.is-style-outline .btn {
+.wp-block-button.is-style-outline:not(.has-background-color) .btn {
     background: transparent !important;
-    color: var(--tainacan-interface--link-color, #298596);
-    border: 1px solid #555758 !important;
 }
+
 .wp-block-button.aligncenter,
 .wp-block-button.alignleft,
 .wp-block-button.alignright {
@@ -117,12 +130,13 @@
 }
 
 /* Cover block */
-.wp-block-cover__inner-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 8.3333333333%;
-    padding: 0 8.3333333333vw;
-}
+// .wp-block-cover__inner-container>*:where(:not(.alignleft):not(.alignright)) {
+//     max-width: 1400px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     // padding: 0 8.3333333333%;
+//     // padding: 0 8.3333333333vw;
+// }
 
 /* Carousel */
 .wp-block-tainacan-carousel-items-list.alignwide .tainacan-carousel,
