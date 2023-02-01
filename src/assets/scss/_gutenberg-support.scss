@@ -98,15 +98,20 @@
         background-color: var(--tainacan-interface--link-color, #298596);
         color: var(--wp--preset--color--white, #fff);
     }
+    &.is-style-outline > .wp-block-button__link,
+    & > .wp-block-button__link.is-style-outline {
+        padding: .25rem 1.125rem;
+        border: 1px solid #555758 !important;
+
+        &:not(.has-text-color) {
+            color: var(--tainacan-interface--link-color, #298596);
+        }
+    }
 }
 .wp-block-button.is-style-outline:not(.has-background-color) .btn {
     background: transparent !important;
 }
-.wp-block-button.is-style-outline .btn {
-    color: var(--tainacan-interface--link-color, #298596);
-    border: 1px solid #555758 !important;
-    padding: .25rem 1.125rem;
-}
+
 .wp-block-button.aligncenter,
 .wp-block-button.alignleft,
 .wp-block-button.alignright {
