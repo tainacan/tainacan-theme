@@ -107,6 +107,10 @@
             color: var(--tainacan-interface--link-color, #298596);
         }
     }
+    button:disabled {
+        pointer-events: none;
+        opacity: 0.55;
+    }
 }
 .wp-block-button.is-style-outline:not(.has-background-color) .btn {
     background: transparent !important;
