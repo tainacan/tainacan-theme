@@ -574,6 +574,7 @@
                 }
             }
             .tainacan-compound-group {
+                width: 100%;
                 padding-left: 1.5rem;
                 border-left: 1px solid #dbdbdb;
 
@@ -588,6 +589,9 @@
                 }
                 &>.multivalue-separator {
                     margin: 0.5em auto 1.0em -1.5em;
+                }
+                &>.tainacan-compound-metadatum {
+                    width: 100%;
                 }
             }
             .tainacan-relationship-group {
