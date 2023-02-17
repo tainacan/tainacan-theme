@@ -194,6 +194,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_theme_support( 'appearance-tools' );
 		add_theme_support( 'editor-style' );
 		add_editor_style( 'editor-style.css' );
+		add_theme_support( 'block-template-parts' );
 
 	}
 } // tainacan_setup check
