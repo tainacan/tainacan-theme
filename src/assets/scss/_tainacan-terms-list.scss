@@ -1,0 +1,31 @@
+.tainacan-taxonomy-terms-list-container .tainacan-taxonomy-terms-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 425px);
+    grid-gap: 30px;
+    list-style: none;
+
+    .term-name {
+        font-size: 1.125rem !important;
+    }
+
+    .term-description p {
+        margin-top: 0;
+        padding-top: 0 !important;
+        padding-left: 1rem;
+    }
+
+    .term-children-link a {
+        margin-bottom: 1.5rem;
+    }
+
+    .term-items-link a {
+        margin-bottom: 1.5rem;
+    }
+
+    .term-thumbnail {
+        float: left;
+        margin-bottom: 0;
+        width: 136px !important;
+        height: 136px !important;
+    }
+}
