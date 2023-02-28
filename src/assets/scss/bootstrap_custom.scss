@@ -13,7 +13,6 @@ $mercury: #e5e5e5;
 $tundora: #4e4e4e;
 $white-title: rgba(255, 255, 255, 0.6);
 
-
 $theme-colors: (
   "heavy-metal": $heavy-metal,
   "jelly-bean": $jelly-bean,
@@ -28,7 +27,8 @@ $theme-colors: (
   "silver": $silver,
   "mercury": $mercury,
   "tundora": $tundora,
-  "white-title": $white-title
+  "white-title": $white-title,
+  "primary": #298596
 );
 $font-family-base: 'Roboto';
 $headings-font-family: 'Roboto';

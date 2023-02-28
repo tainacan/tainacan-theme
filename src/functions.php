@@ -3,6 +3,10 @@
 /** Theme version */
 const TAINACAN_INTERFACE_VERSION = '2.6';
 
+/* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
+define('TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER', true);
+define('TAINACAN_DISABLE_TAXONOMY_THE_CONTENT_FILTER', true);
+
 /**
  * Setup Theme
  */
@@ -194,6 +198,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		add_theme_support( 'appearance-tools' );
 		add_theme_support( 'editor-style' );
 		add_editor_style( 'editor-style.css' );
+		add_theme_support( 'block-template-parts' );
 
 	}
 } // tainacan_setup check
@@ -394,37 +399,6 @@ function tainacan_hex2rgb( $color ) {
 	);
 }
 
-function tainacan_collections_viewmode( $public_query_vars ) {
-	$public_query_vars[] = 'tainacan_collections_viewmode';
-	return $public_query_vars;
-}
-add_filter( 'query_vars', 'tainacan_collections_viewmode' );
-
-function tainacan_active( $selected, $current = true, $echo = true ) {
-	$return = $selected == $current ? 'active' : '';
-
-	if ( $echo ) {
-		echo $return;
-	}
-
-	return $return;
-}
-
-function tainacan_theme_collection_title( $title ) {
-	if ( is_post_type_archive( 'tainacan-collection' ) ) {
-		return __( 'Collections', 'tainacan-interface' );
-	}
-	return $title;
-}
-add_filter( 'get_the_archive_title', 'tainacan_theme_collection_title' );
-
-function tainacan_theme_collection_query( $query ) {
-	if ( $query->is_main_query() && $query->is_post_type_archive( 'tainacan-collection' ) ) {
-		$query->set( 'posts_per_page', 12 );
-	}
-}
-add_action( 'pre_get_posts', 'tainacan_theme_collection_query' );
-
 /**
  * Render customizer colors to Gutenberg.
  */
@@ -465,5 +439,6 @@ add_action( 'enqueue_block_editor_assets', 'tainacan_editor_styles' );
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/patterns.php';
 require get_template_directory() . '/functions/single-functions.php';
+require get_template_directory() . '/functions/archive-functions.php';
 require get_template_directory() . '/functions/class-tainacan-interface-collection-settings.php';
 require get_template_directory() . '/functions/breadcrumb.php';

@@ -114,6 +114,7 @@
                 padding-right: 0;
             }
             .collection-miniature{
+                min-width: 70px;
                 padding-left: 20px;
                 text-align: center;
                 img{
@@ -243,7 +244,7 @@
                 line-height: 0.75rem;
             }
             .tainacan-list-collection--grid-img {
-                width: 275px;
+                width: 250px;
                 height: 250px;
             }
             .image-placeholder {
