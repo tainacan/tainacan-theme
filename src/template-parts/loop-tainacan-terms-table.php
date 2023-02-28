@@ -3,7 +3,7 @@
     <?php while ( have_posts() ) {
         the_post();
         $taxonomy_terms_list = tainacan_get_single_taxonomy_content($post, array(
-            'before_terms_list_container' => '<div class="mt-5 tainacan-list-post table-responsive">',
+            'before_terms_list_container' => '<div class="mt-5 tainacan-list-post table-responsive tainacan-taxonomy-terms-list-container">',
             'after_terms_list_container' => '</div>',
             'before_terms_list' => '<table class="table table-hover">
                                         <thead>
@@ -23,7 +23,7 @@
             'after_term_thumbnail' => '</td>',
             'before_term_name' => '<td class="collection-title text-oslo-gray">',
             'after_term_name' => '</td>',
-            'before_term_description' => '<td class="collection-description text-oslo-gray">',
+            'before_term_description' => '<td class="collection-description term-description text-oslo-gray">',
             'after_term_description' => '</td>',
             'before_term_children_link' => '<td>',
             'after_term_children_link' => '</td>',
