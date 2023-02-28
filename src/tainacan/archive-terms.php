@@ -78,7 +78,15 @@
 
             </div>
 
-            <?php get_template_part( 'template-parts/loop-tainacan-terms', $view_mode ); ?>   
+            <?php 
+                if ( function_exists('tainacan_get_single_taxonomy_content') )
+                    get_template_part( 'template-parts/loop-tainacan-terms', $view_mode );
+                else {
+                    echo '<div style="text-aling: center; max-width: 600px; margin: 2em auto; width: 100%; font-style: italic;">';
+                    echo '<p>' . __('It seems that you are using a legacy vesion of the Tainacan plugin. Please update in order to use the latest features for displaying the terms list.', 'tainacan-interface') . '</p>';
+                    echo '</div>';
+                }
+            ?>   
         </div>
     </div>
 </main>
