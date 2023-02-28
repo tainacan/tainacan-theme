@@ -1,31 +1,58 @@
 .tainacan-taxonomy-terms-list-container .tainacan-taxonomy-terms-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 425px);
-    grid-gap: 30px;
     list-style: none;
 
-    .term-name {
-        font-size: 1.125rem !important;
+    &.tainacan-list-collection--container-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 425px);
+        grid-gap: 30px;
+
+        .term-name {
+            font-size: 1.125rem !important;
+        }
+
+        .term-description p {
+            margin-top: 0;
+            padding-top: 0 !important;
+            padding-left: 1rem;
+        }
+
+        .term-children-link a {
+            margin-bottom: 1.5rem;
+        }
+
+        .term-items-link a {
+            margin-bottom: 1.5rem;
+        }
+
+        .term-thumbnail {
+            float: left;
+            margin-bottom: 0;
+            width: 136px !important;
+            height: 136px !important;
+        }
     }
 
-    .term-description p {
-        margin-top: 0;
-        padding-top: 0 !important;
-        padding-left: 1rem;
-    }
+    &.tainacan-list-collection--container-grid {
+        
+        .term-name {
+            margin-bottom: 0.25rem;
+            font-size: 1.125rem !important;
+        }
 
-    .term-children-link a {
-        margin-bottom: 1.5rem;
-    }
+        .term-children-link a {
+            margin-bottom: 1.5rem;
+        }
 
-    .term-items-link a {
-        margin-bottom: 1.5rem;
-    }
+        .term-items-link a {
+            margin-bottom: 1.5rem;
+        }
 
-    .term-thumbnail {
-        float: left;
-        margin-bottom: 0;
-        width: 136px !important;
-        height: 136px !important;
+        .term-thumbnail {
+            margin-top: 1rem;
+            margin-bottom: 0rem;
+        }
     }
+}
+.tainacan-taxonomies-pagination-links {
+    text-align: end;
 }

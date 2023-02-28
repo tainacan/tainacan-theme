@@ -59,37 +59,6 @@ function tainacan_wrap_comment( $content ) {
 add_filter( 'comment_text', 'tainacan_wrap_comment', 99 );
 
 
-if ( ! function_exists( 'tainacan_pagination' ) ) :
-	function tainacan_pagination() {
-		global $wp_query;
-		$cur_posts = min( (int) $wp_query->get( 'posts_per_page' ), $wp_query->found_posts );
-		$to_paged = max( (int) $wp_query->get( 'paged' ), 1 );
-		$count_max = ( $to_paged - 1 ) * $cur_posts; ?>
-		<div class="d-flex margin-pagination justify-content-between border-top pt-2">
-			<div class="col-sm-3 d-none d-lg-block pl-0 view-items">
-				<?php //translators: Example - Viewing results: 1 to 12 of 345 ?>
-				<?php printf( __('Viewing results: %1$d to %2$d of %3$d', 'tainacan-interface'), $count_max + 1, $count_max + $wp_query->post_count, $wp_query->found_posts ); ?>
-			</div>
-			<div class="col-sm-5 pr-md-0 justify-content-md-end">
-				<?php the_posts_pagination(
-					array(
-						'mid_size'  => 2,
-						'prev_text' => sprintf(
-							'%s',
-							'<i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-1-25em"></i>'
-						),
-						'next_text' => sprintf(
-							' %s',
-							'<i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-1-25em"></i>'
-						),
-						'screen_reader_text' => ' '
-					)
-				); ?>
-			</div>
-		</div>
-	<?php }
-endif;
-
 /**
  * Display date of post.
  */
