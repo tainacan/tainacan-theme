@@ -8,7 +8,7 @@
             'after_terms_list' => '</ul>',
             'before_term' => '<li class="tainacan-term-single tainacan-list-collection--card" id="term-id-$id">',
             'after_term' => '</li>',
-            'before_term_thumbnail' => '<figure class="term-thumbnail tainacan-list-collection--card-img rounded-0 align-self-center mr-3">',
+            'before_term_thumbnail' => '<figure class="term-thumbnail tainacan-list-collection--card-img rounded-0 align-self-center ml-3">',
             'after_term_thumbnail' => '</figure>',
             'before_term_description' => '<div class="term-description media-body text-oslo-gray"><p>',
             'thumbnails_size' => 'tainacan-medium',

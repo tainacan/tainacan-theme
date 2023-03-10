@@ -8,6 +8,8 @@
 
         .term-name {
             font-size: 1.125rem !important;
+            padding-left: 1rem;
+            padding-top: 0.75rem;
         }
 
         .term-description p {
@@ -17,15 +19,17 @@
         }
 
         .term-children-link a {
-            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            margin-bottom: 1.75rem;
         }
 
         .term-items-link a {
-            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            margin-bottom: 1.75rem;
         }
 
         .term-thumbnail {
-            float: left;
+            float: right;
             margin-bottom: 0;
             width: 136px !important;
             height: 136px !important;
