@@ -42,6 +42,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 				$settings = array(
 					'theme_items_list_url' 		=> esc_url_raw( get_site_url() ) . '/' . \Tainacan\Theme_Helper::get_instance()->get_items_list_slug(),
 					'theme_collection_list_url' => get_post_type_archive_link( 'tainacan-collection' ),
+					'theme_taxonomy_list_url' => get_post_type_archive_link( 'tainacan-taxonomy' ),
 					'site_url' => get_site_url()
 				);
 				wp_register_script( 'tainacan_searchBarRedirect', get_template_directory_uri() . '/assets/js/search-bar-redirect.js', '', TAINACAN_INTERFACE_VERSION, false );
