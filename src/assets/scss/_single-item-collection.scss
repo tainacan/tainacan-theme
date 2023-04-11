@@ -477,14 +477,6 @@
                 -webkit-column-break-inside: avoid;
                 page-break-inside: avoid;
                 break-inside: avoid;
-                display: inline-block;
-                
-                &:last-child {
-                    -webkit-column-break-inside: auto;
-                    page-break-inside: auto;
-                    break-inside: auto;
-                    display: inline-block;
-                }
             }
             &>div,
             .tainacan-metadatum {
@@ -498,7 +490,7 @@
                 -webkit-column-gap: 0;
                 -webkit-column-rule: none;
                 column-count: 2;
-                column-gap: 4rem;;
+                column-gap: 3.5rem;
                 column-rule: none;
             }
             @media only screen and (min-width: 1366px) {
@@ -509,7 +501,7 @@
                 -webkit-column-gap: 5rem;
                 -webkit-column-rule: none;
                 column-count: 3;
-                column-gap: 5rem;
+                column-gap: 4rem;
                 column-rule: none;
             }
             h3 {
@@ -545,6 +537,9 @@
             p:empty {
                 display: none;
                 visibility: hidden;
+            }
+            iframe {
+                border: none;
             }
 
             // Metadata type textarea has different separator
@@ -615,7 +610,8 @@
                         }
                     }
                     .tainacan-metadatum {
-                        margin-left: 40px;
+                        padding-left: 40px;
+
                         .label {
                             font-size: 0.8125em !important;
                             line-height: 1em;
