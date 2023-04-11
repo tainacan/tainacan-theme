@@ -17,6 +17,8 @@
 		} else {
 			do_action( 'wp_body_open' );
 		}
+	
+		if ( !get_theme_mod('tainacan_use_block_template_parts_on_header', false) ) : 
 	?>
 	<nav 
 			style="min-height: <?php echo esc_attr(get_theme_mod('tainacan_header_min_height', 50)) ?>px;"
@@ -65,6 +67,8 @@
 			</div>
 		</div>
 	</nav>
+
+	<?php else:	block_template_part( 'header' ); endif; ?>
 
 	<a href="javascript:" id="return-to-top" style="<?php echo (get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'colored' ? 'background-color: #2c2d2d;' : '') ?>"><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
 

@@ -18,6 +18,21 @@ if ( !function_exists('tainacan_interface_customize_register_header_general') ) 
 			'panel' 	 => 'tainacan_header_settings'
 		));
 
+		// Use block Template Parts for Header
+		$wp_customize->add_setting( 'tainacan_use_block_template_parts_on_header', array(
+			'type'       => 'theme_mod',
+			'default'    => false,
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+		) );
+		$wp_customize->add_control( 'tainacan_use_block_template_parts_on_header', array(
+			'type' 		=> 'checkbox',
+			'settings' 	=> 'tainacan_use_block_template_parts_on_header',
+			'section' 	=> 'tainacan_header_general',
+			'label' 	=> __( 'Use block template parts to configure header', 'tainacan-interface' ),
+			'description' => __( 'Build your own header using the block editor in the menu Appearance -> Template Parts -> Header. If enabled, the options below do not apply.', 'tainacan-interface')
+		) );
+
 		/**
 		 * Adds options to align header elements
 		 */

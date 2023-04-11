@@ -171,11 +171,18 @@
     margin-left: 0 !important;
 }
 
-/* Search block with some details */
+/* Search and navigation block with some details */
 .wp-block-search__label {
     font-weight: bold;
     font-size: 1em;
 }
 .wp-block-search__inside-wrapper .wp-block-search__button {
     margin-left: 0;
+    padding: 0.125rem;
+}
+.wp-block-navigation .wp-block-navigation-item__label {
+    white-space: nowrap;
+}
+.wp-block-navigation__responsive-close {
+    margin-right: 0px;
 }
