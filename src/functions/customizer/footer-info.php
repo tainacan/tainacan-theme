@@ -8,6 +8,7 @@
 if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 
 	function tainacan_interface_customize_register_footer_info( $wp_customize ) {
+
 		/**
 		 * Add others infos in Site identity on footer
 		 */
@@ -15,6 +16,21 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'title'  	 => __( 'Footer settings', 'tainacan-interface' ),
 			'priority'   => 170,
 		));
+
+		// Use block Template Parts for Footer
+		$wp_customize->add_setting( 'tainacan_use_block_template_parts_on_footer', array(
+			'type'       => 'theme_mod',
+			'default'    => false,
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+		) );
+		$wp_customize->add_control( 'tainacan_use_block_template_parts_on_footer', array(
+			'type' 		=> 'checkbox',
+			'settings' 	=> 'tainacan_use_block_template_parts_on_footer',
+			'section' 	=> 'tainacan_interface_footer_info',
+			'label' 	=> __( 'Use block template parts to configure footer', 'tainacan-interface' ),
+			'description' => __( 'Build your own footer using the block editor in the menu Appearance -> Template Parts -> Footer. If enabled, the options below do not apply.', 'tainacan-interface')
+		) );
 
 		$wp_customize->add_setting( 'tainacan_blogaddress', array(
 			'type'       => 'theme_mod',
@@ -129,22 +145,6 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'label' => __( 'Display "Proudly Powered by..."', 'tainacan-interface' ),
 			'description' => __( 'This checkbox shows the "Proudly Powered by WordPress and Tainacan" sentence.', 'tainacan-interface' ),
 		) );
-
-		// Use block Template Parts for Footer
-		$wp_customize->add_setting( 'tainacan_use_block_template_parts_on_footer', array(
-			'type'       => 'theme_mod',
-			'default'    => false,
-			'capability' => 'edit_theme_options',
-			'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
-		) );
-		$wp_customize->add_control( 'tainacan_use_block_template_parts_on_footer', array(
-			'type' 		=> 'checkbox',
-			'settings' 	=> 'tainacan_use_block_template_parts_on_footer',
-			'section' 	=> 'tainacan_interface_footer_info',
-			'label' 	=> __( 'Use block template parts to configure footer', 'tainacan-interface' ),
-			'description' => __( 'Build your own footer using the block editor in the menu Appearance -> Template Parts -> Footer.', 'tainacan-interface')
-		) );
-
 
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_footer_info', 11 );

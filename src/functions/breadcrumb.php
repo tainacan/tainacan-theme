@@ -43,7 +43,7 @@ function tainacan_interface_the_breadcrumb() {
 			if ( get_post_type() != 'post' ) {
 				$post_type = get_post_type_object(get_post_type());
 				$slug = $post_type->rewrite;
-				if(!is_page() && get_post_type() != 'tainacan-collection') {
+				if (!is_page() && get_post_type() != 'tainacan-collection' && get_post_type() != 'tainacan-taxonomy' ) {
 					echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 				}
 				echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
@@ -83,8 +83,8 @@ function tainacan_interface_the_breadcrumb() {
 				// Display the current term in the breadcrumb
 				echo '&nbsp;' . $delimiter . '&nbsp;';
 				echo $before . $term->name . $after;
-			} elseif(!is_tax() && get_post_type() != 'tainacan-collection') {
-				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">';
+			} elseif( !is_tax() && get_post_type() != 'tainacan-collection' && get_post_type() != 'tainacan-taxonomy' ) {
+				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection') ) .'">';
 				    _e( 'Collections', 'tainacan-interface' );
 				echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 				$str = '';
@@ -97,8 +97,10 @@ function tainacan_interface_the_breadcrumb() {
 				}
 				echo $before . $str . $after;
 			} else {
-			    if ( is_archive() ) {
+			    if ( is_archive() && get_post_type() == 'tainacan-collection' ) {
 			        $str = __( 'Collections', 'tainacan-interface' ) . '&nbsp;';
+                } else if ( is_archive() && get_post_type() == 'tainacan-taxonomy' ) {
+			        $str = __( 'Taxonomies', 'tainacan-interface' ) . '&nbsp;';
                 } else {
 				    $str = $post_type->labels->singular_name;
                 }

@@ -352,7 +352,7 @@ function tainacan_get_color_scheme_css( $colors ) {
 	$filter = ( has_filter( 'tainacan-customize-css-class' ) ) ? apply_filters( 'tainacan-customize-css-class', $colors ) : '';
 
 	return <<<CSS
-		:root {
+		body {
 			--tainacan-interface--link-color: {$colors['tainacan_link_color']} !important;
 			--tainacan-interface--tooltip-color: {$colors['tainacan_tooltip_color']} !important;
 		}

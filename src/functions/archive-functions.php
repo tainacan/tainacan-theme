@@ -25,6 +25,14 @@ function tainacan_theme_collection_title( $title ) {
 }
 add_filter( 'get_the_archive_title', 'tainacan_theme_collection_title' );
 
+function tainacan_theme_taxonomy_title( $title ) {
+	if ( is_post_type_archive( 'tainacan-taxononomy' ) ) {
+		return __( 'Taxonomies', 'tainacan-interface' );
+	}
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'tainacan_theme_taxonomy_title' );
+
 function tainacan_theme_collection_query( $query ) {
 	if ( $query->is_main_query() && $query->is_post_type_archive( 'tainacan-collection' ) ) {
 		$query->set( 'posts_per_page', 12 );

@@ -15,6 +15,13 @@ Text Domain: tainacan-interface
 
 @import '_variables';
 
+:where(:not(.has-link-color)) a:not(.has-link-color) {
+    color: var(--tainacan-interface--link-color, #298596);
+    &:hover{
+        color: var(--tainacan-interface--link-color, #298596);
+    }
+}
+
 body {
     font-family: 'Roboto' !important;
     overflow-x: hidden;
@@ -39,12 +46,6 @@ body {
     --wp--preset--color--lightgray: #f2f2f2;
     --wp--preset--color--darkgray: #555758;
 
-    *:not(.has-link-color)>*:not(.has-link-color)>a:not(.has-link-color) {
-        color: var(--tainacan-interface--link-color, #298596);
-        &:hover{
-            color: var(--tainacan-interface--link-color, #298596);
-        }
-    }
     &.error404 {
         overflow: hidden;
     }
@@ -123,7 +124,7 @@ body {
         }
     }
     .wp-block-separator {
-        &:not(.has-background-color) {
+        &:not(.has-background-color):not(.has-text-color) {
             border-color: #cbcbcb;
         }
         width: 50%;
@@ -132,7 +133,7 @@ body {
             width: 100%;
         }
         &.is-style-dots {
-            &:not(.has-background-color)::before {
+            &:not(.has-background-color):not(.has-text-color)::before {
                 color: #cbcbcb;
             }
             &::before {

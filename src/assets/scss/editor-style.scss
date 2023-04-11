@@ -22,17 +22,20 @@
             margin: 0 !important;
             padding: 0px;
         }
+        &.is-root-container.is-layout-flow>h1 {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
     }
     .wp-block.editor-post-title__block,
     .editor-post-title__block .editor-post-title__input,
     .editor-post-title.editor-post-title__input {
         font-size: 1.25rem;
         font-family: 'Roboto', sans-serif;
-        color: var(--tainacan-interface--link-color, #298596);
+        color:#1d1d1d;
         textarea {
             padding: 3px 6px;
-            color: var(--tainacan-interface--link-color, #298596);
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+            color: #1d1d1d;
         }
     }
 
