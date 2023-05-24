@@ -86,6 +86,24 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 					) );
 
 				/**
+				 * Adds options to select a order for the related items list.
+				 */
+				$wp_customize->add_setting( 'tainacan_single_item_related_items_order', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => 'title_asc',
+					'transport'  => 'refresh',
+					'sanitize_callback' => 'tainacan_sanitize_single_item_related_items_order_options',
+					) );
+				$wp_customize->add_control( 'tainacan_single_item_related_items_order', array(
+					'type' 	   	  => 'select',
+					'priority' 	  => 3, // Within the section.
+					'section'  	  => 'tainacan_single_item_page_related_items',
+					'label'    	  => __( 'Sorting criteria for the related items query', 'tainacan-interface' ),
+					'choices'	  => tainacan_get_single_item_related_items_order_options()
+					) );
+
+				/**
 				 * Allows setting max columns count on grid and list layout ---------------------------------------------------------
 				 */
 				$wp_customize->add_setting( 'tainacan_single_item_related_items_max_columns_count', array(
@@ -181,4 +199,53 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_related_items_layout_opti
 		return $option;
 	}
 endif; // tainacan_sanitize_single_item_related_items_layout_options
+
+
+if ( ! function_exists( 'tainacan_get_single_item_related_items_order_options' ) ) :
+	/**
+	 * Retrieves an array of options for single item page related items sorting options for Tainacan Interface theme.
+	 *
+	 * Create your own tainacan_get_single_item_related_items_order_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Interface theme
+	 *
+	 * @return array $option - a string with sorting options for displaying the related items query
+	 */
+	function tainacan_get_single_item_related_items_order_options() {
+		$related_items_order_options = array(
+			'title_asc' => __( 'Title A-Z', 'tainacan-interface'),
+            'title_desc' => __( 'Title Z-A', 'tainacan-interface'),
+            'date_asc' => __( 'Latest created last', 'tainacan-interface'),
+            'date_desc' => __( 'Latest created first', 'tainacan-interface'),
+            'modified_asc' => __( 'Latest modified last', 'tainacan-interface'),
+            'modified_desc' => __( 'Latest modified first', 'tainacan-interface')
+		);
+		return $related_items_order_options;
+	}
+endif; // tainacan_get_single_item_related_items_order_options
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_related_items_order_options' ) ) :
+	/**
+	 * Handles sanitization for Tainacan Interface theme item page related items section sorting options
+	 *
+	 * Create your own tainacan_sanitize_single_item_related_items_order_options() function to override
+	 * in a child theme.
+	 *
+	 * @since Tainacan Interface theme
+	 *
+	 * @param string $option - a string with sorting options for displaying the related items query.
+	 * @return string the selected option.
+	 */
+	function tainacan_sanitize_single_item_related_items_order_options( $option ) {
+		$related_items_order_options = tainacan_get_single_item_related_items_order_options();
+
+		if ( ! array_key_exists( $option, $related_items_order_options ) ) {
+			return 'title_asc';
+		}
+
+		return $option;
+	}
+endif; // tainacan_sanitize_single_item_related_items_order_options
+
 
