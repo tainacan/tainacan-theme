@@ -7,7 +7,7 @@
 
         &.tainacan-list-collection--container-card {
             display: grid;
-            grid-template-columns: repeat(auto-fit, 425px);
+            grid-template-columns: repeat(auto-fit, 446px);
             grid-gap: 30px;
 
             .term-name {
@@ -20,6 +20,10 @@
                 margin-top: 0;
                 padding-top: 0 !important;
                 padding-left: 1rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             .term-children-link a {
