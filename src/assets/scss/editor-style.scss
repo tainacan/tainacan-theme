@@ -15,8 +15,8 @@
         padding: 0;
         max-width: calc(1400px - 4.1666667%);
         width: calc(100% - 8.33333%);
-        border-bottom: 2px solid var(--tainacan-interface--link-color, #298596);
-        border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+        border-bottom: 2px solid var(--tainacan-interface--link-color, #187181);
+        border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
 
         &>.wp-block {
             margin: 0 !important;
@@ -73,11 +73,11 @@
     .components-popover select,
     .components-popover textarea {
         border-radius: 0;
-        border-color: #cbcbcb;
+        border-color: #a5a5a5;
         padding: 4px 8px;
 
         &:focus {
-            border: 1px solid #555758;
+            border: 1px solid #505253;
             box-shadow: none;
         }
     }
@@ -94,21 +94,21 @@
         font-family: 'Roboto', sans-serif;
     }
     .wp-block-quote:not(.is-style-large):not(.is-large) {
-        border-left: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+        border-left: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
     }
     .wp-block-quote__citation {
         font-weight: 500;
         font-size: 1rem;
         text-align: right;
         font-style: italic;
-        color: #555758;
+        color: #505253;
     }
 
     /* Pullquote */
     .wp-block-pullquote {
         &:not(.is-style-solid-color) {
-            border-top: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
-            border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+            border-top: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
+            border-bottom: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
         }
 
         .block-library-pullquote__content.editor-rich-text p,
@@ -118,11 +118,11 @@
         }
         :not(.has-text-color) .block-library-pullquote__content.editor-rich-text p,
         :not(.has-text-color) .rich-text.block-editor-rich-text__editable p {
-            color: var(--tainacan-interface--link-color, #298596);
-            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+            color: var(--tainacan-interface--link-color, #187181);
+            color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
         }
         .wp-block-pullquote__citation {
-            color: #555758;
+            color: #505253;
             font-size: 1rem;
             font-weight: normal;
             font-style: italic;
@@ -133,8 +133,8 @@
     /* Separator */
     .wp-block-separator {
         &:not(.has-background-color) {
-            border-color: var(--tainacan-interface--link-color, #298596);
-            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+            border-color: var(--tainacan-interface--link-color, #187181);
+            border-color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
         }
         width: 50%;
         max-width: 300px;
@@ -143,8 +143,8 @@
         }
         &.is-style-dots {
             &:not(.has-background-color)::before {
-                color: var(--tainacan-interface--link-color, #298596);
-                color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #298596));
+                color: var(--tainacan-interface--link-color, #187181);
+                color: var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));
             }
             &::before {
                 font-weight: 600;
@@ -157,7 +157,7 @@
         border-top: none;
         border-left: none;
         border-right: none;
-        border-bottom: 1px solid #cbcbcb;
+        border-bottom: 1px solid #a5a5a5;
         font-weight: normal;
         font-size: 0.75rem;
         padding: .75rem;

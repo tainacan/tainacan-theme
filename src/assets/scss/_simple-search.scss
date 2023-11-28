@@ -7,7 +7,7 @@
                 box-shadow: none;
             }
             &::after {
-                color: var(--tainacan-interface--link-color, #298596);
+                color: var(--tainacan-interface--link-color, #187181);
             }
         }
         &.dropdown-sorting{
@@ -26,7 +26,7 @@
         .dropdown-menu {
             font-size: 0.875rem;
             border-radius: 0;
-            border: 1px solid #cbcbcb;
+            border: 1px solid #a5a5a5;
             a {
                 &:hover{
                     background-color: #f2f2f2;
@@ -44,9 +44,9 @@
             color: #898d8f;
         }
         &.active {
-            color: #cbcbcb;
+            color: #a5a5a5;
             &:hover{
-                color: #cbcbcb;
+                color: #a5a5a5;
             }
         }
         &:focus{
@@ -56,7 +56,7 @@
     #tainacan-collection-search {
         input{
             height: calc(2.25rem - 3px);
-            border-color: #cbcbcb !important;
+            border-color: #a5a5a5 !important;
             &:focus{
                 box-shadow: none;
                 border-right: none;
@@ -67,7 +67,7 @@
             }
         }
         button{
-            border-color: #cbcbcb !important;
+            border-color: #a5a5a5 !important;
             line-height: 0.5;
             &:focus{
                 box-shadow: none;

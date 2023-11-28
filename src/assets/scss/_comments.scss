@@ -1,5 +1,5 @@
 #comments{
-    border-top-color: var(--tainacan-interface--link-color, #298596) !important;
+    border-top-color: var(--tainacan-interface--link-color, #187181) !important;
 
     div[for=comment]{
         span{
@@ -41,7 +41,7 @@
                 }
                 input {
                     width: 50%;
-                    border: 1px solid #cbcbcb;
+                    border: 1px solid #a5a5a5;
                     height: 30px;
                     @media only screen and (max-width: 576px) {
                         width: 82%;
@@ -110,7 +110,7 @@
                 }
                 &#submit{
                     &:hover{
-                        background-color: #25a189 !important;
+                        background-color: #1a745c !important;
                     }
                     border: none;
                 }
@@ -149,7 +149,7 @@
                     }
                 }
                 .comment-reply-link, .comment-edit-link{
-                    color: var(--tainacan-interface--link-color, #298596);
+                    color: var(--tainacan-interface--link-color, #187181);
                     font-size: 0.75rem;
                 }
             }

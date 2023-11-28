@@ -70,7 +70,7 @@
                         color: inherit;
                     }
                     i{
-                        color: #01295c;
+                        color: #062a57;
                         font-size: 1.1875rem;
                     }
                 }
@@ -78,13 +78,13 @@
         }
         #tainacan-search{
             font-size: 0.75rem;
-            color: #555758;
+            color: #505253;
             border-color: #dbdbdb;
             height: 30px;
             border-radius: 0px;
             &:focus{
                 box-shadow: none;
-                border-color: #555758;
+                border-color: #505253;
             }
             &+.input-group-append button {
                 border-left-width: 0;

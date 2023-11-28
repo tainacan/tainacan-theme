@@ -1,25 +1,25 @@
 /* CSS Variables for the theme palette */
 :root {
-    --tainacan-interface--link-color: #298596;
+    --tainacan-interface--link-color: #187181;
     --tainacan-interface--tooltip-color: #e6f6f8;
-    --tainacan-block-primary: var(--tainacan-interface--link-color, #298596);
+    --tainacan-block-primary: var(--tainacan-interface--link-color, #187181);
     --wp--preset--font-size--small: 14px;
     --wp--preset--font-size--regular: 16px;
     --wp--preset--font-size--large: 18px;
     --wp--preset--font-size--huge: 24px;
-    --wp--preset--color--default: var(--tainacan-color-default, #298596); 
-    --wp--preset--color--carmine: #8c442c;
-    --wp--preset--color--cherry: #A12B42;
-    --wp--preset--color--mustard: #754E24;
-    --wp--preset--color--mintgreen: #255F56;
-    --wp--preset--color--darkturquoise: #205E6F;
-    --wp--preset--color--turquoise: #185F6D;
-    --wp--preset--color--blueheavenly: #1D5C86;
-    --wp--preset--color--purple: #4751a3;
-    --wp--preset--color--violet: #955ba5;
-    --wp--preset--color--white: #ffffff;
-    --wp--preset--color--lightgray: #f2f2f2;
-    --wp--preset--color--darkgray: #555758;
+    --wp--preset--theme-text-color--default: var(--tainacan-color-default, #187181); 
+    --wp--preset--theme-text-color--carmine: #8c442c;
+    --wp--preset--theme-text-color--cherry: #A12B42;
+    --wp--preset--theme-text-color--mustard: #754E24;
+    --wp--preset--theme-text-color--mintgreen: #255F56;
+    --wp--preset--theme-text-color--darkturquoise: #205E6F;
+    --wp--preset--theme-text-color--turquoise: #185F6D;
+    --wp--preset--theme-text-color--blueheavenly: #1D5C86;
+    --wp--preset--theme-text-color--purple: #4751a3;
+    --wp--preset--theme-text-color--violet: #955ba5;
+    --wp--preset--theme-text-color--white: #ffffff;
+    --wp--preset--theme-text-color--lightgray: #f2f2f2;
+    --wp--preset--theme-text-color--darkgray: #505253;
     
     --wp--style--global--content-size: 1100px;
     --wp--style--global--wide-size: 1400px;

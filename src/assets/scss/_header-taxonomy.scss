@@ -64,9 +64,9 @@
                 }
                 > .page-header-content-title {
                     width: 100%;
-                    border-color: var(--tainacan-interface--link-color, #298596) !important;
+                    border-color: var(--tainacan-interface--link-color, #187181) !important;
                     .page-header-title {
-                        color: #01295c;
+                        color: #062a57;
                         font: {
                             size: 20px;
                             weight: 400;
@@ -98,7 +98,7 @@
                             padding-right: 0;
                         }
                         a {
-                            color: var(--tainacan-interface--link-color, #298596);
+                            color: var(--tainacan-interface--link-color, #187181);
                             font: {
                                 size: inherit;
                                 weight: 400;
@@ -149,7 +149,7 @@
                                 }
                             }
                             .icon-export {
-                                background-color: var(--tainacan-interface--link-color, #298596);
+                                background-color: var(--tainacan-interface--link-color, #187181);
                                 color: #fff;
                                 border-radius: 100%;
                                 padding: .282rem .4rem;

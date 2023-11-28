@@ -10,7 +10,7 @@ footer.tainacan-footer {
         }
     }
     .tainacan-footer-area-separator {
-        background-color: var(--tainacan-interface--link-color, #298596);
+        background-color: var(--tainacan-interface--link-color, #187181);
     }
     
     .tainacan-footer-widgets-area {
@@ -100,7 +100,7 @@ footer.tainacan-footer {
                 border-color: #dbdbdb;
                 min-height: 40px;
                 &:hover {
-                    color: #454647;
+                    color: #373839;
                 }
             }
         }
@@ -113,9 +113,9 @@ footer.tainacan-footer {
             padding-right: 2rem;
 
             &:focus {
-                color: #454647;
+                color: #373839;
                 box-shadow: none;
-                border: 1px solid #555758 !important;
+                border: 1px solid #505253 !important;
             }
         }
         .search-controls {
@@ -129,7 +129,7 @@ footer.tainacan-footer {
             label {
                 white-space: normal;
                 display: flex;
-                color: #454647;
+                color: #373839;
                 align-items: center;
                 input {
                     margin-right: 0.5rem;
@@ -159,7 +159,7 @@ footer.tainacan-footer {
         }
         .tainacan-powered {
             font-weight: 400;
-            color: #cbcbcb;
+            color: #a5a5a5;
 
             a {
                 color: #f9f9f9;
@@ -172,7 +172,7 @@ footer.tainacan-footer {
         }
     }
     &.tainacan-footer-colored {
-        background-color: var(--tainacan-interface--link-color, #298596);
+        background-color: var(--tainacan-interface--link-color, #187181);
         a {
             color: #e6f6f8;
         }
@@ -195,10 +195,10 @@ footer.tainacan-footer {
     &.tainacan-footer-light {
         background-color: #f2f2f2;
         .text-white {
-            color: #454647 !important;
+            color: #373839 !important;
         }
         a {
-            color: #454647;
+            color: #373839;
             &:hover {
                 color: black;
             }
@@ -210,7 +210,7 @@ footer.tainacan-footer {
                 li{
                     color: black;
                     a {
-                        color: #454647;
+                        color: #373839;
                         &:hover {
                             color: black;
                         }
@@ -220,7 +220,7 @@ footer.tainacan-footer {
         }
         .tainacan-footer-info {
             .tainacan-powered {
-                color: #454647;
+                color: #373839;
                 a {
                     color: #222;
                     &:hover {

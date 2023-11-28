@@ -132,8 +132,8 @@ function tainacan_block_patterns_init() {
 				'description' => _x( 'Another hero section with a background color and columns for image headings and text.', 'Block pattern description', 'tainacan-interface' ),
 				'content'     => $wp_version >= '5.9'
                     ?  
-                    '<!-- wp:cover {"customOverlayColor":"#01295c","align":"full"} -->
-                    <div class="wp-block-cover alignfull"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#01295c"></span><div class="wp-block-cover__inner-container">
+                    '<!-- wp:cover {"customOverlayColor":"#062a57","align":"full"} -->
+                    <div class="wp-block-cover alignfull"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#062a57"></span><div class="wp-block-cover__inner-container">
                     
                     <!-- wp:group {"layout":{"inherit":true}} -->
                     <div class="wp-block-group"><!-- wp:columns {"style":{"color":{"text":"#ffffff"},"spacing":{"blockGap":"4.2%"}}} -->
@@ -165,8 +165,8 @@ function tainacan_block_patterns_init() {
                     <!-- /wp:group --></div></div>
                     <!-- /wp:cover -->'
                 :
-                    '<!-- wp:cover {"customOverlayColor":"#01295c","align":"full"} -->
-                    <div class="wp-block-cover alignfull has-background-dim" style="background-color:#01295c">
+                    '<!-- wp:cover {"customOverlayColor":"#062a57","align":"full"} -->
+                    <div class="wp-block-cover alignfull has-background-dim" style="background-color:#062a57">
                         <div class="wp-block-cover__inner-container">
                             <!-- wp:spacer {"height": 16} -->
                             <div style="height:16px" aria-hidden="true" class="wp-block-spacer"></div>
@@ -241,7 +241,7 @@ function tainacan_block_patterns_init() {
 			array(
 				'title'       => __( 'Tainacan footer section', 'tainacan-interface' ),
 				'description' => _x( 'A block-based footer that can be used as alterative to the default template.', 'Block pattern description', 'tainacan-interface' ),
-				'content'     => '<!-- wp:group {"tagName":"footer","style":{"elements":{"link":{"color":{"text":"var:preset|color|lightgray"}}},"spacing":{"padding":{"top":"3rem","right":"3rem","bottom":"3rem","left":"3rem"}},"color":{"background":"#2c2d2d"}},"textColor":"white","layout":{"type":"constrained"}} -->
+				'content'     => '<!-- wp:group {"tagName":"footer","style":{"elements":{"link":{"color":{"text":"var:preset|color|lightgray"},":hover":{"color":{"text":"var:preset|color|white"}}}},"spacing":{"padding":{"top":"3rem","right":"3rem","bottom":"3rem","left":"3rem"}},"color":{"background":"#2c2d2d"}},"textColor":"white","layout":{"type":"constrained"}} -->
                     <footer class="wp-block-group has-white-color has-text-color has-background has-link-color" style="background-color:#2c2d2d;padding-top:3rem;padding-right:3rem;padding-bottom:3rem;padding-left:3rem"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"4.2%","padding":{"right":"4.2%","left":"4.2%"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"top"}} -->
                     <div class="wp-block-group alignwide" style="padding-right:4.2%;padding-left:4.2%"><!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"layout":{"type":"default"}} -->
                     <div class="wp-block-group has-link-color"><!-- wp:heading {"level":6,"style":{"typography":{"fontSize":"1.13rem"}},"textColor":"white"} -->

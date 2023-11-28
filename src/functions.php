@@ -1,7 +1,7 @@
 <?php
 
 /** Theme version */
-const TAINACAN_INTERFACE_VERSION = '2.7';
+const TAINACAN_INTERFACE_VERSION = '2.7.1';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( !defined('TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER') )
@@ -97,13 +97,13 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		/**
 		 * Gutenberg support
 		 */
-		$default_color = '#298596';
+		$default_color = '#187181';
 
 		if (function_exists('tainacan_get_color_scheme')) {
 			$color_scheme = tainacan_get_color_scheme();
 			
 			if ($color_scheme && $color_scheme[2]) {
-				$default_color = $color_scheme[2] == 'default' ? '#298596' : $color_scheme[2];
+				$default_color = $color_scheme[2] == 'default' ? '#187181' : $color_scheme[2];
 			}
 		}
 	    add_theme_support( 'editor-color-palette', array(
@@ -170,7 +170,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 			array(
 	            'name' => __( 'Dark gray', 'tainacan-interface' ),
 	            'slug' => 'darkgray',
-	            'color' => '#555758',
+	            'color' => '#505253',
 	        ),
 		) );
 		add_theme_support( 'align-wide' );
@@ -213,7 +213,7 @@ add_action( 'after_setup_theme', 'tainacan_setup' );
  */
 function tainacan_customize_editor_css() {
 
-	$default_color = '#298596';
+	$default_color = '#187181';
 
 	if (function_exists('tainacan_get_color_scheme')) {
 		$color_scheme = tainacan_get_color_scheme();
@@ -226,8 +226,8 @@ function tainacan_customize_editor_css() {
 	?>
 	<style>
 		.editor-styles-wrapper {
-			--tainacan-color-default: <?php echo ($default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color ); ?>;
-			--tainacan-block-primary: <?php echo ($default_color == 'default' ? 'var(--tainacan-interface--link-color, #298596)' : $default_color ); ?>;
+			--tainacan-color-default: <?php echo ($default_color == 'default' ? 'var(--tainacan-interface--link-color, #187181)' : $default_color ); ?>;
+			--tainacan-block-primary: <?php echo ($default_color == 'default' ? 'var(--tainacan-interface--link-color, #187181)' : $default_color ); ?>;
 		}
 	</style>
 	<?php

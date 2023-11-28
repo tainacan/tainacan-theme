@@ -108,7 +108,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#1a1a1a', //background
 				'#ffffff', //background page
-				'#298596', //link
+				'#187181', //link
 				'#e6f6f8', //tooltip
 			),
 		),
@@ -198,7 +198,7 @@ function tainacan_get_color_schemes() {
 			'colors' => array(
 				'#ffffff', //background
 				'#ffffff', //background page
-				'#555758', //link
+				'#505253', //link
 				'#f2f2f2', //tooltip
 			),
 		),

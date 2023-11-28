@@ -293,7 +293,7 @@ footer {
     }
     .tainacan-side{
         .textwidget, .recentcomments, .calendar_wrap, ul li, div li, div, ul, li {
-            color: #cbcbcb;
+            color: #a5a5a5;
         }
     }
     &.tainacan-footer-light {
@@ -304,10 +304,10 @@ footer {
             @media only screen {
                 @media (max-width: 991.98px){
                     &{
-                        border-top: 1px solid #555758;
+                        border-top: 1px solid #505253;
                     }
                     &:nth-last-child(1){
-                        border-bottom: 1px solid #555758;
+                        border-bottom: 1px solid #505253;
                     }
                 }
             }

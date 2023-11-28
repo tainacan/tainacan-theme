@@ -3,6 +3,9 @@
     "version": 2,
     "settings": {
         "appearanceTools": true,
+        "background": {
+			"backgroundImage": true
+        },
         "layout": {
             "contentSize": "min(calc(1400px - 16.6666%), 75%)",
             "wideSize": "min(1400px, 91.66667%)"
@@ -100,7 +103,7 @@
                     "fontWeight": "normal"
 				},
                 "color": {
-                    "text": "var(--wp--preset--color--darkgray)"
+                    "text": "var(--wp--preset--theme-text-color--darkgray)"
                 },
                 "spacing": {
                     "padding": {
@@ -131,7 +134,7 @@
                     "fontWeight": "normal"
 				},
                 "color": {
-                    "text": "var(--wp--preset--color--darkgray)"
+                    "text": "var(--wp--preset--theme-text-color--darkgray)"
                 },
                 "spacing": {
                     "padding": {
