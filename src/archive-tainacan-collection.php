@@ -25,15 +25,15 @@
 					<?php _e( 'Sorting', 'tainacan-interface' ); ?>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuSorting">
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'orderby' ), 'date' ); ?>" href="<?php echo add_query_arg( 'orderby', 'date' ); ?>"><?php _e( 'Creation date', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'orderby' ), 'title' ); ?>" href="<?php echo add_query_arg( 'orderby', 'title' ); ?>"><?php _e( 'Title', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'orderby' ), 'date' ); ?>" href="<?php echo esc_url(add_query_arg( 'orderby', 'date' )); ?>"><?php _e( 'Creation date', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( get_query_var( 'orderby' ), 'title' ); ?>" href="<?php echo esc_url(add_query_arg( 'orderby', 'title' )); ?>"><?php _e( 'Title', 'tainacan-interface' ); ?></a>
 					</div>
 				</div>
 					
-				<a class="btn btn-white <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" style="width: 2rem;" href="<?php echo add_query_arg( 'order', 'ASC' ); ?>">
+				<a class="btn btn-white <?php tainacan_active( get_query_var( 'order' ), 'ASC' ); ?>" style="width: 2rem;" href="<?php echo esc_url(add_query_arg( 'order', 'ASC' )); ?>">
 					<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-sortascending"></i>
 				</a>
-				<a class="btn btn-white <?php tainacan_active( get_query_var( 'order' ), 'DESC' ); ?>" style="width: 2rem;" href="<?php echo add_query_arg( 'order', 'DESC' ); ?>">
+				<a class="btn btn-white <?php tainacan_active( get_query_var( 'order' ), 'DESC' ); ?>" style="width: 2rem;" href="<?php echo esc_url(add_query_arg( 'order', 'DESC' )); ?>">
 					<i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-sortdescending"></i>
 				</a>
 				
@@ -56,9 +56,9 @@
 						<span class="d-none d-md-inline"><?php _e( 'View Mode', 'tainacan-interface' ); ?></span>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuViewMode">
-						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'cards' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'cards' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewcards text-oslo-gray"></i>&nbsp;<?php _e( 'Cards', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'grid' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'grid' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewminiature text-oslo-gray"></i>&nbsp;<?php _e( 'Thumbnails', 'tainacan-interface' ); ?></a>
-						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'table' ); ?>" href="<?php echo add_query_arg( 'tainacan_collections_viewmode', 'table' ); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>&nbsp;<?php _e( 'Table', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'cards' ); ?>" href="<?php echo esc_url(add_query_arg( 'tainacan_collections_viewmode', 'cards' )); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewcards text-oslo-gray"></i>&nbsp;<?php _e( 'Cards', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'grid' ); ?>" href="<?php echo esc_url(add_query_arg( 'tainacan_collections_viewmode', 'grid' )); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewminiature text-oslo-gray"></i>&nbsp;<?php _e( 'Thumbnails', 'tainacan-interface' ); ?></a>
+						<a class="dropdown-item text-black <?php tainacan_active( $view_mode, 'table' ); ?>" href="<?php echo esc_url(add_query_arg( 'tainacan_collections_viewmode', 'table' )); ?>"><i class="tainacan-icon tainacan-icon-1-125em tainacan-icon-viewtable text-oslo-gray"></i>&nbsp;<?php _e( 'Table', 'tainacan-interface' ); ?></a>
 					</div>
 				</div>
 				
