@@ -1,7 +1,7 @@
 === Tainacan Interface ===
 Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila, r-guimaraes
 Requires at least: WordPress 5.9
-Tested up to: WordPress 6.5.2
+Tested up to: 6.5.2
 Version: 2.7.2
 Requires PHP: 7.0
 Stable tag: trunk
