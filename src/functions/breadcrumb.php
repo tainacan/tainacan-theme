@@ -4,6 +4,7 @@
  * Display parent and current page
  **/
 function tainacan_interface_the_breadcrumb() {
+	ob_start();
 	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
 	$delimiter = '>'; // delimiter between crumbs
 	$home = __('Home', 'tainacan-interface'); // text for the 'Home' link
@@ -183,4 +184,6 @@ function tainacan_interface_the_breadcrumb() {
 
 		echo '</div></nav>';
 	}
+	$content_breadcrumb = ob_get_clean();
+	return $content_breadcrumb;
 } // end tainacan_interface_the_breadcrumb()

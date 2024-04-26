@@ -24,7 +24,7 @@
 			style="min-height: <?php echo esc_attr(get_theme_mod('tainacan_header_min_height', 50)) ?>px;"
 			class="navbar navbar-expand-md navbar-light bg-white menu-shadow px-0 navbar--border-bottom <?php echo 'tainacan-header-layout--' . esc_attr(get_theme_mod('tainacan_header_alignment_options', 'default')); ?>">
 		<div class="container-fluid max-large px-0 margin-one-column" id="topNavbar">
-			<?php echo wp_kses_post(tainacan_get_logo()); ?>
+			<?php echo wp_kses_post(tainacan_get_logo() ?? ''); ?>
 
 			<div class="navbar-box">
 				<?php if ( has_nav_menu( 'navMenubelowHeader' ) ) : ?>
@@ -58,7 +58,7 @@
 							<i class="tainacan-icon tainacan-icon-close"></i>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<?php wp_kses_post(get_search_form()); ?>
+							<?php get_search_form(); ?>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -73,5 +73,5 @@
 	<a href="javascript:" id="return-to-top" style="<?php echo (get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'colored' ? 'background-color: #2c2d2d;' : '') ?>"><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
 
     <?php if ( !is_page_template( 'page-templates/landing.php' ) ) : ?>
-		<?php wp_kses_post( tainacan_interface_the_breadcrumb() ); ?>
+		<?php echo wp_kses_post( tainacan_interface_the_breadcrumb() ); ?>
 	<?php endif; ?>
