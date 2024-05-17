@@ -638,10 +638,10 @@
     }
     .single-item-collection--related-items {
         .wp-block-tainacan-carousel-related-items {
-            h3 {
+            .wp-block-group__inner-container > h3 {
                 font-size: 1rem !important;
             }
-            p {
+            .wp-block-group__inner-container > p {
                 font-size: 0.875rem;
             }
         }

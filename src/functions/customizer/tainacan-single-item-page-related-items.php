@@ -173,6 +173,17 @@ if ( ! function_exists( 'tainacan_get_single_item_related_items_layout_options' 
 			'grid' => __('Grid of items, with large thumbnails', 'tainacan-interface'),
 			'list' => __('List of items, with smaller thumbnails', 'tainacan-interface')
 		);
+		if ( version_compare(TAINACAN_VERSION, '0.20.3') >= 0 ) {
+			$tainacan_view_modes = tainacan_get_default_view_mode_choices();
+			$tainacan_view_modes_options = array();
+			foreach ($tainacan_view_modes['enabled_view_modes'] as $key => $value) {
+				$tainacan_view_modes_options['tainacan-view-mode-' . $key] = $value;
+			}
+			$related_items_layout_options = array_merge(
+				$related_items_layout_options,
+				$tainacan_view_modes_options
+			);
+		}
 		return $related_items_layout_options;
 	}
 endif; // tainacan_get_single_item_related_items_layout_options

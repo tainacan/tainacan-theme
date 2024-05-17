@@ -24,21 +24,30 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
     <section class="tainacan-content single-item-collection margin-two-column">
         <div class="single-item-collection--related-items justify-content-center">
             <div class="row">
-            <?php 
-                tainacan_the_related_items_carousel([
+            <?php
+                $related_items_layout = get_theme_mod('tainacan_single_item_related_items_layout', 'carousel');
+                $tainacan_view_mode = '';
+                if ( strpos($related_items_layout, 'tainacan-view-mode-') !== false ) {
+                    $tainacan_view_mode = str_replace('tainacan-view-mode-', '', $related_items_layout);
+                    $related_items_layout = 'tainacan-view-modes';
+                }
+                
+                $related_items_options = [
                     // 'class_name' => 'mt-2 tainacan-single-post',
                     // 'collection_heading_class_name' => 'title-content-items',
-                    'items_list_layout' => get_theme_mod( 'tainacan_single_item_related_items_layout', 'carousel' ),
+                    'items_list_layout' => $related_items_layout,
                     'collection_heading_tag' => 'h3',
                     'order' => $order,
                     'orderby' => $order_by,
                     'dynamic_items_args' => [
-                        'max_columns_count' => get_theme_mod('tainacan_single_item_related_items_max_columns_count', 4)
+                        'max_columns_count' => get_theme_mod('tainacan_single_item_related_items_max_columns_count', 4),
+                        'tainacan_view_mode' => $tainacan_view_mode
                     ],
                     'carousel_args' => [
                         'max_items_per_screen' => get_theme_mod('tainacan_single_item_related_items_max_items_per_screen', 6)
                     ]
-                ]);
+                ]; 
+                tainacan_the_related_items_carousel($related_items_options);
             ?>
             </div>
         <div>
