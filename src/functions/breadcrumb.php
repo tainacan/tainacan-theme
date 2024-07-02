@@ -43,11 +43,10 @@ function tainacan_interface_the_breadcrumb() {
 		} elseif ( is_single() && !is_attachment() ) {
 			if ( get_post_type() != 'post' ) {
 				$post_type = get_post_type_object(get_post_type());
-				$slug = $post_type->rewrite;
 				if (!is_page() && get_post_type() != 'tainacan-collection' && get_post_type() != 'tainacan-taxonomy' ) {
 					echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
 				}
-				echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
+				echo '<a href="' . get_post_type_archive_link(get_post_type()) . '">' . $post_type->labels->singular_name . '</a>';
 				if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
 			} else {
 				$cat = get_the_category(); $cat = $cat[0];

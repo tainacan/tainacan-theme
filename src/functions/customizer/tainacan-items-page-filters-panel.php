@@ -133,6 +133,62 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'description' => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' )
 				) );
 
+			if (version_compare(TAINACAN_VERSION, '0.21.7') >= 0) {
+				/**
+				 * Adds option to disable the behavior of hiding filters on mobile inside a modal.
+				 */
+				$wp_customize->add_setting( 'tainacan_items_page_should_not_hide_filters_on_mobile', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => false,
+					'transport'  => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+					) );
+				$wp_customize->add_control( 'tainacan_items_page_should_not_hide_filters_on_mobile', array(
+					'type' 	   	  => 'checkbox',
+					'priority' 	  => 10, // Within the section.
+					'section'  	  => 'tainacan_items_page_filters_panel',
+					'label'    	  => __( 'Should not hide filters even on mobile', 'tainacan-interface' ),
+					'description' => __( 'Toggle to keep filters area visible even on small screen sizes.', 'tainacan-interface' )
+					) );
+
+				/**
+				 * Adds option to display filters horizontally.
+				 */
+				$wp_customize->add_setting( 'tainacan_items_page_display_filters_horizontally', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => false,
+					'transport'  => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+					) );
+				$wp_customize->add_control( 'tainacan_items_page_display_filters_horizontally', array(
+					'type' 	   	  => 'checkbox',
+					'priority' 	  => 10, // Within the section.
+					'section'  	  => 'tainacan_items_page_filters_panel',
+					'label'    	  => __( 'Display filters horizontally', 'tainacan-interface' ),
+					'description' => __( 'Toggle to show filters in an horizontal pane above the search control instead of a vertical sidebar. This layout fits better with select and textual input filters. Must not to be used combined with "Filters as a modal".', 'tainacan-interface' )
+					) );
+
+				/**
+				 * Adds option to hide the "Collapse all" filters button.
+				 */
+				$wp_customize->add_setting( 'tainacan_items_page_hide_filter_collapses', array(
+					'type' 		 => 'theme_mod',
+					'capability' => 'edit_theme_options',
+					'default' 	 => false,
+					'transport'  => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+					) );
+				$wp_customize->add_control( 'tainacan_items_page_hide_filter_collapses', array(
+					'type' 	   	  => 'checkbox',
+					'priority' 	  => 10, // Within the section.
+					'section'  	  => 'tainacan_items_page_filters_panel',
+					'label'    	  => __( 'Hide filter collapses button', 'tainacan-interface' ),
+					'description' => __( 'Toggle to not display each filter label as a collapsable button. This is suggested when you have a small amount of filters.', 'tainacan-interface' )
+					) );
+			}
+
 			/**
 			 * Adds section to settings related to pagination section . ---------------------------------------------------------
 			 */

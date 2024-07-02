@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 <?php get_template_part( 'tainacan/header-collection' ); ?>
 
-	<?php tainacan_the_faceted_search([
+	<?php 
+		tainacan_the_faceted_search([
 		'default_items_per_page' => get_theme_mod('tainacan_items_page_default_items_per_page', 12),
 		'hide_filters' => get_theme_mod('tainacan_items_page_hide_filters', false),
 		'hide_hide_filters_button' => get_theme_mod('tainacan_items_page_hide_hide_filters_button', false),
@@ -15,7 +16,10 @@
 		'start_with_filters_hidden' => get_theme_mod('tainacan_items_page_start_with_filters_hidden', false),
 		'filters_as_modal' => get_theme_mod('tainacan_items_page_filters_as_modal', false),
 		'show_inline_view_mode_options' => get_theme_mod('tainacan_items_page_show_inline_view_mode_options', false),
-		'show_fullscreen_with_view_modes' => get_theme_mod('tainacan_items_page_show_fullscreen_with_view_modes', false)
+		'show_fullscreen_with_view_modes' => get_theme_mod('tainacan_items_page_show_fullscreen_with_view_modes', false),
+		'should_not_hide_filters_on_mobile' => get_theme_mod('tainacan_items_page_should_not_hide_filters_on_mobile', false),
+		'display_filters_horizontally' => get_theme_mod('tainacan_items_page_display_filters_horizontally', false),
+		'hide_filter_collapses' => get_theme_mod('tainacan_items_page_hide_filter_collapses', false)
 	]); ?>
 
 <?php get_footer();

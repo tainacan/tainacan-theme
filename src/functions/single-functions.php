@@ -18,9 +18,11 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 		?>
 		<div class="media-body">
 			<h5 class="media-heading comment-author vcard ml-2">
-				<a href="<?php echo esc_url(get_author_posts_url( $comment->user_id )); ?>" class="text-black font-weight-bold bypostauthor">
-					<?php wp_kses_post( comment_author( $comment->comment_ID ) ); ?>
-				</a>
+				<?php if ( comment_author( $comment->comment_ID ) ) : ?>
+					<a href="<?php echo esc_url(get_author_posts_url( $comment->user_id )); ?>" class="text-black font-weight-bold bypostauthor">
+						<?php wp_kses_post( comment_author( $comment->comment_ID ) ); ?>
+					</a>
+				<?php endif; ?>
 				<p class="comment-time text-oslo-gray my-sm-1">
 					<?php
 						printf(
@@ -37,18 +39,20 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 					<?php _e( 'Your comment is awaiting moderation.','tainacan-interface' ); ?>
 				</p>
 			<?php endif; ?>
-			<?php wp_kses_post( comment_text() ); ?>
-			<?php wp_kses_post(
+			<?php if ( comment_text() ) {
+				wp_kses_post( comment_text() );
+			
+				wp_kses_post(
 					comment_reply_link( array(
-					'reply_text' => __( 'Reply', 'tainacan-interface' ),
-					'depth'      => $depth,
-					'max_depth'  => $args['max_depth'],
-					'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
-					'after'     => '</li>',
-				))
-			);
-			wp_kses_post( edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' ) );
-			?>
+						'reply_text' => __( 'Reply', 'tainacan-interface' ),
+						'depth'      => $depth,
+						'max_depth'  => $args['max_depth'],
+						'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
+						'after'     => '</li>',
+					))
+				);
+				wp_kses_post( edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' ) );
+			} ?>
 		</div>
 	</div>
 <?php }
