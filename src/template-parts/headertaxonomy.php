@@ -64,7 +64,7 @@ $src = wp_get_attachment_image_src($image, 'full');
 									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
-							<button onclick="copyTextToClipboard('<?php echo get_term_link((int) $current_term->get_id()); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-link tainacan-copy-link-button">
+							<button id="tainacan-interface-sharer" data-link="<?php echo get_term_link((int) $current_term->get_id()); ?>" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-link tainacan-copy-link-button">
 								<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
 							</button>
 						</div>

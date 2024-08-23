@@ -36,3 +36,10 @@ function copyTextToClipboard(text) {
             console.error('Async: Could not copy text: ', err);
         });
 }
+
+jQuery( document ).ready(function( $ ) {
+    $( '#tainacan-interface-sharer' ).on('click', function() {
+        var link = $(this).data('link');
+        copyTextToClipboard(link);
+    });
+});

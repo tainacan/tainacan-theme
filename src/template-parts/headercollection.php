@@ -92,7 +92,7 @@ echo '</style>';
 						</div>
 					<?php endif; ?>
 					<div class="rotater">
-						<button onclick="copyTextToClipboard('<?php echo esc_url( home_url( $wp->request ) ); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
+						<button id="tainacan-interface-sharer" data-link="<?php echo esc_url( home_url( $wp->request ) ); ?>" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
 							<div class="btn btn-icon">
 								<i class="tainacan-icon tainacan-icon-url"></i>
 							</div>

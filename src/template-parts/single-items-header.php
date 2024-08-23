@@ -132,7 +132,7 @@ $next = $adjacent_links['next'];
                         </div>
                     <?php endif; ?>
                     <div class="rotater">
-						<button onclick="copyTextToClipboard('<?php the_permalink(); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
+						<button id="tainacan-interface-sharer" data-link="<?php the_permalink(); ?>" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="tainacan-copy-link-button">
 							<div class="btn btn-icon">
 								<i class="tainacan-icon tainacan-icon-url"></i>
 							</div>

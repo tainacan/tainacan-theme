@@ -86,7 +86,7 @@
                                                 <img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
                                             </a>
                                         <?php endif; ?>
-                                        <button onclick="copyTextToClipboard('<?php the_permalink(); ?>')" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="item-card-link--sharing tainacan-copy-link-button">
+                                        <button id="tainacan-interface-sharer" data-link="<?php the_permalink(); ?>" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="item-card-link--sharing tainacan-copy-link-button">
                                             <img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>">
                                         </button>
                                     </div>
