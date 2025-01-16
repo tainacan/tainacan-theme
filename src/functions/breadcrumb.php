@@ -148,10 +148,8 @@ function tainacan_interface_the_breadcrumb() {
 			echo $before . __('Error 404', 'tainacan-interface') . $after;
 		}
 
-		if ( get_query_var('paged') ) {
-			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo '&nbsp;(';
-			echo __('Page', 'tainacan-interface') . '&nbsp;' . get_query_var('paged');
-			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
+		if ( get_query_var('paged') && ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) ) {
+			echo '&nbsp;(' . __('Page', 'tainacan-interface') . '&nbsp;' . get_query_var('paged') . ')';
 		}
 
 		if ( defined ( 'TAINACAN_VERSION' ) ) {
