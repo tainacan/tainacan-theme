@@ -22,7 +22,20 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 	 */
 	function tainacan_setup() {
 
-		load_theme_textdomain( 'tainacan-interface', get_template_directory() . '/languages' );
+		/**
+		 * Actions that must be done after the init hook
+		 */
+		add_action( 'init' , function() {
+
+			load_theme_textdomain( 'tainacan-interface', get_template_directory() . '/languages' );
+
+			/**
+			 * Register the menu for use after the banner
+			 */
+			register_nav_menus( array(
+				'navMenubelowHeader' => __( 'Navigation menu below header', 'tainacan-interface' ),
+			) );
+		});
 
 		/**
 		 * Display in gutenberg plugin the full width for image
@@ -256,7 +269,7 @@ function tainacan_include_items_in_search_results( $query ) {
 			$existing_post_types = $query->get( 'post_type' );
 
 			if ( !is_array($existing_post_types) )
-					$existing_post_types = [ $existing_post_types ];
+				$existing_post_types = [ $existing_post_types ];
 
 			$query->set( 'post_type', array_merge( $existing_post_types, ['post', 'page', 'tainacan-collection', 'tainacan-taxonomy'], $collections_post_types ) );
 		} else if ( isset($_GET['onlypages']) && $_GET['onlypages'] && $query->is_main_query() && $query->is_search() && ! is_admin() ) {
@@ -373,13 +386,6 @@ add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
  * Class navwalker
  */
 require_once get_template_directory() . '/lib/class-wp-bootstrap-navwalker.php';
-
-/**
- * Register the menu for use after the banner
- */
-register_nav_menus( array(
-	'navMenubelowHeader' => __( 'Navigation menu below header', 'tainacan-interface' ),
-) );
 
 function tainacan_hex2rgb( $color ) {
 	$color = trim( $color, '#' );
