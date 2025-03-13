@@ -214,14 +214,14 @@
 $numOfElems: 8;
 
 @for $i from 1 through $numOfElems {
-    $deg: 360deg / $numOfElems;
+    $deg: calc(360deg / $numOfElems);
     .rotater:nth-child(#{$i}) {
-        transform: rotate($deg/-2 + $deg * ($i - 2));
+        transform: rotate(calc($deg/-2 + $deg * ($i - 2)));
     }
 
     .collection-header--share.active {
         .rotater:nth-child(#{$i}) .btn-icon {
-            transform: translateX(-4em) rotate($deg/2 - $deg * ($i - 2)); 
+            transform: translateX(-4em) rotate(calc($deg/2 - $deg * ($i - 2))); 
         }
     }
 }

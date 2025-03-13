@@ -18,16 +18,16 @@ echo "Compiling Sass..."
 #Style do Tema
 #cd ../../../../assets/scss
 cd src/assets/scss
-sass -E 'UTF-8' -t compressed style.scss:../../style.css
+sass -s compressed style.scss:../../style.css
 echo "Tainacan's style compiled.";
 
-sass -E 'UTF-8' -t compressed editor-style.scss:../../editor-style.css
+sass -s compressed editor-style.scss:../../editor-style.css
 echo "Tainacan's Gutenberg Editor style compiled";
 
-sass -E 'UTF-8' -t compressed editor-style-legacy.scss:../../editor-style-legacy.css
+sass -s compressed editor-style-legacy.scss:../../editor-style-legacy.css
 echo "Tainacan's Gutenberg Editor legacy style compiled";
 
-sass bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css --style compressed
+sass -s compressed bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css
 echo "Bootstrap style compiled";
 
 rm -rf .sass-cache
