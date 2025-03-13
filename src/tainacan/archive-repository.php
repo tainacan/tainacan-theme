@@ -4,7 +4,7 @@
 <?php get_template_part( 'template-parts/bannerheader' ); ?>
 
 	<?php tainacan_the_faceted_search([
-		'default_view_mode' => get_theme_mod('tainacan_items_repository_list_default_view_mode', 'masonry'),
+		'default_view_mode' => get_theme_mod('tainacan_items_repository_list_default_view_mode', get_option( 'tainacan_option_default_view_mode', 'masonry') ),
 		'default_items_per_page' => get_theme_mod('tainacan_items_page_default_items_per_page', 12),
 		'hide_filters' => get_theme_mod('tainacan_items_page_hide_filters', false),
 		'hide_hide_filters_button' => get_theme_mod('tainacan_items_page_hide_hide_filters_button', false),

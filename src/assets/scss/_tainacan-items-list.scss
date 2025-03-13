@@ -4,3 +4,13 @@
     --tainacan-secondary: var(--tainacan-interface--link-color, #187181);
     --tainacan-primary: var(--tainacan-interface--tooltip-color, #e6f6f8);
 }
+
+/* Tweaks to still display a lateral padding after Tainacan 1.0.0 changes */
+body > .tainacan-modal #filters-modal .modal-content,
+body > .theme-items-list #filters-modal .modal-content {
+    padding-left: 4.16666666667vw;
+}
+body > .theme-items-list .search-control {
+    padding-left: 4.16666666667vw;
+    padding-right: 4.16666666667vw;
+}
