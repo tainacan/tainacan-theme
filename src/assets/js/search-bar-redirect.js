@@ -9,6 +9,8 @@ function onTainacanSearchSubmit($event) {
                     selectedForm = child;
             }
         }
+        console.log('aaa')
+        console.log(selectedForm.archive)
         if (tainacan_search_info !== undefined) {
             if (selectedForm.archive) {
                 switch (selectedForm.archive.value) {
