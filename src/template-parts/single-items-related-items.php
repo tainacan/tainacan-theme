@@ -26,10 +26,29 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
             <div class="row">
             <?php
                 $related_items_layout = get_theme_mod('tainacan_single_item_related_items_layout', 'carousel');
+                
                 $tainacan_view_mode = '';
                 if ( strpos($related_items_layout, 'tainacan-view-mode-') !== false ) {
                     $tainacan_view_mode = str_replace('tainacan-view-mode-', '', $related_items_layout);
                     $related_items_layout = 'tainacan-view-modes';
+                }
+
+                $items_gallery_options = [];
+                if ( strpos($related_items_layout, 'gallery-') !== false) {
+
+                    $items_gallery_options = $related_items_layout == 'gallery-slider' ?
+                        array(
+                            'layoutElements' => array( 'main' => true, 'thumbnails' => true ),
+                            'mainSliderHeight' => get_theme_mod('tainacan_single_item_related_items_gallery_max_height', 60),
+                            'thumbnailsCarouselItemSize' => get_theme_mod('tainacan_single_item_related_items_gallery_thumbnail_size', 136),    
+                        ) :
+                        array(
+                            'layoutElements' => array( 'main' => false, 'thumbnails' => true ),
+                            'mainSliderHeight' => get_theme_mod('tainacan_single_item_related_items_gallery_max_height', 60),
+                            'thumbnailsCarouselItemSize' => get_theme_mod('tainacan_single_item_related_items_gallery_thumbnail_size', 136),  
+                        );                 
+
+                    $related_items_layout = 'gallery';
                 }
                 
                 $related_items_options = [
@@ -45,7 +64,8 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
                     ],
                     'carousel_args' => [
                         'max_items_per_screen' => get_theme_mod('tainacan_single_item_related_items_max_items_per_screen', 6)
-                    ]
+                    ],
+                    'items_gallery_args' => $items_gallery_options
                 ]; 
                 tainacan_the_related_items_carousel($related_items_options);
             ?>
