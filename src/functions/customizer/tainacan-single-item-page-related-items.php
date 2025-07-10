@@ -150,6 +150,57 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 				),
 			) );
 
+			/**
+			 * Adds options related to the items gallery layout.
+			 */
+			if ( method_exists('\Tainacan\Theme_Helper', 'get_tainacan_items_gallery') ) {
+
+				/**
+                 * Allows setting max heigth for the items gallery main slider ---------------------------------------------------------
+                 */
+                $wp_customize->add_setting( 'tainacan_single_item_related_items_gallery_max_height', array(
+                    'type' 		 => 'theme_mod',
+                    'capability' => 'edit_theme_options',
+                    'default' 	 => 60,
+                    'transport'  => 'refresh',
+                    'sanitize_callback'  => 'sanitize_text_field'
+                ) );
+                $wp_customize->add_control( 'tainacan_single_item_related_items_gallery_max_height', array(
+                    'type' => 'number',
+                    'priority' 	  => 5, // Within the section.
+                    'section' => 'tainacan_single_item_page_related_items',
+                    'label' => __( 'Items gallery maximum height (vh)', 'tainacan-interface' ),
+                    'description' => __( 'Set the maximum height for the items gallery slider. The unit of measure is relative to the screen, for example: 60vh is 60% of the height of the browser window height.', 'tainacan-interface' ),
+                    'input_attrs' => array(
+                        'min' => 10,
+                        'max' => 150,
+                        'step' => 5
+                    ),
+                ) );
+
+                /**
+                 * Allows setting carousel thumbnail size for the items gallery ---------------------------------------------------------
+                 */
+                $wp_customize->add_setting( 'tainacan_single_item_related_items_gallery_thumbnail_size', array(
+                    'type' 		 => 'theme_mod',
+                    'capability' => 'edit_theme_options',
+                    'default' 	 => 136,
+                    'transport'  => 'refresh',
+                    'sanitize_callback'  => 'sanitize_text_field'
+                ) );
+                $wp_customize->add_control( 'tainacan_single_item_related_items_gallery_thumbnail_size', array(
+                    'type' => 'number',
+                    'priority' 	  => 5, // Within the section.
+                    'section' => 'tainacan_single_item_page_related_items',
+                    'label' => __( 'Items gallery thumbnail size on carousel (px)', 'tainacan-interface' ),
+                    'input_attrs' => array(
+                        'min' => 12,
+                        'max' => 240,
+                        'step' => 2
+                    ),
+                ) );
+			}
+
         }
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_tainacan_single_item_page_related_items', 11 );
@@ -183,6 +234,10 @@ if ( ! function_exists( 'tainacan_get_single_item_related_items_layout_options' 
 				$related_items_layout_options,
 				$tainacan_view_modes_options
 			);
+		}
+		if ( method_exists('\Tainacan\Theme_Helper', 'get_tainacan_items_gallery') ) {
+			$related_items_layout_options['gallery-slider'] = __('Gallery slider, documents with zoom and thumbnails', 'tainacan-interface');
+			$related_items_layout_options['gallery-thumbs'] = __('Gallery carousel, thumbnails with zoom', 'tainacan-interface');
 		}
 		return $related_items_layout_options;
 	}

@@ -7,8 +7,8 @@
 			</button>
 		</span>
 	</div>
-	<?php if ( defined ( 'TAINACAN_VERSION' ) && (get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_on_posts', false) ) )  : ?>
-		<div class="search-controls">
+	<?php if ( defined ( 'TAINACAN_VERSION' ) ): ?>
+		<div class="search-controls" <?php echo (get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_on_posts', false) ) ? '' : 'style="display:none;visibility:hidden;"'; ?>>
 
 			<label for="search-global">
 				<input
@@ -20,7 +20,7 @@
 				<?php echo esc_html( get_theme_mod('tainacan_search_global_label', __( 'Global', 'tainacan-interface' ) ) ); ?>
 			</label>
 
-			<?php if ( get_theme_mod('tainacan_search_on_posts', false) ) : ?>
+			<?php if ( get_theme_mod('tainacan_search_on_posts', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'posts' ) : ?>
 				<label for="search-on-posts">
 					<input
 						type="radio" 
@@ -32,7 +32,7 @@
 				</label>
 
 			<?php endif;
-				if ( get_theme_mod('tainacan_search_on_pages', false) ) : ?>
+				if ( get_theme_mod('tainacan_search_on_pages', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'pages' ) : ?>
 				
 				<label for="search-on-pages">
 					<input
@@ -45,7 +45,7 @@
 				</label>
 	
 			<?php endif;
-				if ( get_theme_mod('tainacan_search_on_items', false) ) : ?>
+				if ( get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'tainacan-items' ) : ?>
 				
 				<label for="search-on-items">
 					<input
@@ -58,7 +58,7 @@
 				</label>
 
 			<?php endif; 
-				if ( get_theme_mod('tainacan_search_on_collections', false) ) : ?>
+				if ( get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'tainacan-collections' ) : ?>
 
 				<label for="search-on-collections">
 					<input

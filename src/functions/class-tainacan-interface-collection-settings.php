@@ -51,22 +51,24 @@ class TainacanInterfaceCollectionSettings {
 
 		<?php if ( function_exists('tainacan_get_the_metadata_sections') ) : ?> <!-- if (version_compare(TAINACAN_VERSION, '0.19') >= 0)-->
 		<div class="field tainacan-metadata-section--change-section-layout">
-			<label class="label"><?php _e( 'Metadata sections layout', 'tainacan-interface' ); ?></label>
-			<span class="help-wrapper">
-				<a class="help-button has-text-secondary">
-					<span class="icon is-small">
-						<i class="tainacan-icon tainacan-icon-help"></i>
-					</span>
-				</a>
-				<div class="help-tooltip">
-					<div class="help-tooltip-header">
-						<h5><?php _e( 'Metadata sections layout', 'tainacan-interface' ); ?></h5>
-					</div> 
-					<div class="help-tooltip-body">
-						<p><?php _e( 'Define how the metadata sections will appear in the public item page.', 'tainacan-interface' ); ?></p>
+			<label class="label" style="position: relative;">
+				<?php _e( 'Metadata sections layout', 'tainacan-interface' ); ?>
+				<span class="help-wrapper">
+					<a class="help-button has-text-secondary">
+						<span class="icon is-small">
+							<i class="tainacan-icon tainacan-icon-help"></i>
+						</span>
+					</a>
+					<div class="help-tooltip">
+						<div class="help-tooltip-header">
+							<h5><?php _e( 'Metadata sections layout', 'tainacan-interface' ); ?></h5>
+						</div> 
+						<div class="help-tooltip-body">
+							<p><?php _e( 'Define how the metadata sections will appear in the public item page.', 'tainacan-interface' ); ?></p>
+						</div>
 					</div>
-				</div>
-			</span>
+				</span>
+			</label>
 			<div class="control is-clearfix metadata-section-options"> 
 				<label for="default" id="layout-default" class="layout-options">
 					<input
@@ -111,22 +113,24 @@ class TainacanInterfaceCollectionSettings {
 		</div>
 		<?php endif; ?>
 		<div>
-			<label class="label"><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></label>
-			<span class="help-wrapper">
-				<a class="help-button has-text-secondary">
-					<span class="icon is-small">
-						<i class="tainacan-icon tainacan-icon-help"/></i>
-					</span>
-				</a>
-				<div class="help-tooltip">
-					<div class="help-tooltip-header">
-						<h5><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></h5>
-					</div> 
-					<div class="help-tooltip-body">
-						<p><?php _e( 'Select which color will be used for the text and background of your collection items list header.', 'tainacan-interface' ); ?></p>
+			<label class="label" style="position: relative;">
+				<?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?>
+				<span class="help-wrapper">
+					<a class="help-button has-text-secondary">
+						<span class="icon is-small">
+							<i class="tainacan-icon tainacan-icon-help"/></i>
+						</span>
+					</a>
+					<div class="help-tooltip">
+						<div class="help-tooltip-header">
+							<h5><?php _e( 'Collection items list header colors', 'tainacan-interface' ); ?></h5>
+						</div> 
+						<div class="help-tooltip-body">
+							<p><?php _e( 'Select which color will be used for the text and background of your collection items list header.', 'tainacan-interface' ); ?></p>
+						</div>
 					</div>
-				</div>
-			</span>
+				</span>
+			</label>
 		</div>
 		<div class="columns is-multiline">
 			<div class="column is-one-third-desktop is-full-tablet is-one-third-mobile field tainacan-collection--change-color-picker">

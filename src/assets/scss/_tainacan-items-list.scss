@@ -13,4 +13,12 @@ body > .theme-items-list #filters-modal .modal-content {
 body > .theme-items-list .search-control {
     padding-left: 4.16666666667vw;
     padding-right: 4.16666666667vw;
+    --tainacan-input-border-radius: 2px;
+    --tainacan-button-border-radius: 3px;
+    --tainacan-modal-border-radius: 2px;
+    --tainacan-dropdownmenu-border-radius: 0px;
+    --tainacan-item-border-radius: 0px;
+}
+.archive .theme-items-list #filters-modal .modal-content {
+    padding: 20px min(4.1666667vw, 2rem);
 }
