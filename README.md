@@ -6,13 +6,21 @@ Tema WordPress padrão do Tainacan, para ser usado com o plugin Tainacan
 
 - Copiar o arquivo `build-config-sample.cfg` para `build-config.cfg`
 - Ajustar o `PATH` da variável `destination` para o caminho desejado correspondente
-- Instalar o SASS
-  - `sudo apt install ruby-full rubygems autogen autoconf libtool make`
-  - `sudo gem install sass`
-- Instalar o Composer
-  - `php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"`
-  - `HASH="$(wget -q -O - https://composer.github.io/installer.sig)"`
-  - `php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"`
-  - `sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer`
+- Instalar as dependências Node.js
+  - `npm install`
 - Execute o build
-  - ./build.sh
+  - `npm run build` ou `./build.sh`
+
+## Dependências
+
+Este tema agora usa npm para gerenciar dependências:
+- **Sass**: Para compilação de SCSS (versão 1.58.3)
+- **Bootstrap**: Framework CSS (versão 4.6.1)
+
+## Scripts disponíveis
+
+- `npm run build` - Executa o build completo
+- `npm run build:watch` - Executa o build em modo watch
+- `npm run compile-sass` - Compila apenas os arquivos Sass
+- `npm run install-bootstrap` - Copia os arquivos do Bootstrap para a pasta src
+- `npm run postinstall` - Executado automaticamente após `npm install`

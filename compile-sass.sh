@@ -1,12 +1,11 @@
 #!/bin/bash
  
  
-#Teste commit 
-# Executa o comando 'sass' para verificar se existe (veja http://stackoverflow.com/a/677212/329911)
-command -v sass >/dev/null 2>&1 || {
-  echo >&2 "REQUIRE: SASS installed to compile the SCSS archives to CSS.";
-  exit 1;
-}
+# Checks if the sass command is available from inside node_modules. We use this instead of global sass to avoid conflicts.
+if ! npx --no sass --version >/dev/null 2>&1; then
+  echo >&2 "Sass não está instalado neste projeto. Rode 'npm install'."
+  exit 1
+fi
  
 # Define o caminho.
 echo "Compiling Sass..."
@@ -18,16 +17,16 @@ echo "Compiling Sass..."
 #Style do Tema
 #cd ../../../../assets/scss
 cd src/assets/scss
-sass -s compressed style.scss:../../style.css
+npx sass -s compressed style.scss:../../style.css
 echo "Tainacan's style compiled.";
 
-sass -s compressed editor-style.scss:../../editor-style.css
+npx sass -s compressed editor-style.scss:../../editor-style.css
 echo "Tainacan's Gutenberg Editor style compiled";
 
-sass -s compressed editor-style-legacy.scss:../../editor-style-legacy.css
+npx sass -s compressed editor-style-legacy.scss:../../editor-style-legacy.css
 echo "Tainacan's Gutenberg Editor legacy style compiled";
 
-sass -s compressed bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css
+npx sass -s compressed bootstrap_custom.scss:../vendor/bootstrap/scss/bootstrap.min.css
 echo "Bootstrap style compiled";
 
 rm -rf .sass-cache

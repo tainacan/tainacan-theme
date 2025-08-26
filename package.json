@@ -1,0 +1,30 @@
+{
+  "name": "tainacan-theme",
+  "version": "1.0.0",
+  "description": "Tainacan WordPress theme with Sass compilation support",
+  "main": "index.js",
+  "scripts": {
+    "build": "./build.sh",
+    "build:watch": "./build-watch.sh",
+    "compile-sass": "./compile-sass.sh",
+    "install-bootstrap": "./install.sh",
+    "postinstall": "./install.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "tainacan",
+    "sass",
+    "scss"
+  ],
+  "author": "Tainacan Team",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "sass": "1.58.3",
+    "bootstrap": "4.6.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
