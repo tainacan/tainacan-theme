@@ -22,7 +22,7 @@
   "license": "GPL-2.0-or-later",
   "devDependencies": {
     "sass": "1.58.3",
-    "bootstrap": "4.6.1"
+    "bootstrap": "5.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
