@@ -15,7 +15,7 @@ class TainacanInterfaceCollectionSettings {
 	}
 
 	function action_tainacan_enqueue_admin_scripts() {
-		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/assets/js/collection-color.js', false, false, true );
+		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/assets/js/collection-color.js', array(), false, true );
 		wp_enqueue_style( 'tainacan_collection_extra_options', get_template_directory_uri() . '/assets/css/collection-extra-options.css', [], TAINACAN_INTERFACE_VERSION  );
 		wp_localize_script( 'tainacan_colorWell', 'tainacan_colorPickerVars', array(
 			'cancelText' => __( 'Cancel', 'tainacan-interface' ),
@@ -26,7 +26,7 @@ class TainacanInterfaceCollectionSettings {
 			'noColorSelectedText' => __( 'No Color Selected', 'tainacan-interface' ),
 		));
 
-		wp_enqueue_script( 'spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', false, false, true );
+		wp_enqueue_script( 'spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', array(), false, true );
 		wp_enqueue_style( 'spectrum', get_template_directory_uri() . '/assets/css/spectrum.css' );
 	}
 
@@ -132,15 +132,15 @@ class TainacanInterfaceCollectionSettings {
 				</span>
 			</label>
 		</div>
-		<div class="columns is-multiline">
-			<div class="column is-one-third-desktop is-full-tablet is-one-third-mobile field tainacan-collection--change-color-picker">
+		<div class="columns is-multiline is-2">
+			<div class="column is-one-third-fullhd is-full-tablet field tainacan-collection--change-color-picker">
 				<label class="label"><?php _e( 'Background', 'tainacan-interface' ); ?></label>
 				<div class="control is-clearfix"> 
 					<input type="text" value="" id="colorpicker" name="<?php echo esc_attr($this->tainacan_background_color); ?>">
 				</div>
 			</div>
 
-			<div class="column is-two-thirds-desktop is-full-tablet is-two-thirds-mobile field tainacan-collection--change-text-color">
+			<div class="column is-two-thirds-fullhd is-full-tablet field tainacan-collection--change-text-color">
 				<label class="label"><?php _e( 'Text', 'tainacan-interface' ); ?></label>
 				<div class="control is-clearfix"> 
 					<label for="white" id="color-white" class="color-text">
