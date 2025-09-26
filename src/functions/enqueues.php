@@ -56,8 +56,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			));
 
 			// Tainacan Icons
-			wp_register_style( 'TainacanIconsFont', get_template_directory_uri() . '/assets/fonts/tainacan-icons-font/css/tainacanicons.min.css', '', '1.0.3', '' );
-			wp_enqueue_style( 'TainacanIconsFont' );
+			wp_enqueue_style( 'TainacanIconsFont', get_template_directory_uri() . '/assets/fonts/tainacan-icons-font/css/tainacanicons.min.css', [], TAINACAN_INTERFACE_VERSION );
 
 		/**
 		 * Comments
