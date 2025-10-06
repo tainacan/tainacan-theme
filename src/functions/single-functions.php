@@ -64,10 +64,28 @@ add_filter( 'comment_text', 'tainacan_wrap_comment', 99 );
 
 
 /**
- * Display date of post.
+ * Display date and author of post.
  */
 if ( ! function_exists('tainacan_meta_date_author') ) {
 	function tainacan_meta_date_author( $echo = true ) {
+		$string = tainacan_meta_date( false );
+		$string .= tainacan_meta_author( false );
+
+		$string = apply_filters( 'tainacan-meta-date-author', $string );
+
+		if ( $echo ) {
+			echo wp_kses_post($string);
+		} else {
+			return $string;
+		}
+	}
+}
+
+/**
+ * Display date of post.
+ */
+if ( ! function_exists('tainacan_meta_date') ) {
+	function tainacan_meta_date( $echo = true ) {
 		$time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
 		$time_string = sprintf( $time,
@@ -76,10 +94,26 @@ if ( ! function_exists('tainacan_meta_date_author') ) {
 		);
 
 		$string = $time_string;
-		$string .= __( '&nbsp;by&nbsp;', 'tainacan-interface' );
+		
+		$string = apply_filters( 'tainacan-meta-date', $string );
+
+		if ( $echo ) {
+			echo wp_kses_post($string);
+		} else {
+			return $string;
+		}
+	}
+}
+
+/**
+ * Display author of post.
+ */
+if ( ! function_exists('tainacan_meta_author') ) {
+	function tainacan_meta_author( $echo = true ) {
+		$string = __( '&nbsp;by&nbsp;', 'tainacan-interface' );
 		$string .= get_the_author_posts_link();
 
-		$string = apply_filters( 'tainacan-meta-date-author', $string );
+		$string = apply_filters( 'tainacan-meta-author', $string );
 
 		if ( $echo ) {
 			echo wp_kses_post($string);

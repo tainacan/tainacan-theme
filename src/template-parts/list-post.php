@@ -29,8 +29,22 @@
 			</h3>
 		<?php endif; ?>
 		<?php echo '<p class="text-black">' . wp_trim_words( get_the_excerpt(), 28, '...' ) . '</p>'; ?>
-		<?php tainacan_meta_date_author(); ?> 
-		
+		<?php 
+			// Check customizer options for hiding author and date
+			$hide_author = get_theme_mod( 'tainacan_hide_author_in_posts_listing', false );
+			$hide_date = get_theme_mod( 'tainacan_hide_date_in_posts_listing', false );
+			
+			// If both are hidden, don't display anything
+			if ( !$hide_author && !$hide_date ) {
+				tainacan_meta_date_author(); 
+			} else {
+				if ( !$hide_date ) 
+					tainacan_meta_date();
+				
+				if ( !$hide_author ) 
+					tainacan_meta_author();
+			}
+		?>
 		<a href="<?php the_permalink(); ?>" class="readmore float-right screen-reader-text"><?php _e( 'Read more...', 'tainacan-interface' ); ?></a>
 	</div>
 </div>

@@ -91,3 +91,4 @@ require get_template_directory() . '/functions/customizer/tainacan-items-page-fi
 require get_template_directory() . '/functions/customizer/tainacan-items-page-pagination.php';
 require get_template_directory() . '/functions/customizer/footer-info.php';
 require get_template_directory() . '/functions/customizer/social-share.php';
+require get_template_directory() . '/functions/customizer/posts-list.php';
