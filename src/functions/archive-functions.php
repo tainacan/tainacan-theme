@@ -3,6 +3,10 @@
 function tainacan_interface_extra_viewmodes( $public_query_vars ) {
 	$public_query_vars[] = 'tainacan_collections_viewmode';
 	$public_query_vars[] = 'tainacan_terms_viewmode';
+	$collection_taxonomies = get_object_taxonomies( 'tainacan-collection', 'names' );
+	foreach ( $collection_taxonomies as $taxonomy ) {
+		$public_query_vars[] = $taxonomy;
+	}
 	return $public_query_vars;
 }
 add_filter( 'query_vars', 'tainacan_interface_extra_viewmodes' );
@@ -36,6 +40,30 @@ add_filter( 'get_the_archive_title', 'tainacan_theme_taxonomy_title' );
 function tainacan_theme_collection_query( $query ) {
 	if ( $query->is_main_query() && $query->is_post_type_archive( 'tainacan-collection' ) ) {
 		$query->set( 'posts_per_page', 12 );
+		
+		// Handle taxonomy filtering using WordPress standard approach
+		$tax_query = array();
+		$collection_taxonomies = get_object_taxonomies( 'tainacan-collection', 'names' );
+		
+		foreach ( $collection_taxonomies as $taxonomy ) {
+			if ( isset( $_GET[$taxonomy] ) && !empty( $_GET[$taxonomy] ) ) {
+				$term_slug = esc_attr($_GET[$taxonomy]);
+				if ( !empty( $term_slug ) ) {
+					$tax_query[] = array(
+						'taxonomy' => $taxonomy,
+						'field'    => 'slug',
+						'operator' => 'IN',
+						'terms'    => array( $term_slug ),
+					);
+				}
+			}
+		}
+		
+		if ( !empty( $tax_query ) ) {
+			$tax_query['relation'] = 'AND';
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'post_type', 'tainacan-collection' ); // Ensure post type is set
+		}
 	}
 }
 add_action( 'pre_get_posts', 'tainacan_theme_collection_query' );

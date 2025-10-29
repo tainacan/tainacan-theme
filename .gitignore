@@ -1,8 +1,4 @@
 build-config.cfg
-/vendor/
 /src/assets/style.css
 /src/assets/style.css.map
 /src/assets/scss/.sass-cache
-/src/assets/vendor/
-/src/style.css
-/src/vendor/
