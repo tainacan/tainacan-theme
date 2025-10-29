@@ -13,7 +13,7 @@ Tema WordPress padrão do Tainacan, para ser usado com o plugin Tainacan
 
 ## Dependências
 
-Este tema agora usa npm para gerenciar dependências:
+Este tema usa npm para gerenciar dependências:
 - **Sass**: Para compilação de SCSS (versão 1.58.3)
 - **Bootstrap**: Framework CSS (versão 4.6.1)
 

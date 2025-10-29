@@ -1,13 +1,14 @@
 === Tainacan Interface ===
-Contributors: andrebenedito, daltonmartins, fabianobn, jacsonp, leogermani, weryques, wetah, eduardohumberto, ravipassos, jessicafpx, marinagiolo, omarceloavila, r-guimaraes
-Requires at least: WordPress 5.9
+Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp, jessicafpx, leogermani, marinagiolo, omarceloavila, r-guimaraes, ravipassos, weryques, wetah
+Requires at least: 5.9
 Tested up to: 6.8.1
-Version: 2.7.11
 Requires PHP: 7.0
-Stable tag: trunk
-License: GNU General Public License v3
+Stable tag: 2.7.11
+License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 
+
+A simple and classic theme for WordPress digital collections with support for Tainacan.
 
 == Description ==
 
