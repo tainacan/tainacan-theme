@@ -21,6 +21,7 @@
   "author": "Tainacan Team",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
     "sass": "1.58.3",
     "bootstrap": "4.6.1"
   },

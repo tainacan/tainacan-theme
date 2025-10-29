@@ -27,14 +27,25 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Tainacan Interface theme
 		 */
-			wp_enqueue_script( 'tainacan_tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, false );
-			wp_localize_script( 'tainacan_tainacanTruncate', 'tainacan_trucanteVars', array(
-				'moreText' => __( 'Show more', 'tainacan-interface' ),
-				'lessText' => __( 'Show less', 'tainacan-interface' ),
-			));
+		wp_enqueue_script( 'tainacan_tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, false );
+		wp_localize_script( 'tainacan_tainacanTruncate', 'tainacan_trucanteVars', array(
+			'moreText' => __( 'Show more', 'tainacan-interface' ),
+			'lessText' => __( 'Show less', 'tainacan-interface' ),
+		));
 
-			wp_register_style( 'tainacan_tainacanStyle', get_stylesheet_uri(), array( 'bootstrap4CSS' ), TAINACAN_INTERFACE_VERSION );
-			wp_enqueue_style( 'tainacan_tainacanStyle' );
+		// Use minified version if available and not in debug mode
+		// For child themes, we still use the parent theme's minified CSS
+		$style_uri = get_stylesheet_uri();
+		$minified_uri = get_template_directory_uri() . '/style.min.css';
+		$minified_path = get_template_directory() . '/style.min.css';
+		
+		// Use minified version if it exists and we're not in debug mode
+		if ( ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) && file_exists( $minified_path ) ) {
+			$style_uri = $minified_uri;
+		}
+
+		wp_register_style( 'tainacan_tainacanStyle', $style_uri, array( 'bootstrap4CSS' ), TAINACAN_INTERFACE_VERSION );
+		wp_enqueue_style( 'tainacan_tainacanStyle' );
 			wp_register_script( 'tainacan_tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', TAINACAN_INTERFACE_VERSION, true );
 			wp_enqueue_script( 'tainacan_tainacanJS' );
 
