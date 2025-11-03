@@ -4,16 +4,34 @@
 		$is_slideshow_available = tainacan_is_view_mode_enabled('slideshow');
 
 	function get_item_link_for_navigation($item_url, $index) {
-		if ( $_GET && isset($_GET['paged']) && isset($_GET['perpage']) ) {
-			$query = '';
-			$perpage = (int)$_GET['perpage'];
-			$paged = (int)$_GET['paged'];
-			$index = (int)$index;
-			$query .= '&pos=' . ( ($paged - 1) * $perpage + $index );
-			$query .= '&source_list=' . (is_tax() ? 'term' : ((!isset($collection_id) || empty($collection_id)) ? 'repository': 'collection') );
-			return $item_url . '?' .  $_SERVER['QUERY_STRING'] . $query;
+		// Check if query parameters should be included based on the setting
+		$enable_query_params = true; // Default to true to maintain current behavior
+		if (class_exists('\Tainacan\Theme_Helper')) {
+			$theme_helper = \Tainacan\Theme_Helper::get_instance();
+			if (method_exists($theme_helper, 'get_enable_item_link_query_params')) {
+				$enable_query_params = $theme_helper->get_enable_item_link_query_params();
+			}
 		}
-		return $item_url;
+		
+		// Early return if query params are disabled
+		if (!$enable_query_params) {
+			return $item_url;
+		}
+		
+		// Early return if we don't have the necessary pagination parameters
+		if (!$_GET || !isset($_GET['paged']) || !isset($_GET['perpage'])) {
+			return $item_url;
+		}
+		
+		// Build query parameters for navigation
+		$perpage = (int)$_GET['perpage'];
+		$paged = (int)$_GET['paged'];
+		$index = (int)$index;
+		
+		$query = '&pos=' . ( ($paged - 1) * $perpage + $index );
+		$query .= '&source_list=' . (is_tax() ? 'term' : ((!isset($collection_id) || empty($collection_id)) ? 'repository': 'collection') );
+		
+		return $item_url . '?' . $_SERVER['QUERY_STRING'] . $query;
 	}
 ?> 
 
