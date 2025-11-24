@@ -20,7 +20,7 @@ function tainacan_comments_callback( $comment, $args, $depth ) {
 			<h5 class="media-heading comment-author vcard ml-2">
 				<?php if ( comment_author( $comment->comment_ID ) ) : ?>
 					<a href="<?php echo esc_url(get_author_posts_url( $comment->user_id )); ?>" class="text-black font-weight-bold bypostauthor">
-						<?php wp_kses_post( comment_author( $comment->comment_ID ) ); ?>
+						<?php echo wp_kses_post( comment_author( $comment->comment_ID ) ); ?>
 					</a>
 				<?php endif; ?>
 				<p class="comment-time text-oslo-gray my-sm-1">
