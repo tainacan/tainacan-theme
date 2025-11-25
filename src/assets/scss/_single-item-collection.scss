@@ -41,6 +41,7 @@
     position: relative;
     width: 100%;
     width: 100vw;
+    overflow-x: clip; // Solves scrollbar issue in mobile due to the social share button
 
     &>div {
         padding: 8px 4.16666667% 12px 4.16666667%;
@@ -533,6 +534,9 @@
                     size: 0.75rem;
                     weight: 400;
                 }
+                @media screen and (max-width: 768px) {
+                    font-size: 0.813rem;
+                }
             }
             p:empty {
                 display: none;
@@ -772,14 +776,15 @@
     flex-grow: 2;
     max-width: 50%;
 
-    @media screen and (max-width: 768px) {
-        & {
-            max-width: 100%;
-        }
-    }
     @media screen and (max-width: 986px) {
         & {
             max-width: 66%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        & {
+            max-width: 100%;
         }
     }
 
