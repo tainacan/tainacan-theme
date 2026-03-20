@@ -2,3 +2,4 @@ build-config.cfg
 /src/assets/style.css
 /src/assets/style.css.map
 /src/assets/scss/.sass-cache
+node_modules/
