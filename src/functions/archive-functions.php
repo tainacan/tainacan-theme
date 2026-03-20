@@ -30,7 +30,7 @@ function tainacan_theme_collection_title( $title ) {
 add_filter( 'get_the_archive_title', 'tainacan_theme_collection_title' );
 
 function tainacan_theme_taxonomy_title( $title ) {
-	if ( is_post_type_archive( 'tainacan-taxononomy' ) ) {
+	if ( is_post_type_archive( 'tainacan-taxonomy' ) ) {
 		return __( 'Taxonomies', 'tainacan-interface' );
 	}
 	return $title;
@@ -47,7 +47,7 @@ function tainacan_theme_collection_query( $query ) {
 		
 		foreach ( $collection_taxonomies as $taxonomy ) {
 			if ( isset( $_GET[$taxonomy] ) && !empty( $_GET[$taxonomy] ) ) {
-				$term_slug = esc_attr($_GET[$taxonomy]);
+				$term_slug = sanitize_text_field( wp_unslash( $_GET[$taxonomy] ) );
 				if ( !empty( $term_slug ) ) {
 					$tax_query[] = array(
 						'taxonomy' => $taxonomy,
