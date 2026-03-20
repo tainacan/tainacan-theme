@@ -9,8 +9,7 @@
 .components-modal__screen-overlay {
 
     /* Post title */
-    .edit-post-visual-editor__post-title-wrapper,
-    :not(.edit-post-visual-editor__post-title-wrapper)>.editor-post-title {
+    .edit-post-visual-editor__post-title-wrapper {
         margin: 0 auto 5.35rem auto;
         padding: 0;
         max-width: calc(1400px - 4.1666667%);
