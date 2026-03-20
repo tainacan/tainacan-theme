@@ -92,3 +92,10 @@ require get_template_directory() . '/functions/customizer/tainacan-items-page-pa
 require get_template_directory() . '/functions/customizer/footer-info.php';
 require get_template_directory() . '/functions/customizer/social-share.php';
 require get_template_directory() . '/functions/customizer/posts-list.php';
+
+/* New customizer options added in 2.9.0 */
+require get_template_directory() . '/functions/customizer/pastel-colors.php';
+require get_template_directory() . '/functions/customizer/typography.php';
+require get_template_directory() . '/functions/customizer/lightbox-settings.php';
+require get_template_directory() . '/functions/customizer/gallery-unified.php';
+require get_template_directory() . '/functions/customizer/collection-advanced.php';

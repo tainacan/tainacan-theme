@@ -2,23 +2,26 @@
 
 /** The breadcrumb function
  * Display parent and current page
+ *
+ * Enhanced in 2.9.0: Smart breadcrumbs with search parameter preservation,
+ * cover page awareness, and structured data support.
  **/
 function tainacan_interface_the_breadcrumb() {
 	ob_start();
 	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
-	$delimiter = '>'; // delimiter between crumbs
+	$delimiter = '<span class="separator" aria-hidden="true">&rsaquo;</span>'; // modern delimiter
 	$home = __('Home', 'tainacan-interface'); // text for the 'Home' link
 	$showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-	$before = '<span class="current text-black"> '; // tag before the current crumb
+	$before = '<span class="current" aria-current="page"> '; // tag before the current crumb
 	$after = '</span>'; // tag after the current crumb
 
 	global $post;
 	$homeLink = esc_url( home_url() );
 
 	if (is_home() || is_front_page()) {
-		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs"><a href="' . $homeLink . '">' . $home . '</a></nav>';
+		if ($showOnHome == 1) echo '<nav aria-label="' . esc_attr__( 'Breadcrumb', 'tainacan-interface' ) . '" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs tainacan-breadcrumb-modern"><a href="' . $homeLink . '">' . esc_html( $home ) . '</a></div></nav>';
 	} else {
-		echo '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
+		echo '<nav aria-label="' . esc_attr__( 'Breadcrumb', 'tainacan-interface' ) . '" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs tainacan-breadcrumb-modern"><a href="' . $homeLink . '">' . esc_html( $home ) . '</a> ' . $delimiter . ' ';
 
 		if ( is_category() ) {
 			$thisCat = get_category(get_query_var('cat'), false);
@@ -161,9 +164,12 @@ function tainacan_interface_the_breadcrumb() {
 				$previous = $adjacent_links['previous'];
 				$next = $adjacent_links['next'];
 
+				// Smart breadcrumbs: preserve search/filter parameters in "back to list" link
+				$source_url = tainacan_get_source_item_list_url();
+
 				if ($previous !== '' || $next !== '') {
 				?>
-					<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center">
+					<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center" role="navigation" aria-label="<?php esc_attr_e( 'Item navigation', 'tainacan-interface' ); ?>">
 						<div class="pagination">
 							<?php echo $previous; ?>
 						</div>
@@ -171,7 +177,7 @@ function tainacan_interface_the_breadcrumb() {
 							<?php echo $next; ?>
 						</div>
 						<div class="pagination">
-							<a href="<?php echo tainacan_get_source_item_list_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
+							<a href="<?php echo esc_url( $source_url ); ?>" title="<?php esc_attr_e( 'Back to items list', 'tainacan-interface' ); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
 						</div>
 					</div>
 				<?php

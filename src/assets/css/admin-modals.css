@@ -1,0 +1,144 @@
+/**
+ * Tainacan Interface - Admin Modal Styles
+ *
+ * Styles for backend explanatory modals and help buttons.
+ *
+ * @since 2.9.0
+ */
+
+/* Help Button */
+.tainacan-help-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #8abcc4;
+	background: #e6f6f8;
+	color: #125a68;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 700;
+	padding: 0;
+	line-height: 1;
+	vertical-align: middle;
+	margin-left: 4px;
+	transition: all 0.15s ease;
+}
+
+.tainacan-help-btn:hover {
+	background: #187181;
+	color: #fff;
+	border-color: #187181;
+}
+
+.tainacan-help-btn--large {
+	width: 24px;
+	height: 24px;
+	font-size: 13px;
+}
+
+/* Admin Modal Overlay */
+.tainacan-admin-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999999;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Admin Modal */
+.tainacan-admin-modal {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+	max-width: 500px;
+	width: 90%;
+	animation: tainacan-admin-modal-in 0.2s ease;
+}
+
+@keyframes tainacan-admin-modal-in {
+	from {
+		opacity: 0;
+		transform: translateY(20px) scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+.tainacan-admin-modal__header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 20px 24px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.tainacan-admin-modal__icon {
+	font-size: 24px;
+	color: #187181;
+}
+
+.tainacan-admin-modal__title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	flex: 1;
+	color: #2c2d2d;
+}
+
+.tainacan-admin-modal__close {
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	color: #999;
+	padding: 0;
+	line-height: 1;
+}
+
+.tainacan-admin-modal__close:hover {
+	color: #333;
+}
+
+.tainacan-admin-modal__body {
+	padding: 20px 24px;
+}
+
+.tainacan-admin-modal__content {
+	margin: 0;
+	line-height: 1.6;
+	color: #555;
+	font-size: 14px;
+}
+
+.tainacan-admin-modal__footer {
+	padding: 16px 24px;
+	border-top: 1px solid #e0e0e0;
+	text-align: right;
+}
+
+/* Collection Advanced Settings */
+.tainacan-interface-appearance-source,
+.tainacan-interface-layout-type,
+.tainacan-interface-accent-color {
+	margin: 8px 0;
+}
+
+.tainacan-interface-appearance-source label {
+	display: block;
+	margin: 4px 0;
+}
+
+.tainacan-interface-layout-type select {
+	width: 100%;
+	max-width: 400px;
+}

@@ -12,7 +12,7 @@
 			<div class="row pt-3 pb-4 pl-0 pr-0 tainacan-footer-info">
 				<div class="col text-white font-weight-normal">
 					<p class="tainacan-footer-info--blog">
-						<?php echo bloginfo( 'title' );
+						<?php echo esc_html( get_bloginfo( 'name' ) );
 						if ( ! wp_is_mobile() ) {
 							echo '<br>';
 						} else {
@@ -41,13 +41,13 @@
 							<?php
 							
 							if ( get_theme_mod( 'tainacan_footer_logo' ) ) {
-								$footerImage = esc_attr( get_theme_mod( 'tainacan_footer_logo' ) );
+								$footerImage = esc_url( get_theme_mod( 'tainacan_footer_logo' ) );
 							} else {
-								$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg' : esc_url( get_template_directory_uri() ) . '/assets/images/logo-footer.svg';
+								$footerImage = get_theme_mod( 'tainacan_footer_color', 'dark' ) == 'light' ? esc_url( get_template_directory_uri() . '/assets/images/logo.svg' ) : esc_url( get_template_directory_uri() . '/assets/images/logo-footer.svg' );
 							}
 							?>
-							<a href="<?php echo esc_url(get_theme_mod('tainacan_footer_logo_link', 'https://tainacan.org')) ?>">
-								<img src="<?php echo $footerImage; ?>" class="tainacan-footer-info--logo" >
+							<a href="<?php echo esc_url( get_theme_mod( 'tainacan_footer_logo_link', 'https://tainacan.org' ) ); ?>">
+								<img src="<?php echo esc_url( $footerImage ); ?>" class="tainacan-footer-info--logo" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 							</a>
 					</div>
 				<?php endif; ?>
