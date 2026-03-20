@@ -1,6 +1,6 @@
 {
   "name": "tainacan-theme",
-  "version": "2.9.0",
+  "version": "1.0.0",
   "description": "Tainacan WordPress theme with Sass compilation support",
   "main": "index.js",
   "scripts": {
@@ -21,11 +21,11 @@
   "author": "Tainacan Team",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "lightningcss-cli": "^1.32.0",
-    "sass": "^1.98.0",
-    "bootstrap": "4.6.2"
+    "clean-css-cli": "^5.6.3",
+    "sass": "1.58.3",
+    "bootstrap": "4.6.1"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=14.0.0"
   }
 }
