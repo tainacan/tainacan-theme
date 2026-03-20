@@ -25,7 +25,7 @@
 				<div class="tainacan-title-page">
 					<ul class="list-inline mb-1 d-flex">
 						<li class="list-inline-item  font-weight-bold title-page">
-							<h1><?php echo wp_kses_post( get_the_archive_title() ); ?></h1>
+							<h1><?php echo get_the_archive_title(); ?></h1>
 						</li>
 						<li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a></li>
 					</ul>
@@ -79,7 +79,7 @@
 					<?php foreach($collection_taxonomies as $collection_taxonomy_slug => $collection_taxonomy) : ?>
 						<div class="dropdown dropdown-sorting margin-one-column-right">
 							<button class="btn dropdown-toggle text-black" type="button" id="dropdownMenuSorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo esc_html( $collection_taxonomy->label ); ?>
+							<?php echo $collection_taxonomy->label; ?>
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuSorting">
 								<a
@@ -92,7 +92,7 @@
 										<a
 												class="dropdown-item text-black <?php tainacan_active( get_query_var( $collection_taxonomy_slug ), $collection_taxonomy_term->slug ); ?>"
 												href="<?php echo esc_url(add_query_arg( $collection_taxonomy_slug, $collection_taxonomy_term->slug )); ?>">
-											<?php echo esc_html( $collection_taxonomy_term->name ); ?>
+											<?php echo $collection_taxonomy_term->name; ?>
 										</a>
 									<?php endif; ?>
 								<?php endforeach; ?>
@@ -104,7 +104,7 @@
 				<form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
 					<input type="hidden" name="orderby" value="<?php echo esc_attr(get_query_var( 'orderby' )); ?>" />
 					<input type="hidden" name="order" value="<?php echo esc_attr(get_query_var( 'order' )); ?>" />
-					<input type="hidden" name="tainacan_collections_viewmode" value="<?php echo esc_attr( $view_mode ); ?>" />
+					<input type="hidden" name="tainacan_collections_viewmode" value="<?php echo $view_mode; ?>" />
 					<?php if ( $has_collection_taxonomies ) : ?>
 						<?php foreach($collection_taxonomies as $collection_taxonomy_slug => $collection_taxonomy) : ?>
 							<?php if ( isset( $_GET[$collection_taxonomy_slug] ) ) : ?>
@@ -113,7 +113,7 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 					<div class="input-group">
-						<input class="form-control rounded-0" type="search" name="s" value="<?php echo esc_attr( get_query_var( 's' ) ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />
+						<input class="form-control rounded-0" type="search" name="s" value="<?php echo get_query_var( 's' ); ?>" placeholder="<?php esc_attr_e( 'Search collections', 'tainacan-interface' ); ?>" />
 						<span class="input-group-append">
 							<button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
 								<i class="tainacan-icon tainacan-icon-20px tainacan-icon-search" style="line-height: inherit;"></i>

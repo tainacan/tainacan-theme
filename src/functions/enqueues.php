@@ -70,24 +70,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 			wp_enqueue_style( 'TainacanIconsFont', get_template_directory_uri() . '/assets/fonts/tainacan-icons-font/css/tainacanicons.min.css', [], TAINACAN_INTERFACE_VERSION );
 
 		/**
-		 * New assets added in 2.9.0
-		 */
-		// Modals & Tooltips JS
-		wp_enqueue_script( 'tainacan-modals', get_template_directory_uri() . '/assets/js/modals.js', [], TAINACAN_INTERFACE_VERSION, true );
-
-		// Dark mode toggle
-		if ( get_theme_mod( 'tainacan_enable_dark_mode', false ) ) {
-			wp_enqueue_script( 'tainacan-dark-mode', get_template_directory_uri() . '/assets/js/dark-mode.js', [], TAINACAN_INTERFACE_VERSION, false );
-		}
-
-		// Custom font family from typography settings
-		$font_family = get_theme_mod( 'tainacan_typography_font_family', 'Roboto' );
-		if ( $font_family && $font_family !== 'system-ui' && $font_family !== 'Roboto' ) {
-			$font_slug = str_replace( ' ', '+', $font_family );
-			wp_enqueue_style( 'tainacan-custom-font', 'https://fonts.googleapis.com/css2?family=' . $font_slug . ':wght@300;400;500;600;700&display=swap', [], null );
-		}
-
-		/**
 		 * Comments
 		 */
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -97,17 +79,3 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 	} // tainacan_enqueues
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_enqueues' );
-
-/**
- * Enqueue admin-specific assets for modals in backend
- *
- * @since 2.9.0
- */
-function tainacan_admin_enqueues() {
-	wp_enqueue_style( 'tainacan-admin-modals', get_template_directory_uri() . '/assets/css/admin-modals.css', [], TAINACAN_INTERFACE_VERSION );
-
-	// Color picker for collection advanced settings
-	wp_enqueue_style( 'wp-color-picker' );
-	wp_enqueue_script( 'wp-color-picker' );
-}
-add_action( 'admin_enqueue_scripts', 'tainacan_admin_enqueues' );
