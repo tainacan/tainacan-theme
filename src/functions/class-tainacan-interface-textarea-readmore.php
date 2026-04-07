@@ -43,7 +43,7 @@ class Tainacan_Interface_Textarea_Readmore {
 		ob_start();
 		?>
 		<div class="field tainacan-interface-textarea-readmore--section-header">
-			<h4><?php esc_html_e( 'Tainacan Interface', 'tainacan-interface' ); ?></h4>
+			<h4><?php esc_html_e( 'Tainacan Interface extra settings', 'tainacan-interface' ); ?></h4>
 			<hr>
 		</div>
 		<div class="field tainacan-interface-textarea-readmore--max-chars">
