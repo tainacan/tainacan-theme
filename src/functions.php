@@ -451,4 +451,5 @@ require get_template_directory() . '/functions/patterns.php';
 require get_template_directory() . '/functions/single-functions.php';
 require get_template_directory() . '/functions/archive-functions.php';
 require get_template_directory() . '/functions/class-tainacan-interface-collection-settings.php';
+require get_template_directory() . '/functions/class-tainacan-interface-textarea-readmore.php';
 require get_template_directory() . '/functions/breadcrumb.php';
