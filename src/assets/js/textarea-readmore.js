@@ -4,12 +4,12 @@
 (function () {
 	'use strict';
 
-	var labels =
+	const labels =
 		typeof tainacan_trucanteVars !== 'undefined'
 			? tainacan_trucanteVars
 			: {};
-	var moreText = labels.moreText || 'Show more';
-	var lessText = labels.lessText || 'Show less';
+	const moreText = labels.moreText || 'Show more';
+	const lessText = labels.lessText || 'Show less';
 
 	function setToggleLabel(toggle, expanded) {
 		toggle.textContent = '[ ' + (expanded ? lessText : moreText) + ' ]';
@@ -18,19 +18,20 @@
 	}
 
 	function toggleReadmore(toggle) {
-		var root = toggle.closest('.tainacan-interface-textarea-readmore');
+		const root = toggle.closest('.tainacan-interface-textarea-readmore');
 		if (!root) {
 			return;
 		}
 
-		var preview = root.querySelector('.tainacan-interface-textarea-readmore__preview');
-		var fullId = toggle.getAttribute('aria-controls');
-		var full = fullId ? document.getElementById(fullId) : null;
+		const preview = root.querySelector('.tainacan-interface-textarea-readmore__preview');
+		const fullId = toggle.getAttribute('aria-controls');
+		const full = fullId ? root.querySelector('#' + CSS.escape(fullId)) : null;
+		
 		if (!preview || !full) {
 			return;
 		}
 
-		var expanded = toggle.getAttribute('aria-expanded') === 'true';
+		const expanded = toggle.getAttribute('aria-expanded') === 'true';
 
 		if (expanded) {
 			toggle.setAttribute('aria-expanded', 'false');
@@ -46,7 +47,7 @@
 	}
 
 	document.addEventListener('click', function (e) {
-		var toggle = e.target.closest('.tainacan-interface-textarea-readmore__toggle');
+		const toggle = e.target.closest('.tainacan-interface-textarea-readmore__toggle');
 		if (!toggle) {
 			return;
 		}
@@ -58,7 +59,7 @@
 		if (e.key !== ' ') {
 			return;
 		}
-		var toggle = e.target.closest('.tainacan-interface-textarea-readmore__toggle');
+		const toggle = e.target.closest('.tainacan-interface-textarea-readmore__toggle');
 		if (!toggle) {
 			return;
 		}
