@@ -156,7 +156,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			// Set title from item to the $atts array - if title is empty then
 			// default to item title.
 			if ( empty( $item->attr_title ) ) {
-				$atts['title'] = ! empty( $item->title ) ? strip_tags( $item->title ) : '';
+				$atts['title'] = ! empty( $item->title ) ? wp_strip_all_tags( $item->title ) : '';
 			} else {
 				$atts['title'] = $item->attr_title;
 			}

@@ -107,10 +107,6 @@
 
     $metadata_args = array(
         'display_slug_as_class' => true,
-        'before_title' => '<div><h3>',
-        'after_title' => '</h3>',
-        'before_value' => '<p>',
-        'after_value' => '</p></div>',
         'exclude_title' => get_theme_mod('tainacan_single_item_hide_core_title_metadata', false)
     );
 

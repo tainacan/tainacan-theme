@@ -3,8 +3,8 @@ Theme Name: Tainacan Interface
 Author: Tainacan
 Theme URI: https://tainacan.org
 Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository.
-Version: 2.8.0
-Tested up to: 6.8.1
+Version: 2.9.0
+Tested up to: 7.0
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -1552,6 +1552,12 @@ nav[aria-label=breadcrumb] .breadcrumb-item + .breadcrumb-item:before {
   margin: 0 8.3333333333vw;
 }
 
+@media screen and (max-width: 768px) {
+  .margin-two-column {
+    margin: 0 4.1666666667%;
+    margin: 0 4.1666666667vw;
+  }
+}
 .margin-three-column {
   margin: 0 12.5%;
 }
@@ -3362,6 +3368,7 @@ footer .wp-block-group ul {
   position: relative;
   width: 100%;
   width: 100vw;
+  overflow-x: clip;
 }
 .single-item-collection-banner > div {
   padding: 8px 4.16666667% 12px 4.16666667%;
@@ -3784,6 +3791,14 @@ footer .wp-block-group ul {
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata {
   height: 100%;
+  color: #000;
+  font-size: 0.813rem;
+  font-weight: 400;
+}
+@media screen and (max-width: 768px) {
+  .single-item-collection .single-item-collection--information .s-item-collection--metadata {
+    font-size: 0.875rem;
+  }
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata .card {
   box-shadow: none;
@@ -3849,10 +3864,7 @@ footer .wp-block-group ul {
   display: inline-block;
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata p {
-  color: #000;
   word-wrap: break-word;
-  font-size: 0.75rem;
-  font-weight: 400;
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata p:empty {
   display: none;
@@ -3888,6 +3900,11 @@ footer .wp-block-group ul {
   width: 100%;
   padding-left: 1.5rem;
   border-left: 1px solid #dbdbdb;
+  list-style: none;
+}
+.single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-compound-group > .tainacan-compound-metadatum:not(:last-child) {
+  border-bottom: 1px solid #dbdbdb;
+  margin-bottom: 1em;
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-compound-group .label {
   margin: 0;
@@ -3903,6 +3920,15 @@ footer .wp-block-group ul {
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-compound-group > .tainacan-compound-metadatum {
   width: 100%;
+}
+.single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-relationship-group {
+  list-style: none;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+.single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-relationship-group > li.tainacan-relationship-metadatum:not(:last-child) {
+  border-bottom: 1px solid #dbdbdb;
+  margin-bottom: 1em;
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header {
   display: flex;
@@ -3926,7 +3952,7 @@ footer .wp-block-group ul {
   padding-left: 40px;
 }
 .single-item-collection .single-item-collection--information .s-item-collection--metadata .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-metadatum .label {
-  font-size: 0.8125em !important;
+  font-size: 0.938em !important;
   line-height: 1em;
   margin-top: 0px;
   margin-bottom: 2px;
@@ -3939,7 +3965,7 @@ footer .wp-block-group ul {
   display: block;
   max-height: 1px;
   width: calc(100% - 40px);
-  background: var(--tainacan-gray2);
+  background-color: #dbdbdb;
   content: none;
   color: transparent;
   margin: 0.5em 0 0.5em 40px;
@@ -4084,14 +4110,14 @@ footer .wp-block-group ul {
   flex-grow: 2;
   max-width: 50%;
 }
-@media screen and (max-width: 768px) {
-  #item-single-navigation {
-    max-width: 100%;
-  }
-}
 @media screen and (max-width: 986px) {
   #item-single-navigation {
     max-width: 66%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #item-single-navigation {
+    max-width: 100%;
   }
 }
 #item-single-navigation .pagination {

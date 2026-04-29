@@ -41,6 +41,7 @@
     position: relative;
     width: 100%;
     width: 100vw;
+    overflow-x: clip; // Solves scrollbar issue in mobile due to the social share button
 
     &>div {
         padding: 8px 4.16666667% 12px 4.16666667%;
@@ -468,6 +469,14 @@
         }
         .s-item-collection--metadata {
             height: 100%;
+            color: #000;
+            font-size: 0.813rem;
+            font-weight: 400;
+            
+            @media screen and (max-width: 768px) {
+                font-size: 0.875rem;
+            }
+
             .card {
                 box-shadow: none;
                 padding: 0;
@@ -527,12 +536,7 @@
                 }
             }
             p {
-                color: #000;
                 word-wrap: break-word;
-                font: {
-                    size: 0.75rem;
-                    weight: 400;
-                }
             }
             p:empty {
                 display: none;
@@ -572,6 +576,12 @@
                 width: 100%;
                 padding-left: 1.5rem;
                 border-left: 1px solid #dbdbdb;
+                list-style: none;
+
+                & > .tainacan-compound-metadatum:not(:last-child) {
+                    border-bottom: 1px solid #dbdbdb;
+                    margin-bottom: 1em;
+                }
 
                 .label {
                     margin: 0;
@@ -590,6 +600,15 @@
                 }
             }
             .tainacan-relationship-group {
+                list-style: none;
+                margin-inline-start: 0;
+                padding-inline-start: 0;
+
+                & > li.tainacan-relationship-metadatum:not(:last-child) {
+                    border-bottom: 1px solid #dbdbdb;
+                    margin-bottom: 1em;
+                }
+
                 .tainacan-relationship-metadatum {
                     .tainacan-relationship-metadatum-header {
                         display: flex;
@@ -613,7 +632,7 @@
                         padding-left: 40px;
 
                         .label {
-                            font-size: 0.8125em !important;
+                            font-size: 0.938em !important;
                             line-height: 1em;
                             margin-top: 0px;
                             margin-bottom: 2px;
@@ -628,7 +647,7 @@
                     display: block;
                     max-height: 1px;
                     width: calc(100% - 40px);
-                    background: var(--tainacan-gray2);
+                    background-color: #dbdbdb;
                     content: none;
                     color: transparent;
                     margin: 0.5em 0 0.5em 40px;
@@ -772,14 +791,15 @@
     flex-grow: 2;
     max-width: 50%;
 
-    @media screen and (max-width: 768px) {
-        & {
-            max-width: 100%;
-        }
-    }
     @media screen and (max-width: 986px) {
         & {
             max-width: 66%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        & {
+            max-width: 100%;
         }
     }
 

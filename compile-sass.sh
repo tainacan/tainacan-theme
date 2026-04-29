@@ -24,7 +24,7 @@ echo "Tainacan's style compiled (with header preserved).";
 # Create minified version using clean-css (header can be removed in minified version)
 if command -v cleancss >/dev/null 2>&1 || npx --no cleancss --version >/dev/null 2>&1; then
     # Create minified version (suppress source map warnings - harmless, file will still be created)
-    npx cleancss --skip-rebase --output ../../style.min.css ../../style.css 2>&1 | grep -v "WARNING: Ignoring local source map" || true
+    npx cleancss --output ../../style.min.css ../../style.css 2>&1 | grep -v "WARNING: Ignoring local source map" || true
     echo "Tainacan's style minified.";
 else
     echo "Warning: clean-css-cli not available. Skipping minified version.";

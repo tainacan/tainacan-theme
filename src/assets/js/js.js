@@ -59,8 +59,11 @@ jQuery( document ).ready(function( $ ) {
 	 */
 	$( '.wp-block-button a' ).addClass( 'btn btn-jelly-bean' );
 
-	$( '.tainacan-list-post .table .tainacan-list-collection td' ).on('click', function(){
-		window.location = $( '.tainacan-list-post .table .tainacan-list-collection' ).data( "href" );
+	$( '.tainacan-list-post .table .tainacan-list-collection td' ).on('click', function() {
+		var href = $( '.tainacan-list-post .table .tainacan-list-collection' ).data( "href" );
+		if (typeof href !== 'undefined' && href !== false && href !== '') {
+			window.location = href;
+		}
 	});
 
 	$( '.tainacan-interface-truncate' ).tainacan_interface_truncate();
