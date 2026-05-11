@@ -1,4 +1,5 @@
 # Tainacan Interface
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 Tema WordPress padrão do Tainacan, para ser usado com o plugin Tainacan
 
