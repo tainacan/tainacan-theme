@@ -78,6 +78,125 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
                     'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
                     ) );
+
+                if ( function_exists( 'tainacan_get_the_media_item_expand_control' ) ) {
+
+                    /**
+                     * Hide Expand control.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_hide_expand_button', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => false,
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_hide_expand_button', array(
+                        'type' 	   	  => 'checkbox',
+                        'priority' 	  => 2,
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Hide expand control', 'tainacan-interface' ),
+                        'description' => __( 'Toggle to never display the "Expand" control that opens the large gallery viewer for video, audio and embeds.', 'tainacan-interface' )
+                        ) );
+
+                    /**
+                     * Metadata alignment under the main slider.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_gallery_metadata_alignment', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => 'center',
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_gallery_metadata_alignment', array(
+                        'type' 	   	  => 'select',
+                        'priority' 	  => 5,
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Metadata alignment', 'tainacan-interface' ),
+                        'description' => __( 'Alignment of the file name, caption and description under the main slider.', 'tainacan-interface' ),
+                        'choices'	  => tainacan_get_single_item_gallery_alignment_options()
+                        ) );
+
+                    /**
+                     * Shared Expand / Download appearance.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_gallery_media_actions_appearance', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => 'icon',
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_media_actions_appearance_options',
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_gallery_media_actions_appearance', array(
+                        'type' 	   	  => 'select',
+                        'priority' 	  => 5,
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Actions appearance', 'tainacan-interface' ),
+                        'choices'	  => tainacan_get_single_item_gallery_media_actions_appearance_options()
+                        ) );
+
+                    /**
+                     * Shared Expand / Download visibility behavior.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_gallery_media_actions_behavior', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => 'hover',
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_media_actions_behavior_options',
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_gallery_media_actions_behavior', array(
+                        'type' 	   	  => 'select',
+                        'priority' 	  => 5,
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Actions visibility', 'tainacan-interface' ),
+                        'description' => __( 'On hover shows the controls over the media. Always visible places them inline below the media.', 'tainacan-interface' ),
+                        'choices'	  => tainacan_get_single_item_gallery_media_actions_behavior_options()
+                        ) );
+
+                    /**
+                     * Download alignment.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_gallery_download_alignment', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => 'center',
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_gallery_download_alignment', array(
+                        'type' 	   	  => 'select',
+                        'priority' 	  => 5,
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Download alignment', 'tainacan-interface' ),
+                        'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
+                        'active_callback' => function() {
+                            return ! get_theme_mod( 'tainacan_single_item_hide_download_document', false );
+                        }
+                        ) );
+
+                    /**
+                     * Expand alignment.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_gallery_expand_alignment', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => 'center',
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_gallery_expand_alignment', array(
+                        'type' 	   	  => 'select',
+                        'priority' 	  => 5,
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Expand alignment', 'tainacan-interface' ),
+                        'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
+                        'active_callback' => function() {
+                            return ! get_theme_mod( 'tainacan_single_item_hide_expand_button', false );
+                        }
+                        ) );
+                }
             }
 
             /**
@@ -392,6 +511,105 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_color_scheme_opti
 		return $option;
 	}
 endif; // tainacan_sanitize_single_item_gallery_color_scheme_options
+
+
+if ( ! function_exists( 'tainacan_get_single_item_gallery_alignment_options' ) ) :
+	/**
+	 * Alignment choices for gallery metadata and media actions.
+	 *
+	 * @return array
+	 */
+	function tainacan_get_single_item_gallery_alignment_options() {
+		return array(
+			'left'   => __( 'Left', 'tainacan-interface' ),
+			'center' => __( 'Center', 'tainacan-interface' ),
+			'right'  => __( 'Right', 'tainacan-interface' ),
+		);
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_alignment_options' ) ) :
+	/**
+	 * Sanitize gallery alignment theme mods.
+	 *
+	 * @param string $option Selected alignment.
+	 * @return string
+	 */
+	function tainacan_sanitize_single_item_gallery_alignment_options( $option ) {
+		$choices = tainacan_get_single_item_gallery_alignment_options();
+
+		if ( ! array_key_exists( $option, $choices ) ) {
+			return 'center';
+		}
+
+		return $option;
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_get_single_item_gallery_media_actions_appearance_options' ) ) :
+	/**
+	 * Appearance choices for Expand / Download controls.
+	 *
+	 * @return array
+	 */
+	function tainacan_get_single_item_gallery_media_actions_appearance_options() {
+		return array(
+			'icon'   => __( 'Icon', 'tainacan-interface' ),
+			'button' => __( 'Button', 'tainacan-interface' ),
+			'link'   => __( 'Link', 'tainacan-interface' ),
+		);
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_media_actions_appearance_options' ) ) :
+	/**
+	 * Sanitize media actions appearance theme mod.
+	 *
+	 * @param string $option Selected appearance.
+	 * @return string
+	 */
+	function tainacan_sanitize_single_item_gallery_media_actions_appearance_options( $option ) {
+		$choices = tainacan_get_single_item_gallery_media_actions_appearance_options();
+
+		if ( ! array_key_exists( $option, $choices ) ) {
+			return 'icon';
+		}
+
+		return $option;
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_get_single_item_gallery_media_actions_behavior_options' ) ) :
+	/**
+	 * Visibility choices for Expand / Download controls.
+	 *
+	 * @return array
+	 */
+	function tainacan_get_single_item_gallery_media_actions_behavior_options() {
+		return array(
+			'hover'  => __( 'On hover', 'tainacan-interface' ),
+			'always' => __( 'Always visible', 'tainacan-interface' ),
+		);
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_media_actions_behavior_options' ) ) :
+	/**
+	 * Sanitize media actions visibility theme mod.
+	 *
+	 * @param string $option Selected behavior.
+	 * @return string
+	 */
+	function tainacan_sanitize_single_item_gallery_media_actions_behavior_options( $option ) {
+		$choices = tainacan_get_single_item_gallery_media_actions_behavior_options();
+
+		if ( ! array_key_exists( $option, $choices ) ) {
+			return 'hover';
+		}
+
+		return $option;
+	}
+endif;
 
 
 /**
