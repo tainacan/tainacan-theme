@@ -28,29 +28,29 @@ function tainacan_customize_register( $wp_customize ) {
 	 */
 	if ( defined ( 'TAINACAN_VERSION' ) ) {
 
-		/**
-		 * Adds panel to control single items page. ---------------------------------------------------------
-		 */
-		$wp_customize->add_panel( 'tainacan_single_item_page', array(
-			'title' 	  => __( 'Tainacan single item page', 'tainacan-interface' ),
-			'description' => __( 'Settings related to Tainacan single Items page only.', 'tainacan-interface' ),
-			'priority' 	  => 160, // Mixed with top-level-section hierarchy.,
-			'capability'  => 'edit_theme_options'
-		) );
-
-
 		if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
 
 			/**
 			 * Adds section to control collection items page. ---------------------------------------------------------
 			 */
 			$wp_customize->add_panel( 'tainacan_items_page', array(
-				'title' 	  => __( 'Tainacan items list page', 'tainacan-interface' ),
+				'title' 	  => __( 'Tainacan items list pages', 'tainacan-interface' ),
 				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the collection item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ),
 				'priority' 	  => 160 // Mixed with top-level-section hierarchy.,
 			) );
 
 		}
+
+		/**
+		 * Adds panel to control single items page. ---------------------------------------------------------
+		 */
+		$wp_customize->add_panel( 'tainacan_single_item_page', array(
+			'title' 	  => __( 'Tainacan single item pages', 'tainacan-interface' ),
+			'description' => __( 'Settings related to Tainacan single Item pages only.', 'tainacan-interface' ),
+			'priority' 	  => 160, // Mixed with top-level-section hierarchy.,
+			'capability'  => 'edit_theme_options'
+		) );
+	
 	}
 
 }
