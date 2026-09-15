@@ -199,6 +199,41 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         'step' => 2
                     ),
                 ) );
+
+				if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
+					$wp_customize->add_setting( 'tainacan_single_item_related_items_thumbs_layout', array(
+						'type' 		 => 'theme_mod',
+						'capability' => 'edit_theme_options',
+						'default' 	 => 'carousel',
+						'transport'  => 'refresh',
+						'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_thumbs_layout_options',
+					) );
+					$wp_customize->add_control( 'tainacan_single_item_related_items_thumbs_layout', array(
+						'type' 	   	  => 'select',
+						'priority' 	  => 5,
+						'section'  	  => 'tainacan_single_item_page_related_items',
+						'label'    	  => __( 'Thumbnails layout', 'tainacan-interface' ),
+						'description' => __( 'Same files as the carousel: images and icons, not live embeds. List rows always show the item title.', 'tainacan-interface' ),
+						'choices'	  => tainacan_get_single_item_gallery_thumbs_layout_options(),
+						'active_callback' => 'tainacan_interface_is_related_items_using_gallery',
+					) );
+
+					$wp_customize->add_setting( 'tainacan_single_item_related_items_hide_image_thumbnails', array(
+						'type' 		 => 'theme_mod',
+						'capability' => 'edit_theme_options',
+						'default' 	 => false,
+						'transport'  => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					) );
+					$wp_customize->add_control( 'tainacan_single_item_related_items_hide_image_thumbnails', array(
+						'type' 	   	  => 'checkbox',
+						'priority' 	  => 5,
+						'section'  	  => 'tainacan_single_item_page_related_items',
+						'label'    	  => __( 'Hide thumbnail image', 'tainacan-interface' ),
+						'description' => __( 'Toggle to hide the item thumbnail and show only the title.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_related_items_gallery_thumbs_layout_list',
+					) );
+				}
 			}
 
         }
@@ -313,5 +348,32 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_related_items_order_optio
 		return $option;
 	}
 endif; // tainacan_sanitize_single_item_related_items_order_options
+
+if ( ! function_exists( 'tainacan_interface_is_related_items_using_gallery' ) ) :
+	/**
+	 * Whether related items use an items gallery layout.
+	 *
+	 * @return bool
+	 */
+	function tainacan_interface_is_related_items_using_gallery() {
+		$layout = get_theme_mod( 'tainacan_single_item_related_items_layout', 'carousel' );
+		return in_array( $layout, array( 'gallery-slider', 'gallery-thumbs' ), true );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_related_items_gallery_thumbs_layout_list' ) ) :
+	/**
+	 * Whether related items gallery thumbnails use the list layout.
+	 *
+	 * @return bool
+	 */
+	function tainacan_interface_is_related_items_gallery_thumbs_layout_list() {
+		if ( ! tainacan_interface_is_related_items_using_gallery() ) {
+			return false;
+		}
+
+		return get_theme_mod( 'tainacan_single_item_related_items_thumbs_layout', 'carousel' ) === 'list';
+	}
+endif;
 
 
