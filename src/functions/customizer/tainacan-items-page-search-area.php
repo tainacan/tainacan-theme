@@ -134,7 +134,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 5, // Within the section.
 				'section'  	  => 'tainacan_items_page_search_area',
 				'label'    	  => __( 'Hide the "View as..." button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to not show the "View as..." button, also referred to as "Exposers modal" on the control bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to not show the "View as..." button (the exposers modal) on the control bar.', 'tainacan-interface' )
 				) );
 			$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_hide_exposers_button', array(
 				'selector' => '.theme-items-list #tainacanExposersButton ',
@@ -180,7 +180,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 12, // Within the section.
 				'section'  	  => 'tainacan_items_page_search_area',
 				'label'    	  => __( 'Show "fullscreen" view modes with other view modes.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to show "fullscreen" view modes with other view mode options instead of separate in the search control bar.', 'tainacan-interface' )
+				'description' => __( 'Show fullscreen view modes together with the other view mode options, instead of as a separate control.', 'tainacan-interface' ),
 				) );
 			$wp_customize->selective_refresh->add_partial( 'tainacan_items_page_show_fullscreen_with_view_modes', array(
 				'selector' => '.theme-items-list #tainacanFullScreenViewMode',

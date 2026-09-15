@@ -27,6 +27,7 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 		$wp_customize->add_control( 'tainacan_use_block_template_parts_on_footer', array(
 			'type' 		=> 'checkbox',
 			'settings' 	=> 'tainacan_use_block_template_parts_on_footer',
+			'priority'  => 1,
 			'section' 	=> 'tainacan_interface_footer_info',
 			'label' 	=> __( 'Use block template parts to configure footer', 'tainacan-interface' ),
 			'description' => __( 'Build your own footer using the block editor in the menu Appearance -> Template Parts -> Footer. If enabled, the options below do not apply.', 'tainacan-interface')
@@ -38,9 +39,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'sanitize_callback'  => 'sanitize_text_field'
 		) );
 		$wp_customize->add_control( 'tainacan_blogaddress', array(
-			'type'       => 'theme_mod',
+			'type'       => 'text',
+			'priority'   => 2,
 			'label'      => __( 'Address', 'tainacan-interface' ),
 			'section'    => 'tainacan_interface_footer_info',
+			'active_callback' => 'tainacan_interface_is_classic_footer'
 		) );
 
 		$wp_customize->add_setting( 'tainacan_blogphone', array(
@@ -49,9 +52,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'sanitize_callback'  => 'tainacan_sanitize_phone',
 		) );
 		$wp_customize->add_control( 'tainacan_blogphone', array(
-			'type'       => 'theme_mod',
+			'type'       => 'text',
+			'priority'   => 3,
 			'label'      => __( 'Phone Number', 'tainacan-interface' ),
 			'section'    => 'tainacan_interface_footer_info',
+			'active_callback' => 'tainacan_interface_is_classic_footer'
 		) );
 
 		$wp_customize->add_setting( 'tainacan_blogemail', array(
@@ -60,9 +65,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'sanitize_callback'  => 'tainacan_sanitize_email',
 		) );
 		$wp_customize->add_control( 'tainacan_blogemail', array(
-			'type'       => 'theme_mod',
+			'type'       => 'text',
+			'priority'   => 4,
 			'label'      => __( 'E-mail', 'tainacan-interface' ),
 			'section'    => 'tainacan_interface_footer_info',
+			'active_callback' => 'tainacan_interface_is_classic_footer'
 		) );
 
 		$wp_customize->add_setting( 'tainacan_footer_color', array(
@@ -74,10 +81,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			) );
 		$wp_customize->add_control( 'tainacan_footer_color', array(
 			'type' 	   	  => 'select',
-			'priority' 	  => 6, // Within the section.
+			'priority' 	  => 5, // Within the section.
 			'section'  	  => 'tainacan_interface_footer_info',
 			'label'    	  => __( 'Footer color scheme', 'tainacan-interface' ),
-			'choices'	  => tainacan_get_footer_color_options()
+			'choices'	  => tainacan_get_footer_color_options(),
+			'active_callback' => 'tainacan_interface_is_classic_footer'
 			) );
 
 		/**
@@ -93,9 +101,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 		$wp_customize->add_control( 'tainacan_display_footer_logo', array(
 			'type' => 'checkbox',
 			'settings' => 'tainacan_display_footer_logo',
+			'priority' => 6,
 			'section' => 'tainacan_interface_footer_info',
 			'label' => __( 'Display logo', 'tainacan-interface' ),
-			'description' => __( 'Toggle to display or not a logo on the bottom left corner.', 'tainacan-interface' ),
+			'description' => __( 'Show a logo in the bottom left corner.', 'tainacan-interface' ),
+			'active_callback' => 'tainacan_interface_is_classic_footer'
 		) );
 
 		/**
@@ -112,6 +122,8 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 				'label'      => __( 'Upload a logo to the footer', 'tainacan-interface' ),
 				'section'    => 'tainacan_interface_footer_info',
 				'settings'   => 'tainacan_footer_logo',
+				'priority'   => 7,
+				'active_callback' => 'tainacan_interface_is_classic_footer_with_logo',
 				)
 			)
 		);
@@ -123,9 +135,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 			'sanitize_callback'  => 'sanitize_text_field',
 		) );
 		$wp_customize->add_control( 'tainacan_footer_logo_link', array(
-			'type'       => 'theme_mod',
+			'type'       => 'text',
+			'priority'   => 8,
 			'label'      => __( 'Logo link', 'tainacan-interface' ),
 			'section'    => 'tainacan_interface_footer_info',
+			'active_callback' => 'tainacan_interface_is_classic_footer_with_logo'
 		) );
 
 		/**
@@ -141,9 +155,11 @@ if ( !function_exists('tainacan_interface_customize_register_footer_info') ) {
 		$wp_customize->add_control( 'tainacan_display_powered', array(
 			'type' => 'checkbox',
 			'settings' => 'tainacan_display_powered',
+			'priority' => 9,
 			'section' => 'tainacan_interface_footer_info',
 			'label' => __( 'Display "Proudly Powered by..."', 'tainacan-interface' ),
-			'description' => __( 'This checkbox shows the "Proudly Powered by WordPress and Tainacan" sentence.', 'tainacan-interface' ),
+			'description' => __( 'Display the "Proudly Powered by WordPress and Tainacan" credit.', 'tainacan-interface' ),
+			'active_callback' => 'tainacan_interface_is_classic_footer'
 		) );
 
 	}
@@ -254,3 +270,28 @@ if ( ! function_exists( 'tainacan_sanitize_footer_color_options' ) ) :
 		return $option;
 	}
 endif; // tainacan_sanitize_footer_color_options
+
+if ( ! function_exists( 'tainacan_interface_is_classic_footer' ) ) :
+	/**
+	 * Whether the classic (non block-template) footer options apply.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_classic_footer( $control = null ) {
+		unset( $control );
+		return ! get_theme_mod( 'tainacan_use_block_template_parts_on_footer', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_classic_footer_with_logo' ) ) :
+	/**
+	 * Whether classic footer logo upload and link options apply.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_classic_footer_with_logo( $control = null ) {
+		return tainacan_interface_is_classic_footer( $control ) && get_theme_mod( 'tainacan_display_footer_logo', true );
+	}
+endif;

@@ -35,7 +35,7 @@ function tainacan_customize_register( $wp_customize ) {
 			 */
 			$wp_customize->add_panel( 'tainacan_items_page', array(
 				'title' 	  => __( 'Tainacan items list pages', 'tainacan-interface' ),
-				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the collection item list and the term items list. Some settings ins this section may be overrided by collection settings or user preference.', 'tainacan-interface' ),
+				'description' => __( 'Settings related to Tainacan items list pages, such as the repository items list, the collection items list and the term items list. Some settings in this section may be overridden by collection settings or user preference.', 'tainacan-interface' ),
 				'priority' 	  => 160 // Mixed with top-level-section hierarchy.,
 			) );
 

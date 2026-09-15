@@ -28,7 +28,7 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 		$wp_customize->add_control( 'tainacan_hide_search_input', array(
 			'type' 		=> 'checkbox',
 			'settings' 	=> 'tainacan_hide_search_input',
-			'priority'  => '1',
+			'priority'  => 1,
 			'section' 	=> 'tainacan_header_search',
 			'label' => __( 'Hide search icon and input', 'tainacan-interface' )
 		) );
@@ -47,9 +47,11 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_global_label', array(
 				'type' 	   	  => 'text',
 				'settings'	  => 'tainacan_search_global_label',
+				'priority' 	  => 10,
 				'section'  	  => 'tainacan_header_search',
-				'label'    	  => __( 'Label for "Global" search option', 'tainacan-interface' ),
-				'description' => __( 'Includes all kinds of post types. This option will only be visible if at least one of the below are selected.', 'tainacan-interface')
+				'label'    	  => __( 'Label for the "Global" search option', 'tainacan-interface' ),
+				'description' => __( 'Includes all kinds of post types. Visible on the frontend when at least one search type above is selected.', 'tainacan-interface'),
+				'active_callback' => 'tainacan_interface_is_header_search_visible'
 				) );
 
 			/**
@@ -64,12 +66,13 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 				) );
 			$wp_customize->add_control( 'tainacan_search_default_option', array(
 				'type' 	   	  => 'select',
-				'priority' 	  => 9, // Within the section.
+				'priority' 	  => 11, // Within the section.
 				'settings'	  => 'tainacan_search_default_option',
 				'section'  	  => 'tainacan_header_search',
 				'label'    	  => __( 'Default search option', 'tainacan-interface' ),
-				'description' => __( 'This option will only be valid if at least one of the below are selected, otherwise the default search happens on WordPress posts.', 'tainacan-interface'),
-				'choices'	  => tainacan_get_search_options()
+				'description' => __( 'Used when at least one search type above is selected. Otherwise the default search happens on WordPress posts.', 'tainacan-interface'),
+				'choices'	  => tainacan_get_search_options(),
+				'active_callback' => 'tainacan_interface_is_header_search_visible'
 				) );
 
 			// Option to search directly on repository items list
@@ -82,8 +85,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_items', array(
 				'type' 		=> 'checkbox',
 				'settings' 	=> 'tainacan_search_on_items',
+				'priority'  => 2,
 				'section' 	=> 'tainacan_header_search',
-				'label'		=> __( 'Display option to search on Tainacan items repository list', 'tainacan-interface' )
+				'label'		=> __( 'Show option to search Tainacan items', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_visible'
 			) );
 
 			/**
@@ -98,8 +103,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_items_label', array(
 				'type' 	   	  => 'text',
 				'settings'	  => 'tainacan_search_on_items_label',
+				'priority' 	  => 3,
 				'section'  	  => 'tainacan_header_search',
-				'label'    	  => __( 'Label for the "items" search option', 'tainacan-interface' )
+				'label'    	  => __( 'Label for the "items" search option', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_on_items'
 				) );
 
 			// Option to search directly on collections list
@@ -112,8 +119,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_collections', array(
 				'type' 		=> 'checkbox',
 				'settings' 	=> 'tainacan_search_on_collections',
+				'priority'  => 4,
 				'section' 	=> 'tainacan_header_search',
-				'label'		=> __( 'Display option to search on Tainacan collections list', 'tainacan-interface' )
+				'label'		=> __( 'Show option to search Tainacan collections', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_visible'
 			) );
 
 			/**
@@ -128,8 +137,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_collections_label', array(
 				'type' 	   	  => 'text',
 				'settings'	  => 'tainacan_search_on_collections_label',
+				'priority' 	  => 5,
 				'section'  	  => 'tainacan_header_search',
-				'label'    	  => __( 'Label for the "Collections" search option', 'tainacan-interface' )
+				'label'    	  => __( 'Label for the "Collections" search option', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_on_collections'
 				) );
 
 			// Option to search on wordpress posts only
@@ -142,8 +153,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_posts', array(
 				'type' 		=> 'checkbox',
 				'settings' 	=> 'tainacan_search_on_posts',
+				'priority'  => 6,
 				'section' 	=> 'tainacan_header_search',
-				'label'		=> __( 'Display option to search only on WordPress posts', 'tainacan-interface' )
+				'label'		=> __( 'Show option to search WordPress posts', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_visible'
 			) );
 
 			/**
@@ -158,8 +171,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_posts_label', array(
 				'type' 	   	  => 'text',
 				'settings'	  => 'tainacan_search_on_posts_label',
+				'priority' 	  => 7,
 				'section'  	  => 'tainacan_header_search',
-				'label'    	  => __( 'Label for the "Posts" search option', 'tainacan-interface' )
+				'label'    	  => __( 'Label for the "Posts" search option', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_on_posts'
 				) );
 
 			// Option to search on wordpress pages only
@@ -172,8 +187,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_pages', array(
 				'type' 		=> 'checkbox',
 				'settings' 	=> 'tainacan_search_on_pages',
+				'priority'  => 8,
 				'section' 	=> 'tainacan_header_search',
-				'label'		=> __( 'Display option to search only on WordPress pages', 'tainacan-interface' )
+				'label'		=> __( 'Show option to search WordPress pages', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_visible'
 			) );
 
 			/**
@@ -188,8 +205,10 @@ if ( !function_exists('tainacan_interface_customize_register_header_search') ) {
 			$wp_customize->add_control( 'tainacan_search_on_pages_label', array(
 				'type' 	   	  => 'text',
 				'settings'	  => 'tainacan_search_on_pages_label',
+				'priority' 	  => 9,
 				'section'  	  => 'tainacan_header_search',
-				'label'    	  => __( 'Label for the "Pages" search option', 'tainacan-interface' )
+				'label'    	  => __( 'Label for the "Pages" search option', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_header_search_on_pages'
 				) );
 		}
 
@@ -243,3 +262,64 @@ if ( ! function_exists( 'tainacan_sanitize_search_options' ) ) :
 		return $option;
 	}
 endif; // tainacan_sanitize_search_options
+
+if ( ! function_exists( 'tainacan_interface_is_header_search_visible' ) ) :
+	/**
+	 * Whether the header search icon and input are not hidden.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_header_search_visible( $control = null ) {
+		unset( $control );
+		return ! get_theme_mod( 'tainacan_hide_search_input', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_header_search_on_items' ) ) :
+	/**
+	 * Whether the items search option is enabled in the header.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_header_search_on_items( $control = null ) {
+		return tainacan_interface_is_header_search_visible( $control ) && get_theme_mod( 'tainacan_search_on_items', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_header_search_on_collections' ) ) :
+	/**
+	 * Whether the collections search option is enabled in the header.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_header_search_on_collections( $control = null ) {
+		return tainacan_interface_is_header_search_visible( $control ) && get_theme_mod( 'tainacan_search_on_collections', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_header_search_on_posts' ) ) :
+	/**
+	 * Whether the posts search option is enabled in the header.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_header_search_on_posts( $control = null ) {
+		return tainacan_interface_is_header_search_visible( $control ) && get_theme_mod( 'tainacan_search_on_posts', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_header_search_on_pages' ) ) :
+	/**
+	 * Whether the pages search option is enabled in the header.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_header_search_on_pages( $control = null ) {
+		return tainacan_interface_is_header_search_visible( $control ) && get_theme_mod( 'tainacan_search_on_pages', false );
+	}
+endif;

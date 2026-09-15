@@ -56,7 +56,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 1, // Within the section.
 				'section'  	  => 'tainacan_items_page_filters_panel',
 				'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to not show the "Hide filters" button for users.', 'tainacan-interface' )
+				'description' => __( 'Toggle to not show the "Hide filters" button for users.', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 				) );
 
 			/**
@@ -74,7 +75,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 8, // Within the section.
 				'section'  	  => 'tainacan_items_page_filters_panel',
 				'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to display the Filters button inside the search control bar.', 'tainacan-interface' )
+				'description' => __( 'Toggle to display the Filters button inside the search control bar.', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 				) );
 				
 			/**
@@ -92,7 +94,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 9, // Within the section.
 				'section'  	  => 'tainacan_items_page_filters_panel',
 				'label'    	  => __( 'Start with filters hidden.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' )
+				'description' => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 				) );
 
 			if (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) {
@@ -111,7 +114,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 					'priority' 	  => 10, // Within the section.
 					'section'  	  => 'tainacan_items_page_filters_panel',
 					'label'    	  => __( 'Filters side panel fixed on scroll', 'tainacan-interface' ),
-					'description' => __( 'Toggle to if you want filters panel to get fixed on screen when scrolling down the items list. This will only take effect if the items list itself is taller than the screen height.', 'tainacan-interface' )
+					'description' => __( 'Keep the filters panel fixed on screen while scrolling down the items list. This only takes effect if the items list is taller than the screen.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 					) );
 			}
 
@@ -130,7 +134,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 				'priority' 	  => 10, // Within the section.
 				'section'  	  => 'tainacan_items_page_filters_panel',
 				'label'    	  => __( 'Filters as modal.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' )
+				'description' => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 				) );
 
 			if (version_compare(TAINACAN_VERSION, '0.21.7') >= 0) {
@@ -148,8 +153,9 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 					'type' 	   	  => 'checkbox',
 					'priority' 	  => 10, // Within the section.
 					'section'  	  => 'tainacan_items_page_filters_panel',
-					'label'    	  => __( 'Should not hide filters even on mobile', 'tainacan-interface' ),
-					'description' => __( 'Toggle to keep filters area visible even on small screen sizes.', 'tainacan-interface' )
+					'label'    	  => __( 'Keep filters visible on mobile', 'tainacan-interface' ),
+					'description' => __( 'Keep the filters area visible even on small screens.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 					) );
 
 				/**
@@ -167,7 +173,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 					'priority' 	  => 10, // Within the section.
 					'section'  	  => 'tainacan_items_page_filters_panel',
 					'label'    	  => __( 'Display filters horizontally', 'tainacan-interface' ),
-					'description' => __( 'Toggle to show filters in an horizontal pane above the search control instead of a vertical sidebar. This layout fits better with select and textual input filters. Must not to be used combined with "Filters as a modal".', 'tainacan-interface' )
+					'description' => __( 'Show filters in a horizontal pane above the search control instead of a vertical sidebar. This layout works better with select and text filters. Do not combine this with "Filters as modal".', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 					) );
 
 				/**
@@ -184,8 +191,9 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 					'type' 	   	  => 'checkbox',
 					'priority' 	  => 10, // Within the section.
 					'section'  	  => 'tainacan_items_page_filters_panel',
-					'label'    	  => __( 'Hide filter collapses button', 'tainacan-interface' ),
-					'description' => __( 'Toggle to not display each filter label as a collapsable button. This is suggested when you have a small amount of filters.', 'tainacan-interface' )
+					'label'    	  => __( 'Hide filter collapse buttons', 'tainacan-interface' ),
+					'description' => __( 'Do not display each filter label as a collapsible button. This is useful when there are only a few filters.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
 					) );
 			}
 
@@ -203,6 +211,19 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_tainacan_items_page_filters_panel', 11 );
 }
+
+if ( ! function_exists( 'tainacan_interface_is_items_page_filters_visible' ) ) :
+	/**
+	 * Whether the items list filters panel is not hidden.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_items_page_filters_visible( $control = null ) {
+		unset( $control );
+		return ! get_theme_mod( 'tainacan_items_page_hide_filters', false );
+	}
+endif;
 
 
 /**

@@ -36,10 +36,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 				) );
 			$wp_customize->add_control( 'tainacan_single_item_related_items_section_label', array(
 				'type' 	   	  => 'text',
-				'priority' 	  => 2, // Within the section.
+				'priority' 	  => 1, // Within the section.
 				'section'  	  => 'tainacan_single_item_page_related_items',
 				'label'    	  => __( 'Label for the "Items related to this" section', 'tainacan-interface' ),
-				'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+				'description' => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
+				'active_callback' => 'tainacan_interface_is_related_items_section_enabled'
 				) );
 			$wp_customize->selective_refresh->add_partial( 'tainacan_single_item_related_items_section_label', array(
 				'selector' => '#single-item-related-items-label',
@@ -62,7 +63,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 				'priority' 	  => 0, // Within the section.
 				'section'  	  => 'tainacan_single_item_page_related_items',
 				'label'    	  => __( 'Enable the "Items related to this" section', 'tainacan-interface' ),
-				'description' => __( 'Toggle to display or not the "Items related to this" section. This also depends on the collection settings and existence of items related to the current one.', 'tainacan-interface' )
+				'description' => __( 'Show the "Items related to this" section. This also depends on collection settings and whether related items exist.', 'tainacan-interface' )
 				) );
 
 			if ( function_exists('tainacan_the_related_items') ) {
@@ -79,10 +80,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 					) );
 				$wp_customize->add_control( 'tainacan_single_item_related_items_layout', array(
 					'type' 	   	  => 'select',
-					'priority' 	  => 3, // Within the section.
+					'priority' 	  => 2, // Within the section.
 					'section'  	  => 'tainacan_single_item_page_related_items',
 					'label'    	  => __( 'Layout for the related items list', 'tainacan-interface' ),
-					'choices'	  => tainacan_get_single_item_related_items_layout_options()
+					'choices'	  => tainacan_get_single_item_related_items_layout_options(),
+					'active_callback' => 'tainacan_interface_is_related_items_section_enabled'
 					) );
 
 				/**
@@ -100,7 +102,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 					'priority' 	  => 3, // Within the section.
 					'section'  	  => 'tainacan_single_item_page_related_items',
 					'label'    	  => __( 'Sorting criteria for the related items query', 'tainacan-interface' ),
-					'choices'	  => tainacan_get_single_item_related_items_order_options()
+					'choices'	  => tainacan_get_single_item_related_items_order_options(),
+					'active_callback' => 'tainacan_interface_is_related_items_section_enabled'
 					) );
 
 				/**
@@ -118,12 +121,13 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 					'priority' 	  => 5, // Within the section.
 					'section' => 'tainacan_single_item_page_related_items',
 					'label' => __( 'Maximum number of columns', 'tainacan-interface' ),
-					'description' => __( 'Sets how many columns of items slides will appear (on a large screen) for the layouts "grid" and "list". In the "grid" layout, the smaller this number is, the greater the item thumbnail will be.', 'tainacan-interface' ),
+					'description' => __( 'How many columns of items appear on a large screen for the "grid" and "list" layouts. In the "grid" layout, a smaller number makes each thumbnail larger.', 'tainacan-interface' ),
 					'input_attrs' => array(
 						'min' => 1,
 						'max' => 8,
 						'step' => 1
 					),
+					'active_callback' => 'tainacan_interface_is_related_items_layout_grid_or_list',
 				) );
 			}
 
@@ -142,12 +146,13 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 				'priority' 	  => 4, // Within the section.
 				'section' => 'tainacan_single_item_page_related_items',
 				'label' => __( 'Maximum number of slides per screen', 'tainacan-interface' ),
-				'description' => __( 'Sets how many slides per row of the carousel will appear (on a large screen) for the layout "carousel". The smaller this number is, the greater the item thumbnail will be.', 'tainacan-interface' ),
+				'description' => __( 'How many slides per carousel row appear on a large screen. A smaller number makes each thumbnail larger.', 'tainacan-interface' ),
 				'input_attrs' => array(
 					'min' => 1,
 					'max' => 10,
 					'step' => 1
 				),
+				'active_callback' => 'tainacan_interface_is_related_items_layout_carousel',
 			) );
 
 			/**
@@ -167,15 +172,16 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
                 $wp_customize->add_control( 'tainacan_single_item_related_items_gallery_max_height', array(
                     'type' => 'number',
-                    'priority' 	  => 5, // Within the section.
+                    'priority' 	  => 6, // Within the section.
                     'section' => 'tainacan_single_item_page_related_items',
                     'label' => __( 'Items gallery maximum height (vh)', 'tainacan-interface' ),
-                    'description' => __( 'Set the maximum height for the items gallery slider. The unit of measure is relative to the screen, for example: 60vh is 60% of the height of the browser window height.', 'tainacan-interface' ),
+                    'description' => __( 'Set the maximum height for the items gallery slider. The unit is relative to the screen: 60vh is 60% of the browser window height.', 'tainacan-interface' ),
                     'input_attrs' => array(
                         'min' => 10,
                         'max' => 150,
                         'step' => 5
                     ),
+                    'active_callback' => 'tainacan_interface_is_related_items_using_gallery',
                 ) );
 
                 /**
@@ -190,14 +196,15 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
                 $wp_customize->add_control( 'tainacan_single_item_related_items_gallery_thumbnail_size', array(
                     'type' => 'number',
-                    'priority' 	  => 5, // Within the section.
+                    'priority' 	  => 7, // Within the section.
                     'section' => 'tainacan_single_item_page_related_items',
-                    'label' => __( 'Items gallery thumbnail size on carousel (px)', 'tainacan-interface' ),
+                    'label' => __( 'Items gallery thumbnail size (px)', 'tainacan-interface' ),
                     'input_attrs' => array(
                         'min' => 12,
                         'max' => 240,
                         'step' => 2
                     ),
+                    'active_callback' => 'tainacan_interface_is_related_items_gallery_showing_images',
                 ) );
 
 				if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
@@ -210,10 +217,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 					) );
 					$wp_customize->add_control( 'tainacan_single_item_related_items_thumbs_layout', array(
 						'type' 	   	  => 'select',
-						'priority' 	  => 5,
+						'priority' 	  => 8,
 						'section'  	  => 'tainacan_single_item_page_related_items',
 						'label'    	  => __( 'Thumbnails layout', 'tainacan-interface' ),
-						'description' => __( 'Same files as the carousel: images and icons, not live embeds. List rows always show the item title.', 'tainacan-interface' ),
+						'description' => __( 'Shows images and file-type icons, not live embeds. List rows always show the item title.', 'tainacan-interface' ),
 						'choices'	  => tainacan_get_single_item_gallery_thumbs_layout_options(),
 						'active_callback' => 'tainacan_interface_is_related_items_using_gallery',
 					) );
@@ -227,7 +234,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
 					) );
 					$wp_customize->add_control( 'tainacan_single_item_related_items_hide_image_thumbnails', array(
 						'type' 	   	  => 'checkbox',
-						'priority' 	  => 5,
+						'priority' 	  => 9,
 						'section'  	  => 'tainacan_single_item_page_related_items',
 						'label'    	  => __( 'Hide thumbnail image', 'tainacan-interface' ),
 						'description' => __( 'Toggle to hide the item thumbnail and show only the title.', 'tainacan-interface' ),
@@ -349,13 +356,64 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_related_items_order_optio
 	}
 endif; // tainacan_sanitize_single_item_related_items_order_options
 
+if ( ! function_exists( 'tainacan_interface_is_related_items_section_enabled' ) ) :
+	/**
+	 * Whether the related items section is enabled.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_related_items_section_enabled( $control = null ) {
+		unset( $control );
+		return (bool) get_theme_mod( 'tainacan_single_item_enable_related_items_section', true );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_related_items_layout_carousel' ) ) :
+	/**
+	 * Whether related items use the carousel layout.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_related_items_layout_carousel( $control = null ) {
+		if ( ! tainacan_interface_is_related_items_section_enabled( $control ) ) {
+			return false;
+		}
+
+		return get_theme_mod( 'tainacan_single_item_related_items_layout', 'carousel' ) === 'carousel';
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_related_items_layout_grid_or_list' ) ) :
+	/**
+	 * Whether related items use the grid or list layout.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_related_items_layout_grid_or_list( $control = null ) {
+		if ( ! tainacan_interface_is_related_items_section_enabled( $control ) ) {
+			return false;
+		}
+
+		$layout = get_theme_mod( 'tainacan_single_item_related_items_layout', 'carousel' );
+		return in_array( $layout, array( 'grid', 'list' ), true );
+	}
+endif;
+
 if ( ! function_exists( 'tainacan_interface_is_related_items_using_gallery' ) ) :
 	/**
 	 * Whether related items use an items gallery layout.
 	 *
+	 * @param WP_Customize_Control $control Customizer control.
 	 * @return bool
 	 */
-	function tainacan_interface_is_related_items_using_gallery() {
+	function tainacan_interface_is_related_items_using_gallery( $control = null ) {
+		if ( ! tainacan_interface_is_related_items_section_enabled( $control ) ) {
+			return false;
+		}
+
 		$layout = get_theme_mod( 'tainacan_single_item_related_items_layout', 'carousel' );
 		return in_array( $layout, array( 'gallery-slider', 'gallery-thumbs' ), true );
 	}
@@ -365,14 +423,35 @@ if ( ! function_exists( 'tainacan_interface_is_related_items_gallery_thumbs_layo
 	/**
 	 * Whether related items gallery thumbnails use the list layout.
 	 *
+	 * @param WP_Customize_Control $control Customizer control.
 	 * @return bool
 	 */
-	function tainacan_interface_is_related_items_gallery_thumbs_layout_list() {
-		if ( ! tainacan_interface_is_related_items_using_gallery() ) {
+	function tainacan_interface_is_related_items_gallery_thumbs_layout_list( $control = null ) {
+		if ( ! tainacan_interface_is_related_items_using_gallery( $control ) ) {
 			return false;
 		}
 
 		return get_theme_mod( 'tainacan_single_item_related_items_thumbs_layout', 'carousel' ) === 'list';
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_related_items_gallery_showing_images' ) ) :
+	/**
+	 * Whether related items gallery thumbnail size controls apply.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_related_items_gallery_showing_images( $control = null ) {
+		if ( ! tainacan_interface_is_related_items_using_gallery( $control ) ) {
+			return false;
+		}
+
+		if ( ! tainacan_interface_is_related_items_gallery_thumbs_layout_list( $control ) ) {
+			return true;
+		}
+
+		return ! get_theme_mod( 'tainacan_single_item_related_items_hide_image_thumbnails', false );
 	}
 endif;
 
