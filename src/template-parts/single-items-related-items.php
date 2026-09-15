@@ -12,6 +12,14 @@ if ( !in_array($order_by, [ 'title', 'date', 'modified' ]) )
 if ( !in_array($order, [ 'asc', 'desc' ]) )
     $order = 'asc';
 
+$related_items_layout = get_theme_mod('tainacan_single_item_related_items_layout', 'carousel');
+$is_gallery_layout = strpos( $related_items_layout, 'gallery-' ) !== false;
+$gallery_data_attributes = '';
+
+if ( $is_gallery_layout && function_exists( 'tainacan_interface_get_item_gallery_data_attributes' ) ) {
+    $gallery_data_attributes = tainacan_interface_get_item_gallery_data_attributes();
+}
+
 if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('tainacan_single_item_enable_related_items_section', true) && tainacan_has_related_items() ) : ?>
 
 <div class="mt-3 tainacan-single-post">
@@ -21,12 +29,10 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
             <?php echo esc_html( get_theme_mod('tainacan_single_item_related_items_section_label', __( 'Items related to this', 'tainacan-interface' )) ); ?>
         </h2>
     <?php endif; ?>
-    <section class="tainacan-content single-item-collection margin-two-column">
+    <section class="tainacan-content single-item-collection margin-two-column"<?php echo $gallery_data_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper ?>>
         <div class="single-item-collection--related-items justify-content-center">
             <div class="row">
             <?php
-                $related_items_layout = get_theme_mod('tainacan_single_item_related_items_layout', 'carousel');
-                
                 $tainacan_view_mode = '';
                 if ( strpos($related_items_layout, 'tainacan-view-mode-') !== false ) {
                     $tainacan_view_mode = str_replace('tainacan-view-mode-', '', $related_items_layout);
@@ -34,7 +40,7 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
                 }
 
                 $items_gallery_options = [];
-                if ( strpos($related_items_layout, 'gallery-') !== false) {
+                if ( $is_gallery_layout ) {
 
                     $items_gallery_options = $related_items_layout == 'gallery-slider' ?
                         array(
@@ -46,7 +52,16 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
                             'layoutElements' => array( 'main' => false, 'thumbnails' => true ),
                             'mainSliderHeight' => get_theme_mod('tainacan_single_item_related_items_gallery_max_height', 60),
                             'thumbnailsCarouselItemSize' => get_theme_mod('tainacan_single_item_related_items_gallery_thumbnail_size', 136),  
-                        );                 
+                        );
+
+                    if ( function_exists( 'tainacan_interface_has_media_thumbs_layout' ) && tainacan_interface_has_media_thumbs_layout() ) {
+                        $thumbs_layout = tainacan_sanitize_media_thumbs_layout(
+                            get_theme_mod( 'tainacan_single_item_related_items_thumbs_layout', 'carousel' )
+                        );
+                        $items_gallery_options['thumbsLayout'] = $thumbs_layout;
+                        $items_gallery_options['hideImageThumbnails'] = $thumbs_layout === 'list'
+                            && (bool) get_theme_mod( 'tainacan_single_item_related_items_hide_image_thumbnails', false );
+                    }
 
                     $related_items_layout = 'gallery';
                 }
