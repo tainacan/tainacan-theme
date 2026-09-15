@@ -39,8 +39,8 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     'type' 	   	  => 'checkbox',
                     'priority' 	  => 0, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Show "Documents" section: Document and Attachments grouped in one slider.', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to show the document and attachments in the same list, a carousel with the current item on top.', 'tainacan-interface' )
+                    'label'    	  => __( 'Group Document and Attachments in one slider', 'tainacan-interface' ),
+                    'description' => __( 'Show the document and attachments in the same list, as a carousel with the current item on top.', 'tainacan-interface' )
                     ) );
 
                 /**
@@ -55,10 +55,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_disable_gallery_lightbox', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 0, // Within the section.
+                    'priority' 	  => 4, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Disable the gallery lightbox modal', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display a modal with the main slider when clicking in a gallery item of the "Documents" section.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display a modal with the main slider when clicking in a gallery item of the "Documents" section.', 'tainacan-interface' ),
+                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                     ) );
             
                 /**
@@ -73,7 +74,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 2, // Within the section.
+                    'priority' 	  => 11, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
                     'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
@@ -93,7 +94,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         ) );
                     $wp_customize->add_control( 'tainacan_single_item_hide_expand_button', array(
                         'type' 	   	  => 'checkbox',
-                        'priority' 	  => 2,
+                        'priority' 	  => 12,
                         'section'  	  => 'tainacan_single_item_page_document',
                         'label'    	  => __( 'Hide expand control', 'tainacan-interface' ),
                         'description' => __( 'Toggle to never display the "Expand" control that opens the large gallery viewer for video, audio and embeds.', 'tainacan-interface' )
@@ -111,11 +112,12 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         ) );
                     $wp_customize->add_control( 'tainacan_single_item_gallery_metadata_alignment', array(
                         'type' 	   	  => 'select',
-                        'priority' 	  => 5,
+                        'priority' 	  => 10,
                         'section'  	  => 'tainacan_single_item_page_document',
                         'label'    	  => __( 'Metadata alignment', 'tainacan-interface' ),
                         'description' => __( 'Alignment of the file name, caption and description under the main slider.', 'tainacan-interface' ),
-                        'choices'	  => tainacan_get_single_item_gallery_alignment_options()
+                        'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
+                        'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                         ) );
 
                     /**
@@ -130,7 +132,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         ) );
                     $wp_customize->add_control( 'tainacan_single_item_gallery_media_actions_appearance', array(
                         'type' 	   	  => 'select',
-                        'priority' 	  => 5,
+                        'priority' 	  => 13,
                         'section'  	  => 'tainacan_single_item_page_document',
                         'label'    	  => __( 'Actions appearance', 'tainacan-interface' ),
                         'choices'	  => tainacan_get_single_item_gallery_media_actions_appearance_options()
@@ -148,10 +150,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         ) );
                     $wp_customize->add_control( 'tainacan_single_item_gallery_media_actions_behavior', array(
                         'type' 	   	  => 'select',
-                        'priority' 	  => 5,
+                        'priority' 	  => 14,
                         'section'  	  => 'tainacan_single_item_page_document',
                         'label'    	  => __( 'Actions visibility', 'tainacan-interface' ),
-                        'description' => __( 'On hover shows the controls over the media. Always visible places them inline below the media.', 'tainacan-interface' ),
+                        'description' => __( 'On hover, the controls appear over the media. Always visible places them inline below the media.', 'tainacan-interface' ),
                         'choices'	  => tainacan_get_single_item_gallery_media_actions_behavior_options()
                         ) );
 
@@ -167,13 +169,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         ) );
                     $wp_customize->add_control( 'tainacan_single_item_gallery_download_alignment', array(
                         'type' 	   	  => 'select',
-                        'priority' 	  => 5,
+                        'priority' 	  => 15,
                         'section'  	  => 'tainacan_single_item_page_document',
                         'label'    	  => __( 'Download alignment', 'tainacan-interface' ),
                         'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
-                        'active_callback' => function() {
-                            return ! get_theme_mod( 'tainacan_single_item_hide_download_document', false );
-                        }
+                        'active_callback' => 'tainacan_interface_is_single_item_download_visible'
                         ) );
 
                     /**
@@ -188,13 +188,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                         ) );
                     $wp_customize->add_control( 'tainacan_single_item_gallery_expand_alignment', array(
                         'type' 	   	  => 'select',
-                        'priority' 	  => 5,
+                        'priority' 	  => 16,
                         'section'  	  => 'tainacan_single_item_page_document',
                         'label'    	  => __( 'Expand alignment', 'tainacan-interface' ),
                         'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
-                        'active_callback' => function() {
-                            return ! get_theme_mod( 'tainacan_single_item_hide_expand_button', false );
-                        }
+                        'active_callback' => 'tainacan_interface_is_single_item_expand_visible'
                         ) );
                 }
             }
@@ -211,10 +209,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
             $wp_customize->add_control( 'tainacan_single_item_document_section_label', array(
                 'type' 	   	  => 'text',
-                'priority' 	  => 0, // Within the section.
+                'priority' 	  => 1, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_document',
                 'label'    	  => __( 'Label for the "Document" section', 'tainacan-interface' ),
-                'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+                'description' => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
+                'active_callback' => 'tainacan_interface_is_single_item_not_gallery_mode'
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_document_section_label', array(
                 'selector' => '#single-item-document-label',
@@ -234,10 +233,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
             $wp_customize->add_control( 'tainacan_single_item_attachments_section_label', array(
                 'type' 	   	  => 'text',
-                'priority' 	  => 0, // Within the section.
+                'priority' 	  => 2, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_document',
                 'label'    	  => __( 'Label for the "Attachments" section', 'tainacan-interface' ),
-                'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+                'description' => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
+                'active_callback' => 'tainacan_interface_is_single_item_not_gallery_mode'
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_attachments_section_label', array(
                 'selector' => '#single-item-attachments-label',
@@ -257,10 +257,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
             $wp_customize->add_control( 'tainacan_single_item_documents_section_label', array(
                 'type' 	   	  => 'text',
-                'priority' 	  => 0, // Within the section.
+                'priority' 	  => 1, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_document',
                 'label'    	  => __( 'Label for the "Documents" section', 'tainacan-interface' ),
-                'description' => __( 'Section that labels Document and Attachments grouped if this option is enabled. Leave blank it for not displaying any label.', 'tainacan-interface' )
+                'description' => __( 'Section label when Document and Attachments are grouped. Leave it blank to hide the label.', 'tainacan-interface' ),
+                'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_documents_section_label', array(
                 'selector' => '#single-item-documents-label',
@@ -282,10 +283,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_gallery_thumbs_layout', array(
                     'type' 	   	  => 'select',
-                    'priority' 	  => 3,
+                    'priority' 	  => 6,
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Thumbnails layout', 'tainacan-interface' ),
-                    'description' => __( 'Same files as the carousel: images and icons, not live embeds. List rows always show the file name.', 'tainacan-interface' ),
+                    'description' => __( 'Shows images and file-type icons, not live embeds. List rows always show the file name.', 'tainacan-interface' ),
                     'choices'	  => tainacan_get_single_item_gallery_thumbs_layout_options()
                     ) );
 
@@ -301,7 +302,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_image_thumbnails', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 3,
+                    'priority' 	  => 7,
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide thumbnail image', 'tainacan-interface' ),
                     'description' => __( 'Toggle to hide the file thumbnail and show only the name.', 'tainacan-interface' ),
@@ -321,10 +322,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
             $hide_files_name_control = array(
                 'type' 	   	  => 'checkbox',
-                'priority' 	  => 3, // Within the section.
+                'priority' 	  => 7, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_document',
                 'label'    	  => __( 'Hide the attachments label (on thumbnails)', 'tainacan-interface' ),
-                'description' => __( 'Toggle to not display the document and attachments name below their thumbnails.', 'tainacan-interface' )
+                'description' => __( 'Toggle to not display the document and attachment names below their thumbnails.', 'tainacan-interface' )
                 );
             if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
                 $hide_files_name_control['active_callback'] = 'tainacan_interface_is_gallery_thumbs_layout_not_list';
@@ -345,10 +346,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_files_name_main', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 3, // Within the section.
+                    'priority' 	  => 8, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide the attachments label (on the main slider)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachments name.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display the document and attachment names.', 'tainacan-interface' ),
+                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                     ) );
 
                 /**
@@ -363,10 +365,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_files_caption_main', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 3, // Within the section.
+                    'priority' 	  => 8, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide the attachments caption (on the main slider)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachments caption.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display the document and attachment captions.', 'tainacan-interface' ),
+                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                     ) );
 
                 /**
@@ -381,10 +384,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_files_description_main', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 3, // Within the section.
+                    'priority' 	  => 8, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachments description.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display the document and attachment descriptions.', 'tainacan-interface' ),
+                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                     ) );
 
 
@@ -400,7 +404,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_gallery_color_scheme', array(
                     'type' 	   	  => 'select',
-                    'priority' 	  => 4, // Within the section.
+                    'priority' 	  => 17, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Color scheme of the media gallery modal', 'tainacan-interface' ),
                     'choices'	  => tainacan_get_single_item_gallery_color_scheme_options()
@@ -418,10 +422,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
                 $wp_customize->add_control( 'tainacan_single_item_document_max_height', array(
                     'type' => 'number',
-                    'priority' 	  => 2, // Within the section.
+                    'priority' 	  => 5, // Within the section.
                     'section' => 'tainacan_single_item_page_document',
                     'label' => __( 'Document maximum height (vh)', 'tainacan-interface' ),
-                    'description' => __( 'Set the maximum height for the document. The unit of measure is relative to the screen, for example: 60vh is 60% of the height of the browser window height.', 'tainacan-interface' ),
+                    'description' => __( 'Set the maximum height for the document. The unit is relative to the screen: 60vh is 60% of the browser window height.', 'tainacan-interface' ),
                     'input_attrs' => array(
                         'min' => 10,
                         'max' => 150,
@@ -441,7 +445,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 ) );
                 $thumbnail_size_control = array(
                     'type' => 'number',
-                    'priority' 	  => 2, // Within the section.
+                    'priority' 	  => 6, // Within the section.
                     'section' => 'tainacan_single_item_page_document',
                     'label' => __( 'Attachment thumbnail size (px)', 'tainacan-interface' ),
                     'input_attrs' => array(
@@ -470,10 +474,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_files_name_lightbox', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 4, // Within the section.
+                    'priority' 	  => 18, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide the attachments label (in the lightbox)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachments name in the lightbox.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display the document and attachment names in the lightbox.', 'tainacan-interface' )
                     ) );
 
                 /**
@@ -488,10 +492,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_files_caption_lightbox', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 4, // Within the section.
+                    'priority' 	  => 18, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide the attachments caption (in the lightbox)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachments caption in the lightbox.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display the document and attachment captions in the lightbox.', 'tainacan-interface' )
                     ) );
 
                 /**
@@ -506,10 +510,10 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_hide_files_description_lightbox', array(
                     'type' 	   	  => 'checkbox',
-                    'priority' 	  => 4, // Within the section.
+                    'priority' 	  => 18, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_document',
                     'label'    	  => __( 'Hide the attachments description (in the lightbox)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachments description in the lightbox.', 'tainacan-interface' )
+                    'description' => __( 'Toggle to not display the document and attachment descriptions in the lightbox.', 'tainacan-interface' )
                     ) );
             }
         }
@@ -691,6 +695,57 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_thumbs_layout_opt
 		}
 
 		return $option;
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_single_item_gallery_mode' ) ) :
+	/**
+	 * Whether the item page uses the grouped Documents gallery.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_single_item_gallery_mode( $control = null ) {
+		unset( $control );
+		return (bool) get_theme_mod( 'tainacan_single_item_gallery_mode', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_single_item_not_gallery_mode' ) ) :
+	/**
+	 * Whether the item page shows Document and Attachments as separate sections.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_single_item_not_gallery_mode( $control = null ) {
+		return ! tainacan_interface_is_single_item_gallery_mode( $control );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_single_item_download_visible' ) ) :
+	/**
+	 * Whether the document download button is not hidden.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_single_item_download_visible( $control = null ) {
+		unset( $control );
+		return ! get_theme_mod( 'tainacan_single_item_hide_download_document', false );
+	}
+endif;
+
+if ( ! function_exists( 'tainacan_interface_is_single_item_expand_visible' ) ) :
+	/**
+	 * Whether the expand control is not hidden.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_single_item_expand_visible( $control = null ) {
+		unset( $control );
+		return ! get_theme_mod( 'tainacan_single_item_hide_expand_button', false );
 	}
 endif;
 

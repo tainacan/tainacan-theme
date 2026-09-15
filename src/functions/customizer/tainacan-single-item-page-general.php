@@ -102,10 +102,11 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     ) );
                 $wp_customize->add_control( 'tainacan_single_item_navigation_section_label', array(
                     'type' 	   	  => 'text',
-                    'priority' 	  => 3, // Within the section.
+                    'priority' 	  => 4, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_general',
                     'label'    	  => __( 'Label for the "Items navigation" or "Continue browsing" section', 'tainacan-interface' ),
-                    'description' => __( 'Leave blank it for not displaying any label.', 'tainacan-interface' )
+                    'description' => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
+                    'active_callback' => 'tainacan_interface_is_item_navigation_enabled'
                     ) );
                 $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_navigation_section_label', array(
                     'selector' => '#single-item-navigation-label',
@@ -128,7 +129,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     'priority' 	  => 3, // Within the section.
                     'section'  	  => 'tainacan_single_item_page_general',
                     'label'    	  => __( 'Navigation links to adjacent items', 'tainacan-interface' ),
-                    'description' => __( 'Sets how next and previous items links will be displayed. If your Tainacan version is below 0.17, these links only obey creation date order inside their collection.', 'tainacan-interface' ),
+                    'description' => __( 'Sets how next and previous item links will be displayed. If your Tainacan version is below 0.17, these links only follow creation date order inside their collection.', 'tainacan-interface' ),
                     'choices'	  => tainacan_get_single_item_navigation_links_options()
                     ) );
 
@@ -220,10 +221,10 @@ if ( ! function_exists( 'tainacan_get_single_item_navigation_links_options' ) ) 
 	 */
 	function tainacan_get_single_item_navigation_links_options() {
 		$navigation_options = array(
-			'none' => __('Do not display items links', 'tainacan-interface'),
-			'link' => __('Show only items Link', 'tainacan-interface'),
-			'thumbnail_small' => __('Show items links with a small thumbnail', 'tainacan-interface'),
-			'thumbnail_large' => __('Show items links with a large thumbnail', 'tainacan-interface'),
+			'none' => __('Do not display item links', 'tainacan-interface'),
+			'link' => __('Show only item links', 'tainacan-interface'),
+			'thumbnail_small' => __('Show item links with a small thumbnail', 'tainacan-interface'),
+			'thumbnail_large' => __('Show item links with a large thumbnail', 'tainacan-interface'),
 		);
 		return $navigation_options;
 	}
@@ -251,3 +252,16 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_navigation_links_options'
 		return $option;
 	}
 endif; // tainacan_sanitize_single_item_navigation_links_options
+
+if ( ! function_exists( 'tainacan_interface_is_item_navigation_enabled' ) ) :
+	/**
+	 * Whether adjacent item navigation links are displayed.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_item_navigation_enabled( $control = null ) {
+		unset( $control );
+		return get_theme_mod( 'tainacan_single_item_navigation_options', 'thumbnail_small' ) !== 'none';
+	}
+endif;

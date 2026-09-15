@@ -38,7 +38,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 'priority' 	  => 0, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_metadata',
                 'label'    	  => __( 'Label for the "Metadata" section', 'tainacan-interface' ),
-                'description' => __( 'Leave blank it for not displaying any label (which is the default).', 'tainacan-interface' )
+                'description' => __( 'Leave it blank to hide the label (which is the default).', 'tainacan-interface' )
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_metadata_section_label', array(
                 'selector' => '#single-item-metadata-label',
@@ -61,7 +61,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 'priority' 	  => 2, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_metadata',
                 'label'    	  => __( 'Display item thumbnail', 'tainacan-interface' ),
-                'description' => __( 'Toggle to show or not the item thumbnail, within the metadata list section.', 'tainacan-interface' )
+                'description' => __( 'Show the item thumbnail in the metadata list.', 'tainacan-interface' )
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_thumbnail', array(
                 'selector' => '.tainacan-item-thumbnail-container',
@@ -84,7 +84,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 'priority' 	  => 3, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_metadata',
                 'label'    	  => __( 'Display share buttons', 'tainacan-interface' ),
-                'description' => __( 'Toggle to show or not the social icon share buttons, within the metadata list section or collection banner.', 'tainacan-interface' )
+                'description' => __( 'Show social share buttons in the metadata list or collection banner.', 'tainacan-interface' )
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_display_share_buttons', array(
                 'selector' => '.tainacan-item-share-container',
@@ -107,7 +107,7 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                 'priority' 	  => 2, // Within the section.
                 'section'  	  => 'tainacan_single_item_page_metadata',
                 'label'    	  => __( 'Hide core title from metadata list', 'tainacan-interface' ),
-                'description' => __( 'Toggle to hide or not the core title from the metadata list, as it already appears on the page title.', 'tainacan-interface' )
+                'description' => __( 'Hide the core title from the metadata list, since it already appears as the page title.', 'tainacan-interface' )
                 ) );
             $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_hide_core_title_metadata', array(
                 'selector' => '.metadata-type-core_title',

@@ -54,8 +54,9 @@ if ( !function_exists('tainacan_interface_customize_register_social_share_option
 		) );
 
 		$wp_customize->add_control( 'tainacan_twitter_user', array(
-			'label'      => __( 'Twitter User to be cited in tweets (via @user)', 'tainacan-interface' ),
+			'label'      => __( 'Twitter username to cite in tweets (via @user)', 'tainacan-interface' ),
 			'section'    => 'tainacan_social_share',
+			'active_callback' => 'tainacan_interface_is_twitter_share_enabled'
 		) );
 
 		// WhatsApp
@@ -91,3 +92,16 @@ if ( !function_exists('tainacan_interface_customize_register_social_share_option
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_social_share_options', 11 );
 }
+
+if ( ! function_exists( 'tainacan_interface_is_twitter_share_enabled' ) ) :
+	/**
+	 * Whether Twitter sharing is enabled.
+	 *
+	 * @param WP_Customize_Control $control Customizer control.
+	 * @return bool
+	 */
+	function tainacan_interface_is_twitter_share_enabled( $control = null ) {
+		unset( $control );
+		return (bool) get_theme_mod( 'tainacan_twitter_share', true );
+	}
+endif;
