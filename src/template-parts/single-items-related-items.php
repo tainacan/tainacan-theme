@@ -63,6 +63,16 @@ if ( function_exists('tainacan_the_related_items_carousel') && get_theme_mod('ta
                             && (bool) get_theme_mod( 'tainacan_single_item_related_items_hide_image_thumbnails', false );
                     }
 
+                    if (
+                        $related_items_layout == 'gallery-slider'
+                        && function_exists( 'tainacan_interface_has_gallery_cover_mime_types' )
+                        && tainacan_interface_has_gallery_cover_mime_types()
+                    ) {
+                        $items_gallery_options['coverMimeTypesMain'] = (bool) get_theme_mod( 'tainacan_single_item_show_pdf_cover', false )
+                            ? array( 'application/pdf' )
+                            : array();
+                    }
+
                     $related_items_layout = 'gallery';
                 }
                 
