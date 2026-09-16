@@ -25,6 +25,19 @@ if ( ! function_exists( 'tainacan_interface_has_media_thumbs_layout' ) ) {
 	}
 }
 
+if ( ! function_exists( 'tainacan_interface_has_gallery_cover_mime_types' ) ) {
+	/**
+	 * Whether the current Tainacan supports cover images in the gallery main slider.
+	 *
+	 * @return bool
+	 */
+	function tainacan_interface_has_gallery_cover_mime_types() {
+		return function_exists( 'tainacan_the_item_gallery' )
+			&& class_exists( '\Tainacan\Media' )
+			&& method_exists( '\Tainacan\Media', 'get_item_document_cover_html' );
+	}
+}
+
 if ( ! function_exists( 'tainacan_interface_get_item_gallery_settings' ) ) {
 	/**
 	 * Theme mods used by the item document / attachments gallery templates.
@@ -34,6 +47,7 @@ if ( ! function_exists( 'tainacan_interface_get_item_gallery_settings' ) ) {
 	function tainacan_interface_get_item_gallery_settings() {
 		$thumbs_layout = 'carousel';
 		$hide_image_thumbnails = false;
+		$show_pdf_cover = false;
 
 		if ( tainacan_interface_has_media_thumbs_layout() ) {
 			$thumbs_layout = get_theme_mod( 'tainacan_single_item_gallery_thumbs_layout', 'carousel' );
@@ -44,6 +58,10 @@ if ( ! function_exists( 'tainacan_interface_get_item_gallery_settings' ) ) {
 			}
 
 			$hide_image_thumbnails = (bool) get_theme_mod( 'tainacan_single_item_hide_image_thumbnails', false );
+		}
+
+		if ( tainacan_interface_has_gallery_cover_mime_types() ) {
+			$show_pdf_cover = (bool) get_theme_mod( 'tainacan_single_item_show_pdf_cover', false );
 		}
 
 		return array(
@@ -66,6 +84,7 @@ if ( ! function_exists( 'tainacan_interface_get_item_gallery_settings' ) ) {
 			'hide_expand'                    => (bool) get_theme_mod( 'tainacan_single_item_hide_expand_button', false ),
 			'thumbs_layout'                  => $thumbs_layout,
 			'hide_image_thumbnails'          => $hide_image_thumbnails,
+			'show_pdf_cover'                 => $show_pdf_cover,
 		);
 	}
 }
@@ -109,6 +128,10 @@ if ( ! function_exists( 'tainacan_interface_get_item_gallery_args' ) ) {
 		if ( tainacan_interface_has_media_thumbs_layout() ) {
 			$shared['thumbsLayout'] = $thumbs_layout;
 			$shared['hideImageThumbnails'] = $is_list_layout && ! empty( $settings['hide_image_thumbnails'] );
+		}
+
+		if ( tainacan_interface_has_gallery_cover_mime_types() ) {
+			$shared['coverMimeTypesMain'] = ! empty( $settings['show_pdf_cover'] ) ? array( 'application/pdf' ) : array();
 		}
 
 		if ( $context === 'document' ) {

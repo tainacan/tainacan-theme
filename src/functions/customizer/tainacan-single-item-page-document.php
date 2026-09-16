@@ -391,6 +391,28 @@ if ( !function_exists('tainacan_interface_customize_register_tainacan_single_ite
                     'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
                     ) );
 
+                if ( function_exists( 'tainacan_interface_has_gallery_cover_mime_types' ) && tainacan_interface_has_gallery_cover_mime_types() ) {
+
+                    /**
+                     * Show PDF cover image in the main slider instead of the embedded reader.
+                     */
+                    $wp_customize->add_setting( 'tainacan_single_item_show_pdf_cover', array(
+                        'type' 		 => 'theme_mod',
+                        'capability' => 'edit_theme_options',
+                        'default' 	 => false,
+                        'transport'  => 'refresh',
+                        'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
+                        ) );
+                    $wp_customize->add_control( 'tainacan_single_item_show_pdf_cover', array(
+                        'type' 	   	  => 'checkbox',
+                        'priority' 	  => 9, // Within the section.
+                        'section'  	  => 'tainacan_single_item_page_document',
+                        'label'    	  => __( 'Show PDF cover instead of embedded reader', 'tainacan-interface' ),
+                        'description' => __( 'The lightbox can still show the PDF reader.', 'tainacan-interface' ),
+                        'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
+                        ) );
+                }
+
 
                 /**
                  * Light color palette to the media component gallery
