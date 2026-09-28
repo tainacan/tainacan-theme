@@ -34,7 +34,7 @@ $src = wp_get_attachment_image_src($image, 'full');
 					<a class="page-header-back ml-auto" href="javascript:history.go(-1)"><?php _e( 'Back', 'tainacan-interface' ); ?></a>
 				</div>
 				<div class="page-header-hightlights d-flex flex-wrap">
-					<div class="col-12 col-xl-10 col-lg-9 page-header-description tainacan-interface-truncate-term">
+					<div class="col-12 col-xl-10 col-lg-9 page-header-description tainacan-interface-truncate-term tainacan-interface-rich-text">
 						<?php tainacan_the_term_description(); ?>
 						<?php do_action( 'tainacan-interface-term-description' ); ?>
 					</div>

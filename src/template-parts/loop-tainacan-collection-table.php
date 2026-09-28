@@ -23,7 +23,7 @@
 							<?php endif; ?>
 						</td>
 						<td class="collection-title text-black"><?php the_title(); ?></td>
-						<td class="collection-description text-oslo-gray"><?php the_excerpt(); ?></td>
+						<td class="collection-description text-oslo-gray tainacan-interface-rich-text"><?php echo wp_kses_post( get_the_excerpt() ); ?></td>
 					</tr>
 				<?php endwhile; ?>
 			</tbody>

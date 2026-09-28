@@ -1,0 +1,23 @@
+// Block HTML inside metadata values and descriptions. The wrapper is a div so
+// nested divs stay valid; these rules restore the spacing a paragraph used to give.
+.tainacan-interface-rich-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote,
+    figure,
+    .wp-block-group {
+        margin-bottom: 0.75rem;
+    }
+}

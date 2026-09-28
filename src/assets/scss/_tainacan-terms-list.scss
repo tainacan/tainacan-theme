@@ -16,7 +16,7 @@
                 padding-top: 0.75rem;
             }
 
-            .term-description p {
+            .term-description {
                 margin-top: 0;
                 padding-top: 0 !important;
                 padding-left: 1rem;
@@ -24,6 +24,11 @@
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
+
+                p {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
             }
 
             .term-children-link a {

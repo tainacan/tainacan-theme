@@ -800,12 +800,18 @@
                     display: inline-block;
                 }
             }
-            p {
+            p,
+            .tainacan-metadata-value {
                 word-wrap: break-word;
             }
-            p:empty {
+            p:empty,
+            .tainacan-metadata-value:empty {
                 display: none;
                 visibility: hidden;
+            }
+            .tainacan-metadata-value {
+                margin-top: 0;
+                margin-bottom: 1rem;
             }
             iframe {
                 border: none;
