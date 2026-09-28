@@ -139,7 +139,8 @@
                 }
             }
             .collection-description, .collection-date {
-                p { margin-bottom: 0; }
+                p,
+                .tainacan-interface-rich-text { margin-bottom: 0; }
                 font: {
                     size: 0.75rem;
                     weight: 400;
@@ -214,13 +215,23 @@
                 }
             }
             .media-body {
-                p {
+                font: {
+                    size: 0.6875rem;
+                    weight: 400;
+                }
+                padding-top: 0.75rem;
+                padding-right: 0.75rem;
+
+                p,
+                .tainacan-interface-rich-text__empty {
                     font: {
-                        size: 0.6875rem;
-                        weight: 400;
+                        size: inherit;
+                        weight: inherit;
                     }
-                    padding-top: 0.75rem;
-                    padding-right: 0.75rem;
+                    margin-bottom: 0;
+                }
+                .tainacan-interface-rich-text__empty {
+                    font-style: italic;
                 }
             }
         }

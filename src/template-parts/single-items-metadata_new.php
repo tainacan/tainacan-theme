@@ -107,7 +107,9 @@
 
     $metadata_args = array(
         'display_slug_as_class' => true,
-        'exclude_title' => get_theme_mod('tainacan_single_item_hide_core_title_metadata', false)
+        'exclude_title' => get_theme_mod('tainacan_single_item_hide_core_title_metadata', false),
+        'before_value' => '<div class="tainacan-metadata-value tainacan-interface-rich-text">',
+        'after_value' => '</div>',
     );
 
     $section_layout = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_interface_section_layout', 'default' ) );

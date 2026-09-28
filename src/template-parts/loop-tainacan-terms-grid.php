@@ -12,6 +12,8 @@
             'after_term_thumbnail' => '</figure>',
             'before_term_name' => '<h2 class="term-name text-truncate">',
             'after_term_name' => '</h2>',
+            'before_term_description' => '<div class="term-description tainacan-interface-rich-text">',
+            'after_term_description' => '</div>',
             'thumbnails_size' => 'tainacan-medium',
             'hide_term_thumbnail_placeholder' => false,
             'hide_term_empty_name' => false,

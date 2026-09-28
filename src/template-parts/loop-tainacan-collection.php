@@ -17,11 +17,11 @@
 									</h4>
 								</div>
 							<?php endif; ?>
-							<div class="media-body text-oslo-gray">
+							<div class="media-body text-oslo-gray tainacan-interface-rich-text">
 								<?php if ( get_the_excerpt() ) : ?>
-									<p><?php echo wp_trim_words( get_the_excerpt(), 35, '[...]' ); ?></p>
+									<?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 35, '[...]' ) ); ?>
 								<?php else : ?>
-									<p style="font-style: italic;"><?php _e( 'No description provided', 'tainacan-interface' ); ?></p>
+									<span class="tainacan-interface-rich-text__empty"><?php _e( 'No description provided', 'tainacan-interface' ); ?></span>
 								<?php endif; ?>
 							</div>
 						</div>
