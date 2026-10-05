@@ -1,9 +1,9 @@
 === Tainacan Interface ===
 Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp, jessicafpx, leogermani, marinagiolo, omarceloavila, r-guimaraes, ravipassos, weryques, wetah
-Requires at least: 5.9
-Tested up to: 7.0
-Requires PHP: 7.0
-Stable tag: 2.9.0
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 2.10.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio 

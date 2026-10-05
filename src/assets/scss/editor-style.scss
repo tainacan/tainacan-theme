@@ -30,7 +30,7 @@
     .editor-post-title__block .editor-post-title__input,
     .editor-post-title.editor-post-title__input {
         font-size: 1.25rem;
-        font-family: 'Roboto', sans-serif;
+        font-family: var(--wp--preset--font-family--roboto);
         color:#1d1d1d;
         textarea {
             padding: 3px 6px;
@@ -90,7 +90,7 @@
     /* Blockquote */
     .wp-block-quote.is-style-large {
         font-size: 1.375rem;
-        font-family: 'Roboto', sans-serif;
+        font-family: var(--wp--preset--font-family--roboto);
     }
     .wp-block-quote:not(.is-style-large):not(.is-large) {
         border-left: 2px solid var(--tainacan-color-default, var(--tainacan-interface--link-color, #187181));

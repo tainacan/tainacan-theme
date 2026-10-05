@@ -30,8 +30,8 @@ $theme-colors: (
   "white-title": $white-title,
   "primary": #187181
 );
-$font-family-base: 'Roboto';
-$headings-font-family: 'Roboto';
+$font-family-base: var(--wp--preset--font-family--roboto);
+$headings-font-family: inherit;
 $headings-font-weight: 400;
 
 @import "../vendor/bootstrap/scss/bootstrap";
