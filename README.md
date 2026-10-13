@@ -3,6 +3,8 @@
 
 Tema WordPress padrão do Tainacan, para ser usado com o plugin Tainacan
 
+Para integrar leitores especializados de PDF, consulte [Integrações de visualizadores de PDF](docs/pdf-viewer-integrations.md).
+
 # Instalação no WordPress
 
 - Copiar o arquivo `build-config-sample.cfg` para `build-config.cfg`

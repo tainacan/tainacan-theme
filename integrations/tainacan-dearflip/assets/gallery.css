@@ -1,0 +1,27 @@
+/* The attachment lightbox iframe has no dimensions in Tainacan's default markup. */
+.pswp iframe[src*="tainacan_dearflip_attachment="] {
+	display: block;
+	width: 100%;
+	height: calc(100vh - 64px);
+	border: 0;
+}
+
+/* Keep supported browsers aligned with PhotoSwipe's measured content area. */
+.pswp__content > .tainacan-embed-container:has(iframe[src*="tainacan_dearflip_attachment="]) {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	/* Keep DearFlip's page arrows clear of PhotoSwipe's file navigation arrows. */
+	padding: 0 48px;
+}
+
+.pswp__content > .tainacan-embed-container:has(iframe[src*="tainacan_dearflip_attachment="]) iframe[src*="tainacan_dearflip_attachment="] {
+	height: 100%;
+}
+
+@media (max-width: 600px) {
+	.pswp__content > .tainacan-embed-container:has(iframe[src*="tainacan_dearflip_attachment="]) {
+		padding-right: 36px;
+		padding-left: 36px;
+	}
+}
