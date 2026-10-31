@@ -108,6 +108,8 @@ endif;
 if ( ! function_exists( 'tainacan_pagination_terms' ) ) :
 	function tainacan_pagination_terms($total_terms) {
 		$current_args = \Tainacan\Theme_Helper::get_instance()->get_taxonomies_query_args();
+        $current_args['termspaged'] = max( 1, absint( isset( $current_args['termspaged'] ) ? $current_args['termspaged'] : 1 ) );
+        $current_args['perpage'] = max( 1, absint( isset( $current_args['perpage'] ) ? $current_args['perpage'] : 12 ) );
         $current_total_terms = $total_terms;
         $current_first_term_index = max(($current_args['termspaged'] - 1) * $current_args['perpage'] + 1, 1);
         $current_last_term_index = min($current_args['termspaged'] * $current_args['perpage'], $current_total_terms);
