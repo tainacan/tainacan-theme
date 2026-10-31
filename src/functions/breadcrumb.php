@@ -171,7 +171,7 @@ function tainacan_interface_the_breadcrumb() {
 							<?php echo $next; ?>
 						</div>
 						<div class="pagination">
-							<a href="<?php echo tainacan_get_source_item_list_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
+							<a href="<?php echo esc_url( tainacan_get_source_item_list_url() ); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
 						</div>
 					</div>
 				<?php

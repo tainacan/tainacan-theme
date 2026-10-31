@@ -65,9 +65,9 @@
                 <form role="search" class="ml-auto" method="get" id="tainacan-collection-search">
                     <input type="hidden" name="orderby" value="<?php echo esc_attr(get_query_var( 'orderby' )); ?>" />
                     <input type="hidden" name="order" value="<?php echo esc_attr(get_query_var( 'order' )); ?>" />
-                    <input type="hidden" name="tainacan_terms_viewmode" value="<?php echo $view_mode; ?>" />
+                    <input type="hidden" name="tainacan_terms_viewmode" value="<?php echo esc_attr( $view_mode ); ?>" />
                     <div class="input-group">
-                        <input class="form-control rounded-0" type="search" name="search" value="<?php echo get_query_var( 'search' ); ?>" placeholder="<?php esc_attr_e( 'Search terms', 'tainacan-interface' ); ?>" />
+                        <input class="form-control rounded-0" type="search" name="search" value="<?php echo esc_attr( get_query_var( 'search' ) ); ?>" placeholder="<?php esc_attr_e( 'Search terms', 'tainacan-interface' ); ?>" />
                         <span class="input-group-append">
                             <button class="btn border border-left-0 rounded-0 bg-white text-midnight-blue" type="submit">
                                 <i class="tainacan-icon tainacan-icon-20px tainacan-icon-search" style="line-height: inherit;"></i>

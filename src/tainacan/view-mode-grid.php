@@ -24,8 +24,8 @@
 		}
 		
 		// Build query parameters for navigation
-		$perpage = (int)$_GET['perpage'];
-		$paged = (int)$_GET['paged'];
+		$perpage = max(1, absint($_GET['perpage']));
+		$paged = max(1, absint($_GET['paged']));
 		$index = (int)$index;
 		
 		$query = '&pos=' . ( ($paged - 1) * $perpage + $index );
@@ -42,7 +42,7 @@
 			<div class="tainacan-grid-item">
 
 				<div class="metadata-title">     
-					<p><a href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"><?php the_title(); ?></a></p>
+					<p><a href="<?php echo esc_url( get_item_link_for_navigation(get_permalink(), $item_index) ); ?>"><?php the_title(); ?></a></p>
 					<?php if ( $is_slideshow_available ) : ?>
 						<a href="<?php echo esc_url('?' . $_SERVER['QUERY_STRING'] . '&slideshow-from=' . $item_index ); ?>" class="icon slideshow-icon">
 							<i class="tainacan-icon tainacan-icon-viewgallery tainacan-icon-1-125em"></i>
@@ -51,7 +51,7 @@
 				</div>
 				<?php if ( has_post_thumbnail() ) : ?>
 					<a 
-							href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
+							href="<?php echo esc_url( get_item_link_for_navigation(get_permalink(), $item_index) ); ?>"
 							style="background-image: url(<?php the_post_thumbnail_url( 'tainacan-medium' ) ?>)"
 							class="grid-item-thumbnail">
 						<?php the_post_thumbnail( 'tainacan-medium' ); ?>
@@ -59,7 +59,7 @@
 					</a>
 				<?php else : ?>
 					<a 
-							href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
+							href="<?php echo esc_url( get_item_link_for_navigation(get_permalink(), $item_index) ); ?>"
 							style="background-image: url(<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/thumbnail_placeholder.png'?>)"
 							class="grid-item-thumbnail">
 						<?php echo '<img alt="', esc_attr_e('Thumbnail placeholder', 'tainacan-interface'), '" src="', esc_url(get_template_directory_uri()), '/assets/images/thumbnail_placeholder.png">'?>

@@ -186,13 +186,13 @@ class TainacanInterfaceCollectionSettings {
 
 		if ( $object->can_edit() ) {
 			if ( isset( $post->{$this->tainacan_background_color} ) ) {
-				update_post_meta( $object->get_id(), $this->tainacan_background_color, $post->{$this->tainacan_background_color} );
+				update_post_meta( $object->get_id(), $this->tainacan_background_color, (string) sanitize_hex_color( (string) $post->{$this->tainacan_background_color} ) );
 			}
 			if ( isset( $post->{$this->tainacan_text_color} ) ) {
-				update_post_meta( $object->get_id(), $this->tainacan_text_color, $post->{$this->tainacan_text_color} );
+				update_post_meta( $object->get_id(), $this->tainacan_text_color, tainacan_interface_collection_text_color( $post->{$this->tainacan_text_color} ) );
 			}
 			if ( isset( $post->{$this->tainacan_sections_layout} ) ) {
-				update_post_meta( $object->get_id(), $this->tainacan_sections_layout, $post->{$this->tainacan_sections_layout} );
+				update_post_meta( $object->get_id(), $this->tainacan_sections_layout, in_array( $post->{$this->tainacan_sections_layout}, array( 'default', 'tabs', 'collapses', 'accordion' ), true ) ? $post->{$this->tainacan_sections_layout} : 'default' );
 			}
 		}
 	}
@@ -200,3 +200,14 @@ class TainacanInterfaceCollectionSettings {
 }
 
 new TainacanInterfaceCollectionSettings();
+
+/**
+ * The collection header text color: white or black, the two options the
+ * collection settings offer. Anything else falls back to white.
+ *
+ * @param mixed $color Stored or submitted value.
+ * @return string
+ */
+function tainacan_interface_collection_text_color( $color ) {
+	return in_array( $color, array( '#fff', '#000' ), true ) ? $color : '#fff';
+}
