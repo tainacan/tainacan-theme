@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tainacan Interface 4.2.0\n"
+"Project-Id-Version: Tainacan Interface 4.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/tt-i18n\n"
-"POT-Creation-Date: 2026-11-07T23:51:12+01:00\n"
+"POT-Creation-Date: 2026-11-08T02:21:53+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Theme Name of the theme
-#: style.css inc/settings.php:1400
+#: style.css inc/settings.php:1420
 msgid "Tainacan Interface"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Proudly powered by %1$s and %2$s."
 msgstr ""
 
-#: footer.php:88 inc/design.php:554
+#: footer.php:88 inc/design.php:555
 msgid "Footer menu"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "A thumbnail grid view, showing only title and thumbnail"
 msgstr ""
 
-#: functions.php:118 functions/class-tainacan-interface-collection-settings.php:107 functions/class-tainacan-interface-collection-settings.php:108
+#: functions.php:118 functions/class-tainacan-interface-collection-settings.php:93 functions/class-tainacan-interface-collection-settings.php:94
 msgid "Default"
 msgstr ""
 
@@ -195,11 +195,11 @@ msgstr ""
 msgid "Warning: <a href=\"%s\">Tainacan plugin</a> is not activated! While you may use this theme without it, we made it to take full advantage of the plugin features."
 msgstr ""
 
-#: functions.php:305 inc/child-theme.php:337 inc/upgrade.php:185 inc/upgrade.php:327
+#: functions.php:305 inc/child-theme.php:337 inc/upgrade.php:184 inc/upgrade.php:326
 msgid "Dismiss"
 msgstr ""
 
-#: functions.php:315 inc/child-theme.php:348 inc/nav-menus.php:473 inc/upgrade.php:197 inc/upgrade.php:215 inc/upgrade.php:339
+#: functions.php:315 inc/child-theme.php:348 inc/nav-menus.php:473 inc/upgrade.php:196 inc/upgrade.php:214 inc/upgrade.php:338
 msgid "Sorry, you are not allowed to do that."
 msgstr ""
 
@@ -220,7 +220,7 @@ msgid "Taxonomies"
 msgstr ""
 
 #. translators: 1: first result shown, 2: last result shown, 3: number of results.
-#: functions/archive-functions.php:189 functions/archive-functions.php:232
+#: functions/archive-functions.php:192 functions/archive-functions.php:235
 #, php-format
 msgid "Viewing results: %1$d to %2$d of %3$d"
 msgstr ""
@@ -271,27 +271,27 @@ msgstr ""
 msgid "Back to items list"
 msgstr ""
 
-#: functions/class-tainacan-interface-collection-settings.php:73 functions/class-tainacan-interface-textarea-readmore.php:71
+#: functions/class-tainacan-interface-collection-settings.php:59 functions/class-tainacan-interface-textarea-readmore.php:71
 msgid "Tainacan Interface extra settings"
 msgstr ""
 
-#: functions/class-tainacan-interface-collection-settings.php:83 functions/class-tainacan-interface-collection-settings.php:92
+#: functions/class-tainacan-interface-collection-settings.php:69 functions/class-tainacan-interface-collection-settings.php:78
 msgid "Metadata sections layout"
 msgstr ""
 
-#: functions/class-tainacan-interface-collection-settings.php:95
+#: functions/class-tainacan-interface-collection-settings.php:81
 msgid "Define how the metadata sections will appear in the public item page."
 msgstr ""
 
-#: functions/class-tainacan-interface-collection-settings.php:117 functions/class-tainacan-interface-collection-settings.php:118
+#: functions/class-tainacan-interface-collection-settings.php:103 functions/class-tainacan-interface-collection-settings.php:104
 msgid "Tabs"
 msgstr ""
 
-#: functions/class-tainacan-interface-collection-settings.php:127 functions/class-tainacan-interface-collection-settings.php:128
+#: functions/class-tainacan-interface-collection-settings.php:113 functions/class-tainacan-interface-collection-settings.php:114
 msgid "Collapses"
 msgstr ""
 
-#: functions/class-tainacan-interface-collection-settings.php:137 functions/class-tainacan-interface-collection-settings.php:138
+#: functions/class-tainacan-interface-collection-settings.php:123 functions/class-tainacan-interface-collection-settings.php:124
 msgid "Accordion"
 msgstr ""
 
@@ -639,11 +639,11 @@ msgstr ""
 msgid "Side"
 msgstr ""
 
-#: functions/customizer/tainacan-interface-features.php:102 functions/customizer/tainacan-single-item-page-document.php:763 inc/settings.php:856 inc/settings.php:1183
+#: functions/customizer/tainacan-interface-features.php:102 functions/customizer/tainacan-single-item-page-document.php:763 inc/settings.php:856 inc/settings.php:1209
 msgid "Right"
 msgstr ""
 
-#: functions/customizer/tainacan-interface-features.php:103 functions/customizer/tainacan-single-item-page-document.php:761 inc/settings.php:857 inc/settings.php:1017 inc/settings.php:1184
+#: functions/customizer/tainacan-interface-features.php:103 functions/customizer/tainacan-single-item-page-document.php:761 inc/settings.php:857 inc/settings.php:1017 inc/settings.php:1210
 msgid "Left"
 msgstr ""
 
@@ -891,11 +891,11 @@ msgstr ""
 msgid "Masonry"
 msgstr ""
 
-#: functions/customizer/tainacan-items-page-search-area.php:293 tainacan/archive-terms.php:67
+#: functions/customizer/tainacan-items-page-search-area.php:293 tainacan/archive-terms.php:68
 msgid "Cards"
 msgstr ""
 
-#: functions/customizer/tainacan-items-page-search-area.php:294 tainacan/archive-terms.php:69
+#: functions/customizer/tainacan-items-page-search-area.php:294 tainacan/archive-terms.php:70
 msgid "Table"
 msgstr ""
 
@@ -1361,7 +1361,7 @@ msgstr ""
 msgid "Latest modified first"
 msgstr ""
 
-#: functions/enqueues.php:63
+#: functions/enqueues.php:68
 msgid "Copied! Link copied to clipboard."
 msgstr ""
 
@@ -1457,7 +1457,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: functions/single-functions.php:128
+#: functions/single-functions.php:130
 msgid "&nbsp;by&nbsp;"
 msgstr ""
 
@@ -1536,7 +1536,7 @@ msgid "Too many requests. Please wait a minute."
 msgstr ""
 
 #. translators: %s: names of collections, as links.
-#: inc/customizer-design.php:398
+#: inc/customizer-design.php:395
 #, php-format
 msgid "Does not change these collections, which have their own value on their form: %s."
 msgstr ""
@@ -1876,6 +1876,62 @@ msgstr[1] ""
 msgid "Some collections are left: press the button again to go on."
 msgstr ""
 
+#. translators: %s: number of posts.
+#: inc/page-title.php:29
+#, php-format
+msgid "%s post"
+msgid_plural "%s posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/page-title.php:40 inc/page-title.php:50
+msgctxt "kind of page, above its title"
+msgid "Blog"
+msgstr ""
+
+#: inc/page-title.php:51
+msgid "Blog Posts"
+msgstr ""
+
+#: inc/page-title.php:54
+msgctxt "kind of page, above its title"
+msgid "Search results"
+msgstr ""
+
+#. translators: %s: the words searched for.
+#: inc/page-title.php:56
+#, php-format
+msgid "&#8220;%s&#8221;"
+msgstr ""
+
+#. translators: %s: number of results.
+#: inc/page-title.php:58
+#, php-format
+msgid "%s result"
+msgid_plural "%s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/page-title.php:70
+msgctxt "kind of page, above its title"
+msgid "Author"
+msgstr ""
+
+#: inc/page-title.php:76
+msgctxt "kind of page, above its title"
+msgid "Archive"
+msgstr ""
+
+#: inc/page-title.php:80
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: inc/page-title.php:82
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
 #: inc/settings.php:25
 msgid "Look and feel"
 msgstr ""
@@ -1964,7 +2020,7 @@ msgstr ""
 msgid "Accent color"
 msgstr ""
 
-#: inc/settings.php:60 inc/settings.php:185 inc/settings.php:806 inc/settings.php:1084 template-parts/single-post.php:62
+#: inc/settings.php:60 inc/settings.php:185 inc/settings.php:806 inc/settings.php:1110 template-parts/single-post.php:62
 msgid "None"
 msgstr ""
 
@@ -2136,7 +2192,7 @@ msgstr ""
 msgid "Space between the parts of a page"
 msgstr ""
 
-#: inc/settings.php:307
+#: inc/settings.php:307 inc/settings.php:1040
 msgid "Compact"
 msgstr ""
 
@@ -2472,11 +2528,11 @@ msgstr ""
 msgid "Tilted card"
 msgstr ""
 
-#: inc/settings.php:618 inc/settings.php:1173
+#: inc/settings.php:618 inc/settings.php:1199
 msgid "Rounded square"
 msgstr ""
 
-#: inc/settings.php:619 inc/settings.php:1172
+#: inc/settings.php:619 inc/settings.php:1198
 msgid "Circle"
 msgstr ""
 
@@ -2496,7 +2552,7 @@ msgstr ""
 msgid "Short band under the title"
 msgstr ""
 
-#: inc/settings.php:648 inc/settings.php:896 template-parts/loop-tainacan-terms-table.php:24
+#: inc/settings.php:648 inc/settings.php:896 template-parts/loop-tainacan-collection-table.php:16 template-parts/loop-tainacan-terms-table.php:24
 msgid "Description"
 msgstr ""
 
@@ -2540,7 +2596,7 @@ msgstr ""
 msgid "Share links"
 msgstr ""
 
-#: inc/settings.php:693
+#: inc/settings.php:693 inc/settings.php:1035
 msgid "Title of the page"
 msgstr ""
 
@@ -2592,7 +2648,7 @@ msgstr ""
 msgid "Order set for the collections, then newest"
 msgstr ""
 
-#: inc/settings.php:756
+#: inc/settings.php:756 template-parts/loop-tainacan-collection-table.php:15
 msgid "Title"
 msgstr ""
 
@@ -2824,183 +2880,211 @@ msgstr ""
 msgid "0: as tall as its text."
 msgstr ""
 
-#: inc/settings.php:1035
-msgid "List of posts"
-msgstr ""
-
-#: inc/settings.php:1037
-msgid "One below the other, image beside the text"
+#: inc/settings.php:1036
+msgid "Below the banner, on the blog, posts, pages, searches and archives. A short line above the title says what the page is: the category of a post, the search, the archive."
 msgstr ""
 
 #: inc/settings.php:1038
+msgid "Large, with a fine line below"
+msgstr ""
+
+#: inc/settings.php:1039
+msgid "Large and centered"
+msgstr ""
+
+#: inc/settings.php:1047
+msgid "Count and description below the title"
+msgstr ""
+
+#: inc/settings.php:1048
+msgid "How many posts or results a listing has, and the description of a category, tag or author."
+msgstr ""
+
+#: inc/settings.php:1054
+msgid "Back button beside the title"
+msgstr ""
+
+#: inc/settings.php:1055
+msgid "Returns to the previous page of the site; a visitor who arrived from outside goes to the blog or to the start page."
+msgstr ""
+
+#: inc/settings.php:1061
+msgid "List of posts"
+msgstr ""
+
+#: inc/settings.php:1063
+msgid "One below the other, image beside the text"
+msgstr ""
+
+#: inc/settings.php:1064
 msgid "Cards in columns"
 msgstr ""
 
-#: inc/settings.php:1045
+#: inc/settings.php:1071
 msgid "Columns of cards on a large screen"
 msgstr ""
 
-#: inc/settings.php:1056
+#: inc/settings.php:1082
 msgid "Proportion of the images of the list"
 msgstr ""
 
-#: inc/settings.php:1058
+#: inc/settings.php:1084
 msgid "As the image is"
 msgstr ""
 
-#: inc/settings.php:1072
+#: inc/settings.php:1098
 msgid "Words of the summary in the list"
 msgstr ""
 
-#: inc/settings.php:1073
+#: inc/settings.php:1099
 msgid "0: no summary."
 msgstr ""
 
-#: inc/settings.php:1079
+#: inc/settings.php:1105
 msgid "Sidebar of the blog"
 msgstr ""
 
-#: inc/settings.php:1080
+#: inc/settings.php:1106
 msgid "Shown when it has widgets (Appearance > Widgets)."
 msgstr ""
 
-#: inc/settings.php:1082
+#: inc/settings.php:1108
 msgid "On the right"
 msgstr ""
 
-#: inc/settings.php:1083
+#: inc/settings.php:1109
 msgid "On the left"
 msgstr ""
 
-#: inc/settings.php:1094
+#: inc/settings.php:1120
 msgid "Width of the sidebar (px)"
 msgstr ""
 
-#: inc/settings.php:1100
+#: inc/settings.php:1126
 msgid "Keep the sidebar in view while scrolling"
 msgstr ""
 
-#: inc/settings.php:1106
+#: inc/settings.php:1132
 msgid "Width of the text of a post or page"
 msgstr ""
 
-#: inc/settings.php:1108
+#: inc/settings.php:1134
 msgid "The width of the page"
 msgstr ""
 
-#: inc/settings.php:1109
+#: inc/settings.php:1135
 msgid "Narrow, easier to read"
 msgstr ""
 
-#: inc/settings.php:1119
+#: inc/settings.php:1145
 msgid "Narrow width (px)"
 msgstr ""
 
-#: inc/settings.php:1125
+#: inc/settings.php:1151
 msgid "Featured image at the top of a post"
 msgstr ""
 
-#: inc/settings.php:1131
+#: inc/settings.php:1157
 msgid "Date and author of a post"
 msgstr ""
 
-#: inc/settings.php:1137
+#: inc/settings.php:1163
 msgid "Share links on posts and pages"
 msgstr ""
 
-#: inc/settings.php:1143
+#: inc/settings.php:1169
 msgid "Categories, tags and comments at the end of a post"
 msgstr ""
 
-#: inc/settings.php:1149
+#: inc/settings.php:1175
 msgid "Previous and next post"
 msgstr ""
 
-#: inc/settings.php:1155
+#: inc/settings.php:1181
 msgid "Reading progress bar on posts"
 msgstr ""
 
-#: inc/settings.php:1156
+#: inc/settings.php:1182
 msgid "A thin line at the top of the window that fills as the visitor reads. Drawn by the browser, without a script; browsers that cannot draw it show nothing."
 msgstr ""
 
-#: inc/settings.php:1164
+#: inc/settings.php:1190
 msgid "Back to top button"
 msgstr ""
 
-#: inc/settings.php:1170
+#: inc/settings.php:1196
 msgid "Shape of the button"
 msgstr ""
 
-#: inc/settings.php:1174
+#: inc/settings.php:1200
 msgid "Square"
 msgstr ""
 
-#: inc/settings.php:1181
+#: inc/settings.php:1207
 msgid "Side of the button"
 msgstr ""
 
-#: inc/settings.php:1191
+#: inc/settings.php:1217
 msgid "Show the button on phones"
 msgstr ""
 
-#: inc/settings.php:1197
+#: inc/settings.php:1223
 msgid "Leave out the emoji script of WordPress"
 msgstr ""
 
-#: inc/settings.php:1198
+#: inc/settings.php:1224
 msgid "Browsers draw emoji by themselves; the script only replaces them with images on very old systems."
 msgstr ""
 
-#: inc/settings.php:1312
+#: inc/settings.php:1332
 msgid "Observatory (navy and violet)"
 msgstr ""
 
-#: inc/settings.php:1326
+#: inc/settings.php:1346
 msgid "Museum (wine and gold)"
 msgstr ""
 
-#: inc/settings.php:1340
+#: inc/settings.php:1360
 msgid "Archive (sepia and graphite)"
 msgstr ""
 
-#: inc/settings.php:1354
+#: inc/settings.php:1374
 msgid "Nature (forest and turquoise)"
 msgstr ""
 
-#: inc/settings.php:1368
+#: inc/settings.php:1388
 msgid "High contrast"
 msgstr ""
 
-#: inc/settings.php:1401
+#: inc/settings.php:1421
 msgid "Everything about the look of the Tainacan pages in one place. The options of the item page and of the search area stay in their own panels."
 msgstr ""
 
-#: inc/settings.php:1443
+#: inc/settings.php:1463
 msgid "Choose a combination…"
 msgstr ""
 
-#: inc/settings.php:1452
+#: inc/settings.php:1472
 msgid "Ready-made colors"
 msgstr ""
 
-#: inc/settings.php:1453
+#: inc/settings.php:1473
 msgid "Fills in the colors below; publish to keep them."
 msgstr ""
 
-#: inc/settings.php:1577
+#: inc/settings.php:1597
 msgid "Public pages of this collection"
 msgstr ""
 
-#: inc/settings.php:1578
+#: inc/settings.php:1598
 msgid "Tainacan Interface. Leave a field on \"As the site\" to follow Appearance > Customize."
 msgstr ""
 
-#: inc/settings.php:1589
+#: inc/settings.php:1609
 msgid "As the site (or a color such as #1c355e)"
 msgstr ""
 
-#: inc/settings.php:1593
+#: inc/settings.php:1613
 msgid "As the site"
 msgstr ""
 
@@ -3025,24 +3109,24 @@ msgid "Copy link"
 msgstr ""
 
 #. translators: %s: name of a theme.
-#: inc/upgrade.php:177
+#: inc/upgrade.php:176
 #, php-format
 msgid "This site was using %s, which derives from Tainacan Interface. Do you want to bring its settings? They replace the ones stored for Tainacan Interface."
 msgstr ""
 
-#: inc/upgrade.php:184
+#: inc/upgrade.php:183
 msgid "Bring the settings"
 msgstr ""
 
-#: inc/upgrade.php:323
+#: inc/upgrade.php:322
 msgid "Tainacan Interface has a new design."
 msgstr ""
 
-#: inc/upgrade.php:324
+#: inc/upgrade.php:323
 msgid "A new collection header, breadcrumb, list of collections, item preview and item page, all adjustable in Appearance > Customize > Tainacan Interface, and menus for each collection in Appearance > Menus."
 msgstr ""
 
-#: inc/upgrade.php:326
+#: inc/upgrade.php:325
 msgid "Adjust the design"
 msgstr ""
 
@@ -3058,39 +3142,40 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: tainacan/archive-terms.php:25 template-parts/loop-singular.php:21 template-parts/loop.php:51
-msgid "Back"
+#: tainacan/archive-terms.php:24
+msgctxt "kind of page, above its title"
+msgid "Taxonomy"
 msgstr ""
 
-#: tainacan/archive-terms.php:33
+#: tainacan/archive-terms.php:34
 msgid "Sorting"
 msgstr ""
 
-#: tainacan/archive-terms.php:36 template-parts/loop-tainacan-terms-table.php:23
+#: tainacan/archive-terms.php:37 template-parts/loop-tainacan-terms-table.php:23
 msgid "Name"
 msgstr ""
 
-#: tainacan/archive-terms.php:37
+#: tainacan/archive-terms.php:38
 msgid "Amount of items"
 msgstr ""
 
-#: tainacan/archive-terms.php:64
+#: tainacan/archive-terms.php:65
 msgid "View Mode"
 msgstr ""
 
-#: tainacan/archive-terms.php:68
+#: tainacan/archive-terms.php:69
 msgid "Thumbnails"
 msgstr ""
 
-#: tainacan/archive-terms.php:78
+#: tainacan/archive-terms.php:79
 msgid "Search terms"
 msgstr ""
 
-#: tainacan/archive-terms.php:94
+#: tainacan/archive-terms.php:95
 msgid "It seems that you are using a legacy vesion of the Tainacan plugin. Please update in order to use the latest features for displaying the terms list."
 msgstr ""
 
-#: tainacan/single-items.php:88 template-parts/collections-grid.php:59 template-parts/loop-singular.php:41 template-parts/loop-tainacan-terms-grid.php:47 template-parts/loop-tainacan-terms-table.php:67 template-parts/loop-tainacan-terms.php:46 template-parts/loop.php:68
+#: tainacan/single-items.php:88 template-parts/collections-grid.php:59 template-parts/loop-singular.php:32 template-parts/loop-tainacan-collection-grid.php:43 template-parts/loop-tainacan-collection-table.php:49 template-parts/loop-tainacan-collection.php:50 template-parts/loop-tainacan-terms-grid.php:47 template-parts/loop-tainacan-terms-table.php:67 template-parts/loop-tainacan-terms.php:46 template-parts/loop.php:23
 msgid "Nothing found"
 msgstr ""
 
@@ -3114,54 +3199,24 @@ msgstr ""
 msgid "Read more..."
 msgstr ""
 
-#: template-parts/loop-singular.php:35
+#: template-parts/loop-singular.php:26
 msgid "Previous"
 msgstr ""
 
-#: template-parts/loop-singular.php:36
+#: template-parts/loop-singular.php:27
 msgid "Next"
+msgstr ""
+
+#: template-parts/loop-tainacan-collection.php:37
+msgid "No description provided"
 msgstr ""
 
 #: template-parts/loop-tainacan-terms-table.php:25
 msgid "Children"
 msgstr ""
 
-#: template-parts/loop.php:19
-msgid "Blog Posts"
-msgstr ""
-
-#: template-parts/loop.php:24
-msgid "Search Results for"
-msgstr ""
-
-#. translators: %s: date.
-#: template-parts/loop.php:32
-#, php-format
-msgid "Daily Archives: %s"
-msgstr ""
-
-#. translators: %s: month and year.
-#: template-parts/loop.php:35
-#, php-format
-msgid "Monthly Archives: %s"
-msgstr ""
-
-#. translators: %s: month and year.
-#: template-parts/loop.php:35
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#. translators: %s: year.
-#: template-parts/loop.php:38
-#, php-format
-msgid "Yearly Archives: %s"
-msgstr ""
-
-#. translators: %s: year.
-#: template-parts/loop.php:38
-msgctxt "yearly archives date format"
-msgid "Y"
+#: template-parts/page-title.php:42
+msgid "Back"
 msgstr ""
 
 #: template-parts/single-items-document.php:79

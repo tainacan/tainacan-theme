@@ -125,7 +125,9 @@ if ( ! function_exists( 'tainacan_meta_author' ) ) {
 	 * @return string|void
 	 */
 	function tainacan_meta_author( $echo = true ) {
-		$string = esc_html__( '&nbsp;by&nbsp;', 'tainacan-interface' ) . get_the_author_posts_link();
+		// A post without an author (made by a script, or whose author was removed) shows the date alone.
+		$link   = get_the_author_posts_link();
+		$string = '' === trim( wp_strip_all_tags( $link ) ) ? '' : esc_html__( '&nbsp;by&nbsp;', 'tainacan-interface' ) . $link;
 		$string = apply_filters( 'tainacan-meta-author', $string );
 
 		if ( ! $echo ) {

@@ -1028,6 +1028,32 @@ function tainacan_interface_settings_schema() {
 			'label'   => __( 'Minimum height of the banner (px)', 'tainacan-interface' ),
 			'help'    => __( '0: as tall as its text.', 'tainacan-interface' ),
 		),
+		'page_title_style'      => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => 'editorial',
+			'label'   => __( 'Title of the page', 'tainacan-interface' ),
+			'help'    => __( 'Below the banner, on the blog, posts, pages, searches and archives. A short line above the title says what the page is: the category of a post, the search, the archive.', 'tainacan-interface' ),
+			'choices' => array(
+				'editorial' => __( 'Large, with a fine line below', 'tainacan-interface' ),
+				'centered'  => __( 'Large and centered', 'tainacan-interface' ),
+				'compact'   => __( 'Compact', 'tainacan-interface' ),
+			),
+		),
+		'page_title_meta'       => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Count and description below the title', 'tainacan-interface' ),
+			'help'    => __( 'How many posts or results a listing has, and the description of a category, tag or author.', 'tainacan-interface' ),
+		),
+		'page_title_back'       => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Back button beside the title', 'tainacan-interface' ),
+			'help'    => __( 'Returns to the previous page of the site; a visitor who arrived from outside goes to the blog or to the start page.', 'tainacan-interface' ),
+		),
 		'blog_layout'           => array(
 			'section' => 'blog',
 			'type'    => 'choice',
@@ -1280,12 +1306,6 @@ function tainacan_interface_opt( $key, $collection_id = null ) {
 			$own = get_post_meta( $collection_id, 'tainacan_interface_opt_' . $key, true );
 			if ( '' !== $own && false !== $own ) {
 				$value = $own;
-			} elseif ( 'brand_color' === $key ) {
-				// The header color a collection chose for the classic design, when it can carry the titles too.
-				$legacy = sanitize_hex_color( (string) get_post_meta( $collection_id, 'tainacan_theme_collection_background_color', true ) );
-				if ( $legacy && tainacan_interface_is_dark_color( $legacy ) ) {
-					$value = $legacy;
-				}
 			}
 		}
 	}

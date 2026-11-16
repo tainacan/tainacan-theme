@@ -1,18 +1,17 @@
 <?php
 /**
- * Moving to version 3: from Tainacan Interface 2.x in place, and from another
- * theme by activation.
+ * Moving to this version: in place from an earlier Tainacan Interface, and from
+ * another theme by activation.
  *
  * An update of the theme replaces its folder and fires nothing else; an
  * activation fires after_switch_theme. That is how the two cases are told
  * apart:
- * - activation (a new site, or a site coming from another theme): the new
- *   features come on, and an administrator is offered the settings of a Tainacan
- *   Interface derivative the site was using (Tainacan Acervo, for example);
- * - update in place from 2.x (the WordPress.org update reaches every site at
- *   once): the page must look the same the next morning. The features the
- *   visitor sees are recorded as off, and the administrators get a notice
- *   that they exist. The security fixes and the local font have no switch.
+ * - activation (a new site, or a site coming from another theme): an
+ *   administrator is offered the settings of a Tainacan Interface derivative the
+ *   site was using (Tainacan Acervo, for example);
+ * - update in place: the settings of the working name of 2.x are renamed, the
+ *   choice of the earlier look is forgotten (there is one design from 4.3) and
+ *   the administrators get a notice saying where to adjust the design.
  *
  * @package tainacan-interface
  */
@@ -250,12 +249,12 @@ function tainacan_interface_on_update() {
 		}
 	}
 
-	// Up to version 4.1 a site could stay on the earlier look; from 4.2 there is one design.
-	if ( false === $seen || version_compare( (string) $seen, '4.2.0', '<' ) ) {
+	// Up to 4.2 a site could stay on the earlier look; from 4.3 there is one design.
+	if ( false === $seen || version_compare( (string) $seen, '4.3.0', '<' ) ) {
 		remove_theme_mod( 'tainacan_interface_design' );
 		tainacan_interface_state_set( 'design_notice', 1 );
+		tainacan_interface_state_set( 'features_notice', null );
 	}
-	tainacan_interface_state_set( 'features_notice', null );
 
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 	delete_option( $lock );

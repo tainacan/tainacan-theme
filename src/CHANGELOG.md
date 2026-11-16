@@ -1,5 +1,69 @@
 # Changelog
 
+## 4.4.6 (2026-11-08)
+
+### Fixed
+
+- The colour of links (`style.scss`, `style.css`, `style.min.css`) weighs as a plain `a` again: its two `:not()` were outside `:where()` and beat any component that colours its own links with a class. Seen on bpb: the "Abrir ficha completa" button of the TainacanBiblio preview drawer had blue text on a blue background (contrast 1.3:1), and the titles of "Keep exploring" took the link colour instead of the `color: inherit` of item-aside.css. The rule came with the official 2.10.0 (develop) imported in 3.0; the published 2.8.3 does not have it.
+
+## 4.4.5 (2026-11-07)
+
+### Fixed
+
+- The rule of 2.x that drew a grey line under every `nav` on phones is limited to `nav.navbar` in `style.scss`, `style.css` and `style.min.css`; the reset added to modern.css in 4.4.4 is gone (it also removed lines set on purpose by blocks, plugins and the block header).
+- The list takes the rest of the row beside the filters only with side filters, not with the horizontal filters of the Faceted Search block.
+- The 6px above the first row of a list only when the cards lift or ring under the pointer.
+- The 32px under the item body only below 960px, where "Keep exploring" falls under the record.
+
+## 4.4.4 (2026-11-07)
+
+### Fixed
+
+- Phones: the title of the banner had a line height of 24px for a 28px font, so a name on two lines overlapped; it is 1.15 now, balanced.
+- Phones: `style.css` gives every `nav` a grey bottom line under 768px (a rule of 2.x); in the design of version 4 only the header keeps a line, and a navigation block or a plugin menu (the header of TainacanBiblio, for example) no longer gets one.
+
+## 4.4.3 (2026-11-07)
+
+### Fixed
+
+- Tablets: the search field of the lists grows to 240px (320px in 4.4.2 pushed the button of the exposers to a line of its own at 820px).
+- Item page: 32px below the body of the item, so the previous and next item no longer touch the "Keep exploring" box when it falls below the record.
+
+## 4.4.2 (2026-11-07)
+
+### Fixed
+
+- Tablets: the search field of the lists keeps Tainacan's 136px no more; it grows to 320px.
+- The search bar and its parts have `min-width: 0`, so a long select in it no longer widens the page on a phone (4.4.1 only limited the select).
+- The room above the first row of a list is padding only: the negative margin of 4.4.1 moved the list up and the outer area cut it instead.
+- Same files as 4.4.1 under a new version, so that browsers holding 4.4.1 fetch them again.
+
+## 4.4.1 (2026-11-07)
+
+### Fixed
+
+- Tablets (769 to 1279px): the side filters had 20% of the width with 32px inside on each side (90px for the text on a 820px tablet), and the list at most 80%, so a panel with a margin pushed it below the filters. The panel is 228 to 280px with less inner space, the list takes the rest (`flex: 1 1 0`, no maximum) and the search field leaves its 136px.
+- Phones: a `select` in the search bar (the scope of TainacanBiblio, "Search in: the whole library network") measured its longest option and widened the page to 556px on a 390px phone; it now fits the bar.
+- Phones: the rows of previous and next post and of comments passed the edge by 3px with their negative margins.
+- The list area of Tainacan hides what passes its edges, which cut the top border of the first row of cards and records when the pointer lifted them.
+
+## 4.4.0 (2026-11-07)
+
+### Added
+
+- `template-parts/page-title.php` and `tainacan_interface_page_title_parts()` (inc/page-title.php): the title of the blog, posts, pages, searches, archives and taxonomy terms, with a kicker (category of a post, parent of a page, kind of listing), the title, the count of posts or results and the description of a term or author. Filter `tainacan_interface_page_title_parts`; a call to the part can replace any piece by its arguments.
+- Options `page_title_style` (editorial, centered, compact; body class `tt2-title-*`, live in the preview), `page_title_meta` and `page_title_back`.
+
+### Changed
+
+- `template-parts/loop.php`, `loop-singular.php` and `tainacan/archive-terms.php` call the new part. The classes `tainacan-title`, `tainacan-title-page`, `title-page` and `title-back` stay on it for child themes; a child with its own copy of those files keeps its own title. The structure is no longer a list: `title-page` is a `div` and `title-back` is the link itself, so a child rule written for `ul.list-inline`, `li.title-page` or `.title-back a` needs a look.
+- Date archives take their title from the address, not from the first post.
+- The back link has a real address (the blog, the parent page or the start page) and goes back in the history only when the previous page is on the site.
+
+### Fixed
+
+- `tainacan_meta_author()` prints nothing when the post has no author, instead of a hanging "by".
+
 ## 4.3.0 (2026-11-07)
 
 One design. The classic look stayed, until 4.2, so that an update in place would not change what the visitor saw. That rule was lifted on 07/11/2026: the new design is the theme, and what only the old look used went away.
@@ -7,14 +71,17 @@ One design. The classic look stayed, until 4.2, so that an update in place would
 ### Removed
 
 - The option "Page design" and `tainacan_interface_is_modern()`, with every branch of the old look in templates, Customizer and scripts.
-- `assets/css/bootstrap-legacy.css` (115 kB), `assets/js/js.js` and `assets/js/tainacan-interface-truncate.js` (the jQuery scripts), `assets/js/color-scheme-control.js` and `assets/js/customize-preview.js` (live color scheme), `assets/js/collection-color.js`, `assets/js/spectrum.js` and `assets/css/spectrum.css` (color picker of the old collection header), `functions/customizer/colors.php`, `functions/customizer/tainacan-items-page-collection-banner.php`, the three `loop-tainacan-collection*.php` templates.
+- `assets/css/bootstrap-legacy.css` (115 kB), `assets/js/js.js` and `assets/js/tainacan-interface-truncate.js` (the jQuery scripts), `assets/js/color-scheme-control.js` and `assets/js/customize-preview.js` (live color scheme), `assets/js/collection-color.js`, `assets/js/spectrum.js` and `assets/css/spectrum.css` (color picker of the old collection header), `functions/customizer/colors.php`, `functions/customizer/tainacan-items-page-collection-banner.php`.
 - Options of the old look: color scheme, link and tooltip color, box opacity of the site banner, height of the collection banner, item thumbnail in the record, columns of metadata per screen, "Highlighted item record" (always on), the header color fields of the collection form.
 
 ### Kept for child themes
 
 - `template-parts/headercollection.php`, `headertaxonomy.php` and `single-items-header.php`, now one call each, so a child or a plugin that asks for them by name gets the new header.
-- The actions `tainacan-interface-*`, the handles `bootstrap4CSS` and `bootstrap4JS` (aliases of foundation.css and nav.js), `lib/class-wp-bootstrap-navwalker.php`, the grid and utility classes of foundation.css, and the header color a collection saved (`tainacan_theme_collection_background_color`), read as its main color.
+- The actions `tainacan-interface-*`, the handles `bootstrap4CSS` and `bootstrap4JS` (aliases of foundation.css and nav.js), `lib/class-wp-bootstrap-navwalker.php`, the grid and utility classes of foundation.css.
 - A child with its own copy of `tainacan_enqueues()` from 2.x still gets the files that replaced Bootstrap.
+- `tainacan_interface_is_modern()` (always true, deprecated) and `tainacan_get_color_scheme()` (drawn from the colors of the design) stay for children of 4.0–4.2 and 2.x; the handles `tainacan_tainacanJS` and `tainacan_tainacanTruncate` stay, empty and depending on jQuery, so a child script that depends on them still loads.
+- The offset and order classes of the grid are in foundation.css; a child with its own `archive-tainacan-collection.php` still finds the `loop-tainacan-collection*` parts and gets twelve collections per page.
+- The header color a collection saved for the old look is no longer read: its main color comes from its own option or from the site.
 
 ### Also
 

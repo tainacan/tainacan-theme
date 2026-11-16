@@ -32,6 +32,11 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Tainacan Interface theme
 		 */
+		// Handles of the jQuery scripts of 2.x, empty: a child script that depends on
+		// them still loads, with jQuery, which it brings by depending on them.
+		wp_register_script( 'tainacan_tainacanJS', false, array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
+		wp_register_script( 'tainacan_tainacanTruncate', false, array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
+
 		// The parent's stylesheet, minified unless debugging. A child theme's own
 		// style.css comes after it, in inc/child-theme.php.
 		$style_uri     = $uri . '/style.css';

@@ -4,7 +4,7 @@ Author: Tainacan
 Author URI: https://tainacan.org
 Theme URI: https://tainacan.org
 Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 4 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch.
-Version: 4.3.0
+Version: 4.4.6
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -37,10 +37,10 @@ Text Domain: tainacan-interface
   --wp--preset--theme-text-color--darkgray: #505253;
 }
 
-:where(:not(.has-link-color)) a:not(.has-link-color):not(.wp-block-button__link) {
+:where(:not(.has-link-color)) a:where(:not(.has-link-color):not(.wp-block-button__link)) {
   color: var(--tainacan-interface--link-color, #187181);
 }
-:where(:not(.has-link-color)) a:not(.has-link-color):not(.wp-block-button__link):hover {
+:where(:not(.has-link-color)) a:where(:not(.has-link-color):not(.wp-block-button__link)):hover {
   color: var(--tainacan-interface--link-color, #187181);
 }
 
@@ -1121,7 +1121,7 @@ nav.menu-belowheader #menubelowHeader > ul > li .dropdown-menu {
   }
 }
 @media only screen and (max-width: 768px) {
-  nav {
+  nav.navbar {
     border-bottom: 1px solid #a5a5a5;
   }
 }

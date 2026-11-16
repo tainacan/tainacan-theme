@@ -41,3 +41,31 @@ if ( ! function_exists( 'tainacan_customizer_gutenberg_colors' ) ) {
 		return '.has-accent-color { color: ' . $color . ' !important; }.has-accent-background-color { background-color: ' . $color . '; }';
 	}
 }
+
+if ( ! function_exists( 'tainacan_interface_is_modern' ) ) {
+	/**
+	 * Up to 4.2 the theme had two designs. There is one now; child themes written
+	 * for 4.0 to 4.2 may still ask.
+	 *
+	 * @deprecated 4.3.0
+	 * @return bool Always true.
+	 */
+	function tainacan_interface_is_modern() {
+		_deprecated_function( __FUNCTION__, '4.3.0' );
+		return true;
+	}
+}
+
+if ( ! function_exists( 'tainacan_get_color_scheme' ) ) {
+	/**
+	 * The color scheme of 2.x, now drawn from the colors of the design: background,
+	 * page background, link and tooltip. Child themes of 2.x read it.
+	 *
+	 * @deprecated 4.3.0
+	 * @return string[]
+	 */
+	function tainacan_get_color_scheme() {
+		$accent = (string) tainacan_interface_opt( 'accent_color' );
+		return array( (string) tainacan_interface_opt( 'page_background' ), (string) tainacan_interface_opt( 'surface_color' ), $accent, $accent );
+	}
+}

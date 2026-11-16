@@ -1,0 +1,50 @@
+<?php
+/**
+ * Collections loop in table view.
+ *
+ * @package tainacan-interface
+ */
+
+?>
+<?php if ( have_posts() ) : ?>
+	<div class="mt-5 tainacan-list-post table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col"><?php esc_html_e( 'Title', 'tainacan-interface' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Description', 'tainacan-interface' ); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					?>
+					<tr class="tainacan-list-collection">
+						<td class="collection-miniature">
+							<?php
+							if ( has_post_thumbnail() ) :
+								the_post_thumbnail( 'tainacan-small', array( 'class' => 'img-fluid' ) );
+								?>
+							<?php else : ?>
+								<div class="image-placeholder">
+									<h4>
+									<?php echo esc_html( tainacan_get_initials( get_the_title(), true ) ); ?>
+									</h4>
+								</div>
+							<?php endif; ?>
+						</td>
+						<td class="collection-title text-black"><a class="text-black" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
+						<td class="collection-description text-oslo-gray tainacan-interface-rich-text"><?php echo wp_kses_post( get_the_excerpt() ); ?></td>
+					</tr>
+				<?php endwhile; ?>
+			</tbody>
+		</table>
+	</div>
+
+	<?php tainacan_pagination(); ?>
+
+<?php else : ?>
+	<?php esc_html_e( 'Nothing found', 'tainacan-interface' ); ?>
+<?php endif; ?>

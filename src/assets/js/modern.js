@@ -6,8 +6,28 @@
 (function () {
 	'use strict';
 
-	// What assets/js/js.js does with jQuery on the classic design.
+	// Classes the pages of 2.x set while loading.
 	document.body.classList.remove('loading-content');
+
+	// "Back" beside the title: the previous page when it is on this site, the address of the link otherwise.
+	document.addEventListener('click', function (event) {
+		var back = event.target.closest('a[data-tt2-back]');
+		if (!back || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) {
+			return;
+		}
+		var from = null;
+		try {
+			from = document.referrer ? new URL(document.referrer) : null;
+		} catch (error) {
+			from = null;
+		}
+		var here = window.location;
+		// Not when the previous entry is this same page, reached by an anchor or after sending a comment.
+		if (from && from.origin === here.origin && from.pathname + from.search !== here.pathname + here.search && window.history.length > 1) {
+			event.preventDefault();
+			window.history.back();
+		}
+	});
 
 	var top = document.getElementById('return-to-top');
 	if (top) {

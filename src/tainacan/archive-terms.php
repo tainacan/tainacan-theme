@@ -16,16 +16,17 @@ get_header();
 <main class="mt-5 max-large margin-one-column">
 	<div class="row">
 		<div class="col col-sm mx-sm-auto">
-			<div class="tainacan-title">
-				<div class="tainacan-title-page">
-					<ul class="list-inline mb-1 d-flex">
-						<li class="list-inline-item  font-weight-bold title-page">
-							<h1><?php the_title(); ?></h1>
-						</li>
-						<li class="list-inline-item float-right title-back align-self-end ml-auto"><a href="javascript:history.go(-1)"><?php esc_html_e( 'Back', 'tainacan-interface' ); ?></a></li>
-					</ul>
-				</div>
-			</div>  
+			<?php
+			get_template_part(
+				'template-parts/page-title',
+				null,
+				array(
+					'kicker'      => _x( 'Taxonomy', 'kind of page, above its title', 'tainacan-interface' ),
+					'title'       => get_the_title(),
+					'description' => wp_strip_all_tags( (string) get_post_field( 'post_content', get_the_ID() ) ),
+				)
+			);
+			?>
 			<div class="form-inline mt-4 tainacan-collection-list--simple-search justify-content-between">
 					
 				<div class="dropdown dropdown-sorting">

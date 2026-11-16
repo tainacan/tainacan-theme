@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.3.0
+Stable tag: 4.4.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -36,6 +36,9 @@ Version 3 also fixed the security problems of 2.10.0 and ships the Roboto font i
 For more information about Tainacan and Tainacan Interface please go to http://tainacan.org
 
 == Upgrade Notice ==
+
+= 4.4.0 =
+A new title at the top of the blog, posts, pages, searches and archives, in three styles. A child theme that copied template-parts/loop.php or loop-singular.php keeps its own title.
 
 = 4.3.0 =
 The earlier look is gone, with the old Bootstrap rules and jQuery: every site uses the design of version 4. Review a child theme that relied on Bootstrap's scripts or on jQuery without declaring it.
@@ -129,6 +132,35 @@ Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
 facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 4.4.6 =
+* Links coloured by a component (a white label on a coloured button, for example) keep their colour: the link colour of the theme weighed more than a class.
+
+= 4.4.5 =
+* The grey line of version 2 on phones stays on the theme's menu bar only, at its source; the reset of 4.4.4 also removed lines that blocks, plugins and the block header set on purpose.
+* The list beside the filters on tablets no longer applies to horizontal filters; the room above the first row only when the cards react to the pointer; the room above the item navigation only where "Keep exploring" falls under the record.
+
+= 4.4.4 =
+* Phones: the name of the site in the banner no longer overlaps itself on two lines, and menus of blocks or plugins lose the grey line of version 2.
+
+= 4.4.3 =
+* Tablets: the search field stops at 240px, so the controls of the list stay on one line at 820px.
+* Item page: room between "Keep exploring" and the previous and next item on phones and tablets.
+
+= 4.4.2 =
+* Tablets: the search field of the lists grows to 320px. The search bar may shrink to the width of a phone.
+* The first row of a list keeps 6px above it for the pointer, without moving the list up.
+
+= 4.4.1 =
+* Tablets: the side filters get a readable width (228 to 280px) and the list takes the rest instead of falling below them; the search field of the lists is wider.
+* Phones: a select with a long option in the search bar no longer widens the page; the previous and next post links no longer pass the edge.
+* The pointer over a card or record of the first row no longer cuts its top border.
+
+= 4.4.0 =
+* The title at the top of the blog, posts, pages, searches, archives and taxonomy terms: a line above it says what the page is (the category of a post, the search, the archive), the title is large, and a capsule gives the count of posts or results, with the description of a category, tag or author.
+* Three styles in Appearance > Customize > Tainacan Interface > Posts and pages: large with a fine line, large and centered, compact. The count and description and the back button can be turned off.
+* The back button goes to the previous page of the site, or to the blog or the start page for a visitor who came from outside; it no longer uses a javascript: address.
+* A post without an author shows the date alone, without a hanging "by".
 
 = 4.3.0 =
 * One design: the classic look of versions 2 and 3 is gone, with its options (color scheme, link color, box opacity of the banner, height of the collection banner, columns of metadata, item thumbnail in the record), the old Bootstrap rules (bootstrap-legacy.css), the scripts that needed jQuery (js.js, tainacan-interface-truncate.js) and the color picker of the collection header (Spectrum).

@@ -9,25 +9,11 @@
  * Class that hooks in the tainacan plugin (if present) to add new options to Collections
  */
 class TainacanInterfaceCollectionSettings {
-	/**
-	 * Post meta key of the collection background color. The name is kept from the original theme.
-	 *
-	 * @var string
-	 */
-	public $tainacan_background_color = 'tainacan_theme_collection_background_color';
-
-	/**
-	 * Post meta key of the collection text color.
-	 *
-	 * @var string
-	 */
-	public $tainacan_text_color = 'tainacan_theme_collection_color';
-
-	/**
-	 * Post meta key of the metadata sections layout.
-	 *
-	 * @var string
-	 */
+			/**
+			 * Post meta key of the metadata sections layout.
+			 *
+			 * @var string
+			 */
 	public $tainacan_sections_layout = 'tainacan_interface_section_layout';
 
 	/**
@@ -156,19 +142,14 @@ class TainacanInterfaceCollectionSettings {
 		return array_merge(
 			is_array( $extra_meta ) ? $extra_meta : array(),
 			array(
-				$this->tainacan_background_color,
-				$this->tainacan_text_color,
 				$this->tainacan_sections_layout,
 			)
 		);
 	}
 
 	/**
-	 * Saves the collection options. The background is a hex color, the text
-	 * color is white or black and the layout one of four: anything else is
-	 * dropped. The original stored the values as sent, and they were printed
-	 * inside a style tag, so any collection editor could put CSS on the public
-	 * pages.
+	 * Saves the layout of the metadata sections, one of four: anything else is
+	 * dropped.
 	 *
 	 * @param \Tainacan\Entities\Collection $object Collection being saved.
 	 */
@@ -179,41 +160,11 @@ class TainacanInterfaceCollectionSettings {
 
 		$post = tainacan_get_api_postdata();
 
-		if ( isset( $post->{$this->tainacan_background_color} ) ) {
-			$color = sanitize_hex_color( (string) $post->{$this->tainacan_background_color} );
-			update_post_meta( $object->get_id(), $this->tainacan_background_color, $color ? $color : '' );
-		}
-		if ( isset( $post->{$this->tainacan_text_color} ) ) {
-			$text = in_array( $post->{$this->tainacan_text_color}, array( '#fff', '#000' ), true ) ? $post->{$this->tainacan_text_color} : '#fff';
-			update_post_meta( $object->get_id(), $this->tainacan_text_color, $text );
-		}
 		if ( isset( $post->{$this->tainacan_sections_layout} ) ) {
 			$layout = in_array( $post->{$this->tainacan_sections_layout}, array( 'default', 'tabs', 'collapses', 'accordion' ), true ) ? $post->{$this->tainacan_sections_layout} : 'default';
 			update_post_meta( $object->get_id(), $this->tainacan_sections_layout, $layout );
 		}
 	}
-}
-
-/**
- * CSS for a collection's banner colors, built only from validated colors
- * (values saved before the fix are checked again here).
- *
- * @param int    $collection_id  Collection ID.
- * @param string $text_selectors Selectors that take the text color.
- * @return string CSS, or '' when the collection has no background color.
- */
-function tainacan_interface_collection_colors_css( $collection_id, $text_selectors ) {
-	$background = sanitize_hex_color( (string) get_post_meta( $collection_id, 'tainacan_theme_collection_background_color', true ) );
-	if ( ! $background ) {
-		return '';
-	}
-
-	$text = get_post_meta( $collection_id, 'tainacan_theme_collection_color', true );
-	$text = in_array( $text, array( '#fff', '#000' ), true ) ? $text : '#fff';
-
-	return '.t-bg-collection { background-color: ' . $background . ' !important; } '
-		. $text_selectors . ' { color: ' . $text . ' !important; } '
-		. '.t-bg-collection a { color: ' . $text . ' !important; opacity: 1; }';
 }
 
 /**

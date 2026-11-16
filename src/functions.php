@@ -10,7 +10,7 @@
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '4.3.0';
+const TAINACAN_INTERFACE_VERSION = '4.4.6';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -437,6 +437,7 @@ require get_template_directory() . '/inc/request.php';
 require get_template_directory() . '/inc/context.php';
 require get_template_directory() . '/inc/share.php';
 require get_template_directory() . '/inc/social.php';
+require get_template_directory() . '/inc/page-title.php';
 require get_template_directory() . '/inc/settings.php';
 require get_template_directory() . '/inc/design.php';
 require get_template_directory() . '/inc/customizer-design.php';

@@ -570,6 +570,32 @@ body.tt2-skin.tt2-modern.tt2-card-accent-top .tainacan-list { border-top: 3px so
 body.tt2-skin.tt2-modern:is(.tt2-card-accent-top, .tt2-card-accent-none) :is(.tainacan-card, .tainacan-record, .tainacan-list) .metadata-title::before { display: none; }
 body.tt2-skin.tt2-modern.tt2-card-accent-none .tainacan-masonry-item .metadata-title { border-top: 0 !important; }
 
+/*
+ * Tablets. Tainacan gives the side filters 20% of the width with 32px inside on each side, and the list
+ * at most 80%: on a 820px tablet the filters had 90px for their text, and a panel with a margin pushed the
+ * list below it. The panel gets a readable width, the list takes the rest without wrapping, and the search
+ * field leaves its 136px.
+ */
+@media (min-width: 769px) {
+	body.tt2-modern #tainacan-items-page.is-filters-menu-open:not(.has-horizontal-filters) .items-list-area { flex: 1 1 0; min-width: 0; max-width: none; }
+}
+@media (min-width: 769px) and (max-width: 1279.98px) {
+	body.tt2-modern #filters-modal:not(.horizontal-filters) { flex: 0 0 clamp(228px, 30%, 280px); min-width: 0; max-width: clamp(228px, 30%, 280px); }
+	body.tt2-modern #filters-modal:not(.horizontal-filters) .modal-content { padding-inline: 0 14px !important; }
+	/* The bar is a flex row in Tainacan 1.4 (a grid with container queries in later versions, which then rule). */
+	body.tt2-modern .search-control .search-control-item--search { flex: 1 1 200px; max-width: 240px; }
+	body.tt2-modern .search-control .search-control-item--search .search-area { flex: 1 1 auto; min-width: 160px !important; max-width: none !important; }
+}
+/*
+ * The search bar does not shrink below its content (min-width: auto): a select with a long option, such as
+ * a plugin's search scope, widened the page on a phone. The bar and its parts may now be as narrow as the screen.
+ */
+body.tt2-modern .search-control { min-width: 0; }
+body.tt2-modern .search-control > .search-control-item { min-width: 0; max-width: 100%; }
+body.tt2-modern .search-control select { min-width: 0; max-width: 100%; }
+
+/* The list area of Tainacan hides what passes its edges: room above the first row, so the lift and the ring of the pointer are not cut. */
+body.tt2-skin.tt2-modern:is(.tt2-card-hover-lift, .tt2-card-hover-ring) .items-list-area .table-container { padding-top: 6px; }
 body.tt2-skin.tt2-modern.tt2-card-hover-lift :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item) { transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
 body.tt2-skin.tt2-modern.tt2-card-hover-lift :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item):hover { transform: translateY(-2px); }
 body.tt2-skin.tt2-modern.tt2-card-hover-ring :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item):hover { box-shadow: 0 0 0 2px var(--tt2-accent) !important; }
@@ -660,6 +686,9 @@ body.tt2-modern .tt2-item-head__actions .tt2-share__links { left: 0; transform: 
 body.tt2-modern .tt2-crumbs ~ main.max-large.mt-5 { margin-top: 0 !important; }
 body.tt2-modern main.max-large > .row { margin-inline: 0; }
 body.tt2-modern main.max-large > .row > .col { padding-inline: 0; }
+/* Rows inside that column (previous and next post, comments) would pass the edges by their negative margins. */
+body.tt2-modern main.max-large > .row > .col > .row,
+body.tt2-modern main.max-large > .row > .col > .tainacan-single-post > .row { margin-inline: 0; }
 
 body.tt2-modern:not(.tt2-label-document) #single-item-document-label,
 body.tt2-modern:not(.tt2-label-attachments) #single-item-attachments-label { display: none; }
@@ -681,6 +710,8 @@ body.tt2-modern .single-item-collection--attachments { margin-top: 14px; }
 }
 
 body.tt2-modern .tt2-item-body { margin-top: calc(26px * var(--tt2-space)); }
+/* Below 960px "Keep exploring" falls under the record, right above the previous and next item. */
+@media (max-width: 959.98px) { body.tt2-modern .tt2-item-body { margin-bottom: calc(32px * var(--tt2-space)); } }
 body.tt2-modern .tt2-item-body--alone { display: block; }
 
 /* The record. */
@@ -790,7 +821,7 @@ body.tt2-modern .page-header.header-filter:not(.page-header--image-full) {
 body.tt2-modern .page-header.header-filter:not(.page-header--image-full)::before { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--tt2-brand) 82%, transparent); }
 body.tt2-modern .ph-title-description { position: relative; max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(12px, 3vw, var(--tt2-edge)) !important; }
 body.tt2-modern .ph-title-description .title-header { padding: 0; background: none; box-shadow: none; }
-body.tt2-modern .ph-title-description .title-header h1 { color: var(--tt2-on-brand) !important; font-size: calc(clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; letter-spacing: var(--tt2-heading-spacing); }
+body.tt2-modern .ph-title-description .title-header h1 { color: var(--tt2-on-brand) !important; font-size: calc(clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; letter-spacing: var(--tt2-heading-spacing); line-height: 1.15 !important; text-wrap: balance; }
 
 /* A post fixed at the top of the blog. */
 body.tt2-modern .blog-post.sticky { border-inline-start: 4px solid var(--tt2-accent); padding-inline-start: 12px; }
@@ -830,6 +861,50 @@ body.tt2-modern.tt2-hero-align-center .ph-title-description { text-align: center
 body.tt2-modern.tt2-hero-plain .page-header.header-filter:not(.page-header--image-full) { background-image: none !important; background-color: var(--tt2-surface); box-shadow: inset 0 -1px 0 var(--tt2-line); }
 body.tt2-modern.tt2-hero-plain .page-header.header-filter:not(.page-header--image-full)::before { display: none; }
 body.tt2-modern.tt2-hero-plain .ph-title-description .title-header h1 { color: var(--tt2-ink) !important; }
+
+/* The title of the page: a line saying what the page is, the title, the count. */
+body.tt2-modern .tt2-page-head { margin: 0 0 calc(28px * var(--tt2-space)); }
+/* Posts and pages start closer to the banner than the lists, whose main area has its own margin. */
+body.tt2-modern:is(.single, .page) .tt2-page-head { padding-top: calc(28px * var(--tt2-space)); }
+body.tt2-modern .tt2-page-head .tainacan-title-page { position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin: 0; padding: 0 0 calc(22px * var(--tt2-space)); border: 0; border-bottom: 1px solid var(--tt2-line); }
+body.tt2-modern .tt2-page-head .tainacan-title-page::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 56px; height: 3px; border-radius: 3px; background: var(--tt2-accent); transform-origin: 0 50%; }
+body.tt2-modern .tt2-page-head__text { flex: 1 1 30ch; min-width: 0; }
+body.tt2-modern .tt2-page-head__kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; color: var(--tt2-accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; line-height: 1.3; text-transform: uppercase; }
+body.tt2-modern .tt2-page-head__kicker::before { content: ""; flex: none; width: 20px; height: 2px; border-radius: 2px; background: currentColor; }
+body.tt2-modern .tt2-page-head__kicker a { color: inherit !important; text-decoration: none; }
+body.tt2-modern .tt2-page-head__kicker a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+body.tt2-modern .tt2-page-head .title-page h1 { min-width: 0; max-width: 28em; margin: 0; padding: 0; overflow: visible; color: var(--tt2-ink) !important; font-size: calc(clamp(1.75rem, 1.15rem + 1.9vw, 2.75rem) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; line-height: 1.12; letter-spacing: var(--tt2-heading-spacing); text-wrap: balance; }
+body.tt2-modern .tt2-page-head__description { max-width: 65ch; margin: 14px 0 0; color: var(--tt2-muted); font-size: 1.0625em; line-height: 1.6; }
+body.tt2-modern .tt2-page-head__meta { display: inline-flex; margin: 14px 0 0; padding: 3px 12px; border-radius: 999px; background: var(--tt2-soft); color: var(--tt2-accent); font-size: 0.8125rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+body.tt2-modern .tt2-page-head__back { display: inline-flex; flex: none; align-items: center; gap: 6px; margin: 0; padding: 7px 15px 7px 11px; border: 1px solid var(--tt2-line); border-radius: 999px; background: var(--tt2-surface); color: var(--tt2-ink) !important; font-size: 0.8125rem; font-weight: 500; line-height: 1.2; text-decoration: none !important; transition: border-color 0.2s, background-color 0.2s, color 0.2s; }
+body.tt2-modern .tt2-page-head__back svg { transition: transform 0.2s; }
+body.tt2-modern .tt2-page-head__back:hover { border-color: var(--tt2-accent); background: var(--tt2-soft); color: var(--tt2-accent) !important; }
+body.tt2-modern .tt2-page-head__back:hover svg { transform: translateX(-3px); }
+body.tt2-modern .tt2-page-head__back:focus-visible { outline: 2px solid var(--tt2-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+	body.tt2-modern .tt2-page-head .tainacan-title-page::after { animation: tt2-rule-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+	body.tt2-modern .tt2-page-head__text { animation: tt2-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+	@keyframes tt2-rule-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+	@keyframes tt2-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+/* Centered: the line of the kind on both sides, the back button above. */
+body.tt2-modern.tt2-title-centered .tt2-page-head .tainacan-title-page { flex-direction: column; align-items: center; text-align: center; }
+body.tt2-modern.tt2-title-centered .tt2-page-head .tainacan-title-page::after { right: 0; margin-inline: auto; transform-origin: 50% 50%; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__text { flex: none; width: 100%; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__kicker { justify-content: center; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__kicker::after { content: ""; flex: none; width: 20px; height: 2px; border-radius: 2px; background: currentColor; }
+body.tt2-modern.tt2-title-centered .tt2-page-head .title-page h1,
+body.tt2-modern.tt2-title-centered .tt2-page-head__description { margin-inline: auto; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__back { order: -1; align-self: center; }
+/* Compact: the size of a section title, the count beside it. */
+body.tt2-modern.tt2-title-compact .tt2-page-head .tainacan-title-page { align-items: center; padding-bottom: calc(14px * var(--tt2-space)); }
+body.tt2-modern.tt2-title-compact .tt2-page-head__kicker { margin-bottom: 6px; }
+body.tt2-modern.tt2-title-compact .tt2-page-head .title-page h1 { font-size: calc(clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem) * var(--tt2-heading-scale)) !important; line-height: 1.25; }
+body.tt2-modern.tt2-title-compact :is(.tt2-page-head__description, .tt2-page-head__meta) { margin-top: 8px; }
+@media (max-width: 575.98px) {
+	body.tt2-modern .tt2-page-head .tainacan-title-page { gap: 14px; }
+	body.tt2-modern:not(.tt2-title-centered) .tt2-page-head__back { order: -1; }
+}
 
 /* Images of the list, in the chosen proportion. */
 body.tt2-modern .tainacan-list-post .blog-thumbnail img { width: 100%; aspect-ratio: var(--tt2-blog-ratio); object-fit: cover; border-radius: calc(var(--tt2-radius) * 0.6); }

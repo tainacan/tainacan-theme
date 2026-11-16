@@ -128,6 +128,7 @@ function tainacan_interface_live_options() {
 		'link_style'         => array( 'prefix' => 'tt2-links-' ),
 		'selection'          => array( 'prefix' => 'tt2-selection-' ),
 		'hero_align'         => array( 'prefix' => 'tt2-hero-align-' ),
+		'page_title_style'   => array( 'prefix' => 'tt2-title-' ),
 		'blog_layout'        => array( 'prefix' => 'tt2-blog-' ),
 		'post_width'         => array( 'prefix' => 'tt2-post-' ),
 		'back_top_shape'     => array( 'prefix' => 'tt2-back-top-' ),
@@ -273,10 +274,6 @@ function tainacan_interface_collection_pins() {
 	foreach ( $collections as $collection ) {
 		foreach ( array_keys( tainacan_interface_collection_options() ) as $key ) {
 			$own = get_post_meta( $collection->ID, 'tainacan_interface_opt_' . $key, true );
-			if ( '' === $own && 'brand_color' === $key ) {
-				$legacy = sanitize_hex_color( (string) get_post_meta( $collection->ID, 'tainacan_theme_collection_background_color', true ) );
-				$own    = $legacy && tainacan_interface_is_dark_color( $legacy ) ? $legacy : '';
-			}
 			if ( '' !== $own ) {
 				$pins[ $key ][] = array(
 					'n' => tainacan_interface_plain( $collection->post_title ),
@@ -435,11 +432,6 @@ function tainacan_interface_customizer_preview_script() {
 			if ( '' !== get_post_meta( $collection_id, 'tainacan_interface_opt_' . $key, true ) ) {
 				$pinned[] = $key;
 			}
-		}
-		// The header color of the classic design, which carries the main color when dark.
-		$legacy = sanitize_hex_color( (string) get_post_meta( $collection_id, 'tainacan_theme_collection_background_color', true ) );
-		if ( $legacy && tainacan_interface_is_dark_color( $legacy ) ) {
-			$pinned[] = 'brand_color';
 		}
 	}
 

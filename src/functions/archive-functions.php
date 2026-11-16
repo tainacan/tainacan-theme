@@ -120,12 +120,15 @@ add_filter( 'get_the_archive_title', 'tainacan_theme_taxonomy_title' );
  */
 function tainacan_theme_collection_query( $query ) {
 	if ( $query->is_main_query() && $query->is_post_type_archive( 'tainacan-collection' ) ) {
-		$query->set( 'posts_per_page', 12 );
-
-		// The design of version 4 lists every collection, in the chosen order.
-		$query->set( 'posts_per_page', -1 );
-		$query->set( 'no_found_rows', true );
-		$query->set( 'update_post_term_cache', false );
+		// The theme's page lists every collection at once; a child theme with its own
+		// archive-tainacan-collection.php from 2.x pages them twelve at a time.
+		if ( tainacan_interface_child_has_collections_page() ) {
+			$query->set( 'posts_per_page', 12 );
+		} else {
+			$query->set( 'posts_per_page', -1 );
+			$query->set( 'no_found_rows', true );
+			$query->set( 'update_post_term_cache', false );
+		}
 		switch ( tainacan_interface_opt( 'list_order' ) ) {
 			case 'title':
 				$query->set( 'orderby', 'title' );
@@ -257,3 +260,12 @@ if ( ! function_exists( 'tainacan_pagination_terms' ) ) :
 		<?php
 	}
 endif;
+
+/**
+ * Whether a child theme brings its own page for the list of collections.
+ *
+ * @return bool
+ */
+function tainacan_interface_child_has_collections_page() {
+	return is_child_theme() && is_readable( get_stylesheet_directory() . '/archive-tainacan-collection.php' );
+}

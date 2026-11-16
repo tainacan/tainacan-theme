@@ -240,6 +240,7 @@ function tainacan_interface_design_body_class( $box_classes ) {
 	$box_classes[] = 'tt2-selection-' . tainacan_interface_opt( 'selection' );
 	$box_classes[] = 'tt2-hero-' . tainacan_interface_opt( 'hero_style' );
 	$box_classes[] = 'tt2-hero-align-' . tainacan_interface_opt( 'hero_align' );
+	$box_classes[] = 'tt2-title-' . tainacan_interface_opt( 'page_title_style' );
 	$box_classes[] = 'tt2-blog-' . tainacan_interface_opt( 'blog_layout' );
 	$box_classes[] = 'tt2-post-' . tainacan_interface_opt( 'post_width' );
 	$box_classes[] = 'tt2-back-top-' . tainacan_interface_opt( 'back_top_shape' );

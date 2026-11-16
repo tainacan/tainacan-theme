@@ -16,7 +16,10 @@ Text Domain: tainacan-interface
 
 @import '_variables';
 
-:where(:not(.has-link-color)) a:not(.has-link-color):not(.wp-block-button__link) {
+// The colour of links weighs as one element (0,0,1): a component that colours its own link with a class,
+// such as a white label on a coloured button, wins. With the :not() outside :where() it weighed (0,2,1)
+// and painted those labels in the link colour (blue on blue in the preview drawer of TainacanBiblio).
+:where(:not(.has-link-color)) a:where(:not(.has-link-color):not(.wp-block-button__link)) {
     color: var(--tainacan-interface--link-color, #187181);
     &:hover{
         color: var(--tainacan-interface--link-color, #187181);
@@ -816,8 +819,11 @@ nav {
             }
         }
     }
+    // Only the theme's menu bar: a navigation block or a plugin menu keeps its own look on phones.
     @media only screen and (max-width: 768px) {
-        border-bottom: 1px solid #a5a5a5;
+        &.navbar {
+            border-bottom: 1px solid #a5a5a5;
+        }
     }
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #a5a5a5;
