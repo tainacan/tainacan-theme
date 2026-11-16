@@ -1,73 +1,85 @@
 <?php
 /**
- * Enqueues Theme
+ * Front-end scripts and styles of the theme.
+ *
+ * No file comes from another server: the Roboto of the original theme came
+ * from Google Fonts, which sends every visitor's IP address to Google. The
+ * theme ships Roboto (latin subset, Apache 2.0) in assets/fonts/roboto, declared
+ * as fontFace in theme.json.
+ *
+ * @package tainacan-interface
  */
 
 if ( ! function_exists( 'tainacan_enqueues' ) ) {
 	/**
-	 * Inclui os scripts javascript e os styles necessários ao front-end do tema
+	 * Includes the scripts and styles needed by the theme front end.
 	 */
 	function tainacan_enqueues() {
-		/**
-		 * Bootstrap 4.1.3
-		 */
-			//Style
-			wp_register_style( 'bootstrap4CSS', get_template_directory_uri() . '/assets/vendor/bootstrap/scss/bootstrap.min.css', [], TAINACAN_INTERFACE_VERSION );
-			wp_enqueue_style( 'bootstrap4CSS' );
-			//Javascript
-			wp_register_script( 'bootstrap4JS', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
-			wp_enqueue_script( 'bootstrap4JS' );
+		$uri = get_template_directory_uri();
 
 		/**
-		 * Google
+		 * Bootstrap 4
 		 */
-			// Google fonts Roboto
-			wp_enqueue_style( 'RobotoFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i' );
+		wp_register_style( 'bootstrap4CSS', $uri . '/assets/vendor/bootstrap/scss/bootstrap.min.css', array(), TAINACAN_INTERFACE_VERSION );
+		wp_enqueue_style( 'bootstrap4CSS' );
+		wp_register_script( 'bootstrap4JS', $uri . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
+		wp_enqueue_script( 'bootstrap4JS' );
 
 		/**
 		 * Tainacan Interface theme
 		 */
-		wp_enqueue_script( 'tainacan_tainacanTruncate', get_template_directory_uri() . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, false );
-		wp_localize_script( 'tainacan_tainacanTruncate', 'tainacan_trucanteVars', array(
-			'moreText' => __( 'Show more', 'tainacan-interface' ),
-			'lessText' => __( 'Show less', 'tainacan-interface' ),
-		));
+		wp_enqueue_script( 'tainacan_tainacanTruncate', $uri . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, false );
+		wp_localize_script(
+			'tainacan_tainacanTruncate',
+			'tainacan_trucanteVars',
+			array(
+				'moreText' => __( 'Show more', 'tainacan-interface' ),
+				'lessText' => __( 'Show less', 'tainacan-interface' ),
+			)
+		);
 
-		// Use minified version if available and not in debug mode
-		// For child themes, we still use the parent theme's minified CSS
-		$style_uri = get_stylesheet_uri();
-		$minified_uri = get_template_directory_uri() . '/style.min.css';
+		// The parent's stylesheet, minified unless debugging. A child theme's own
+		// style.css comes after it, in inc/child-theme.php.
+		$style_uri     = $uri . '/style.css';
 		$minified_path = get_template_directory() . '/style.min.css';
-		
-		// Use minified version if it exists and we're not in debug mode
+
 		if ( ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) && file_exists( $minified_path ) ) {
-			$style_uri = $minified_uri;
+			$style_uri = $uri . '/style.min.css';
 		}
 
 		wp_register_style( 'tainacan_tainacanStyle', $style_uri, array( 'bootstrap4CSS' ), TAINACAN_INTERFACE_VERSION );
 		wp_enqueue_style( 'tainacan_tainacanStyle' );
-			wp_register_script( 'tainacan_tainacanJS', get_template_directory_uri() . '/assets/js/js.js', '', TAINACAN_INTERFACE_VERSION, true );
-			wp_enqueue_script( 'tainacan_tainacanJS' );
+		wp_register_script( 'tainacan_tainacanJS', $uri . '/assets/js/js.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
+		wp_enqueue_script( 'tainacan_tainacanJS' );
 
-			if ( defined ('TAINACAN_VERSION' ) ) {
-				$settings = array(
-					'theme_items_list_url' 		=> esc_url_raw( home_url( \Tainacan\Theme_Helper::get_instance()->get_items_list_slug() ) ),
-					'theme_collection_list_url' => get_post_type_archive_link( 'tainacan-collection' ),
-					'theme_taxonomy_list_url' => get_post_type_archive_link( 'tainacan-taxonomy' ),
-					'site_url' => home_url( '/' )
-				);
-				wp_register_script( 'tainacan_searchBarRedirect', get_template_directory_uri() . '/assets/js/search-bar-redirect.js', '', TAINACAN_INTERFACE_VERSION, false );
-				wp_enqueue_script( 'tainacan_searchBarRedirect' );
-				wp_localize_script( 'tainacan_searchBarRedirect', 'tainacan_search_info', $settings );
-			}
+		// Item page: the header borders change (was a script printed after </html>).
+		if ( tainacan_interface_is_item_page() ) {
+			wp_add_inline_script( 'tainacan_tainacanJS', 'jQuery(function(){jQuery("#topNavbar").addClass("b-bottom-top");jQuery("nav.menu-belowheader").removeClass("border-bottom");jQuery("nav.menu-belowheader .max-large").addClass("b-bottom-bellow");});' );
+		}
 
-			wp_enqueue_script( 'tainacan_copyLink', get_template_directory_uri() . '/assets/js/copy-link.js', [] , TAINACAN_INTERFACE_VERSION, false );
-			wp_localize_script( 'tainacan_copyLink', 'tainacan_copyLinkVars', array(
-				'linkCopied' => __( 'Copied! Link copied to clipboard.', 'tainacan-interface' )
-			));
+		if ( defined( 'TAINACAN_VERSION' ) && class_exists( '\Tainacan\Theme_Helper' ) ) {
+			$settings = array(
+				'theme_items_list_url'      => esc_url_raw( home_url( \Tainacan\Theme_Helper::get_instance()->get_items_list_slug() ) ),
+				'theme_collection_list_url' => get_post_type_archive_link( 'tainacan-collection' ),
+				'theme_taxonomy_list_url'   => get_post_type_archive_link( 'tainacan-taxonomy' ),
+				'site_url'                  => home_url( '/' ),
+			);
+			wp_register_script( 'tainacan_searchBarRedirect', $uri . '/assets/js/search-bar-redirect.js', array(), TAINACAN_INTERFACE_VERSION, false );
+			wp_enqueue_script( 'tainacan_searchBarRedirect' );
+			wp_localize_script( 'tainacan_searchBarRedirect', 'tainacan_search_info', $settings );
+		}
 
-			// Tainacan Icons
-			wp_enqueue_style( 'TainacanIconsFont', get_template_directory_uri() . '/assets/fonts/tainacan-icons-font/css/tainacanicons.min.css', [], TAINACAN_INTERFACE_VERSION );
+		wp_enqueue_script( 'tainacan_copyLink', $uri . '/assets/js/copy-link.js', array(), TAINACAN_INTERFACE_VERSION, false );
+		wp_localize_script(
+			'tainacan_copyLink',
+			'tainacan_copyLinkVars',
+			array(
+				'linkCopied' => __( 'Copied! Link copied to clipboard.', 'tainacan-interface' ),
+			)
+		);
+
+		// Tainacan Icons.
+		wp_enqueue_style( 'TainacanIconsFont', $uri . '/assets/fonts/tainacan-icons-font/css/tainacanicons.min.css', array(), TAINACAN_INTERFACE_VERSION );
 
 		/**
 		 * Comments
@@ -75,7 +87,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
-
-	} // tainacan_enqueues
+	}
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_enqueues' );

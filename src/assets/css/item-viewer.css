@@ -1,0 +1,272 @@
+/* Item file viewer. A native <dialog> in the top layer: above the Tainacan lightbox without any z-index. */
+html.tt2-viewer-open { overflow: hidden; }
+
+.tt2-viewer-target { cursor: zoom-in; }
+
+/* "Open in the viewer" under a PDF or a player embedded by Tainacan. */
+.tt2-viewer-open {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin: 10px auto 0;
+	padding: 8px 14px;
+	border: 0;
+	border-radius: 8px;
+	background: var(--tainacan-interface--link-color, #187181);
+	color: #fff;
+	font: inherit;
+	font-size: 0.9rem;
+	font-weight: 600;
+	cursor: pointer;
+}
+.tainacan-media-item-content > .tt2-viewer-open,
+.swiper-slide-content > .tt2-viewer-open { display: flex; width: max-content; }
+.tt2-viewer-open:hover { background: color-mix(in srgb, var(--tainacan-interface--link-color, #187181) 82%, #000); }
+.tt2-viewer-open:focus-visible { outline: 3px solid var(--tainacan-interface--link-color, #187181); outline-offset: 2px; }
+.tt2-viewer-target:focus-visible { outline: 3px solid var(--tainacan-interface--link-color, #187181); outline-offset: -3px; }
+
+.tt2-viewer {
+	--tt2-v-accent: var(--tainacan-interface--link-color, #187181);
+	width: 100vw;
+	max-width: 100vw;
+	height: 100dvh;
+	max-height: 100dvh;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #121516;
+	color: #f1f3f4;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+.tt2-viewer:not([open]) { display: none; }
+.tt2-viewer::backdrop { background: rgba(10, 12, 13, 0.92); }
+.tt2-viewer *, .tt2-viewer *::before, .tt2-viewer *::after { box-sizing: border-box; }
+
+.tt2-viewer__bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 16px;
+	padding: 10px 14px;
+	background: rgba(0, 0, 0, 0.35);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tt2-viewer__meta { flex: 1 1 240px; min-width: 0; display: flex; align-items: baseline; gap: 12px; }
+.tt2-viewer__title { margin: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tt2-viewer__count { flex-shrink: 0; font-size: 0.85rem; color: #b9c1c4; font-variant-numeric: tabular-nums; }
+.tt2-viewer__zoom, .tt2-viewer__actions { display: flex; align-items: center; gap: 6px; }
+.tt2-viewer__zoom[hidden], .tt2-viewer__link[hidden], .tt2-viewer__btn[hidden], .tt2-viewer__caption[hidden] { display: none; }
+
+.tt2-viewer .tt2-viewer__btn {
+	all: unset;
+	box-sizing: border-box;
+	cursor: pointer;
+	min-width: 40px;
+	height: 40px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.08);
+	font-size: 1.35rem;
+	line-height: 1;
+}
+.tt2-viewer .tt2-viewer__btn:hover { background: rgba(255, 255, 255, 0.18); }
+.tt2-viewer .tt2-viewer__btn[aria-disabled="true"] { opacity: 0.3; cursor: default; background: rgba(255, 255, 255, 0.08); }
+.tt2-viewer .tt2-viewer__btn:focus-visible,
+.tt2-viewer a:focus-visible,
+.tt2-viewer [tabindex="0"]:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.tt2-viewer .tt2-viewer__link {
+	/* The theme paints every body link with the link color, !important (colors.php). */
+	color: #fff !important;
+	display: inline-flex;
+	align-items: center;
+	height: 40px;
+	padding: 0 12px;
+	border-radius: 8px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 0.9rem;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.tt2-viewer .tt2-viewer__link:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.tt2-viewer .tt2-viewer__link--solid { background: var(--tt2-v-accent); border-color: transparent; }
+
+.tt2-viewer__main {
+	position: relative;
+	min-height: 0;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+}
+.tt2-viewer__prev, .tt2-viewer__next { z-index: 1; }
+/* Fixed columns: with one file the arrows are hidden and the stage must not fall into the first track. */
+.tt2-viewer__prev { grid-column: 1; grid-row: 1; }
+.tt2-viewer__stage { grid-column: 2; grid-row: 1; }
+.tt2-viewer__next { grid-column: 3; grid-row: 1; }
+.tt2-viewer .tt2-viewer__prev, .tt2-viewer .tt2-viewer__next { height: 64px; font-size: 2rem; }
+.tt2-viewer__stage { position: relative; height: 100%; min-width: 0; min-height: 0; display: flex; align-items: center; justify-content: center; }
+
+.tt2-viewer__image {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	touch-action: none;
+	cursor: zoom-in;
+	user-select: none;
+}
+.tt2-viewer__image.is-zoomed { cursor: grab; }
+.tt2-viewer__image.is-zoomed:active { cursor: grabbing; }
+.tt2-viewer__img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+	transform-origin: center center;
+	transition: transform 0.12s ease-out;
+	-webkit-user-drag: none;
+}
+.tt2-viewer__image.is-zoomed .tt2-viewer__img { transition: none; }
+
+.tt2-viewer__player { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+.tt2-viewer__player--video .tt2-viewer__media { max-width: 100%; max-height: 100%; background: #000; }
+.tt2-viewer__player--audio .tt2-viewer__media { width: min(640px, 100%); }
+
+/* PDF reader, shared by the dialog and the page. Positioned: page offsets are measured from it. */
+.tt2-pdf {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overscroll-behavior: contain;
+	/* The fit width does not change when the pages make the box scroll. */
+	scrollbar-gutter: stable;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+}
+.tt2-pdf:focus-visible { outline: 2px solid var(--tainacan-interface--link-color, #187181); outline-offset: -2px; }
+/* Auto margins center a page narrower than the box; a zoomed page overflows to the right only, so all of it scrolls into view. */
+.tt2-viewer__pdf-page { flex-shrink: 0; max-width: none; margin-inline: auto; background: #fff; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); }
+.tt2-viewer__canvas { display: block; width: 100%; height: 100%; }
+.tt2-viewer__pdf-wrap { position: relative; width: 100%; height: 100%; }
+.tt2-viewer__page {
+	position: absolute;
+	bottom: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #fff;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: rgba(0, 0, 0, 0.7);
+	font-size: 0.8rem;
+	font-variant-numeric: tabular-nums;
+}
+.tt2-viewer__page:empty { display: none; }
+
+/* PDF reader in the page, where Tainacan would print the browser's viewer. */
+.tt2-reader {
+	--tt2-r-accent: var(--tainacan-interface--link-color, #187181);
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: min(80vh, 900px);
+	border: 1px solid #d5dadc;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #e9ecee;
+	text-align: left;
+}
+.tt2-reader:not(.is-mounted) { height: auto; padding: 16px; background: #f6f7f8; }
+.tt2-reader *, .tt2-reader *::before, .tt2-reader *::after { box-sizing: border-box; }
+.tt2-reader__fallback { margin: 0; }
+.tt2-reader__bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px 12px;
+	padding: 6px 8px;
+	background: #fff;
+	border-bottom: 1px solid #d5dadc;
+}
+.tt2-reader__group { display: flex; align-items: center; gap: 4px; }
+.tt2-reader .tt2-reader__btn {
+	all: unset;
+	box-sizing: border-box;
+	cursor: pointer;
+	min-width: 36px;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	color: #2b3134 !important;
+	font-size: 1.2rem;
+	line-height: 1;
+}
+.tt2-reader .tt2-reader__btn:hover { background: #eef1f2; }
+.tt2-reader .tt2-reader__btn[aria-disabled="true"] { opacity: 0.35; cursor: default; background: none; }
+.tt2-reader .tt2-reader__btn:focus-visible { outline: 2px solid var(--tt2-r-accent); outline-offset: 1px; }
+.tt2-reader__page {
+	width: 3.6em;
+	height: 32px;
+	padding: 0 4px;
+	border: 1px solid #c3cacd;
+	border-radius: 6px;
+	font: inherit;
+	font-size: 0.9rem;
+	text-align: center;
+	-moz-appearance: textfield;
+}
+.tt2-reader__page::-webkit-inner-spin-button, .tt2-reader__page::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.tt2-reader__total { font-size: 0.9rem; color: #555e62; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tt2-reader__body { flex: 1 1 auto; min-height: 0; }
+.tt2-reader .tt2-pdf { padding: 8px; gap: 8px; }
+.tt2-reader .tt2-viewer__notice { color: #444c50; margin: auto; }
+.tt2-reader .tt2-viewer__pdf-page { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); }
+/* Tainacan's download link under the document repeats the reader's own. */
+.tainacan-media-item-content:has(.tt2-reader) > .tainacan-media-item-actions { display: none; }
+
+@media (max-width: 640px) {
+	.tt2-reader { height: min(72vh, 640px); border-radius: 0; border-left: 0; border-right: 0; }
+	/* One row on a phone: tighter buttons and spacing. */
+	.tt2-reader__bar { flex-wrap: nowrap; gap: 4px; padding: 4px; }
+	.tt2-reader__group { gap: 0; }
+	.tt2-reader .tt2-reader__btn { min-width: 30px; height: 34px; font-size: 1.1rem; }
+	.tt2-reader__page { width: 2.8em; }
+	.tt2-reader .tt2-pdf { padding: 4px; gap: 4px; }
+}
+
+.tt2-viewer__notice { margin: 0; max-width: 32em; text-align: center; color: #d9dee0; }
+.tt2-viewer__caption { margin: 0; padding: 8px 16px 12px; text-align: center; color: #c9d0d3; font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+	.tt2-viewer__main { grid-template-columns: 1fr; padding: 0; }
+	.tt2-viewer__stage { grid-column: 1; }
+	.tt2-viewer .tt2-viewer__prev, .tt2-viewer .tt2-viewer__next {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 48px;
+		background: rgba(0, 0, 0, 0.45);
+	}
+	.tt2-viewer .tt2-viewer__prev { left: 6px; }
+	.tt2-viewer .tt2-viewer__next { right: 6px; }
+	.tt2-viewer__meta { flex-basis: 100%; }
+	.tt2-viewer__actions { margin-left: auto; }
+	.tt2-viewer__pdf { padding: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tt2-viewer__img { transition: none; }
+}

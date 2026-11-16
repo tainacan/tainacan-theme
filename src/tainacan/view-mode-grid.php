@@ -1,75 +1,78 @@
 <?php
-	$is_slideshow_available = false;
-	if (function_exists('tainacan_is_view_mode_enabled'))
-		$is_slideshow_available = tainacan_is_view_mode_enabled('slideshow');
+/**
+ * "Thumbnail" view mode of the Tainacan lists, registered by the theme.
+ *
+ * Rendered inside the Tainacan REST request that fetches the list, so the
+ * query string is the list's own (filters, search, page). The links carry the
+ * list position for the item page's previous/next, built with add_query_arg()
+ * from the sanitized arguments; the original glued $_SERVER['QUERY_STRING']
+ * into the href as it came.
+ *
+ * @package tainacan-interface
+ */
 
-	function get_item_link_for_navigation($item_url, $index) {
-		// Check if query parameters should be included based on the setting
-		$enable_query_params = true; // Default to true to maintain current behavior
-		if (class_exists('\Tainacan\Theme_Helper')) {
-			$theme_helper = \Tainacan\Theme_Helper::get_instance();
-			if (method_exists($theme_helper, 'get_enable_item_link_query_params')) {
-				$enable_query_params = $theme_helper->get_enable_item_link_query_params();
-			}
-		}
-		
-		// Early return if query params are disabled
-		if (!$enable_query_params) {
-			return $item_url;
-		}
-		
-		// Early return if we don't have the necessary pagination parameters
-		if (!$_GET || !isset($_GET['paged']) || !isset($_GET['perpage'])) {
-			return $item_url;
-		}
-		
-		// Build query parameters for navigation
-		$perpage = (int)$_GET['perpage'];
-		$paged = (int)$_GET['paged'];
-		$index = (int)$index;
-		
-		$query = '&pos=' . ( ($paged - 1) * $perpage + $index );
-		$query .= '&source_list=' . (is_tax() ? 'term' : ((!isset($collection_id) || empty($collection_id)) ? 'repository': 'collection') );
-		
-		return $item_url . '?' . $_SERVER['QUERY_STRING'] . $query;
-	}
-?> 
+$tainacan_interface_slideshow = function_exists( 'tainacan_is_view_mode_enabled' ) && tainacan_is_view_mode_enabled( 'slideshow' );
+$tainacan_interface_list_args = tainacan_interface_list_query_args();
+$tainacan_interface_paged     = max( 1, absint( tainacan_interface_query_arg( 'paged', '1' ) ) );
+$tainacan_interface_perpage   = absint( tainacan_interface_query_arg( 'perpage', '0' ) );
+$tainacan_interface_with_pos  = $tainacan_interface_perpage > 0 && '' !== tainacan_interface_query_arg( 'paged' );
+$tainacan_interface_source    = is_tax() ? 'term' : 'repository';
 
-<?php if ( have_posts() ) : ?>
+if ( class_exists( '\Tainacan\Theme_Helper' ) && method_exists( '\Tainacan\Theme_Helper', 'get_enable_item_link_query_params' ) ) {
+	$tainacan_interface_with_pos = $tainacan_interface_with_pos && \Tainacan\Theme_Helper::get_instance()->get_enable_item_link_query_params();
+}
+
+if ( have_posts() ) :
+	?>
 	<div class="tainacan-grid-container">
 
-		<?php $item_index = 0; while ( have_posts() ) : the_post(); ?>
-			<div class="tainacan-grid-item">
+		<?php
+		$tainacan_interface_index = 0;
+		while ( have_posts() ) :
+			the_post();
+			$tainacan_interface_link = get_permalink();
+			if ( $tainacan_interface_with_pos ) {
+				$tainacan_interface_link = add_query_arg(
+					urlencode_deep(
+						array_merge(
+							$tainacan_interface_list_args,
+							array(
+								'pos'         => ( $tainacan_interface_paged - 1 ) * $tainacan_interface_perpage + $tainacan_interface_index,
+								'source_list' => $tainacan_interface_source,
+							)
+						)
+					),
+					$tainacan_interface_link
+				);
+			}
+			?>
+			<div class="tainacan-grid-item" data-tainacan-item-id="<?php the_ID(); ?>">
 
-				<div class="metadata-title">     
-					<p><a href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"><?php the_title(); ?></a></p>
-					<?php if ( $is_slideshow_available ) : ?>
-						<a href="<?php echo esc_url('?' . $_SERVER['QUERY_STRING'] . '&slideshow-from=' . $item_index ); ?>" class="icon slideshow-icon">
+				<div class="metadata-title">
+					<p><a href="<?php echo esc_url( $tainacan_interface_link ); ?>"><?php the_title(); ?></a></p>
+					<?php if ( $tainacan_interface_slideshow ) : ?>
+						<a href="<?php echo esc_url( add_query_arg( urlencode_deep( array_merge( $tainacan_interface_list_args, array( 'slideshow-from' => $tainacan_interface_index ) ) ), '' ) ); ?>" class="icon slideshow-icon" aria-label="<?php esc_attr_e( 'Slideshow', 'tainacan-interface' ); ?>">
 							<i class="tainacan-icon tainacan-icon-viewgallery tainacan-icon-1-125em"></i>
 						</a>
-					<?php endif; ?> 
+					<?php endif; ?>
 				</div>
 				<?php if ( has_post_thumbnail() ) : ?>
-					<a 
-							href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
-							style="background-image: url(<?php the_post_thumbnail_url( 'tainacan-medium' ) ?>)"
-							class="grid-item-thumbnail">
+					<a href="<?php echo esc_url( $tainacan_interface_link ); ?>" style="background-image: url(<?php echo esc_url( get_the_post_thumbnail_url( null, 'tainacan-medium' ) ); ?>)" class="grid-item-thumbnail">
 						<?php the_post_thumbnail( 'tainacan-medium' ); ?>
-						<div class="skeleton"></div> 
+						<div class="skeleton"></div>
 					</a>
 				<?php else : ?>
-					<a 
-							href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
-							style="background-image: url(<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/thumbnail_placeholder.png'?>)"
-							class="grid-item-thumbnail">
-						<?php echo '<img alt="', esc_attr_e('Thumbnail placeholder', 'tainacan-interface'), '" src="', esc_url(get_template_directory_uri()), '/assets/images/thumbnail_placeholder.png">'?>
-						<div class="skeleton"></div> 
+					<a href="<?php echo esc_url( $tainacan_interface_link ); ?>" style="background-image: url(<?php echo esc_url( get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png' ); ?>)" class="grid-item-thumbnail">
+						<img alt="<?php esc_attr_e( 'Thumbnail placeholder', 'tainacan-interface' ); ?>" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/thumbnail_placeholder.png' ); ?>">
+						<div class="skeleton"></div>
 					</a>
-				<?php endif; ?>  
-			</div>	
-		
-		<?php $item_index++; endwhile; ?>
-	
+				<?php endif; ?>
+			</div>
+			<?php
+			++$tainacan_interface_index;
+		endwhile;
+		?>
+
 	</div>
 
 <?php else : ?>
@@ -81,7 +84,7 @@
 						<i class="tainacan-icon tainacan-icon-48px tainacan-icon-items"></i>
 					</span>
 				</p>
-				<p><?php echo __( 'No item was found.','tainacan-interface' ); ?></p>
+				<p><?php esc_html_e( 'No item was found.', 'tainacan-interface' ); ?></p>
 			</div>
 		</section>
 	</div>

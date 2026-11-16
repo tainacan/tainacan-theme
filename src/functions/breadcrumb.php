@@ -1,186 +1,176 @@
 <?php
+/**
+ * The breadcrumb.
+ *
+ * Every crumb is escaped where it is built: the header still passes the
+ * result through wp_kses_post(), but the function is public API and child
+ * themes print it elsewhere.
+ *
+ * @package tainacan-interface
+ */
 
-/** The breadcrumb function
- * Display parent and current page
- **/
-function tainacan_interface_the_breadcrumb() {
-	ob_start();
-	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
-	$delimiter = '>'; // delimiter between crumbs
-	$home = __('Home', 'tainacan-interface'); // text for the 'Home' link
-	$showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-	$before = '<span class="current text-black"> '; // tag before the current crumb
-	$after = '</span>'; // tag after the current crumb
-
-	global $post;
-	$homeLink = esc_url( home_url() );
-
-	if (is_home() || is_front_page()) {
-		if ($showOnHome == 1) echo '<nav aria-label="breadcrumb" class="d-none d-md-flex mt-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs"><a href="' . $homeLink . '">' . $home . '</a></nav>';
-	} else {
-		echo '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs"><a href="' . $homeLink . '">' . $home . '</a>&nbsp;' . $delimiter . '&nbsp;';
-
-		if ( is_category() ) {
-			$thisCat = get_category(get_query_var('cat'), false);
-			if ($thisCat->parent != 0) echo get_category_parents($thisCat->parent, TRUE, '&nbsp;' . $delimiter . '&nbsp;');
-			echo $before . __('Archive by category "', 'tainacan-interface') . single_cat_title('', false) . '"' . $after;
-
-		} elseif ( is_search() ) {
-			echo $before . __('Search results for "', 'tainacan-interface') . get_search_query() . '"' . $after;
-
-		} elseif ( is_day() ) {
-			echo '<a href="' . esc_url(get_year_link(get_the_time('Y'))) . '">' . get_the_time('Y') . '</a> ' . $delimiter . '&nbsp;';
-			echo '<a href="' . esc_url(get_month_link(get_the_time('Y'),get_the_time('m'))) . '">' . get_the_time('F') . '</a> ' . $delimiter . '&nbsp;';
-			echo $before . get_the_time('d') . $after;
-
-		} elseif ( is_month() ) {
-			echo '<a href="' . esc_url(get_year_link(get_the_time('Y'))) . '">' . get_the_time('Y') . '</a>&nbsp;' . $delimiter . '&nbsp;';
-			echo $before . get_the_time('F') . $after;
-
-		} elseif ( is_year() ) {
-			echo $before . get_the_time('Y') . $after;
-
-		} elseif ( is_single() && !is_attachment() ) {
-			if ( get_post_type() != 'post' ) {
-				$post_type = get_post_type_object(get_post_type());
-				if (!is_page() && get_post_type() != 'tainacan-collection' && get_post_type() != 'tainacan-taxonomy' ) {
-					echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection')) .'">'; _e( 'Collections', 'tainacan-interface' ); echo '</a>&nbsp;' . $delimiter . '&nbsp;';
-				}
-				echo '<a href="' . get_post_type_archive_link(get_post_type()) . '">' . $post_type->labels->singular_name . '</a>';
-				if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
-			} else {
-				$cat = get_the_category(); $cat = $cat[0];
-				$cats = get_category_parents($cat, TRUE, '&nbsp;' . $delimiter . '&nbsp;');
-				if ($showCurrent == 0) $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
-				echo $cats;
-				if ($showCurrent == 1) echo $before . get_the_title() . $after;
-			}
-
-		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
-			$post_type = get_post_type_object(get_post_type());
-			if(is_tax()) {
-				$term = get_queried_object();
-				$taxonomy = get_taxonomy( $term->taxonomy );
-				echo $taxonomy->labels->name; 
-				// Create a list of all the term's parents
-				$parent = $term->parent;
-				while ($parent):
-					$new_parent = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
-					$parents[] = $new_parent;
-					$parent = $new_parent->parent;
-				endwhile;
-				if( !empty( $parents ) ) :
-					$parents = array_reverse($parents);
-				// For each parent, create a breadcrumb item
-				
-				foreach ($parents as $parent):
-					//$item = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
-					$url = get_term_link($parent);
-					echo '&nbsp;' . $delimiter . '&nbsp;';
-					echo '<a href="' . esc_url($url) . '">'.$parent->name.'</a>';
-				endforeach;
-				endif;
-				// Display the current term in the breadcrumb
-				echo '&nbsp;' . $delimiter . '&nbsp;';
-				echo $before . $term->name . $after;
-			} elseif( !is_tax() && get_post_type() != 'tainacan-collection' && get_post_type() != 'tainacan-taxonomy' ) {
-				echo '<a href="'. esc_url(get_post_type_archive_link('tainacan-collection') ) .'">';
-				    _e( 'Collections', 'tainacan-interface' );
-				echo '</a>&nbsp;' . $delimiter . '&nbsp;';
-				$str = '';
-				if ( ($post_type) ) {
-					if (is_post_type_archive()) {
-						$str = $post_type->labels->singular_name;
-					} else {
-						$str = __('All items', 'tainacan-interface');
-					}
-				}
-				echo $before . $str . $after;
-			} else {
-			    if ( is_archive() && get_post_type() == 'tainacan-collection' ) {
-			        $str = __( 'Collections', 'tainacan-interface' ) . '&nbsp;';
-                } else if ( is_archive() && get_post_type() == 'tainacan-taxonomy' ) {
-			        $str = __( 'Taxonomies', 'tainacan-interface' ) . '&nbsp;';
-                } else {
-				    $str = $post_type->labels->singular_name;
-                }
-				echo $before . $str . $after;
-			}
-		} elseif ( is_attachment() ) {
-			$parent = get_post($post->post_parent);
-			
-			$cat = get_the_category($parent->ID);
-			if ( !empty($cat) && is_array($cat) && count($cat) ) {
-				$cat = $cat[0];
-				echo get_category_parents($cat, TRUE, '&nbsp;' . $delimiter . '&nbsp;');
-				echo '<a href="' . esc_url(get_permalink($parent)) . '">' . $parent->post_title . '</a>&nbsp;' . $delimiter;
-			}
-			if ($showCurrent == 1)
-				echo '&nbsp;' . $before . get_the_title() . $after;
-
-		} elseif ( is_page() && !$post->post_parent ) {
-			if ($showCurrent == 1) echo $before . get_the_title() . $after;
-
-		} elseif ( is_page() && $post->post_parent ) {
-			$parent_id  = $post->post_parent;
-			$breadcrumbs = array();
-			while ($parent_id) {
-				$page = get_page($parent_id);
-				$breadcrumbs[] = '<a href="' . esc_url(get_permalink($page->ID)) . '">' . get_the_title($page->ID) . '</a>';
-				$parent_id  = $page->post_parent;
-			}
-			$breadcrumbs = array_reverse($breadcrumbs);
-			for ($i = 0; $i < count($breadcrumbs); $i++) {
-				echo $breadcrumbs[$i];
-				if ($i != count($breadcrumbs)-1) echo '&nbsp;' . $delimiter . '&nbsp;';
-			}
-			if ($showCurrent == 1) echo '&nbsp;' . $delimiter . '&nbsp;' . $before . get_the_title() . $after;
-
-		} elseif ( is_tag() ) {
-			echo $before . __('Posts tagged "', 'tainacan-interface') . single_tag_title('', false) . '"' . $after;
-
-		} elseif ( is_author() ) {
-			global $author;
-			$userdata = get_userdata($author);
-			echo $before . __('Articles posted by ', 'tainacan-interface') . $userdata->display_name . $after;
-
-		} elseif ( is_404() ) {
-			echo $before . __('Error 404', 'tainacan-interface') . $after;
-		}
-
-		if ( get_query_var('paged') && ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) ) {
-			echo '&nbsp;(' . __('Page', 'tainacan-interface') . '&nbsp;' . get_query_var('paged') . ')';
-		}
-
-		if ( defined ( 'TAINACAN_VERSION' ) ) {
-			$theme_helper = \Tainacan\Theme_Helper::get_instance();
-
-			if (get_post() && $theme_helper->is_post_an_item(get_post()) && is_single() && get_theme_mod('tainacan_single_item_show_navigation_options', false)) {
-
-				$adjacent_links = tainacan_get_adjacent_item_links();
-				$previous = $adjacent_links['previous'];
-				$next = $adjacent_links['next'];
-
-				if ($previous !== '' || $next !== '') {
-				?>
-					<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center">
-						<div class="pagination">
-							<?php echo $previous; ?>
-						</div>
-						<div class="pagination">
-							<?php echo $next; ?>
-						</div>
-						<div class="pagination">
-							<a href="<?php echo tainacan_get_source_item_list_url(); ?>"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a>
-						</div>
-					</div>
-				<?php
-				}
-			}
-		}
-
-		echo '</div></nav>';
+/**
+ * A crumb that links somewhere.
+ *
+ * @param string $url   URL.
+ * @param string $label Plain text label.
+ * @return string
+ */
+function tainacan_interface_crumb_link( $url, $label ) {
+	if ( ! $url ) {
+		return esc_html( wp_strip_all_tags( $label ) );
 	}
-	$content_breadcrumb = ob_get_clean();
-	return $content_breadcrumb;
-} // end tainacan_interface_the_breadcrumb()
+	return '<a href="' . esc_url( $url ) . '">' . esc_html( wp_strip_all_tags( $label ) ) . '</a>';
+}
+
+/**
+ * The current crumb.
+ *
+ * @param string $label Plain text label.
+ * @return string
+ */
+function tainacan_interface_crumb_current( $label ) {
+	return '<span class="current text-black"> ' . esc_html( wp_strip_all_tags( $label ) ) . '</span>';
+}
+
+/**
+ * The breadcrumb function. Display parent and current page.
+ *
+ * @return string Breadcrumb HTML (escaped).
+ */
+function tainacan_interface_the_breadcrumb() {
+	if ( is_home() || is_front_page() ) {
+		return '';
+	}
+
+	$sep    = '&nbsp;&gt;&nbsp;';
+	$crumbs = array( tainacan_interface_crumb_link( home_url( '/' ), __( 'Home', 'tainacan-interface' ) ) );
+	$post   = get_post();
+
+	if ( is_category() ) {
+		$category = get_category( get_query_var( 'cat' ), false );
+		if ( $category instanceof WP_Term && $category->parent ) {
+			foreach ( array_reverse( get_ancestors( $category->term_id, 'category' ) ) as $ancestor ) {
+				$crumbs[] = tainacan_interface_crumb_link( get_category_link( $ancestor ), get_cat_name( $ancestor ) );
+			}
+		}
+		/* translators: %s: category name. */
+		$crumbs[] = tainacan_interface_crumb_current( sprintf( __( 'Archive by category "%s"', 'tainacan-interface' ), single_cat_title( '', false ) ) );
+
+	} elseif ( is_search() ) {
+		/* translators: %s: search terms. */
+		$crumbs[] = tainacan_interface_crumb_current( sprintf( __( 'Search results for "%s"', 'tainacan-interface' ), get_search_query( false ) ) );
+
+	} elseif ( is_day() ) {
+		$crumbs[] = tainacan_interface_crumb_link( get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) );
+		$crumbs[] = tainacan_interface_crumb_link( get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ), get_the_time( 'F' ) );
+		$crumbs[] = tainacan_interface_crumb_current( get_the_time( 'd' ) );
+
+	} elseif ( is_month() ) {
+		$crumbs[] = tainacan_interface_crumb_link( get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) );
+		$crumbs[] = tainacan_interface_crumb_current( get_the_time( 'F' ) );
+
+	} elseif ( is_year() ) {
+		$crumbs[] = tainacan_interface_crumb_current( get_the_time( 'Y' ) );
+
+	} elseif ( is_single() && ! is_attachment() ) {
+		$type = get_post_type();
+		if ( 'post' !== $type ) {
+			$type_object = get_post_type_object( $type );
+			if ( 'tainacan-collection' !== $type && 'tainacan-taxonomy' !== $type ) {
+				$crumbs[] = tainacan_interface_crumb_link( get_post_type_archive_link( 'tainacan-collection' ), __( 'Collections', 'tainacan-interface' ) );
+			}
+			if ( $type_object ) {
+				$crumbs[] = tainacan_interface_crumb_link( get_post_type_archive_link( $type ), $type_object->labels->singular_name );
+			}
+		} else {
+			$categories = get_the_category();
+			if ( ! empty( $categories ) ) {
+				$category = $categories[0];
+				foreach ( array_reverse( get_ancestors( $category->term_id, 'category' ) ) as $ancestor ) {
+					$crumbs[] = tainacan_interface_crumb_link( get_category_link( $ancestor ), get_cat_name( $ancestor ) );
+				}
+				$crumbs[] = tainacan_interface_crumb_link( get_category_link( $category ), $category->name );
+			}
+		}
+		$crumbs[] = tainacan_interface_crumb_current( get_the_title() );
+
+	} elseif ( ! is_single() && ! is_page() && 'post' !== get_post_type() && ! is_404() ) {
+		$type_object = get_post_type_object( get_post_type() );
+		if ( is_tax() ) {
+			$term     = get_queried_object();
+			$taxonomy = $term instanceof WP_Term ? get_taxonomy( $term->taxonomy ) : null;
+			if ( $taxonomy ) {
+				$crumbs[] = esc_html( wp_strip_all_tags( $taxonomy->labels->name ) );
+				foreach ( array_reverse( get_ancestors( $term->term_id, $term->taxonomy, 'taxonomy' ) ) as $ancestor ) {
+					$parent   = get_term( $ancestor, $term->taxonomy );
+					$link     = $parent instanceof WP_Term ? get_term_link( $parent ) : '';
+					$crumbs[] = $parent instanceof WP_Term ? tainacan_interface_crumb_link( is_wp_error( $link ) ? '' : $link, $parent->name ) : '';
+				}
+				$crumbs[] = tainacan_interface_crumb_current( $term->name );
+			}
+		} elseif ( 'tainacan-collection' !== get_post_type() && 'tainacan-taxonomy' !== get_post_type() ) {
+			$crumbs[] = tainacan_interface_crumb_link( get_post_type_archive_link( 'tainacan-collection' ), __( 'Collections', 'tainacan-interface' ) );
+			$label    = '';
+			if ( $type_object ) {
+				$label = is_post_type_archive() ? $type_object->labels->singular_name : __( 'All items', 'tainacan-interface' );
+			}
+			$crumbs[] = tainacan_interface_crumb_current( $label );
+		} elseif ( is_archive() && 'tainacan-collection' === get_post_type() ) {
+			$crumbs[] = tainacan_interface_crumb_current( __( 'Collections', 'tainacan-interface' ) );
+		} elseif ( is_archive() && 'tainacan-taxonomy' === get_post_type() ) {
+			$crumbs[] = tainacan_interface_crumb_current( __( 'Taxonomies', 'tainacan-interface' ) );
+		} elseif ( $type_object ) {
+			$crumbs[] = tainacan_interface_crumb_current( $type_object->labels->singular_name );
+		}
+	} elseif ( is_attachment() && $post ) {
+		$parent = get_post( $post->post_parent );
+		if ( $parent ) {
+			$categories = get_the_category( $parent->ID );
+			if ( ! empty( $categories ) ) {
+				$crumbs[] = tainacan_interface_crumb_link( get_category_link( $categories[0] ), $categories[0]->name );
+				$crumbs[] = tainacan_interface_crumb_link( get_permalink( $parent ), get_the_title( $parent ) );
+			}
+		}
+		$crumbs[] = tainacan_interface_crumb_current( get_the_title() );
+
+	} elseif ( is_page() && $post ) {
+		foreach ( array_reverse( get_post_ancestors( $post ) ) as $ancestor ) {
+			$crumbs[] = tainacan_interface_crumb_link( get_permalink( $ancestor ), get_the_title( $ancestor ) );
+		}
+		$crumbs[] = tainacan_interface_crumb_current( get_the_title() );
+
+	} elseif ( is_tag() ) {
+		/* translators: %s: tag name. */
+		$crumbs[] = tainacan_interface_crumb_current( sprintf( __( 'Posts tagged "%s"', 'tainacan-interface' ), single_tag_title( '', false ) ) );
+
+	} elseif ( is_author() ) {
+		$author = get_queried_object();
+		/* translators: %s: author name. */
+		$crumbs[] = tainacan_interface_crumb_current( sprintf( __( 'Articles posted by %s', 'tainacan-interface' ), $author instanceof WP_User ? $author->display_name : '' ) );
+
+	} elseif ( is_404() ) {
+		$crumbs[] = tainacan_interface_crumb_current( __( 'Error 404', 'tainacan-interface' ) );
+	}
+
+	$html = implode( $sep, array_filter( $crumbs ) );
+
+	$paged = absint( get_query_var( 'paged' ) );
+	if ( $paged && ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) ) {
+		/* translators: %d: page number. */
+		$html .= esc_html( sprintf( __( ' (Page %d)', 'tainacan-interface' ), $paged ) );
+	}
+
+	if ( defined( 'TAINACAN_VERSION' ) && $post && is_single() && get_theme_mod( 'tainacan_single_item_show_navigation_options', false ) && \Tainacan\Theme_Helper::get_instance()->is_post_an_item( $post ) ) {
+		$adjacent = tainacan_get_adjacent_item_links();
+		if ( '' !== $adjacent['previous'] || '' !== $adjacent['next'] ) {
+			$html .= '<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center">'
+				. '<div class="pagination">' . $adjacent['previous'] . '</div>'
+				. '<div class="pagination">' . $adjacent['next'] . '</div>'
+				. '<div class="pagination"><a href="' . esc_url( tainacan_get_source_item_list_url() ) . '" aria-label="' . esc_attr__( 'Back to items list', 'tainacan-interface' ) . '"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a></div>'
+				. '</div>';
+		}
+	}
+
+	return '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs">' . $html . '</div></nav>';
+}

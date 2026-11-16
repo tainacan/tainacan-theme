@@ -10,7 +10,6 @@ function fallbackCopyTextToClipboard(text) {
     try {
         var successful = document.execCommand('copy');
         var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Fallback: Copying text command was ' + msg);
         if (msg == 'successful') {
             alert(tainacan_copyLinkVars.linkCopied);
         }
@@ -29,7 +28,6 @@ function copyTextToClipboard(text) {
     
     navigator.clipboard.writeText(text)
         .then(() => {
-            console.log('Async: Copying to clipboard was successful!');
             alert(tainacan_copyLinkVars.linkCopied);
         }, 
         (err) => {
@@ -38,7 +36,7 @@ function copyTextToClipboard(text) {
 }
 
 jQuery( document ).ready(function( $ ) {
-    $( '#tainacan-interface-sharer' ).on('click', function() {
+    $( document ).on( 'click', '.tainacan-copy-link-button', function() {
         var link = $(this).data('link');
         copyTextToClipboard(link);
     });

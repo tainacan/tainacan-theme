@@ -33,6 +33,7 @@ jQuery( document ).ready(function( $ ) {
 		$( 'body,html' ).animate( {
 			scrollTop : 0                       // Scroll to top of body
 		}, 500 );
+		return false;
 	} );
 
 	/**
@@ -55,9 +56,10 @@ jQuery( document ).ready(function( $ ) {
 	});
 
 	/**
-	 * Change the class of guttenberg button
+	 * The theme's button look on block buttons, except where the editor chose a
+	 * color, a gradient or the outline style: that choice must win.
 	 */
-	$( '.wp-block-button a' ).addClass( 'btn btn-jelly-bean' );
+	$( '.wp-block-button:not(.is-style-outline) a:not(.has-background):not(.has-text-color):not(.has-link-color)' ).addClass( 'btn btn-jelly-bean' );
 
 	$( '.tainacan-list-post .table .tainacan-list-collection td' ).on('click', function() {
 		var href = $( '.tainacan-list-post .table .tainacan-list-collection' ).data( "href" );

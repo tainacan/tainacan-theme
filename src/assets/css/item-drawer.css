@@ -1,0 +1,165 @@
+/* Item preview drawer on the Tainacan lists. Colors follow the theme's link color. */
+.tt2-drawer {
+	--tt2-d-accent: var(--tainacan-interface--link-color, #187181);
+	--tt2-d-ink: #1f2427;
+	--tt2-d-muted: #5d676c;
+	--tt2-d-line: #e2e6e8;
+	--tt2-d-soft: color-mix(in srgb, var(--tt2-d-accent) 8%, #fff);
+	position: fixed;
+	top: var(--wp-admin--admin-bar--height, 0px);
+	right: 0;
+	bottom: 0;
+	z-index: 99990;
+	width: min(440px, 100vw);
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	border-left: 1px solid var(--tt2-d-line);
+	box-shadow: -12px 0 32px rgba(16, 32, 48, 0.14);
+	color: var(--tt2-d-ink);
+	font-size: 0.875rem;
+	line-height: 1.45;
+	animation: tt2-drawer-in 0.2s ease-out;
+}
+.tt2-drawer[hidden] { display: none !important; }
+.tt2-drawer *, .tt2-drawer *::before, .tt2-drawer *::after { box-sizing: border-box; }
+.tt2-drawer:focus { outline: none; }
+@keyframes tt2-drawer-in { from { transform: translateX(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* On wide screens the list makes room instead of being covered. */
+@media (min-width: 1100px) {
+	body.tt2-drawer-open #tainacan-items-page,
+	body.tt2-drawer-open .wp-block-tainacan-faceted-search,
+	body.tt2-drawer-open .theme-items-list { margin-right: 440px; transition: margin-right 0.2s ease; }
+}
+
+.tt2-drawer__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 10px 12px 10px 16px;
+	border-bottom: 1px solid var(--tt2-d-line);
+}
+.tt2-drawer__pos { font-size: 0.8rem; color: var(--tt2-d-muted); font-variant-numeric: tabular-nums; }
+.tt2-drawer__nav { display: flex; gap: 4px; }
+.tt2-drawer .tt2-drawer__btn {
+	all: unset;
+	box-sizing: border-box;
+	cursor: pointer;
+	width: 36px;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	border: 1px solid var(--tt2-d-line);
+	color: var(--tt2-d-ink);
+	background: #fff;
+	font-size: 1.3rem;
+	line-height: 1;
+}
+.tt2-drawer .tt2-drawer__btn:hover { background: var(--tt2-d-soft); }
+.tt2-drawer .tt2-drawer__btn[aria-disabled="true"] { opacity: 0.35; cursor: default; background: #fff; }
+.tt2-drawer .tt2-drawer__btn:focus-visible,
+.tt2-drawer a:focus-visible { outline: 2px solid var(--tt2-d-accent); outline-offset: 2px; }
+
+.tt2-drawer__body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 16px; display: grid; gap: 12px; align-content: start; }
+.tt2-drawer__status { margin: 0; padding: 24px 16px; color: var(--tt2-d-muted); }
+.tt2-drawer__cover {
+	width: 100%;
+	max-height: 280px;
+	object-fit: contain;
+	border-radius: 10px;
+	background: var(--tt2-d-soft);
+	border: 1px solid var(--tt2-d-line);
+}
+.tt2-drawer__eyebrow { margin: 0; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--tt2-d-accent); }
+.tt2-drawer .tt2-drawer__title {
+	margin: 0;
+	padding: 0 0 0 12px;
+	border: 0;
+	border-left: 4px solid var(--tt2-d-accent);
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 1.25;
+	text-transform: none;
+	color: var(--tt2-d-ink);
+}
+.tt2-drawer .tt2-drawer__title:focus { outline: none; }
+.tt2-drawer__description { margin: 0; color: var(--tt2-d-muted); }
+.tt2-drawer__fields {
+	display: grid;
+	grid-template-columns: minmax(96px, max-content) 1fr;
+	gap: 6px 12px;
+	margin: 4px 0 0;
+	padding-top: 12px;
+	border-top: 1px solid var(--tt2-d-line);
+}
+.tt2-drawer__fields dt {
+	color: var(--tt2-d-muted);
+	font-weight: 600;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	line-height: 1.7;
+}
+.tt2-drawer__fields dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.tt2-drawer__fields dd p { margin: 0; }
+.tt2-drawer__fields a { color: inherit; text-decoration: underline; text-decoration-color: var(--tt2-d-line); }
+.tt2-drawer__fields a:hover { text-decoration-color: currentColor; }
+
+.tt2-drawer__foot { padding: 12px 16px; border-top: 1px solid var(--tt2-d-line); background: #fff; }
+.tt2-drawer .tt2-drawer__open {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 14px;
+	border-radius: 8px;
+	background: var(--tt2-d-accent);
+	color: #fff !important;
+	font-weight: 600;
+	text-decoration: none;
+}
+.tt2-drawer .tt2-drawer__open:hover { background: color-mix(in srgb, var(--tt2-d-accent) 82%, #000); }
+
+/* The item being previewed, marked in the list. */
+.tt2-is-previewed,
+.tt2-is-previewed .tainacan-card {
+	outline: 2px solid var(--tainacan-interface--link-color, #187181);
+	outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+	.tt2-drawer { width: 100vw; border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tt2-drawer { animation: none; }
+	body.tt2-drawer-open #tainacan-items-page,
+	body.tt2-drawer-open .wp-block-tainacan-faceted-search,
+	body.tt2-drawer-open .theme-items-list { transition: none; }
+}
+
+/* Media box: the item's document plays here. */
+.tt2-drawer__media:empty { display: none; }
+.tt2-drawer__media { display: grid; gap: 8px; }
+.tt2-drawer__player { width: 100%; border-radius: 10px; background: #000; }
+audio.tt2-drawer__player { background: transparent; }
+video.tt2-drawer__player { max-height: 300px; }
+.tt2-drawer .tt2-drawer__pdf { position: relative; display: block; text-decoration: none; }
+.tt2-drawer__badge {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	padding: 2px 8px;
+	border-radius: 6px;
+	background: var(--tt2-d-accent);
+	color: #fff;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+}
+
+/* The whole card and table row open the drawer. */
+.tt2-drawer-ready :is(#tainacan-items-page, .theme-items-list, .wp-block-tainacan-faceted-search) [data-tainacan-item-id] { cursor: pointer; }

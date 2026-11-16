@@ -33,9 +33,65 @@
             "textColumns": true,
             "fontFamilies": [
                 {
-                    "fontFamily": "Roboto, sans-serif",
+                    "fontFamily": "Roboto, system-ui, -apple-system, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif",
                     "name": "Roboto",
-                    "slug": "roboto"
+                    "slug": "roboto",
+                    "fontFace": [
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "400",
+                            "fontStyle": "normal",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-400-normal.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "400",
+                            "fontStyle": "italic",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-400-italic.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "500",
+                            "fontStyle": "normal",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-500-normal.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "500",
+                            "fontStyle": "italic",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-500-italic.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "700",
+                            "fontStyle": "normal",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-700-normal.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "700",
+                            "fontStyle": "italic",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-700-italic.woff2"
+                            ]
+                        }
+                    ]
                 }
             ],
             "fontSizes": [
