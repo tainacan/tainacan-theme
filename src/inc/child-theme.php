@@ -348,7 +348,7 @@ function tainacan_interface_dismiss_child_flaws() {
 		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
 	}
 	check_admin_referer( 'tainacan_interface_dismiss_child_flaws' );
-	tainacan_interface_state_set( 'child_flaws_seen', md5( implode( ',', array_keys( tainacan_interface_child_flawed_copies() ) ) ), false );
+	tainacan_interface_state_set( 'child_flaws_seen', md5( implode( ',', array_keys( tainacan_interface_child_flawed_copies() ) ) ) );
 	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
 	exit;
 }

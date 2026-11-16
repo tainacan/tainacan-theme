@@ -1,5 +1,51 @@
 # Changelog
 
+## 4.4.9 (2026-11-10)
+
+### Fixed
+
+- Phone menu as a side panel: a header styled by the site with `backdrop-filter`, `filter` or `transform` becomes the containing block of everything `position: fixed` inside it, and the panel was trapped in the header's height (seen on the bpb: 78 px of a menu with six items, the rest reachable only by scrolling inside it). While the panel is open those effects are turned off on the header; the panel covers it anyway.
+
+## 4.4.8 (2026-11-08)
+
+Two decisions of the coordinator on the pending points of the 4.4.7 review.
+
+### Changed
+
+- Site search: the open search, which includes the items of every collection, looks at titles only (`search_columns`). With the items in, a search over title, excerpt and content read the whole `wp_posts` twice per query in a large archive. A search narrowed to posts or pages (`?post_type=post`, `?onlyposts=1`, `?onlypages=1`) keeps the full search; the full-text search of the items is the Tainacan list.
+
+### Added
+
+- "Bring the settings" can be undone: after the import a notice says what was brought and offers to put back the settings, menus and logo the theme had before, discarding what was changed since, including the Additional CSS the import copied. The record is written at every import (even when the theme had no settings yet), kept until the notice is dismissed, and forgotten when another theme is activated.
+
+## 4.4.7 (2026-11-08)
+
+Review of the whole theme with the Tainacan AI stack (six roles plus a correctness pass). What it found and this version fixes:
+
+### Fixed
+
+- Thumbnail view mode: the links of the items of a collection now send `source_list=collection` with `source_entity_id`, as the Vue view modes do; the template sent `repository` (or `term`), so the item page computed "previous/next" over the whole repository and the editors' unfiltered navigation never applied. Tainacan includes the template inside its REST route, where `tainacan_get_collection_id()` is false (the query has `post_type` as an array), so the collection is read from the request of that route. Inherited from 2.x.
+- Thumbnail view mode shows Tainacan's loading indicator while the list loads: with a `skeleton_template` Tainacan 1.4 shows neither the indicator nor the skeleton, which sits in a container it hides.
+- Metadata sections: the first section that reaches the page opens (or is the active tab). Tainacan numbers the empty sections `hide_empty` skips, so a collection whose first section is empty got no open section and, in the tabs layout, no visible panel; and a plugin may remove a section Tainacan has already rendered (TainacanBiblio replaces the first one with its own sheet). The mark is now applied to the rendered HTML, after every filter, with no filter of the theme left behind for other calls of `tainacan_the_metadata_sections()`.
+- The hooks `tainacan-interface-single-item-metadata-begin` and `-end` fire once around the sections in every layout. In the tabs, collapses, accordion and 2.x layouts they were concatenated into strings (`do_action()` returns null) and printed before the wrapper. Inherited from 2.x.
+- The item file viewer steps aside entirely when the Memorial COVID Toolkit is active: it only did so for the PDF document, while its click listener, registered first, still opened the theme's dialog instead of the Toolkit's overlay with the conditions of use.
+- Site search: a search already narrowed to a post type (the Search block set to one type, a plugin's form) stays narrowed; the theme widened it to posts, pages, collections, taxonomies and every item type.
+- Collections page: an order asked in the URL (the sorting links of a 2.x child theme's own page) wins over the theme setting, which overrode it.
+- A 2.x child theme with its own `tainacan_enqueues()` that registers `bootstrap4JS` with the Bootstrap files keeps jQuery in the dependency chain when the theme swaps the handle for `nav.js` (it was dropped). The theme's own `bootstrap4JS`, without jQuery since 4.3, is unchanged: a child that needs jQuery declares it. The handle `RobotoFonts` of 2.x exists again, empty, so a child stylesheet that depends on it still prints; `foundation.css` is enqueued by its own handle.
+- The preview drawer never summarizes an item with a password, even for a visitor who typed it: the summary goes out with a public `Cache-Control`.
+- Customizer preview: changing the main colour no longer forces the colour of titles (it follows the "colour of titles" option), and the header and footer repaint at once when they take the main or accent colour.
+- The closing fragments of the ABNT reference ("Available at … Accessed on …") are translatable; they were fixed in Portuguese.
+- `modern.js`: a metadata section with one field no longer throws when the localized strings are missing (operator precedence).
+- Reading progress bar lets clicks through (`pointer-events: none`).
+- Menu walker fallback output passes through `wp_kses_post()`; `copy-link.js` no longer defines global functions; `lib/class-wp-bootstrap-navwalker.php` has the `ABSPATH` guard; a stale third argument of `tainacan_interface_state_set()` removed; `fetch_by_collection()` called with its two parameters.
+- readme: credits to `bootstrap-legacy.css` and Spectrum Colorpicker, which are not in the theme, removed.
+
+### Performance
+
+- "Keep exploring": terms shared by more than 2,000 items (filter `tainacan_interface_aside_term_ceiling`) are not used as threads: a term like "Book" suggests nothing and its query sorted thousands of rows. The status of the taxonomies is read with one query instead of one per metadatum.
+- Preview drawer: metadata already shown on the card and not marked for the drawer are skipped before their value is rendered.
+- Collection menu: the posts behind the links of the automatic submenu are primed with one query instead of one per collection on every page.
+
 ## 4.4.6 (2026-11-08)
 
 ### Fixed

@@ -101,6 +101,8 @@ function tainacan_interface_state_set( $key, $value ) {
 function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) {
 	unset( $old_name );
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
+	// An undo offered before another theme was active would put back settings older than what the site has now.
+	tainacan_interface_state_set( 'pending_import', null );
 
 	$previous = $old_theme instanceof WP_Theme ? $old_theme->get_stylesheet() : '';
 	if ( '' === $previous || get_stylesheet() === $previous ) {
@@ -132,11 +134,14 @@ function tainacan_interface_import_settings( $previous ) {
 		return;
 	}
 
-	// The first backup is the one worth keeping: later ones would hold imported settings.
-	$own = get_option( 'theme_mods_' . get_stylesheet() );
-	if ( is_array( $own ) && ! empty( $own ) && false === tainacan_interface_state( 'mods_before_import' ) ) {
-		tainacan_interface_state_set( 'mods_before_import', $own );
-	}
+	// What "undo" puts back: the settings as they are now, empty or not, and the
+	// Additional CSS when the import writes it. One record, replaced at every import.
+	$own     = get_option( 'theme_mods_' . get_stylesheet() );
+	$pending = array(
+		'from' => $previous,
+		'mods' => is_array( $own ) ? $own : array(),
+		'css'  => null,
+	);
 
 	// Replace, not merge: a switch this theme kept from an earlier time must not survive the import.
 	$imported = tainacan_interface_rename_working_mods( $mods );
@@ -152,8 +157,86 @@ function tainacan_interface_import_settings( $previous ) {
 	$css = wp_get_custom_css( $previous );
 	if ( '' !== trim( $css ) && '' === trim( wp_get_custom_css( get_stylesheet() ) ) ) {
 		wp_update_custom_css_post( $css, array( 'stylesheet' => get_stylesheet() ) );
+		$pending['css'] = '';
 	}
+	tainacan_interface_state_set( 'pending_import', $pending );
 }
+
+/**
+ * Back to the page the button was on.
+ */
+function tainacan_interface_admin_post_back() {
+	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url( 'themes.php' ) );
+	exit;
+}
+
+/**
+ * After the import: says what was brought and offers to undo it. The record of
+ * what the theme had before stays until this notice is dismissed.
+ */
+function tainacan_interface_import_done_notice() {
+	$pending = tainacan_interface_state( 'pending_import' );
+	if ( ! is_array( $pending ) || empty( $pending['from'] ) || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+	$theme   = wp_get_theme( (string) $pending['from'] );
+	$undo    = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_undo_import' ), 'tainacan_interface_undo_import' );
+	$dismiss = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_dismiss_import_done' ), 'tainacan_interface_dismiss_import_done' );
+	?>
+	<div class="notice notice-success">
+		<p>
+			<?php
+			echo esc_html(
+				sprintf(
+					/* translators: %s: name of a theme. */
+					__( 'The settings of %s were brought in. Undo puts back the settings, menus and logo Tainacan Interface had before, and discards what was changed since, including the Additional CSS the import copied.', 'tainacan-interface' ),
+					$theme->exists() ? $theme->get( 'Name' ) : (string) $pending['from']
+				)
+			);
+			?>
+		</p>
+		<p>
+			<a class="button" href="<?php echo esc_url( $undo ); ?>"><?php esc_html_e( 'Undo the import', 'tainacan-interface' ); ?></a>
+			<a class="button" href="<?php echo esc_url( $dismiss ); ?>"><?php esc_html_e( 'Keep them and dismiss', 'tainacan-interface' ); ?></a>
+		</p>
+	</div>
+	<?php
+}
+add_action( 'admin_notices', 'tainacan_interface_import_done_notice' );
+
+/**
+ * Puts back what the theme had before the import: the Additional CSS first,
+ * so the restored settings do not inherit the id the CSS post would write.
+ */
+function tainacan_interface_undo_import() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
+	}
+	check_admin_referer( 'tainacan_interface_undo_import' );
+	$pending = tainacan_interface_state( 'pending_import' );
+	if ( is_array( $pending ) ) {
+		if ( isset( $pending['css'] ) && is_string( $pending['css'] ) ) {
+			wp_update_custom_css_post( $pending['css'], array( 'stylesheet' => get_stylesheet() ) );
+		}
+		update_option( 'theme_mods_' . get_stylesheet(), isset( $pending['mods'] ) && is_array( $pending['mods'] ) ? $pending['mods'] : array() );
+		tainacan_interface_state_set( 'pending_import', null );
+	}
+	tainacan_interface_admin_post_back();
+}
+add_action( 'admin_post_tainacan_interface_undo_import', 'tainacan_interface_undo_import' );
+
+/**
+ * Keeps the imported settings and forgets what was there before.
+ */
+function tainacan_interface_dismiss_import_done() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
+	}
+	check_admin_referer( 'tainacan_interface_dismiss_import_done' );
+	tainacan_interface_state_set( 'pending_import', null );
+	tainacan_interface_admin_post_back();
+}
+add_action( 'admin_post_tainacan_interface_dismiss_import_done', 'tainacan_interface_dismiss_import_done' );
 
 /**
  * Offers the settings of the theme the site was using.
@@ -201,8 +284,7 @@ function tainacan_interface_import_action() {
 		tainacan_interface_import_settings( $previous );
 		tainacan_interface_state_set( 'import_from', null );
 	}
-	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
-	exit;
+	tainacan_interface_admin_post_back();
 }
 add_action( 'admin_post_tainacan_interface_import', 'tainacan_interface_import_action' );
 
@@ -215,8 +297,7 @@ function tainacan_interface_dismiss_import() {
 	}
 	check_admin_referer( 'tainacan_interface_dismiss_import' );
 	tainacan_interface_state_set( 'import_from', null );
-	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
-	exit;
+	tainacan_interface_admin_post_back();
 }
 add_action( 'admin_post_tainacan_interface_dismiss_import', 'tainacan_interface_dismiss_import' );
 

@@ -183,7 +183,11 @@ function tainacan_interface_citations( $item_id ) {
 	$citations = array(
 		'abnt'      => array(
 			__( 'ABNT (NBR 6023)', 'tainacan-interface' ),
-			trim( ( $abnt ? implode( '; ', $abnt ) . '. ' : '' ) . $d['title'] . '. ' . ( '' !== $d['collection'] ? 'In: ' . $d['collection'] . '. ' : '' ) . $d['site'] . ( '' !== $d['year'] ? ', ' . $d['year'] : '' ) . '. ' . sprintf( 'Disponível em: %1$s. Acesso em: %2$s.', $d['url'], $access ) ),
+			trim(
+				( $abnt ? implode( '; ', $abnt ) . '. ' : '' ) . $d['title'] . '. ' . ( '' !== $d['collection'] ? 'In: ' . $d['collection'] . '. ' : '' ) . $d['site'] . ( '' !== $d['year'] ? ', ' . $d['year'] : '' ) . '. ' .
+				/* translators: 1: address of the item, 2: date of access. The closing fragments of an ABNT (NBR 6023) reference. */
+				sprintf( __( 'Available at: %1$s. Accessed on: %2$s.', 'tainacan-interface' ), $d['url'], $access )
+			),
 		),
 		'apa'       => array(
 			__( 'APA (7th edition)', 'tainacan-interface' ),

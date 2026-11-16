@@ -164,6 +164,9 @@ function tainacan_interface_expand_all_collections( $items ) {
 		$current         = function_exists( 'tainacan_get_collection_id' ) ? (int) tainacan_get_collection_id() : 0;
 		$children        = array( 0 => __( 'All collections', 'tainacan-interface' ) ) + tainacan_interface_menu_collections();
 
+		// The names come from a transient; the posts behind get_permalink() do not. One query for all of them.
+		_prime_post_caches( array_values( array_filter( array_keys( $children ) ) ), false, false );
+
 		foreach ( $children as $id => $name ) {
 			$child                   = new stdClass();
 			$child->ID               = 2000000000 + $id;

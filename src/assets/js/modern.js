@@ -168,7 +168,7 @@
 			if (!slot) { return; }
 			var n = section.querySelectorAll('.s-item-collection--metadata .tainacan-metadata-value').length;
 			if (!n) { return; }
-			slot.textContent = (1 === n ? t.fieldsOne : t.fieldsMany || '').replace('%d', String(n));
+			slot.textContent = ((1 === n ? t.fieldsOne : t.fieldsMany) || '').replace('%d', String(n));
 		});
 	}
 

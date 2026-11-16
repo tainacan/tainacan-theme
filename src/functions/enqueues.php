@@ -23,8 +23,11 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * still depend on the old handles of Bootstrap: they stay as aliases, with no file.
 		 */
 		wp_register_style( 'tainacan-interface-foundation', $uri . '/assets/css/foundation.css', array(), TAINACAN_INTERFACE_VERSION );
+		wp_enqueue_style( 'tainacan-interface-foundation' );
 		wp_register_style( 'bootstrap4CSS', false, array( 'tainacan-interface-foundation' ), TAINACAN_INTERFACE_VERSION );
 		wp_enqueue_style( 'bootstrap4CSS' );
+		// The Google Fonts handle of 2.x, empty: a child stylesheet that depends on it still prints.
+		wp_register_style( 'RobotoFonts', false, array(), TAINACAN_INTERFACE_VERSION );
 		wp_register_script( 'tainacan-interface-nav', $uri . '/assets/js/nav.js', array(), TAINACAN_INTERFACE_VERSION, true );
 		wp_register_script( 'bootstrap4JS', false, array( 'tainacan-interface-nav' ), TAINACAN_INTERFACE_VERSION, true );
 		wp_enqueue_script( 'bootstrap4JS' );
@@ -98,8 +101,9 @@ function tainacan_interface_replace_gone_bootstrap() {
 	}
 	if ( isset( $scripts->registered['bootstrap4JS'] ) && false !== strpos( (string) $scripts->registered['bootstrap4JS']->src, '/assets/vendor/bootstrap/' ) ) {
 		wp_register_script( 'tainacan-interface-nav', $uri . '/assets/js/nav.js', array(), TAINACAN_INTERFACE_VERSION, true );
-		$scripts->registered['bootstrap4JS']->src  = false;
-		$scripts->registered['bootstrap4JS']->deps = array( 'tainacan-interface-nav' );
+		$scripts->registered['bootstrap4JS']->src = false;
+		// The Bootstrap of 2.x brought jQuery; a child script that depends on this handle may count on it.
+		$scripts->registered['bootstrap4JS']->deps = array( 'jquery', 'tainacan-interface-nav' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_interface_replace_gone_bootstrap', PHP_INT_MAX );

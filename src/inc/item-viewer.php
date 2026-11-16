@@ -25,12 +25,17 @@ const TAINACAN_INTERFACE_PDFJS_VERSION = '4.10.38';
  * @return bool
  */
 function tainacan_interface_viewer_enabled() {
+	// The Memorial COVID Toolkit draws its own overlay for the files of the item and
+	// catches the same click, on document, in the capture phase: the theme steps aside
+	// here, in one place, so the gallery is not marked and no listener is registered.
+	$enabled = ! defined( 'MCTK_VERSION' ) && (bool) get_theme_mod( 'tainacan_interface_item_viewer', true );
+
 	/**
 	 * Turns the item file viewer on or off.
 	 *
-	 * @param bool $enabled Value of the Customizer option.
+	 * @param bool $enabled Value of the Customizer option, false when a plugin that replaces the viewer is active.
 	 */
-	return (bool) apply_filters( 'tainacan_interface_viewer_enabled', (bool) get_theme_mod( 'tainacan_interface_item_viewer', true ) );
+	return (bool) apply_filters( 'tainacan_interface_viewer_enabled', $enabled );
 }
 
 /**
@@ -273,7 +278,7 @@ add_filter( 'get_tainacan_item_gallery', 'tainacan_interface_viewer_mark_gallery
  * @return string
  */
 function tainacan_interface_viewer_inline_pdf( $html, $item ) {
-	if ( ! tainacan_interface_viewer_enabled() || ! tainacan_interface_is_item_page() || defined( 'MCTK_VERSION' ) ) {
+	if ( ! tainacan_interface_viewer_enabled() || ! tainacan_interface_is_item_page() ) {
 		return $html;
 	}
 	if ( ! $item instanceof \Tainacan\Entities\Item || (int) $item->get_id() !== (int) get_queried_object_id() || 'attachment' !== $item->get_document_type() ) {

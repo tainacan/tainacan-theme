@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tainacan Interface 4.4.0\n"
+"Project-Id-Version: Tainacan Interface 4.4.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/tt-i18n\n"
 "POT-Creation-Date: 2026-11-08T02:21:53+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -1629,6 +1629,12 @@ msgstr ""
 
 #: inc/item-citation.php:185
 msgid "ABNT (NBR 6023)"
+msgstr ""
+
+#. 1: address of the item, 2: date of access. The closing fragments of an ABNT (NBR 6023) reference.
+#: inc/item-citation.php:189
+#, php-format
+msgid "Available at: %1$s. Accessed on: %2$s."
 msgstr ""
 
 #: inc/item-citation.php:189
@@ -3258,4 +3264,18 @@ msgstr ""
 #: theme.json
 msgctxt "Font size name"
 msgid "Huge"
+msgstr ""
+
+#. %s: name of a theme.
+#: inc/upgrade.php:192
+#, php-format
+msgid "The settings of %s were brought in. Undo puts back the settings, menus and logo Tainacan Interface had before, and discards what was changed since, including the Additional CSS the import copied."
+msgstr ""
+
+#: inc/upgrade.php:199
+msgid "Undo the import"
+msgstr ""
+
+#: inc/upgrade.php:200
+msgid "Keep them and dismiss"
 msgstr ""

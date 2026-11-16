@@ -37,11 +37,24 @@
 		}
 	}
 
+	// The header and the footer take the main or the accent colour when their style says so:
+	// inc/design.php derives these four tokens from the two colours, so the preview does too.
+	function surfaces() {
+		var tones = { brand: read('brand_color'), accent: read('accent_color') };
+		[['header_style', '--tt2-header'], ['footer_tone', '--tt2-footer']].forEach(function (pair) {
+			var tone = tones[read(pair[0])];
+			if (!tone) { return; }
+			css(pair[1] + '-bg', tone);
+			css(pair[1] + '-fg', isDark(tone) ? '#ffffff' : '#111111');
+		});
+	}
+
 	var kinds = {
 		brand: function (value) {
+			// --tt2-ink is var(--tt2-brand), var(--tt2-accent) or var(--tt2-text) by the heading colour option: it follows on its own.
 			css('--tt2-brand', value);
-			css('--tt2-ink', value);
 			css('--tt2-on-brand', isDark(value) ? '#ffffff' : '#111111');
+			surfaces();
 		},
 		accent: function (value) {
 			['--tt2-accent', '--tt2-d-accent', '--tainacan-secondary', '--tainacan-interface--link-color', '--tainacan-block-primary'].forEach(function (name) { css(name, value); });
@@ -49,6 +62,7 @@
 			css('--tainacan-primary', 'color-mix(in srgb, ' + value + ' 14%, #fff)');
 			css('--tainacan-interface--tooltip-color', 'color-mix(in srgb, ' + value + ' 18%, #fff)');
 			if ('accent' === read('band_style')) { css('--tt2-band', value); }
+			surfaces();
 		},
 		band: function () { css('--tt2-band', band()); }
 	};

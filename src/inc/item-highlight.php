@@ -94,7 +94,7 @@ function tainacan_interface_identifier_metadatum( $collection ) {
 	} elseif ( 0 === $chosen ) {
 		// Names that say registration number, accession or inventory; a date of registration or a photo record do not count.
 		$pattern = '/^\s*((n[úu]mero|n\.?\s*[º°o]\.?)\s*(de\s+)?(registro|tombo|invent[aá]rio)|tombo|n[úu]mero\s+de\s+invent[aá]rio|invent[aá]rio|identificador|identifier|accession(\s+number)?|inventory(\s+number)?)\s*$/iu';
-		foreach ( (array) $repository->fetch_by_collection( $collection, array(), 'OBJECT' ) as $metadatum ) {
+		foreach ( (array) $repository->fetch_by_collection( $collection ) as $metadatum ) {
 			if ( $metadatum instanceof \Tainacan\Entities\Metadatum && (int) $metadatum->get_parent() <= 0 && false === stripos( (string) $metadatum->get_metadata_type(), 'Date' ) && preg_match( $pattern, (string) $metadatum->get_name() ) ) {
 				$found = $metadatum;
 				break;

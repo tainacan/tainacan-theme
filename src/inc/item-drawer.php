@@ -88,10 +88,27 @@ function tainacan_interface_drawer_validate_meta( $value ) {
  * @return true|WP_Error
  */
 function tainacan_interface_drawer_can_read( $request ) {
-	if ( ! tainacan_interface_drawer_enabled() || null === tainacan_interface_readable_item( (int) $request->get_param( 'id' ) ) ) {
+	if ( ! tainacan_interface_drawer_enabled() || null === tainacan_interface_drawer_item( (int) $request->get_param( 'id' ) ) ) {
 		return new WP_Error( 'tainacan_interface_not_found', __( 'Item not found.', 'tainacan-interface' ), array( 'status' => 404 ) );
 	}
 	return true;
+}
+
+/**
+ * The item the drawer may summarize: readable by the visitor and without a
+ * password. An item with a password is never summarized, not even for a visitor
+ * who typed it: the summary goes out with a public Cache-Control, and a shared
+ * cache could hand it to anyone.
+ *
+ * @param int $id Item post ID.
+ * @return \Tainacan\Entities\Item|null
+ */
+function tainacan_interface_drawer_item( $id ) {
+	$item = tainacan_interface_readable_item( $id );
+	if ( null === $item || '' !== (string) get_post_field( 'post_password', $id ) ) {
+		return null;
+	}
+	return $item;
 }
 
 /**
@@ -106,7 +123,7 @@ function tainacan_interface_drawer_rest_item( $request ) {
 		return $limited;
 	}
 
-	$item = tainacan_interface_readable_item( (int) $request->get_param( 'id' ) );
+	$item = tainacan_interface_drawer_item( (int) $request->get_param( 'id' ) );
 	if ( null === $item ) {
 		return new WP_Error( 'tainacan_interface_not_found', __( 'Item not found.', 'tainacan-interface' ), array( 'status' => 404 ) );
 	}
@@ -280,6 +297,12 @@ function tainacan_interface_drawer_payload( $item, $meta ) {
 		// Only a marked metadatum this visitor may see switches to marked-only mode;
 		// an empty value still counts, because the choice is the collection's.
 		$any_marked = $any_marked || $is_marked;
+
+		// Already shown on the card of the list and not marked: skip it before rendering
+		// the value, which for a taxonomy or a relationship costs queries.
+		if ( ! $is_marked && 'Tainacan\Metadata_Types\Core_Description' !== $type && in_array( (int) $metadatum->get_id(), $listed, true ) ) {
+			continue;
+		}
 
 		$html = trim( wp_kses_post( (string) $item_metadatum->get_value_as_html() ) );
 		$text = trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $html ) ) );

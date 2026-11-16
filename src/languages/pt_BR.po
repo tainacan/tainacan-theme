@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Tainacan Interface 4.4.0\n"
+"Project-Id-Version: Tainacan Interface 4.4.8\n"
 "Report-Msgid-Bugs-To: https://github.com/marcossigismundo/tainacan-interface\n"
 "POT-Creation-Date: 2023-03-10 10:21-0300\n"
 "PO-Revision-Date: 2026-11-08 01:22+0000\n"
@@ -1636,6 +1636,12 @@ msgstr "s.d."
 msgid "ABNT (NBR 6023)"
 msgstr "ABNT (NBR 6023)"
 
+#. 1: address of the item, 2: date of access. The closing fragments of an ABNT (NBR 6023) reference.
+#: inc/item-citation.php:189
+#, php-format
+msgid "Available at: %1$s. Accessed on: %2$s."
+msgstr "Disponível em: %1$s. Acesso em: %2$s."
+
 #: inc/item-citation.php:189
 msgid "APA (7th edition)"
 msgstr "APA (7ª edição)"
@@ -3264,3 +3270,17 @@ msgstr "Grande"
 msgctxt "Font size name"
 msgid "Huge"
 msgstr "Enorme"
+
+#. %s: name of a theme.
+#: inc/upgrade.php:192
+#, php-format
+msgid "The settings of %s were brought in. Undo puts back the settings, menus and logo Tainacan Interface had before, and discards what was changed since, including the Additional CSS the import copied."
+msgstr "Os ajustes de %s foram trazidos. Desfazer repõe os ajustes, menus e logotipo que o Tainacan Interface tinha antes e descarta o que mudou desde então, inclusive o CSS adicional que a importação copiou."
+
+#: inc/upgrade.php:199
+msgid "Undo the import"
+msgstr "Desfazer a importação"
+
+#: inc/upgrade.php:200
+msgid "Keep them and dismiss"
+msgstr "Manter e dispensar"

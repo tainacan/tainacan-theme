@@ -6,4 +6,8 @@
  * @package tainacan-interface
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 require_once get_template_directory() . '/inc/class-tainacan-interface-nav-walker.php';

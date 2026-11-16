@@ -16,7 +16,23 @@ $tainacan_interface_list_args = tainacan_interface_list_query_args();
 $tainacan_interface_paged     = max( 1, absint( tainacan_interface_query_arg( 'paged', '1' ) ) );
 $tainacan_interface_perpage   = absint( tainacan_interface_query_arg( 'perpage', '0' ) );
 $tainacan_interface_with_pos  = $tainacan_interface_perpage > 0 && '' !== tainacan_interface_query_arg( 'paged' );
-$tainacan_interface_source    = is_tax() ? 'term' : 'repository';
+// Where the list comes from, as the Vue view modes send it: the item page only keeps
+// "previous/next" inside the collection when source_list is "collection" with its id.
+// Tainacan includes this template inside the REST items route, in the scope of its
+// get_items(): the query has post_type as an array there, so is_post_type_archive()
+// and tainacan_get_collection_id() are false; the collection comes from the request.
+// A term list keeps "term" without an id, as 2.x sent: with an id Tainacan would
+// replace the whole taxonomy filter of the list by that one term.
+$tainacan_interface_source_id = 0;
+if ( isset( $request ) && $request instanceof WP_REST_Request && ! empty( $request['collection_id'] ) ) {
+	$tainacan_interface_source_id = absint( $request['collection_id'] );
+} elseif ( tainacan_get_collection_id() ) {
+	$tainacan_interface_source_id = (int) tainacan_get_collection_id();
+}
+$tainacan_interface_source = $tainacan_interface_source_id > 0 ? 'collection' : ( is_tax() ? 'term' : 'repository' );
+if ( 'collection' === $tainacan_interface_source ) {
+	$tainacan_interface_list_args['source_entity_id'] = $tainacan_interface_source_id;
+}
 
 if ( class_exists( '\Tainacan\Theme_Helper' ) && method_exists( '\Tainacan\Theme_Helper', 'get_enable_item_link_query_params' ) ) {
 	$tainacan_interface_with_pos = $tainacan_interface_with_pos && \Tainacan\Theme_Helper::get_instance()->get_enable_item_link_query_params();

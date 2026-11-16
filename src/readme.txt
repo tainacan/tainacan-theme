@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.4.6
+Stable tag: 4.4.9
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -102,17 +102,13 @@ Source: https://github.com/mozilla/pdf.js (pdf.mjs and pdf.worker.mjs are the or
 Fonts of PDF.js in assets/vendor/pdfjs/standard_fonts: Foxit fonts, from PDFium (BSD style license), and Liberation fonts (SIL Open Font License 1.1)
 Source: https://github.com/mozilla/pdf.js/tree/master/external/standard_fonts
 
-assets/css/foundation.css and assets/css/bootstrap-legacy.css are derived from Bootstrap 4.6.1, Copyright 2011-2021 The Bootstrap Authors, Copyright 2011-2021 Twitter, Inc.
+assets/css/foundation.css is derived from Bootstrap 4.6.1, Copyright 2011-2021 The Bootstrap Authors, Copyright 2011-2021 Twitter, Inc.
 License: MIT
 Source: https://github.com/twbs/bootstrap
 
 Tabler Icons (the icons of the social networks, in inc/social.php) Copyright (c) 2020-2024 Paweł Kuna
 License: MIT
 Source: https://github.com/tabler/tabler-icons
-
-Spectrum Colorpicker Copyright (c) Brian Grinstead
-License: MIT
-Source: https://github.com/bgrins/spectrum
 
 inc/class-tainacan-interface-nav-walker.php is derived from WP Bootstrap Navwalker, Copyright Edward McIntyre
 License: GPLv3+
@@ -132,6 +128,15 @@ Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
 facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 4.4.9 =
+* Phone menu as a side panel opens at full height even when the site's own CSS blurs or transforms the header.
+
+= 4.4.8 =
+* The open site search, which includes the items of every collection, looks at titles only; a search narrowed to posts or pages keeps the full search. "Bring the settings" can be undone from a notice shown after the import.
+
+= 4.4.7 =
+* Review of the whole theme: the Thumbnail view mode keeps previous/next inside the collection and shows the skeleton while loading; the first printed metadata section opens even when an earlier section is empty; the file viewer steps aside for the Memorial COVID Toolkit; a search narrowed to a post type stays narrowed; the preview drawer never summarizes an item with a password; the Customizer preview repaints header, footer and titles correctly; the ABNT reference is translatable; fewer queries on the item page and in the collection menu.
 
 = 4.4.6 =
 * Links coloured by a component (a white label on a coloured button, for example) keep their colour: the link colour of the theme weighed more than a class.

@@ -129,23 +129,26 @@ function tainacan_theme_collection_query( $query ) {
 			$query->set( 'no_found_rows', true );
 			$query->set( 'update_post_term_cache', false );
 		}
-		switch ( tainacan_interface_opt( 'list_order' ) ) {
-			case 'title':
-				$query->set( 'orderby', 'title' );
-				$query->set( 'order', 'ASC' );
-				break;
-			case 'date':
-				$query->set( 'orderby', 'date' );
-				$query->set( 'order', 'DESC' );
-				break;
-			default:
-				$query->set(
-					'orderby',
-					array(
-						'menu_order' => 'ASC',
-						'date'       => 'DESC',
-					)
-				);
+		// An order asked in the URL (the sorting links of a 2.x child theme's page) wins over the setting.
+		if ( '' === (string) $query->get( 'orderby' ) ) {
+			switch ( tainacan_interface_opt( 'list_order' ) ) {
+				case 'title':
+					$query->set( 'orderby', 'title' );
+					$query->set( 'order', 'ASC' );
+					break;
+				case 'date':
+					$query->set( 'orderby', 'date' );
+					$query->set( 'order', 'DESC' );
+					break;
+				default:
+					$query->set(
+						'orderby',
+						array(
+							'menu_order' => 'ASC',
+							'date'       => 'DESC',
+						)
+					);
+			}
 		}
 
 		// Handle taxonomy filtering using WordPress standard approach.

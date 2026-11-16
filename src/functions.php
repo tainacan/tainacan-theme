@@ -10,7 +10,7 @@
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '4.4.6';
+const TAINACAN_INTERFACE_VERSION = '4.4.9';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -96,12 +96,13 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 			tainacan_register_view_mode(
 				'grid',
 				array(
-					'label'             => __( 'Thumbnail', 'tainacan-interface' ),
-					'description'       => __( 'A thumbnail grid view, showing only title and thumbnail', 'tainacan-interface' ),
-					'icon'              => '<span class="icon"><i class="tainacan-icon tainacan-icon-viewminiature tainacan-icon-1-25em"></i></span>',
-					'dynamic_metadata'  => false,
-					'template'          => get_template_directory() . '/tainacan/view-mode-grid.php',
-					'skeleton_template' => '<div class="tainacan-grid-container">' . str_repeat( '<div class="skeleton tainacan-grid-item"></div>', 12 ) . '</div>',
+					'label'            => __( 'Thumbnail', 'tainacan-interface' ),
+					'description'      => __( 'A thumbnail grid view, showing only title and thumbnail', 'tainacan-interface' ),
+					'icon'             => '<span class="icon"><i class="tainacan-icon tainacan-icon-viewminiature tainacan-icon-1-25em"></i></span>',
+					'dynamic_metadata' => false,
+					'template'         => get_template_directory() . '/tainacan/view-mode-grid.php',
+					// No skeleton_template: with one, Tainacan 1.4 shows neither its loading
+					// indicator nor the skeleton (the skeleton sits in a container it hides).
 				)
 			);
 		}
@@ -260,18 +261,23 @@ function tainacan_include_items_in_search_results( $query ) {
 		return;
 	}
 
-	if (
-		! defined( 'TAINACAN_VERSION' ) ||
-		in_array( $query->get( 'post_type' ), array( 'tainacan-collection', 'tainacan-taxonomy' ), true ) ||
-		! class_exists( '\Tainacan\Repositories\Repository' )
-	) {
+	if ( ! defined( 'TAINACAN_VERSION' ) || ! class_exists( '\Tainacan\Repositories\Repository' ) ) {
+		return;
+	}
+
+	// A search already narrowed to a type (the Search block set to one, a plugin's
+	// form sending post_type) stays narrowed; the theme only widens the open search.
+	if ( ! empty( array_filter( (array) $query->get( 'post_type' ) ) ) ) {
 		return;
 	}
 
 	$collections_post_types = \Tainacan\Repositories\Repository::get_collections_db_identifiers();
-	$existing_post_types    = array_filter( (array) $query->get( 'post_type' ) );
 
-	$query->set( 'post_type', array_values( array_unique( array_merge( $existing_post_types, array( 'post', 'page', 'tainacan-collection', 'tainacan-taxonomy' ), $collections_post_types ) ) ) );
+	$query->set( 'post_type', array_values( array_unique( array_merge( array( 'post', 'page', 'tainacan-collection', 'tainacan-taxonomy' ), $collections_post_types ) ) ) );
+	// Titles only: with the items of every collection in, a search over title,
+	// excerpt and content reads the whole wp_posts (longtext) twice per query in
+	// a large archive. The full-text search of the items is the Tainacan list.
+	$query->set( 'search_columns', array( 'post_title' ) );
 }
 add_action( 'pre_get_posts', 'tainacan_include_items_in_search_results' );
 

@@ -940,6 +940,7 @@ body.tt2-modern.tt2-links-hover .tainacan-content a:not(.wp-block-button__link, 
 		left: 0;
 		width: 100%;
 		height: 3px;
+		pointer-events: none;
 		background: var(--tt2-accent);
 		transform-origin: 0 50%;
 		animation: tt2-progress linear both;
@@ -997,6 +998,10 @@ body.tt2-modern .tt2-social--header { margin-inline: 4px; }
 	body.tt2-modern.tt2-mobile-menu-side .menu-belowheader:has(#menubelowHeader.show)::after { content: ""; position: fixed; z-index: 1039; inset: 0; background: rgba(10, 16, 28, 0.45); }
 	body.tt2-modern.tt2-mobile-menu-side .navbar-toggler { position: relative; z-index: 1041; }
 	body.tt2-modern.tt2-mobile-menu-side .navbar-toggler[aria-expanded="true"] { position: fixed; top: calc(var(--wp-admin--admin-bar--height, 0px) + 12px); left: calc(min(320px, 86vw) - 52px); }
+	/* A header with backdrop-filter, filter or transform (a site's own CSS) becomes the
+	   containing block of everything fixed inside it, and the panel would be trapped in
+	   the header's height. While the panel is open those effects go; it covers the header anyway. */
+	body.tt2-modern.tt2-mobile-menu-side nav.navbar:has(#menubelowHeader.show) { backdrop-filter: none; -webkit-backdrop-filter: none; filter: none; transform: none; }
 }
 
 /* ---------- Footer ---------- */

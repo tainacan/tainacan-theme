@@ -272,8 +272,7 @@ function tainacan_interface_aside_metadata( $collection, $kind ) {
 						'compare' => 'IN',
 					),
 				),
-			),
-			'OBJECT'
+			)
 		);
 		foreach ( (array) $found as $metadatum ) {
 			if ( $metadatum instanceof \Tainacan\Entities\Metadatum && 'publish' === $metadatum->get_status() ) {
@@ -301,9 +300,21 @@ function tainacan_interface_aside_term_threads( $item, $per, $max, &$exclude ) {
 		return array();
 	}
 
-	$all    = array();
-	$marked = array();
-	foreach ( tainacan_interface_aside_metadata( $collection, 'Taxonomy' ) as $metadatum ) {
+	$all       = array();
+	$marked    = array();
+	$metadata  = tainacan_interface_aside_metadata( $collection, 'Taxonomy' );
+	$tax_posts = array();
+	foreach ( $metadata as $metadatum ) {
+		$options = $metadatum->get_metadata_type_options();
+		if ( ! empty( $options['taxonomy_id'] ) ) {
+			$tax_posts[] = absint( $options['taxonomy_id'] );
+		}
+	}
+	// One query for the status of every taxonomy, instead of one per metadatum below.
+	if ( ! empty( $tax_posts ) ) {
+		_prime_post_caches( $tax_posts, false, false );
+	}
+	foreach ( $metadata as $metadatum ) {
 		$options  = $metadatum->get_metadata_type_options();
 		$taxonomy = ! empty( $options['taxonomy_id'] ) ? 'tnc_tax_' . absint( $options['taxonomy_id'] ) : '';
 		if ( '' === $taxonomy || ! taxonomy_exists( $taxonomy ) || 'publish' !== get_post_status( absint( $options['taxonomy_id'] ) ) ) {
@@ -323,11 +334,14 @@ function tainacan_interface_aside_term_threads( $item, $per, $max, &$exclude ) {
 	if ( ! is_array( $terms ) ) {
 		return array();
 	}
-	// Rarest first; a term with one item is the item itself.
-	$terms = array_filter(
+	// Rarest first; a term with one item is the item itself. A term shared by
+	// thousands of items ("Book", "Photograph") suggests nothing, and its query
+	// would sort thousands of rows: it is left out.
+	$ceiling = (int) apply_filters( 'tainacan_interface_aside_term_ceiling', 2000 );
+	$terms   = array_filter(
 		$terms,
-		function ( $term ) {
-			return $term->count > 1;
+		function ( $term ) use ( $ceiling ) {
+			return $term->count > 1 && ( $ceiling < 1 || $term->count <= $ceiling );
 		}
 	);
 	usort(
