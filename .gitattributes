@@ -1,0 +1,32 @@
+# Stack de IA do Tainacan: fora do pacote do plugin
+/.agents export-ignore
+/.claude export-ignore
+/.claude-plugin export-ignore
+/.codex export-ignore
+/.cursor export-ignore
+/.github/agents export-ignore
+/.tnc-check.json export-ignore
+/.tnc-check-baseline.json export-ignore
+/AGENTS.md export-ignore
+/CLAUDE.md export-ignore
+/GEMINI.md export-ignore
+
+# Line endings: LF in the repository.
+* text=auto eol=lf
+*.png binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.mo binary
+/node_modules export-ignore
+/compile-sass.sh export-ignore
+
+/package.json export-ignore
+/phpcs.xml.dist export-ignore
+/.github export-ignore
+/docs export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.editorconfig export-ignore

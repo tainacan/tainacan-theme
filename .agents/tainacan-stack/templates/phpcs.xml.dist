@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+  Ruleset estrito para plugin que vai ao WordPress.org (Stack de IA do Tainacan).
+  O núcleo do Tainacan usa só WordPress-Core + WordPress-Docs; isso não confere
+  escape, sanitização, nonce nem prepare(). Este modelo confere.
+
+  Instalação do PHPCS e dos padrões: ver README da stack, seção "Verificar".
+  O padrão "PluginCheck" vem com o plugin Plugin Check (wp plugin install plugin-check); sem ele,
+  comente a linha correspondente abaixo. Rodar: vendor/bin/phpcs
+-->
+<ruleset name="Plugin standards (Tainacan stack)">
+    <description>WordPress.org ready: Core + Docs + Extra + Security + PluginCheck + PHPCompatibility</description>
+
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+    <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress.Security"/>
+    <rule ref="PluginCheck"/>
+
+    <config name="minimum_wp_version" value="6.5"/>
+    <config name="testVersion" value="7.4-"/>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Troque pelo Text Domain e pelo prefixo do plugin -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="{{TEXT_DOMAIN}}"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="{{PREFIX}}"/>
+            </property>
+        </properties>
+    </rule>
+
+    <arg name="extensions" value="php"/>
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <file>.</file>
+
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/assets/vendor/*</exclude-pattern>
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/.agents/*</exclude-pattern>
+</ruleset>

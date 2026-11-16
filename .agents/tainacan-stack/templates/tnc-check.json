@@ -1,0 +1,5 @@
+{
+  "text_domain": "{{TEXT_DOMAIN}}",
+  "exclude": ["vendor/", "node_modules/", "build/", "dist/", "assets/js/vendor/"],
+  "rules": {}
+}

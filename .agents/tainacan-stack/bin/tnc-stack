@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+/**
+ * tnc-stack: instala e atualiza a Stack de IA do Tainacan num repositório.
+ * Requer PHP 7.4+. Sem Composer.
+ */
+
+if (PHP_VERSION_ID < 70400) {
+    fwrite(STDERR, "tnc-stack requer PHP 7.4 ou superior (encontrado " . PHP_VERSION . ").\n");
+    exit(2);
+}
+
+// avisos do PHP vão para o stderr: a saída padrão é dado (JSON dos hooks, relatório)
+ini_set('display_errors', 'stderr');
+
+spl_autoload_register(function ($class) {
+    $prefix = 'TainacanStack\\Check\\';
+    if (strpos($class, $prefix) !== 0) {
+        return;
+    }
+    $file = dirname(__DIR__) . '/src/' . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
+    if (is_file($file)) {
+        require $file;
+    }
+});
+
+exit(\TainacanStack\Check\Installer::main($argv));

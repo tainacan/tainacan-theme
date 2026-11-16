@@ -1,0 +1,19 @@
+{
+    "text_domain": "tainacan-interface",
+    "tipo": "tema",
+    "exclude": [
+        "node_modules/",
+        "assets/vendor/",
+        "style.css",
+        "style.min.css",
+        "editor-style.css",
+        "inc/class-tainacan-interface-nav-walker.php"
+    ],
+    "escaped_functions": [
+        "tainacan_get_*",
+        "tainacan_interface_get_item_gallery_data_attributes",
+        "tainacan_get_adjacent_item_links",
+        "tainacan_interface_the_breadcrumb"
+    ],
+    "rules": {}
+}

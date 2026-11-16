@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!--
+  Ruleset estrito para TEMA WordPress (Stack de IA do Tainacan).
+
+  Diferenças em relação ao modelo de plugin da Stack de IA do Tainacan:
+    - PluginCheck fica fora: é o padrão do diretório de PLUGINS e cobra coisas
+      que não se aplicam a tema (cabeçalho de plugin, readme.txt de plugin).
+    - PrefixAllGlobals aceita os prefixos do tema; troque pelos seus.
+    - O CSS compilado (style.css, style.min.css) fica fora: o fonte é o Sass.
+
+  Instalação do PHPCS e dos padrões: ver README da stack, seção "Verificar".
+  Rodar: vendor/bin/phpcs
+-->
+<ruleset name="Tema (Tainacan stack)">
+    <description>WordPress-Core + Docs + Extra + Security + PHPCompatibility</description>
+
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+    <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress.Security"/>
+
+    <config name="minimum_wp_version" value="6.5"/>
+    <config name="testVersion" value="7.4-"/>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="tainacan-interface"/>
+            </property>
+        </properties>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="tainacan_interface"/>
+                <element value="tainacan"/>
+                <element value="TAINACAN_INTERFACE"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!--
+      Os templates do tema usam nomes de arquivo do WordPress (single.php,
+      archive-tainacan-collection.php), que não seguem a convenção de nome de
+      arquivo de classe. É o contrato da hierarquia de templates.
+    -->
+    <rule ref="WordPress.Files.FileName">
+        <exclude-pattern>*/404.php</exclude-pattern>
+        <exclude-pattern>*/archive*.php</exclude-pattern>
+        <exclude-pattern>*/comments.php</exclude-pattern>
+        <exclude-pattern>*/footer.php</exclude-pattern>
+        <exclude-pattern>*/functions.php</exclude-pattern>
+        <exclude-pattern>*/header.php</exclude-pattern>
+        <exclude-pattern>*/index.php</exclude-pattern>
+        <exclude-pattern>*/page.php</exclude-pattern>
+        <exclude-pattern>*/searchform.php</exclude-pattern>
+        <exclude-pattern>*/sidebar.php</exclude-pattern>
+        <exclude-pattern>*/single.php</exclude-pattern>
+        <exclude-pattern>*/tainacan/*</exclude-pattern>
+        <exclude-pattern>*/template-parts/*</exclude-pattern>
+        <exclude-pattern>*/page-templates/*</exclude-pattern>
+        <exclude-pattern>*/inc/*</exclude-pattern>
+    </rule>
+
+
+    <!--
+      Template tags do Tainacan que já escapam por dentro. O núcleo escapa em
+      get_metadata_as_html(), get_value_as_html() e nas demais; chamá-las dentro
+      de esc_html() quebraria o HTML intencional que elas devolvem.
+    -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customAutoEscapedFunctions" type="array">
+                <element value="tainacan_get_the_metadata"/>
+                <element value="tainacan_get_the_metadata_sections"/>
+                <element value="tainacan_get_the_document"/>
+                <element value="tainacan_get_the_collection_name"/>
+                <element value="tainacan_get_the_collection_description"/>
+                <element value="tainacan_get_the_collection_url"/>
+                <element value="tainacan_get_the_term_name"/>
+                <element value="tainacan_get_the_term_description"/>
+                <element value="tainacan_get_attachment_as_html"/>
+                <element value="tainacan_get_single_attachment_as_html"/>
+                <element value="tainacan_get_single_taxonomy_content"/>
+                <element value="tainacan_get_the_media_component_slide"/>
+                <element value="tainacan_get_initials"/>
+                <!-- Acrescente aqui as template tags do seu tema que já devolvem HTML escapado. -->
+            </property>
+        </properties>
+    </rule>
+
+    <!--
+      Os nomes de gancho do tema de origem (tainacan-interface-*) são mantidos
+      de propósito: há plugins pendurados neles. Renomear com underscore
+      quebraria Item Print, Brasiliana LOD e Busca Segmentada, entre outros.
+    -->
+    <rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
+        <severity>0</severity>
+    </rule>
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
+        <severity>0</severity>
+    </rule>
+
+    <!--
+      Variável de template não é variável global: o WordPress carrega o arquivo
+      dentro de uma função (load_template), e o escopo é daquele arquivo. As
+      variáveis de template não levam prefixo e o sniff não sabe distinguir.
+    -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound">
+        <exclude-pattern>*/template-parts/*</exclude-pattern>
+        <exclude-pattern>*/tainacan/*</exclude-pattern>
+        <exclude-pattern>*/page-templates/*</exclude-pattern>
+        <exclude-pattern>*/404.php</exclude-pattern>
+        <exclude-pattern>*/archive*.php</exclude-pattern>
+        <exclude-pattern>*/comments.php</exclude-pattern>
+        <exclude-pattern>*/footer.php</exclude-pattern>
+        <exclude-pattern>*/header.php</exclude-pattern>
+        <exclude-pattern>*/index.php</exclude-pattern>
+        <exclude-pattern>*/page.php</exclude-pattern>
+        <exclude-pattern>*/searchform.php</exclude-pattern>
+        <exclude-pattern>*/sidebar.php</exclude-pattern>
+        <exclude-pattern>*/single.php</exclude-pattern>
+    </rule>
+
+    <!-- content_width é a variável global que o WordPress espera do tema. -->
+    <rule ref="WordPress.WP.GlobalVariablesOverride">
+        <exclude-pattern>*/functions.php</exclude-pattern>
+    </rule>
+
+    <!--
+      A classe TainacanInterfaceCollectionSettings vive em
+      functions/class-tainacan-interface-collection-settings.php. O nome do
+      arquivo vem do tema de origem e renomear quebra os temas filhos que o
+      incluem pelo caminho. O mesmo arquivo declara a classe e duas funções
+      públicas (tainacan_interface_collection_colors_css e
+      tainacan_interface_section_layout) que temas filhos chamam pelo nome.
+    -->
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+        <exclude-pattern>*/functions/class-tainacan-interface-collection-settings.php</exclude-pattern>
+    </rule>
+    <rule ref="Universal.Files.SeparateFunctionsFromOO">
+        <exclude-pattern>*/functions/class-tainacan-interface-collection-settings.php</exclude-pattern>
+    </rule>
+
+    <!--
+      Funções públicas herdadas do Tainacan Interface têm parâmetros chamados
+      $echo, $default, $class ou $object. Temas filhos podem chamá-las com
+      argumentos nomeados do PHP 8, então renomear o parâmetro quebraria a
+      chamada. Em inc/ as funções são novas e os parâmetros já foram renomeados.
+    -->
+    <rule ref="Universal.NamingConventions.NoReservedKeywordParameterNames">
+        <exclude-pattern>*/functions/*</exclude-pattern>
+    </rule>
+
+    <!--
+      Callbacks de gancho recebem uma lista fixa de argumentos. Os métodos
+      públicos da classe de configurações das coleções e do metadado textarea
+      espelham a assinatura do filtro (aqui, o segundo argumento $request); o
+      PHP aceita menos parâmetros, mas a assinatura é o contrato que as
+      subclasses de temas filhos sobrescrevem.
+    -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed">
+        <exclude-pattern>*/functions/class-tainacan-interface-*.php</exclude-pattern>
+    </rule>
+
+    <arg name="extensions" value="php"/>
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <file>.</file>
+
+    <!-- Capability registered by the Tainacan plugin (Tainacan\Roles). -->
+    <rule ref="WordPress.WP.Capabilities">
+        <properties>
+            <property name="custom_capabilities" type="array">
+                <element value="manage_tainacan"/>
+            </property>
+        </properties>
+    </rule>
+
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/vendor/*</exclude-pattern>
+    <exclude-pattern>*/inc/class-tainacan-interface-nav-walker.php</exclude-pattern>
+    <exclude-pattern>*/.agents/*</exclude-pattern>
+</ruleset>
