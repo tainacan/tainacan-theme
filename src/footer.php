@@ -10,7 +10,7 @@ if ( ! is_404() ) :
 		$tainacan_interface_address = get_theme_mod( 'tainacan_blogaddress', '' );
 		$tainacan_interface_email   = sanitize_email( (string) get_theme_mod( 'tainacan_blogemail', '' ) );
 		$tainacan_interface_phone   = get_theme_mod( 'tainacan_blogphone', '' );
-		$tainacan_interface_compact = tainacan_interface_is_modern() && 'compact' === tainacan_interface_opt( 'footer_style' );
+		$tainacan_interface_compact = 'compact' === tainacan_interface_opt( 'footer_style' );
 		?>
 		<footer class="container-fluid p-4 p-sm-5 mt-5 <?php echo $tainacan_interface_compact ? 'tt2-footer-compact ' : ''; ?>tainacan-footer <?php echo esc_attr( 'tainacan-footer-' . get_theme_mod( 'tainacan_footer_color', 'dark' ) ); ?>"<?php echo $tainacan_interface_compact ? '' : ' style="padding-bottom: 0 !important;"'; ?>>
 			<?php if ( ! $tainacan_interface_compact && is_active_sidebar( 'tainacan-sidebar-footer' ) ) : ?>
@@ -78,8 +78,7 @@ if ( ! is_404() ) :
 					</span>
 				</div>
 				<?php
-				if ( tainacan_interface_is_modern() ) :
-					ob_start();
+				ob_start();
 					wp_nav_menu(
 						array(
 							'theme_location'       => 'tt2_footer',
@@ -92,22 +91,21 @@ if ( ! is_404() ) :
 					);
 					tainacan_interface_the_social_links( 'footer' );
 					$tainacan_interface_note = (string) tainacan_interface_opt( 'footer_text' );
-					if ( '' !== $tainacan_interface_note ) {
-						$tainacan_interface_note = strtr(
-							$tainacan_interface_note,
-							array(
-								'{year}' => wp_date( 'Y' ),
-								'{site}' => get_bloginfo( 'name' ),
-							)
-						);
-						echo '<p class="tt2-footer-note">' . esc_html( $tainacan_interface_note ) . '</p>';
-					}
+				if ( '' !== $tainacan_interface_note ) {
+					$tainacan_interface_note = strtr(
+						$tainacan_interface_note,
+						array(
+							'{year}' => wp_date( 'Y' ),
+							'{site}' => get_bloginfo( 'name' ),
+						)
+					);
+					echo '<p class="tt2-footer-note">' . esc_html( $tainacan_interface_note ) . '</p>';
+				}
 					$tainacan_interface_extra = trim( (string) ob_get_clean() );
-					if ( '' !== $tainacan_interface_extra ) {
-						// tnc-check-ignore TNC-S05: menu, links and note, each escaped by the function that built it.
-						echo '<div class="col-12 tt2-footer-extra">' . $tainacan_interface_extra . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buffered output of wp_nav_menu(), of the social links (wp_kses) and of esc_html() above; escaping it again would break the markup.
-					}
-				endif;
+				if ( '' !== $tainacan_interface_extra ) {
+					// tnc-check-ignore TNC-S05: menu, links and note, each escaped by the function that built it.
+					echo '<div class="col-12 tt2-footer-extra">' . $tainacan_interface_extra . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buffered output of wp_nav_menu(), of the social links (wp_kses) and of esc_html() above; escaping it again would break the markup.
+				}
 				?>
 			</div>
 		</footer>

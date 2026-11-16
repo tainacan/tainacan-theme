@@ -10,7 +10,7 @@
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '4.2.2';
+const TAINACAN_INTERFACE_VERSION = '4.3.0';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -76,7 +76,6 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		);
 
 		add_theme_support( 'title-tag' );
-		add_theme_support( 'custom-background' );
 
 		require_once get_template_directory() . '/functions/enqueues.php';
 
@@ -219,15 +218,12 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 add_action( 'after_setup_theme', 'tainacan_setup' );
 
 /**
- * The link color chosen in the Customizer, as a hex color; the default teal
- * when none (or something that is not a color) was saved.
+ * The link color of the editor and the blocks: the accent color of the design.
  *
  * @return string
  */
 function tainacan_interface_link_color() {
-	$color = function_exists( 'tainacan_get_color_scheme' ) ? tainacan_get_color_scheme() : array();
-	$color = isset( $color[2] ) ? sanitize_hex_color( $color[2] ) : '';
-	return $color ? $color : '#187181';
+	return (string) tainacan_interface_opt( 'accent_color' );
 }
 
 /**

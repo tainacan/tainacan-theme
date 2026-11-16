@@ -229,7 +229,9 @@ function tainacan_interface_the_collection_header( $on_item = false ) {
 			'heading'       => $on_item ? 'h2' : 'h1',
 		)
 	);
-	tainacan_interface_the_collection_menu( $collection_id );
+	if ( 'show' === tainacan_interface_opt( 'head_menu', $collection_id ) ) {
+		tainacan_interface_the_collection_menu( $collection_id );
+	}
 }
 
 /**

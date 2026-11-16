@@ -92,19 +92,9 @@ function tainacan_interface_state_set( $key, $value ) {
 }
 
 /**
- * Theme mods of the features the visitor sees, all on by default.
- *
- * @return string[]
- */
-function tainacan_interface_feature_mods() {
-	return array( 'tainacan_interface_item_drawer', 'tainacan_interface_item_viewer', 'tainacan_interface_item_highlight', 'tainacan_interface_item_aside' );
-}
-
-/**
  * Activation: records the version, so the next request does not take the site
  * for an update. Settings of another theme come only when an administrator asks,
- * in the notice below. A child theme of this one starts with the design its
- * parent was showing.
+ * in the notice below.
  *
  * @param string        $old_name  Name of the previous theme.
  * @param WP_Theme|bool $old_theme Previous theme, or false when it no longer exists.
@@ -122,9 +112,6 @@ function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) 
 		return;
 	}
 	if ( get_template() === $previous ) {
-		if ( isset( $mods['tainacan_interface_design'] ) && false === get_theme_mod( 'tainacan_interface_design', false ) ) {
-			set_theme_mod( 'tainacan_interface_design', $mods['tainacan_interface_design'] );
-		}
 		return;
 	}
 	if ( preg_grep( '/^tainacan_/', array_filter( array_keys( $mods ), 'is_string' ) ) ) {
@@ -158,10 +145,7 @@ function tainacan_interface_import_settings( $previous ) {
 	if ( is_array( $own ) && isset( $own['custom_css_post_id'] ) ) {
 		$imported['custom_css_post_id'] = $own['custom_css_post_id'];
 	}
-	// A theme that knew no other design was showing the classic one.
-	if ( ! isset( $imported['tainacan_interface_design'] ) ) {
-		$imported['tainacan_interface_design'] = 'classic';
-	}
+	unset( $imported['tainacan_interface_design'] );
 	update_option( 'theme_mods_' . get_stylesheet(), $imported );
 	tainacan_interface_rename_working_meta();
 
@@ -260,27 +244,18 @@ function tainacan_interface_on_update() {
 	if ( false === $seen ) {
 		$mods    = get_theme_mods();
 		$renamed = tainacan_interface_rename_working_mods( is_array( $mods ) ? $mods : array() );
-		$working = tainacan_interface_rename_working_meta() || $renamed !== $mods;
+		tainacan_interface_rename_working_meta();
 		if ( $renamed !== $mods ) {
 			update_option( 'theme_mods_' . get_stylesheet(), $renamed );
 		}
-		// From the 2.x working name the features were already there: they stay as the site had them.
-		if ( ! $working ) {
-			// From official 2.x: what the visitor sees stays as it was until an administrator turns it on.
-			foreach ( tainacan_interface_feature_mods() as $mod ) {
-				if ( ! array_key_exists( $mod, $renamed ) ) {
-					set_theme_mod( $mod, false );
-				}
-			}
-			tainacan_interface_state_set( 'features_notice', 1 );
-		}
 	}
 
-	// Up to version 3 the pages had another design: it stays until an administrator chooses.
-	if ( ( false === $seen || version_compare( (string) $seen, '4.0.0', '<' ) ) && false === get_theme_mod( 'tainacan_interface_design', false ) ) {
-		set_theme_mod( 'tainacan_interface_design', 'classic' );
+	// Up to version 4.1 a site could stay on the earlier look; from 4.2 there is one design.
+	if ( false === $seen || version_compare( (string) $seen, '4.2.0', '<' ) ) {
+		remove_theme_mod( 'tainacan_interface_design' );
 		tainacan_interface_state_set( 'design_notice', 1 );
 	}
+	tainacan_interface_state_set( 'features_notice', null );
 
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 	delete_option( $lock );
@@ -334,28 +309,6 @@ function tainacan_interface_rename_working_meta() {
 }
 
 /**
- * Notice to administrators after an update from 2.x.
- */
-function tainacan_interface_new_features_notice() {
-	if ( ! tainacan_interface_state( 'features_notice' ) || ! current_user_can( 'edit_theme_options' ) ) {
-		return;
-	}
-	$customize = add_query_arg( array( 'autofocus[section]' => 'tainacan_interface_features' ), admin_url( 'customize.php' ) );
-	$dismiss   = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_dismiss_notice' ), 'tainacan_interface_dismiss_notice' );
-	?>
-	<div class="notice notice-info">
-		<p><strong><?php esc_html_e( 'Tainacan Interface 3 has new features, off on this site until you turn them on.', 'tainacan-interface' ); ?></strong></p>
-		<p><?php esc_html_e( 'An item preview drawer on the lists, a file viewer and PDF reader on the item page, a highlighted item record and a side column of related items. The security fixes are already on.', 'tainacan-interface' ); ?></p>
-		<p>
-			<a class="button button-primary" href="<?php echo esc_url( $customize ); ?>"><?php esc_html_e( 'See the new features', 'tainacan-interface' ); ?></a>
-			<a class="button" href="<?php echo esc_url( $dismiss ); ?>"><?php esc_html_e( 'Dismiss', 'tainacan-interface' ); ?></a>
-		</p>
-	</div>
-	<?php
-}
-add_action( 'admin_notices', 'tainacan_interface_new_features_notice' );
-
-/**
  * Notice to administrators after an update from an earlier version: the new
  * design exists and is off.
  */
@@ -367,10 +320,10 @@ function tainacan_interface_new_design_notice() {
 	$dismiss   = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_dismiss_design_notice' ), 'tainacan_interface_dismiss_design_notice' );
 	?>
 	<div class="notice notice-info">
-		<p><strong><?php esc_html_e( 'Tainacan Interface 4 has a new design, off on this site until you choose it.', 'tainacan-interface' ); ?></strong></p>
-		<p><?php esc_html_e( 'A new collection header, breadcrumb, list of collections, item preview and item page, all adjustable, and menus for each collection. Your pages keep their look. Try it in the Customizer before publishing: "Tainacan Interface" > "Look and feel" > "Page design".', 'tainacan-interface' ); ?></p>
+		<p><strong><?php esc_html_e( 'Tainacan Interface has a new design.', 'tainacan-interface' ); ?></strong></p>
+		<p><?php esc_html_e( 'A new collection header, breadcrumb, list of collections, item preview and item page, all adjustable in Appearance > Customize > Tainacan Interface, and menus for each collection in Appearance > Menus.', 'tainacan-interface' ); ?></p>
 		<p>
-			<a class="button button-primary" href="<?php echo esc_url( $customize ); ?>"><?php esc_html_e( 'Try the new design', 'tainacan-interface' ); ?></a>
+			<a class="button button-primary" href="<?php echo esc_url( $customize ); ?>"><?php esc_html_e( 'Adjust the design', 'tainacan-interface' ); ?></a>
 			<a class="button" href="<?php echo esc_url( $dismiss ); ?>"><?php esc_html_e( 'Dismiss', 'tainacan-interface' ); ?></a>
 		</p>
 	</div>
@@ -391,20 +344,6 @@ function tainacan_interface_dismiss_design_notice() {
 	exit;
 }
 add_action( 'admin_post_tainacan_interface_dismiss_design_notice', 'tainacan_interface_dismiss_design_notice' );
-
-/**
- * Dismisses the notice for the whole site.
- */
-function tainacan_interface_dismiss_notice() {
-	if ( ! current_user_can( 'edit_theme_options' ) ) {
-		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
-	}
-	check_admin_referer( 'tainacan_interface_dismiss_notice' );
-	tainacan_interface_state_set( 'features_notice', null );
-	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
-	exit;
-}
-add_action( 'admin_post_tainacan_interface_dismiss_notice', 'tainacan_interface_dismiss_notice' );
 
 /**
  * Translations. The files shipped in languages/ come first: in a domain with

@@ -25,7 +25,7 @@ get_header();
 			'show_filters_button_inside_search_control' => get_theme_mod( 'tainacan_items_page_show_filters_button_inside_search_control', false ),
 			'start_with_filters_hidden'                 => get_theme_mod( 'tainacan_items_page_start_with_filters_hidden', false ),
 			'filters_as_modal'                          => get_theme_mod( 'tainacan_items_page_filters_as_modal', false ),
-			'show_inline_view_mode_options'             => get_theme_mod( 'tainacan_items_page_show_inline_view_mode_options', tainacan_interface_is_modern() ),
+			'show_inline_view_mode_options'             => get_theme_mod( 'tainacan_items_page_show_inline_view_mode_options', true ),
 			'show_fullscreen_with_view_modes'           => get_theme_mod( 'tainacan_items_page_show_fullscreen_with_view_modes', false ),
 			'should_not_hide_filters_on_mobile'         => get_theme_mod( 'tainacan_items_page_should_not_hide_filters_on_mobile', false ),
 			'display_filters_horizontally'              => get_theme_mod( 'tainacan_items_page_display_filters_horizontally', false ),

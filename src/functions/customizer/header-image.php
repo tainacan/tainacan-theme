@@ -67,40 +67,6 @@ if ( ! function_exists( 'tainacan_interface_customize_register_header_image' ) )
 				'description' => __( 'Toggle to hide the header banner from all pages of the site', 'tainacan-interface' ),
 			)
 		);
-		$wp_customize->add_setting(
-			'tainacan_hide_header_box_opacity',
-			array(
-				'type'              => 'theme_mod',
-				'capability'        => 'edit_theme_options',
-				'default'           => 60,
-				'transport'         => 'postMessage',
-				'sanitize_callback' => 'tainacan_interface_sanitize_number',
-			)
-		);
-		$wp_customize->add_control(
-			'tainacan_hide_header_box_opacity',
-			array(
-				'type'            => 'number',
-				'priority'        => 22,
-				'section'         => 'header_image',
-				'label'           => __( 'Title box opacity (%)', 'tainacan-interface' ),
-				'description'     => __( 'Change the opacity of the white box that holds the banner site title', 'tainacan-interface' ),
-				'input_attrs'     => array(
-					'min'  => 0,
-					'max'  => 100,
-					'step' => 5,
-				),
-				'active_callback' => 'tainacan_interface_is_header_banner_title_visible',
-			)
-		);
-		$wp_customize->selective_refresh->add_partial(
-			'tainacan_hide_header_box_opacity',
-			array(
-				'selector'         => '.page-header .ph-title-description',
-				'render_callback'  => '__return_false',
-				'fallback_refresh' => true,
-			)
-		);
 
 		/**
 		 * Adds option to display featured image on site header

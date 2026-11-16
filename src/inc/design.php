@@ -195,10 +195,6 @@ function tainacan_interface_design_css() {
  * rules win without more specificity than they need.
  */
 function tainacan_interface_design_enqueue() {
-	if ( ! tainacan_interface_is_modern() ) {
-		return;
-	}
-
 	$uri = get_template_directory_uri();
 	// A child theme with its own enqueues may not have the handle, and a missing dependency drops the stylesheet.
 	wp_enqueue_style( 'tainacan-interface-modern', $uri . '/assets/css/modern.css', wp_style_is( 'tainacan_tainacanStyle', 'registered' ) ? array( 'tainacan_tainacanStyle' ) : array(), TAINACAN_INTERFACE_VERSION );
@@ -230,10 +226,6 @@ add_action( 'wp_enqueue_scripts', 'tainacan_interface_design_enqueue', 20 );
  * @return string[]
  */
 function tainacan_interface_design_body_class( $box_classes ) {
-	if ( ! tainacan_interface_is_modern() ) {
-		return $box_classes;
-	}
-
 	$box_classes[] = 'tt2-modern';
 	$box_classes[] = 'tt2-header-' . tainacan_interface_opt( 'header_style' );
 	if ( 'light' !== tainacan_interface_opt( 'header_style' ) ) {
@@ -380,7 +372,7 @@ function tainacan_interface_mosaic_forget( $post ) {
 	static $types = array();
 
 	$type = (string) get_post_type( $post );
-	if ( isset( $types[ $type ] ) || ! tainacan_interface_is_modern() || 1 !== preg_match( '/^tnc_col_(\d+)_item$/', $type, $match ) ) {
+	if ( isset( $types[ $type ] ) || 1 !== preg_match( '/^tnc_col_(\d+)_item$/', $type, $match ) ) {
 		return;
 	}
 	$types[ $type ] = true;
@@ -524,9 +516,6 @@ function tainacan_interface_has_sidebar() {
 	if ( ! is_active_sidebar( 'tainacan-sidebar-right' ) ) {
 		return false;
 	}
-	if ( ! tainacan_interface_is_modern() ) {
-		return true;
-	}
 	// The blog and its archives; the lists of collections and taxonomies have no sidebar.
 	$blog = is_home() || is_search() || ( is_archive() && ! is_post_type_archive() && ! is_tax() );
 	return 'none' !== tainacan_interface_opt( 'sidebar_position' ) && $blog && ! tainacan_interface_is_list_page();
@@ -539,14 +528,14 @@ function tainacan_interface_has_sidebar() {
  * @return bool
  */
 function tainacan_interface_post_shows( $part ) {
-	return ! tainacan_interface_is_modern() || (bool) tainacan_interface_opt( 'post_' . $part );
+	return (bool) tainacan_interface_opt( 'post_' . $part );
 }
 
 /**
  * The emoji script of WordPress, left out when the administrator chose to.
  */
 function tainacan_interface_without_emoji() {
-	if ( is_admin() || ! tainacan_interface_is_modern() || ! tainacan_interface_opt( 'perf_emoji' ) ) {
+	if ( is_admin() || ! tainacan_interface_opt( 'perf_emoji' ) ) {
 		return;
 	}
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );

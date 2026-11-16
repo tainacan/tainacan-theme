@@ -1,5 +1,26 @@
 # Changelog
 
+## 4.3.0 (2026-11-07)
+
+One design. The classic look stayed, until 4.2, so that an update in place would not change what the visitor saw. That rule was lifted on 07/11/2026: the new design is the theme, and what only the old look used went away.
+
+### Removed
+
+- The option "Page design" and `tainacan_interface_is_modern()`, with every branch of the old look in templates, Customizer and scripts.
+- `assets/css/bootstrap-legacy.css` (115 kB), `assets/js/js.js` and `assets/js/tainacan-interface-truncate.js` (the jQuery scripts), `assets/js/color-scheme-control.js` and `assets/js/customize-preview.js` (live color scheme), `assets/js/collection-color.js`, `assets/js/spectrum.js` and `assets/css/spectrum.css` (color picker of the old collection header), `functions/customizer/colors.php`, `functions/customizer/tainacan-items-page-collection-banner.php`, the three `loop-tainacan-collection*.php` templates.
+- Options of the old look: color scheme, link and tooltip color, box opacity of the site banner, height of the collection banner, item thumbnail in the record, columns of metadata per screen, "Highlighted item record" (always on), the header color fields of the collection form.
+
+### Kept for child themes
+
+- `template-parts/headercollection.php`, `headertaxonomy.php` and `single-items-header.php`, now one call each, so a child or a plugin that asks for them by name gets the new header.
+- The actions `tainacan-interface-*`, the handles `bootstrap4CSS` and `bootstrap4JS` (aliases of foundation.css and nav.js), `lib/class-wp-bootstrap-navwalker.php`, the grid and utility classes of foundation.css, and the header color a collection saved (`tainacan_theme_collection_background_color`), read as its main color.
+- A child with its own copy of `tainacan_enqueues()` from 2.x still gets the files that replaced Bootstrap.
+
+### Also
+
+- Menu bars: `head_menu` (per collection) and `list_menu` turn off the bars of a collection and of the list of collections.
+- The back to top arrow is centered; the pagination of the Tainacan lists is on one line.
+
 ## 4.2.2 (2026-11-07)
 
 - The share box of the modern design had no width of its own: absolute inside the small "Share" box, it took that width and squeezed the icons into ovals. It now has its own width, and the copy link button lost the default look of a button.

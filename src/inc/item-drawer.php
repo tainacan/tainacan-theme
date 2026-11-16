@@ -317,10 +317,10 @@ function tainacan_interface_drawer_payload( $item, $meta ) {
 	}
 
 	if ( $any_marked ) {
-		$data['fields']      = array_slice( $marked, 0, tainacan_interface_is_modern() ? 30 : 16 );
+		$data['fields']      = array_slice( $marked, 0, 30 );
 		$data['description'] = $description['marked'] ? $description['text'] : '';
 	} else {
-		$data['fields']      = array_slice( array_merge( $default, $others ), 0, tainacan_interface_is_modern() ? 30 : 12 );
+		$data['fields']      = array_slice( array_merge( $default, $others ), 0, 30 );
 		$data['description'] = empty( $description['listed'] ) ? $description['text'] : '';
 	}
 
@@ -335,14 +335,13 @@ function tainacan_interface_drawer_enqueue() {
 		return;
 	}
 
-	$modern = tainacan_interface_is_modern();
-	$mode   = $modern ? tainacan_interface_opt( 'drawer_mode' ) : 'push';
+	$mode = tainacan_interface_opt( 'drawer_mode' );
 	if ( 'off' === $mode ) {
 		return;
 	}
 
 	$uri   = get_template_directory_uri();
-	$label = $modern ? tainacan_interface_opt( 'drawer_open_label' ) : '';
+	$label = tainacan_interface_opt( 'drawer_open_label' );
 
 	wp_enqueue_style( 'tainacan-interface-item-drawer', $uri . '/assets/css/item-drawer.css', array(), TAINACAN_INTERFACE_VERSION );
 	wp_enqueue_script( 'tainacan-interface-item-drawer', $uri . '/assets/js/item-drawer.js', array(), TAINACAN_INTERFACE_VERSION, true );
@@ -353,14 +352,13 @@ function tainacan_interface_drawer_enqueue() {
 			'endpoint'  => esc_url_raw( rest_url( TAINACAN_INTERFACE_REST_NAMESPACE . '/item/' ) ),
 			'nonce'     => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
 			'mode'      => $mode,
-			'side'      => $modern ? tainacan_interface_opt( 'drawer_side' ) : 'right',
-			'backdrop'  => $modern && tainacan_interface_opt( 'drawer_backdrop' ),
-			'media'     => $modern ? tainacan_interface_opt( 'drawer_media' ) : 'contain',
-			'metaLine'  => $modern && tainacan_interface_opt( 'drawer_meta_line' ),
-			'noDesc'    => $modern && ! tainacan_interface_opt( 'drawer_description' ),
-			'maxFields' => $modern ? (int) tainacan_interface_opt( 'drawer_max_fields' ) : 30,
-			'openNew'   => $modern && tainacan_interface_opt( 'drawer_open_new' ),
-			'modern'    => $modern,
+			'side'      => tainacan_interface_opt( 'drawer_side' ),
+			'backdrop'  => tainacan_interface_opt( 'drawer_backdrop' ),
+			'media'     => tainacan_interface_opt( 'drawer_media' ),
+			'metaLine'  => tainacan_interface_opt( 'drawer_meta_line' ),
+			'noDesc'    => ! tainacan_interface_opt( 'drawer_description' ),
+			'maxFields' => (string) tainacan_interface_opt( 'drawer_max_fields' ),
+			'openNew'   => tainacan_interface_opt( 'drawer_open_new' ),
 			'i18n'      => array(
 				'label'      => __( 'Item preview', 'tainacan-interface' ),
 				'close'      => __( 'Close preview', 'tainacan-interface' ),
@@ -372,7 +370,7 @@ function tainacan_interface_drawer_enqueue() {
 				'unplayable' => __( 'This browser cannot play this file. You can download it.', 'tainacan-interface' ),
 				'download'   => __( 'Download', 'tainacan-interface' ),
 				'error'      => __( 'This item could not be loaded.', 'tainacan-interface' ),
-				'open'       => '' !== $label ? $label : ( $modern ? __( 'Open item', 'tainacan-interface' ) : __( 'Open the full record', 'tainacan-interface' ) ),
+				'open'       => '' !== $label ? $label : __( 'Open item', 'tainacan-interface' ),
 			),
 		)
 	);

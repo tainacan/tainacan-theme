@@ -15,88 +15,8 @@ if ( tainacan_interface_child_legacy_part( 'template-parts/single-items-metadata
 	return;
 }
 
-if (
-		! tainacan_interface_is_modern() && (
-		( has_post_thumbnail() && get_theme_mod( 'tainacan_single_item_display_thumbnail', true ) ) ||
-		( ! get_theme_mod( 'tainacan_single_item_collection_header', false ) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true ) ) )
-	) {
-	// Gets collection so we can obtain firtst metadata.
-	$collection = tainacan_get_collection();
-
-	if ( ! is_null( $collection ) ) {
-
-		// Gets array of metadata order.
-		$metadata_order = $collection->get_metadata_order();
-
-		if ( is_array( $metadata_order ) ) {
-
-			$first_metadatum_id = -1;
-
-			foreach ( $metadata_order as $metadatum ) {
-
-				// Checks if the metadata is enabled.
-				if ( isset( $metadatum['enabled'] ) && $metadatum['enabled'] && isset( $metadatum['id'] ) ) {
-					$first_metadatum_id = $metadatum['id'];
-
-					// IF we are not displaying the title here, we must look for the second metadata.
-					if ( get_theme_mod( 'tainacan_single_item_hide_core_title_metadata', false ) ) {
-
-						$tainacan_metadata    = \Tainacan\Repositories\Metadata::get_instance();
-						$metadatum_object     = $tainacan_metadata->fetch( $first_metadatum_id ); // tnc-check-ignore TNC-P02: the loop stops at the first enabled metadatum that is not the title, so at most two fetches.
-						$metadata_type_object = $metadatum_object->get_metadata_type_object();
-
-						if ( 'title' === $metadata_type_object->get_related_mapped_prop() ) {
-							continue;
-						}
-					}
-
-					break;
-				}
-			}
-
-			if ( is_numeric( $first_metadatum_id ) && $first_metadatum_id >= 0 ) {
-
-				add_filter(
-					'tainacan-get-item-metadatum-as-html-before--id-' . $first_metadatum_id,
-					function ( $before ) {
-
-						ob_start();
-
-						if ( has_post_thumbnail() && get_theme_mod( 'tainacan_single_item_display_thumbnail', true ) ) : ?>
-							<div class="tainacan-item-thumbnail-container card border-0 mb-3">
-								<div class="card-body border-0 pl-0 pt-0 pb-1">
-									<h3><?php esc_html_e( 'Thumbnail', 'tainacan-interface' ); ?></h3>
-											<?php the_post_thumbnail( 'tainacan-medium-full', array( 'class' => 'item-card--thumbnail mt-2' ) ); ?>
-								</div>
-							</div>
-								<?php endif; ?>
-							<?php if ( ! get_theme_mod( 'tainacan_single_item_collection_header', false ) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true ) ) : ?>
-							<div class="card border-0 mb-3">
-								<div class="tainacan-item-share-container card-body border-0 pl-0 pt-0 pb-1">
-									<h3><?php esc_html_e( 'Share', 'tainacan-interface' ); ?></h3>
-									<div class="btn-group" role="group">
-										<?php tainacan_interface_the_share_links( get_permalink(), get_the_title(), 'images', 'item-card-link--sharing' ); ?>
-									</div>
-								</div>
-							</div>
-								<?php
-						endif;
-
-							$extra_content = ob_get_contents();
-							ob_end_clean();
-
-							return $extra_content . $before;
-					},
-					10,
-					2
-				);
-			}
-		}
-	}
-}
-
 	$tainacan_interface_metadata_label = (string) get_theme_mod( 'tainacan_single_item_metadata_section_label', '' );
-if ( '' !== $tainacan_interface_metadata_label && tainacan_interface_is_modern() ) :
+if ( '' !== $tainacan_interface_metadata_label ) :
 	?>
 		<h2 class="title-content-items" id="single-item-metadata-label"><?php echo esc_html( $tainacan_interface_metadata_label ); ?></h2>
 		<?php
@@ -104,14 +24,14 @@ if ( '' !== $tainacan_interface_metadata_label && tainacan_interface_is_modern()
 
 	$metadata_args = array(
 		'display_slug_as_class' => true,
-		'exclude_title'         => get_theme_mod( 'tainacan_single_item_hide_core_title_metadata', tainacan_interface_is_modern() ),
+		'exclude_title'         => get_theme_mod( 'tainacan_single_item_hide_core_title_metadata', true ),
 		'before_value'          => '<div class="tainacan-metadata-value tainacan-interface-rich-text">',
 		'after_value'           => '</div>',
 	);
 
 	$section_layout = tainacan_interface_section_layout( tainacan_get_collection_id() );
 
-	if ( tainacan_interface_is_modern() && 'default' === $section_layout ) {
+	if ( 'default' === $section_layout ) {
 		$sections_open = tainacan_interface_opt( 'item_sections' );
 
 		if ( 'first' === $sections_open ) {

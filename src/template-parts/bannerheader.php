@@ -5,7 +5,7 @@
  * @package tainacan-interface
  */
 
-if ( ! (bool) get_theme_mod( 'tainacan_hide_header_banner', false ) && ! ( tainacan_interface_is_modern() && 'none' === tainacan_interface_opt( 'hero_style' ) ) ) :
+if ( ! (bool) get_theme_mod( 'tainacan_hide_header_banner', false ) && 'none' !== tainacan_interface_opt( 'hero_style' ) ) :
 	if ( ! is_singular() || ! (bool) get_theme_mod( 'tainacan_featured_image_on_header_banner', false ) || ! has_post_thumbnail() ) :
 		?>
 		<div
@@ -23,9 +23,6 @@ else :
 		<div class="container-fluid p-0 ph-title-description">
 			<?php if ( ! (bool) get_theme_mod( 'tainacan_hide_site_title_on_header_banner', false ) ) : ?>
 				<div 
-						<?php if ( ! tainacan_interface_is_modern() ) : ?>
-						style="background-color: rgba(255, 255, 255, <?php echo esc_attr( min( 100, absint( get_theme_mod( 'tainacan_hide_header_box_opacity', 65 ) ) ) / 100 ); ?>) !important;"
-						<?php endif; ?>
 						class="title-header 
 						<?php
 						if ( is_singular() || is_archive() || is_search() || is_home() ) {

@@ -44,27 +44,11 @@ class TainacanInterfaceCollectionSettings {
 	 * Enqueues the color picker assets on the Tainacan admin.
 	 */
 	public function action_tainacan_enqueue_admin_scripts() {
-		wp_enqueue_script( 'tainacan_colorWell', get_template_directory_uri() . '/assets/js/collection-color.js', array(), TAINACAN_INTERFACE_VERSION, true );
 		wp_enqueue_style( 'tainacan_collection_extra_options', get_template_directory_uri() . '/assets/css/collection-extra-options.css', array(), TAINACAN_INTERFACE_VERSION );
-		wp_localize_script(
-			'tainacan_colorWell',
-			'tainacan_colorPickerVars',
-			array(
-				'cancelText'            => __( 'Cancel', 'tainacan-interface' ),
-				'chooseText'            => __( 'Choose', 'tainacan-interface' ),
-				'togglePaletteMoreText' => __( 'more', 'tainacan-interface' ),
-				'togglePaletteLessText' => __( 'less', 'tainacan-interface' ),
-				'clearText'             => __( 'Clear Color Selection', 'tainacan-interface' ),
-				'noColorSelectedText'   => __( 'No Color Selected', 'tainacan-interface' ),
-			)
-		);
-
-		wp_enqueue_script( 'spectrum', get_template_directory_uri() . '/assets/js/spectrum.js', array(), TAINACAN_INTERFACE_VERSION, true );
-		wp_enqueue_style( 'spectrum', get_template_directory_uri() . '/assets/css/spectrum.css', array(), TAINACAN_INTERFACE_VERSION );
 	}
 
 	/**
-	 * Registers the extra settings form on the collection edit screen.
+	 * Registers the form on the collection page.
 	 */
 	public function register_hook() {
 		if ( function_exists( 'tainacan_register_admin_hook' ) ) {
@@ -156,58 +140,6 @@ class TainacanInterfaceCollectionSettings {
 			</div>
 		</div>
 		<?php endif; ?>
-		<div>
-			<label class="label" style="position: relative;">
-				<?php esc_html_e( 'Collection items list header colors', 'tainacan-interface' ); ?>
-				<span class="help-wrapper">
-					<a class="help-button has-text-secondary">
-						<span class="icon is-small">
-							<i class="tainacan-icon tainacan-icon-help"/></i>
-						</span>
-					</a>
-					<div class="help-tooltip">
-						<div class="help-tooltip-header">
-							<h5><?php esc_html_e( 'Collection items list header colors', 'tainacan-interface' ); ?></h5>
-						</div> 
-						<div class="help-tooltip-body">
-							<p><?php esc_html_e( 'Select which color will be used for the text and background of your collection items list header.', 'tainacan-interface' ); ?></p>
-						</div>
-					</div>
-				</span>
-			</label>
-		</div>
-		<div class="columns is-multiline is-2">
-			<div class="column is-one-third-fullhd is-full-tablet field tainacan-collection--change-color-picker">
-				<label class="label"><?php esc_html_e( 'Background', 'tainacan-interface' ); ?></label>
-				<div class="control is-clearfix"> 
-					<input type="text" value="" id="colorpicker" name="<?php echo esc_attr( $this->tainacan_background_color ); ?>">
-				</div>
-			</div>
-
-			<div class="column is-two-thirds-fullhd is-full-tablet field tainacan-collection--change-text-color">
-				<label class="label"><?php esc_html_e( 'Text', 'tainacan-interface' ); ?></label>
-				<div class="control is-clearfix"> 
-					<label for="white" id="color-white" class="color-text">
-						<input
-							type="radio" 
-							value="#fff" 
-							name="<?php echo esc_attr( $this->tainacan_text_color ); ?>"
-							id="white" checked>
-						<?php esc_html_e( 'White', 'tainacan-interface' ); ?>
-					</label>
-
-					<label for="black" id="color-black" class="color-text">
-						<input
-							type="radio" 
-							value="#000" 
-							name="<?php echo esc_attr( $this->tainacan_text_color ); ?>"
-							id="black">
-							<?php esc_html_e( 'Black', 'tainacan-interface' ); ?>
-					</label>
-				</div>
-			</div>
-		</div>
-
 		<?php
 		return ob_get_clean();
 	}

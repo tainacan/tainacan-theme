@@ -23,8 +23,7 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		 * still depend on the old handles of Bootstrap: they stay as aliases, with no file.
 		 */
 		wp_register_style( 'tainacan-interface-foundation', $uri . '/assets/css/foundation.css', array(), TAINACAN_INTERFACE_VERSION );
-		wp_register_style( 'tainacan-interface-bootstrap-legacy', $uri . '/assets/css/bootstrap-legacy.css', array( 'tainacan-interface-foundation' ), TAINACAN_INTERFACE_VERSION );
-		wp_register_style( 'bootstrap4CSS', false, tainacan_interface_foundation_handles(), TAINACAN_INTERFACE_VERSION );
+		wp_register_style( 'bootstrap4CSS', false, array( 'tainacan-interface-foundation' ), TAINACAN_INTERFACE_VERSION );
 		wp_enqueue_style( 'bootstrap4CSS' );
 		wp_register_script( 'tainacan-interface-nav', $uri . '/assets/js/nav.js', array(), TAINACAN_INTERFACE_VERSION, true );
 		wp_register_script( 'bootstrap4JS', false, array( 'tainacan-interface-nav' ), TAINACAN_INTERFACE_VERSION, true );
@@ -33,19 +32,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		/**
 		 * Tainacan Interface theme
 		 */
-		// The design of version 4 does the same in assets/js/modern.js, without jQuery, including the item page borders below.
-		$jquery_scripts = ! tainacan_interface_is_modern();
-
-		wp_register_script( 'tainacan_tainacanTruncate', $uri . '/assets/js/tainacan-interface-truncate.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, false );
-		wp_localize_script(
-			'tainacan_tainacanTruncate',
-			'tainacan_trucanteVars',
-			array(
-				'moreText' => __( 'Show more', 'tainacan-interface' ),
-				'lessText' => __( 'Show less', 'tainacan-interface' ),
-			)
-		);
-
 		// The parent's stylesheet, minified unless debugging. A child theme's own
 		// style.css comes after it, in inc/child-theme.php.
 		$style_uri     = $uri . '/style.css';
@@ -57,17 +43,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 
 		wp_register_style( 'tainacan_tainacanStyle', $style_uri, array( 'bootstrap4CSS' ), TAINACAN_INTERFACE_VERSION );
 		wp_enqueue_style( 'tainacan_tainacanStyle' );
-		wp_register_script( 'tainacan_tainacanJS', $uri . '/assets/js/js.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
-		if ( $jquery_scripts ) {
-			wp_enqueue_script( 'tainacan_tainacanTruncate' );
-			wp_enqueue_script( 'tainacan_tainacanJS' );
-		}
-
-		// Item page: the header borders change (was a script printed after </html>).
-		if ( tainacan_interface_is_item_page() ) {
-			wp_add_inline_script( 'tainacan_tainacanJS', 'jQuery(function(){jQuery("#topNavbar").addClass("b-bottom-top");jQuery("nav.menu-belowheader").removeClass("border-bottom");jQuery("nav.menu-belowheader .max-large").addClass("b-bottom-bellow");});' );
-		}
-
 		if ( defined( 'TAINACAN_VERSION' ) && class_exists( '\Tainacan\Theme_Helper' ) ) {
 			$settings = array(
 				'theme_items_list_url'      => esc_url_raw( home_url( \Tainacan\Theme_Helper::get_instance()->get_items_list_slug() ) ),
@@ -103,24 +78,6 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 add_action( 'wp_enqueue_scripts', 'tainacan_enqueues' );
 
 /**
- * Handles behind the old Bootstrap one. On the classic design the rules the theme
- * no longer uses stay, because posts and child themes written for 2.x may: an
- * update must not change what the visitor sees.
- *
- * @return string[]
- */
-function tainacan_interface_foundation_handles() {
-	/**
-	 * Whether the classic design loads the Bootstrap rules the theme no longer uses.
-	 *
-	 * @param bool $load Default: on the classic design.
-	 */
-	return apply_filters( 'tainacan_interface_bootstrap_legacy', ! tainacan_interface_is_modern() )
-		? array( 'tainacan-interface-foundation', 'tainacan-interface-bootstrap-legacy' )
-		: array( 'tainacan-interface-foundation' );
-}
-
-/**
  * A child theme with its own tainacan_enqueues(), from 2.x, registers the files
  * of Bootstrap that are gone: the same handles get the files that replaced them.
  */
@@ -131,9 +88,8 @@ function tainacan_interface_replace_gone_bootstrap() {
 
 	if ( isset( $styles->registered['bootstrap4CSS'] ) && false !== strpos( (string) $styles->registered['bootstrap4CSS']->src, '/assets/vendor/bootstrap/' ) ) {
 		wp_register_style( 'tainacan-interface-foundation', $uri . '/assets/css/foundation.css', array(), TAINACAN_INTERFACE_VERSION );
-		wp_register_style( 'tainacan-interface-bootstrap-legacy', $uri . '/assets/css/bootstrap-legacy.css', array( 'tainacan-interface-foundation' ), TAINACAN_INTERFACE_VERSION );
 		$styles->registered['bootstrap4CSS']->src  = false;
-		$styles->registered['bootstrap4CSS']->deps = tainacan_interface_foundation_handles();
+		$styles->registered['bootstrap4CSS']->deps = array( 'tainacan-interface-foundation' );
 	}
 	if ( isset( $scripts->registered['bootstrap4JS'] ) && false !== strpos( (string) $scripts->registered['bootstrap4JS']->src, '/assets/vendor/bootstrap/' ) ) {
 		wp_register_script( 'tainacan-interface-nav', $uri . '/assets/js/nav.js', array(), TAINACAN_INTERFACE_VERSION, true );

@@ -203,7 +203,7 @@ if ( ! function_exists( 'tainacan_interface_customize_register_tainacan_items_pa
 				array(
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
-					'default'           => tainacan_interface_is_modern(),
+					'default'           => true,
 					'transport'         => 'postMessage',
 					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
 				)

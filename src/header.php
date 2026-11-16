@@ -64,13 +64,11 @@
 
 				<div class="btn-group" style="padding: 0.6rem 0;">
 				<?php
-				if ( tainacan_interface_is_modern() ) {
-					tainacan_interface_the_social_links( 'header' );
-					$tainacan_interface_button = tainacan_interface_opt( 'header_button_label' );
-					$tainacan_interface_target = tainacan_interface_opt( 'header_button_url' );
-					if ( '' !== $tainacan_interface_button && '' !== $tainacan_interface_target ) {
-						echo '<a class="tt2-header-button" href="' . esc_url( $tainacan_interface_target ) . '">' . esc_html( $tainacan_interface_button ) . '</a>';
-					}
+				tainacan_interface_the_social_links( 'header' );
+				$tainacan_interface_button = tainacan_interface_opt( 'header_button_label' );
+				$tainacan_interface_target = tainacan_interface_opt( 'header_button_url' );
+				if ( '' !== $tainacan_interface_button && '' !== $tainacan_interface_target ) {
+					echo '<a class="tt2-header-button" href="' . esc_url( $tainacan_interface_target ) . '">' . esc_html( $tainacan_interface_button ) . '</a>';
 				}
 				?>
 				
@@ -90,7 +88,7 @@
 			</div>
 		</div>
 	</nav>
-		<?php if ( tainacan_interface_is_modern() && tainacan_interface_opt( 'header_band' ) ) : ?>
+		<?php if ( tainacan_interface_opt( 'header_band' ) ) : ?>
 			<div class="tt2-band tt2-site-band" aria-hidden="true"></div>
 		<?php endif; ?>
 
@@ -102,8 +100,8 @@ endif;
 
 	<div id="main-content" tabindex="-1"></div>
 
-	<?php if ( ! tainacan_interface_is_modern() || tainacan_interface_opt( 'back_top' ) ) : ?>
-	<a href="#" id="return-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'tainacan-interface' ); ?>"<?php echo 'colored' === get_theme_mod( 'tainacan_footer_color', 'dark' ) ? ' style="background-color: #2c2d2d;"' : ''; ?>><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
+	<?php if ( tainacan_interface_opt( 'back_top' ) ) : ?>
+	<a href="#" id="return-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'tainacan-interface' ); ?>"><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
 	<?php endif; ?>
 
 	<?php if ( ! is_page_template( 'page-templates/landing.php' ) ) : ?>

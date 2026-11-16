@@ -49,7 +49,11 @@ if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 		<?php endif; ?>
 	</header>
 
-	<?php tainacan_interface_the_collections_menu(); ?>
+	<?php
+	if ( tainacan_interface_opt( 'list_menu' ) ) {
+		tainacan_interface_the_collections_menu();
+	}
+	?>
 
 	<?php if ( empty( $tainacan_interface_cards ) ) : ?>
 		<p><?php esc_html_e( 'Nothing found', 'tainacan-interface' ); ?></p>

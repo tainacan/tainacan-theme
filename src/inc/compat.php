@@ -34,7 +34,7 @@ if ( ! function_exists( 'tainacan_customizer_gutenberg_colors' ) ) {
 	 * @return string
 	 */
 	function tainacan_customizer_gutenberg_colors() {
-		$color = sanitize_hex_color( (string) get_theme_mod( 'tainacan_link_color', '' ) );
+		$color = (string) tainacan_interface_opt( 'accent_color' );
 		if ( ! $color ) {
 			return '';
 		}

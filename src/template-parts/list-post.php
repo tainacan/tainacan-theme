@@ -42,7 +42,7 @@ else :
 				<a href="<?php the_permalink(); ?>" class="font-weight-bold"><?php the_title(); ?></a>
 			</h3>
 		<?php endif; ?>
-		<?php $tainacan_interface_words = tainacan_interface_is_modern() ? (int) tainacan_interface_opt( 'blog_excerpt' ) : 28; ?>
+		<?php $tainacan_interface_words = (int) tainacan_interface_opt( 'blog_excerpt' ); ?>
 		<?php if ( $tainacan_interface_words > 0 ) : ?>
 			<p class="text-black"><?php echo esc_html( wp_trim_words( get_the_excerpt(), $tainacan_interface_words, '...' ) ); ?></p>
 		<?php endif; ?>

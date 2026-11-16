@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.2.2
+Stable tag: 4.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -22,7 +22,7 @@ Version 4 brings a new design, with almost everything adjustable in Appearance >
 * a "Tainacan" box in Appearance > Menus, a submenu with all the collections that keeps itself up to date, and a menu of its own for each collection;
 * colors, fonts, shapes and ready-made combinations, some of them per collection.
 
-A site updated from an earlier version keeps its look until an administrator chooses the new design.
+There is one design: a site updated from an earlier version gets it at once, and an administrator is told where to adjust it. Child themes keep working: the template parts, hooks, script and style handles and the class names of the grid stay.
 
 Version 3 added, each with its own switch in Appearance > Customize:
 
@@ -31,11 +31,14 @@ Version 3 added, each with its own switch in Appearance > Customize:
 * a highlighted item record;
 * a side column of related items beside the metadata (by relationship metadata and by shared terms).
 
-On a site updated from 2.x these features stay off until an administrator turns them on; the page looks as it did. Version 3 also fixes the security problems of 2.10.0 and ships the Roboto font instead of loading it from Google Fonts. Child themes, Customizer settings, actions and CSS classes of 2.x keep working.
+Version 3 also fixed the security problems of 2.10.0 and ships the Roboto font instead of loading it from Google Fonts. Child themes, Customizer settings, actions and CSS classes of 2.x keep working.
 
 For more information about Tainacan and Tainacan Interface please go to http://tainacan.org
 
 == Upgrade Notice ==
+
+= 4.3.0 =
+The earlier look is gone, with the old Bootstrap rules and jQuery: every site uses the design of version 4. Review a child theme that relied on Bootstrap's scripts or on jQuery without declaring it.
 
 = 4.2.1 =
 New options for typography, layout, buttons, fields, links, the header, social networks, the footer, posts, pages and the back to top button. The modern design no longer loads jQuery.
@@ -126,6 +129,13 @@ Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
 facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 4.3.0 =
+* One design: the classic look of versions 2 and 3 is gone, with its options (color scheme, link color, box opacity of the banner, height of the collection banner, columns of metadata, item thumbnail in the record), the old Bootstrap rules (bootstrap-legacy.css), the scripts that needed jQuery (js.js, tainacan-interface-truncate.js) and the color picker of the collection header (Spectrum).
+* A site updated from an earlier version gets the design at once, with a notice that says where to adjust it.
+* Child themes: the template part files (headercollection, headertaxonomy, single-items-header), the actions, the handles bootstrap4CSS and bootstrap4JS, lib/class-wp-bootstrap-navwalker.php and the grid classes stay.
+* The menu bar of a collection and of the list of collections can be turned off, and a collection can turn off its own.
+* The back to top arrow is centered, and the pagination of the Tainacan lists is on one line.
 
 = 4.2.2 =
 * The share links of the collection header and of the item page kept their size: the box that holds them was taking the width of the button and squeezing the icons.

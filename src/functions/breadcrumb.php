@@ -173,11 +173,5 @@ function tainacan_interface_the_breadcrumb() {
 		}
 	}
 
-	if ( tainacan_interface_is_modern() ) {
-		return tainacan_interface_modern_breadcrumb( $html, $pagination );
-	}
-
-	$html .= $pagination;
-
-	return '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs">' . $html . '</div></nav>';
+	return tainacan_interface_modern_breadcrumb( $html, $pagination );
 }

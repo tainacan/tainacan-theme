@@ -210,7 +210,7 @@ function tainacan_interface_citations( $item_id ) {
  * Prints the panel.
  */
 function tainacan_interface_the_item_citation() {
-	if ( ! tainacan_interface_is_modern() || ! tainacan_interface_opt( 'item_citation' ) || ! tainacan_interface_is_item_page() ) {
+	if ( ! tainacan_interface_opt( 'item_citation' ) || ! tainacan_interface_is_item_page() ) {
 		return;
 	}
 

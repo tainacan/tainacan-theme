@@ -94,7 +94,7 @@
 		live = h('p', { class: 'screen-reader-text', 'aria-live': 'polite' });
 		if (cfg.side === 'left') { drawer.classList.add('tt2-drawer--left'); document.body.classList.add('tt2-drawer-side-left'); }
 		if (cfg.media === 'cover') { drawer.classList.add('tt2-drawer--cover'); }
-		if (cfg.modern) { drawer.classList.add('tt2-drawer--modern'); }
+		drawer.classList.add('tt2-drawer--modern');
 		if (OVERLAY) {
 			drawer.classList.add('tt2-drawer--overlay');
 			backdrop = h('div', { class: 'tt2-drawer-backdrop' + (cfg.backdrop ? ' is-dim' : ''), hidden: true });
@@ -168,26 +168,23 @@
 		if (cfg.media !== 'none') { body.appendChild(mediaBox(d)); }
 		if (cfg.metaLine && d.meta_line && d.meta_line.length) {
 			body.appendChild(h('p', { class: 'tt2-drawer__meta-line', text: d.meta_line.join(' · ') }));
-		} else if (d.collection && !cfg.modern) {
-			body.appendChild(h('p', { class: 'tt2-drawer__eyebrow', text: d.collection }));
 		}
 		body.appendChild(h('h2', { id: 'tt2-drawer-title', class: 'tt2-drawer__title', tabindex: '-1', text: d.title }));
 		var description = d.description && !cfg.noDesc ? h('p', { class: 'tt2-drawer__description', text: d.description }) : null;
-		if (description && !cfg.modern) { body.appendChild(description); }
 
-		var fields = (d.fields || []).slice(0, cfg.maxFields);
+		var fields = (d.fields || []).slice(0, parseInt(cfg.maxFields, 10) || 0);
 		if (fields.length) {
 			var dl = h('dl', { class: 'tt2-drawer__fields' });
 			fields.forEach(function (f) {
 				var dd = h('dd', {}, [valueNodes(f.html)]);
 				// A short plain value reads as the capsules of the terms beside it.
-				if (cfg.modern && dd.textContent.trim().length <= 48 && !dd.querySelector('a, img, ul, table, iframe')) { dd.classList.add('tt2-chip-value'); }
+				if (dd.textContent.trim().length <= 48 && !dd.querySelector('a, img, ul, table, iframe')) { dd.classList.add('tt2-chip-value'); }
 				dl.appendChild(h('dt', { text: f.label }));
 				dl.appendChild(dd);
 			});
 			body.appendChild(dl);
 		}
-		if (description && cfg.modern) { body.appendChild(description); }
+		if (description) { body.appendChild(description); }
 		drawer.appendChild(body);
 		drawer.setAttribute('aria-labelledby', 'tt2-drawer-title');
 

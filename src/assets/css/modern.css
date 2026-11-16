@@ -801,6 +801,14 @@ body.tt2-modern .page-404 :is(h1, h3) { color: var(--tt2-on-brand) !important; }
 body.tt2-modern.tt2-hero-plain .page-404 :is(h1, h3) { color: var(--tt2-ink) !important; }
 body.tt2-modern .page-404 .btn { padding: 6px 18px !important; border: 0; border-radius: var(--tt2-button-radius); background: var(--tt2-accent) !important; color: var(--tt2-on-accent) !important; }
 
+/* Pagination of the Tainacan lists: labels, selects and pages on one line. */
+body.tt2-modern .pagination-area { align-items: center; }
+body.tt2-modern .pagination-area :is(.shown-items, .items-per-page, .go-to-page, .pagination) { display: flex; align-items: center; margin-block: 0; }
+body.tt2-modern .pagination-area .field.is-horizontal { align-items: center; margin: 0; }
+body.tt2-modern .pagination-area .field-label { display: flex; align-items: center; margin: 0 8px 0 0; padding: 0; }
+body.tt2-modern .pagination-area .field-label .label { margin: 0; line-height: 1.4; }
+body.tt2-modern .pagination-area select { height: auto; padding-block: 4px; font-size: inherit; line-height: 1.4; }
+
 /* ---------- Main area ---------- */
 
 body.tt2-modern main.max-large.mt-5 { margin-top: calc(3rem * var(--tt2-space)) !important; }
@@ -927,6 +935,8 @@ body.tt2-modern .tt2-footer-note { flex-basis: 100%; opacity: 0.85; }
 
 body.tt2-modern #return-to-top { display: flex !important; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(8px); background: var(--tt2-accent); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; animation: none; }
 body.tt2-modern #return-to-top.tt2-is-shown { opacity: 1; visibility: visible; transform: none; }
+/* The arrow in the middle: the classic one was moved by hand with top and left. */
+body.tt2-modern #return-to-top i { position: static; display: block; font-size: 1.5rem; line-height: 1; }
 body.tt2-modern.tt2-back-top-rounded #return-to-top { border-radius: 10px; }
 body.tt2-modern.tt2-back-top-square #return-to-top { border-radius: 0; }
 body.tt2-modern.tt2-back-top-left #return-to-top { right: auto; left: 4.16vw; }

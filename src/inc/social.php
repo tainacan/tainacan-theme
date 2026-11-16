@@ -35,7 +35,7 @@ function tainacan_interface_social_networks() {
  * @param string $place header or footer.
  */
 function tainacan_interface_the_social_links( $place ) {
-	if ( ! tainacan_interface_is_modern() || ! in_array( tainacan_interface_opt( 'social_place' ), array( $place, 'both' ), true ) ) {
+	if ( ! in_array( tainacan_interface_opt( 'social_place' ), array( $place, 'both' ), true ) ) {
 		return;
 	}
 

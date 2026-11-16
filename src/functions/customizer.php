@@ -108,27 +108,16 @@ function tainacan_interface_print_style( $id, $css ) {
 	echo '<style id="' . esc_attr( $id ) . '">' . $css . '</style>'; // tnc-check-ignore TNC-S05: CSS in a style element, tags stripped, values validated on save.
 }
 
-/**
- * Binds JS handlers to make the Customizer preview reload changes asynchronously.
- *
- * @since Tainacan Interface theme
- */
-function tainacan_customize_preview_js() {
-	wp_enqueue_script( 'tainacan-customize-preview', get_template_directory_uri() . '/assets/js/customize-preview.js', array( 'customize-preview' ), TAINACAN_INTERFACE_VERSION, true );
-}
-add_action( 'customize_preview_init', 'tainacan_customize_preview_js' );
 
 
 /* Requires remaining customizer options */
 require get_template_directory() . '/functions/customizer/header-image.php';
 require get_template_directory() . '/functions/customizer/header-general.php';
 require get_template_directory() . '/functions/customizer/header-search.php';
-require get_template_directory() . '/functions/customizer/colors.php';
 require get_template_directory() . '/functions/customizer/tainacan-single-item-page-general.php';
 require get_template_directory() . '/functions/customizer/tainacan-single-item-page-metadata.php';
 require get_template_directory() . '/functions/customizer/tainacan-single-item-page-document.php';
 require get_template_directory() . '/functions/customizer/tainacan-single-item-page-related-items.php';
-require get_template_directory() . '/functions/customizer/tainacan-items-page-collection-banner.php';
 require get_template_directory() . '/functions/customizer/tainacan-items-page-search-area.php';
 require get_template_directory() . '/functions/customizer/tainacan-items-page-filters-panel.php';
 require get_template_directory() . '/functions/customizer/tainacan-items-page-pagination.php';

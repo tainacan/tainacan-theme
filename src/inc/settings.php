@@ -69,17 +69,6 @@ function tainacan_interface_settings_schema() {
 
 	$schema = array(
 		// Look and feel.
-		'design'                => array(
-			'section' => 'look',
-			'type'    => 'choice',
-			'default' => 'modern',
-			'label'   => __( 'Page design', 'tainacan-interface' ),
-			'help'    => __( 'Modern: the header, lists, preview and item page of version 4. Classic: the pages as they were up to version 3. The item preview, the file viewer and the side column have their own switches, in "Lists and item page".', 'tainacan-interface' ),
-			'choices' => array(
-				'modern'  => __( 'Modern', 'tainacan-interface' ),
-				'classic' => __( 'Classic', 'tainacan-interface' ),
-			),
-		),
 		'brand_color'           => array(
 			'section'    => 'look',
 			'type'       => 'color',
@@ -677,6 +666,18 @@ function tainacan_interface_settings_schema() {
 			'label'   => __( '"Surprise me" button', 'tainacan-interface' ),
 			'help'    => __( 'Opens the preview of a random item of the page. Needs the item preview on.', 'tainacan-interface' ),
 		),
+		'head_menu'             => array(
+			'section'    => 'collection',
+			'type'       => 'choice',
+			'default'    => 'show',
+			'label'      => __( 'Menu of the collection below the header', 'tainacan-interface' ),
+			'help'       => __( 'The menu saved in the location of the collection, in Appearance > Menus. A collection can turn it off on its form.', 'tainacan-interface' ),
+			'collection' => true,
+			'choices'    => array(
+				'show' => __( 'Show', 'tainacan-interface' ),
+				'hide' => __( 'Hide', 'tainacan-interface' ),
+			),
+		),
 		'head_share'            => array(
 			'section' => 'collection',
 			'type'    => 'bool',
@@ -777,6 +778,13 @@ function tainacan_interface_settings_schema() {
 			'type'    => 'bool',
 			'default' => true,
 			'label'   => __( 'Show the number of items', 'tainacan-interface' ),
+		),
+		'list_menu'             => array(
+			'section' => 'collections',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Menu of the page below the title', 'tainacan-interface' ),
+			'help'    => __( 'The menu saved in the location "List of collections", in Appearance > Menus.', 'tainacan-interface' ),
 		),
 		'list_search'           => array(
 			'section' => 'collections',
@@ -1294,21 +1302,6 @@ function tainacan_interface_opt( $key, $collection_id = null ) {
 }
 
 /**
- * Whether the pages use the design of version 4. A site updated from an earlier
- * version stays on classic until an administrator chooses (inc/upgrade.php).
- *
- * @return bool
- */
-function tainacan_interface_is_modern() {
-	/**
-	 * Turns the design of version 4 on or off.
-	 *
-	 * @param bool $modern Value of the Customizer option.
-	 */
-	return (bool) apply_filters( 'tainacan_interface_modern_enabled', 'modern' === tainacan_interface_opt( 'design' ) );
-}
-
-/**
  * Ready-made combinations of the "Look and feel" section.
  *
  * @return array Slug => label and values.
@@ -1550,7 +1543,7 @@ function tainacan_interface_collection_options() {
  * Registers the fields of the collection form.
  */
 function tainacan_interface_collection_options_register() {
-	if ( function_exists( 'tainacan_register_admin_hook' ) && tainacan_interface_is_modern() ) {
+	if ( function_exists( 'tainacan_register_admin_hook' ) ) {
 		tainacan_register_admin_hook( 'collection', 'tainacan_interface_collection_options_form', 'end-right' );
 	}
 }

@@ -81,7 +81,6 @@
 	background: var(--tt2-d-soft);
 	border: 1px solid var(--tt2-d-line);
 }
-.tt2-drawer__eyebrow { margin: 0; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--tt2-d-accent); }
 .tt2-drawer .tt2-drawer__title {
 	margin: 0;
 	padding: 0 0 0 12px;

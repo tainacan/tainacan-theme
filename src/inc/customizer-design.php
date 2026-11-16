@@ -181,16 +181,8 @@ function tainacan_interface_live_options() {
  * @return array Setting id => groups of array( setting id, accepted values ).
  */
 function tainacan_interface_option_rules() {
-	$prefix  = 'tainacan_interface_';
-	$modern  = array( $prefix . 'design', array( 'modern' ) );
-	$classic = array( $prefix . 'design', array( 'classic' ) );
-	$rules   = array();
-
-	foreach ( array_keys( tainacan_interface_settings_schema() ) as $key ) {
-		if ( 'design' !== $key ) {
-			$rules[ $prefix . $key ] = array( array( $modern ) );
-		}
-	}
+	$prefix = 'tainacan_interface_';
+	$rules  = array();
 
 	$only = array(
 		'band_1'                => array( 'band_style', array( 'bands', 'gradient' ) ),
@@ -236,24 +228,7 @@ function tainacan_interface_option_rules() {
 		$rules[ $prefix . $key ][] = array( array( $prefix . 'head_banner', array( 'auto', 'image', 'mosaic' ) ) );
 	}
 
-	// Options of the earlier versions that the modern design replaced with its own.
-	$replaced = array(
-		'tainacan_color_scheme',
-		'tainacan_link_color',
-		'tainacan_tooltip_color',
-		'background_color',
-		'tainacan_hide_header_box_opacity',
-		'tainacan_collection_banner_max_height',
-		'tainacan_single_item_display_thumbnail',
-		'tainacan_single_item_metadata_columns_count_tablet',
-		'tainacan_single_item_metadata_columns_count_desktop',
-		'tainacan_single_item_metadata_columns_count_wide',
-		$prefix . 'item_highlight',
-	);
-	foreach ( $replaced as $id ) {
-		$rules[ $id ] = array( array( $classic ) );
-	}
-	$rules['tainacan_footer_color'] = array( array( $classic, array( $prefix . 'footer_style', array( 'classic' ) ) ) );
+	$rules['tainacan_footer_color'] = array( array( array( $prefix . 'footer_style', array( 'classic' ) ) ) );
 
 	// The preview needs the switch of its feature on.
 	foreach ( array( 'drawer_mode', 'drawer_side', 'drawer_width', 'drawer_backdrop', 'drawer_media', 'drawer_meta_line', 'drawer_description', 'drawer_max_fields', 'drawer_open_label', 'drawer_open_new', 'head_surprise' ) as $key ) {

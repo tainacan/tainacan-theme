@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Tainacan Interface 4.2.1\n"
+"Project-Id-Version: Tainacan Interface 4.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/marcossigismundo/tainacan-interface\n"
 "POT-Creation-Date: 2023-03-10 10:21-0300\n"
-"PO-Revision-Date: 2026-11-07 22:13+0000\n"
+"PO-Revision-Date: 2026-11-07 22:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: Your Team <translations@example.com>\n"
 "Language: pt_BR\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
 
 #. Theme Name of the theme
-#: style.css inc/settings.php:1407
+#: style.css inc/settings.php:1400
 msgid "Tainacan Interface"
 msgstr "Tainacan Interface"
 
@@ -51,46 +51,6 @@ msgstr "A página que você está procurando não existe!"
 #: 404.php:21
 msgid "Go to the first page"
 msgstr "Ir para a página inicial"
-
-#: archive-tainacan-collection.php:44 tainacan/archive-terms.php:25 template-parts/headertaxonomy.php:46 template-parts/loop-singular.php:21 template-parts/loop.php:51 template-parts/single-items-header.php:75
-msgid "Back"
-msgstr "Voltar"
-
-#: archive-tainacan-collection.php:52 tainacan/archive-terms.php:33
-msgid "Sorting"
-msgstr "Ordenação"
-
-#: archive-tainacan-collection.php:55
-msgid "Creation date"
-msgstr "Data de criação"
-
-#: archive-tainacan-collection.php:56 inc/settings.php:755 template-parts/loop-tainacan-collection-table.php:15
-msgid "Title"
-msgstr "Título"
-
-#: archive-tainacan-collection.php:83 tainacan/archive-terms.php:64
-msgid "View Mode"
-msgstr "Modo de visualização"
-
-#: archive-tainacan-collection.php:86 functions/customizer/tainacan-items-page-search-area.php:293 tainacan/archive-terms.php:67
-msgid "Cards"
-msgstr "Cartões"
-
-#: archive-tainacan-collection.php:87 tainacan/archive-terms.php:68
-msgid "Thumbnails"
-msgstr "Miniaturas"
-
-#: archive-tainacan-collection.php:88 functions/customizer/tainacan-items-page-search-area.php:294 tainacan/archive-terms.php:69
-msgid "Table"
-msgstr "Tabela"
-
-#: archive-tainacan-collection.php:102 inc/settings.php:60 inc/settings.php:196 inc/settings.php:798 inc/settings.php:1076 template-parts/single-post.php:62
-msgid "None"
-msgstr "Nenhum"
-
-#: archive-tainacan-collection.php:130
-msgid "Search collections"
-msgstr "Buscar coleções"
 
 #. translators: 1: opening link tag, 2: closing link tag.
 #: comments.php:32
@@ -150,7 +110,7 @@ msgstr "Logo do rodapé"
 msgid "Proudly powered by %1$s and %2$s."
 msgstr "Orgulhosamente feito com %1$s e %2$s."
 
-#: footer.php:89 inc/design.php:562
+#: footer.php:88 inc/design.php:554
 msgid "Footer menu"
 msgstr "Menu do rodapé"
 
@@ -158,105 +118,105 @@ msgstr "Menu do rodapé"
 msgid "Navigation menu below header"
 msgstr "Menu de navegação abaixo do cabeçalho"
 
-#: functions.php:100 template-parts/single-items-metadata.php:68
+#: functions.php:99
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: functions.php:101
+#: functions.php:100
 msgid "A thumbnail grid view, showing only title and thumbnail"
 msgstr "Uma visão em grade de miniaturas, mostrando apenas o título e a imagem"
 
-#: functions.php:119 functions/class-tainacan-interface-collection-settings.php:123 functions/class-tainacan-interface-collection-settings.php:124 functions/customizer/colors.php:138
+#: functions.php:118 functions/class-tainacan-interface-collection-settings.php:107 functions/class-tainacan-interface-collection-settings.php:108
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.php:124 functions/customizer/colors.php:147
+#: functions.php:123
 msgid "Carmine"
 msgstr "Carmim"
 
-#: functions.php:129 functions/customizer/colors.php:156
+#: functions.php:128
 msgid "Cherry"
 msgstr "Cereja"
 
-#: functions.php:134 functions/customizer/colors.php:165
+#: functions.php:133
 msgid "Mustard"
 msgstr "Mostarda"
 
-#: functions.php:139 functions/customizer/colors.php:174
+#: functions.php:138
 msgid "Mint Green"
 msgstr "Verde Menta"
 
-#: functions.php:144 functions/customizer/colors.php:183
+#: functions.php:143
 msgid "Dark Turquoise"
 msgstr "Turquesa Escuro"
 
-#: functions.php:149 functions/customizer/colors.php:192
+#: functions.php:148
 msgid "Turquoise"
 msgstr "Turquesa"
 
-#: functions.php:154 functions/customizer/colors.php:201
+#: functions.php:153
 msgid "Blue Heavenly"
 msgstr "Azul Celeste"
 
-#: functions.php:159 functions/customizer/colors.php:210
+#: functions.php:158
 msgid "Purple"
 msgstr "Roxo"
 
-#: functions.php:164 functions/customizer/colors.php:219
+#: functions.php:163
 msgid "Violet"
 msgstr "Violeta"
 
-#: functions.php:169 functions/class-tainacan-interface-collection-settings.php:196
+#: functions.php:168
 msgid "White"
 msgstr "Branco"
 
-#: functions.php:174
+#: functions.php:173
 msgid "Light gray"
 msgstr "Cinza claro"
 
-#: functions.php:179
+#: functions.php:178
 msgid "Dark gray"
 msgstr "Cinza escuro"
 
-#: functions.php:192
+#: functions.php:191
 msgid "Small"
 msgstr "Pequeno"
 
-#: functions.php:197
+#: functions.php:196
 msgid "Regular"
 msgstr "Regular"
 
-#: functions.php:202
+#: functions.php:201
 msgid "Large"
 msgstr "Grande"
 
-#: functions.php:207
+#: functions.php:206
 msgid "Huge"
 msgstr "Enorme"
 
 #. translators: %s: URL of the Tainacan plugin page.
-#: functions.php:303
+#: functions.php:299
 #, php-format
 msgid "Warning: <a href=\"%s\">Tainacan plugin</a> is not activated! While you may use this theme without it, we made it to take full advantage of the plugin features."
 msgstr "Atenção: o <a href=\"%s\">plugin Tainacan</a> não está ativo! Você pode usar este tema sem ele, mas ele foi feito para aproveitar os recursos do plugin."
 
-#: functions.php:309 inc/child-theme.php:337 inc/upgrade.php:201 inc/upgrade.php:351 inc/upgrade.php:374
+#: functions.php:305 inc/child-theme.php:337 inc/upgrade.php:185 inc/upgrade.php:327
 msgid "Dismiss"
 msgstr "Dispensar"
 
-#: functions.php:319 inc/child-theme.php:348 inc/nav-menus.php:473 inc/upgrade.php:213 inc/upgrade.php:231 inc/upgrade.php:386 inc/upgrade.php:400
+#: functions.php:315 inc/child-theme.php:348 inc/nav-menus.php:473 inc/upgrade.php:197 inc/upgrade.php:215 inc/upgrade.php:339
 msgid "Sorry, you are not allowed to do that."
 msgstr "Você não tem permissão para fazer isso."
 
-#: functions.php:348
+#: functions.php:344
 msgid "Tainacan Sidebar Right"
 msgstr "Barra lateral direita do Tainacan"
 
-#: functions.php:365
+#: functions.php:361
 msgid "Tainacan Sidebar Footer"
 msgstr "Rodapé do Tainacan"
 
-#: functions/archive-functions.php:96 functions/breadcrumb.php:81 functions/breadcrumb.php:113 functions/breadcrumb.php:120 functions/customizer/header-search.php:181 functions/customizer/header-search.php:311 inc/collection-pages.php:353 inc/nav-menus.php:272 inc/nav-menus.php:273 searchform.php:99 template-parts/collections-grid.php:38
+#: functions/archive-functions.php:96 functions/breadcrumb.php:81 functions/breadcrumb.php:113 functions/breadcrumb.php:120 functions/customizer/header-search.php:181 functions/customizer/header-search.php:311 inc/collection-pages.php:355 inc/nav-menus.php:272 inc/nav-menus.php:273 searchform.php:99 template-parts/collections-grid.php:38
 msgid "Collections"
 msgstr "Coleções"
 
@@ -265,12 +225,12 @@ msgid "Taxonomies"
 msgstr "Taxonomias"
 
 #. translators: 1: first result shown, 2: last result shown, 3: number of results.
-#: functions/archive-functions.php:191 functions/archive-functions.php:234
+#: functions/archive-functions.php:189 functions/archive-functions.php:232
 #, php-format
 msgid "Viewing results: %1$d to %2$d of %3$d"
 msgstr "Vendo resultados: %1$d a %2$d de %3$d"
 
-#: functions/breadcrumb.php:47 inc/collection-pages.php:354
+#: functions/breadcrumb.php:47 inc/collection-pages.php:356
 msgid "Home"
 msgstr "Início"
 
@@ -316,73 +276,29 @@ msgstr " (página %d)"
 msgid "Back to items list"
 msgstr "Voltar para a página de itens"
 
-#: functions/class-tainacan-interface-collection-settings.php:53
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: functions/class-tainacan-interface-collection-settings.php:54
-msgid "Choose"
-msgstr "Selecionar"
-
-#: functions/class-tainacan-interface-collection-settings.php:55
-msgid "more"
-msgstr "mais"
-
-#: functions/class-tainacan-interface-collection-settings.php:56
-msgid "less"
-msgstr "menos"
-
-#: functions/class-tainacan-interface-collection-settings.php:57
-msgid "Clear Color Selection"
-msgstr "Limpar Seleção de Cor"
-
-#: functions/class-tainacan-interface-collection-settings.php:58
-msgid "No Color Selected"
-msgstr "Nenhuma Cor Selecionada"
-
-#: functions/class-tainacan-interface-collection-settings.php:89 functions/class-tainacan-interface-textarea-readmore.php:71
+#: functions/class-tainacan-interface-collection-settings.php:73 functions/class-tainacan-interface-textarea-readmore.php:71
 msgid "Tainacan Interface extra settings"
 msgstr "Configurações extras do tema Tainacan Interface"
 
-#: functions/class-tainacan-interface-collection-settings.php:99 functions/class-tainacan-interface-collection-settings.php:108
+#: functions/class-tainacan-interface-collection-settings.php:83 functions/class-tainacan-interface-collection-settings.php:92
 msgid "Metadata sections layout"
 msgstr "Sessões de Metadado"
 
-#: functions/class-tainacan-interface-collection-settings.php:111
+#: functions/class-tainacan-interface-collection-settings.php:95
 msgid "Define how the metadata sections will appear in the public item page."
 msgstr "Defina como as sessões de metadado aparecerão na página pública do item."
 
-#: functions/class-tainacan-interface-collection-settings.php:133 functions/class-tainacan-interface-collection-settings.php:134
+#: functions/class-tainacan-interface-collection-settings.php:117 functions/class-tainacan-interface-collection-settings.php:118
 msgid "Tabs"
 msgstr "Abas"
 
-#: functions/class-tainacan-interface-collection-settings.php:143 functions/class-tainacan-interface-collection-settings.php:144
+#: functions/class-tainacan-interface-collection-settings.php:127 functions/class-tainacan-interface-collection-settings.php:128
 msgid "Collapses"
 msgstr "Colapses"
 
-#: functions/class-tainacan-interface-collection-settings.php:153 functions/class-tainacan-interface-collection-settings.php:154
+#: functions/class-tainacan-interface-collection-settings.php:137 functions/class-tainacan-interface-collection-settings.php:138
 msgid "Accordion"
 msgstr "Acordeão"
-
-#: functions/class-tainacan-interface-collection-settings.php:161 functions/class-tainacan-interface-collection-settings.php:170
-msgid "Collection items list header colors"
-msgstr "Cores do cabeçalho da lista de itens"
-
-#: functions/class-tainacan-interface-collection-settings.php:173
-msgid "Select which color will be used for the text and background of your collection items list header."
-msgstr "Selecione quais cores serão usadas para texto e fundo do cabeçalho da sua lista de itens da coleção."
-
-#: functions/class-tainacan-interface-collection-settings.php:181
-msgid "Background"
-msgstr "Plano de fundo"
-
-#: functions/class-tainacan-interface-collection-settings.php:188 inc/item-drawer.php:175
-msgid "Text"
-msgstr "Texto"
-
-#: functions/class-tainacan-interface-collection-settings.php:205
-msgid "Black"
-msgstr "Preto"
 
 #: functions/class-tainacan-interface-textarea-readmore.php:76
 msgid "Maximum characters to show before “Read more”"
@@ -396,11 +312,11 @@ msgstr "Sem limite"
 msgid "Leave empty to always show the full text on the item page. If set, long values show a short preview with a control to expand."
 msgstr "Deixe vazio para mostrar sempre o texto inteiro na página do item. Se preenchido, valores longos mostram um trecho com controle para expandir."
 
-#: functions/class-tainacan-interface-textarea-readmore.php:368 functions/class-tainacan-interface-textarea-readmore.php:396 functions/enqueues.php:44
+#: functions/class-tainacan-interface-textarea-readmore.php:368 functions/class-tainacan-interface-textarea-readmore.php:395
 msgid "Show more"
 msgstr "Mostrar mais"
 
-#: functions/class-tainacan-interface-textarea-readmore.php:397 functions/enqueues.php:45
+#: functions/class-tainacan-interface-textarea-readmore.php:396
 msgid "Show less"
 msgstr "Mostrar menos"
 
@@ -427,22 +343,6 @@ msgstr "Páginas de item do Tainacan"
 #: functions/customizer.php:58
 msgid "Settings related to Tainacan single Item pages only."
 msgstr "Configurações relacionadas apenas à páginas de um único item do Tainacan."
-
-#: functions/customizer/colors.php:41
-msgid "Choose a Color Scheme"
-msgstr "Escolha uma Paleta de Cores"
-
-#: functions/customizer/colors.php:67
-msgid "Or pick any color"
-msgstr "Ou escolha qualquer cor"
-
-#: functions/customizer/colors.php:88
-msgid "Tooltip Color"
-msgstr "Cor dos balões de dicas"
-
-#: functions/customizer/colors.php:228
-msgid "Gray"
-msgstr "Cinza"
 
 #: functions/customizer/footer-info.php:24
 msgid "Footer settings"
@@ -496,11 +396,11 @@ msgstr "Exibir \"Orgulhosamente feito com...\""
 msgid "Display the \"Proudly Powered by WordPress and Tainacan\" credit."
 msgstr "Exibe o crédito \"Orgulhosamente feito com WordPress e Tainacan\"."
 
-#: functions/customizer/footer-info.php:306 functions/customizer/tainacan-single-item-page-document.php:722 inc/settings.php:409 inc/settings.php:496
+#: functions/customizer/footer-info.php:306 functions/customizer/tainacan-single-item-page-document.php:722 inc/settings.php:398 inc/settings.php:485
 msgid "Dark"
 msgstr "Escuro"
 
-#: functions/customizer/footer-info.php:307 functions/customizer/tainacan-single-item-page-document.php:723 inc/settings.php:410 inc/settings.php:497
+#: functions/customizer/footer-info.php:307 functions/customizer/tainacan-single-item-page-document.php:723 inc/settings.php:399 inc/settings.php:486
 msgid "Light"
 msgstr "Claro"
 
@@ -572,19 +472,11 @@ msgstr "Esconder o banner do cabeçalho por completo"
 msgid "Toggle to hide the header banner from all pages of the site"
 msgstr "Troque para esconder o banner do cabeçalho em todas as páginas do site"
 
-#: functions/customizer/header-image.php:86
-msgid "Title box opacity (%)"
-msgstr "Opacidade da faixa do título (%)"
-
-#: functions/customizer/header-image.php:87
-msgid "Change the opacity of the white box that holds the banner site title"
-msgstr "Mudar a  opacidade da faixa branca que contém o título do site no banner"
-
-#: functions/customizer/header-image.php:124
+#: functions/customizer/header-image.php:90
 msgid "Display post or page featured image on the header banner"
 msgstr "Exibir imagem de destaque do post ou da página no banner do cabeçalho"
 
-#: functions/customizer/header-image.php:125
+#: functions/customizer/header-image.php:91
 msgid "Use the current post or page featured image on the header banner, if available, instead of the default image. This also hides the featured image in the post content."
 msgstr "Troque para exibir a imagem de destaque do post ou página atual, se disponível no banner do cabeçalho ao invés da imagem padrão. Este recurso também esconde a imagem de destaque no conteúdo do post."
 
@@ -733,116 +625,96 @@ msgid "Clicking a document or attachment opens a full screen viewer: images with
 msgstr "Clicar num documento ou anexo abre um visualizador em tela cheia: imagens com zoom, vídeo e áudio, e PDF num leitor. Substitui o lightbox do Tainacan."
 
 #: functions/customizer/tainacan-interface-features.php:34
-msgid "Highlighted item record"
-msgstr "Ficha do item em destaque"
-
-#: functions/customizer/tainacan-interface-features.php:35
-msgid "Cards with an accent bar on the title, quiet labels and terms as chips on the lists; the registration number and the collection under the item title."
-msgstr "Nas listas, cartões com barra de destaque no título, rótulos discretos e termos como etiquetas; na página do item, a coleção e o número de registro abaixo do título."
-
-#: functions/customizer/tainacan-interface-features.php:38
 msgid "Show the side column beside the metadata"
 msgstr "Mostrar a coluna lateral ao lado dos metadados"
 
-#: functions/customizer/tainacan-interface-features.php:39
+#: functions/customizer/tainacan-interface-features.php:35
 msgid "Related items beside the metadata of the item page. Its options are in \"Side column of the item\"."
 msgstr "Itens relacionados ao lado dos metadados na página do item. As opções estão em \"Coluna lateral do item\"."
 
-#: functions/customizer/tainacan-interface-features.php:92
+#: functions/customizer/tainacan-interface-features.php:88
 msgid "Side column of the item"
 msgstr "Coluna lateral do item"
 
-#: functions/customizer/tainacan-interface-features.php:93
+#: functions/customizer/tainacan-interface-features.php:89
 msgid "Beside the metadata of the item page, ways to keep exploring: the items related by a Tainacan relationship metadatum and the items with the same term. On small screens the column comes right after the metadata."
 msgstr "Ao lado dos metadados da página do item, caminhos para continuar explorando: os itens ligados por um metadado de relacionamento do Tainacan e os itens com o mesmo termo. Em telas pequenas a coluna vem logo depois dos metadados."
 
-#: functions/customizer/tainacan-interface-features.php:103 inc/settings.php:846
+#: functions/customizer/tainacan-interface-features.php:99 inc/settings.php:854
 msgid "Side"
 msgstr "Lado"
 
-#: functions/customizer/tainacan-interface-features.php:106 functions/customizer/tainacan-single-item-page-document.php:763 inc/settings.php:848 inc/settings.php:1175
+#: functions/customizer/tainacan-interface-features.php:102 functions/customizer/tainacan-single-item-page-document.php:763 inc/settings.php:856 inc/settings.php:1183
 msgid "Right"
 msgstr "Direita"
 
-#: functions/customizer/tainacan-interface-features.php:107 functions/customizer/tainacan-single-item-page-document.php:761 inc/settings.php:849 inc/settings.php:1009 inc/settings.php:1176
+#: functions/customizer/tainacan-interface-features.php:103 functions/customizer/tainacan-single-item-page-document.php:761 inc/settings.php:857 inc/settings.php:1017 inc/settings.php:1184
 msgid "Left"
 msgstr "Esquerda"
 
-#: functions/customizer/tainacan-interface-features.php:110 inc/item-aside.php:55
+#: functions/customizer/tainacan-interface-features.php:106 inc/item-aside.php:55
 msgid "Keep exploring"
 msgstr "Continue explorando"
 
-#: functions/customizer/tainacan-interface-features.php:110
+#: functions/customizer/tainacan-interface-features.php:106
 msgid "Title of the column"
 msgstr "Título da coluna"
 
-#: functions/customizer/tainacan-interface-features.php:110
+#: functions/customizer/tainacan-interface-features.php:106
 msgid "Leave empty for no title."
 msgstr "Deixe vazio para não ter título."
 
-#: functions/customizer/tainacan-interface-features.php:111
+#: functions/customizer/tainacan-interface-features.php:107
 msgid "Related by relationship metadata"
 msgstr "Ligados por metadado de relacionamento"
 
-#: functions/customizer/tainacan-interface-features.php:111
+#: functions/customizer/tainacan-interface-features.php:107
 msgid "Items that point to this one (as set in each relationship metadatum, \"Display in related items\") and items this one points to."
 msgstr "Itens que apontam para este (conforme a opção \"Exibir em itens relacionados\" de cada metadado de relacionamento) e itens para os quais este aponta."
 
-#: functions/customizer/tainacan-interface-features.php:112
+#: functions/customizer/tainacan-interface-features.php:108
 msgid "Items with the same term"
 msgstr "Itens com o mesmo termo"
 
-#: functions/customizer/tainacan-interface-features.php:112
+#: functions/customizer/tainacan-interface-features.php:108
 msgid "The most specific terms of the item first. Choose the taxonomies with \"Use to suggest related items\" on the metadatum form; with none chosen, all are used."
 msgstr "Os termos mais específicos do item primeiro. Escolha as taxonomias com \"Usar para sugerir itens relacionados\" no formulário do metadado; sem nenhuma escolhida, todas são usadas."
 
-#: functions/customizer/tainacan-interface-features.php:113
+#: functions/customizer/tainacan-interface-features.php:109
 msgid "More from the collection, when there is nothing else"
 msgstr "Mais da coleção, quando não houver outra sugestão"
 
-#: functions/customizer/tainacan-interface-features.php:117 inc/settings.php:752
+#: functions/customizer/tainacan-interface-features.php:113 inc/settings.php:753
 msgid "Order"
 msgstr "Ordem"
 
-#: functions/customizer/tainacan-interface-features.php:120
+#: functions/customizer/tainacan-interface-features.php:116
 msgid "Relationships first"
 msgstr "Relacionamentos primeiro"
 
-#: functions/customizer/tainacan-interface-features.php:121
+#: functions/customizer/tainacan-interface-features.php:117
 msgid "Same term first"
 msgstr "Mesmo termo primeiro"
 
-#: functions/customizer/tainacan-interface-features.php:127
+#: functions/customizer/tainacan-interface-features.php:123
 msgid "Items per group"
 msgstr "Itens por grupo"
 
-#: functions/customizer/tainacan-interface-features.php:138
+#: functions/customizer/tainacan-interface-features.php:134
 msgid "Groups of the same term, at most"
 msgstr "Grupos de mesmo termo, no máximo"
 
-#: functions/customizer/tainacan-interface-features.php:146
+#: functions/customizer/tainacan-interface-features.php:142
 msgid "Keep the column in view while scrolling"
 msgstr "Manter a coluna à vista ao rolar a página"
 
-#: functions/customizer/tainacan-interface-features.php:147
+#: functions/customizer/tainacan-interface-features.php:143
 msgid "Leave out the \"Items related to this\" section at the bottom of the page"
 msgstr "Tirar a seção \"Itens relacionados a este\" do fim da página"
 
-#: functions/customizer/tainacan-interface-features.php:147
+#: functions/customizer/tainacan-interface-features.php:143
 msgid "Applies when the column shows the relationships, so they do not appear twice."
 msgstr "Vale quando a coluna mostra os relacionamentos, para não aparecerem duas vezes."
-
-#: functions/customizer/tainacan-items-page-collection-banner.php:27
-msgid "Collection Header"
-msgstr "Cabeçalho da coleção"
-
-#: functions/customizer/tainacan-items-page-collection-banner.php:28
-msgid "Settings related to Tainacan items list collection header."
-msgstr "Configurações relacionadas ao cabeçalho da Lista de Itens de uma Coleção do Tainacan."
-
-#: functions/customizer/tainacan-items-page-collection-banner.php:53
-msgid "Collection banner image maximum height (px)"
-msgstr "Altura máxima da imagem do cabeçalho da coleção (px)"
 
 #: functions/customizer/tainacan-items-page-filters-panel.php:27
 msgid "Filters panel"
@@ -1023,6 +895,14 @@ msgstr "Troque para mostrar modos de visualização \"tela cheia\" junto com out
 #: functions/customizer/tainacan-items-page-search-area.php:292
 msgid "Masonry"
 msgstr "Mosaico"
+
+#: functions/customizer/tainacan-items-page-search-area.php:293 tainacan/archive-terms.php:67
+msgid "Cards"
+msgstr "Cartões"
+
+#: functions/customizer/tainacan-items-page-search-area.php:294 tainacan/archive-terms.php:69
+msgid "Table"
+msgstr "Tabela"
 
 #: functions/customizer/tainacan-items-page-search-area.php:295 functions/customizer/tainacan-single-item-page-document.php:861
 msgid "Grid"
@@ -1225,7 +1105,7 @@ msgstr "Esconder a descrição dos anexos (no modal lightbox)"
 msgid "Toggle to not display the document and attachment descriptions in the lightbox."
 msgstr "Troque para não mostrar a descrição do documento ou anexos no modal lightbox."
 
-#: functions/customizer/tainacan-single-item-page-document.php:762 inc/settings.php:1010
+#: functions/customizer/tainacan-single-item-page-document.php:762 inc/settings.php:1018
 msgid "Center"
 msgstr "Centro"
 
@@ -1358,52 +1238,20 @@ msgid "Leave it blank to hide the label (which is the default)."
 msgstr "Deixe em branco para não exibir nenhum rótulo (é o padrão)."
 
 #: functions/customizer/tainacan-single-item-page-metadata.php:86
-msgid "Display item thumbnail"
-msgstr "Exibir a miniatura do item"
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:87
-msgid "Show the item thumbnail in the metadata list."
-msgstr "Mostrar a miniatura do item na lista de metadados."
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:118
 msgid "Display share buttons"
 msgstr "Mostrar botões de compartilhamento"
 
-#: functions/customizer/tainacan-single-item-page-metadata.php:119
+#: functions/customizer/tainacan-single-item-page-metadata.php:87
 msgid "Show social share buttons in the metadata list or collection banner."
 msgstr "Mostrar botões de compartilhamento na lista de metadados ou no cabeçalho da coleção."
 
-#: functions/customizer/tainacan-single-item-page-metadata.php:150
+#: functions/customizer/tainacan-single-item-page-metadata.php:118
 msgid "Hide core title from metadata list"
 msgstr "Esconder o título principal da lista de metadados"
 
-#: functions/customizer/tainacan-single-item-page-metadata.php:151
+#: functions/customizer/tainacan-single-item-page-metadata.php:119
 msgid "Hide the core title from the metadata list, since it already appears as the page title."
 msgstr "Esconder o título principal da lista de metadados, já que ele já aparece como título da página."
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:182
-msgid "Number of metadata columns (tablet)"
-msgstr "Número de colunas de metadados (tablet)"
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:183
-msgid "Choose how many metadata columns should be listed, for screen sizes between 728px and 1024px."
-msgstr "Escolha quantas colunas de metadados devem ser listadas, para telas de tamanho entre 728px e 1024px."
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:208
-msgid "Number of metadata columns (desktop)"
-msgstr "Número de colunas de metadados (desktop)"
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:209
-msgid "For screen sizes between 1025px and 1366px."
-msgstr "Para telas de tamanho entre 1025px e 1366px."
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:242
-msgid "Number of metadata columns (wide)"
-msgstr "Número de colunas de metadados (largo)"
-
-#: functions/customizer/tainacan-single-item-page-metadata.php:243
-msgid "For screens larger than 1366px."
-msgstr "Para telas de tamanho maior que 1366px."
 
 #: functions/customizer/tainacan-single-item-page-related-items.php:27 template-parts/single-items-related-items.php:34 template-parts/single-items-related-items.php:36
 msgid "Items related to this"
@@ -1413,7 +1261,7 @@ msgstr "Itens \"relacionados a este\""
 msgid "Settings for the section that displays items related to the current item."
 msgstr "Configurações para a seção que exibe os itens que se relacionam ao item atual"
 
-#: functions/customizer/tainacan-single-item-page-related-items.php:43 inc/item-aside.php:548
+#: functions/customizer/tainacan-single-item-page-related-items.php:43 inc/item-aside.php:544
 msgid "Related items"
 msgstr "Itens relacionados"
 
@@ -1518,7 +1366,7 @@ msgstr "Modificados mais recentemente por último"
 msgid "Latest modified first"
 msgstr "Modificados mais recentemente primeiro"
 
-#: functions/enqueues.php:88
+#: functions/enqueues.php:63
 msgid "Copied! Link copied to clipboard."
 msgstr "Copiado! Link enviado para área de transferência."
 
@@ -1626,7 +1474,7 @@ msgstr "Ir para o conteúdo"
 msgid "Open navigation menu"
 msgstr "Abrir menu de navegação"
 
-#: header.php:106
+#: header.php:104
 msgid "Back to top"
 msgstr "Voltar ao topo"
 
@@ -1665,7 +1513,7 @@ msgid "Add a menu"
 msgstr "Adicionar um menu"
 
 #. translators: %s: number of items.
-#: inc/collection-pages.php:156 template-parts/collections-grid.php:101
+#: inc/collection-pages.php:156 template-parts/collections-grid.php:105
 #, php-format
 msgid "%s item"
 msgid_plural "%s items"
@@ -1676,15 +1524,15 @@ msgstr[1] "%s itens"
 msgid "Surprise me"
 msgstr "Me surpreenda"
 
-#: inc/collection-pages.php:168 inc/collection-pages.php:333 template-parts/headertaxonomy.php:56 template-parts/single-items-metadata.php:76
+#: inc/collection-pages.php:168 inc/collection-pages.php:335
 msgid "Share"
 msgstr "Compartilhar"
 
-#: inc/collection-pages.php:221 template-parts/single-items-header.php:28
+#: inc/collection-pages.php:221
 msgid "Collection"
 msgstr "Coleção"
 
-#: inc/collection-pages.php:402 inc/collection-pages.php:409 inc/collection-pages.php:412 inc/settings.php:31
+#: inc/collection-pages.php:404 inc/collection-pages.php:411 inc/collection-pages.php:414 inc/settings.php:31
 msgid "Breadcrumb"
 msgstr "Trilha de navegação"
 
@@ -1693,32 +1541,32 @@ msgid "Too many requests. Please wait a minute."
 msgstr "Muitas consultas. Aguarde um minuto."
 
 #. translators: %s: names of collections, as links.
-#: inc/customizer-design.php:411
+#: inc/customizer-design.php:398
 #, php-format
 msgid "Does not change these collections, which have their own value on their form: %s."
 msgstr "Não muda estas coleções, que têm valor próprio no formulário delas: %s."
 
-#: inc/design.php:213
+#: inc/design.php:209
 msgid "Copied"
 msgstr "Copiado"
 
-#: inc/design.php:214
+#: inc/design.php:210
 msgid "Could not copy. Select the text and copy it."
 msgstr "Não foi possível copiar. Selecione o texto e copie."
 
 #. translators: %d: number of fields in a metadata section.
-#: inc/design.php:216
+#: inc/design.php:212
 #, php-format
 msgid "%d field"
 msgstr "%d campo"
 
 #. translators: %d: number of fields in a metadata section.
-#: inc/design.php:218
+#: inc/design.php:214
 #, php-format
 msgid "%d fields"
 msgstr "%d campos"
 
-#: inc/design.php:219
+#: inc/design.php:215
 msgid "No collection matches this text."
 msgstr "Nenhuma coleção corresponde a este texto."
 
@@ -1769,14 +1617,14 @@ msgid "More from this collection"
 msgstr "Mais desta coleção"
 
 #. translators: %d: number of items.
-#: inc/item-aside.php:561
+#: inc/item-aside.php:557
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] "%d item"
 msgstr[1] "%d itens"
 
-#: inc/item-aside.php:591
+#: inc/item-aside.php:587
 msgid "See all"
 msgstr "Ver todos"
 
@@ -1816,7 +1664,11 @@ msgstr "Copiar referência"
 msgid "Item not found."
 msgstr "Item não encontrado."
 
-#: inc/item-drawer.php:177 inc/settings.php:871
+#: inc/item-drawer.php:175
+msgid "Text"
+msgstr "Texto"
+
+#: inc/item-drawer.php:177 inc/settings.php:879
 msgid "Image"
 msgstr "Imagem"
 
@@ -1840,52 +1692,48 @@ msgid_plural "%s files"
 msgstr[0] "%s arquivo"
 msgstr[1] "%s arquivos"
 
-#: inc/item-drawer.php:365 inc/settings.php:35
+#: inc/item-drawer.php:363 inc/settings.php:35
 msgid "Item preview"
 msgstr "Prévia do item"
 
-#: inc/item-drawer.php:366
+#: inc/item-drawer.php:364
 msgid "Close preview"
 msgstr "Fechar a prévia"
 
-#: inc/item-drawer.php:367
+#: inc/item-drawer.php:365
 msgid "Previous item"
 msgstr "Item anterior"
 
-#: inc/item-drawer.php:368
+#: inc/item-drawer.php:366
 msgid "Next item"
 msgstr "Próximo item"
 
 #. translators: 1: position of the item in the list, 2: number of items in the list.
 #. translators: 1: position of the file, 2: number of files.
-#: inc/item-drawer.php:370 inc/item-viewer.php:372
+#: inc/item-drawer.php:368 inc/item-viewer.php:372
 #, php-format
 msgid "%1$d of %2$d"
 msgstr "%1$d de %2$d"
 
-#: inc/item-drawer.php:371 inc/item-viewer.php:368
+#: inc/item-drawer.php:369 inc/item-viewer.php:368
 msgid "Loading…"
 msgstr "Carregando…"
 
-#: inc/item-drawer.php:372 inc/item-viewer.php:369
+#: inc/item-drawer.php:370 inc/item-viewer.php:369
 msgid "This browser cannot play this file. You can download it."
 msgstr "Este navegador não consegue reproduzir este arquivo. Você pode baixá-lo."
 
-#: inc/item-drawer.php:373 inc/item-viewer.php:359
+#: inc/item-drawer.php:371 inc/item-viewer.php:359
 msgid "Download"
 msgstr "Baixar"
 
-#: inc/item-drawer.php:374
+#: inc/item-drawer.php:372
 msgid "This item could not be loaded."
 msgstr "Não foi possível carregar este item."
 
-#: inc/item-drawer.php:375
+#: inc/item-drawer.php:373
 msgid "Open item"
 msgstr "Abrir item"
-
-#: inc/item-drawer.php:375
-msgid "Open the full record"
-msgstr "Abrir a ficha completa"
 
 #. translators: %s: registration (accession) number of the item.
 #: inc/item-highlight.php:161
@@ -2117,1031 +1965,1047 @@ msgstr "Quatro cores, lado a lado"
 msgid "Gradient of the four colors"
 msgstr "Degradê das quatro cores"
 
-#: inc/settings.php:59 inc/settings.php:95 inc/settings.php:259
+#: inc/settings.php:59 inc/settings.php:84 inc/settings.php:248
 msgid "Accent color"
 msgstr "Cor de destaque"
+
+#: inc/settings.php:60 inc/settings.php:185 inc/settings.php:806 inc/settings.php:1084 template-parts/single-post.php:62
+msgid "None"
+msgstr "Nenhum"
 
 #: inc/settings.php:66
 msgid "Font of the visitor's system"
 msgstr "Fonte do sistema do visitante"
 
-#: inc/settings.php:76
-msgid "Page design"
-msgstr "Design das páginas"
-
-#: inc/settings.php:77
-msgid "Modern: the header, lists, preview and item page of version 4. Classic: the pages as they were up to version 3. The item preview, the file viewer and the side column have their own switches, in \"Lists and item page\"."
-msgstr "Moderno: cabeçalho, listas, prévia e página do item da versão 4. Clássico: as páginas como eram até a versão 3. A prévia do item, o visualizador de arquivos e a coluna lateral têm interruptores próprios, em \"Listas e página do item\"."
-
-#: inc/settings.php:79
-msgid "Modern"
-msgstr "Moderno"
-
-#: inc/settings.php:80
-msgid "Classic"
-msgstr "Clássico"
-
-#: inc/settings.php:87 inc/settings.php:258 inc/settings.php:495
+#: inc/settings.php:76 inc/settings.php:247 inc/settings.php:484
 msgid "Main color"
 msgstr "Cor principal"
 
-#: inc/settings.php:88
+#: inc/settings.php:77
 msgid "Titles, current breadcrumb, site header in color."
 msgstr "Títulos, página atual da trilha, cabeçalho do site em cor."
 
-#: inc/settings.php:96
+#: inc/settings.php:85
 msgid "Links, card titles, filters, buttons."
 msgstr "Links, títulos das fichas, filtros, botões."
 
-#: inc/settings.php:103
+#: inc/settings.php:92
 msgid "Decorative band"
 msgstr "Faixa decorativa"
 
-#: inc/settings.php:104
+#: inc/settings.php:93
 msgid "The thin line under the site header and the banner, and beside the description."
 msgstr "A linha fina sob o cabeçalho do site e o banner, e ao lado da descrição."
 
-#: inc/settings.php:111
+#: inc/settings.php:100
 msgid "Band: first color"
 msgstr "Faixa: primeira cor"
 
-#: inc/settings.php:117
+#: inc/settings.php:106
 msgid "Band: second color"
 msgstr "Faixa: segunda cor"
 
-#: inc/settings.php:123
+#: inc/settings.php:112
 msgid "Band: third color"
 msgstr "Faixa: terceira cor"
 
-#: inc/settings.php:129
+#: inc/settings.php:118
 msgid "Band: fourth color"
 msgstr "Faixa: quarta cor"
 
-#: inc/settings.php:135
+#: inc/settings.php:124
 msgid "Page background"
 msgstr "Fundo da página"
 
-#: inc/settings.php:141
+#: inc/settings.php:130
 msgid "Background of cards and panels"
 msgstr "Fundo de fichas e painéis"
 
-#: inc/settings.php:147 inc/settings.php:260
+#: inc/settings.php:136 inc/settings.php:249
 msgid "Text color"
 msgstr "Cor do texto"
 
-#: inc/settings.php:153
+#: inc/settings.php:142
 msgid "Font of the interface"
 msgstr "Fonte da interface"
 
-#: inc/settings.php:154
+#: inc/settings.php:143
 msgid "All the fonts offered here come with the theme or with the visitor's system; nothing is loaded from another server."
 msgstr "Todas as fontes oferecidas vêm com o tema ou com o sistema do visitante; nada é carregado de outro servidor."
 
-#: inc/settings.php:161
+#: inc/settings.php:150
 msgid "Font of the titles"
 msgstr "Fonte dos títulos"
 
-#: inc/settings.php:168
+#: inc/settings.php:157
 msgid "Font of long texts"
 msgstr "Fonte dos textos longos"
 
-#: inc/settings.php:169
+#: inc/settings.php:158
 msgid "Descriptions of collections and items."
 msgstr "Descrições de coleções e itens."
 
-#: inc/settings.php:179
+#: inc/settings.php:168
 msgid "Base text size (px)"
 msgstr "Tamanho base do texto (px)"
 
-#: inc/settings.php:188
+#: inc/settings.php:177
 msgid "Roundness of corners (px)"
 msgstr "Arredondamento dos cantos (px)"
 
-#: inc/settings.php:194
+#: inc/settings.php:183
 msgid "Shadows"
 msgstr "Sombras"
 
-#: inc/settings.php:197
+#: inc/settings.php:186
 msgid "Soft"
 msgstr "Suave"
 
-#: inc/settings.php:198
+#: inc/settings.php:187
 msgid "Deep"
 msgstr "Profunda"
 
-#: inc/settings.php:208
+#: inc/settings.php:197
 msgid "Largest width of the content (px)"
 msgstr "Largura máxima do conteúdo (px)"
 
-#: inc/settings.php:216
+#: inc/settings.php:205
 msgid "Weight of the titles"
 msgstr "Peso dos títulos"
 
-#: inc/settings.php:218
+#: inc/settings.php:207
 msgid "Medium"
 msgstr "Médio"
 
-#: inc/settings.php:219
+#: inc/settings.php:208
 msgid "Semibold"
 msgstr "Seminegrito"
 
-#: inc/settings.php:220
+#: inc/settings.php:209
 msgid "Bold"
 msgstr "Negrito"
 
-#: inc/settings.php:221
+#: inc/settings.php:210
 msgid "Extra bold"
 msgstr "Extranegrito"
 
-#: inc/settings.php:231
+#: inc/settings.php:220
 msgid "Size of the titles (%)"
 msgstr "Tamanho dos títulos (%)"
 
-#: inc/settings.php:240
+#: inc/settings.php:229
 msgid "Letter spacing of the titles (hundredths of the size)"
 msgstr "Espaço entre letras dos títulos (centésimos do tamanho)"
 
-#: inc/settings.php:246
+#: inc/settings.php:235
 msgid "Letters of the titles"
 msgstr "Letras dos títulos"
 
-#: inc/settings.php:248 inc/settings.php:296 inc/settings.php:362
+#: inc/settings.php:237 inc/settings.php:285 inc/settings.php:351
 msgid "As written"
 msgstr "Como foram escritas"
 
-#: inc/settings.php:249 inc/settings.php:297 inc/settings.php:363
+#: inc/settings.php:238 inc/settings.php:286 inc/settings.php:352
 msgid "Capitals"
 msgstr "Maiúsculas"
 
-#: inc/settings.php:256
+#: inc/settings.php:245
 msgid "Color of the titles"
 msgstr "Cor dos títulos"
 
-#: inc/settings.php:270
+#: inc/settings.php:259
 msgid "Line height of the text (%)"
 msgstr "Altura da linha do texto (%)"
 
-#: inc/settings.php:279
+#: inc/settings.php:268
 msgid "Base text size on phones (px)"
 msgstr "Tamanho base do texto no celular (px)"
 
-#: inc/settings.php:288
+#: inc/settings.php:277
 msgid "Size of the menu (px)"
 msgstr "Tamanho do menu (px)"
 
-#: inc/settings.php:294
+#: inc/settings.php:283
 msgid "Letters of the menu"
 msgstr "Letras do menu"
 
-#: inc/settings.php:309
+#: inc/settings.php:298
 msgid "Space at the sides of the page (px)"
 msgstr "Espaço nas laterais da página (px)"
 
-#: inc/settings.php:310
+#: inc/settings.php:299
 msgid "On large screens; phones keep a smaller one."
 msgstr "Em telas grandes; o celular mantém um menor."
 
-#: inc/settings.php:316
+#: inc/settings.php:305
 msgid "Space between the parts of a page"
 msgstr "Espaço entre as partes de uma página"
 
-#: inc/settings.php:318
+#: inc/settings.php:307
 msgid "Compact"
 msgstr "Compacto"
 
-#: inc/settings.php:319
+#: inc/settings.php:308
 msgid "Normal"
 msgstr "Normal"
 
-#: inc/settings.php:320
+#: inc/settings.php:309
 msgid "Spacious"
 msgstr "Amplo"
 
-#: inc/settings.php:330
+#: inc/settings.php:319
 msgid "Frame around the site (px)"
 msgstr "Moldura em volta do site (px)"
 
-#: inc/settings.php:331
+#: inc/settings.php:320
 msgid "A border in the main color around the window. 0: none."
 msgstr "Uma borda na cor principal em volta da janela. 0: nenhuma."
 
-#: inc/settings.php:339
+#: inc/settings.php:328
 msgid "Shape of the buttons"
 msgstr "Forma dos botões"
 
-#: inc/settings.php:341
+#: inc/settings.php:330
 msgid "Rounded corners"
 msgstr "Cantos arredondados"
 
-#: inc/settings.php:342 inc/settings.php:429
+#: inc/settings.php:331 inc/settings.php:418
 msgid "Capsule"
 msgstr "Cápsula"
 
-#: inc/settings.php:343
+#: inc/settings.php:332
 msgid "Square corners"
 msgstr "Cantos retos"
 
-#: inc/settings.php:350
+#: inc/settings.php:339
 msgid "Style of the buttons"
 msgstr "Estilo dos botões"
 
-#: inc/settings.php:352
+#: inc/settings.php:341
 msgid "Filled with the accent color"
 msgstr "Preenchidos com a cor de destaque"
 
-#: inc/settings.php:353
+#: inc/settings.php:342
 msgid "Outline in the accent color"
 msgstr "Contorno na cor de destaque"
 
-#: inc/settings.php:360
+#: inc/settings.php:349
 msgid "Letters of the buttons"
 msgstr "Letras dos botões"
 
-#: inc/settings.php:370
+#: inc/settings.php:359
 msgid "Text fields"
 msgstr "Campos de texto"
 
-#: inc/settings.php:372
+#: inc/settings.php:361
 msgid "With a border"
 msgstr "Com borda"
 
-#: inc/settings.php:373
+#: inc/settings.php:362
 msgid "Filled, no border"
 msgstr "Preenchidos, sem borda"
 
-#: inc/settings.php:374
+#: inc/settings.php:363
 msgid "Only a line below"
 msgstr "Só uma linha embaixo"
 
-#: inc/settings.php:381
+#: inc/settings.php:370
 msgid "Links in the text of posts and pages"
 msgstr "Links no texto de posts e páginas"
 
-#: inc/settings.php:383
+#: inc/settings.php:372
 msgid "Always underlined"
 msgstr "Sempre sublinhados"
 
-#: inc/settings.php:384
+#: inc/settings.php:373
 msgid "Underlined under the pointer"
 msgstr "Sublinhados sob o ponteiro"
 
-#: inc/settings.php:385
+#: inc/settings.php:374
 msgid "Never underlined"
 msgstr "Nunca sublinhados"
 
-#: inc/settings.php:392
+#: inc/settings.php:381
 msgid "Selected text"
 msgstr "Texto selecionado"
 
-#: inc/settings.php:394 inc/settings.php:408
+#: inc/settings.php:383 inc/settings.php:397
 msgid "In the accent color"
 msgstr "Na cor de destaque"
 
-#: inc/settings.php:395 inc/settings.php:407
+#: inc/settings.php:384 inc/settings.php:396
 msgid "In the main color"
 msgstr "Na cor principal"
 
-#: inc/settings.php:396
+#: inc/settings.php:385
 msgid "As the browser shows it"
 msgstr "Como o navegador mostra"
 
-#: inc/settings.php:405
+#: inc/settings.php:394
 msgid "Site header"
 msgstr "Cabeçalho do site"
 
-#: inc/settings.php:420
+#: inc/settings.php:409
 msgid "Height of the header: space above and below (px)"
 msgstr "Altura do cabeçalho: espaço acima e abaixo (px)"
 
-#: inc/settings.php:426
+#: inc/settings.php:415
 msgid "Current menu item and pointer over the menu"
 msgstr "Item atual e ponteiro sobre o menu"
 
-#: inc/settings.php:428
+#: inc/settings.php:417
 msgid "Line below"
 msgstr "Linha embaixo"
 
-#: inc/settings.php:430
+#: inc/settings.php:419
 msgid "Nothing"
 msgstr "Nada"
 
-#: inc/settings.php:437
+#: inc/settings.php:426
 msgid "Button in the header: text"
 msgstr "Botão no cabeçalho: texto"
 
-#: inc/settings.php:438
+#: inc/settings.php:427
 msgid "A highlighted link beside the menu, such as \"Visit\" or \"Contact\". Empty: no button."
 msgstr "Um link em destaque ao lado do menu, como \"Visite\" ou \"Contato\". Vazio: sem botão."
 
-#: inc/settings.php:444
+#: inc/settings.php:433
 msgid "Button in the header: address"
 msgstr "Botão no cabeçalho: endereço"
 
-#: inc/settings.php:450
+#: inc/settings.php:439
 msgid "Menu on phones"
 msgstr "Menu no celular"
 
-#: inc/settings.php:452
+#: inc/settings.php:441
 msgid "Opens below the header"
 msgstr "Abre abaixo do cabeçalho"
 
-#: inc/settings.php:453
+#: inc/settings.php:442
 msgid "Panel from the side"
 msgstr "Painel lateral"
 
-#: inc/settings.php:460
+#: inc/settings.php:449
 msgid "Logo and menu"
 msgstr "Logo e menu"
 
-#: inc/settings.php:462
+#: inc/settings.php:451
 msgid "Menu below the logo"
 msgstr "Menu abaixo do logo"
 
-#: inc/settings.php:463
+#: inc/settings.php:452
 msgid "On the same line"
 msgstr "Na mesma linha"
 
-#: inc/settings.php:470
+#: inc/settings.php:459
 msgid "Decorative band under the header"
 msgstr "Faixa decorativa sob o cabeçalho"
 
-#: inc/settings.php:476
+#: inc/settings.php:465
 msgid "Keep the header in view while scrolling"
 msgstr "Manter o cabeçalho visível ao rolar"
 
-#: inc/settings.php:482 inc/settings.php:513
+#: inc/settings.php:471 inc/settings.php:502
 msgid "Footer"
 msgstr "Rodapé"
 
-#: inc/settings.php:483
+#: inc/settings.php:472
 msgid "Compact leaves out the footer widgets. The text is the one set in \"Footer\"."
 msgstr "O compacto deixa de fora os widgets do rodapé. O texto é o definido em \"Rodapé\"."
 
-#: inc/settings.php:485
+#: inc/settings.php:474
 msgid "Compact, in the main color"
 msgstr "Compacto, na cor principal"
 
-#: inc/settings.php:486
+#: inc/settings.php:475
 msgid "With widgets"
 msgstr "Com widgets"
 
-#: inc/settings.php:493
+#: inc/settings.php:482
 msgid "Color of the compact footer"
 msgstr "Cor do rodapé compacto"
 
-#: inc/settings.php:504
+#: inc/settings.php:493
 msgid "Line at the end of the footer"
 msgstr "Linha no fim do rodapé"
 
-#: inc/settings.php:505
+#: inc/settings.php:494
 msgid "For example \"© {year} {site}. Some rights reserved.\" {year} and {site} become the year and the name of the site. The footer menu is chosen in Appearance > Menus."
 msgstr "Por exemplo \"© {year} {site}. Alguns direitos reservados.\" {year} e {site} viram o ano e o nome do site. O menu do rodapé se escolhe em Aparência > Menus."
 
-#: inc/settings.php:511
+#: inc/settings.php:500
 msgid "Where the links appear"
 msgstr "Onde os links aparecem"
 
-#: inc/settings.php:514
+#: inc/settings.php:503
 msgid "Header"
 msgstr "Cabeçalho"
 
-#: inc/settings.php:515
+#: inc/settings.php:504
 msgid "Header and footer"
 msgstr "Cabeçalho e rodapé"
 
-#: inc/settings.php:516
+#: inc/settings.php:505
 msgid "Nowhere"
 msgstr "Em nenhum lugar"
 
-#: inc/settings.php:523
+#: inc/settings.php:512
 msgid "Open in a new tab"
 msgstr "Abrir em nova aba"
 
-#: inc/settings.php:531
+#: inc/settings.php:520
 msgid "Style"
 msgstr "Estilo"
 
-#: inc/settings.php:533
+#: inc/settings.php:522
 msgid "Capsule, with the current page highlighted"
 msgstr "Cápsula, com a página atual em destaque"
 
-#: inc/settings.php:534
+#: inc/settings.php:523
 msgid "Plain text with arrows"
 msgstr "Texto simples com setas"
 
-#: inc/settings.php:535 inc/settings.php:664
+#: inc/settings.php:524 inc/settings.php:653
 msgid "Hidden"
 msgstr "Oculto"
 
-#: inc/settings.php:542
+#: inc/settings.php:531
 msgid "Separator"
 msgstr "Separador"
 
-#: inc/settings.php:544
+#: inc/settings.php:533
 msgid "Arrow"
 msgstr "Seta"
 
-#: inc/settings.php:545
+#: inc/settings.php:534
 msgid "Slash"
 msgstr "Barra"
 
-#: inc/settings.php:546
+#: inc/settings.php:535
 msgid "Dot"
 msgstr "Ponto"
 
-#: inc/settings.php:553
+#: inc/settings.php:542
 msgid "Icon on the first step"
 msgstr "Ícone no primeiro passo"
 
-#: inc/settings.php:559
+#: inc/settings.php:548
 msgid "On the item page, start at the home page"
 msgstr "Na página do item, começar pela página inicial"
 
-#: inc/settings.php:560
+#: inc/settings.php:549
 msgid "Off: the item page shows only the collection and the item."
 msgstr "Desligado: a página do item mostra só a coleção e o item."
 
-#: inc/settings.php:568 inc/settings.php:918
+#: inc/settings.php:557 inc/settings.php:926
 msgid "Layout"
 msgstr "Leiaute"
 
-#: inc/settings.php:571
+#: inc/settings.php:560
 msgid "Centered, the icon on the edge of the banner"
 msgstr "Centralizado, com o ícone na borda do banner"
 
-#: inc/settings.php:572
+#: inc/settings.php:561
 msgid "Along the left edge"
 msgstr "Alinhado à esquerda"
 
-#: inc/settings.php:573
+#: inc/settings.php:562
 msgid "Title over the banner"
 msgstr "Título sobre o banner"
 
-#: inc/settings.php:574
+#: inc/settings.php:563
 msgid "Compact: icon beside the title, no banner"
 msgstr "Compacto: ícone ao lado do título, sem banner"
 
-#: inc/settings.php:581
+#: inc/settings.php:570
 msgid "Banner"
 msgstr "Banner"
 
-#: inc/settings.php:582
+#: inc/settings.php:571
 msgid "The mosaic is put together from the images of the items, so a collection without a header image still has a face."
 msgstr "O mosaico é montado com as imagens dos itens, para que a coleção sem imagem de cabeçalho tenha uma cara."
 
-#: inc/settings.php:585
+#: inc/settings.php:574
 msgid "Header image; a mosaic of items when there is none"
 msgstr "Imagem de cabeçalho; mosaico de itens quando não houver"
 
-#: inc/settings.php:586
+#: inc/settings.php:575
 msgid "Only the header image"
 msgstr "Só a imagem de cabeçalho"
 
-#: inc/settings.php:587 inc/settings.php:745
+#: inc/settings.php:576 inc/settings.php:746
 msgid "Always the mosaic of items"
 msgstr "Sempre o mosaico de itens"
 
-#: inc/settings.php:588 inc/settings.php:1000
+#: inc/settings.php:577 inc/settings.php:1008
 msgid "No banner"
 msgstr "Sem banner"
 
-#: inc/settings.php:595
+#: inc/settings.php:584
 msgid "Width of the banner"
 msgstr "Largura do banner"
 
-#: inc/settings.php:597
+#: inc/settings.php:586
 msgid "Inside the content, with round corners"
 msgstr "Dentro do conteúdo, com cantos arredondados"
 
-#: inc/settings.php:598
+#: inc/settings.php:587
 msgid "The whole window"
 msgstr "A janela inteira"
 
-#: inc/settings.php:608
+#: inc/settings.php:597
 msgid "Height of the banner (px)"
 msgstr "Altura do banner (px)"
 
-#: inc/settings.php:617
+#: inc/settings.php:606
 msgid "Veil over the banner (%)"
 msgstr "Véu sobre o banner (%)"
 
-#: inc/settings.php:618
+#: inc/settings.php:607
 msgid "A layer in the main color, so the banner does not compete with the title."
 msgstr "Uma camada na cor principal, para o banner não competir com o título."
 
-#: inc/settings.php:624
+#: inc/settings.php:613
 msgid "Collection icon"
 msgstr "Ícone da coleção"
 
-#: inc/settings.php:625
+#: inc/settings.php:614
 msgid "The thumbnail of the collection; without one, a mosaic of items."
 msgstr "A miniatura da coleção; sem ela, um mosaico de itens."
 
-#: inc/settings.php:628
+#: inc/settings.php:617
 msgid "Tilted card"
 msgstr "Cartão inclinado"
 
-#: inc/settings.php:629 inc/settings.php:1165
+#: inc/settings.php:618 inc/settings.php:1173
 msgid "Rounded square"
 msgstr "Quadrado arredondado"
 
-#: inc/settings.php:630 inc/settings.php:1164
+#: inc/settings.php:619 inc/settings.php:1172
 msgid "Circle"
 msgstr "Círculo"
 
-#: inc/settings.php:631
+#: inc/settings.php:620
 msgid "No icon"
 msgstr "Sem ícone"
 
-#: inc/settings.php:641
+#: inc/settings.php:630
 msgid "Size of the icon (px)"
 msgstr "Tamanho do ícone (px)"
 
-#: inc/settings.php:647
+#: inc/settings.php:636
 msgid "Label \"Collection\" above the title"
 msgstr "Etiqueta \"Coleção\" acima do título"
 
-#: inc/settings.php:653
+#: inc/settings.php:642
 msgid "Short band under the title"
 msgstr "Faixa curta sob o título"
 
-#: inc/settings.php:659 inc/settings.php:888 template-parts/loop-tainacan-collection-table.php:16 template-parts/loop-tainacan-terms-table.php:24
+#: inc/settings.php:648 inc/settings.php:896 template-parts/loop-tainacan-terms-table.php:24
 msgid "Description"
 msgstr "Descrição"
 
-#: inc/settings.php:662
+#: inc/settings.php:651
 msgid "In a panel"
 msgstr "Em um painel"
 
-#: inc/settings.php:663 inc/settings.php:940
+#: inc/settings.php:652 inc/settings.php:948
 msgid "Plain text"
 msgstr "Texto simples"
 
-#: inc/settings.php:671
+#: inc/settings.php:660
 msgid "Number of items"
 msgstr "Número de itens"
 
-#: inc/settings.php:677
+#: inc/settings.php:666
 msgid "\"Surprise me\" button"
 msgstr "Botão \"Me surpreenda\""
 
-#: inc/settings.php:678
+#: inc/settings.php:667
 msgid "Opens the preview of a random item of the page. Needs the item preview on."
 msgstr "Abre a prévia de um item sorteado da página. Requer a prévia do item ligada."
 
-#: inc/settings.php:684
+#: inc/settings.php:673
+msgid "Menu of the collection below the header"
+msgstr "Menu da coleção abaixo do cabeçalho"
+
+#: inc/settings.php:674
+msgid "The menu saved in the location of the collection, in Appearance > Menus. A collection can turn it off on its form."
+msgstr "O menu salvo no local da coleção, em Aparência > Menus. Uma coleção pode desligá-lo no formulário dela."
+
+#: inc/settings.php:677
+msgid "Show"
+msgstr "Mostrar"
+
+#: inc/settings.php:678
+msgid "Hide"
+msgstr "Esconder"
+
+#: inc/settings.php:685
 msgid "Share links"
 msgstr "Links de compartilhamento"
 
-#: inc/settings.php:692
+#: inc/settings.php:693
 msgid "Title of the page"
 msgstr "Título da página"
 
-#: inc/settings.php:693
+#: inc/settings.php:694
 msgid "Empty: \"Collections\"."
 msgstr "Vazio: \"Coleções\"."
 
-#: inc/settings.php:699
+#: inc/settings.php:700
 msgid "Text under the title"
 msgstr "Texto sob o título"
 
-#: inc/settings.php:705
+#: inc/settings.php:706
 msgid "Card"
 msgstr "Ficha"
 
-#: inc/settings.php:707
+#: inc/settings.php:708
 msgid "Image above, text below"
 msgstr "Imagem em cima, texto embaixo"
 
-#: inc/settings.php:708
+#: inc/settings.php:709
 msgid "Text over the image"
 msgstr "Texto sobre a imagem"
 
-#: inc/settings.php:709
+#: inc/settings.php:710
 msgid "Image beside the text"
 msgstr "Imagem ao lado do texto"
 
-#: inc/settings.php:716
+#: inc/settings.php:717
 msgid "Columns on a large screen"
 msgstr "Colunas em tela grande"
 
-#: inc/settings.php:729
+#: inc/settings.php:730
 msgid "Proportion of the image"
 msgstr "Proporção da imagem"
 
-#: inc/settings.php:741
+#: inc/settings.php:742
 msgid "Image of the card"
 msgstr "Imagem da ficha"
 
-#: inc/settings.php:743
+#: inc/settings.php:744
 msgid "Thumbnail; a mosaic of items when there is none"
 msgstr "Miniatura; mosaico de itens quando não houver"
 
-#: inc/settings.php:744
+#: inc/settings.php:745
 msgid "Only the thumbnail"
 msgstr "Só a miniatura"
 
-#: inc/settings.php:754
+#: inc/settings.php:755
 msgid "Order set for the collections, then newest"
 msgstr "Ordem definida nas coleções, depois as mais novas"
 
 #: inc/settings.php:756
+msgid "Title"
+msgstr "Título"
+
+#: inc/settings.php:757
 msgid "Newest first"
 msgstr "Mais novas primeiro"
 
-#: inc/settings.php:757
+#: inc/settings.php:758
 msgid "Most items first"
 msgstr "Com mais itens primeiro"
 
-#: inc/settings.php:764
+#: inc/settings.php:765
 msgid "Show the description"
 msgstr "Mostrar a descrição"
 
-#: inc/settings.php:773
+#: inc/settings.php:774
 msgid "Words of the description"
 msgstr "Palavras da descrição"
 
-#: inc/settings.php:779
+#: inc/settings.php:780
 msgid "Show the number of items"
 msgstr "Mostrar o número de itens"
 
-#: inc/settings.php:785
+#: inc/settings.php:786
+msgid "Menu of the page below the title"
+msgstr "Menu da página abaixo do título"
+
+#: inc/settings.php:787
+msgid "The menu saved in the location \"List of collections\", in Appearance > Menus."
+msgstr "O menu salvo no local \"Lista de coleções\", em Aparência > Menus."
+
+#: inc/settings.php:793
 msgid "Field to find a collection"
 msgstr "Campo para encontrar uma coleção"
 
-#: inc/settings.php:786
+#: inc/settings.php:794
 msgid "Filters the cards while typing. Shown from 7 collections on."
 msgstr "Filtra as fichas enquanto se digita. Aparece a partir de 7 coleções."
 
-#: inc/settings.php:794
+#: inc/settings.php:802
 msgid "Accent of the card title"
 msgstr "Destaque do título da ficha"
 
-#: inc/settings.php:796
+#: inc/settings.php:804
 msgid "Bar on the left"
 msgstr "Barra à esquerda"
 
-#: inc/settings.php:797
+#: inc/settings.php:805
 msgid "Line on top of the card"
 msgstr "Linha no topo da ficha"
 
-#: inc/settings.php:805
+#: inc/settings.php:813
 msgid "Lines of the card title"
 msgstr "Linhas do título da ficha"
 
-#: inc/settings.php:816
+#: inc/settings.php:824
 msgid "When the pointer is over a card"
 msgstr "Quando o ponteiro está sobre a ficha"
 
-#: inc/settings.php:818
+#: inc/settings.php:826
 msgid "Rise a little"
 msgstr "Sobe um pouco"
 
-#: inc/settings.php:819
+#: inc/settings.php:827
 msgid "Ring in the accent color"
 msgstr "Contorno na cor de destaque"
 
-#: inc/settings.php:826
+#: inc/settings.php:834
 msgid "Lists in the largest width of the content"
 msgstr "Listas na largura máxima do conteúdo"
 
-#: inc/settings.php:834
+#: inc/settings.php:842
 msgid "How it opens"
 msgstr "Como abre"
 
-#: inc/settings.php:837
+#: inc/settings.php:845
 msgid "Over the list, which keeps its size"
 msgstr "Sobre a lista, que mantém o tamanho"
 
-#: inc/settings.php:838
+#: inc/settings.php:846
 msgid "Beside the list, which makes room"
 msgstr "Ao lado da lista, que abre espaço"
 
-#: inc/settings.php:839
+#: inc/settings.php:847
 msgid "Do not open: a click goes to the item page"
 msgstr "Não abrir: o clique vai para a página do item"
 
-#: inc/settings.php:859
+#: inc/settings.php:867
 msgid "Width (px)"
 msgstr "Largura (px)"
 
-#: inc/settings.php:865
+#: inc/settings.php:873
 msgid "Darken the page behind"
 msgstr "Escurecer a página atrás"
 
-#: inc/settings.php:873
+#: inc/settings.php:881
 msgid "Whole image"
 msgstr "Imagem inteira"
 
-#: inc/settings.php:874
+#: inc/settings.php:882
 msgid "Filling the box"
 msgstr "Preenchendo a caixa"
 
-#: inc/settings.php:875
+#: inc/settings.php:883
 msgid "No image"
 msgstr "Sem imagem"
 
-#: inc/settings.php:882
+#: inc/settings.php:890
 msgid "Line with the collection, the kind of document and the number of files"
 msgstr "Linha com a coleção, o tipo de documento e o número de arquivos"
 
-#: inc/settings.php:897
+#: inc/settings.php:905
 msgid "Metadata at most"
 msgstr "Máximo de metadados"
 
-#: inc/settings.php:903
+#: inc/settings.php:911
 msgid "Text of the button that opens the item"
 msgstr "Texto do botão que abre o item"
 
-#: inc/settings.php:904
+#: inc/settings.php:912
 msgid "Empty: \"Open item\"."
 msgstr "Vazio: \"Abrir item\"."
 
-#: inc/settings.php:910
+#: inc/settings.php:918
 msgid "Open the item in a new tab"
 msgstr "Abrir o item em nova aba"
 
-#: inc/settings.php:921
+#: inc/settings.php:929
 msgid "Document above, record below"
 msgstr "Documento em cima, ficha embaixo"
 
-#: inc/settings.php:922
+#: inc/settings.php:930
 msgid "Document on the left, record on the right"
 msgstr "Documento à esquerda, ficha à direita"
 
-#: inc/settings.php:923
+#: inc/settings.php:931
 msgid "Record on the left, document on the right"
 msgstr "Ficha à esquerda, documento à direita"
 
-#: inc/settings.php:930
+#: inc/settings.php:938
 msgid "Line under the title with the date and the first terms"
 msgstr "Linha sob o título com a data e os primeiros termos"
 
-#: inc/settings.php:936
+#: inc/settings.php:944
 msgid "Short values of the record"
 msgstr "Valores curtos da ficha"
 
-#: inc/settings.php:938
+#: inc/settings.php:946
 msgid "Capsules in four tints"
 msgstr "Cápsulas em quatro tons"
 
-#: inc/settings.php:939
+#: inc/settings.php:947
 msgid "Capsules in the accent color"
 msgstr "Cápsulas na cor de destaque"
 
-#: inc/settings.php:947
+#: inc/settings.php:955
 msgid "Names of the metadata"
 msgstr "Nomes dos metadados"
 
-#: inc/settings.php:949
+#: inc/settings.php:957
 msgid "Beside the value"
 msgstr "Ao lado do valor"
 
-#: inc/settings.php:950
+#: inc/settings.php:958
 msgid "Above the value"
 msgstr "Acima do valor"
 
-#: inc/settings.php:957
+#: inc/settings.php:965
 msgid "Columns of metadata"
 msgstr "Colunas de metadados"
 
-#: inc/settings.php:967
+#: inc/settings.php:975
 msgid "Metadata sections, in panels that open and close"
 msgstr "Seções de metadados, em painéis que abrem e fecham"
 
-#: inc/settings.php:968
+#: inc/settings.php:976
 msgid "Used when the collection keeps the \"Default\" sections layout."
 msgstr "Vale quando a coleção mantém o leiaute \"Padrão\" das seções."
 
-#: inc/settings.php:971
+#: inc/settings.php:979
 msgid "The first one open"
 msgstr "A primeira aberta"
 
-#: inc/settings.php:972
+#: inc/settings.php:980
 msgid "All open"
 msgstr "Todas abertas"
 
-#: inc/settings.php:973
+#: inc/settings.php:981
 msgid "All closed"
 msgstr "Todas fechadas"
 
-#: inc/settings.php:980
+#: inc/settings.php:988
 msgid "\"How to cite\" panel"
 msgstr "Painel \"Como citar\""
 
-#: inc/settings.php:981
+#: inc/settings.php:989
 msgid "ABNT, APA, Vancouver, BibTeX and RIS, with a copy button."
 msgstr "ABNT, APA, Vancouver, BibTeX e RIS, com botão de copiar."
 
-#: inc/settings.php:987
+#: inc/settings.php:995
 msgid "Document in a frame"
 msgstr "Documento em moldura"
 
-#: inc/settings.php:995
+#: inc/settings.php:1003
 msgid "Banner at the top"
 msgstr "Banner do topo"
 
-#: inc/settings.php:996
+#: inc/settings.php:1004
 msgid "On the blog, posts, pages and searches. The image is the one of Appearance > Customize > Header image."
 msgstr "No blog, em posts, páginas e buscas. A imagem é a de Aparência > Personalizar > Imagem do cabeçalho."
 
-#: inc/settings.php:998
+#: inc/settings.php:1006
 msgid "Image with a veil in the main color"
 msgstr "Imagem com véu na cor principal"
 
-#: inc/settings.php:999
+#: inc/settings.php:1007
 msgid "Plain, no image"
 msgstr "Simples, sem imagem"
 
-#: inc/settings.php:1007
+#: inc/settings.php:1015
 msgid "Alignment of the banner text"
 msgstr "Alinhamento do texto do banner"
 
-#: inc/settings.php:1020
+#: inc/settings.php:1028
 msgid "Minimum height of the banner (px)"
 msgstr "Altura mínima do banner (px)"
 
-#: inc/settings.php:1021
+#: inc/settings.php:1029
 msgid "0: as tall as its text."
 msgstr "0: da altura do texto."
 
-#: inc/settings.php:1027
+#: inc/settings.php:1035
 msgid "List of posts"
 msgstr "Lista de posts"
 
-#: inc/settings.php:1029
+#: inc/settings.php:1037
 msgid "One below the other, image beside the text"
 msgstr "Um abaixo do outro, imagem ao lado do texto"
 
-#: inc/settings.php:1030
+#: inc/settings.php:1038
 msgid "Cards in columns"
 msgstr "Cartões em colunas"
 
-#: inc/settings.php:1037
+#: inc/settings.php:1045
 msgid "Columns of cards on a large screen"
 msgstr "Colunas de cartões em tela grande"
 
-#: inc/settings.php:1048
+#: inc/settings.php:1056
 msgid "Proportion of the images of the list"
 msgstr "Proporção das imagens da lista"
 
-#: inc/settings.php:1050
+#: inc/settings.php:1058
 msgid "As the image is"
 msgstr "Como a imagem é"
 
-#: inc/settings.php:1064
+#: inc/settings.php:1072
 msgid "Words of the summary in the list"
 msgstr "Palavras do resumo na lista"
 
-#: inc/settings.php:1065
+#: inc/settings.php:1073
 msgid "0: no summary."
 msgstr "0: sem resumo."
 
-#: inc/settings.php:1071
+#: inc/settings.php:1079
 msgid "Sidebar of the blog"
 msgstr "Barra lateral do blog"
 
-#: inc/settings.php:1072
+#: inc/settings.php:1080
 msgid "Shown when it has widgets (Appearance > Widgets)."
 msgstr "Aparece quando tem widgets (Aparência > Widgets)."
 
-#: inc/settings.php:1074
+#: inc/settings.php:1082
 msgid "On the right"
 msgstr "À direita"
 
-#: inc/settings.php:1075
+#: inc/settings.php:1083
 msgid "On the left"
 msgstr "À esquerda"
 
-#: inc/settings.php:1086
+#: inc/settings.php:1094
 msgid "Width of the sidebar (px)"
 msgstr "Largura da barra lateral (px)"
 
-#: inc/settings.php:1092
+#: inc/settings.php:1100
 msgid "Keep the sidebar in view while scrolling"
 msgstr "Manter a barra lateral à vista ao rolar"
 
-#: inc/settings.php:1098
+#: inc/settings.php:1106
 msgid "Width of the text of a post or page"
 msgstr "Largura do texto de um post ou página"
 
-#: inc/settings.php:1100
+#: inc/settings.php:1108
 msgid "The width of the page"
 msgstr "A largura da página"
 
-#: inc/settings.php:1101
+#: inc/settings.php:1109
 msgid "Narrow, easier to read"
 msgstr "Estreita, mais fácil de ler"
 
-#: inc/settings.php:1111
+#: inc/settings.php:1119
 msgid "Narrow width (px)"
 msgstr "Largura estreita (px)"
 
-#: inc/settings.php:1117
+#: inc/settings.php:1125
 msgid "Featured image at the top of a post"
 msgstr "Imagem destacada no topo de um post"
 
-#: inc/settings.php:1123
+#: inc/settings.php:1131
 msgid "Date and author of a post"
 msgstr "Data e autor de um post"
 
-#: inc/settings.php:1129
+#: inc/settings.php:1137
 msgid "Share links on posts and pages"
 msgstr "Links de compartilhar em posts e páginas"
 
-#: inc/settings.php:1135
+#: inc/settings.php:1143
 msgid "Categories, tags and comments at the end of a post"
 msgstr "Categorias, tags e comentários no fim de um post"
 
-#: inc/settings.php:1141
+#: inc/settings.php:1149
 msgid "Previous and next post"
 msgstr "Post anterior e próximo"
 
-#: inc/settings.php:1147
+#: inc/settings.php:1155
 msgid "Reading progress bar on posts"
 msgstr "Barra de progresso de leitura nos posts"
 
-#: inc/settings.php:1148
+#: inc/settings.php:1156
 msgid "A thin line at the top of the window that fills as the visitor reads. Drawn by the browser, without a script; browsers that cannot draw it show nothing."
 msgstr "Uma linha fina no topo da janela que se preenche conforme o visitante lê. Desenhada pelo navegador, sem script; navegadores que não sabem desenhá-la não mostram nada."
 
-#: inc/settings.php:1156
+#: inc/settings.php:1164
 msgid "Back to top button"
 msgstr "Botão de voltar ao topo"
 
-#: inc/settings.php:1162
+#: inc/settings.php:1170
 msgid "Shape of the button"
 msgstr "Forma do botão"
 
-#: inc/settings.php:1166
+#: inc/settings.php:1174
 msgid "Square"
 msgstr "Quadrado"
 
-#: inc/settings.php:1173
+#: inc/settings.php:1181
 msgid "Side of the button"
 msgstr "Lado do botão"
 
-#: inc/settings.php:1183
+#: inc/settings.php:1191
 msgid "Show the button on phones"
 msgstr "Mostrar o botão no celular"
 
-#: inc/settings.php:1189
+#: inc/settings.php:1197
 msgid "Leave out the emoji script of WordPress"
 msgstr "Não carregar o script de emoji do WordPress"
 
-#: inc/settings.php:1190
+#: inc/settings.php:1198
 msgid "Browsers draw emoji by themselves; the script only replaces them with images on very old systems."
 msgstr "Os navegadores desenham os emoji sozinhos; o script só os troca por imagens em sistemas muito antigos."
 
-#: inc/settings.php:1319
+#: inc/settings.php:1312
 msgid "Observatory (navy and violet)"
 msgstr "Observatório (azul-marinho e violeta)"
 
-#: inc/settings.php:1333
+#: inc/settings.php:1326
 msgid "Museum (wine and gold)"
 msgstr "Museu (vinho e dourado)"
 
-#: inc/settings.php:1347
+#: inc/settings.php:1340
 msgid "Archive (sepia and graphite)"
 msgstr "Arquivo (sépia e grafite)"
 
-#: inc/settings.php:1361
+#: inc/settings.php:1354
 msgid "Nature (forest and turquoise)"
 msgstr "Natureza (floresta e turquesa)"
 
-#: inc/settings.php:1375
+#: inc/settings.php:1368
 msgid "High contrast"
 msgstr "Alto contraste"
 
-#: inc/settings.php:1408
+#: inc/settings.php:1401
 msgid "Everything about the look of the Tainacan pages in one place. The options of the item page and of the search area stay in their own panels."
 msgstr "Tudo sobre a aparência das páginas do Tainacan em um só lugar. As opções detalhadas da página do item e da área de busca seguem nos painéis próprios."
 
-#: inc/settings.php:1450
+#: inc/settings.php:1443
 msgid "Choose a combination…"
 msgstr "Escolha uma combinação…"
 
-#: inc/settings.php:1459
+#: inc/settings.php:1452
 msgid "Ready-made colors"
 msgstr "Cores prontas"
 
-#: inc/settings.php:1460
+#: inc/settings.php:1453
 msgid "Fills in the colors below; publish to keep them."
 msgstr "Preenche as cores abaixo; publique para mantê-las."
 
-#: inc/settings.php:1584
+#: inc/settings.php:1577
 msgid "Public pages of this collection"
 msgstr "Páginas públicas desta coleção"
 
-#: inc/settings.php:1585
+#: inc/settings.php:1578
 msgid "Tainacan Interface. Leave a field on \"As the site\" to follow Appearance > Customize."
 msgstr "Tainacan Interface. Deixe um campo em \"Como no site\" para seguir Aparência > Personalizar."
 
-#: inc/settings.php:1596
+#: inc/settings.php:1589
 msgid "As the site (or a color such as #1c355e)"
 msgstr "Como no site (ou uma cor como #1c355e)"
 
-#: inc/settings.php:1600
+#: inc/settings.php:1593
 msgid "As the site"
 msgstr "Como no site"
 
@@ -3166,38 +3030,26 @@ msgid "Copy link"
 msgstr "Copiar link"
 
 #. translators: %s: name of a theme.
-#: inc/upgrade.php:193
+#: inc/upgrade.php:177
 #, php-format
 msgid "This site was using %s, which derives from Tainacan Interface. Do you want to bring its settings? They replace the ones stored for Tainacan Interface."
 msgstr "Este site usava o tema %s, derivado do Tainacan Interface. Quer trazer os ajustes dele? Eles substituem os guardados para o Tainacan Interface."
 
-#: inc/upgrade.php:200
+#: inc/upgrade.php:184
 msgid "Bring the settings"
 msgstr "Trazer os ajustes"
 
-#: inc/upgrade.php:347
-msgid "Tainacan Interface 3 has new features, off on this site until you turn them on."
-msgstr "O Tainacan Interface 3 tem recursos novos, desligados neste site até você ligá-los."
+#: inc/upgrade.php:323
+msgid "Tainacan Interface has a new design."
+msgstr "O Tainacan Interface tem um design novo."
 
-#: inc/upgrade.php:348
-msgid "An item preview drawer on the lists, a file viewer and PDF reader on the item page, a highlighted item record and a side column of related items. The security fixes are already on."
-msgstr "Uma caixa lateral de prévia do item nas listas, um visualizador de arquivos e leitor de PDF na página do item, uma ficha em destaque e uma coluna lateral de itens relacionados. As correções de segurança já estão valendo."
+#: inc/upgrade.php:324
+msgid "A new collection header, breadcrumb, list of collections, item preview and item page, all adjustable in Appearance > Customize > Tainacan Interface, and menus for each collection in Appearance > Menus."
+msgstr "Novo cabeçalho de coleção, trilha de navegação, lista de coleções, prévia e página do item, tudo ajustável em Aparência > Personalizar > Tainacan Interface, e menus para cada coleção em Aparência > Menus."
 
-#: inc/upgrade.php:350
-msgid "See the new features"
-msgstr "Ver os recursos novos"
-
-#: inc/upgrade.php:370
-msgid "Tainacan Interface 4 has a new design, off on this site until you choose it."
-msgstr "O Tainacan Interface 4 tem um design novo, desligado neste site até você escolhê-lo."
-
-#: inc/upgrade.php:371
-msgid "A new collection header, breadcrumb, list of collections, item preview and item page, all adjustable, and menus for each collection. Your pages keep their look. Try it in the Customizer before publishing: \"Tainacan Interface\" > \"Look and feel\" > \"Page design\"."
-msgstr "Novos cabeçalho de coleção, trilha, lista de coleções, prévia e página do item, todos ajustáveis, e menus para cada coleção. Suas páginas mantêm a aparência. Experimente no Personalizar antes de publicar: \"Tainacan Interface\" > \"Aparência\" > \"Design das páginas\"."
-
-#: inc/upgrade.php:373
-msgid "Try the new design"
-msgstr "Experimentar o design novo"
+#: inc/upgrade.php:326
+msgid "Adjust the design"
+msgstr "Ajustar o design"
 
 #. Template Name of the theme
 msgid "Landing with Breadcrumb"
@@ -3211,6 +3063,14 @@ msgstr "Página de entrada"
 msgid "Search"
 msgstr "Buscar"
 
+#: tainacan/archive-terms.php:25 template-parts/loop-singular.php:21 template-parts/loop.php:51
+msgid "Back"
+msgstr "Voltar"
+
+#: tainacan/archive-terms.php:33
+msgid "Sorting"
+msgstr "Ordenação"
+
 #: tainacan/archive-terms.php:36 template-parts/loop-tainacan-terms-table.php:23
 msgid "Name"
 msgstr "Nome"
@@ -3218,6 +3078,14 @@ msgstr "Nome"
 #: tainacan/archive-terms.php:37
 msgid "Amount of items"
 msgstr "Total de itens"
+
+#: tainacan/archive-terms.php:64
+msgid "View Mode"
+msgstr "Modo de visualização"
+
+#: tainacan/archive-terms.php:68
+msgid "Thumbnails"
+msgstr "Miniaturas"
 
 #: tainacan/archive-terms.php:78
 msgid "Search terms"
@@ -3227,7 +3095,7 @@ msgstr "Resultado da busca"
 msgid "It seems that you are using a legacy vesion of the Tainacan plugin. Please update in order to use the latest features for displaying the terms list."
 msgstr "Parece que você está usando uma versão legada do plugin Tainacan. Por favor atualize para fazer uso dos últimos recursos de exibição da mídia do item."
 
-#: tainacan/single-items.php:88 template-parts/collections-grid.php:55 template-parts/loop-singular.php:41 template-parts/loop-tainacan-collection-grid.php:43 template-parts/loop-tainacan-collection-table.php:49 template-parts/loop-tainacan-collection.php:50 template-parts/loop-tainacan-terms-grid.php:47 template-parts/loop-tainacan-terms-table.php:67 template-parts/loop-tainacan-terms.php:46 template-parts/loop.php:68
+#: tainacan/single-items.php:88 template-parts/collections-grid.php:59 template-parts/loop-singular.php:41 template-parts/loop-tainacan-terms-grid.php:47 template-parts/loop-tainacan-terms-table.php:67 template-parts/loop-tainacan-terms.php:46 template-parts/loop.php:68
 msgid "Nothing found"
 msgstr "Nada encontrado"
 
@@ -3258,10 +3126,6 @@ msgstr "Anterior"
 #: template-parts/loop-singular.php:36
 msgid "Next"
 msgstr "Próximo"
-
-#: template-parts/loop-tainacan-collection.php:37
-msgid "No description provided"
-msgstr "Nenhuma descrição informada"
 
 #: template-parts/loop-tainacan-terms-table.php:25
 msgid "Children"
@@ -3308,10 +3172,6 @@ msgstr "Y"
 #: template-parts/single-items-document.php:79
 msgid "It seems that you are using a legacy vesion of the Tainacan plugin. Please update in order to use the latest features for displaying item media."
 msgstr "Parece que você está usando uma versão legada do plugin Tainacan. Por favor atualize para fazer uso dos últimos recursos de exibição da mídia do item."
-
-#: template-parts/single-items-header.php:60
-msgid "Item"
-msgstr "Item"
 
 #: template-parts/single-post.php:38
 msgid "Pages:"

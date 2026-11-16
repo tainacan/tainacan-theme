@@ -22,19 +22,15 @@ function tainacan_interface_customize_register( $wp_customize ) {
 	);
 
 	$switches = array(
-		'tainacan_interface_item_drawer'    => array(
+		'tainacan_interface_item_drawer' => array(
 			__( 'Item preview drawer on the lists', 'tainacan-interface' ),
 			__( 'A click on an item of a list opens a side panel with its image, description and metadata, with previous and next. Ctrl+click still opens the item page.', 'tainacan-interface' ),
 		),
-		'tainacan_interface_item_viewer'    => array(
+		'tainacan_interface_item_viewer' => array(
 			__( 'File viewer on the item page', 'tainacan-interface' ),
 			__( 'Clicking a document or attachment opens a full screen viewer: images with zoom, video and audio, and PDFs in a reader. Replaces the Tainacan lightbox.', 'tainacan-interface' ),
 		),
-		'tainacan_interface_item_highlight' => array(
-			__( 'Highlighted item record', 'tainacan-interface' ),
-			__( 'Cards with an accent bar on the title, quiet labels and terms as chips on the lists; the registration number and the collection under the item title.', 'tainacan-interface' ),
-		),
-		'tainacan_interface_item_aside'     => array(
+		'tainacan_interface_item_aside'  => array(
 			__( 'Show the side column beside the metadata', 'tainacan-interface' ),
 			__( 'Related items beside the metadata of the item page. Its options are in "Side column of the item".', 'tainacan-interface' ),
 		),

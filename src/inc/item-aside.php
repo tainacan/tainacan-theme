@@ -488,14 +488,10 @@ function tainacan_interface_the_item_metadata() {
 	$threads = tainacan_interface_aside_enabled() && tainacan_interface_is_item_page() ? tainacan_interface_aside_threads( get_the_ID() ) : array();
 
 	if ( empty( $threads ) ) {
-		if ( tainacan_interface_is_modern() ) {
-			echo '<div class="tt2-item-body tt2-item-body--alone"><div class="tt2-item-body__main">';
-			get_template_part( 'template-parts/single-items-metadata' );
-			tainacan_interface_the_item_citation();
-			echo '</div></div>';
-		} else {
-			get_template_part( 'template-parts/single-items-metadata' );
-		}
+		echo '<div class="tt2-item-body tt2-item-body--alone"><div class="tt2-item-body__main">';
+		get_template_part( 'template-parts/single-items-metadata' );
+		tainacan_interface_the_item_citation();
+		echo '</div></div>';
 		do_action( 'tainacan-interface-single-item-after-metadata' );
 		return;
 	}
