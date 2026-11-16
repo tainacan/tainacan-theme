@@ -205,7 +205,7 @@ if ( ! function_exists( 'tainacan_interface_customize_register_footer_info' ) ) 
 			'tainacan_display_powered',
 			array(
 				'type'              => 'theme_mod',
-				'default'           => true,
+				'default'           => false,
 				'capability'        => 'edit_theme_options',
 				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
 			)

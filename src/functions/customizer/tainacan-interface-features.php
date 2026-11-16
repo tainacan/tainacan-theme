@@ -14,7 +14,7 @@ function tainacan_interface_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'tainacan_interface_features',
 		array(
-			'title'       => __( 'Tainacan Interface: lists and item page', 'tainacan-interface' ),
+			'title'       => __( 'Lists and item page', 'tainacan-interface' ),
 			'description' => __( 'Features of version 3 for the Tainacan pages. Each one can be turned on or off without affecting the others.', 'tainacan-interface' ),
 			'priority'    => 30,
 			'capability'  => 'edit_theme_options',
@@ -36,7 +36,7 @@ function tainacan_interface_customize_register( $wp_customize ) {
 		),
 		'tainacan_interface_item_aside'     => array(
 			__( 'Show the side column beside the metadata', 'tainacan-interface' ),
-			__( 'Related items beside the metadata of the item page. Its options are in "Tainacan Interface: side column of the item".', 'tainacan-interface' ),
+			__( 'Related items beside the metadata of the item page. Its options are in "Side column of the item".', 'tainacan-interface' ),
 		),
 	);
 
@@ -89,7 +89,7 @@ function tainacan_interface_customize_aside( $wp_customize ) {
 	$wp_customize->add_section(
 		'tainacan_interface_aside',
 		array(
-			'title'       => __( 'Tainacan Interface: side column of the item', 'tainacan-interface' ),
+			'title'       => __( 'Side column of the item', 'tainacan-interface' ),
 			'description' => __( 'Beside the metadata of the item page, ways to keep exploring: the items related by a Tainacan relationship metadatum and the items with the same term. On small screens the column comes right after the metadata.', 'tainacan-interface' ),
 			'priority'    => 31,
 			'capability'  => 'edit_theme_options',

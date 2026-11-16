@@ -10,7 +10,7 @@
 	right: 0;
 	bottom: 0;
 	z-index: 99990;
-	width: min(440px, 100vw);
+	width: min(var(--tt2-d-width, 440px), 100vw);
 	display: flex;
 	flex-direction: column;
 	background: #fff;
@@ -24,13 +24,20 @@
 .tt2-drawer[hidden] { display: none !important; }
 .tt2-drawer *, .tt2-drawer *::before, .tt2-drawer *::after { box-sizing: border-box; }
 .tt2-drawer:focus { outline: none; }
+.tt2-drawer--left { right: auto; left: 0; border-left: 0; border-right: 1px solid var(--tt2-d-line); box-shadow: 12px 0 32px rgba(16, 32, 48, 0.14); }
+.tt2-drawer-backdrop { position: fixed; inset: 0; z-index: 99989; background: transparent; }
+.tt2-drawer-backdrop[hidden] { display: none; }
+.tt2-drawer-backdrop.is-dim { background: rgba(10, 16, 28, 0.45); }
 @keyframes tt2-drawer-in { from { transform: translateX(24px); opacity: 0; } to { transform: none; opacity: 1; } }
 
 /* On wide screens the list makes room instead of being covered. */
 @media (min-width: 1100px) {
-	body.tt2-drawer-open #tainacan-items-page,
-	body.tt2-drawer-open .wp-block-tainacan-faceted-search,
-	body.tt2-drawer-open .theme-items-list { margin-right: 440px; transition: margin-right 0.2s ease; }
+	body.tt2-drawer-open:not(.tt2-drawer-over) #tainacan-items-page,
+	body.tt2-drawer-open:not(.tt2-drawer-over) .wp-block-tainacan-faceted-search,
+	body.tt2-drawer-open:not(.tt2-drawer-over) .theme-items-list { margin-right: var(--tt2-d-width, 440px); transition: margin-right 0.2s ease; }
+	body.tt2-drawer-open.tt2-drawer-side-left:not(.tt2-drawer-over) #tainacan-items-page,
+	body.tt2-drawer-open.tt2-drawer-side-left:not(.tt2-drawer-over) .wp-block-tainacan-faceted-search,
+	body.tt2-drawer-open.tt2-drawer-side-left:not(.tt2-drawer-over) .theme-items-list { margin-right: 0; margin-left: var(--tt2-d-width, 440px); transition: margin-left 0.2s ease; }
 }
 
 .tt2-drawer__head {

@@ -160,6 +160,47 @@ function tainacan_interface_drawer_media( $item_id, $cover ) {
 }
 
 /**
+ * The line above the title: the collection, the kind of document and how many
+ * files the item has.
+ *
+ * @param \Tainacan\Entities\Item $item Item.
+ * @return string[]
+ */
+function tainacan_interface_drawer_meta_line( $item ) {
+	$id         = (int) $item->get_id();
+	$collection = $item->get_collection();
+	$line       = $collection ? array( tainacan_interface_plain( $collection->get_name() ) ) : array();
+	$type       = function_exists( 'tainacan_get_the_document_type' ) ? (string) tainacan_get_the_document_type( $id ) : '';
+	$kinds      = array(
+		'text'  => __( 'Text', 'tainacan-interface' ),
+		'url'   => __( 'Link', 'tainacan-interface' ),
+		'image' => __( 'Image', 'tainacan-interface' ),
+		'video' => __( 'Video', 'tainacan-interface' ),
+		'audio' => __( 'Audio', 'tainacan-interface' ),
+		'pdf'   => __( 'PDF', 'tainacan-interface' ),
+	);
+
+	if ( 'attachment' === $type ) {
+		$file = tainacan_interface_viewer_describe( (int) tainacan_get_the_document_raw( $id ) );
+		$type = $file ? (string) $file['kind'] : '';
+	}
+	if ( isset( $kinds[ $type ] ) ) {
+		$line[] = $kinds[ $type ];
+	}
+
+	$files = count( $item->get_attachments() );
+	if ( $files > 0 ) {
+		$line[] = sprintf(
+			/* translators: %s: number of files attached to an item. */
+			_n( '%s file', '%s files', $files, 'tainacan-interface' ),
+			number_format_i18n( $files )
+		);
+	}
+
+	return $line;
+}
+
+/**
  * What the drawer shows. Text goes as plain text (the browser puts it in with
  * textContent); metadata values go as HTML filtered by wp_kses_post().
  *
@@ -183,6 +224,7 @@ function tainacan_interface_drawer_payload( $item, $meta ) {
 		'title'       => tainacan_interface_plain( get_the_title( $id ) ),
 		'url'         => get_permalink( $id ),
 		'collection'  => $collection ? tainacan_interface_plain( $collection->get_name() ) : '',
+		'meta_line'   => tainacan_interface_drawer_meta_line( $item ),
 		'cover'       => $cover,
 		'media'       => tainacan_interface_drawer_media( $id, $cover ),
 		'description' => '',
@@ -262,10 +304,10 @@ function tainacan_interface_drawer_payload( $item, $meta ) {
 	}
 
 	if ( $any_marked ) {
-		$data['fields']      = array_slice( $marked, 0, 16 );
+		$data['fields']      = array_slice( $marked, 0, tainacan_interface_is_modern() ? tainacan_interface_opt( 'drawer_max_fields' ) : 16 );
 		$data['description'] = $description['marked'] ? $description['text'] : '';
 	} else {
-		$data['fields']      = array_slice( array_merge( $default, $others ), 0, 12 );
+		$data['fields']      = array_slice( array_merge( $default, $others ), 0, tainacan_interface_is_modern() ? tainacan_interface_opt( 'drawer_max_fields' ) : 12 );
 		$data['description'] = empty( $description['listed'] ) ? $description['text'] : '';
 	}
 
@@ -280,7 +322,14 @@ function tainacan_interface_drawer_enqueue() {
 		return;
 	}
 
-	$uri = get_template_directory_uri();
+	$modern = tainacan_interface_is_modern();
+	$mode   = $modern ? tainacan_interface_opt( 'drawer_mode' ) : 'push';
+	if ( 'off' === $mode ) {
+		return;
+	}
+
+	$uri   = get_template_directory_uri();
+	$label = $modern ? tainacan_interface_opt( 'drawer_open_label' ) : '';
 
 	wp_enqueue_style( 'tt2-item-drawer', $uri . '/assets/css/item-drawer.css', array(), TAINACAN_INTERFACE_VERSION );
 	wp_enqueue_script( 'tt2-item-drawer', $uri . '/assets/js/item-drawer.js', array(), TAINACAN_INTERFACE_VERSION, true );
@@ -290,6 +339,14 @@ function tainacan_interface_drawer_enqueue() {
 		array(
 			'endpoint' => esc_url_raw( rest_url( TAINACAN_INTERFACE_REST_NAMESPACE . '/item/' ) ),
 			'nonce'    => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
+			'mode'     => $mode,
+			'side'     => $modern ? tainacan_interface_opt( 'drawer_side' ) : 'right',
+			'backdrop' => $modern && tainacan_interface_opt( 'drawer_backdrop' ),
+			'media'    => $modern ? tainacan_interface_opt( 'drawer_media' ) : 'contain',
+			'metaLine' => $modern && tainacan_interface_opt( 'drawer_meta_line' ),
+			'noDesc'   => $modern && ! tainacan_interface_opt( 'drawer_description' ),
+			'openNew'  => $modern && tainacan_interface_opt( 'drawer_open_new' ),
+			'modern'   => $modern,
 			'i18n'     => array(
 				'label'      => __( 'Item preview', 'tainacan-interface' ),
 				'close'      => __( 'Close preview', 'tainacan-interface' ),
@@ -301,7 +358,7 @@ function tainacan_interface_drawer_enqueue() {
 				'unplayable' => __( 'This browser cannot play this file. You can download it.', 'tainacan-interface' ),
 				'download'   => __( 'Download', 'tainacan-interface' ),
 				'error'      => __( 'This item could not be loaded.', 'tainacan-interface' ),
-				'open'       => __( 'Open the full record', 'tainacan-interface' ),
+				'open'       => '' !== $label ? $label : ( $modern ? __( 'Open item', 'tainacan-interface' ) : __( 'Open the full record', 'tainacan-interface' ) ),
 			),
 		)
 	);

@@ -18,11 +18,15 @@ if ( ! function_exists( 'tainacan_enqueues' ) ) {
 		$uri = get_template_directory_uri();
 
 		/**
-		 * Bootstrap 4
+		 * Layout grid, utility classes and base components (assets/css/foundation.css),
+		 * and the dropdowns and collapses (assets/js/nav.js). A child theme of 2.x may
+		 * still depend on the old handles of Bootstrap: they stay as aliases, with no file.
 		 */
-		wp_register_style( 'bootstrap4CSS', $uri . '/assets/vendor/bootstrap/scss/bootstrap.min.css', array(), TAINACAN_INTERFACE_VERSION );
+		wp_register_style( 'tainacan-interface-foundation', $uri . '/assets/css/foundation.css', array(), TAINACAN_INTERFACE_VERSION );
+		wp_register_style( 'bootstrap4CSS', false, array( 'tainacan-interface-foundation' ), TAINACAN_INTERFACE_VERSION );
 		wp_enqueue_style( 'bootstrap4CSS' );
-		wp_register_script( 'bootstrap4JS', $uri . '/assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), TAINACAN_INTERFACE_VERSION, true );
+		wp_register_script( 'tainacan-interface-nav', $uri . '/assets/js/nav.js', array(), TAINACAN_INTERFACE_VERSION, true );
+		wp_register_script( 'bootstrap4JS', false, array( 'tainacan-interface-nav' ), TAINACAN_INTERFACE_VERSION, true );
 		wp_enqueue_script( 'bootstrap4JS' );
 
 		/**

@@ -5,6 +5,11 @@
  * @package tainacan-interface
  */
 
+if ( tainacan_interface_is_modern() ) {
+	tainacan_interface_the_collection_header();
+	return;
+}
+
 $tainacan_interface_collection_id = tainacan_get_collection_id();
 $tainacan_interface_banner_height = absint( get_theme_mod( 'tainacan_collection_banner_max_height', 368 ) );
 ?>

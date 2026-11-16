@@ -6,6 +6,11 @@
  * @package tainacan-interface
  */
 
+if ( tainacan_interface_is_modern() ) {
+	tainacan_interface_the_item_heading();
+	return;
+}
+
 $tainacan_interface_collection_id = tainacan_get_collection_id();
 $tainacan_interface_banner        = (bool) get_theme_mod( 'tainacan_single_item_collection_header', false );
 

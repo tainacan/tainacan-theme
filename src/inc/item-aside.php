@@ -488,7 +488,14 @@ function tainacan_interface_the_item_metadata() {
 	$threads = tainacan_interface_aside_enabled() && tainacan_interface_is_item_page() ? tainacan_interface_aside_threads( get_the_ID() ) : array();
 
 	if ( empty( $threads ) ) {
-		get_template_part( 'template-parts/single-items-metadata' );
+		if ( tainacan_interface_is_modern() ) {
+			echo '<div class="tt2-item-body tt2-item-body--alone"><div class="tt2-item-body__main">';
+			get_template_part( 'template-parts/single-items-metadata' );
+			tainacan_interface_the_item_citation();
+			echo '</div></div>';
+		} else {
+			get_template_part( 'template-parts/single-items-metadata' );
+		}
 		do_action( 'tainacan-interface-single-item-after-metadata' );
 		return;
 	}
@@ -498,6 +505,7 @@ function tainacan_interface_the_item_metadata() {
 	printf( '<div class="%s">', esc_attr( 'tt2-item-body tt2-item-body--' . $s['side'] . ( $s['sticky'] ? ' is-sticky' : '' ) ) );
 	echo '<div class="tt2-item-body__main">';
 	get_template_part( 'template-parts/single-items-metadata' );
+	tainacan_interface_the_item_citation();
 	echo '</div>';
 	tainacan_interface_the_item_aside( $threads, $s );
 	echo '</div>';

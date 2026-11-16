@@ -5,6 +5,11 @@
  * @package tainacan-interface
  */
 
+if ( tainacan_interface_is_modern() ) {
+	tainacan_interface_the_term_header();
+	return;
+}
+
 $tainacan_interface_wpterm = tainacan_get_term();
 if ( ! $tainacan_interface_wpterm instanceof WP_Term ) {
 	return;

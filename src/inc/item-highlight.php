@@ -16,7 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Whether the highlight is on. Theme mod in the Customizer, plus a filter.
+ * Whether the highlight is on. Theme mod in the Customizer, plus a filter; the
+ * design of version 4 is built on it.
  *
  * @return bool
  */
@@ -26,7 +27,7 @@ function tainacan_interface_highlight_enabled() {
 	 *
 	 * @param bool $enabled Value of the Customizer option.
 	 */
-	return (bool) apply_filters( 'tainacan_interface_highlight_enabled', (bool) get_theme_mod( 'tainacan_interface_item_highlight', true ) );
+	return (bool) apply_filters( 'tainacan_interface_highlight_enabled', tainacan_interface_is_modern() || (bool) get_theme_mod( 'tainacan_interface_item_highlight', true ) );
 }
 
 /**

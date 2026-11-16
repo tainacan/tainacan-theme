@@ -122,6 +122,30 @@ function tainacan_theme_collection_query( $query ) {
 	if ( $query->is_main_query() && $query->is_post_type_archive( 'tainacan-collection' ) ) {
 		$query->set( 'posts_per_page', 12 );
 
+		// The design of version 4 lists every collection, in the chosen order.
+		if ( tainacan_interface_is_modern() ) {
+			$query->set( 'posts_per_page', -1 );
+			$query->set( 'no_found_rows', true );
+			switch ( tainacan_interface_opt( 'list_order' ) ) {
+				case 'title':
+					$query->set( 'orderby', 'title' );
+					$query->set( 'order', 'ASC' );
+					break;
+				case 'date':
+					$query->set( 'orderby', 'date' );
+					$query->set( 'order', 'DESC' );
+					break;
+				default:
+					$query->set(
+						'orderby',
+						array(
+							'menu_order' => 'ASC',
+							'date'       => 'DESC',
+						)
+					);
+			}
+		}
+
 		// Handle taxonomy filtering using WordPress standard approach.
 		$tax_query             = array();
 		$collection_taxonomies = get_object_taxonomies( 'tainacan-collection', 'names' );

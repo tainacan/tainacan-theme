@@ -26,3 +26,4 @@
 /package.json export-ignore
 /phpcs.xml.dist export-ignore
 /.github export-ignore
+/docs export-ignore

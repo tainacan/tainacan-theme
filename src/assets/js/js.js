@@ -2,25 +2,6 @@ jQuery( document ).ready(function( $ ) {
 
 	$( 'body' ).removeClass('loading-content');
 
-	$( '#carouselExample' ).on( 'slide.bs.carousel', function ( e ) {
-		var $e = $( e.relatedTarget );
-		var idx = $e.index();
-		var itemsPerSlide = 3;
-		var totalItems = $( '.carousel-item' ).length;
-
-		if ( idx >= totalItems - ( itemsPerSlide - 1 ) ) {
-			var it = itemsPerSlide - ( totalItems - idx );
-			for ( var i = 0; i < it; i++ ) {
-				// append slides to end
-				if ( e.direction == "left" ) {
-					$( '.carousel-item' ).eq( i ).appendTo( '.carousel-inner' );
-				} else {
-					$( '.carousel-item' ).eq( 0 ).appendTo( '.carousel-inner' );
-				}
-			}
-		}
-	});
-
 	// ===== Scroll to Top ====
 	$( window ).on('scroll', function() {
 		if ( $( this ).scrollTop() >= 100 ) {        // If page is scrolled more than 50px

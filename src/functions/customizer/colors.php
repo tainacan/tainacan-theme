@@ -338,6 +338,11 @@ endif; // tainacan_sanitize_color_scheme.
  */
 function tainacan_color_scheme_css() {
 
+	// The modern design has its own colors; these carry !important and would win over them.
+	if ( tainacan_interface_is_modern() ) {
+		return;
+	}
+
 	$color_scheme = tainacan_get_color_scheme();
 
 	// Convert main text hex color to rgba.
@@ -432,6 +437,10 @@ add_action( 'customize_controls_print_footer_scripts', 'tainacan_color_scheme_cs
  * @see wp_add_inline_style()
  */
 function tainacan_link_color_css() {
+	if ( tainacan_interface_is_modern() ) {
+		return;
+	}
+
 	$color_scheme  = tainacan_get_color_scheme();
 	$default_color = $color_scheme[2];
 	$link_color    = get_theme_mod( 'tainacan_link_color', $default_color );
@@ -464,6 +473,10 @@ add_action( 'wp_enqueue_scripts', 'tainacan_link_color_css', 11 );
  * @see wp_add_inline_style()
  */
 function tainacan_tooltip_color_css() {
+	if ( tainacan_interface_is_modern() ) {
+		return;
+	}
+
 	$color_scheme  = tainacan_get_color_scheme();
 	$default_color = $color_scheme[3];
 	$tooltip_color = get_theme_mod( 'tainacan_tooltip_color', $default_color );

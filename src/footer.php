@@ -10,9 +10,10 @@ if ( ! is_404() ) :
 		$tainacan_interface_address = get_theme_mod( 'tainacan_blogaddress', '' );
 		$tainacan_interface_email   = sanitize_email( (string) get_theme_mod( 'tainacan_blogemail', '' ) );
 		$tainacan_interface_phone   = get_theme_mod( 'tainacan_blogphone', '' );
+		$tainacan_interface_compact = tainacan_interface_is_modern() && 'compact' === tainacan_interface_opt( 'footer_style' );
 		?>
-		<footer class="container-fluid p-4 p-sm-5 mt-5 tainacan-footer <?php echo esc_attr( 'tainacan-footer-' . get_theme_mod( 'tainacan_footer_color', 'dark' ) ); ?>" style="padding-bottom: 0 !important;">
-			<?php if ( is_active_sidebar( 'tainacan-sidebar-footer' ) ) : ?>
+		<footer class="container-fluid p-4 p-sm-5 mt-5 <?php echo $tainacan_interface_compact ? 'tt2-footer-compact ' : ''; ?>tainacan-footer <?php echo esc_attr( 'tainacan-footer-' . get_theme_mod( 'tainacan_footer_color', 'dark' ) ); ?>"<?php echo $tainacan_interface_compact ? '' : ' style="padding-bottom: 0 !important;"'; ?>>
+			<?php if ( ! $tainacan_interface_compact && is_active_sidebar( 'tainacan-sidebar-footer' ) ) : ?>
 				<div class="row tainacan-footer-widgets-area">
 					<ul class="col-12 col-lg pt-3 pb-3 pl-0 pr-0 d-lg-flex flex-wrap justify-content-xs-center mb-md-0">
 						<?php dynamic_sidebar( 'tainacan-sidebar-footer' ); ?>

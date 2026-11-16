@@ -6,6 +6,12 @@
  */
 
 get_header();
+
+if ( tainacan_interface_is_modern() ) {
+	get_template_part( 'template-parts/collections-grid' );
+	get_footer();
+	return;
+}
 ?>
 
 <?php

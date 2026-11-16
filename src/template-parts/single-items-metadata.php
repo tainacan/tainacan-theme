@@ -16,8 +16,9 @@ if ( tainacan_interface_child_legacy_part( 'template-parts/single-items-metadata
 }
 
 if (
+		! tainacan_interface_is_modern() && (
 		( has_post_thumbnail() && get_theme_mod( 'tainacan_single_item_display_thumbnail', true ) ) ||
-		( ! get_theme_mod( 'tainacan_single_item_collection_header', false ) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true ) )
+		( ! get_theme_mod( 'tainacan_single_item_collection_header', false ) && get_theme_mod( 'tainacan_single_item_display_share_buttons', true ) ) )
 	) {
 	// Gets collection so we can obtain firtst metadata.
 	$collection = tainacan_get_collection();
@@ -78,7 +79,8 @@ if (
 									</div>
 								</div>
 							</div>
-						<?php endif;
+								<?php
+						endif;
 
 							$extra_content = ob_get_contents();
 							ob_end_clean();
@@ -93,16 +95,61 @@ if (
 	}
 }
 
+	$tainacan_interface_metadata_label = (string) get_theme_mod( 'tainacan_single_item_metadata_section_label', '' );
+if ( '' !== $tainacan_interface_metadata_label ) :
+	?>
+		<h2 class="title-content-items" id="single-item-metadata-label"><?php echo esc_html( $tainacan_interface_metadata_label ); ?></h2>
+		<?php
+	endif;
+
 	$metadata_args = array(
 		'display_slug_as_class' => true,
-		'exclude_title'         => get_theme_mod( 'tainacan_single_item_hide_core_title_metadata', false ),
+		'exclude_title'         => get_theme_mod( 'tainacan_single_item_hide_core_title_metadata', tainacan_interface_is_modern() ),
 		'before_value'          => '<div class="tainacan-metadata-value tainacan-interface-rich-text">',
 		'after_value'           => '</div>',
 	);
 
 	$section_layout = tainacan_interface_section_layout( tainacan_get_collection_id() );
 
-	if ( 'tabs' === $section_layout ) {
+	if ( tainacan_interface_is_modern() && 'default' === $section_layout ) {
+		$sections_open = tainacan_interface_opt( 'item_sections' );
+
+		if ( 'first' === $sections_open ) {
+			add_filter(
+				'tainacan-get-metadata-section-as-html-before-name--index-0',
+				function ( $before ) {
+					return str_replace( '<details', '<details open', $before );
+				},
+				10,
+				2
+			);
+		}
+
+		$args = array(
+			'before'               => '',
+			'after'                => '',
+			'before_name'          => '<details class="tt2-section"' . ( 'all' === $sections_open ? ' open' : '' ) . '><summary class="tt2-section__summary"><h2 class="tt2-section__title label" id="metadata-section-$slug">',
+			'after_name'           => '</h2><span class="tt2-section__count"></span></summary>',
+			'before_metadata_list' => '<section class="single-item-collection tainacan-metadata-section" aria-labelledby="metadata-section-$slug">
+                    <div class="single-item-collection--information justify-content-center">
+                        <div class="row">
+                            <div class="col s-item-collection--metadata">',
+			'after_metadata_list'  => '
+                            </div>
+                        </div>
+                    </div>
+                </section></details>',
+			'metadata_list_args'   => $metadata_args,
+			'hide_empty'           => true,
+		);
+
+		do_action( 'tainacan-interface-single-item-metadata-begin' );
+		echo '<div class="tt2-sections tainacan-single-post">';
+		tainacan_the_metadata_sections( $args );
+		echo '</div>';
+		do_action( 'tainacan-interface-single-item-metadata-end' );
+
+	} elseif ( 'tabs' === $section_layout ) {
 
 		add_filter(
 			'tainacan-get-metadata-section-as-html-before-name--index-0',

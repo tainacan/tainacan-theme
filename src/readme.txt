@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.0.3
+Stable tag: 4.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -14,7 +14,17 @@ A simple and classic theme for WordPress digital collections with support for Ta
 
 This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries, and anyone who have a digital repository.
 
-Version 3 adds, each with its own switch in Appearance > Customize:
+Version 4 brings a new design, with almost everything adjustable in Appearance > Customize > Tainacan Interface, and leaves Bootstrap behind:
+
+* collection header with four layouts, banner and icon that can come from the items themselves;
+* breadcrumb as a capsule, list of all the collections as cards, item preview over the list;
+* item page with three layouts, record with capsules, sections in panels and a "How to cite" panel;
+* a "Tainacan" box in Appearance > Menus, a submenu with all the collections that keeps itself up to date, and a menu of its own for each collection;
+* colors, fonts, shapes and ready-made combinations, some of them per collection.
+
+A site updated from an earlier version keeps its look until an administrator chooses the new design.
+
+Version 3 added, each with its own switch in Appearance > Customize:
 
 * an item preview drawer on the lists, in every view mode;
 * a file viewer on the item page (images with zoom, video, audio) and a PDF reader in the page instead of the browser's;
@@ -26,6 +36,9 @@ On a site updated from 2.x these features stay off until an administrator turns 
 For more information about Tainacan and Tainacan Interface please go to http://tainacan.org
 
 == Upgrade Notice ==
+
+= 4.0.0 =
+New design, off on updated sites until you choose it in Appearance > Customize. Bootstrap was removed: the classes the theme used keep working, but a child theme that relies on Bootstrap's JavaScript, modal, carousel or tooltip must bring them itself.
 
 = 3.0.3 =
 Child themes: the 2.10.0 item record files of a child theme are used again and its own style.css is loaded; administrators are told about child theme copies of 2.10.0 templates with security flaws. Links in text are underlined and block tables have their borders back.

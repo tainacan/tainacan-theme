@@ -50,8 +50,8 @@
 										'container_class' => 'collapse navbar-collapse',
 										'container_id'    => 'menubelowHeader',
 										'menu_class'      => 'navbar-nav mr-auto',
-										'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-										'walker'          => new WP_Bootstrap_Navwalker(),
+										'fallback_cb'     => 'Tainacan_Interface_Nav_Walker::fallback',
+										'walker'          => new Tainacan_Interface_Nav_Walker(),
 									)
 								);
 							?>
@@ -77,6 +77,9 @@
 			</div>
 		</div>
 	</nav>
+		<?php if ( tainacan_interface_is_modern() && tainacan_interface_opt( 'header_band' ) ) : ?>
+			<div class="tt2-band tt2-site-band" aria-hidden="true"></div>
+		<?php endif; ?>
 
 		<?php
 	else :

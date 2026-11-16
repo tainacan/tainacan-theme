@@ -23,7 +23,9 @@ else :
 		<div class="container-fluid p-0 ph-title-description">
 			<?php if ( ! (bool) get_theme_mod( 'tainacan_hide_site_title_on_header_banner', false ) ) : ?>
 				<div 
+						<?php if ( ! tainacan_interface_is_modern() ) : ?>
 						style="background-color: rgba(255, 255, 255, <?php echo esc_attr( min( 100, absint( get_theme_mod( 'tainacan_hide_header_box_opacity', 65 ) ) ) / 100 ); ?>) !important;"
+						<?php endif; ?>
 						class="title-header 
 						<?php
 						if ( is_singular() || is_archive() || is_search() || is_home() ) {

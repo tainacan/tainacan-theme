@@ -2,15 +2,15 @@
 /**
  * Tainacan Interface: theme setup.
  *
- * Version 3 keeps the function names, theme mods, actions and CSS classes of
- * 2.x, so child themes and plugins written for it keep working; what is new
+ * Versions 3 and 4 keep the function names, theme mods, actions and CSS classes
+ * of 2.x, so child themes and plugins written for it keep working; what is new
  * lives in inc/.
  *
  * @package tainacan-interface
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '3.0.3';
+const TAINACAN_INTERFACE_VERSION = '4.0.1';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -384,7 +384,7 @@ add_filter( 'get_custom_logo', 'tainacan_change_logo_class' );
 /**
  * Class navwalker
  */
-require_once get_template_directory() . '/lib/class-wp-bootstrap-navwalker.php';
+require_once get_template_directory() . '/inc/class-tainacan-interface-nav-walker.php';
 
 /**
  * Hex color to its red, green and blue components.
@@ -422,6 +422,9 @@ require get_template_directory() . '/inc/upgrade.php';
 require get_template_directory() . '/inc/request.php';
 require get_template_directory() . '/inc/context.php';
 require get_template_directory() . '/inc/share.php';
+require get_template_directory() . '/inc/settings.php';
+require get_template_directory() . '/inc/design.php';
+require get_template_directory() . '/inc/customizer-design.php';
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/patterns.php';
 require get_template_directory() . '/functions/single-functions.php';
@@ -435,5 +438,8 @@ require get_template_directory() . '/inc/item-drawer.php';
 require get_template_directory() . '/inc/item-viewer.php';
 require get_template_directory() . '/inc/item-highlight.php';
 require get_template_directory() . '/inc/item-aside.php';
+require get_template_directory() . '/inc/item-citation.php';
+require get_template_directory() . '/inc/collection-pages.php';
+require get_template_directory() . '/inc/nav-menus.php';
 require get_template_directory() . '/inc/compat.php';
 require get_template_directory() . '/inc/child-theme.php';

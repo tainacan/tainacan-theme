@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.0.0 (2026-11-03)
+
+A new design, highly adjustable, and no Bootstrap. A site updated in place keeps its look: it is recorded on the classic design and the administrators get a notice (`inc/upgrade.php`); a new activation starts on the modern one.
+
+### Changed
+
+- **No Bootstrap.** The 191 kB stylesheet and the 83 kB script are gone, with `assets/vendor/bootstrap`, the npm package and the carousel code nobody called. `assets/css/foundation.css` (82 kB, 14 kB compressed) keeps the same class names and measures for the grid, utilities and base components the templates and child themes of 2.x use; `assets/js/nav.js` answers to `data-toggle="dropdown"` and `data-toggle="collapse"` without jQuery. The `.modal`, `.tooltip`, `.collapse` and `.fade` rules that collided with the Tainacan lists are gone. Compared pixel by pixel on the classic design: 0 pixels on the list of collections, 625 on an item page (the map tiles), 0.3% on a list of items (loading animations). The handles `bootstrap4CSS` and `bootstrap4JS` stay as empty aliases, and `WP_Bootstrap_Navwalker` as an alias of `Tainacan_Interface_Nav_Walker`, so child themes that name them keep working. A child theme that calls `$.fn.dropdown`, or uses Bootstrap's modal, carousel, tooltip, alert or badge, must bring them itself.
+
+### Added
+
+- **Settings (`inc/settings.php`).** One schema feeds the Customizer panel "Tainacan Interface" (eight sections, about 70 options, with ready-made color combinations) and the values the templates read. Some options can be set per collection, in the "Public pages of this collection" fields of the collection form. Filters `tainacan_interface_settings_schema`, `tainacan_interface_opt`, `tainacan_interface_presets`, `tainacan_interface_modern_enabled`.
+- **Look (`inc/design.php`, `assets/css/modern.css`).** Main and accent colors, decorative band, backgrounds, three fonts (Poppins and Lora come with the theme, under the OFL; nothing from another server), text size, corners, shadows, content width.
+- **Collection header.** Four layouts (centered with the icon on the edge of the banner, left, title over the banner, compact), banner from the header image or a mosaic of items, icon as tilted card, square or circle, description in a panel, number of items, share links and "Surprise me", which opens the preview of a random item. A collection without images gets a pattern chosen by its name. Terms use the same header. The actions of the classic header keep firing.
+- **Breadcrumb** as a capsule with the current page highlighted, or plain, or hidden.
+- **List of collections.** Lists every collection, without pages: cards in 2 to 6 columns, three card styles, image proportion, description, number of items, order (including most items first) and a field that filters while typing.
+- **Menus (`inc/nav-menus.php`).** A "Tainacan" box in Appearance > Menus adds the list of collections, the list of items, each collection and each taxonomy, and a "Collections" item whose submenu with all of them keeps itself up to date. Each collection and the list of collections have a menu location of their own, shown as a bar on their pages, and one button creates a starting menu per collection (its start and the most used terms of its taxonomies).
+- **Item preview.** Over the list or beside it, left or right, width, darkened page, image mode, line with the collection, kind of document and number of files, capsules in four tints, floating button with its own text. Can be turned off per collection.
+- **Item page.** Three layouts (document above, on the left, on the right), large title with a line of date and first terms, record with names beside or above the values, one or two columns, short values as capsules, sections in panels with their number of fields, and a "How to cite" panel (`inc/item-citation.php`: ABNT, APA, Vancouver, BibTeX, RIS).
+- **Footer** compact, in the main color.
+
+### Fixed
+
+- The values of a multivalued text metadatum ran together on the highlighted record ("RubensWorkshop"): on the modern design the separator stays when the values are not terms.
+
 ## 3.0.3 (2026-10-30)
 
 From the study `docs/ESTUDO_LEGADO_BOOTSTRAP_BLOCOS_FILHOS.md`.

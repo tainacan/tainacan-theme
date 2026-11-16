@@ -161,16 +161,23 @@ function tainacan_interface_the_breadcrumb() {
 		$html .= esc_html( sprintf( __( ' (Page %d)', 'tainacan-interface' ), $paged ) );
 	}
 
+	$pagination = '';
 	if ( defined( 'TAINACAN_VERSION' ) && $post && is_single() && get_theme_mod( 'tainacan_single_item_show_navigation_options', false ) && \Tainacan\Theme_Helper::get_instance()->is_post_an_item( $post ) ) {
 		$adjacent = tainacan_get_adjacent_item_links();
 		if ( '' !== $adjacent['previous'] || '' !== $adjacent['next'] ) {
-			$html .= '<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center">'
+			$pagination = '<div id="breadcrumb-single-item-pagination" class="ml-auto d-flex align-items-center">'
 				. '<div class="pagination">' . $adjacent['previous'] . '</div>'
 				. '<div class="pagination">' . $adjacent['next'] . '</div>'
 				. '<div class="pagination"><a href="' . esc_url( tainacan_get_source_item_list_url() ) . '" aria-label="' . esc_attr__( 'Back to items list', 'tainacan-interface' ) . '"><i class="tainacan-icon tainacan-icon-viewtable tainacan-icon-1-25em"></i></a></div>'
 				. '</div>';
 		}
 	}
+
+	if ( tainacan_interface_is_modern() ) {
+		return tainacan_interface_modern_breadcrumb( $html, $pagination );
+	}
+
+	$html .= $pagination;
 
 	return '<nav aria-label="breadcrumb" class="d-md-flex mt-3 mb-3 border-bottom-0 max-large margin-one-column"><div class="tainacan-interface-breadcrumbs">' . $html . '</div></nav>';
 }
