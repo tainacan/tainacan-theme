@@ -96,7 +96,7 @@ if (
 }
 
 	$tainacan_interface_metadata_label = (string) get_theme_mod( 'tainacan_single_item_metadata_section_label', '' );
-if ( '' !== $tainacan_interface_metadata_label ) :
+if ( '' !== $tainacan_interface_metadata_label && tainacan_interface_is_modern() ) :
 	?>
 		<h2 class="title-content-items" id="single-item-metadata-label"><?php echo esc_html( $tainacan_interface_metadata_label ); ?></h2>
 		<?php

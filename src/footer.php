@@ -77,6 +77,38 @@ if ( ! is_404() ) :
 						?>
 					</span>
 				</div>
+				<?php
+				if ( tainacan_interface_is_modern() ) :
+					ob_start();
+					wp_nav_menu(
+						array(
+							'theme_location'       => 'tt2_footer',
+							'depth'                => 1,
+							'container'            => 'nav',
+							'container_class'      => 'tt2-footer-menu',
+							'container_aria_label' => __( 'Footer menu', 'tainacan-interface' ),
+							'fallback_cb'          => false,
+						)
+					);
+					tainacan_interface_the_social_links( 'footer' );
+					$tainacan_interface_note = (string) tainacan_interface_opt( 'footer_text' );
+					if ( '' !== $tainacan_interface_note ) {
+						$tainacan_interface_note = strtr(
+							$tainacan_interface_note,
+							array(
+								'{year}' => wp_date( 'Y' ),
+								'{site}' => get_bloginfo( 'name' ),
+							)
+						);
+						echo '<p class="tt2-footer-note">' . esc_html( $tainacan_interface_note ) . '</p>';
+					}
+					$tainacan_interface_extra = trim( (string) ob_get_clean() );
+					if ( '' !== $tainacan_interface_extra ) {
+						// tnc-check-ignore TNC-S05: menu, links and note, each escaped by the function that built it.
+						echo '<div class="col-12 tt2-footer-extra">' . $tainacan_interface_extra . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- buffered output of wp_nav_menu(), of the social links (wp_kses) and of esc_html() above; escaping it again would break the markup.
+					}
+				endif;
+				?>
 			</div>
 		</footer>
 		<?php

@@ -18,6 +18,13 @@ get_header();
 				<?php
 				while ( have_posts() ) :
 					the_post();
+
+					// A password protected item shows the form instead of its metadata and files.
+					if ( post_password_required() ) :
+						// tnc-check-ignore TNC-S05: markup built by the core, which escapes each value.
+						echo get_the_password_form(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by the core, which escapes each value; there is no safe variant of it.
+						continue;
+					endif;
 					?>
 					<article role="article" id="post_<?php the_ID(); ?>" <?php post_class(); ?>>
 						

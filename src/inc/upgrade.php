@@ -7,8 +7,8 @@
  * activation fires after_switch_theme. That is how the two cases are told
  * apart:
  * - activation (a new site, or a site coming from another theme): the new
- *   features come on, and the settings of a Tainacan Interface derivative the
- *   site was using (a child theme, Tainacan Acervo) are carried over;
+ *   features come on, and an administrator is offered the settings of a Tainacan
+ *   Interface derivative the site was using (Tainacan Acervo, for example);
  * - update in place from 2.x (the WordPress.org update reaches every site at
  *   once): the page must look the same the next morning. The features the
  *   visitor sees are recorded as off, and the administrators get a notice
@@ -21,9 +21,75 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const TAINACAN_INTERFACE_VERSION_OPTION       = 'tainacan_interface_version';
-const TAINACAN_INTERFACE_NOTICE_OPTION        = 'tainacan_interface_new_features_notice';
-const TAINACAN_INTERFACE_DESIGN_NOTICE_OPTION = 'tainacan_interface_new_design_notice';
+const TAINACAN_INTERFACE_STATE_OPTION = 'tainacan_interface';
+
+/**
+ * What the theme keeps about the site, all in one option: the version it last
+ * saw, the notices waiting to be read or dismissed and what the checks of a
+ * child theme found. Up to 4.0 each of these had an option of its own.
+ *
+ * @return array
+ */
+function tainacan_interface_state_all() {
+	$state = get_option( TAINACAN_INTERFACE_STATE_OPTION );
+	if ( is_array( $state ) ) {
+		return $state;
+	}
+
+	$state = array();
+	$found = array();
+	foreach ( array(
+		'version'              => 'tainacan_interface_version',
+		'features_notice'      => 'tainacan_interface_new_features_notice',
+		'design_notice'        => 'tainacan_interface_new_design_notice',
+		'mods_before_import'   => 'tainacan_interface_mods_before_import',
+		'child_imports_parent' => 'tainacan_interface_child_imports_parent',
+		'child_flawed_copies'  => 'tainacan_interface_child_flawed_copies',
+		'child_flaws_seen'     => 'tainacan_interface_child_flaws_dismissed',
+	) as $key => $old ) {
+		$value = get_option( $old );
+		if ( false !== $value ) {
+			$state[ $key ] = $value;
+			$found[ $old ] = true;
+		}
+	}
+	if ( $state ) {
+		// The new one first: a request that arrives in between must not take the site for one that never had the theme.
+		update_option( TAINACAN_INTERFACE_STATE_OPTION, $state, true );
+		foreach ( array_keys( $found ) as $old ) {
+			delete_option( $old );
+		}
+	}
+	return $state;
+}
+
+/**
+ * Reads one value of the state of the theme.
+ *
+ * @param string $key      Key.
+ * @param mixed  $fallback Value when there is none.
+ * @return mixed
+ */
+function tainacan_interface_state( $key, $fallback = false ) {
+	$state = tainacan_interface_state_all();
+	return array_key_exists( $key, $state ) ? $state[ $key ] : $fallback;
+}
+
+/**
+ * Records one value of the state of the theme.
+ *
+ * @param string $key   Key.
+ * @param mixed  $value Value; null forgets it.
+ */
+function tainacan_interface_state_set( $key, $value ) {
+	$state = tainacan_interface_state_all();
+	if ( null === $value ) {
+		unset( $state[ $key ] );
+	} else {
+		$state[ $key ] = $value;
+	}
+	update_option( TAINACAN_INTERFACE_STATE_OPTION, $state, true );
+}
 
 /**
  * Theme mods of the features the visitor sees, all on by default.
@@ -35,34 +101,55 @@ function tainacan_interface_feature_mods() {
 }
 
 /**
- * Activation: records the version, so the next request does not take the
- * site for an update, and carries over the settings of the theme the site was
- * using when it derives from Tainacan Interface.
- *
- * The settings of a derivative are recognised by its tainacan_* theme mods.
- * They replace the ones this theme had stored (from an earlier time it was
- * active), which are kept in an option first so they can be put back.
+ * Activation: records the version, so the next request does not take the site
+ * for an update. Settings of another theme come only when an administrator asks,
+ * in the notice below. A child theme of this one starts with the design its
+ * parent was showing.
  *
  * @param string        $old_name  Name of the previous theme.
  * @param WP_Theme|bool $old_theme Previous theme, or false when it no longer exists.
  */
 function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) {
 	unset( $old_name );
-	update_option( TAINACAN_INTERFACE_VERSION_OPTION, TAINACAN_INTERFACE_VERSION );
+	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 
 	$previous = $old_theme instanceof WP_Theme ? $old_theme->get_stylesheet() : '';
-	if ( '' === $previous || get_stylesheet() === $previous || get_template() === $previous ) {
+	if ( '' === $previous || get_stylesheet() === $previous ) {
 		return;
 	}
 	$mods = get_option( 'theme_mods_' . $previous );
-	if ( ! is_array( $mods ) || ! preg_grep( '/^tainacan_/', array_filter( array_keys( $mods ), 'is_string' ) ) ) {
+	if ( ! is_array( $mods ) ) {
+		return;
+	}
+	if ( get_template() === $previous ) {
+		if ( isset( $mods['tainacan_interface_design'] ) && false === get_theme_mod( 'tainacan_interface_design', false ) ) {
+			set_theme_mod( 'tainacan_interface_design', $mods['tainacan_interface_design'] );
+		}
+		return;
+	}
+	if ( preg_grep( '/^tainacan_/', array_filter( array_keys( $mods ), 'is_string' ) ) ) {
+		tainacan_interface_state_set( 'import_from', $previous );
+	}
+}
+add_action( 'after_switch_theme', 'tainacan_interface_on_activation', 10, 2 );
+
+/**
+ * Brings the settings of a theme derived from Tainacan Interface, recognised by
+ * its tainacan_* theme mods. They replace the ones this theme had stored, which
+ * are kept first.
+ *
+ * @param string $previous Stylesheet of the other theme.
+ */
+function tainacan_interface_import_settings( $previous ) {
+	$mods = get_option( 'theme_mods_' . $previous );
+	if ( ! is_array( $mods ) ) {
 		return;
 	}
 
 	// The first backup is the one worth keeping: later ones would hold imported settings.
 	$own = get_option( 'theme_mods_' . get_stylesheet() );
-	if ( is_array( $own ) && ! empty( $own ) ) {
-		add_option( 'tainacan_interface_mods_before_import', $own, '', false );
+	if ( is_array( $own ) && ! empty( $own ) && false === tainacan_interface_state( 'mods_before_import' ) ) {
+		tainacan_interface_state_set( 'mods_before_import', $own );
 	}
 
 	// Replace, not merge: a switch this theme kept from an earlier time must not survive the import.
@@ -70,6 +157,10 @@ function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) 
 	unset( $imported['custom_css_post_id'] );
 	if ( is_array( $own ) && isset( $own['custom_css_post_id'] ) ) {
 		$imported['custom_css_post_id'] = $own['custom_css_post_id'];
+	}
+	// A theme that knew no other design was showing the classic one.
+	if ( ! isset( $imported['tainacan_interface_design'] ) ) {
+		$imported['tainacan_interface_design'] = 'classic';
 	}
 	update_option( 'theme_mods_' . get_stylesheet(), $imported );
 	tainacan_interface_rename_working_meta();
@@ -80,7 +171,71 @@ function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) 
 		wp_update_custom_css_post( $css, array( 'stylesheet' => get_stylesheet() ) );
 	}
 }
-add_action( 'after_switch_theme', 'tainacan_interface_on_activation', 10, 2 );
+
+/**
+ * Offers the settings of the theme the site was using.
+ */
+function tainacan_interface_import_notice() {
+	$previous = (string) tainacan_interface_state( 'import_from', '' );
+	if ( '' === $previous || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+	$theme   = wp_get_theme( $previous );
+	$import  = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_import' ), 'tainacan_interface_import' );
+	$dismiss = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_dismiss_import' ), 'tainacan_interface_dismiss_import' );
+	?>
+	<div class="notice notice-info">
+		<p>
+			<?php
+			echo esc_html(
+				sprintf(
+					/* translators: %s: name of a theme. */
+					__( 'This site was using %s, which derives from Tainacan Interface. Do you want to bring its settings? They replace the ones stored for Tainacan Interface.', 'tainacan-interface' ),
+					$theme->exists() ? $theme->get( 'Name' ) : $previous
+				)
+			);
+			?>
+		</p>
+		<p>
+			<a class="button button-primary" href="<?php echo esc_url( $import ); ?>"><?php esc_html_e( 'Bring the settings', 'tainacan-interface' ); ?></a>
+			<a class="button" href="<?php echo esc_url( $dismiss ); ?>"><?php esc_html_e( 'Dismiss', 'tainacan-interface' ); ?></a>
+		</p>
+	</div>
+	<?php
+}
+add_action( 'admin_notices', 'tainacan_interface_import_notice' );
+
+/**
+ * The button that brings the settings.
+ */
+function tainacan_interface_import_action() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
+	}
+	check_admin_referer( 'tainacan_interface_import' );
+	$previous = (string) tainacan_interface_state( 'import_from', '' );
+	if ( '' !== $previous ) {
+		tainacan_interface_import_settings( $previous );
+		tainacan_interface_state_set( 'import_from', null );
+	}
+	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
+	exit;
+}
+add_action( 'admin_post_tainacan_interface_import', 'tainacan_interface_import_action' );
+
+/**
+ * Leaves the settings of the other theme where they are.
+ */
+function tainacan_interface_dismiss_import() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
+	}
+	check_admin_referer( 'tainacan_interface_dismiss_import' );
+	tainacan_interface_state_set( 'import_from', null );
+	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
+	exit;
+}
+add_action( 'admin_post_tainacan_interface_dismiss_import', 'tainacan_interface_dismiss_import' );
 
 /**
  * Update in place: the first request after the folder was replaced. Runs
@@ -88,9 +243,18 @@ add_action( 'after_switch_theme', 'tainacan_interface_on_activation', 10, 2 );
  * recorded when this looks.
  */
 function tainacan_interface_on_update() {
-	$seen = get_option( TAINACAN_INTERFACE_VERSION_OPTION );
+	$seen = tainacan_interface_state( 'version' );
 	if ( TAINACAN_INTERFACE_VERSION === $seen ) {
 		return;
+	}
+
+	// The first request after an update runs this; those that arrive with it wait for the next time.
+	$lock = 'tainacan_interface_updating';
+	if ( ! add_option( $lock, time(), '', false ) ) {
+		if ( time() - (int) get_option( $lock ) < MINUTE_IN_SECONDS ) {
+			return;
+		}
+		update_option( $lock, time(), false );
 	}
 
 	if ( false === $seen ) {
@@ -108,17 +272,18 @@ function tainacan_interface_on_update() {
 					set_theme_mod( $mod, false );
 				}
 			}
-			update_option( TAINACAN_INTERFACE_NOTICE_OPTION, 1 );
+			tainacan_interface_state_set( 'features_notice', 1 );
 		}
 	}
 
 	// Up to version 3 the pages had another design: it stays until an administrator chooses.
 	if ( ( false === $seen || version_compare( (string) $seen, '4.0.0', '<' ) ) && false === get_theme_mod( 'tainacan_interface_design', false ) ) {
 		set_theme_mod( 'tainacan_interface_design', 'classic' );
-		update_option( TAINACAN_INTERFACE_DESIGN_NOTICE_OPTION, 1 );
+		tainacan_interface_state_set( 'design_notice', 1 );
 	}
 
-	update_option( TAINACAN_INTERFACE_VERSION_OPTION, TAINACAN_INTERFACE_VERSION );
+	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
+	delete_option( $lock );
 }
 add_action( 'init', 'tainacan_interface_on_update', 100 );
 
@@ -172,7 +337,7 @@ function tainacan_interface_rename_working_meta() {
  * Notice to administrators after an update from 2.x.
  */
 function tainacan_interface_new_features_notice() {
-	if ( ! get_option( TAINACAN_INTERFACE_NOTICE_OPTION ) || ! current_user_can( 'edit_theme_options' ) ) {
+	if ( ! tainacan_interface_state( 'features_notice' ) || ! current_user_can( 'edit_theme_options' ) ) {
 		return;
 	}
 	$customize = add_query_arg( array( 'autofocus[section]' => 'tainacan_interface_features' ), admin_url( 'customize.php' ) );
@@ -195,7 +360,7 @@ add_action( 'admin_notices', 'tainacan_interface_new_features_notice' );
  * design exists and is off.
  */
 function tainacan_interface_new_design_notice() {
-	if ( ! get_option( TAINACAN_INTERFACE_DESIGN_NOTICE_OPTION ) || ! current_user_can( 'edit_theme_options' ) ) {
+	if ( ! tainacan_interface_state( 'design_notice' ) || ! current_user_can( 'edit_theme_options' ) ) {
 		return;
 	}
 	$customize = add_query_arg( array( 'autofocus[panel]' => 'tainacan_interface' ), admin_url( 'customize.php' ) );
@@ -221,7 +386,7 @@ function tainacan_interface_dismiss_design_notice() {
 		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
 	}
 	check_admin_referer( 'tainacan_interface_dismiss_design_notice' );
-	delete_option( TAINACAN_INTERFACE_DESIGN_NOTICE_OPTION );
+	tainacan_interface_state_set( 'design_notice', null );
 	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
 	exit;
 }
@@ -235,7 +400,7 @@ function tainacan_interface_dismiss_notice() {
 		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
 	}
 	check_admin_referer( 'tainacan_interface_dismiss_notice' );
-	delete_option( TAINACAN_INTERFACE_NOTICE_OPTION );
+	tainacan_interface_state_set( 'features_notice', null );
 	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
 	exit;
 }

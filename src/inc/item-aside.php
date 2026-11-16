@@ -556,8 +556,9 @@ function tainacan_interface_the_item_aside( $threads, $s ) {
 					<?php if ( ! empty( $thread['total'] ) ) : ?>
 						<small>
 							<?php
+							$thread_total = (int) $thread['total'];
 							/* translators: %d: number of items. */
-							echo esc_html( sprintf( _n( '%d item', '%d items', (int) $thread['total'], 'tainacan-interface' ), (int) $thread['total'] ) );
+							echo esc_html( sprintf( _n( '%d item', '%d items', $thread_total, 'tainacan-interface' ), $thread_total ) );
 							?>
 						</small>
 					<?php endif; ?>
@@ -610,7 +611,7 @@ function tainacan_interface_aside_takes_related() {
  */
 function tainacan_interface_aside_enqueue() {
 	if ( tainacan_interface_aside_enabled() && tainacan_interface_is_item_page() ) {
-		wp_enqueue_style( 'tt2-item-aside', get_template_directory_uri() . '/assets/css/item-aside.css', array(), TAINACAN_INTERFACE_VERSION );
+		wp_enqueue_style( 'tainacan-interface-item-aside', get_template_directory_uri() . '/assets/css/item-aside.css', array(), TAINACAN_INTERFACE_VERSION );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_interface_aside_enqueue' );

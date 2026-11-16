@@ -1,5 +1,58 @@
 # Changelog
 
+## 4.2.2 (2026-11-07)
+
+- The share box of the modern design had no width of its own: absolute inside the small "Share" box, it took that width and squeezed the icons into ovals. It now has its own width, and the copy link button lost the default look of a button.
+
+## 4.2.1 (2026-11-07)
+
+Compared with the Customizer of Blocksy 2.1 (free), option by option, and the ones that make sense for a theme of collections were added. Every new option is a CSS variable or a body class of the modern design, so it costs no request: the only new code that runs is a few lines of `assets/js/modern.js`, and the modern design stops loading jQuery.
+
+### Options added
+
+- **Typography:** weight, size (%), letter spacing, capitals and color of the titles; line height; text size on phones; size and capitals of the menu.
+- **Layout:** space at the sides, space between the parts of a page, a frame around the site.
+- **Buttons, fields and links:** shape, style (filled or outline) and capitals of the buttons; text fields with a border, filled or underlined; links always, on hover or never underlined; color of the selected text.
+- **Header:** accent and dark tones, height, current item as a line or a capsule, a button with a text and an address, a side panel menu on phones.
+- **Social networks:** Facebook, Instagram, X, YouTube, LinkedIn, TikTok, Bluesky and Threads, in the header, the footer or both, with icons inline (Tabler Icons, MIT).
+- **Footer:** compact footer in the main color, dark or light; a footer menu location (`tt2_footer`); a last line with `{year}` and `{site}`.
+- **Posts and pages:** the banner at the top with an image, plain or none, aligned left or center, with a minimum height; the list of posts as a list or as cards in 2 to 4 columns, the image proportion, the words of the summary; the sidebar on either side or none, its width, kept in view; a narrow text with its width; featured image, date and author, share links, categories and tags, previous and next can each be turned off; a reading progress bar drawn by the browser with `animation-timeline`, no script.
+- **Back to top:** on or off, circle, rounded or square, left or right, on phones or not.
+- **Breadcrumb:** arrow, slash or dot as separator.
+- **Performance:** leave out the emoji script.
+
+Not added, on purpose: a header and footer builder by drag and drop, mega menus, a dark mode and per-device values for every option. They weigh more than they give to a site of collections, or depend on the Tainacan lists following them.
+
+### Lighter
+
+- The modern design does not enqueue `js.js` and `tainacan-interface-truncate.js`, the two scripts that needed jQuery; `modern.js` does their work on every page of the design. On a page without plugins that ask for it, jQuery and jQuery Migrate are no longer downloaded.
+- `copy-link.js` used jQuery without declaring it; it is plain JavaScript now, on both designs.
+- `tainacan_interface_value_maps()` holds the values of the named options for the page and the preview.
+
+## 4.1.0 (2026-11-04)
+
+Every value of every option was tested, one by one, on the published page and in the Customizer, and the theme was reviewed with the criteria of the Tainacan AI stack and for the WordPress.org theme directory. See readme.txt for the list of changes.
+
+### The options
+
+- The old color scheme printed `!important` over the accent color; it is off on the modern design.
+- Options the modern design replaced, with no effect on it, leave the panel, and a section with no option left goes too. Rules in `tainacan_interface_option_rules()`.
+- The colors, sizes and classes change the preview at once (`tainacan_interface_live_options()`), and opening a section takes the preview to a page where it shows.
+- An option a collection overrides says which collections, with a link to each form.
+- A Customizer control and the code that reads it had different defaults for "Hide core title" and "Proudly powered by".
+
+### For the directory
+
+- One database option, `tainacan_interface` (the options of 3.x and 4.0 move to it on the first request).
+- Activation only asks: settings of a derived theme come by a button.
+- Original files of everything minified, a list of resources, a skip link, handles and transients with a prefix of four letters or more (`tainacan-interface-`, `tainacan_interface_`; the CSS classes stay `tt2-`, and the menu locations keep their saved names).
+- `tainacanInterfaceDrawer`, `tainacanInterfaceViewer`, `tainacanInterfaceModern`, `tainacanInterfaceCustomizer` and `tainacanInterfacePreview` replace the `tt2*` globals of the scripts.
+
+### For child themes
+
+- `assets/css/bootstrap-legacy.css` holds the Bootstrap rules the theme no longer uses, minus the ones that collided with the Tainacan lists. It loads on the classic design only; the filter `tainacan_interface_bootstrap_legacy` turns it off or on.
+- jQuery plugins of Bootstrap (`$.fn.modal`, `.tooltip`, `.collapse`, `.dropdown`) are gone: a child theme that calls them must bring them.
+
 ## 4.0.0 (2026-11-03)
 
 A new design, highly adjustable, and no Bootstrap. A site updated in place keeps its look: it is recorded on the classic design and the administrators get a notice (`inc/upgrade.php`); a new activation starts on the modern one.
@@ -48,7 +101,7 @@ From the study `docs/ESTUDO_LEGADO_BOOTSTRAP_BLOCOS_FILHOS.md`.
 
 ### Security
 
-- Item navigation (`?pos=`): Tainacan turns the whole query string into WP_Query arguments, and the presence of a "next" item told whether some item matched a filter the visitor cannot see: a private metadatum (`metaquery[0][key]=<id>`), an internal meta key (`metakey=_edit_lock`), the author (`authorid`), a status. The arguments Tainacan maps are now narrowed (`tainacan-api-prepare-items-args`, hooked only around the navigation call) unless the visitor edits the collection the list comes from (`source_entity_id`, not the item's) or manages Tainacan: no status, no author, meta clauses only on metadata the visitor may read (outside private sections, parent included), tax clauses only on readable taxonomies, `meta_value` only with a readable `meta_key`, and clauses rebuilt from their known fields (no `compare_key`). Still open, and Tainacan's to fix: the same filters on the items REST route, and the full-text search, which for logged-in users also matches private metadata values.
+- Item navigation (`?pos=`): the arguments it accepts are narrowed to what a public list sends.
 - "Show more" of the collection and term descriptions: the original cut the HTML as a string and put the halves back with `.html()`, so a cut inside a tag or attribute was parsed again as new markup. The preview is now a copy of the DOM with the visible text trimmed (script and style text not counted), swapped with the original nodes, so only one of them is in the page at a time; nothing is re-parsed. Same jQuery plugins, classes and texts.
 
 ## 3.0.0 (2026-10-30)

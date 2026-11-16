@@ -23,8 +23,19 @@ const TAINACAN_INTERFACE_AUTO_MENU_CLASS = 'tt2-menu-all-collections';
  * @return array
  */
 function tainacan_interface_menu_collections() {
+	static $names = null;
+
+	if ( null !== $names ) {
+		return $names;
+	}
 	if ( ! class_exists( '\Tainacan\Repositories\Collections' ) ) {
 		return array();
+	}
+
+	// Every page with the automatic submenu needs this list.
+	$names = get_transient( 'tainacan_interface_menu_collections' );
+	if ( is_array( $names ) ) {
+		return $names;
 	}
 
 	$names = array();
@@ -39,8 +50,22 @@ function tainacan_interface_menu_collections() {
 	) as $collection ) {
 		$names[ (int) $collection->get_id() ] = tainacan_interface_plain( $collection->get_name() );
 	}
+	set_transient( 'tainacan_interface_menu_collections', $names, DAY_IN_SECONDS );
 	return $names;
 }
+
+/**
+ * A collection was created, renamed, published, hidden or deleted.
+ *
+ * @param int $post_id Post.
+ */
+function tainacan_interface_menu_collections_forget( $post_id ) {
+	if ( 'tainacan-collection' === get_post_type( $post_id ) ) {
+		delete_transient( 'tainacan_interface_menu_collections' );
+	}
+}
+add_action( 'save_post', 'tainacan_interface_menu_collections_forget' );
+add_action( 'before_delete_post', 'tainacan_interface_menu_collections_forget' );
 
 /**
  * Menu locations: registered where menus are edited. On the public pages the
@@ -49,14 +74,16 @@ function tainacan_interface_menu_collections() {
  */
 function tainacan_interface_register_collection_menu_locations() {
 	global $pagenow;
-	if ( ! isset( $GLOBALS['wp_customize'] ) && ! ( is_admin() && in_array( $pagenow, array( 'nav-menus.php', 'customize.php' ), true ) ) ) {
+	// On a theme switch the core keeps only the locations it knows about, on whichever request it checks.
+	if ( ! isset( $GLOBALS['wp_customize'] ) && ! get_option( 'theme_switched' ) && ! ( is_admin() && in_array( $pagenow, array( 'nav-menus.php', 'customize.php' ), true ) ) ) {
 		return;
 	}
 
 	$locations = array( 'tt2_collections_list' => __( 'List of collections', 'tainacan-interface' ) );
 	foreach ( tainacan_interface_menu_collections() as $id => $name ) {
+		// The core prints the name of a location as HTML, and $name is plain text with its entities decoded.
 		/* translators: %s: name of a collection. */
-		$locations[ 'tt2_collection_' . $id ] = sprintf( __( 'Collection: %s', 'tainacan-interface' ), $name );
+		$locations[ 'tt2_collection_' . $id ] = esc_html( sprintf( __( 'Collection: %s', 'tainacan-interface' ), $name ) );
 	}
 	register_nav_menus( $locations );
 }
@@ -77,7 +104,7 @@ function tainacan_interface_the_location_bar( $location, $label ) {
 
 	wp_nav_menu(
 		array(
-			'menu'                 => $menu_id,
+			'theme_location'       => $location,
 			'depth'                => 2,
 			'container'            => 'nav',
 			'container_class'      => 'tt2-menu-bar',
@@ -114,6 +141,14 @@ function tainacan_interface_the_collections_menu() {
  * @return WP_Post[]
  */
 function tainacan_interface_expand_all_collections( $items ) {
+	$auto = false;
+	foreach ( $items as $item ) {
+		$auto = $auto || in_array( TAINACAN_INTERFACE_AUTO_MENU_CLASS, (array) $item->classes, true );
+	}
+	if ( ! $auto ) {
+		return $items;
+	}
+
 	$result = array();
 	$order  = 0;
 
@@ -137,7 +172,7 @@ function tainacan_interface_expand_all_collections( $items ) {
 			$child->object_id        = (string) $id;
 			$child->object           = 'tainacan-collection';
 			$child->type             = $id ? 'post_type' : 'post_type_archive';
-			$child->title            = $name;
+			$child->title            = esc_html( $name ); // A menu title is HTML to the walkers.
 			$child->url              = $id ? get_permalink( $id ) : get_post_type_archive_link( 'tainacan-collection' );
 			$child->target           = '';
 			$child->attr_title       = '';
@@ -179,7 +214,7 @@ function tainacan_interface_menu_row( $fake_id, $title, $type, $item_object, $ob
 		'type'             => $type,
 		'object'           => $item_object,
 		'type_label'       => __( 'Tainacan', 'tainacan-interface' ),
-		'title'            => $title,
+		'title'            => esc_html( $title ), // Saved as the title of the menu item, which is HTML.
 		'url'              => $url,
 		'target'           => '',
 		'attr_title'       => '',
@@ -196,7 +231,7 @@ function tainacan_interface_add_menu_box() {
 	if ( ! class_exists( '\Tainacan\Repositories\Collections' ) ) {
 		return;
 	}
-	add_meta_box( 'tt2-tainacan-menu-box', __( 'Tainacan', 'tainacan-interface' ), 'tainacan_interface_menu_box', 'nav-menus', 'side', 'high' );
+	add_meta_box( 'tainacan-interface-menu-box', __( 'Tainacan', 'tainacan-interface' ), 'tainacan_interface_menu_box', 'nav-menus', 'side', 'high' );
 }
 add_action( 'load-nav-menus.php', 'tainacan_interface_add_menu_box' );
 
@@ -214,7 +249,7 @@ function tainacan_interface_show_menu_box_once() {
 
 	$hidden = get_user_option( 'metaboxhidden_nav-menus', $user_id );
 	if ( is_array( $hidden ) ) {
-		update_user_option( $user_id, 'metaboxhidden_nav-menus', array_values( array_diff( $hidden, array( 'tt2-tainacan-menu-box' ) ) ), true );
+		update_user_option( $user_id, 'metaboxhidden_nav-menus', array_values( array_diff( $hidden, array( 'tainacan-interface-menu-box' ) ) ), true );
 	}
 }
 add_action( 'admin_head-nav-menus.php', 'tainacan_interface_show_menu_box_once' );
@@ -300,7 +335,7 @@ function tainacan_interface_menu_box() {
  */
 function tainacan_interface_collection_menu_taxonomies( $collection, $per = 8 ) {
 	$found = array();
-	foreach ( (array) \Tainacan\Repositories\Metadata::get_instance()->fetch_by_collection( $collection, array(), 'OBJECT' ) as $metadatum ) {
+	foreach ( (array) \Tainacan\Repositories\Metadata::get_instance()->fetch_by_collection( $collection, array() ) as $metadatum ) {
 		if ( ! $metadatum instanceof \Tainacan\Entities\Metadatum || 'publish' !== $metadatum->get_status() || 'never' === $metadatum->get_display() ) {
 			continue;
 		}
@@ -315,17 +350,20 @@ function tainacan_interface_collection_menu_taxonomies( $collection, $per = 8 ) 
 		// tnc-check-ignore TNC-P02: one query per taxonomy metadatum of one collection, only when an administrator presses the button.
 		$terms = get_terms(
 			array(
-				'taxonomy'   => $taxonomy,
-				'hide_empty' => true,
-				'orderby'    => 'count',
-				'order'      => 'DESC',
-				'number'     => $per,
-				'parent'     => 0,
+				'taxonomy'               => $taxonomy,
+				'parent'                 => 0,
+				'orderby'                => 'count',
+				'order'                  => 'DESC',
+				'number'                 => $per,
+				// With hierarchical on, the core reads every root term to cut them in PHP. A root term may have its items only in the terms under it, so it cannot be left out for an empty count.
+				'hierarchical'           => false,
+				'hide_empty'             => false,
+				'update_term_meta_cache' => false,
 			)
 		);
 		if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 			$found[] = array(
-				'label'    => tainacan_interface_plain( $metadatum->get_name() ),
+				'label'    => esc_html( tainacan_interface_plain( $metadatum->get_name() ) ), // Saved as the title of a menu item, which is HTML.
 				'taxonomy' => $taxonomy,
 				'terms'    => $terms,
 			);
@@ -338,12 +376,19 @@ function tainacan_interface_collection_menu_taxonomies( $collection, $per = 8 ) 
  * Creates a menu for each collection without one and saves it in the location of
  * the collection. A collection whose location holds a menu is left alone.
  *
+ * Each collection is recorded as it is done, and the work stops after twenty
+ * seconds, before a server's time limit cuts it: pressing the button again goes
+ * on from where it stopped.
+ *
+ * @param bool $complete Set to false when collections were left for another run.
  * @return int How many menus were created.
  */
-function tainacan_interface_create_collection_menus() {
+function tainacan_interface_create_collection_menus( &$complete = true ) {
 	$locations = get_theme_mod( 'nav_menu_locations', array() );
 	$locations = is_array( $locations ) ? $locations : array();
 	$created   = 0;
+	$started   = microtime( true );
+	$complete  = true;
 
 	foreach ( tainacan_interface_menu_collections() as $id => $name ) {
 		$location = 'tt2_collection_' . $id;
@@ -351,8 +396,13 @@ function tainacan_interface_create_collection_menus() {
 			continue;
 		}
 
+		if ( microtime( true ) - $started > 20 ) {
+			$complete = false;
+			break;
+		}
+
 		/* translators: %s: name of a collection. */
-		$menu_name = sprintf( __( 'Collection: %s', 'tainacan-interface' ), $name );
+		$menu_name = esc_html( sprintf( __( 'Collection: %s', 'tainacan-interface' ), $name ) );
 		$menu_id   = wp_create_nav_menu( $menu_name );
 		// Two collections with the same name, or a menu left from before: the number tells them apart.
 		if ( is_wp_error( $menu_id ) ) {
@@ -408,10 +458,10 @@ function tainacan_interface_create_collection_menus() {
 		}
 
 		$locations[ $location ] = $menu_id;
+		set_theme_mod( 'nav_menu_locations', $locations );
 		++$created;
 	}
 
-	set_theme_mod( 'nav_menu_locations', $locations );
 	return $created;
 }
 
@@ -423,8 +473,17 @@ function tainacan_interface_collection_menus_action() {
 		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
 	}
 	check_admin_referer( 'tainacan_interface_collection_menus' );
-	$created = tainacan_interface_create_collection_menus();
-	wp_safe_redirect( add_query_arg( 'tt2_menus_created', $created, admin_url( 'nav-menus.php?action=locations' ) ) );
+	$complete = true;
+	$created  = tainacan_interface_create_collection_menus( $complete );
+	wp_safe_redirect(
+		add_query_arg(
+			array(
+				'tainacan_interface_menus_created' => $created,
+				'tainacan_interface_menus_more'    => $complete ? 0 : 1,
+			),
+			admin_url( 'nav-menus.php?action=locations' )
+		)
+	);
 	exit;
 }
 add_action( 'admin_post_tainacan_interface_collection_menus', 'tainacan_interface_collection_menus_action' );
@@ -437,8 +496,8 @@ function tainacan_interface_collection_menus_notice() {
 	if ( ! $screen || 'nav-menus' !== $screen->id || ! current_user_can( 'edit_theme_options' ) ) {
 		return;
 	}
-	$created = absint( tainacan_interface_query_arg( 'tt2_menus_created' ) );
-	if ( '' === tainacan_interface_query_arg( 'tt2_menus_created' ) ) {
+	$created = absint( tainacan_interface_query_arg( 'tainacan_interface_menus_created' ) );
+	if ( '' === tainacan_interface_query_arg( 'tainacan_interface_menus_created' ) ) {
 		return;
 	}
 	printf(
@@ -448,7 +507,7 @@ function tainacan_interface_collection_menus_notice() {
 				/* translators: %d: number of menus created. */
 				_n( '%d menu created.', '%d menus created.', $created, 'tainacan-interface' ),
 				$created
-			)
+			) . ( absint( tainacan_interface_query_arg( 'tainacan_interface_menus_more' ) ) ? ' ' . __( 'Some collections are left: press the button again to go on.', 'tainacan-interface' ) : '' )
 		)
 	);
 }

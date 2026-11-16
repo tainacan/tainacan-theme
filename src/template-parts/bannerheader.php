@@ -5,7 +5,7 @@
  * @package tainacan-interface
  */
 
-if ( ! (bool) get_theme_mod( 'tainacan_hide_header_banner', false ) ) :
+if ( ! (bool) get_theme_mod( 'tainacan_hide_header_banner', false ) && ! ( tainacan_interface_is_modern() && 'none' === tainacan_interface_opt( 'hero_style' ) ) ) :
 	if ( ! is_singular() || ! (bool) get_theme_mod( 'tainacan_featured_image_on_header_banner', false ) || ! has_post_thumbnail() ) :
 		?>
 		<div

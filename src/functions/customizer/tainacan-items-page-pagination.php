@@ -39,7 +39,7 @@ if ( ! function_exists( 'tainacan_interface_customize_register_tainacan_items_pa
 					'type'        => 'number',
 					'section'     => 'tainacan_items_page_pagination',
 					'label'       => __( 'Default number of items per page', 'tainacan-interface' ),
-					'description' => __( 'Change the default value for items loaded per page. Note that this affects loading duration.', 'tainacan-interface' ),
+					'description' => __( 'Change the default value for items loaded per page. Note that this affects loading duration. It applies to the list of all items and to term pages; on the page of a collection, Tainacan uses the value set on the form of that collection.', 'tainacan-interface' ),
 					'input_attrs' => array(
 						'min'  => 1,
 						'max'  => $tainacan_api_max_items_per_page,

@@ -23,19 +23,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 function tainacan_interface_settings_sections() {
 	return array(
 		'look'        => array( __( 'Look and feel', 'tainacan-interface' ), __( 'Colors, fonts and shapes shared by every Tainacan page. Start from a ready-made combination and adjust.', 'tainacan-interface' ) ),
+		'typography'  => array( __( 'Typography', 'tainacan-interface' ), __( 'Titles, text and menu of every page.', 'tainacan-interface' ) ),
+		'layout'      => array( __( 'Layout and spacing', 'tainacan-interface' ), '' ),
+		'buttons'     => array( __( 'Buttons, fields and links', 'tainacan-interface' ), __( 'The buttons, search fields and links of the theme and of the blocks. The controls of the Tainacan lists keep their own look.', 'tainacan-interface' ) ),
 		'site_header' => array( __( 'Site header and footer', 'tainacan-interface' ), '' ),
+		'social'      => array( __( 'Social networks', 'tainacan-interface' ), __( 'Addresses of the profiles of the institution. Only the ones filled in appear.', 'tainacan-interface' ) ),
 		'breadcrumb'  => array( __( 'Breadcrumb', 'tainacan-interface' ), '' ),
 		'collection'  => array( __( 'Collection header', 'tainacan-interface' ), __( 'The top of the items page of a collection or a term. A collection can set its own header on its form in Tainacan.', 'tainacan-interface' ) ),
 		'collections' => array( __( 'List of collections', 'tainacan-interface' ), __( 'The page that lists every collection of the site.', 'tainacan-interface' ) ),
 		'cards'       => array( __( 'Item cards and lists', 'tainacan-interface' ), '' ),
 		'drawer'      => array( __( 'Item preview', 'tainacan-interface' ), __( 'The side panel opened by a click on an item of a list. The metadata it shows are chosen with "Show in the side drawer" on the form of each metadatum.', 'tainacan-interface' ) ),
 		'item'        => array( __( 'Item page', 'tainacan-interface' ), '' ),
+		'blog'        => array( __( 'Posts and pages', 'tainacan-interface' ), __( 'The banner at the top, the list of posts, the sidebar and the page of a post.', 'tainacan-interface' ) ),
+		'extras'      => array( __( 'Back to top, frame and performance', 'tainacan-interface' ), '' ),
 	);
 }
 
 /**
  * The schema. Each option: section, type (choice, bool, color, range, text,
- * textarea), default, label, help; choices for a choice; min, max and step for a
+ * textarea, url), default, label, help; choices for a choice; min, max and step for a
  * range; collection => true when a collection may set its own value (choice and
  * color options only).
  *
@@ -202,6 +208,195 @@ function tainacan_interface_settings_schema() {
 			'label'   => __( 'Largest width of the content (px)', 'tainacan-interface' ),
 		),
 
+		// Typography.
+		'heading_weight'        => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => '700',
+			'label'   => __( 'Weight of the titles', 'tainacan-interface' ),
+			'choices' => array(
+				'500' => __( 'Medium', 'tainacan-interface' ),
+				'600' => __( 'Semibold', 'tainacan-interface' ),
+				'700' => __( 'Bold', 'tainacan-interface' ),
+				'800' => __( 'Extra bold', 'tainacan-interface' ),
+			),
+		),
+		'heading_scale'         => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 100,
+			'min'     => 80,
+			'max'     => 130,
+			'step'    => 5,
+			'label'   => __( 'Size of the titles (%)', 'tainacan-interface' ),
+		),
+		'heading_spacing'       => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => -2,
+			'min'     => -5,
+			'max'     => 15,
+			'step'    => 1,
+			'label'   => __( 'Letter spacing of the titles (hundredths of the size)', 'tainacan-interface' ),
+		),
+		'heading_transform'     => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => 'none',
+			'label'   => __( 'Letters of the titles', 'tainacan-interface' ),
+			'choices' => array(
+				'none'      => __( 'As written', 'tainacan-interface' ),
+				'uppercase' => __( 'Capitals', 'tainacan-interface' ),
+			),
+		),
+		'heading_color'         => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => 'brand',
+			'label'   => __( 'Color of the titles', 'tainacan-interface' ),
+			'choices' => array(
+				'brand'  => __( 'Main color', 'tainacan-interface' ),
+				'accent' => __( 'Accent color', 'tainacan-interface' ),
+				'text'   => __( 'Text color', 'tainacan-interface' ),
+			),
+		),
+		'line_height'           => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 150,
+			'min'     => 130,
+			'max'     => 200,
+			'step'    => 5,
+			'label'   => __( 'Line height of the text (%)', 'tainacan-interface' ),
+		),
+		'font_size_mobile'      => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 16,
+			'min'     => 13,
+			'max'     => 20,
+			'step'    => 1,
+			'label'   => __( 'Base text size on phones (px)', 'tainacan-interface' ),
+		),
+		'menu_size'             => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 15,
+			'min'     => 12,
+			'max'     => 20,
+			'step'    => 1,
+			'label'   => __( 'Size of the menu (px)', 'tainacan-interface' ),
+		),
+		'menu_transform'        => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => 'none',
+			'label'   => __( 'Letters of the menu', 'tainacan-interface' ),
+			'choices' => array(
+				'none'      => __( 'As written', 'tainacan-interface' ),
+				'uppercase' => __( 'Capitals', 'tainacan-interface' ),
+			),
+		),
+
+		// Layout and spacing.
+		'edge_spacing'          => array(
+			'section' => 'layout',
+			'type'    => 'range',
+			'default' => 40,
+			'min'     => 8,
+			'max'     => 80,
+			'step'    => 4,
+			'label'   => __( 'Space at the sides of the page (px)', 'tainacan-interface' ),
+			'help'    => __( 'On large screens; phones keep a smaller one.', 'tainacan-interface' ),
+		),
+		'content_spacing'       => array(
+			'section' => 'layout',
+			'type'    => 'choice',
+			'default' => 'normal',
+			'label'   => __( 'Space between the parts of a page', 'tainacan-interface' ),
+			'choices' => array(
+				'compact'  => __( 'Compact', 'tainacan-interface' ),
+				'normal'   => __( 'Normal', 'tainacan-interface' ),
+				'spacious' => __( 'Spacious', 'tainacan-interface' ),
+			),
+		),
+		'frame_size'            => array(
+			'section' => 'extras',
+			'type'    => 'range',
+			'default' => 0,
+			'min'     => 0,
+			'max'     => 32,
+			'step'    => 2,
+			'label'   => __( 'Frame around the site (px)', 'tainacan-interface' ),
+			'help'    => __( 'A border in the main color around the window. 0: none.', 'tainacan-interface' ),
+		),
+
+		// Buttons, fields and links.
+		'button_shape'          => array(
+			'section' => 'buttons',
+			'type'    => 'choice',
+			'default' => 'rounded',
+			'label'   => __( 'Shape of the buttons', 'tainacan-interface' ),
+			'choices' => array(
+				'rounded' => __( 'Rounded corners', 'tainacan-interface' ),
+				'pill'    => __( 'Capsule', 'tainacan-interface' ),
+				'square'  => __( 'Square corners', 'tainacan-interface' ),
+			),
+		),
+		'button_style'          => array(
+			'section' => 'buttons',
+			'type'    => 'choice',
+			'default' => 'filled',
+			'label'   => __( 'Style of the buttons', 'tainacan-interface' ),
+			'choices' => array(
+				'filled'  => __( 'Filled with the accent color', 'tainacan-interface' ),
+				'outline' => __( 'Outline in the accent color', 'tainacan-interface' ),
+			),
+		),
+		'button_transform'      => array(
+			'section' => 'buttons',
+			'type'    => 'choice',
+			'default' => 'none',
+			'label'   => __( 'Letters of the buttons', 'tainacan-interface' ),
+			'choices' => array(
+				'none'      => __( 'As written', 'tainacan-interface' ),
+				'uppercase' => __( 'Capitals', 'tainacan-interface' ),
+			),
+		),
+		'field_style'           => array(
+			'section' => 'buttons',
+			'type'    => 'choice',
+			'default' => 'outlined',
+			'label'   => __( 'Text fields', 'tainacan-interface' ),
+			'choices' => array(
+				'outlined'  => __( 'With a border', 'tainacan-interface' ),
+				'filled'    => __( 'Filled, no border', 'tainacan-interface' ),
+				'underline' => __( 'Only a line below', 'tainacan-interface' ),
+			),
+		),
+		'link_style'            => array(
+			'section' => 'buttons',
+			'type'    => 'choice',
+			'default' => 'underline',
+			'label'   => __( 'Links in the text of posts and pages', 'tainacan-interface' ),
+			'choices' => array(
+				'underline' => __( 'Always underlined', 'tainacan-interface' ),
+				'hover'     => __( 'Underlined under the pointer', 'tainacan-interface' ),
+				'none'      => __( 'Never underlined', 'tainacan-interface' ),
+			),
+		),
+		'selection'             => array(
+			'section' => 'buttons',
+			'type'    => 'choice',
+			'default' => 'accent',
+			'label'   => __( 'Selected text', 'tainacan-interface' ),
+			'choices' => array(
+				'accent'  => __( 'In the accent color', 'tainacan-interface' ),
+				'brand'   => __( 'In the main color', 'tainacan-interface' ),
+				'browser' => __( 'As the browser shows it', 'tainacan-interface' ),
+			),
+		),
+
 		// Site header and footer.
 		'header_style'          => array(
 			'section' => 'site_header',
@@ -209,8 +404,53 @@ function tainacan_interface_settings_schema() {
 			'default' => 'brand',
 			'label'   => __( 'Site header', 'tainacan-interface' ),
 			'choices' => array(
-				'brand' => __( 'In the main color', 'tainacan-interface' ),
-				'light' => __( 'Light', 'tainacan-interface' ),
+				'brand'  => __( 'In the main color', 'tainacan-interface' ),
+				'accent' => __( 'In the accent color', 'tainacan-interface' ),
+				'dark'   => __( 'Dark', 'tainacan-interface' ),
+				'light'  => __( 'Light', 'tainacan-interface' ),
+			),
+		),
+		'header_padding'        => array(
+			'section' => 'site_header',
+			'type'    => 'range',
+			'default' => 14,
+			'min'     => 0,
+			'max'     => 40,
+			'step'    => 2,
+			'label'   => __( 'Height of the header: space above and below (px)', 'tainacan-interface' ),
+		),
+		'menu_indicator'        => array(
+			'section' => 'site_header',
+			'type'    => 'choice',
+			'default' => 'underline',
+			'label'   => __( 'Current menu item and pointer over the menu', 'tainacan-interface' ),
+			'choices' => array(
+				'underline' => __( 'Line below', 'tainacan-interface' ),
+				'pill'      => __( 'Capsule', 'tainacan-interface' ),
+				'none'      => __( 'Nothing', 'tainacan-interface' ),
+			),
+		),
+		'header_button_label'   => array(
+			'section' => 'site_header',
+			'type'    => 'text',
+			'default' => '',
+			'label'   => __( 'Button in the header: text', 'tainacan-interface' ),
+			'help'    => __( 'A highlighted link beside the menu, such as "Visit" or "Contact". Empty: no button.', 'tainacan-interface' ),
+		),
+		'header_button_url'     => array(
+			'section' => 'site_header',
+			'type'    => 'url',
+			'default' => '',
+			'label'   => __( 'Button in the header: address', 'tainacan-interface' ),
+		),
+		'mobile_menu'           => array(
+			'section' => 'site_header',
+			'type'    => 'choice',
+			'default' => 'dropdown',
+			'label'   => __( 'Menu on phones', 'tainacan-interface' ),
+			'choices' => array(
+				'dropdown' => __( 'Opens below the header', 'tainacan-interface' ),
+				'side'     => __( 'Panel from the side', 'tainacan-interface' ),
 			),
 		),
 		'header_stack'          => array(
@@ -246,6 +486,42 @@ function tainacan_interface_settings_schema() {
 				'classic' => __( 'With widgets', 'tainacan-interface' ),
 			),
 		),
+		'footer_tone'           => array(
+			'section' => 'site_header',
+			'type'    => 'choice',
+			'default' => 'brand',
+			'label'   => __( 'Color of the compact footer', 'tainacan-interface' ),
+			'choices' => array(
+				'brand' => __( 'Main color', 'tainacan-interface' ),
+				'dark'  => __( 'Dark', 'tainacan-interface' ),
+				'light' => __( 'Light', 'tainacan-interface' ),
+			),
+		),
+		'footer_text'           => array(
+			'section' => 'site_header',
+			'type'    => 'textarea',
+			'default' => '',
+			'label'   => __( 'Line at the end of the footer', 'tainacan-interface' ),
+			'help'    => __( 'For example "© {year} {site}. Some rights reserved." {year} and {site} become the year and the name of the site. The footer menu is chosen in Appearance > Menus.', 'tainacan-interface' ),
+		),
+		'social_place'          => array(
+			'section' => 'social',
+			'type'    => 'choice',
+			'default' => 'footer',
+			'label'   => __( 'Where the links appear', 'tainacan-interface' ),
+			'choices' => array(
+				'footer' => __( 'Footer', 'tainacan-interface' ),
+				'header' => __( 'Header', 'tainacan-interface' ),
+				'both'   => __( 'Header and footer', 'tainacan-interface' ),
+				'none'   => __( 'Nowhere', 'tainacan-interface' ),
+			),
+		),
+		'social_new_tab'        => array(
+			'section' => 'social',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Open in a new tab', 'tainacan-interface' ),
+		),
 
 		// Breadcrumb.
 		'crumb_style'           => array(
@@ -257,6 +533,17 @@ function tainacan_interface_settings_schema() {
 				'pills' => __( 'Capsule, with the current page highlighted', 'tainacan-interface' ),
 				'plain' => __( 'Plain text with arrows', 'tainacan-interface' ),
 				'none'  => __( 'Hidden', 'tainacan-interface' ),
+			),
+		),
+		'crumb_separator'       => array(
+			'section' => 'breadcrumb',
+			'type'    => 'choice',
+			'default' => 'chevron',
+			'label'   => __( 'Separator', 'tainacan-interface' ),
+			'choices' => array(
+				'chevron' => __( 'Arrow', 'tainacan-interface' ),
+				'slash'   => __( 'Slash', 'tainacan-interface' ),
+				'dot'     => __( 'Dot', 'tainacan-interface' ),
 			),
 		),
 		'crumb_home_icon'       => array(
@@ -699,7 +986,219 @@ function tainacan_interface_settings_schema() {
 			'default' => true,
 			'label'   => __( 'Document in a frame', 'tainacan-interface' ),
 		),
+
+		// Posts and pages.
+		'hero_style'            => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => 'banner',
+			'label'   => __( 'Banner at the top', 'tainacan-interface' ),
+			'help'    => __( 'On the blog, posts, pages and searches. The image is the one of Appearance > Customize > Header image.', 'tainacan-interface' ),
+			'choices' => array(
+				'banner' => __( 'Image with a veil in the main color', 'tainacan-interface' ),
+				'plain'  => __( 'Plain, no image', 'tainacan-interface' ),
+				'none'   => __( 'No banner', 'tainacan-interface' ),
+			),
+		),
+		'hero_align'            => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => 'start',
+			'label'   => __( 'Alignment of the banner text', 'tainacan-interface' ),
+			'choices' => array(
+				'start'  => __( 'Left', 'tainacan-interface' ),
+				'center' => __( 'Center', 'tainacan-interface' ),
+			),
+		),
+		'hero_height'           => array(
+			'section' => 'blog',
+			'type'    => 'range',
+			'default' => 0,
+			'min'     => 0,
+			'max'     => 480,
+			'step'    => 20,
+			'label'   => __( 'Minimum height of the banner (px)', 'tainacan-interface' ),
+			'help'    => __( '0: as tall as its text.', 'tainacan-interface' ),
+		),
+		'blog_layout'           => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => 'list',
+			'label'   => __( 'List of posts', 'tainacan-interface' ),
+			'choices' => array(
+				'list' => __( 'One below the other, image beside the text', 'tainacan-interface' ),
+				'grid' => __( 'Cards in columns', 'tainacan-interface' ),
+			),
+		),
+		'blog_columns'          => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => '3',
+			'label'   => __( 'Columns of cards on a large screen', 'tainacan-interface' ),
+			'choices' => array(
+				'2' => '2',
+				'3' => '3',
+				'4' => '4',
+			),
+		),
+		'blog_ratio'            => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => '3/2',
+			'label'   => __( 'Proportion of the images of the list', 'tainacan-interface' ),
+			'choices' => array(
+				'auto' => __( 'As the image is', 'tainacan-interface' ),
+				'4/3'  => '4:3',
+				'3/2'  => '3:2',
+				'16/9' => '16:9',
+				'1/1'  => '1:1',
+			),
+		),
+		'blog_excerpt'          => array(
+			'section' => 'blog',
+			'type'    => 'range',
+			'default' => 28,
+			'min'     => 0,
+			'max'     => 80,
+			'step'    => 2,
+			'label'   => __( 'Words of the summary in the list', 'tainacan-interface' ),
+			'help'    => __( '0: no summary.', 'tainacan-interface' ),
+		),
+		'sidebar_position'      => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => 'right',
+			'label'   => __( 'Sidebar of the blog', 'tainacan-interface' ),
+			'help'    => __( 'Shown when it has widgets (Appearance > Widgets).', 'tainacan-interface' ),
+			'choices' => array(
+				'right' => __( 'On the right', 'tainacan-interface' ),
+				'left'  => __( 'On the left', 'tainacan-interface' ),
+				'none'  => __( 'None', 'tainacan-interface' ),
+			),
+		),
+		'sidebar_width'         => array(
+			'section' => 'blog',
+			'type'    => 'range',
+			'default' => 320,
+			'min'     => 220,
+			'max'     => 440,
+			'step'    => 10,
+			'label'   => __( 'Width of the sidebar (px)', 'tainacan-interface' ),
+		),
+		'sidebar_sticky'        => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => false,
+			'label'   => __( 'Keep the sidebar in view while scrolling', 'tainacan-interface' ),
+		),
+		'post_width'            => array(
+			'section' => 'blog',
+			'type'    => 'choice',
+			'default' => 'normal',
+			'label'   => __( 'Width of the text of a post or page', 'tainacan-interface' ),
+			'choices' => array(
+				'normal' => __( 'The width of the page', 'tainacan-interface' ),
+				'narrow' => __( 'Narrow, easier to read', 'tainacan-interface' ),
+			),
+		),
+		'narrow_width'          => array(
+			'section' => 'blog',
+			'type'    => 'range',
+			'default' => 760,
+			'min'     => 560,
+			'max'     => 1100,
+			'step'    => 20,
+			'label'   => __( 'Narrow width (px)', 'tainacan-interface' ),
+		),
+		'post_featured'         => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Featured image at the top of a post', 'tainacan-interface' ),
+		),
+		'post_meta'             => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Date and author of a post', 'tainacan-interface' ),
+		),
+		'post_share'            => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Share links on posts and pages', 'tainacan-interface' ),
+		),
+		'post_terms'            => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Categories, tags and comments at the end of a post', 'tainacan-interface' ),
+		),
+		'post_nav'              => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Previous and next post', 'tainacan-interface' ),
+		),
+		'post_progress'         => array(
+			'section' => 'blog',
+			'type'    => 'bool',
+			'default' => false,
+			'label'   => __( 'Reading progress bar on posts', 'tainacan-interface' ),
+			'help'    => __( 'A thin line at the top of the window that fills as the visitor reads. Drawn by the browser, without a script; browsers that cannot draw it show nothing.', 'tainacan-interface' ),
+		),
+
+		// Back to top, frame and performance.
+		'back_top'              => array(
+			'section' => 'extras',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Back to top button', 'tainacan-interface' ),
+		),
+		'back_top_shape'        => array(
+			'section' => 'extras',
+			'type'    => 'choice',
+			'default' => 'circle',
+			'label'   => __( 'Shape of the button', 'tainacan-interface' ),
+			'choices' => array(
+				'circle'  => __( 'Circle', 'tainacan-interface' ),
+				'rounded' => __( 'Rounded square', 'tainacan-interface' ),
+				'square'  => __( 'Square', 'tainacan-interface' ),
+			),
+		),
+		'back_top_side'         => array(
+			'section' => 'extras',
+			'type'    => 'choice',
+			'default' => 'right',
+			'label'   => __( 'Side of the button', 'tainacan-interface' ),
+			'choices' => array(
+				'right' => __( 'Right', 'tainacan-interface' ),
+				'left'  => __( 'Left', 'tainacan-interface' ),
+			),
+		),
+		'back_top_mobile'       => array(
+			'section' => 'extras',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Show the button on phones', 'tainacan-interface' ),
+		),
+		'perf_emoji'            => array(
+			'section' => 'extras',
+			'type'    => 'bool',
+			'default' => false,
+			'label'   => __( 'Leave out the emoji script of WordPress', 'tainacan-interface' ),
+			'help'    => __( 'Browsers draw emoji by themselves; the script only replaces them with images on very old systems.', 'tainacan-interface' ),
+		),
 	);
+
+	foreach ( tainacan_interface_social_networks() as $key => $network ) {
+		$schema[ 'social_' . $key ] = array(
+			'section' => 'social',
+			'type'    => 'url',
+			'default' => '',
+			'label'   => $network[0],
+		);
+	}
 
 	/**
 	 * The schema of the design settings. Options added here appear in the
@@ -732,6 +1231,8 @@ function tainacan_interface_opt_normalize( $option, $value ) {
 			return is_scalar( $value ) && array_key_exists( (string) $value, $option['choices'] ) ? (string) $value : $option['default'];
 		case 'textarea':
 			return is_string( $value ) ? sanitize_textarea_field( $value ) : '';
+		case 'url':
+			return is_string( $value ) ? esc_url_raw( trim( $value ), array( 'http', 'https', 'mailto' ) ) : '';
 		default:
 			return is_string( $value ) ? sanitize_text_field( $value ) : '';
 	}
@@ -1006,6 +1507,10 @@ function tainacan_interface_settings_customize( $wp_customize ) {
 					'step' => $option['step'],
 				);
 				break;
+			case 'url':
+				$control['type']        = 'url';
+				$control['input_attrs'] = array( 'placeholder' => 'https://' );
+				break;
 			default:
 				$control['type'] = $option['type'];
 		}
@@ -1045,7 +1550,7 @@ function tainacan_interface_collection_options() {
  * Registers the fields of the collection form.
  */
 function tainacan_interface_collection_options_register() {
-	if ( function_exists( 'tainacan_register_admin_hook' ) ) {
+	if ( function_exists( 'tainacan_register_admin_hook' ) && tainacan_interface_is_modern() ) {
 		tainacan_register_admin_hook( 'collection', 'tainacan_interface_collection_options_form', 'end-right' );
 	}
 }

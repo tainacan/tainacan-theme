@@ -10,7 +10,7 @@
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '4.0.1';
+const TAINACAN_INTERFACE_VERSION = '4.2.2';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -76,6 +76,7 @@ if ( ! function_exists( 'tainacan_setup' ) ) {
 		);
 
 		add_theme_support( 'title-tag' );
+		add_theme_support( 'custom-background' );
 
 		require_once get_template_directory() . '/functions/enqueues.php';
 
@@ -291,21 +292,38 @@ if ( ! isset( $content_width ) ) {
 function tainacan_interface_admin_notice() {
 	global $pagenow;
 
-	if ( ! defined( 'TAINACAN_VERSION' ) && 'themes.php' === $pagenow ) {
-		printf(
-			'<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
-			wp_kses(
-				sprintf(
-					/* translators: %s: URL of the Tainacan plugin page. */
-					__( 'Warning: <a href="%s">Tainacan plugin</a> is not activated! While you may use this theme without it, we made it to take full advantage of the plugin features.', 'tainacan-interface' ),
-					'https://wordpress.org/plugins/tainacan/'
-				),
-				array( 'a' => array( 'href' => array() ) )
-			)
-		);
+	if ( defined( 'TAINACAN_VERSION' ) || 'themes.php' !== $pagenow || tainacan_interface_state( 'no_plugin_seen' ) || ! current_user_can( 'edit_theme_options' ) ) {
+		return;
 	}
+	printf(
+		'<div class="notice notice-warning"><p>%1$s</p><p><a class="button" href="%2$s">%3$s</a></p></div>',
+		wp_kses(
+			sprintf(
+				/* translators: %s: URL of the Tainacan plugin page. */
+				__( 'Warning: <a href="%s">Tainacan plugin</a> is not activated! While you may use this theme without it, we made it to take full advantage of the plugin features.', 'tainacan-interface' ),
+				'https://wordpress.org/plugins/tainacan/'
+			),
+			array( 'a' => array( 'href' => array() ) )
+		),
+		esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_dismiss_no_plugin' ), 'tainacan_interface_dismiss_no_plugin' ) ),
+		esc_html__( 'Dismiss', 'tainacan-interface' )
+	);
 }
 add_action( 'admin_notices', 'tainacan_interface_admin_notice' );
+
+/**
+ * Dismisses the notice about the plugin.
+ */
+function tainacan_interface_dismiss_no_plugin() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
+	}
+	check_admin_referer( 'tainacan_interface_dismiss_no_plugin' );
+	tainacan_interface_state_set( 'no_plugin_seen', 1 );
+	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
+	exit;
+}
+add_action( 'admin_post_tainacan_interface_dismiss_no_plugin', 'tainacan_interface_dismiss_no_plugin' );
 
 /**
  * Adds extra classes to the body tag. loading-content is removed once the
@@ -422,6 +440,7 @@ require get_template_directory() . '/inc/upgrade.php';
 require get_template_directory() . '/inc/request.php';
 require get_template_directory() . '/inc/context.php';
 require get_template_directory() . '/inc/share.php';
+require get_template_directory() . '/inc/social.php';
 require get_template_directory() . '/inc/settings.php';
 require get_template_directory() . '/inc/design.php';
 require get_template_directory() . '/inc/customizer-design.php';

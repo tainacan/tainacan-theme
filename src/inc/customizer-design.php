@@ -83,7 +83,6 @@ function tainacan_interface_live_options() {
 			'vars' => array( '--tt2-font-reading' ),
 			'map'  => $fonts,
 		),
-		'header_style'       => array( 'prefix' => 'tt2-header-' ),
 		'header_stack'       => array( 'prefix' => 'tt2-header-' ),
 		'card_accent'        => array( 'prefix' => 'tt2-card-accent-' ),
 		'card_hover'         => array( 'prefix' => 'tt2-card-hover-' ),
@@ -94,7 +93,74 @@ function tainacan_interface_live_options() {
 		'header_sticky'      => array( 'flag' => 'tt2-header-is-sticky' ),
 		'list_full_width'    => array( 'flag' => 'tt2-lists-full' ),
 		'item_frame'         => array( 'flag' => 'tt2-doc-frame' ),
+		'heading_weight'     => array( 'vars' => array( '--tt2-heading-weight' ) ),
+		'heading_scale'      => array(
+			'vars'   => array( '--tt2-heading-scale' ),
+			'divide' => 100,
+		),
+		'heading_spacing'    => array(
+			'vars'   => array( '--tt2-heading-spacing' ),
+			'divide' => 100,
+			'unit'   => 'em',
+		),
+		'line_height'        => array(
+			'vars'   => array( '--tt2-leading' ),
+			'divide' => 100,
+		),
+		'heading_transform'  => array(
+			'flag' => 'tt2-heading-upper',
+			'when' => 'uppercase',
+		),
+		'menu_transform'     => array(
+			'flag' => 'tt2-menu-upper',
+			'when' => 'uppercase',
+		),
+		'button_transform'   => array(
+			'flag' => 'tt2-button-upper',
+			'when' => 'uppercase',
+		),
+		'sidebar_sticky'     => array( 'flag' => 'tt2-sidebar-sticky' ),
+		'menu_indicator'     => array( 'prefix' => 'tt2-indicator-' ),
+		'mobile_menu'        => array( 'prefix' => 'tt2-mobile-menu-' ),
+		'crumb_separator'    => array( 'prefix' => 'tt2-crumb-sep-' ),
+		'button_style'       => array( 'prefix' => 'tt2-buttons-' ),
+		'field_style'        => array( 'prefix' => 'tt2-fields-' ),
+		'link_style'         => array( 'prefix' => 'tt2-links-' ),
+		'selection'          => array( 'prefix' => 'tt2-selection-' ),
+		'hero_align'         => array( 'prefix' => 'tt2-hero-align-' ),
+		'blog_layout'        => array( 'prefix' => 'tt2-blog-' ),
+		'post_width'         => array( 'prefix' => 'tt2-post-' ),
+		'back_top_shape'     => array( 'prefix' => 'tt2-back-top-' ),
+		'back_top_side'      => array( 'prefix' => 'tt2-back-top-' ),
 	);
+
+	foreach ( array(
+		'font_size_mobile' => '--tt2-u-mobile',
+		'menu_size'        => '--tt2-menu-size',
+		'edge_spacing'     => '--tt2-edge',
+		'header_padding'   => '--tt2-header-pad',
+		'hero_height'      => '--tt2-hero-height',
+		'sidebar_width'    => '--tt2-sidebar-width',
+		'narrow_width'     => '--tt2-narrow',
+	) as $key => $name ) {
+		$live[ $key ] = array(
+			'vars' => array( $name ),
+			'unit' => 'px',
+		);
+	}
+	$live['blog_columns'] = array( 'vars' => array( '--tt2-blog-columns' ) );
+	$live['blog_ratio']   = array( 'vars' => array( '--tt2-blog-ratio' ) );
+	$names                = array(
+		'content_spacing' => '--tt2-space',
+		'button_shape'    => '--tt2-button-radius',
+		'heading_color'   => '--tt2-ink',
+	);
+	foreach ( tainacan_interface_value_maps() as $key => $map ) {
+		$live[ $key ] = array(
+			'vars' => array( $names[ $key ] ),
+			'map'  => $map,
+		);
+	}
 
 	$schema = tainacan_interface_settings_schema();
 	foreach ( $live as $key => $how ) {
@@ -151,6 +217,17 @@ function tainacan_interface_option_rules() {
 		'drawer_open_label'     => array( 'drawer_mode', array( 'overlay', 'push' ) ),
 		'drawer_open_new'       => array( 'drawer_mode', array( 'overlay', 'push' ) ),
 		'head_surprise'         => array( 'drawer_mode', array( 'overlay', 'push' ) ),
+		'blog_columns'          => array( 'blog_layout', array( 'grid' ) ),
+		'sidebar_width'         => array( 'sidebar_position', array( 'right', 'left' ) ),
+		'sidebar_sticky'        => array( 'sidebar_position', array( 'right', 'left' ) ),
+		'narrow_width'          => array( 'post_width', array( 'narrow' ) ),
+		'back_top_shape'        => array( 'back_top', array( '1' ) ),
+		'back_top_side'         => array( 'back_top', array( '1' ) ),
+		'back_top_mobile'       => array( 'back_top', array( '1' ) ),
+		'footer_tone'           => array( 'footer_style', array( 'compact' ) ),
+		'hero_align'            => array( 'hero_style', array( 'banner', 'plain' ) ),
+		'hero_height'           => array( 'hero_style', array( 'banner', 'plain' ) ),
+		'social_new_tab'        => array( 'social_place', array( 'footer', 'header', 'both' ) ),
 	);
 	foreach ( $only as $key => $condition ) {
 		$rules[ $prefix . $key ][] = array( array( $prefix . $condition[0], $condition[1] ) );
@@ -212,7 +289,7 @@ function tainacan_interface_collection_pins() {
 		array(
 			'post_type'              => 'tainacan-collection',
 			'post_status'            => array( 'publish', 'private' ),
-			'posts_per_page'         => 300,
+			'posts_per_page'         => 100,
 			'no_found_rows'          => true,
 			'update_post_term_cache' => false,
 		)
@@ -246,6 +323,7 @@ function tainacan_interface_collection_pins() {
 function tainacan_interface_preview_targets() {
 	$targets     = array(
 		'collections' => (string) get_post_type_archive_link( 'tainacan-collection' ),
+		'blog'        => tainacan_interface_blog_url(),
 		'collection'  => '',
 		'item'        => '',
 	);
@@ -293,10 +371,22 @@ function tainacan_interface_preview_targets() {
 }
 
 /**
+ * The page with the list of posts, or '' when the site has none.
+ *
+ * @return string
+ */
+function tainacan_interface_blog_url() {
+	if ( get_option( 'page_for_posts' ) ) {
+		return (string) get_permalink( (int) get_option( 'page_for_posts' ) );
+	}
+	return 'page' === get_option( 'show_on_front' ) ? '' : home_url( '/' );
+}
+
+/**
  * Scripts of the panel: ready-made colors, rules, warnings and preview pages.
  */
 function tainacan_interface_customizer_controls_script() {
-	wp_enqueue_script( 'tt2-customizer-controls', get_template_directory_uri() . '/assets/js/customizer-controls.js', array( 'customize-controls', 'underscore' ), TAINACAN_INTERFACE_VERSION, true );
+	wp_enqueue_script( 'tainacan-interface-customizer-controls', get_template_directory_uri() . '/assets/js/customizer-controls.js', array( 'customize-controls', 'underscore' ), TAINACAN_INTERFACE_VERSION, true );
 
 	$presets = array();
 	foreach ( tainacan_interface_presets() as $slug => $preset ) {
@@ -304,8 +394,8 @@ function tainacan_interface_customizer_controls_script() {
 	}
 
 	wp_localize_script(
-		'tt2-customizer-controls',
-		'tt2Customizer',
+		'tainacan-interface-customizer-controls',
+		'tainacanInterfaceCustomizer',
 		array(
 			'presets'  => $presets,
 			'rules'    => tainacan_interface_option_rules(),
@@ -318,6 +408,7 @@ function tainacan_interface_customizer_controls_script() {
 				'tainacan_interface_opt_cards'            => 'collection',
 				'tainacan_interface_opt_drawer'           => 'collection',
 				'tainacan_interface_opt_item'             => 'item',
+				'tainacan_interface_opt_blog'             => 'blog',
 				'tainacan_interface_aside'                => 'item',
 				'tainacan_single_item_page_general'       => 'item',
 				'tainacan_single_item_page_metadata'      => 'item',
@@ -348,6 +439,9 @@ function tainacan_interface_preview_kind() {
 	if ( is_post_type_archive( 'tainacan-collection' ) ) {
 		return 'collections';
 	}
+	if ( is_home() ) {
+		return 'blog';
+	}
 	return tainacan_interface_is_list_page() ? 'collection' : 'other';
 }
 
@@ -367,12 +461,17 @@ function tainacan_interface_customizer_preview_script() {
 				$pinned[] = $key;
 			}
 		}
+		// The header color of the classic design, which carries the main color when dark.
+		$legacy = sanitize_hex_color( (string) get_post_meta( $collection_id, 'tainacan_theme_collection_background_color', true ) );
+		if ( $legacy && tainacan_interface_is_dark_color( $legacy ) ) {
+			$pinned[] = 'brand_color';
+		}
 	}
 
-	wp_enqueue_script( 'tt2-customizer-preview', get_template_directory_uri() . '/assets/js/customizer-preview-design.js', array( 'customize-preview' ), TAINACAN_INTERFACE_VERSION, true );
+	wp_enqueue_script( 'tainacan-interface-customizer-preview', get_template_directory_uri() . '/assets/js/customizer-preview-design.js', array( 'customize-preview' ), TAINACAN_INTERFACE_VERSION, true );
 	wp_localize_script(
-		'tt2-customizer-preview',
-		'tt2Preview',
+		'tainacan-interface-customizer-preview',
+		'tainacanInterfacePreview',
 		array(
 			'live'   => tainacan_interface_live_options(),
 			'pinned' => $pinned,

@@ -188,7 +188,20 @@ function tainacan_interface_drawer_meta_line( $item ) {
 		$line[] = $kinds[ $type ];
 	}
 
-	$files = count( $item->get_attachments() );
+	// Only the number: a book with thousands of pages attached must not weigh on each click.
+	$attached = new WP_Query(
+		array(
+			'post_type'              => 'attachment',
+			'post_status'            => 'any',
+			'post_parent'            => $id,
+			'posts_per_page'         => 1,
+			'fields'                 => 'ids',
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+			'post__not_in'           => array_filter( array( (int) get_post_thumbnail_id( $id ), function_exists( 'tainacan_get_the_document_type' ) && 'attachment' === tainacan_get_the_document_type( $id ) ? (int) tainacan_get_the_document_raw( $id ) : 0 ) ), // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- at most two ids: the cover and the document are not attachments to the visitor.
+		)
+	);
+	$files    = (int) $attached->found_posts;
 	if ( $files > 0 ) {
 		$line[] = sprintf(
 			/* translators: %s: number of files attached to an item. */
@@ -304,10 +317,10 @@ function tainacan_interface_drawer_payload( $item, $meta ) {
 	}
 
 	if ( $any_marked ) {
-		$data['fields']      = array_slice( $marked, 0, tainacan_interface_is_modern() ? tainacan_interface_opt( 'drawer_max_fields' ) : 16 );
+		$data['fields']      = array_slice( $marked, 0, tainacan_interface_is_modern() ? 30 : 16 );
 		$data['description'] = $description['marked'] ? $description['text'] : '';
 	} else {
-		$data['fields']      = array_slice( array_merge( $default, $others ), 0, tainacan_interface_is_modern() ? tainacan_interface_opt( 'drawer_max_fields' ) : 12 );
+		$data['fields']      = array_slice( array_merge( $default, $others ), 0, tainacan_interface_is_modern() ? 30 : 12 );
 		$data['description'] = empty( $description['listed'] ) ? $description['text'] : '';
 	}
 
@@ -331,23 +344,24 @@ function tainacan_interface_drawer_enqueue() {
 	$uri   = get_template_directory_uri();
 	$label = $modern ? tainacan_interface_opt( 'drawer_open_label' ) : '';
 
-	wp_enqueue_style( 'tt2-item-drawer', $uri . '/assets/css/item-drawer.css', array(), TAINACAN_INTERFACE_VERSION );
-	wp_enqueue_script( 'tt2-item-drawer', $uri . '/assets/js/item-drawer.js', array(), TAINACAN_INTERFACE_VERSION, true );
+	wp_enqueue_style( 'tainacan-interface-item-drawer', $uri . '/assets/css/item-drawer.css', array(), TAINACAN_INTERFACE_VERSION );
+	wp_enqueue_script( 'tainacan-interface-item-drawer', $uri . '/assets/js/item-drawer.js', array(), TAINACAN_INTERFACE_VERSION, true );
 	wp_localize_script(
-		'tt2-item-drawer',
-		'tt2Drawer',
+		'tainacan-interface-item-drawer',
+		'tainacanInterfaceDrawer',
 		array(
-			'endpoint' => esc_url_raw( rest_url( TAINACAN_INTERFACE_REST_NAMESPACE . '/item/' ) ),
-			'nonce'    => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
-			'mode'     => $mode,
-			'side'     => $modern ? tainacan_interface_opt( 'drawer_side' ) : 'right',
-			'backdrop' => $modern && tainacan_interface_opt( 'drawer_backdrop' ),
-			'media'    => $modern ? tainacan_interface_opt( 'drawer_media' ) : 'contain',
-			'metaLine' => $modern && tainacan_interface_opt( 'drawer_meta_line' ),
-			'noDesc'   => $modern && ! tainacan_interface_opt( 'drawer_description' ),
-			'openNew'  => $modern && tainacan_interface_opt( 'drawer_open_new' ),
-			'modern'   => $modern,
-			'i18n'     => array(
+			'endpoint'  => esc_url_raw( rest_url( TAINACAN_INTERFACE_REST_NAMESPACE . '/item/' ) ),
+			'nonce'     => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
+			'mode'      => $mode,
+			'side'      => $modern ? tainacan_interface_opt( 'drawer_side' ) : 'right',
+			'backdrop'  => $modern && tainacan_interface_opt( 'drawer_backdrop' ),
+			'media'     => $modern ? tainacan_interface_opt( 'drawer_media' ) : 'contain',
+			'metaLine'  => $modern && tainacan_interface_opt( 'drawer_meta_line' ),
+			'noDesc'    => $modern && ! tainacan_interface_opt( 'drawer_description' ),
+			'maxFields' => $modern ? (int) tainacan_interface_opt( 'drawer_max_fields' ) : 30,
+			'openNew'   => $modern && tainacan_interface_opt( 'drawer_open_new' ),
+			'modern'    => $modern,
+			'i18n'      => array(
 				'label'      => __( 'Item preview', 'tainacan-interface' ),
 				'close'      => __( 'Close preview', 'tainacan-interface' ),
 				'prev'       => __( 'Previous item', 'tainacan-interface' ),

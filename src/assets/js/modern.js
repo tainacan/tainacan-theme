@@ -6,7 +6,88 @@
 (function () {
 	'use strict';
 
-	var t = (window.tt2Modern && window.tt2Modern.i18n) || {};
+	// What assets/js/js.js does with jQuery on the classic design.
+	document.body.classList.remove('loading-content');
+
+	var top = document.getElementById('return-to-top');
+	if (top) {
+		var shown = false;
+		var place = function () {
+			var show = window.scrollY >= 100;
+			if (show !== shown) {
+				shown = show;
+				top.classList.toggle('tt2-is-shown', show);
+			}
+		};
+		window.addEventListener('scroll', place, { passive: true });
+		place();
+		top.addEventListener('click', function (event) {
+			event.preventDefault();
+			var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+		});
+	}
+
+	// The theme's button on block buttons, unless the editor chose a color or the outline style.
+	document.querySelectorAll('.wp-block-button:not(.is-style-outline) a:not(.has-background):not(.has-text-color):not(.has-link-color)').forEach(function (link) {
+		link.classList.add('btn', 'btn-jelly-bean');
+	});
+	document.querySelectorAll('.tainacan-single-post .tainacan-content table').forEach(function (table) {
+		table.classList.add('table', 'table-borderless');
+	});
+	document.querySelectorAll('#comments ul.children').forEach(function (list) {
+		list.classList.add('align-children');
+	});
+	function icon(name) {
+		var i = document.createElement('i');
+		i.className = 'tainacan-icon tainacan-icon-' + name;
+		return i;
+	}
+	document.querySelectorAll('#comment-nav-below .float-left a').forEach(function (link) { link.before(icon('arrowleft')); });
+	document.querySelectorAll('#comment-nav-below .float-right a').forEach(function (link) { link.after(icon('arrowright')); });
+	document.addEventListener('click', function (event) {
+		var reply = event.target.closest('.comment-reply-link');
+		var cancel = document.getElementById('cancel-comment-reply-link');
+		var submit = document.querySelector('.form-submit');
+		if (reply && cancel && submit) { submit.prepend(cancel); }
+
+		var cell = event.target.closest('.tainacan-list-post .table .tainacan-list-collection td');
+		var href = cell && cell.closest('.tainacan-list-collection').getAttribute('data-href');
+		if (href && !event.target.closest('a')) { window.location = href; }
+	});
+	document.querySelectorAll('#menubelowHeader .dropdown-menu a.dropdown-toggle').forEach(function (link) {
+		link.classList.add('dropdown-submenu');
+	});
+	// A submenu inside a submenu opens beside it, and the one above stays open.
+	document.addEventListener('click', function (event) {
+		var toggle = event.target.closest('.dropdown-menu a.dropdown-toggle');
+		var sub = toggle && toggle.nextElementSibling;
+		if (!sub || !sub.classList.contains('dropdown-menu')) { return; }
+		event.preventDefault();
+		event.stopImmediatePropagation();
+		if (!sub.classList.contains('show')) {
+			toggle.closest('.dropdown-menu').querySelectorAll('.show').forEach(function (open) { open.classList.remove('show'); });
+		}
+		sub.classList.toggle('show');
+	}, true);
+	document.querySelectorAll('.margin-pagination .navigation.pagination').forEach(function (nav) {
+		nav.classList.add('justify-content-center', 'justify-content-md-end');
+	});
+	if (document.querySelector('.tainacan-single-item-heading')) {
+		var navbar = document.getElementById('topNavbar');
+		if (navbar) { navbar.classList.add('b-bottom-top'); }
+		document.querySelectorAll('nav.menu-belowheader').forEach(function (nav) { nav.classList.remove('border-bottom'); });
+		document.querySelectorAll('nav.menu-belowheader .max-large').forEach(function (box) { box.classList.add('b-bottom-bellow'); });
+	}
+
+	// A map that started inside a closed panel has no size until a resize.
+	document.querySelectorAll('.tt2-section').forEach(function (section) {
+		section.addEventListener('toggle', function () {
+			if (section.open) { window.dispatchEvent(new Event('resize')); }
+		});
+	});
+
+	var t = (window.tainacanInterfaceModern && window.tainacanInterfaceModern.i18n) || {};
 
 	function fold(text) {
 		var s = String(text || '').toLowerCase();
@@ -35,7 +116,7 @@
 	// The list is drawn by Tainacan after the page loads: the button appears when there are items to choose from.
 	function surprise() {
 		var button = document.querySelector('[data-tt2-surprise]');
-		if (!button || !window.tt2Drawer) { return; }
+		if (!button || !window.tainacanInterfaceDrawer) { return; }
 
 		function items() {
 			return document.querySelectorAll('[data-tainacan-item-id]');

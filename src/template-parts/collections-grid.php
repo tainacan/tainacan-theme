@@ -21,6 +21,7 @@ while ( have_posts() ) {
 	);
 }
 rewind_posts();
+update_post_thumbnail_cache();
 
 if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 	usort(
@@ -38,6 +39,7 @@ if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 			<?php if ( '' !== $tainacan_interface_intro ) : ?>
 				<p class="tt2-collections-page__intro"><?php echo esc_html( $tainacan_interface_intro ); ?></p>
 			<?php endif; ?>
+				<?php do_action( 'tainacan-interface-banner-header-description' ); ?>
 		</div>
 		<?php if ( tainacan_interface_opt( 'list_search' ) && count( $tainacan_interface_cards ) >= 7 ) : ?>
 			<label class="tt2-collections-page__search">
@@ -67,6 +69,7 @@ if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 						array(
 							'alt'     => '',
 							'loading' => 'lazy',
+							'sizes'   => '(max-width: 600px) 100vw, 400px',
 						)
 					);
 				}
@@ -91,11 +94,12 @@ if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 							<?php if ( tainacan_interface_opt( 'list_count' ) ) : ?>
 								<span class="tt2-collection__count">
 									<?php
+									$tainacan_interface_items = (int) $tainacan_interface_card['count'];
 									echo esc_html(
 										sprintf(
 											/* translators: %s: number of items. */
-											_n( '%s item', '%s items', (int) $tainacan_interface_card['count'], 'tainacan-interface' ),
-											number_format_i18n( (int) $tainacan_interface_card['count'] )
+											_n( '%s item', '%s items', $tainacan_interface_items, 'tainacan-interface' ),
+											number_format_i18n( $tainacan_interface_items )
 										)
 									);
 									?>

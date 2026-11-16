@@ -3,16 +3,16 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.0.1
+Stable tag: 4.2.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
 
-A simple and classic theme for WordPress digital collections with support for Tainacan.
+A highly adjustable theme for digital collections with Tainacan: headers, cards, item preview, item page and menus for each collection.
 
 == Description ==
 
-This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries, and anyone who have a digital repository.
+This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries, and anyone who has a digital repository.
 
 Version 4 brings a new design, with almost everything adjustable in Appearance > Customize > Tainacan Interface, and leaves Bootstrap behind:
 
@@ -37,6 +37,12 @@ For more information about Tainacan and Tainacan Interface please go to http://t
 
 == Upgrade Notice ==
 
+= 4.2.1 =
+New options for typography, layout, buttons, fields, links, the header, social networks, the footer, posts, pages and the back to top button. The modern design no longer loads jQuery.
+
+= 4.1.0 =
+Every option of the Customizer now reaches the page and the preview. Security fix: the name of a collection could run a script in a menu. Password protected items show the form.
+
 = 4.0.0 =
 New design, off on updated sites until you choose it in Appearance > Customize. Bootstrap was removed: the classes the theme used keep working, but a child theme that relies on Bootstrap's JavaScript, modal, carousel or tooltip must bring them itself.
 
@@ -47,69 +53,116 @@ Child themes: the 2.10.0 item record files of a child theme are used again and i
 The filters panel of the lists in the look of the cards (with "Highlighted item record" on).
 
 = 3.0.1 =
-Security fix: the item navigation no longer accepts filters on metadata the visitor cannot see.
+Security fixes in the item navigation.
 
 = 3.0.0 =
 Security fixes. New features (preview drawer, file viewer and PDF reader, highlighted record, related items column) come switched off on updated sites; turn them on in Appearance > Customize.
 
 == Copyright ==
 
-Tainacan Interface WordPress Theme, Copyright 2021 Tainacan.org
+Tainacan Interface WordPress Theme, Copyright 2021-2026 Tainacan.org
 Tainacan Interface is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
+the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+GNU General Public License for more details. The text of the license is in the LICENSE file.
+
+== Resources ==
 
 Tainacan Interface bundles the following third-party resources:
 
+Poppins (latin subset, from Fontsource) Copyright 2020 The Poppins Project Authors
+License: SIL Open Font License 1.1 (assets/fonts/poppins/OFL.txt)
+Source: https://github.com/itfoundry/Poppins
+
+Lora (latin subset, from Fontsource) Copyright 2011 The Lora Project Authors
+License: SIL Open Font License 1.1 (assets/fonts/lora/OFL.txt)
+Source: https://github.com/cyrealtype/Lora-Cyrillic
+
 Roboto (latin subset, from Fontsource 5.1.0) Copyright 2011 Google Inc.
 License: Apache License 2.0 (assets/fonts/roboto/LICENSE.txt)
+Source: https://github.com/googlefonts/roboto
 
 PDF.js 4.10.38 Copyright Mozilla Foundation
-Licenses: Apache-2.0
-Source: https://github.com/mozilla/pdf.js
+License: Apache License 2.0 (assets/vendor/pdfjs/LICENSE)
+Source: https://github.com/mozilla/pdf.js (pdf.mjs and pdf.worker.mjs are the originals of the minified files)
 
-Bootstrap 4.1.3 Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-Licenses: MIT
+Fonts of PDF.js in assets/vendor/pdfjs/standard_fonts: Foxit fonts, from PDFium (BSD style license), and Liberation fonts (SIL Open Font License 1.1)
+Source: https://github.com/mozilla/pdf.js/tree/master/external/standard_fonts
+
+assets/css/foundation.css and assets/css/bootstrap-legacy.css are derived from Bootstrap 4.6.1, Copyright 2011-2021 The Bootstrap Authors, Copyright 2011-2021 Twitter, Inc.
+License: MIT
 Source: https://github.com/twbs/bootstrap
 
-Popper  Copyright (C) Federico Zivolo 2018
-Licenses: MIT
-Source: https://github.com/FezVrasta/popper.js
+Tabler Icons (the icons of the social networks, in inc/social.php) Copyright (c) 2020-2024 Paweł Kuna
+License: MIT
+Source: https://github.com/tabler/tabler-icons
 
-Spectrum Colorpicker v1.8.1 Copyright (c) Brian Grinstead
-Licenses: MIT
+Spectrum Colorpicker Copyright (c) Brian Grinstead
+License: MIT
 Source: https://github.com/bgrins/spectrum
 
-WP Bootstrap Navwalker Class Copyright Edward McIntyre
-Licenses: GPLv3+
+inc/class-tainacan-interface-nav-walker.php is derived from WP Bootstrap Navwalker, Copyright Edward McIntyre
+License: GPLv3+
 Source: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
 
-Photos used in the screenshot
+Works shown in the screenshot, in the public domain
 
-1. https://pxhere.com/en/photo/73320
-License: CC0
+1. Claude Monet, Water Lilies (Agapanthus). The Cleveland Museum of Art, Open Access (CC0).
+Source: https://clevelandart.org/art/1960.81
+2. Vincent van Gogh, Wheat Field with Cypresses. The Metropolitan Museum of Art, Open Access (CC0).
+Source: https://www.metmuseum.org/art/collection/search/436535
 
-2. https://pxhere.com/en/photo/73383
-License CC0
+TainacanIcons font (assets/fonts/tainacan-icons-font) Copyright Tainacan.org
+License: to be confirmed by the Tainacan team before publishing
 
-3. https://pxhere.com/en/photo/73485
-License: CC0
-
-4. https://pxhere.com/en/photo/1432253
-License: CC0
-
-Bundled images, Copyright Tainacan.org
-License: CC0 1.0 Universal (CC0 1.0)
+Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
+facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 4.2.2 =
+* The share links of the collection header and of the item page kept their size: the box that holds them was taking the width of the button and squeezing the icons.
+
+= 4.2.1 =
+* Customizer, typography: weight, size, letter spacing, capitals and color of the titles; line height; text size on phones; size and capitals of the menu.
+* Customizer, layout: space at the sides, space between the parts of a page, frame around the site.
+* Customizer, buttons, fields and links: shape, style and capitals of the buttons; three styles of text fields; underline of links; color of selected text.
+* Customizer, header and footer: header in the accent color or dark, height, current item as a line or a capsule, a highlighted button, a side panel menu on phones; footer in the main color, dark or light, a footer menu and a line with {year} and {site}.
+* Customizer, social networks: links to eight networks, in the header, the footer or both.
+* Customizer, posts and pages: banner with an image, plain or none, its alignment and height; list of posts or cards in columns, image proportion, words of the summary; sidebar on either side or none, its width, kept in view; narrow text; each part of a post can be turned off; reading progress bar.
+* Customizer: shape, side and phones of the back to top button; separator of the breadcrumb; leaving out the emoji script.
+* The modern design does not load jQuery: what the theme's scripts did with it is done in assets/js/modern.js. The copy link button no longer needs it on either design.
+* The page not found is readable on the modern design.
+
+= 4.1.0 =
+* Customizer: every value of every option was tested on the published page and in the preview; the ones with no effect were fixed.
+* Customizer: colors, sizes and shapes change the preview at once, and the preview goes to a page where the open section shows.
+* Customizer: options with no effect under the current choices leave the panel, and an option a collection overrides names that collection.
+* Modern design: the old color scheme and link color no longer win over the accent color. The item preview follows the accent, surface and text colors, and beside the list it makes room for itself.
+* Collection header: with the title over the banner, the veil, the height and the icon size follow their options.
+* Item page: the columns of metadata follow their option beside the side column; "Show the collection header", "Item navigation in the breadcrumb" and the labels of the sections work on the modern design.
+* Item cards: the ring on hover was missing. The "Metadata" section label was never read, and now is.
+* Security: the name of a collection or metadatum could run a script in the menus.
+* Security: a password protected item shows the password form on its page.
+* Mosaics leave out password protected items.
+* Performance: one grouped count for the list of collections, thumbnails loaded at once, a mosaic takes 6 queries instead of 98, the menu button works in parts.
+* Accessibility: a skip link, and the keyboard focus is visible on the back to top button, the menu button and the attachment arrows.
+* Activation changes nothing without asking: the settings of a derived theme come only when an administrator presses the button.
+* The theme keeps one option in the database. All notices can be dismissed for good.
+* Child themes: the files of Bootstrap a 2.x copy of tainacan_enqueues() registers are replaced; the classic design keeps the Bootstrap rules posts and child themes may use; lib/class-wp-bootstrap-navwalker.php still answers.
+
+= 4.0.0 =
+* New design, highly adjustable, off on updated sites until an administrator chooses it.
+* Bootstrap removed. Its classes that child themes use stay in a smaller stylesheet.
+* Menus: a "Tainacan" box in Appearance > Menus, a submenu with all the collections and a menu location per collection.
+* List of collections with every collection, as cards. Collection header with four layouts. Item preview with options. Item page with three layouts and a "How to cite" panel.
 
 = 3.0.3 =
 * Child themes: a child's template-parts/single-items-metadata_new.php and single-items-attachments_new.php (where 2.10.0 kept the item record) are used again.
@@ -121,37 +174,10 @@ License: CC0 1.0 Universal (CC0 1.0)
 * Highlighted record: the filters panel of the lists in the same look as the cards (card frame with the accent on top, quiet filter names, rounded fields with an accent focus ring, accent checkboxes with the counts aligned, "Collapse all" as a pill).
 
 = 3.0.1 =
-* Security: the previous/next item navigation keeps only the filters a public list sends (metadata the visitor may read, published taxonomies); author, status and internal meta keys are dropped.
+* Security fixes in the item navigation.
 * Security: the "Show more" of collection and term descriptions cuts the DOM instead of re-parsing a cut HTML string.
 
 = 3.0.0 =
 * Next version of Tainacan Interface: security fixes, item preview drawer, file viewer and PDF reader, highlighted item record, related items column, local Roboto. New features off on sites updated from 2.x. Details in CHANGELOG.md.
 
-= 2.2.1 =
-* Side column headings at their own size; relationship threads say their direction.
-
-= 2.2.0 =
-* Side column beside the item metadata: related items by relationship and by shared term.
-* Settings of the previous theme imported also from a child theme of Tainacan Interface or from Tainacan Acervo.
-* Translations of Tainacan Interface used as a fallback; Roboto shipped with the theme.
-
-= 2.1.1 =
-* PDF reader toolbar in one row on phones.
-
-= 2.1.0 =
-* PDF reader in the page, in place of the browser viewer.
-
-= 2.0.4 =
-* PDF reader fits the page without horizontal scroll.
-
-= 2.0.3 =
-* Viewer layout with a single file; readable links on the viewer bar.
-
-= 2.0.2 =
-* Show in the side drawer option per metadatum, media box in the drawer, drawer opens from the whole card or table row.
-
-= 2.0.1 =
-* File viewer on Tainacan 1.4 galleries, "Open in the viewer" button for embedded PDF, video and audio, drawer metadata in Masonry.
-
-= 2.0.0 =
-* First version, derived from Tainacan Interface 2.10.0. Security fixes (reflected and stored XSS, open link through ref, CSS injection through collection colors, drafts on the item navigation), item preview drawer, file viewer, highlighted item record. See CHANGELOG.md.
+Earlier versions: see CHANGELOG.md in the theme.

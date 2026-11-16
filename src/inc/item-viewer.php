@@ -318,6 +318,11 @@ function tainacan_interface_viewer_enqueue() {
 		return;
 	}
 
+	// The addresses of the files of a password protected item stay out of the page.
+	if ( post_password_required( get_queried_object_id() ) ) {
+		return;
+	}
+
 	$files = array();
 	foreach ( tainacan_interface_viewer_files( get_queried_object_id() ) as $id => $file ) {
 		if ( 'other' === $file['kind'] ) {
@@ -333,8 +338,8 @@ function tainacan_interface_viewer_enqueue() {
 	$uri    = get_template_directory_uri();
 	$vendor = $uri . '/assets/vendor/pdfjs/';
 
-	wp_enqueue_style( 'tt2-item-viewer', $uri . '/assets/css/item-viewer.css', array(), TAINACAN_INTERFACE_VERSION );
-	wp_enqueue_script( 'tt2-item-viewer', $uri . '/assets/js/item-viewer.js', array(), TAINACAN_INTERFACE_VERSION, true );
+	wp_enqueue_style( 'tainacan-interface-item-viewer', $uri . '/assets/css/item-viewer.css', array(), TAINACAN_INTERFACE_VERSION );
+	wp_enqueue_script( 'tainacan-interface-item-viewer', $uri . '/assets/js/item-viewer.js', array(), TAINACAN_INTERFACE_VERSION, true );
 
 	$config = array(
 		'files' => $files,
@@ -371,6 +376,6 @@ function tainacan_interface_viewer_enqueue() {
 	);
 
 	// JSON, not wp_localize_script(): it would turn booleans and numbers into strings.
-	wp_add_inline_script( 'tt2-item-viewer', 'window.tt2Viewer = ' . wp_json_encode( $config, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ';', 'before' );
+	wp_add_inline_script( 'tainacan-interface-item-viewer', 'window.tainacanInterfaceViewer = ' . wp_json_encode( $config, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ';', 'before' );
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_interface_viewer_enqueue' );

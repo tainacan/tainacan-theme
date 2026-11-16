@@ -33,7 +33,13 @@
 			};
 			// The preview reports the state of each control after a reload: both must agree.
 			var server = control.active();
-			var sync = function () { control.active.set(server); };
+			var sync = function () {
+				control.active.set(server);
+				// A section with no option left goes away with them.
+				api.section(control.section(), function (section) {
+					section.active.set(section.isContextuallyActive());
+				});
+			};
 			control.active.validate = function (to) {
 				server = to;
 				return to && active();
@@ -89,4 +95,4 @@
 			});
 		});
 	});
-}(window.wp && window.wp.customize, window.tt2Customizer, window._));
+}(window.wp && window.wp.customize, window.tainacanInterfaceCustomizer, window._));

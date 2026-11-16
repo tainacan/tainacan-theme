@@ -27,7 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *     @type string $icon          Icon HTML, already escaped, or ''.
  *     @type int    $count         Number of items, or -1 for none.
  *     @type string $share_url     Address to share, or ''.
- *     @type string $hook          Prefix of the actions: collection or taxonomy.
+ *     @type string $hook          Prefix of the actions: collection, taxonomy or '' for none.
+ *     @type string $heading       Tag of the title.
  * }
  */
 function tainacan_interface_the_page_header( $args ) {
@@ -43,10 +44,12 @@ function tainacan_interface_the_page_header( $args ) {
 			'count'         => -1,
 			'share_url'     => '',
 			'hook'          => 'collection',
+			'heading'       => 'h1',
 		)
 	);
 
 	$collection_id = (int) $args['collection_id'];
+	$heading       = 'h2' === $args['heading'] ? 'h2' : 'h1';
 	$layout        = tainacan_interface_opt( 'head_layout', $collection_id );
 	$banner_mode   = 'compact' === $layout ? 'none' : tainacan_interface_opt( 'head_banner', $collection_id );
 	$icon_shape    = tainacan_interface_opt( 'head_icon', $collection_id );
@@ -67,7 +70,7 @@ function tainacan_interface_the_page_header( $args ) {
 			);
 		}
 		if ( ! $banner && 'image' !== $banner_mode ) {
-			$banner = tainacan_interface_mosaic_html( tainacan_interface_collection_images( $collection_id, 8 ), 'tt2-head__banner-mosaic' );
+			$banner = tainacan_interface_mosaic_html( tainacan_interface_collection_images( $collection_id, 8 ), 'tt2-head__banner-mosaic', false );
 			$banner = $banner ? $banner : tainacan_interface_art_html( '' === $args['title'] ? 'tt' : ' ' . $args['title'] );
 		}
 	}
@@ -84,7 +87,9 @@ function tainacan_interface_the_page_header( $args ) {
 	?>
 	<header class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 		<?php
-		do_action( 'tainacan-interface-' . $args['hook'] . '-header' );
+		if ( '' !== $args['hook'] ) {
+			do_action( 'tainacan-interface-' . $args['hook'] . '-header' );
+		}
 
 		if ( $banner ) :
 			?>
@@ -111,7 +116,7 @@ function tainacan_interface_the_page_header( $args ) {
 					<p class="tt2-head__eyebrow"><?php echo esc_html( $args['eyebrow'] ); ?></p>
 				<?php endif; ?>
 
-				<h1 class="tt2-head__title"><?php echo esc_html( $args['title'] ); ?></h1>
+				<<?php echo tag_escape( $heading ); ?> class="tt2-head__title"><?php echo esc_html( $args['title'] ); ?></<?php echo tag_escape( $heading ); ?>>
 
 				<?php if ( tainacan_interface_opt( 'head_rule' ) ) : ?>
 					<span class="tt2-band tt2-head__rule" aria-hidden="true"></span>
@@ -125,10 +130,17 @@ function tainacan_interface_the_page_header( $args ) {
 
 				<?php
 				ob_start();
-				do_action( 'tainacan-interface-' . $args['hook'] . '-description' );
+				if ( '' !== $args['hook'] ) {
+					do_action( 'tainacan-interface-' . $args['hook'] . '-description' );
+				}
+				// The classic header of a term fires this one too.
+				if ( 'taxonomy' === $args['hook'] ) {
+					do_action( 'tainacan-interface-term-description' );
+				}
 				$extra = trim( (string) ob_get_clean() );
 
-				$show_count    = $args['count'] >= 0 && tainacan_interface_opt( 'head_count' );
+				$item_count    = (int) $args['count'];
+				$show_count    = $item_count >= 0 && tainacan_interface_opt( 'head_count' );
 				$show_surprise = tainacan_interface_opt( 'head_surprise' ) && tainacan_interface_drawer_enabled() && 'off' !== tainacan_interface_opt( 'drawer_mode', $collection_id );
 				$show_share    = '' !== $args['share_url'] && tainacan_interface_opt( 'head_share' );
 
@@ -141,8 +153,8 @@ function tainacan_interface_the_page_header( $args ) {
 								echo esc_html(
 									sprintf(
 										/* translators: %s: number of items. */
-										_n( '%s item', '%s items', (int) $args['count'], 'tainacan-interface' ),
-										number_format_i18n( (int) $args['count'] )
+										_n( '%s item', '%s items', $item_count, 'tainacan-interface' ),
+										number_format_i18n( $item_count )
 									)
 								);
 								?>
@@ -167,21 +179,30 @@ function tainacan_interface_the_page_header( $args ) {
 				<?php endif; ?>
 			</div>
 		</div>
-		<?php do_action( 'tainacan-interface-' . $args['hook'] . '-header-bottom' ); ?>
+		<?php
+		if ( '' !== $args['hook'] ) {
+			do_action( 'tainacan-interface-' . $args['hook'] . '-header-bottom' );
+		}
+		?>
 	</header>
 	<?php
 }
 
 /**
  * Header of a collection's items page.
+ *
+ * @param bool $on_item Whether it is above an item: the title of the page is the
+ *                      item's, and the actions of the list do not belong there.
  */
-function tainacan_interface_the_collection_header() {
+function tainacan_interface_the_collection_header( $on_item = false ) {
 	$collection_id = (int) tainacan_get_collection_id();
 	$collection    = tainacan_get_collection();
 	$title         = tainacan_interface_plain( tainacan_get_the_collection_name() );
 	$icon          = '';
 
-	if ( has_post_thumbnail( $collection_id ) ) {
+	if ( 'none' === tainacan_interface_opt( 'head_icon', $collection_id ) ) {
+		$icon = '';
+	} elseif ( has_post_thumbnail( $collection_id ) ) {
 		$icon = get_the_post_thumbnail(
 			$collection_id,
 			'tainacan-medium',
@@ -191,7 +212,7 @@ function tainacan_interface_the_collection_header() {
 			)
 		);
 	} else {
-		$icon = tainacan_interface_mosaic_html( tainacan_interface_collection_images( $collection_id, 4 ), 'tt2-head__icon-mosaic' );
+		$icon = tainacan_interface_mosaic_html( tainacan_interface_collection_images( $collection_id, 4 ), 'tt2-head__icon-mosaic', false );
 	}
 
 	tainacan_interface_the_page_header(
@@ -204,7 +225,8 @@ function tainacan_interface_the_collection_header() {
 			'icon'          => $icon,
 			'count'         => tainacan_interface_collection_count( $collection_id ),
 			'share_url'     => tainacan_interface_current_url(),
-			'hook'          => 'collection',
+			'hook'          => $on_item ? '' : 'collection',
+			'heading'       => $on_item ? 'h2' : 'h1',
 		)
 	);
 	tainacan_interface_the_collection_menu( $collection_id );
@@ -279,7 +301,7 @@ function tainacan_interface_the_item_heading() {
 	$item = tainacan_get_item();
 
 	if ( get_theme_mod( 'tainacan_single_item_collection_header', false ) ) {
-		tainacan_interface_the_collection_header();
+		tainacan_interface_the_collection_header( true );
 	}
 	?>
 	<div class="tt2-item-head tainacan-single-item-heading">
@@ -377,7 +399,7 @@ function tainacan_interface_crumb_steps() {
 function tainacan_interface_modern_breadcrumb( $classic, $pagination = '' ) {
 	$style = tainacan_interface_opt( 'crumb_style' );
 	if ( 'none' === $style ) {
-		return '';
+		return '' !== $pagination ? '<nav class="tt2-crumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'tainacan-interface' ) . '">' . $pagination . '</nav>' : '';
 	}
 
 	$steps = tainacan_interface_crumb_steps();

@@ -14,7 +14,7 @@
 (function () {
 	'use strict';
 
-	var cfg = window.tt2Viewer;
+	var cfg = window.tainacanInterfaceViewer;
 	if (!cfg || !cfg.files || typeof HTMLDialogElement === 'undefined') { return; }
 
 	var t = cfg.i18n || {};
@@ -515,7 +515,7 @@
 		});
 
 		var hash = '#tt2-file-' + id;
-		if (state.pushed && window.location.hash !== hash) { history.replaceState({ tt2Viewer: id }, '', hash); }
+		if (state.pushed && window.location.hash !== hash) { history.replaceState({ tainacanInterfaceViewer: id }, '', hash); }
 	}
 
 	function open(id, seq, opener, page) {
@@ -529,7 +529,7 @@
 		document.documentElement.classList.add('tt2-viewer-open');
 		dialog.showModal();
 		if (!state.pushed) {
-			history.pushState({ tt2Viewer: id }, '', '#tt2-file-' + id);
+			history.pushState({ tainacanInterfaceViewer: id }, '', '#tt2-file-' + id);
 			state.pushed = true;
 		}
 		show();
@@ -545,7 +545,7 @@
 
 	function close() {
 		if (!dialog || !dialog.open) { return; }
-		if (state.pushed && history.state && history.state.tt2Viewer) {
+		if (state.pushed && history.state && history.state.tainacanInterfaceViewer) {
 			history.back(); // popstate closes
 			return;
 		}

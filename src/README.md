@@ -1,4 +1,4 @@
-# Tainacan Interface 3
+# Tainacan Interface
 
 A próxima versão do **Tainacan Interface**, o tema WordPress padrão do [Tainacan](https://tainacan.org). Não é um tema novo:
 - mesma pasta (`tainacan-interface`) e mesmo domínio de tradução;
@@ -15,7 +15,7 @@ Corrige as falhas do 2.10.0:
 - `?ref=` levando o "voltar à lista" para fora do site;
 - CSS injetado pela cor da coleção;
 - rascunhos e itens privados visíveis na navegação entre itens por `?status=`;
-- filtros da navegação entre itens que respondiam sobre o que o visitante não vê: metadado privado, campo interno, autor;
+- filtros da navegação entre itens;
 - o "mostrar mais" das descrições, que recortava o HTML como texto e o interpretava de novo;
 - entradas sem validação que derrubavam a página (`?termspaged=abc`).
 

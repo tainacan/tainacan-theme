@@ -32,6 +32,10 @@ body.tt2-modern {
 	color: var(--tt2-text);
 	font-family: var(--tt2-font-ui);
 	font-size: var(--tt2-u);
+	line-height: var(--tt2-leading);
+}
+@media (max-width: 767.98px) {
+	body.tt2-modern { font-size: var(--tt2-u-mobile); --tainacan-base-font-size: var(--tt2-u-mobile); }
 }
 
 body.tt2-modern .tt2-band { display: block; height: 4px; background: var(--tt2-band); }
@@ -45,14 +49,21 @@ body.tt2-modern .tt2-menu-bar,
 body.tt2-modern .tt2-collections-page {
 	max-width: var(--tt2-width);
 	margin-inline: auto;
-	padding-inline: clamp(16px, 3vw, 40px);
+	padding-inline: clamp(12px, 3vw, var(--tt2-edge));
 	box-sizing: border-box;
 	width: 100%;
 }
 body.tt2-modern .margin-one-column { margin-inline: auto; }
 
 body.tt2-modern :is(h1, h2, h3, h4, h5, h6) { font-family: var(--tt2-font-heading); }
-body.tt2-modern a { color: var(--tt2-accent); }
+:where(body.tt2-modern) :is(h1, h2, h3, h4, h5, h6) { font-weight: var(--tt2-heading-weight); letter-spacing: var(--tt2-heading-spacing); }
+body.tt2-modern.tt2-heading-upper :is(h1, h2, h3, h4, h5, h6) { text-transform: uppercase; }
+:where(body.tt2-modern) .tainacan-content :is(h1, h2, h3, h4, h5, h6) { color: var(--tt2-ink); }
+:where(body.tt2-modern) .tainacan-content h2 { font-size: calc(1.75em * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) .tainacan-content h3 { font-size: calc(1.4em * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) .tainacan-content h4 { font-size: calc(1.2em * var(--tt2-heading-scale)); }
+/* No specificity of its own: buttons of blocks and plugins set their color with one class. */
+:where(body.tt2-modern) a { color: var(--tt2-accent); }
 body.tt2-modern a:focus-visible,
 body.tt2-modern button:focus-visible,
 body.tt2-modern summary:focus-visible { outline: 2px solid var(--tt2-accent); outline-offset: 2px; }
@@ -60,7 +71,7 @@ body.tt2-modern summary:focus-visible { outline: 2px solid var(--tt2-accent); ou
 /* ---------- Site header ---------- */
 
 body.tt2-modern nav.navbar.menu-shadow { box-shadow: none; border-bottom: 0; padding-block: 0; }
-body.tt2-modern #topNavbar { padding-inline: clamp(16px, 3vw, 40px) !important; }
+body.tt2-modern #topNavbar { padding-inline: clamp(12px, 3vw, var(--tt2-edge)) !important; }
 body.tt2-modern .menu-belowheader > .container-fluid { padding-inline: 0 !important; margin: 0 !important; max-width: none; }
 body.tt2-modern .navbar .max-large { display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; }
 body.tt2-modern .navbar-brand,
@@ -68,7 +79,8 @@ body.tt2-modern .navbar-brand span { font-family: var(--tt2-font-heading); font-
 body.tt2-modern .navbar-box { display: flex; align-items: center; flex: 1 1 auto; }
 body.tt2-modern .menu-belowheader { flex: 1 1 auto; min-height: 0; padding-block: 0; border: 0 !important; }
 body.tt2-modern nav.navbar .navbar-nav > li { margin: 0 !important; padding: 0 !important; }
-body.tt2-modern nav.navbar .navbar-nav > li > a { margin: 0 !important; padding: 6px 12px !important; font-weight: 500; font-size: 0.9375em; }
+body.tt2-modern nav.navbar .navbar-nav > li > a { margin: 0 !important; padding: 6px 12px !important; font-weight: 500; font-size: var(--tt2-menu-size); }
+body.tt2-modern.tt2-menu-upper nav.navbar .navbar-nav > li > a { text-transform: uppercase; letter-spacing: 0.04em; }
 body.tt2-modern nav.navbar .dropdown-toggle::after { border-top-color: currentColor !important; color: inherit !important; }
 body.tt2-modern .menu-belowheader #menubelowHeader { padding: 0; margin: 0; }
 /* Only the theme's own menus: the Tainacan lists use the same class names. */
@@ -77,7 +89,7 @@ body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-item { border-radius: 8
 body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-item:hover,
 body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-item:focus { background: var(--tt2-soft); color: var(--tt2-ink); }
 
-body.tt2-modern.tt2-header-stacked #topNavbar { padding-block: 14px 8px; }
+body.tt2-modern #topNavbar { padding-block: var(--tt2-header-pad) calc(var(--tt2-header-pad) * 0.6); }
 @media (min-width: 768px) {
 	body.tt2-modern.tt2-header-stacked #topNavbar > .navbar-brand,
 	body.tt2-modern.tt2-header-stacked #topNavbar > a:first-child { flex: 0 0 100%; margin: 0 0 6px; }
@@ -85,21 +97,28 @@ body.tt2-modern.tt2-header-stacked #topNavbar { padding-block: 14px 8px; }
 	body.tt2-modern.tt2-header-stacked #menubelowHeader .navbar-nav { margin-left: -12px !important; }
 }
 
-/* In the main color. */
-body.tt2-modern.tt2-header-brand nav.navbar.bg-white,
-body.tt2-modern.tt2-header-brand nav.navbar .bg-white { background-color: var(--tt2-brand) !important; }
-body.tt2-modern.tt2-header-brand nav.navbar,
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-brand,
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-brand *,
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-nav > li > a,
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-nav > li > .nav-link,
-body.tt2-modern.tt2-header-brand nav.navbar .btn,
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-toggler,
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-toggler .tainacan-icon,
-body.tt2-modern.tt2-header-brand nav.navbar .btn .tainacan-icon { color: var(--tt2-on-brand) !important; }
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-nav > li > a { border-bottom-color: transparent !important; }
-body.tt2-modern.tt2-header-brand nav.navbar .navbar-nav > li:is(.active, .current-menu-item) > a { box-shadow: inset 0 -2px 0 var(--tt2-on-brand); }
-body.tt2-modern.tt2-header-brand nav.navbar .dropdown-menu a { color: var(--tt2-text) !important; }
+/* In a color: the main one, the accent or dark (tokens in inc/design.php). */
+body.tt2-modern.tt2-header-colored nav.navbar.bg-white,
+body.tt2-modern.tt2-header-colored nav.navbar .bg-white { background-color: var(--tt2-header-bg) !important; }
+body.tt2-modern.tt2-header-colored nav.navbar,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-brand,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-brand *,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > a,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > .nav-link,
+body.tt2-modern.tt2-header-colored nav.navbar .btn,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-toggler,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-toggler .tainacan-icon,
+body.tt2-modern.tt2-header-colored nav.navbar .btn .tainacan-icon,
+body.tt2-modern.tt2-header-colored nav.navbar .tt2-social a { color: var(--tt2-header-fg) !important; }
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > a { border-bottom-color: transparent !important; }
+body.tt2-modern.tt2-header-colored nav.navbar .dropdown-menu a { color: var(--tt2-text) !important; }
+
+/* The current item and the pointer over the menu. */
+body.tt2-modern nav.navbar .navbar-nav > li > a { --tt2-indicator: var(--tt2-accent); border-radius: 999px; transition: background-color 0.15s ease, box-shadow 0.15s ease; }
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > a { --tt2-indicator: var(--tt2-header-fg); }
+body.tt2-modern.tt2-indicator-underline nav.navbar .navbar-nav > li > a { border-radius: 0; }
+body.tt2-modern.tt2-indicator-underline nav.navbar .navbar-nav > li:is(.active, .current-menu-item, :hover) > a { box-shadow: inset 0 -2px 0 var(--tt2-indicator); }
+body.tt2-modern.tt2-indicator-pill nav.navbar .navbar-nav > li:is(.active, .current-menu-item, :hover) > a { background-color: color-mix(in srgb, var(--tt2-indicator) 16%, transparent); }
 
 /* Phones: the menu opens as a panel in the header's own color. */
 @media (max-width: 767.98px) {
@@ -114,11 +133,11 @@ body.tt2-modern.tt2-header-brand nav.navbar .dropdown-menu a { color: var(--tt2-
 		width: auto;
 		max-height: 75vh;
 		overflow-y: auto;
-		padding: 8px clamp(16px, 3vw, 40px) 14px;
+		padding: 8px clamp(12px, 3vw, var(--tt2-edge)) 14px;
 		background: var(--tt2-surface);
 		box-shadow: 0 16px 28px -14px rgba(15, 20, 35, 0.45);
 	}
-	body.tt2-modern.tt2-header-brand #menubelowHeader.navbar-collapse { background: var(--tt2-brand); }
+	body.tt2-modern.tt2-header-colored #menubelowHeader.navbar-collapse { background: var(--tt2-header-bg); }
 	body.tt2-modern nav.navbar .navbar-nav { margin: 0 !important; }
 	body.tt2-modern nav.navbar .dropdown-menu { position: static; box-shadow: none; }
 	body.tt2-modern nav.menu-shadow { position: relative; }
@@ -133,7 +152,7 @@ body.tt2-modern.tt2-header-is-sticky nav.navbar.menu-shadow {
 
 /* ---------- Breadcrumb ---------- */
 
-body.tt2-modern .tt2-crumbs { margin-block: 28px 18px; border: 0; font-size: 0.8125em; }
+body.tt2-modern .tt2-crumbs { margin-block: calc(28px * var(--tt2-space)) calc(18px * var(--tt2-space)); border: 0; font-size: 0.8125em; }
 body.tt2-modern .tt2-crumbs ol {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -191,6 +210,9 @@ body.tt2-modern .tt2-crumbs--home-icon li:first-child a::before {
 	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 body.tt2-modern .tt2-crumbs:has(#breadcrumb-single-item-pagination) { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+body.tt2-modern:is(.tt2-crumb-sep-slash, .tt2-crumb-sep-dot) .tt2-crumbs li + li::before { width: auto; height: auto; border: 0; transform: none; }
+body.tt2-modern.tt2-crumb-sep-slash .tt2-crumbs li + li::before { content: "/"; }
+body.tt2-modern.tt2-crumb-sep-dot .tt2-crumbs li + li::before { content: "\00b7"; font-weight: 700; }
 /* Pages outside Tainacan: the classic crumbs, as one line. */
 body.tt2-modern .tt2-crumbs--flat .tainacan-interface-breadcrumbs { color: var(--tt2-muted); }
 body.tt2-modern .tt2-crumbs--flat .current { color: var(--tt2-text) !important; font-weight: 600; }
@@ -241,7 +263,7 @@ body.tt2-modern .tt2-head__icon .tt2-art { font-size: calc(var(--tt2-icon-size) 
 
 /* ---------- Header of a collection ---------- */
 
-body.tt2-modern .tt2-head { margin-bottom: 28px; text-align: center; }
+body.tt2-modern .tt2-head { margin-bottom: calc(28px * var(--tt2-space)); text-align: center; }
 body.tt2-modern .tt2-head__banner {
 	position: relative;
 	height: var(--tt2-banner-height);
@@ -262,7 +284,7 @@ body.tt2-modern .tt2-head__banner-image,
 body.tt2-modern .tt2-head__banner img { display: block; width: 100%; height: 100%; object-fit: cover; margin: 0; }
 body.tt2-modern .tt2-head--full { max-width: none; padding-inline: 0; }
 body.tt2-modern .tt2-head--full .tt2-head__banner { border-radius: 0; }
-body.tt2-modern .tt2-head--full .tt2-head__body { max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(16px, 3vw, 40px); }
+body.tt2-modern .tt2-head--full .tt2-head__body { max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(12px, 3vw, var(--tt2-edge)); }
 
 body.tt2-modern .tt2-head__body { display: flex; flex-direction: column; align-items: center; }
 body.tt2-modern .tt2-head__text { display: flex; flex-direction: column; align-items: center; width: 100%; min-width: 0; }
@@ -303,10 +325,10 @@ body.tt2-modern .tt2-head__eyebrow {
 body.tt2-modern .tt2-head__title {
 	margin: 6px 0 0;
 	color: var(--tt2-ink) !important;
-	font-size: clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem) !important;
-	font-weight: 700 !important;
+	font-size: calc(clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem) * var(--tt2-heading-scale)) !important;
+	font-weight: var(--tt2-heading-weight) !important;
 	line-height: 1.15;
-	letter-spacing: -0.015em;
+	letter-spacing: var(--tt2-heading-spacing);
 	text-wrap: balance;
 }
 body.tt2-modern .tt2-head__rule { width: 58px; height: 4px; margin-top: 14px; border-radius: 4px; }
@@ -358,7 +380,10 @@ body.tt2-modern .tt2-share__links {
 	top: calc(100% + 6px);
 	left: 50%;
 	display: flex;
+	align-items: center;
 	gap: 6px;
+	/* Absolute inside a small box: without its own width the icons shrink to fit it. */
+	width: max-content;
 	padding: 8px 10px;
 	transform: translateX(-50%);
 	border: 1px solid var(--tt2-line);
@@ -366,7 +391,9 @@ body.tt2-modern .tt2-share__links {
 	background: var(--tt2-surface);
 	box-shadow: var(--tt2-shadow);
 }
-body.tt2-modern .tt2-share__links img { display: block; width: 26px; height: 26px; margin: 0; }
+body.tt2-modern .tt2-share__links > * { display: inline-flex; flex: none; margin: 0; padding: 0; border: 0; border-radius: 999px; background: none; line-height: 0; cursor: pointer; transition: transform 0.15s ease; }
+body.tt2-modern .tt2-share__links > :is(:hover, :focus-visible) { transform: scale(1.1); }
+body.tt2-modern .tt2-share__links img { display: block; width: 28px; max-width: none; height: 28px; margin: 0; object-fit: contain; }
 
 /* Along the left edge. */
 body.tt2-modern .tt2-head--left { text-align: start; }
@@ -438,7 +465,7 @@ body.tt2-modern .tt2-menu-bar .dropdown-toggle::after { display: inline-block; m
 
 body.tt2-modern .tt2-collections-page { padding-block: 8px 48px; }
 body.tt2-modern .tt2-collections-page__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 22px; }
-body.tt2-modern .tt2-collections-page__title { margin: 0; color: var(--tt2-ink) !important; font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem) !important; font-weight: 700 !important; line-height: 1.15; letter-spacing: -0.015em; }
+body.tt2-modern .tt2-collections-page__title { margin: 0; color: var(--tt2-ink) !important; font-size: calc(clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; line-height: 1.15; letter-spacing: var(--tt2-heading-spacing); }
 body.tt2-modern .tt2-collections-page__intro { max-width: 70ch; margin: 8px 0 0; color: var(--tt2-muted); }
 body.tt2-modern .tt2-collections-page__search input {
 	width: min(320px, 100%);
@@ -503,6 +530,12 @@ body.tt2-modern .tt2-collections--row .tt2-collection__image { flex: 0 0 38%; as
 body.tt2-modern.tt2-lists-full #tainacan-items-page,
 body.tt2-modern.tt2-lists-full .theme-items-list { max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(8px, 2vw, 28px); box-sizing: border-box; }
 body.tt2-modern .theme-items-list { background: var(--tt2-surface) !important; border-radius: var(--tt2-radius); box-shadow: var(--tt2-shadow); }
+
+/* The drawer beside the list: the margins that center the list give way to the one that makes room. */
+@media (min-width: 1100px) {
+	body.tt2-modern.tt2-lists-full.tt2-drawer-open:not(.tt2-drawer-over) #tainacan-items-page { width: calc(100% - var(--tt2-d-width)); margin-right: var(--tt2-d-width); margin-left: 0; }
+	body.tt2-modern.tt2-lists-full.tt2-drawer-open.tt2-drawer-side-left:not(.tt2-drawer-over) #tainacan-items-page { width: calc(100% - var(--tt2-d-width)); margin-right: 0; margin-left: var(--tt2-d-width); }
+}
 
 /* Card title in the accent. */
 body.tt2-skin.tt2-modern .tainacan-card .metadata-title p,
@@ -615,7 +648,7 @@ body.tt2-skin.tt2-modern.tt2-card-hover-ring :is(.tainacan-card, .tainacan-recor
 /* ---------- Item page ---------- */
 
 body.tt2-modern .tt2-item-head { margin-bottom: 22px; }
-body.tt2-modern .tt2-item-head__title { max-width: 26em; margin: 0; color: var(--tt2-ink) !important; font-size: clamp(1.625rem, 1.1rem + 1.7vw, 2.5rem) !important; font-weight: 700 !important; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance; }
+body.tt2-modern .tt2-item-head__title { max-width: 26em; margin: 0; color: var(--tt2-ink) !important; font-size: calc(clamp(1.625rem, 1.1rem + 1.7vw, 2.5rem) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; line-height: 1.15; letter-spacing: var(--tt2-heading-spacing); text-wrap: balance; }
 body.tt2-modern .tt2-item-head__subtitle { margin: 8px 0 0; color: var(--tt2-muted); font-size: 0.875em; }
 body.tt2-modern .tt2-item-head .tt2-item-identity { margin: 8px 0 0; padding: 0; }
 body.tt2-modern .tt2-item-head .tt2-item-identity__collection { display: none; }
@@ -647,7 +680,7 @@ body.tt2-modern .single-item-collection--attachments { margin-top: 14px; }
 	body.tt2-modern.tt2-item-layout-media-right .single-item-data-section > :not(.tt2-item-body) { grid-column: 2; }
 }
 
-body.tt2-modern .tt2-item-body { margin-top: 26px; }
+body.tt2-modern .tt2-item-body { margin-top: calc(26px * var(--tt2-space)); }
 body.tt2-modern .tt2-item-body--alone { display: block; }
 
 /* The record. */
@@ -755,16 +788,159 @@ body.tt2-modern .page-header.header-filter:not(.page-header--image-full) {
 	background-color: var(--tt2-brand);
 }
 body.tt2-modern .page-header.header-filter:not(.page-header--image-full)::before { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--tt2-brand) 82%, transparent); }
-body.tt2-modern .ph-title-description { position: relative; max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(16px, 3vw, 40px) !important; }
+body.tt2-modern .ph-title-description { position: relative; max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(12px, 3vw, var(--tt2-edge)) !important; }
 body.tt2-modern .ph-title-description .title-header { padding: 0; background: none; box-shadow: none; }
-body.tt2-modern .ph-title-description .title-header h1 { color: var(--tt2-on-brand) !important; font-size: clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem) !important; font-weight: 700 !important; letter-spacing: -0.015em; }
+body.tt2-modern .ph-title-description .title-header h1 { color: var(--tt2-on-brand) !important; font-size: calc(clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; letter-spacing: var(--tt2-heading-spacing); }
+
+/* A post fixed at the top of the blog. */
+body.tt2-modern .blog-post.sticky { border-inline-start: 4px solid var(--tt2-accent); padding-inline-start: 12px; }
+
+/* The page not found: its text above the veil of the banner. */
+body.tt2-modern .page-404 > .container { position: relative; z-index: 1; padding-block: calc(48px * var(--tt2-space)); }
+body.tt2-modern .page-404 :is(h1, h3) { color: var(--tt2-on-brand) !important; }
+body.tt2-modern.tt2-hero-plain .page-404 :is(h1, h3) { color: var(--tt2-ink) !important; }
+body.tt2-modern .page-404 .btn { padding: 6px 18px !important; border: 0; border-radius: var(--tt2-button-radius); background: var(--tt2-accent) !important; color: var(--tt2-on-accent) !important; }
+
+/* ---------- Main area ---------- */
+
+body.tt2-modern main.max-large.mt-5 { margin-top: calc(3rem * var(--tt2-space)) !important; }
+
+/* Sidebar of the blog: beside the posts, on either side, at its own width. */
+@media (min-width: 992px) {
+	body.tt2-modern.tt2-has-sidebar main > .row { display: grid; grid-template-columns: minmax(0, 1fr) var(--tt2-sidebar-width); gap: calc(48px * var(--tt2-space)); margin-inline: 0; }
+	body.tt2-modern.tt2-has-sidebar main > .row > * { width: auto; max-width: none; padding-inline: 0; }
+	body.tt2-modern.tt2-has-sidebar.tt2-sidebar-left main > .row { grid-template-columns: var(--tt2-sidebar-width) minmax(0, 1fr); }
+	body.tt2-modern.tt2-has-sidebar.tt2-sidebar-left main > .row > :last-child { order: -1; }
+	body.tt2-modern.tt2-has-sidebar.tt2-sidebar-sticky main > .row > :last-child { position: sticky; top: calc(var(--wp-admin--admin-bar--height, 0px) + 24px); align-self: start; }
+}
+
+/* ---------- Posts and pages ---------- */
+
+/* The banner at the top. */
+body.tt2-modern .page-header.header-filter:not(.page-header--image-full) { min-height: var(--tt2-hero-height) !important; display: flex; align-items: center; }
+body.tt2-modern.tt2-hero-align-center .ph-title-description { text-align: center; }
+body.tt2-modern.tt2-hero-plain .page-header.header-filter:not(.page-header--image-full) { background-image: none !important; background-color: var(--tt2-surface); box-shadow: inset 0 -1px 0 var(--tt2-line); }
+body.tt2-modern.tt2-hero-plain .page-header.header-filter:not(.page-header--image-full)::before { display: none; }
+body.tt2-modern.tt2-hero-plain .ph-title-description .title-header h1 { color: var(--tt2-ink) !important; }
+
+/* Images of the list, in the chosen proportion. */
+body.tt2-modern .tainacan-list-post .blog-thumbnail img { width: 100%; aspect-ratio: var(--tt2-blog-ratio); object-fit: cover; border-radius: calc(var(--tt2-radius) * 0.6); }
+
+/* Cards in columns. */
+body.tt2-modern.tt2-blog-grid .tainacan-list-post { display: grid; grid-template-columns: repeat(var(--tt2-blog-columns), minmax(0, 1fr)); gap: calc(24px * var(--tt2-space)); margin-inline: 0 !important; }
+body.tt2-modern.tt2-blog-grid.tt2-has-sidebar .tainacan-list-post { grid-template-columns: repeat(min(var(--tt2-blog-columns), 2), minmax(0, 1fr)); }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post > hr { display: none; }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-post { flex-direction: column; flex-wrap: nowrap; margin: 0 !important; overflow: hidden; border: 1px solid var(--tt2-line); border-radius: var(--tt2-radius); background: var(--tt2-surface); box-shadow: var(--tt2-shadow); }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-post > div { flex: none; width: 100%; max-width: 100%; margin: 0 !important; padding: 16px 18px; }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-thumbnail { padding: 0 !important; }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-thumbnail img { border-radius: 0; }
+@media (max-width: 991.98px) { body.tt2-modern.tt2-blog-grid .tainacan-list-post { grid-template-columns: repeat(min(var(--tt2-blog-columns), 2), minmax(0, 1fr)); } }
+@media (max-width: 575.98px) { body.tt2-modern.tt2-blog-grid .tainacan-list-post { grid-template-columns: minmax(0, 1fr); } }
+
+/* A narrower text, easier to read. */
+body.tt2-modern.tt2-post-narrow:is(.single-post, .page) main :is(.tainacan-title, .tainacan-single-post) { max-width: var(--tt2-narrow); margin-inline: auto; }
+body.tt2-modern.tt2-post-narrow:is(.single-post, .page) main .tainacan-single-post :is(.margin-two-column, .margin-one-column) { margin-inline: 0; }
+
+/* Links in the running text. */
+body.tt2-modern .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button) { text-underline-offset: 0.18em; }
+body.tt2-modern.tt2-links-underline .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button) { text-decoration: underline; }
+body.tt2-modern:is(.tt2-links-hover, .tt2-links-none) .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button) { text-decoration: none; }
+body.tt2-modern.tt2-links-hover .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button):hover { text-decoration: underline; }
+
+/* Reading progress, drawn by the browser from the scroll of the page. */
+@supports (animation-timeline: scroll()) {
+	body.tt2-modern.tt2-progress::before {
+		content: "";
+		position: fixed;
+		z-index: 100001;
+		top: var(--wp-admin--admin-bar--height, 0px);
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: var(--tt2-accent);
+		transform-origin: 0 50%;
+		animation: tt2-progress linear both;
+		animation-timeline: scroll(root);
+	}
+	@keyframes tt2-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* ---------- Buttons, fields and selection ---------- */
+
+:where(body.tt2-modern) :is(.wp-block-button__link, .wp-element-button, .btn-jelly-bean, .tt2-header-button, input[type="submit"], button[type="submit"]):not(.tainacan-modal *, #tainacan-items-page *) {
+	border-radius: var(--tt2-button-radius);
+	font-weight: 600;
+}
+body.tt2-modern.tt2-button-upper :is(.wp-block-button__link, .wp-element-button, .btn-jelly-bean, .tt2-header-button, input[type="submit"], button[type="submit"]):not(.tainacan-modal *, #tainacan-items-page *) { text-transform: uppercase; letter-spacing: 0.05em; }
+body.tt2-modern.tt2-buttons-outline :is(.wp-block-button__link, .wp-element-button, .btn-jelly-bean, input[type="submit"]):not(.has-background, .tainacan-modal *, #tainacan-items-page *) { border: 2px solid var(--tt2-accent) !important; background: transparent !important; color: var(--tt2-accent) !important; }
+
+:where(body.tt2-modern) :where(.tainacan-content, .comment-form, .search-form, .wp-block-search, .widget, .tainacan-form-dropdown, .tainacan-footer) :is(input:not([type="submit"], [type="radio"], [type="checkbox"], [type="hidden"]), textarea, select) {
+	border-radius: calc(var(--tt2-button-radius) * 0.6);
+}
+body.tt2-modern.tt2-fields-filled :where(.tainacan-content, .comment-form, .search-form, .wp-block-search, .widget, .tainacan-form-dropdown) :is(input:not([type="submit"], [type="radio"], [type="checkbox"], [type="hidden"]), textarea, select) { border-color: transparent; background-color: var(--tt2-soft); }
+body.tt2-modern.tt2-fields-underline :where(.tainacan-content, .comment-form, .search-form, .wp-block-search, .widget, .tainacan-form-dropdown) :is(input:not([type="submit"], [type="radio"], [type="checkbox"], [type="hidden"]), textarea, select) { border-width: 0 0 2px; border-radius: 0; background-color: transparent; }
+
+body.tt2-modern.tt2-selection-accent ::selection { background: color-mix(in srgb, var(--tt2-accent) 28%, transparent); }
+body.tt2-modern.tt2-selection-brand ::selection { background: var(--tt2-brand); color: var(--tt2-on-brand); }
+
+/* ---------- Header: button, social networks and the menu on phones ---------- */
+
+body.tt2-modern .tt2-header-button { display: inline-flex; align-items: center; margin-inline: 8px 4px; padding: 7px 16px; background: var(--tt2-accent); color: var(--tt2-on-accent) !important; font-size: 0.875em; line-height: 1.3; text-decoration: none; white-space: nowrap; }
+body.tt2-modern.tt2-header-accent .tt2-header-button { background: var(--tt2-header-fg); color: var(--tt2-header-bg) !important; }
+body.tt2-modern .tt2-header-button:hover { filter: brightness(1.08); }
+
+body.tt2-modern .tt2-social { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; }
+body.tt2-modern .tt2-social a { display: inline-flex; padding: 6px; border-radius: 999px; color: inherit; }
+body.tt2-modern .tt2-social a:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+body.tt2-modern .tt2-social--header { margin-inline: 4px; }
+
+@media (max-width: 767.98px) {
+	body.tt2-modern.tt2-mobile-menu-side #menubelowHeader.navbar-collapse {
+		position: fixed;
+		z-index: 1040;
+		top: var(--wp-admin--admin-bar--height, 0px);
+		bottom: 0;
+		left: 0;
+		right: auto;
+		display: block !important;
+		width: min(320px, 86vw);
+		max-height: none;
+		padding: 64px 20px 24px;
+		visibility: hidden;
+		transform: translateX(-100%);
+		transition: transform 0.22s ease, visibility 0.22s;
+	}
+	body.tt2-modern.tt2-mobile-menu-side #menubelowHeader.navbar-collapse.show { visibility: visible; transform: none; }
+	body.tt2-modern.tt2-mobile-menu-side .menu-belowheader:has(#menubelowHeader.show)::after { content: ""; position: fixed; z-index: 1039; inset: 0; background: rgba(10, 16, 28, 0.45); }
+	body.tt2-modern.tt2-mobile-menu-side .navbar-toggler { position: relative; z-index: 1041; }
+	body.tt2-modern.tt2-mobile-menu-side .navbar-toggler[aria-expanded="true"] { position: fixed; top: calc(var(--wp-admin--admin-bar--height, 0px) + 12px); left: calc(min(320px, 86vw) - 52px); }
+}
 
 /* ---------- Footer ---------- */
 
-body.tt2-modern .tt2-footer-compact { margin-top: 40px !important; padding: 26px clamp(16px, 3vw, 40px) !important; background: var(--tt2-brand) !important; }
+body.tt2-modern .tt2-footer-extra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 14px; }
+body.tt2-modern .tt2-footer-menu ul { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; list-style: none; }
+body.tt2-modern .tt2-footer-menu a { color: inherit; font-size: 0.875em; }
+body.tt2-modern .tt2-footer-note { flex-basis: 100%; opacity: 0.85; }
+
+/* ---------- Back to top and frame ---------- */
+
+body.tt2-modern #return-to-top { display: flex !important; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(8px); background: var(--tt2-accent); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; animation: none; }
+body.tt2-modern #return-to-top.tt2-is-shown { opacity: 1; visibility: visible; transform: none; }
+body.tt2-modern.tt2-back-top-rounded #return-to-top { border-radius: 10px; }
+body.tt2-modern.tt2-back-top-square #return-to-top { border-radius: 0; }
+body.tt2-modern.tt2-back-top-left #return-to-top { right: auto; left: 4.16vw; }
+@media (max-width: 767.98px) { body.tt2-modern.tt2-back-top-desktop #return-to-top { display: none !important; } }
+
+body.tt2-modern.tt2-frame { padding: var(--tt2-frame); }
+body.tt2-modern.tt2-frame::after { content: ""; position: fixed; z-index: 100000; inset: 0; border: var(--tt2-frame) solid var(--tt2-brand); pointer-events: none; }
+
+/* ---------- Compact footer ---------- */
+
+body.tt2-modern .tt2-footer-compact { margin-top: calc(40px * var(--tt2-space)) !important; padding: 26px clamp(12px, 3vw, var(--tt2-edge)) !important; background: var(--tt2-footer-bg) !important; }
 body.tt2-modern .tt2-footer-compact .tainacan-footer-area-separator { display: none; }
 body.tt2-modern .tt2-footer-compact .tainacan-footer-info { max-width: var(--tt2-width); margin-inline: auto; padding: 0 !important; align-items: center; }
-body.tt2-modern .tt2-footer-compact p { margin: 0; color: var(--tt2-on-brand); font-size: 0.875em; }
-body.tt2-modern .tt2-footer-compact .col { color: var(--tt2-on-brand) !important; }
+body.tt2-modern .tt2-footer-compact p { margin: 0; color: var(--tt2-footer-fg); font-size: 0.875em; }
+body.tt2-modern .tt2-footer-compact :is(.col, a) { color: var(--tt2-footer-fg) !important; }
 body.tt2-modern .tt2-footer-compact .tainacan-powered:empty,
 body.tt2-modern .tt2-footer-compact .tainacan-powered span:empty { display: none; }

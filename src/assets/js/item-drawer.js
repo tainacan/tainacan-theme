@@ -12,7 +12,7 @@
 (function () {
 	'use strict';
 
-	var cfg = window.tt2Drawer;
+	var cfg = window.tainacanInterfaceDrawer;
 	if (!cfg || !cfg.endpoint || !window.fetch) { return; }
 
 	var t = cfg.i18n || {};
@@ -175,9 +175,10 @@
 		var description = d.description && !cfg.noDesc ? h('p', { class: 'tt2-drawer__description', text: d.description }) : null;
 		if (description && !cfg.modern) { body.appendChild(description); }
 
-		if (d.fields && d.fields.length) {
+		var fields = (d.fields || []).slice(0, cfg.maxFields);
+		if (fields.length) {
 			var dl = h('dl', { class: 'tt2-drawer__fields' });
-			d.fields.forEach(function (f) {
+			fields.forEach(function (f) {
 				var dd = h('dd', {}, [valueNodes(f.html)]);
 				// A short plain value reads as the capsules of the terms beside it.
 				if (cfg.modern && dd.textContent.trim().length <= 48 && !dd.querySelector('a, img, ul, table, iframe')) { dd.classList.add('tt2-chip-value'); }
@@ -372,6 +373,6 @@
 		if (drawer && !drawer.hidden) { setModal(OVERLAY || SMALL.matches); }
 	});
 
-	window.tt2Drawer.open = open;
-	window.tt2Drawer.close = close;
+	window.tainacanInterfaceDrawer.open = open;
+	window.tainacanInterfaceDrawer.close = close;
 }());

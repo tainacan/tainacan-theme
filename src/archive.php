@@ -15,13 +15,13 @@ get_header();
 	<div class="row py-4 justify-content-between">
 		<div class="col-12 
 		<?php
-		if ( is_active_sidebar( 'tainacan-sidebar-right' ) ) {
+		if ( tainacan_interface_has_sidebar() ) {
 			?>
 			col-lg-8 pr-lg-0<?php } ?>">
 			<?php get_template_part( 'template-parts/loop' ); ?>
 		</div>
 		<?php
-		if ( is_active_sidebar( 'tainacan-sidebar-right' ) ) {
+		if ( tainacan_interface_has_sidebar() ) {
 			get_sidebar(); }
 		?>
 	</div>

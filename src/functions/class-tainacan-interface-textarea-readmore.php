@@ -384,10 +384,20 @@ class Tainacan_Interface_Textarea_Readmore {
 		wp_enqueue_script(
 			'tainacan-interface-textarea-readmore',
 			get_template_directory_uri() . '/assets/js/textarea-readmore.js',
-			array( 'tainacan_tainacanTruncate' ),
+			tainacan_interface_is_modern() ? array() : array( 'tainacan_tainacanTruncate' ),
 			TAINACAN_INTERFACE_VERSION,
 			true
 		);
+		if ( tainacan_interface_is_modern() ) {
+			wp_localize_script(
+				'tainacan-interface-textarea-readmore',
+				'tainacan_trucanteVars',
+				array(
+					'moreText' => __( 'Show more', 'tainacan-interface' ),
+					'lessText' => __( 'Show less', 'tainacan-interface' ),
+				)
+			);
+		}
 	}
 }
 

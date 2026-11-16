@@ -126,6 +126,7 @@ function tainacan_theme_collection_query( $query ) {
 		if ( tainacan_interface_is_modern() ) {
 			$query->set( 'posts_per_page', -1 );
 			$query->set( 'no_found_rows', true );
+			$query->set( 'update_post_term_cache', false );
 			switch ( tainacan_interface_opt( 'list_order' ) ) {
 				case 'title':
 					$query->set( 'orderby', 'title' );

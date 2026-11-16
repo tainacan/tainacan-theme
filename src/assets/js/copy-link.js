@@ -1,10 +1,13 @@
 function fallbackCopyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
     textArea.value = text;
-    textArea.style.setProperty('display', 'none');
-    textArea.style.setProperty('visibility', 'hidden');
+    // Out of sight but selectable: a hidden field cannot be copied from.
+    textArea.style.setProperty('position', 'fixed');
+    textArea.style.setProperty('top', '0');
+    textArea.style.setProperty('left', '0');
+    textArea.style.setProperty('opacity', '0');
     document.body.appendChild(textArea);
-    textArea.focus();
+    textArea.focus({ preventScroll: true });
     textArea.select();
 
     try {
@@ -35,9 +38,10 @@ function copyTextToClipboard(text) {
         });
 }
 
-jQuery( document ).ready(function( $ ) {
-    $( document ).on( 'click', '.tainacan-copy-link-button', function() {
-        var link = $(this).data('link');
-        copyTextToClipboard(link);
-    });
-});
+// No jQuery: the design of version 4 does not load it.
+document.addEventListener( 'click', function( event ) {
+    var button = event.target.closest && event.target.closest( '.tainacan-copy-link-button' );
+    if ( button ) {
+        copyTextToClipboard( button.getAttribute( 'data-link' ) );
+    }
+} );

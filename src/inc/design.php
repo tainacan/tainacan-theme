@@ -78,6 +78,32 @@ function tainacan_interface_shadow_values() {
 }
 
 /**
+ * CSS values of the options that are a choice between named values. The page
+ * and the preview read them from here.
+ *
+ * @return array Key => value => CSS value.
+ */
+function tainacan_interface_value_maps() {
+	return array(
+		'content_spacing' => array(
+			'compact'  => '0.7',
+			'normal'   => '1',
+			'spacious' => '1.4',
+		),
+		'button_shape'    => array(
+			'rounded' => '8px',
+			'pill'    => '999px',
+			'square'  => '0',
+		),
+		'heading_color'   => array(
+			'brand'  => 'var(--tt2-brand)',
+			'accent' => 'var(--tt2-accent)',
+			'text'   => 'var(--tt2-text)',
+		),
+	);
+}
+
+/**
  * The tokens. Every value comes through tainacan_interface_opt(): colors are hex
  * colors, numbers are integers, fonts come from a closed list. The two Tainacan
  * variables get literal colors, so they cannot loop back to a variable that
@@ -90,12 +116,22 @@ function tainacan_interface_design_css() {
 	$accent  = tainacan_interface_opt( 'accent_color' );
 	$shadows = tainacan_interface_shadow_values();
 
+	$headers = array(
+		'brand'  => array( $brand, tainacan_interface_is_dark_color( $brand ) ? '#ffffff' : '#111111' ),
+		'accent' => array( $accent, tainacan_interface_is_dark_color( $accent ) ? '#ffffff' : '#111111' ),
+		'dark'   => array( '#16191d', '#ffffff' ),
+		'light'  => array( '#ffffff', tainacan_interface_opt( 'text_color' ) ),
+	);
+	$header  = $headers[ tainacan_interface_opt( 'header_style' ) ];
+	$footer  = $headers[ tainacan_interface_opt( 'footer_tone' ) ];
+	$maps    = tainacan_interface_value_maps();
+
 	$tokens = array(
 		'--tt2-brand'                         => $brand,
 		'--tt2-on-brand'                      => tainacan_interface_is_dark_color( $brand ) ? '#ffffff' : '#111111',
 		'--tt2-accent'                        => $accent,
 		'--tt2-on-accent'                     => tainacan_interface_is_dark_color( $accent ) ? '#ffffff' : '#111111',
-		'--tt2-ink'                           => $brand,
+		'--tt2-ink'                           => $maps['heading_color'][ tainacan_interface_opt( 'heading_color' ) ],
 		'--tt2-text'                          => tainacan_interface_opt( 'text_color' ),
 		'--tt2-value'                         => tainacan_interface_opt( 'text_color' ),
 		'--tt2-surface'                       => tainacan_interface_opt( 'surface_color' ),
@@ -123,6 +159,26 @@ function tainacan_interface_design_css() {
 		'--tainacan-interface--tooltip-color' => 'color-mix(in srgb, ' . $accent . ' 18%, #fff)',
 		'--tainacan-block-primary'            => $accent,
 		'--tainacan-font-family'              => tainacan_interface_font_stack( tainacan_interface_opt( 'font_ui' ) ),
+		'--tt2-header-bg'                     => $header[0],
+		'--tt2-header-fg'                     => $header[1],
+		'--tt2-footer-bg'                     => $footer[0],
+		'--tt2-footer-fg'                     => $footer[1],
+		'--tt2-header-pad'                    => absint( tainacan_interface_opt( 'header_padding' ) ) . 'px',
+		'--tt2-heading-weight'                => (int) tainacan_interface_opt( 'heading_weight' ),
+		'--tt2-heading-scale'                 => absint( tainacan_interface_opt( 'heading_scale' ) ) / 100,
+		'--tt2-heading-spacing'               => (int) tainacan_interface_opt( 'heading_spacing' ) / 100 . 'em',
+		'--tt2-leading'                       => absint( tainacan_interface_opt( 'line_height' ) ) / 100,
+		'--tt2-u-mobile'                      => absint( tainacan_interface_opt( 'font_size_mobile' ) ) . 'px',
+		'--tt2-menu-size'                     => absint( tainacan_interface_opt( 'menu_size' ) ) . 'px',
+		'--tt2-edge'                          => absint( tainacan_interface_opt( 'edge_spacing' ) ) . 'px',
+		'--tt2-space'                         => $maps['content_spacing'][ tainacan_interface_opt( 'content_spacing' ) ],
+		'--tt2-frame'                         => absint( tainacan_interface_opt( 'frame_size' ) ) . 'px',
+		'--tt2-button-radius'                 => $maps['button_shape'][ tainacan_interface_opt( 'button_shape' ) ],
+		'--tt2-hero-height'                   => absint( tainacan_interface_opt( 'hero_height' ) ) . 'px',
+		'--tt2-blog-columns'                  => absint( tainacan_interface_opt( 'blog_columns' ) ),
+		'--tt2-blog-ratio'                    => tainacan_interface_opt( 'blog_ratio' ),
+		'--tt2-sidebar-width'                 => absint( tainacan_interface_opt( 'sidebar_width' ) ) . 'px',
+		'--tt2-narrow'                        => absint( tainacan_interface_opt( 'narrow_width' ) ) . 'px',
 		'--tainacan-base-font-size'           => absint( tainacan_interface_opt( 'font_size' ) ) . 'px',
 	);
 
@@ -144,17 +200,14 @@ function tainacan_interface_design_enqueue() {
 	}
 
 	$uri = get_template_directory_uri();
-	wp_enqueue_style( 'tt2-modern', $uri . '/assets/css/modern.css', array( 'tainacan_tainacanStyle' ), TAINACAN_INTERFACE_VERSION );
-	wp_add_inline_style( 'tt2-modern', wp_strip_all_tags( tainacan_interface_design_css() ) );
+	// A child theme with its own enqueues may not have the handle, and a missing dependency drops the stylesheet.
+	wp_enqueue_style( 'tainacan-interface-modern', $uri . '/assets/css/modern.css', wp_style_is( 'tainacan_tainacanStyle', 'registered' ) ? array( 'tainacan_tainacanStyle' ) : array(), TAINACAN_INTERFACE_VERSION );
+	wp_add_inline_style( 'tainacan-interface-modern', wp_strip_all_tags( tainacan_interface_design_css() ) );
 
-	if ( ! tainacan_interface_is_list_page() && ! tainacan_interface_is_item_page() && ! is_post_type_archive( 'tainacan-collection' ) ) {
-		return;
-	}
-
-	wp_enqueue_script( 'tt2-modern', $uri . '/assets/js/modern.js', array(), TAINACAN_INTERFACE_VERSION, true );
+	wp_enqueue_script( 'tainacan-interface-modern', $uri . '/assets/js/modern.js', array(), TAINACAN_INTERFACE_VERSION, true );
 	wp_localize_script(
-		'tt2-modern',
-		'tt2Modern',
+		'tainacan-interface-modern',
+		'tainacanInterfaceModern',
 		array(
 			'i18n' => array(
 				'copied'       => __( 'Copied', 'tainacan-interface' ),
@@ -183,6 +236,49 @@ function tainacan_interface_design_body_class( $box_classes ) {
 
 	$box_classes[] = 'tt2-modern';
 	$box_classes[] = 'tt2-header-' . tainacan_interface_opt( 'header_style' );
+	if ( 'light' !== tainacan_interface_opt( 'header_style' ) ) {
+		$box_classes[] = 'tt2-header-colored';
+	}
+	$box_classes[] = 'tt2-indicator-' . tainacan_interface_opt( 'menu_indicator' );
+	$box_classes[] = 'tt2-mobile-menu-' . tainacan_interface_opt( 'mobile_menu' );
+	$box_classes[] = 'tt2-crumb-sep-' . tainacan_interface_opt( 'crumb_separator' );
+	$box_classes[] = 'tt2-buttons-' . tainacan_interface_opt( 'button_style' );
+	$box_classes[] = 'tt2-fields-' . tainacan_interface_opt( 'field_style' );
+	$box_classes[] = 'tt2-links-' . tainacan_interface_opt( 'link_style' );
+	$box_classes[] = 'tt2-selection-' . tainacan_interface_opt( 'selection' );
+	$box_classes[] = 'tt2-hero-' . tainacan_interface_opt( 'hero_style' );
+	$box_classes[] = 'tt2-hero-align-' . tainacan_interface_opt( 'hero_align' );
+	$box_classes[] = 'tt2-blog-' . tainacan_interface_opt( 'blog_layout' );
+	$box_classes[] = 'tt2-post-' . tainacan_interface_opt( 'post_width' );
+	$box_classes[] = 'tt2-back-top-' . tainacan_interface_opt( 'back_top_shape' );
+	$box_classes[] = 'tt2-back-top-' . tainacan_interface_opt( 'back_top_side' );
+	foreach ( array(
+		'heading_transform' => 'tt2-heading-upper',
+		'menu_transform'    => 'tt2-menu-upper',
+		'button_transform'  => 'tt2-button-upper',
+	) as $key => $flag ) {
+		if ( 'uppercase' === tainacan_interface_opt( $key ) ) {
+			$box_classes[] = $flag;
+		}
+	}
+	if ( 'left' === tainacan_interface_opt( 'sidebar_position' ) ) {
+		$box_classes[] = 'tt2-sidebar-left';
+	}
+	if ( tainacan_interface_has_sidebar() ) {
+		$box_classes[] = 'tt2-has-sidebar';
+	}
+	if ( tainacan_interface_opt( 'sidebar_sticky' ) ) {
+		$box_classes[] = 'tt2-sidebar-sticky';
+	}
+	if ( tainacan_interface_opt( 'post_progress' ) && is_singular( 'post' ) ) {
+		$box_classes[] = 'tt2-progress';
+	}
+	if ( ! tainacan_interface_opt( 'back_top_mobile' ) ) {
+		$box_classes[] = 'tt2-back-top-desktop';
+	}
+	if ( tainacan_interface_opt( 'frame_size' ) > 0 ) {
+		$box_classes[] = 'tt2-frame';
+	}
 	$box_classes[] = 'tt2-header-' . tainacan_interface_opt( 'header_stack' );
 	$box_classes[] = 'tt2-crumbs-' . tainacan_interface_opt( 'crumb_style' );
 	$box_classes[] = 'tt2-card-accent-' . tainacan_interface_opt( 'card_accent' );
@@ -228,31 +324,33 @@ function tainacan_interface_collection_images( $collection_id, $count ) {
 		return array();
 	}
 
-	$key    = 'tt2_mosaic_' . $collection_id;
+	$key    = 'tainacan_interface_mosaic_' . $collection_id;
 	$stored = get_transient( $key );
 
 	if ( ! is_array( $stored ) ) {
-		$ids = get_posts(
+		$items = new WP_Query(
 			array(
 				'post_type'              => 'tnc_col_' . $collection_id . '_item',
 				'post_status'            => 'publish',
-				'posts_per_page'         => 24,
-				'fields'                 => 'ids',
+				'has_password'           => false,
+				'posts_per_page'         => 8,
 				'no_found_rows'          => true,
 				'update_post_term_cache' => false,
-				'meta_key'               => '_thumbnail_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- limited to 24 rows and kept for twelve hours; there is no other way to ask for items with an image.
+				'suppress_filters'       => true, // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.SuppressFilters_suppress_filters -- the result is stored for everyone: a filter of another plugin for one visitor must not end up in it.
+				'meta_key'               => '_thumbnail_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- limited to 8 rows and kept for twelve hours; there is no other way to ask for items with an image.
 			)
 		);
+		update_post_thumbnail_cache( $items );
 
 		$stored = array();
-		foreach ( $ids as $id ) {
-			$url = get_the_post_thumbnail_url( $id, 'tainacan-medium-full' );
+		foreach ( $items->posts as $item ) {
+			$url = get_the_post_thumbnail_url( $item, 'tainacan-medium-full' );
 			if ( $url ) {
 				$stored[] = $url;
 			}
 		}
-		// Nothing yet is often a collection being imported: asks again soon.
-		set_transient( $key, $stored, empty( $stored ) ? 10 * MINUTE_IN_SECONDS : 12 * HOUR_IN_SECONDS );
+		// An image that arrives later clears this through the hooks below. The spread keeps the lists of many collections from expiring together.
+		set_transient( $key, $stored, 12 * HOUR_IN_SECONDS + wp_rand( 0, HOUR_IN_SECONDS ) );
 	}
 
 	return array_slice( $stored, 0, max( 1, (int) $count ) );
@@ -279,10 +377,23 @@ add_action( 'transition_post_status', 'tainacan_interface_mosaic_on_status', 10,
  * @param WP_Post|int $post Post or post id.
  */
 function tainacan_interface_mosaic_forget( $post ) {
+	static $types = array();
+
 	$type = (string) get_post_type( $post );
-	if ( 1 === preg_match( '/^tnc_col_(\d+)_item$/', $type, $match ) ) {
-		delete_transient( 'tt2_mosaic_' . $match[1] );
+	if ( isset( $types[ $type ] ) || ! tainacan_interface_is_modern() || 1 !== preg_match( '/^tnc_col_(\d+)_item$/', $type, $match ) ) {
+		return;
 	}
+	$types[ $type ] = true;
+
+	// At the end of the request, once: an import or a bulk edit touches many items, and the list must not be rebuilt from half of them.
+	$collection_id = $match[1];
+	add_action(
+		'shutdown',
+		function () use ( $collection_id ) {
+			delete_transient( 'tainacan_interface_mosaic_' . $collection_id );
+			delete_transient( 'tainacan_interface_collection_counts' );
+		}
+	);
 }
 add_action( 'before_delete_post', 'tainacan_interface_mosaic_forget' );
 
@@ -335,16 +446,17 @@ function tainacan_interface_media_tags() {
  *
  * @param string[] $urls  Image URLs.
  * @param string   $box_class Class of the box.
+ * @param bool     $lazy      Whether the images load as they come near the screen; not for what is on it from the start.
  * @return string HTML.
  */
-function tainacan_interface_mosaic_html( $urls, $box_class ) {
+function tainacan_interface_mosaic_html( $urls, $box_class, $lazy = true ) {
 	$count = count( $urls );
 	if ( ! $count ) {
 		return '';
 	}
 	$html = '<span class="tt2-mosaic tt2-mosaic--' . absint( $count ) . ' ' . esc_attr( $box_class ) . '" aria-hidden="true">';
 	foreach ( $urls as $url ) {
-		$html .= '<img src="' . esc_url( $url ) . '" alt="" loading="lazy" decoding="async">';
+		$html .= '<img src="' . esc_url( $url ) . '" alt=""' . ( $lazy ? ' loading="lazy"' : '' ) . ' decoding="async">';
 	}
 	return $html . '</span>';
 }
@@ -382,6 +494,74 @@ function tainacan_interface_art_word( $word ) {
  * @return int
  */
 function tainacan_interface_collection_count( $collection_id ) {
-	$counts = wp_count_posts( 'tnc_col_' . absint( $collection_id ) . '_item' );
-	return isset( $counts->publish ) ? (int) $counts->publish : 0;
+	static $counts = null;
+
+	if ( null === $counts ) {
+		$counts = get_transient( 'tainacan_interface_collection_counts' );
+	}
+	if ( ! is_array( $counts ) ) {
+		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- wp_count_posts() is one query per collection; this groups them all in one, and the result goes to a transient.
+		$rows   = $wpdb->get_results( $wpdb->prepare( "SELECT post_type, COUNT(*) AS items FROM {$wpdb->posts} WHERE post_status = 'publish' AND post_type LIKE %s GROUP BY post_type", $wpdb->esc_like( 'tnc_col_' ) . '%' ) );
+		$counts = array();
+		foreach ( (array) $rows as $row ) {
+			$counts[ (string) $row->post_type ] = (int) $row->items;
+		}
+		set_transient( 'tainacan_interface_collection_counts', $counts, 10 * MINUTE_IN_SECONDS );
+	}
+
+	$type = 'tnc_col_' . absint( $collection_id ) . '_item';
+	return isset( $counts[ $type ] ) ? $counts[ $type ] : 0;
 }
+
+/**
+ * Whether the blog page shows the sidebar: it has widgets, and on the design of
+ * version 4 it was not turned off.
+ *
+ * @return bool
+ */
+function tainacan_interface_has_sidebar() {
+	if ( ! is_active_sidebar( 'tainacan-sidebar-right' ) ) {
+		return false;
+	}
+	if ( ! tainacan_interface_is_modern() ) {
+		return true;
+	}
+	// The blog and its archives; the lists of collections and taxonomies have no sidebar.
+	$blog = is_home() || is_search() || ( is_archive() && ! is_post_type_archive() && ! is_tax() );
+	return 'none' !== tainacan_interface_opt( 'sidebar_position' ) && $blog && ! tainacan_interface_is_list_page();
+}
+
+/**
+ * Whether a part of the page of a post shows: always on the classic design.
+ *
+ * @param string $part featured, meta, share, terms or nav.
+ * @return bool
+ */
+function tainacan_interface_post_shows( $part ) {
+	return ! tainacan_interface_is_modern() || (bool) tainacan_interface_opt( 'post_' . $part );
+}
+
+/**
+ * The emoji script of WordPress, left out when the administrator chose to.
+ */
+function tainacan_interface_without_emoji() {
+	if ( is_admin() || ! tainacan_interface_is_modern() || ! tainacan_interface_opt( 'perf_emoji' ) ) {
+		return;
+	}
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+}
+// After the Customizer applies the previewed values, before the head is printed.
+add_action( 'template_redirect', 'tainacan_interface_without_emoji' );
+
+/**
+ * The footer menu of the design of version 4.
+ */
+function tainacan_interface_register_footer_menu() {
+	register_nav_menus( array( 'tt2_footer' => __( 'Footer menu', 'tainacan-interface' ) ) );
+}
+add_action( 'after_setup_theme', 'tainacan_interface_register_footer_menu', 20 );

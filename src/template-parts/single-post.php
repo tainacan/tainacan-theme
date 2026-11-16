@@ -10,15 +10,17 @@
 	<?php if ( ! is_page_template( 'page-templates/landing.php' ) && ! is_page_template( 'page-templates/landing-breadcrumb.php' ) ) : ?>
 		<header class="mb-4 tainacan-content">
 			<div class="header-meta text-muted mb-5 d-flex">
-				<?php if ( ! is_singular( 'page' ) ) { ?>
+				<?php if ( ! is_singular( 'page' ) && tainacan_interface_post_shows( 'meta' ) ) { ?>
 					<?php tainacan_meta_date_author(); ?>
 				<?php } ?>
-				<div class="btn-group ml-auto" role="group">
-					<?php tainacan_interface_the_share_links( get_permalink(), get_the_title(), 'images', 'share-link' ); ?>
-				</div>
+				<?php if ( tainacan_interface_post_shows( 'share' ) ) : ?>
+					<div class="btn-group ml-auto" role="group">
+						<?php tainacan_interface_the_share_links( get_permalink(), get_the_title(), 'images', 'share-link' ); ?>
+					</div>
+				<?php endif; ?>
 			</div>
 			<?php
-			if ( ! (bool) get_theme_mod( 'tainacan_featured_image_on_header_banner', false ) ) {
+			if ( ! (bool) get_theme_mod( 'tainacan_featured_image_on_header_banner', false ) && tainacan_interface_post_shows( 'featured' ) ) {
 				the_post_thumbnail();
 			}
 			?>
@@ -40,7 +42,7 @@
 				?>
 		</div>
 	</section>
-	<?php if ( ! is_singular( 'page' ) ) { ?>
+	<?php if ( ! is_singular( 'page' ) && tainacan_interface_post_shows( 'terms' ) ) { ?>
 	<footer class="mt-5 border-top pt-3">
 		<p>
 			<?php

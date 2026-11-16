@@ -57,13 +57,13 @@
 		if (how.kind) {
 			kinds[how.kind](value);
 		} else if (how.vars) {
-			var text = how.map ? how.map[value] : value + (how.unit || '');
+			var text = how.map ? how.map[value] : (how.divide ? Number(value) / how.divide : value) + (how.unit || '');
 			how.vars.forEach(function (name) { css(name, text); });
 		} else if (how.prefix) {
 			how.values.forEach(function (one) { body.classList.remove(how.prefix + one); });
 			body.classList.add(how.prefix + value);
 		} else if (how.flag) {
-			body.classList.toggle(how.flag, !!value);
+			body.classList.toggle(how.flag, how.when ? value === how.when : !!value);
 		}
 	}
 
@@ -75,7 +75,10 @@
 		});
 	});
 
+	// The panel hears the preview only once the channel is active.
 	api.bind('preview-ready', function () {
-		api.preview.send('tt2-context', cfg.kind);
+		api.preview.bind('active', function () {
+			api.preview.send('tt2-context', cfg.kind);
+		});
 	});
-}(window.wp && window.wp.customize, window.tt2Preview));
+}(window.wp && window.wp.customize, window.tainacanInterfacePreview));

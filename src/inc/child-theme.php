@@ -85,7 +85,7 @@ function tainacan_interface_child_cached( $name, $files, $check ) {
 
 	$dir      = get_stylesheet_directory();
 	$existing = array();
-	$stamp    = get_stylesheet();
+	$stamp    = get_stylesheet() . '|' . TAINACAN_INTERFACE_VERSION;
 	foreach ( $files as $file ) {
 		$path = $dir . '/' . $file;
 		if ( is_readable( $path ) ) {
@@ -94,21 +94,20 @@ function tainacan_interface_child_cached( $name, $files, $check ) {
 		}
 	}
 
-	$option = 'tainacan_interface_child_' . $name;
-	$cached = get_option( $option );
+	$key    = 'child_' . $name;
+	$cached = tainacan_interface_state( $key );
 	if ( is_array( $cached ) && isset( $cached['stamp'], $cached['value'] ) && $cached['stamp'] === $stamp ) {
 		$memo[ $name ] = $cached['value'];
 		return $memo[ $name ];
 	}
 
 	$memo[ $name ] = $existing ? call_user_func( $check, $existing ) : null;
-	update_option(
-		$option,
+	tainacan_interface_state_set(
+		$key,
 		array(
 			'stamp' => $stamp,
 			'value' => $memo[ $name ],
-		),
-		true
+		)
 	);
 	return $memo[ $name ];
 }
@@ -317,7 +316,7 @@ function tainacan_interface_child_flaws_notice() {
 		return;
 	}
 	$found = tainacan_interface_child_flawed_copies();
-	if ( empty( $found ) || get_option( 'tainacan_interface_child_flaws_dismissed' ) === md5( implode( ',', array_keys( $found ) ) ) ) {
+	if ( empty( $found ) || tainacan_interface_state( 'child_flaws_seen' ) === md5( implode( ',', array_keys( $found ) ) ) ) {
 		return;
 	}
 	$dismiss = wp_nonce_url( admin_url( 'admin-post.php?action=tainacan_interface_dismiss_child_flaws' ), 'tainacan_interface_dismiss_child_flaws' );
@@ -349,7 +348,7 @@ function tainacan_interface_dismiss_child_flaws() {
 		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'tainacan-interface' ), 403 );
 	}
 	check_admin_referer( 'tainacan_interface_dismiss_child_flaws' );
-	update_option( 'tainacan_interface_child_flaws_dismissed', md5( implode( ',', array_keys( tainacan_interface_child_flawed_copies() ) ) ), false );
+	tainacan_interface_state_set( 'child_flaws_seen', md5( implode( ',', array_keys( tainacan_interface_child_flawed_copies() ) ) ), false );
 	wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url() );
 	exit;
 }

@@ -7,6 +7,18 @@
 (function () {
 	'use strict';
 
+	// What a collapse of a child theme opens; the .collapse of the Tainacan lists is theirs.
+	document.querySelectorAll('[data-toggle="collapse"]').forEach(function (toggle) {
+		var selector = toggle.getAttribute('data-target') || toggle.getAttribute('href');
+		var target = null;
+		try {
+			target = selector && '#' !== selector ? document.querySelector(selector) : null;
+		} catch (error) {
+			return; // Not a selector: an address, or an id that starts with a digit.
+		}
+		if (target && !target.classList.contains('navbar-collapse')) { target.classList.add('tt2-collapse-target'); }
+	});
+
 	function closeDropdowns(except) {
 		document.querySelectorAll('[data-toggle="dropdown"][aria-expanded="true"]').forEach(function (toggle) {
 			if (toggle === except || (except && toggle.parentNode.contains(except))) { return; }
@@ -54,7 +66,8 @@
 			closeDropdowns(toggle);
 			setDropdown(toggle, open);
 			if (open) {
-				var field = menuOf(toggle).querySelector('input[type="search"], input[type="text"]');
+				var box = menuOf(toggle);
+				var field = box && box.querySelector('input[type="search"], input[type="text"]');
 				if (field) { field.focus(); }
 			}
 			return;

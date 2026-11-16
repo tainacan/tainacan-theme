@@ -52,7 +52,7 @@ function tainacan_interface_highlight_enqueue() {
 	if ( ! tainacan_interface_highlight_enabled() || ! ( tainacan_interface_is_list_page() || tainacan_interface_is_item_page() ) ) {
 		return;
 	}
-	wp_enqueue_style( 'tt2-item-highlight', get_template_directory_uri() . '/assets/css/item-highlight.css', array(), TAINACAN_INTERFACE_VERSION );
+	wp_enqueue_style( 'tainacan-interface-item-highlight', get_template_directory_uri() . '/assets/css/item-highlight.css', array(), TAINACAN_INTERFACE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'tainacan_interface_highlight_enqueue' );
 

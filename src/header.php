@@ -25,6 +25,9 @@
 	} else {
 		do_action( 'wp_body_open' );
 	}
+	?>
+	<a class="skip-link screen-reader-text" href="#main-content"><?php esc_html_e( 'Skip to content', 'tainacan-interface' ); ?></a>
+	<?php
 
 	if ( ! get_theme_mod( 'tainacan_use_block_template_parts_on_header', false ) ) :
 		?>
@@ -60,6 +63,16 @@
 				<?php endif; ?>
 
 				<div class="btn-group" style="padding: 0.6rem 0;">
+				<?php
+				if ( tainacan_interface_is_modern() ) {
+					tainacan_interface_the_social_links( 'header' );
+					$tainacan_interface_button = tainacan_interface_opt( 'header_button_label' );
+					$tainacan_interface_target = tainacan_interface_opt( 'header_button_url' );
+					if ( '' !== $tainacan_interface_button && '' !== $tainacan_interface_target ) {
+						echo '<a class="tt2-header-button" href="' . esc_url( $tainacan_interface_target ) . '">' . esc_html( $tainacan_interface_button ) . '</a>';
+					}
+				}
+				?>
 				
 				<?php if ( ! get_theme_mod( 'tainacan_hide_search_input', false ) ) : ?>
 					<div class="dropdown tainacan-form-dropdown">
@@ -87,7 +100,11 @@
 endif;
 	?>
 
+	<div id="main-content" tabindex="-1"></div>
+
+	<?php if ( ! tainacan_interface_is_modern() || tainacan_interface_opt( 'back_top' ) ) : ?>
 	<a href="#" id="return-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'tainacan-interface' ); ?>"<?php echo 'colored' === get_theme_mod( 'tainacan_footer_color', 'dark' ) ? ' style="background-color: #2c2d2d;"' : ''; ?>><i class="tainacan-icon tainacan-icon-arrowup"></i></a>
+	<?php endif; ?>
 
 	<?php if ( ! is_page_template( 'page-templates/landing.php' ) ) : ?>
 		<?php echo wp_kses_post( tainacan_interface_the_breadcrumb() ); ?>
