@@ -1,0 +1,39 @@
+{
+  "description": "tnc-check: verifica as linhas editadas e barra comandos destrutivos. Bloqueio = exit 2 com o motivo no stderr.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${TNC_PHP:-php}\" \"${CLAUDE_PLUGIN_ROOT}/tainacan-stack/bin/tnc-check\" --hook=post-edit",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${TNC_PHP:-php}\" \"${CLAUDE_PLUGIN_ROOT}/tainacan-stack/bin/tnc-check\" --hook=pre-bash",
+            "timeout": 20
+          }
+        ]
+      },
+      {
+        "matcher": "PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${TNC_PHP:-php}\" \"${CLAUDE_PLUGIN_ROOT}/tainacan-stack/bin/tnc-check\" --hook=pre-powershell",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  }
+}

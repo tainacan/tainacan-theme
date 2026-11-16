@@ -1,544 +1,706 @@
 <?php
-
 /**
  * Functions that register the options for the customizer
  * related to the Tainacan plugin Item single page - Document and attachment settings.
- * 
+ *
+ * @package tainacan-interface
  */
-if ( !function_exists('tainacan_interface_customize_register_tainacan_single_item_page_document') ) {
-	
+
+if ( ! function_exists( 'tainacan_interface_customize_register_tainacan_single_item_page_document' ) ) {
+
+	/**
+	 * Registers the Customizer options related to the Tainacan plugin Item single page - Document and attachment settings.
+	 *
+	 * @param WP_Customize_Manager $wp_customize The Customizer object.
+	 */
 	function tainacan_interface_customize_register_tainacan_single_item_page_document( $wp_customize ) {
-		
-        /* If the Tainacan plugin is installed */
-		if (defined ( 'TAINACAN_VERSION' ) ) {
-		
-            /**
-             * Adds section to control single items page documents section.
-             */
-            $wp_customize->add_section( 'tainacan_single_item_page_document', array(
-                'title' 	  => __( 'Items document and attachments', 'tainacan-interface' ),
-                'description' => __( 'Settings related to Tainacan single Items document and attachments sections.', 'tainacan-interface' ),
-                'panel'		  => 'tainacan_single_item_page',
-                'priority' 	  => 162,
-                'capability'  => 'edit_theme_options'
-                ) );
 
-            if (version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
-            
-                /**
-                 * Adds option to display attachments and document as a gallery list.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_gallery_mode', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_gallery_mode', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 0, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Group Document and Attachments in one slider', 'tainacan-interface' ),
-                    'description' => __( 'Show the document and attachments in the same list, as a carousel with the current item on top.', 'tainacan-interface' )
-                    ) );
+		/* If the Tainacan plugin is installed */
+		if ( defined( 'TAINACAN_VERSION' ) ) {
 
-                /**
-                 * Disable gallery lightbox.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_disable_gallery_lightbox', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_disable_gallery_lightbox', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 4, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Disable the gallery lightbox modal', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display a modal with the main slider when clicking in a gallery item of the "Documents" section.', 'tainacan-interface' ),
-                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                    ) );
-            
-                /**
-                 * Adds options to display or not the document download button.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_download_document', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_download_document', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 11, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide Document download button', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' )
-                    ) );
+			/**
+			 * Adds section to control single items page documents section.
+			 */
+			$wp_customize->add_section(
+				'tainacan_single_item_page_document',
+				array(
+					'title'       => __( 'Items document and attachments', 'tainacan-interface' ),
+					'description' => __( 'Settings related to Tainacan single Items document and attachments sections.', 'tainacan-interface' ),
+					'panel'       => 'tainacan_single_item_page',
+					'priority'    => 162,
+					'capability'  => 'edit_theme_options',
+				)
+			);
 
-                if ( function_exists( 'tainacan_get_the_media_item_expand_control' ) ) {
+			if ( version_compare( TAINACAN_VERSION, '0.16RC' ) >= 0 ) {
 
-                    /**
-                     * Hide Expand control.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_hide_expand_button', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => false,
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_hide_expand_button', array(
-                        'type' 	   	  => 'checkbox',
-                        'priority' 	  => 12,
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Hide expand control', 'tainacan-interface' ),
-                        'description' => __( 'Toggle to never display the "Expand" control that opens the large gallery viewer for video, audio and embeds.', 'tainacan-interface' )
-                        ) );
+				/**
+				 * Adds option to display attachments and document as a gallery list.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_gallery_mode',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_gallery_mode',
+					array(
+						'type'        => 'checkbox',
+						'priority'    => 0, // Within the section.
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Group Document and Attachments in one slider', 'tainacan-interface' ),
+						'description' => __( 'Show the document and attachments in the same list, as a carousel with the current item on top.', 'tainacan-interface' ),
+					)
+				);
 
-                    /**
-                     * Metadata alignment under the main slider.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_gallery_metadata_alignment', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => 'center',
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_gallery_metadata_alignment', array(
-                        'type' 	   	  => 'select',
-                        'priority' 	  => 10,
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Metadata alignment', 'tainacan-interface' ),
-                        'description' => __( 'Alignment of the file name, caption and description under the main slider.', 'tainacan-interface' ),
-                        'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
-                        'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                        ) );
+				/**
+				 * Disable gallery lightbox.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_disable_gallery_lightbox',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_disable_gallery_lightbox',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 4, // Within the section.
+						'section'         => 'tainacan_single_item_page_document',
+						'label'           => __( 'Disable the gallery lightbox modal', 'tainacan-interface' ),
+						'description'     => __( 'Toggle to not display a modal with the main slider when clicking in a gallery item of the "Documents" section.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+					)
+				);
 
-                    /**
-                     * Shared Expand / Download appearance.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_gallery_media_actions_appearance', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => 'icon',
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_media_actions_appearance_options',
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_gallery_media_actions_appearance', array(
-                        'type' 	   	  => 'select',
-                        'priority' 	  => 13,
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Actions appearance', 'tainacan-interface' ),
-                        'choices'	  => tainacan_get_single_item_gallery_media_actions_appearance_options()
-                        ) );
+				/**
+				 * Adds options to display or not the document download button.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_download_document',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_download_document',
+					array(
+						'type'        => 'checkbox',
+						'priority'    => 11, // Within the section.
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Hide Document download button', 'tainacan-interface' ),
+						'description' => __( 'Toggle to never display a "Download" button when hovering the document.', 'tainacan-interface' ),
+					)
+				);
 
-                    /**
-                     * Shared Expand / Download visibility behavior.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_gallery_media_actions_behavior', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => 'hover',
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_media_actions_behavior_options',
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_gallery_media_actions_behavior', array(
-                        'type' 	   	  => 'select',
-                        'priority' 	  => 14,
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Actions visibility', 'tainacan-interface' ),
-                        'description' => __( 'On hover, the controls appear over the media. Always visible places them inline below the media.', 'tainacan-interface' ),
-                        'choices'	  => tainacan_get_single_item_gallery_media_actions_behavior_options()
-                        ) );
+				if ( function_exists( 'tainacan_get_the_media_item_expand_control' ) ) {
 
-                    /**
-                     * Download alignment.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_gallery_download_alignment', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => 'center',
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_gallery_download_alignment', array(
-                        'type' 	   	  => 'select',
-                        'priority' 	  => 15,
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Download alignment', 'tainacan-interface' ),
-                        'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
-                        'active_callback' => 'tainacan_interface_is_single_item_download_visible'
-                        ) );
+					/**
+					 * Hide Expand control.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_hide_expand_button',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => false,
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_hide_expand_button',
+						array(
+							'type'        => 'checkbox',
+							'priority'    => 12,
+							'section'     => 'tainacan_single_item_page_document',
+							'label'       => __( 'Hide expand control', 'tainacan-interface' ),
+							'description' => __( 'Toggle to never display the "Expand" control that opens the large gallery viewer for video, audio and embeds.', 'tainacan-interface' ),
+						)
+					);
 
-                    /**
-                     * Expand alignment.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_gallery_expand_alignment', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => 'center',
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_gallery_expand_alignment', array(
-                        'type' 	   	  => 'select',
-                        'priority' 	  => 16,
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Expand alignment', 'tainacan-interface' ),
-                        'choices'	  => tainacan_get_single_item_gallery_alignment_options(),
-                        'active_callback' => 'tainacan_interface_is_single_item_expand_visible'
-                        ) );
-                }
-            }
+					/**
+					 * Metadata alignment under the main slider.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_gallery_metadata_alignment',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => 'center',
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_gallery_metadata_alignment',
+						array(
+							'type'            => 'select',
+							'priority'        => 10,
+							'section'         => 'tainacan_single_item_page_document',
+							'label'           => __( 'Metadata alignment', 'tainacan-interface' ),
+							'description'     => __( 'Alignment of the file name, caption and description under the main slider.', 'tainacan-interface' ),
+							'choices'         => tainacan_get_single_item_gallery_alignment_options(),
+							'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+						)
+					);
 
-            /**
-             * Adds option to configure Document section label.
-             */
-            $wp_customize->add_setting( 'tainacan_single_item_document_section_label', array(
-                'type' 		 => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'default' 	 => __( 'Document', 'tainacan-interface' ),
-                'transport'  => 'postMessage',
-                'sanitize_callback'  => 'sanitize_text_field'
-                ) );
-            $wp_customize->add_control( 'tainacan_single_item_document_section_label', array(
-                'type' 	   	  => 'text',
-                'priority' 	  => 1, // Within the section.
-                'section'  	  => 'tainacan_single_item_page_document',
-                'label'    	  => __( 'Label for the "Document" section', 'tainacan-interface' ),
-                'description' => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
-                'active_callback' => 'tainacan_interface_is_single_item_not_gallery_mode'
-                ) );
-            $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_document_section_label', array(
-                'selector' => '#single-item-document-label',
-                'render_callback' => '__return_false',
-                'fallback_refresh' => true
-                ) );
+					/**
+					 * Shared Expand / Download appearance.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_gallery_media_actions_appearance',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => 'icon',
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_media_actions_appearance_options',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_gallery_media_actions_appearance',
+						array(
+							'type'     => 'select',
+							'priority' => 13,
+							'section'  => 'tainacan_single_item_page_document',
+							'label'    => __( 'Actions appearance', 'tainacan-interface' ),
+							'choices'  => tainacan_get_single_item_gallery_media_actions_appearance_options(),
+						)
+					);
 
-            /**
-             * Adds option to configure Attachments section label.
-             */
-            $wp_customize->add_setting( 'tainacan_single_item_attachments_section_label', array(
-                'type' 		 => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'default' 	 => __( 'Attachments', 'tainacan-interface' ),
-                'transport'  => 'postMessage',
-                'sanitize_callback'  => 'sanitize_text_field'
-                ) );
-            $wp_customize->add_control( 'tainacan_single_item_attachments_section_label', array(
-                'type' 	   	  => 'text',
-                'priority' 	  => 2, // Within the section.
-                'section'  	  => 'tainacan_single_item_page_document',
-                'label'    	  => __( 'Label for the "Attachments" section', 'tainacan-interface' ),
-                'description' => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
-                'active_callback' => 'tainacan_interface_is_single_item_not_gallery_mode'
-                ) );
-            $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_attachments_section_label', array(
-                'selector' => '#single-item-attachments-label',
-                'render_callback' => '__return_false',
-                'fallback_refresh' => true
-                ) );
-            
-            /**
-             * Adds option to configure Documents section label.
-             */
-            $wp_customize->add_setting( 'tainacan_single_item_documents_section_label', array(
-                'type' 		 => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'default' 	 => __( 'Documents', 'tainacan-interface' ),
-                'transport'  => 'postMessage',
-                'sanitize_callback'  => 'sanitize_text_field'
-                ) );
-            $wp_customize->add_control( 'tainacan_single_item_documents_section_label', array(
-                'type' 	   	  => 'text',
-                'priority' 	  => 1, // Within the section.
-                'section'  	  => 'tainacan_single_item_page_document',
-                'label'    	  => __( 'Label for the "Documents" section', 'tainacan-interface' ),
-                'description' => __( 'Section label when Document and Attachments are grouped. Leave it blank to hide the label.', 'tainacan-interface' ),
-                'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                ) );
-            $wp_customize->selective_refresh->add_partial( 'tainacan_single_item_documents_section_label', array(
-                'selector' => '#single-item-documents-label',
-                'render_callback' => '__return_false',
-                'fallback_refresh' => true
-                ) );
+					/**
+					 * Shared Expand / Download visibility behavior.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_gallery_media_actions_behavior',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => 'hover',
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_media_actions_behavior_options',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_gallery_media_actions_behavior',
+						array(
+							'type'        => 'select',
+							'priority'    => 14,
+							'section'     => 'tainacan_single_item_page_document',
+							'label'       => __( 'Actions visibility', 'tainacan-interface' ),
+							'description' => __( 'On hover, the controls appear over the media. Always visible places them inline below the media.', 'tainacan-interface' ),
+							'choices'     => tainacan_get_single_item_gallery_media_actions_behavior_options(),
+						)
+					);
 
-            if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
+					/**
+					 * Download alignment.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_gallery_download_alignment',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => 'center',
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_gallery_download_alignment',
+						array(
+							'type'            => 'select',
+							'priority'        => 15,
+							'section'         => 'tainacan_single_item_page_document',
+							'label'           => __( 'Download alignment', 'tainacan-interface' ),
+							'choices'         => tainacan_get_single_item_gallery_alignment_options(),
+							'active_callback' => 'tainacan_interface_is_single_item_download_visible',
+						)
+					);
 
-                /**
-                 * Thumbnails layout: carousel, grid or list.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_gallery_thumbs_layout', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => 'carousel',
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_thumbs_layout_options',
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_gallery_thumbs_layout', array(
-                    'type' 	   	  => 'select',
-                    'priority' 	  => 6,
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Thumbnails layout', 'tainacan-interface' ),
-                    'description' => __( 'Shows images and file-type icons, not live embeds. List rows always show the file name.', 'tainacan-interface' ),
-                    'choices'	  => tainacan_get_single_item_gallery_thumbs_layout_options()
-                    ) );
+					/**
+					 * Expand alignment.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_gallery_expand_alignment',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => 'center',
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_alignment_options',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_gallery_expand_alignment',
+						array(
+							'type'            => 'select',
+							'priority'        => 16,
+							'section'         => 'tainacan_single_item_page_document',
+							'label'           => __( 'Expand alignment', 'tainacan-interface' ),
+							'choices'         => tainacan_get_single_item_gallery_alignment_options(),
+							'active_callback' => 'tainacan_interface_is_single_item_expand_visible',
+						)
+					);
+				}
+			}
 
-                /**
-                 * Hide thumbnail image in list layout (title-only rows).
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_image_thumbnails', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_image_thumbnails', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 7,
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide thumbnail image', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to hide the file thumbnail and show only the name.', 'tainacan-interface' ),
-                    'active_callback' => 'tainacan_interface_is_gallery_thumbs_layout_list'
-                    ) );
-            }
+			/**
+			 * Adds option to configure Document section label.
+			 */
+			$wp_customize->add_setting(
+				'tainacan_single_item_document_section_label',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => __( 'Document', 'tainacan-interface' ),
+					'transport'         => 'postMessage',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_single_item_document_section_label',
+				array(
+					'type'            => 'text',
+					'priority'        => 1, // Within the section.
+					'section'         => 'tainacan_single_item_page_document',
+					'label'           => __( 'Label for the "Document" section', 'tainacan-interface' ),
+					'description'     => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_single_item_not_gallery_mode',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'tainacan_single_item_document_section_label',
+				array(
+					'selector'         => '#single-item-document-label',
+					'render_callback'  => '__return_false',
+					'fallback_refresh' => true,
+				)
+			);
 
-            /**
-             * Adds options to hide attachments file names on thumbnails.
-             */
-            $wp_customize->add_setting( 'tainacan_single_item_hide_files_name', array(
-                'type' 		 => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'default' 	 => false,
-                'transport'  => 'refresh',
-                'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                ) );
-            $hide_files_name_control = array(
-                'type' 	   	  => 'checkbox',
-                'priority' 	  => 7, // Within the section.
-                'section'  	  => 'tainacan_single_item_page_document',
-                'label'    	  => __( 'Hide the attachments label (on thumbnails)', 'tainacan-interface' ),
-                'description' => __( 'Toggle to not display the document and attachment names below their thumbnails.', 'tainacan-interface' )
-                );
-            if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
-                $hide_files_name_control['active_callback'] = 'tainacan_interface_is_gallery_thumbs_layout_not_list';
-            }
-            $wp_customize->add_control( 'tainacan_single_item_hide_files_name', $hide_files_name_control );
+			/**
+			 * Adds option to configure Attachments section label.
+			 */
+			$wp_customize->add_setting(
+				'tainacan_single_item_attachments_section_label',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => __( 'Attachments', 'tainacan-interface' ),
+					'transport'         => 'postMessage',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_single_item_attachments_section_label',
+				array(
+					'type'            => 'text',
+					'priority'        => 2, // Within the section.
+					'section'         => 'tainacan_single_item_page_document',
+					'label'           => __( 'Label for the "Attachments" section', 'tainacan-interface' ),
+					'description'     => __( 'Leave it blank to hide the label.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_single_item_not_gallery_mode',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'tainacan_single_item_attachments_section_label',
+				array(
+					'selector'         => '#single-item-attachments-label',
+					'render_callback'  => '__return_false',
+					'fallback_refresh' => true,
+				)
+			);
 
-            if (version_compare(TAINACAN_VERSION, '0.18RC') >= 0) {
+			/**
+			 * Adds option to configure Documents section label.
+			 */
+			$wp_customize->add_setting(
+				'tainacan_single_item_documents_section_label',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => __( 'Documents', 'tainacan-interface' ),
+					'transport'         => 'postMessage',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_single_item_documents_section_label',
+				array(
+					'type'            => 'text',
+					'priority'        => 1, // Within the section.
+					'section'         => 'tainacan_single_item_page_document',
+					'label'           => __( 'Label for the "Documents" section', 'tainacan-interface' ),
+					'description'     => __( 'Section label when Document and Attachments are grouped. Leave it blank to hide the label.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'tainacan_single_item_documents_section_label',
+				array(
+					'selector'         => '#single-item-documents-label',
+					'render_callback'  => '__return_false',
+					'fallback_refresh' => true,
+				)
+			);
 
-                /**
-                 * Adds options to hide attachments file names on the main slider.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_files_name_main', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => true,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_files_name_main', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 8, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide the attachments label (on the main slider)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachment names.', 'tainacan-interface' ),
-                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                    ) );
+			if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
 
-                /**
-                 * Adds options to hide attachments file caption on the main slider.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_files_caption_main', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => true,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_files_caption_main', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 8, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide the attachments caption (on the main slider)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachment captions.', 'tainacan-interface' ),
-                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                    ) );
+				/**
+				 * Thumbnails layout: carousel, grid or list.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_gallery_thumbs_layout',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => 'carousel',
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_thumbs_layout_options',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_gallery_thumbs_layout',
+					array(
+						'type'        => 'select',
+						'priority'    => 6,
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Thumbnails layout', 'tainacan-interface' ),
+						'description' => __( 'Shows images and file-type icons, not live embeds. List rows always show the file name.', 'tainacan-interface' ),
+						'choices'     => tainacan_get_single_item_gallery_thumbs_layout_options(),
+					)
+				);
 
-                /**
-                 * Adds options to hide attachments file description on the main slider.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_files_description_main', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => true,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_files_description_main', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 8, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachment descriptions.', 'tainacan-interface' ),
-                    'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                    ) );
+				/**
+				 * Hide thumbnail image in list layout (title-only rows).
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_image_thumbnails',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_image_thumbnails',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 7,
+						'section'         => 'tainacan_single_item_page_document',
+						'label'           => __( 'Hide thumbnail image', 'tainacan-interface' ),
+						'description'     => __( 'Toggle to hide the file thumbnail and show only the name.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_gallery_thumbs_layout_list',
+					)
+				);
+			}
 
-                if ( function_exists( 'tainacan_interface_has_gallery_cover_mime_types' ) && tainacan_interface_has_gallery_cover_mime_types() ) {
+			/**
+			 * Adds options to hide attachments file names on thumbnails.
+			 */
+			$wp_customize->add_setting(
+				'tainacan_single_item_hide_files_name',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+				)
+			);
+			$hide_files_name_control = array(
+				'type'        => 'checkbox',
+				'priority'    => 7, // Within the section.
+				'section'     => 'tainacan_single_item_page_document',
+				'label'       => __( 'Hide the attachments label (on thumbnails)', 'tainacan-interface' ),
+				'description' => __( 'Toggle to not display the document and attachment names below their thumbnails.', 'tainacan-interface' ),
+			);
+			if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
+				$hide_files_name_control['active_callback'] = 'tainacan_interface_is_gallery_thumbs_layout_not_list';
+			}
+			$wp_customize->add_control( 'tainacan_single_item_hide_files_name', $hide_files_name_control );
 
-                    /**
-                     * Show PDF cover image in the main slider instead of the embedded reader.
-                     */
-                    $wp_customize->add_setting( 'tainacan_single_item_show_pdf_cover', array(
-                        'type' 		 => 'theme_mod',
-                        'capability' => 'edit_theme_options',
-                        'default' 	 => false,
-                        'transport'  => 'refresh',
-                        'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                        ) );
-                    $wp_customize->add_control( 'tainacan_single_item_show_pdf_cover', array(
-                        'type' 	   	  => 'checkbox',
-                        'priority' 	  => 9, // Within the section.
-                        'section'  	  => 'tainacan_single_item_page_document',
-                        'label'    	  => __( 'Show PDF cover instead of embedded reader', 'tainacan-interface' ),
-                        'description' => __( 'The lightbox can still show the PDF reader.', 'tainacan-interface' ),
-                        'active_callback' => 'tainacan_interface_is_single_item_gallery_mode'
-                        ) );
-                }
+			if ( version_compare( TAINACAN_VERSION, '0.18RC' ) >= 0 ) {
 
+				/**
+				 * Adds options to hide attachments file names on the main slider.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_files_name_main',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => true,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_files_name_main',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 8, // Within the section.
+						'section'         => 'tainacan_single_item_page_document',
+						'label'           => __( 'Hide the attachments label (on the main slider)', 'tainacan-interface' ),
+						'description'     => __( 'Toggle to not display the document and attachment names.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+					)
+				);
 
-                /**
-                 * Light color palette to the media component gallery
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_gallery_color_scheme', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => 'dark',
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_color_scheme_options',
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_gallery_color_scheme', array(
-                    'type' 	   	  => 'select',
-                    'priority' 	  => 17, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Color scheme of the media gallery modal', 'tainacan-interface' ),
-                    'choices'	  => tainacan_get_single_item_gallery_color_scheme_options()
-                    ) );
+				/**
+				 * Adds options to hide attachments file caption on the main slider.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_files_caption_main',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => true,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_files_caption_main',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 8, // Within the section.
+						'section'         => 'tainacan_single_item_page_document',
+						'label'           => __( 'Hide the attachments caption (on the main slider)', 'tainacan-interface' ),
+						'description'     => __( 'Toggle to not display the document and attachment captions.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+					)
+				);
 
-                /**
-                 * Allows setting max heigth for the document ---------------------------------------------------------
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_document_max_height', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => 60,
-                    'transport'  => 'refresh',
-                    'sanitize_callback'  => 'sanitize_text_field'
-                ) );
-                $wp_customize->add_control( 'tainacan_single_item_document_max_height', array(
-                    'type' => 'number',
-                    'priority' 	  => 5, // Within the section.
-                    'section' => 'tainacan_single_item_page_document',
-                    'label' => __( 'Document maximum height (vh)', 'tainacan-interface' ),
-                    'description' => __( 'Set the maximum height for the document. The unit is relative to the screen: 60vh is 60% of the browser window height.', 'tainacan-interface' ),
-                    'input_attrs' => array(
-                        'min' => 10,
-                        'max' => 150,
-                        'step' => 5
-                    ),
-                ) );
+				/**
+				 * Adds options to hide attachments file description on the main slider.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_files_description_main',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => true,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_files_description_main',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 8, // Within the section.
+						'section'         => 'tainacan_single_item_page_document',
+						'label'           => __( 'Hide the attachments description (on the main slider)', 'tainacan-interface' ),
+						'description'     => __( 'Toggle to not display the document and attachment descriptions.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+					)
+				);
 
-                /**
-                 * Allows setting attachment thumbnail size ---------------------------------------------------------
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_attachments_thumbnail_size', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => 136,
-                    'transport'  => 'refresh',
-                    'sanitize_callback'  => 'sanitize_text_field'
-                ) );
-                $thumbnail_size_control = array(
-                    'type' => 'number',
-                    'priority' 	  => 6, // Within the section.
-                    'section' => 'tainacan_single_item_page_document',
-                    'label' => __( 'Attachment thumbnail size (px)', 'tainacan-interface' ),
-                    'input_attrs' => array(
-                        'min' => 12,
-                        'max' => 240,
-                        'step' => 2
-                    ),
-                );
-                if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
-                    $thumbnail_size_control['active_callback'] = 'tainacan_interface_is_gallery_thumbs_showing_images';
-                }
-                $wp_customize->add_control( 'tainacan_single_item_attachments_thumbnail_size', $thumbnail_size_control );
-            }
+				if ( function_exists( 'tainacan_interface_has_gallery_cover_mime_types' ) && tainacan_interface_has_gallery_cover_mime_types() ) {
 
-            if ( function_exists('tainacan_the_item_gallery') ) {
+					/**
+					 * Show PDF cover image in the main slider instead of the embedded reader.
+					 */
+					$wp_customize->add_setting(
+						'tainacan_single_item_show_pdf_cover',
+						array(
+							'type'              => 'theme_mod',
+							'capability'        => 'edit_theme_options',
+							'default'           => false,
+							'transport'         => 'refresh',
+							'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+						)
+					);
+					$wp_customize->add_control(
+						'tainacan_single_item_show_pdf_cover',
+						array(
+							'type'            => 'checkbox',
+							'priority'        => 9, // Within the section.
+							'section'         => 'tainacan_single_item_page_document',
+							'label'           => __( 'Show PDF cover instead of embedded reader', 'tainacan-interface' ),
+							'description'     => __( 'The lightbox can still show the PDF reader.', 'tainacan-interface' ),
+							'active_callback' => 'tainacan_interface_is_single_item_gallery_mode',
+						)
+					);
+				}
 
-                /**
-                 * Adds options to hide attachments file names on the lightbox.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_files_name_lightbox', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_files_name_lightbox', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 18, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide the attachments label (in the lightbox)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachment names in the lightbox.', 'tainacan-interface' )
-                    ) );
+				/**
+				 * Light color palette to the media component gallery
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_gallery_color_scheme',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => 'dark',
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_sanitize_single_item_gallery_color_scheme_options',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_gallery_color_scheme',
+					array(
+						'type'     => 'select',
+						'priority' => 17, // Within the section.
+						'section'  => 'tainacan_single_item_page_document',
+						'label'    => __( 'Color scheme of the media gallery modal', 'tainacan-interface' ),
+						'choices'  => tainacan_get_single_item_gallery_color_scheme_options(),
+					)
+				);
 
-                /**
-                 * Adds options to hide attachments file caption on the lightbox.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_files_caption_lightbox', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_files_caption_lightbox', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 18, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide the attachments caption (in the lightbox)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachment captions in the lightbox.', 'tainacan-interface' )
-                    ) );
+				/**
+				 * Allows setting max heigth for the document ---------------------------------------------------------
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_document_max_height',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => 60,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_interface_sanitize_number',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_document_max_height',
+					array(
+						'type'        => 'number',
+						'priority'    => 5, // Within the section.
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Document maximum height (vh)', 'tainacan-interface' ),
+						/* translators: "60%" is a percentage, not a placeholder. */
+						'description' => __( 'Set the maximum height for the document. The unit is relative to the screen: 60vh is 60% of the browser window height.', 'tainacan-interface' ),
+						'input_attrs' => array(
+							'min'  => 10,
+							'max'  => 150,
+							'step' => 5,
+						),
+					)
+				);
 
-                /**
-                 * Adds options to hide attachments file description on the lightbox.
-                 */
-                $wp_customize->add_setting( 'tainacan_single_item_hide_files_description_lightbox', array(
-                    'type' 		 => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'default' 	 => false,
-                    'transport'  => 'refresh',
-                    'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-                    ) );
-                $wp_customize->add_control( 'tainacan_single_item_hide_files_description_lightbox', array(
-                    'type' 	   	  => 'checkbox',
-                    'priority' 	  => 18, // Within the section.
-                    'section'  	  => 'tainacan_single_item_page_document',
-                    'label'    	  => __( 'Hide the attachments description (in the lightbox)', 'tainacan-interface' ),
-                    'description' => __( 'Toggle to not display the document and attachment descriptions in the lightbox.', 'tainacan-interface' )
-                    ) );
-            }
-        }
+				/**
+				 * Allows setting attachment thumbnail size ---------------------------------------------------------
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_attachments_thumbnail_size',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => 136,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_interface_sanitize_number',
+					)
+				);
+				$thumbnail_size_control = array(
+					'type'        => 'number',
+					'priority'    => 6, // Within the section.
+					'section'     => 'tainacan_single_item_page_document',
+					'label'       => __( 'Attachment thumbnail size (px)', 'tainacan-interface' ),
+					'input_attrs' => array(
+						'min'  => 12,
+						'max'  => 240,
+						'step' => 2,
+					),
+				);
+				if ( function_exists( 'tainacan_sanitize_media_thumbs_layout' ) ) {
+					$thumbnail_size_control['active_callback'] = 'tainacan_interface_is_gallery_thumbs_showing_images';
+				}
+				$wp_customize->add_control( 'tainacan_single_item_attachments_thumbnail_size', $thumbnail_size_control );
+			}
+
+			if ( function_exists( 'tainacan_the_item_gallery' ) ) {
+
+				/**
+				 * Adds options to hide attachments file names on the lightbox.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_files_name_lightbox',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_files_name_lightbox',
+					array(
+						'type'        => 'checkbox',
+						'priority'    => 18, // Within the section.
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Hide the attachments label (in the lightbox)', 'tainacan-interface' ),
+						'description' => __( 'Toggle to not display the document and attachment names in the lightbox.', 'tainacan-interface' ),
+					)
+				);
+
+				/**
+				 * Adds options to hide attachments file caption on the lightbox.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_files_caption_lightbox',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_files_caption_lightbox',
+					array(
+						'type'        => 'checkbox',
+						'priority'    => 18, // Within the section.
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Hide the attachments caption (in the lightbox)', 'tainacan-interface' ),
+						'description' => __( 'Toggle to not display the document and attachment captions in the lightbox.', 'tainacan-interface' ),
+					)
+				);
+
+				/**
+				 * Adds options to hide attachments file description on the lightbox.
+				 */
+				$wp_customize->add_setting(
+					'tainacan_single_item_hide_files_description_lightbox',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_single_item_hide_files_description_lightbox',
+					array(
+						'type'        => 'checkbox',
+						'priority'    => 18, // Within the section.
+						'section'     => 'tainacan_single_item_page_document',
+						'label'       => __( 'Hide the attachments description (in the lightbox)', 'tainacan-interface' ),
+						'description' => __( 'Toggle to not display the document and attachment descriptions in the lightbox.', 'tainacan-interface' ),
+					)
+				);
+			}
+		}
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_tainacan_single_item_page_document', 11 );
 }
@@ -557,12 +719,12 @@ if ( ! function_exists( 'tainacan_get_single_item_gallery_color_scheme_options' 
 	 */
 	function tainacan_get_single_item_gallery_color_scheme_options() {
 		$color_scheme = array(
-			'dark' => __('Dark', 'tainacan-interface'),
-			'light' => __('Light', 'tainacan-interface')
+			'dark'  => __( 'Dark', 'tainacan-interface' ),
+			'light' => __( 'Light', 'tainacan-interface' ),
 		);
 		return $color_scheme;
 	}
-endif; // tainacan_get_single_item_gallery_color_scheme_options
+endif; // tainacan_get_single_item_gallery_color_scheme_options.
 
 if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_color_scheme_options' ) ) :
 	/**
@@ -585,7 +747,7 @@ if ( ! function_exists( 'tainacan_sanitize_single_item_gallery_color_scheme_opti
 
 		return $option;
 	}
-endif; // tainacan_sanitize_single_item_gallery_color_scheme_options
+endif; // tainacan_sanitize_single_item_gallery_color_scheme_options.
 
 
 if ( ! function_exists( 'tainacan_get_single_item_gallery_alignment_options' ) ) :
@@ -820,7 +982,7 @@ function tainacan_single_item_document_max_height_output() {
 	$max_document_height = get_theme_mod( 'tainacan_single_item_document_max_height', 60 );
 
 	// If the value is not a number, return early.
-	if ( !is_numeric( $max_document_height )  ) {
+	if ( ! is_numeric( $max_document_height ) ) {
 		return;
 	}
 
@@ -838,10 +1000,10 @@ function tainacan_single_item_document_max_height_output() {
 			--tainacan-media-main-carousel-height: ' . $max_document_height . 'vh;
 		}
 	';
-	
-	echo '<style type="text/css" id="tainacan-style-document">' . $css . '</style>';
+
+	tainacan_interface_print_style( 'tainacan-style-document', $css );
 }
-add_action( 'wp_head', 'tainacan_single_item_document_max_height_output');
+add_action( 'wp_head', 'tainacan_single_item_document_max_height_output' );
 
 
 /**
@@ -859,7 +1021,7 @@ function tainacan_single_item_attachments_thumbnail_size_output() {
 	$thumbnail_size = get_theme_mod( 'tainacan_single_item_attachments_thumbnail_size', 136 );
 
 	// If the value is not a number, return early.
-	if ( !is_numeric( $thumbnail_size )  ) {
+	if ( ! is_numeric( $thumbnail_size ) ) {
 		return;
 	}
 
@@ -870,23 +1032,24 @@ function tainacan_single_item_attachments_thumbnail_size_output() {
 			--tainacan-media-thumbs-carousel-item-size: ' . $thumbnail_size . 'px;
 		}
 	';
-	
-	echo '<style type="text/css" id="tainacan-style-attachments">' . $css . '</style>';
+
+	tainacan_interface_print_style( 'tainacan-style-attachments', $css );
 }
-add_action( 'wp_head', 'tainacan_single_item_attachments_thumbnail_size_output');
+add_action( 'wp_head', 'tainacan_single_item_attachments_thumbnail_size_output' );
 
 
-/**
- * Enqueues front-end CSS for the light scheme of the photoswipe layer
- */
-if ( !function_exists('tainacan_gallery_light_color_scheme') ) {
+if ( ! function_exists( 'tainacan_gallery_light_color_scheme' ) ) {
+	/**
+	 * Enqueues front-end CSS for the light scheme of the photoswipe layer
+	 */
 	function tainacan_gallery_light_color_scheme() {
 
-		$has_light_dark_color_scheme = get_theme_mod( 'tainacan_single_item_gallery_color_scheme', 'dark' ) == 'light';
-		
-		if (!$has_light_dark_color_scheme || function_exists('tainacan_the_item_gallery'))
+		$has_light_dark_color_scheme = 'light' === (string) get_theme_mod( 'tainacan_single_item_gallery_color_scheme', 'dark' );
+
+		if ( ! $has_light_dark_color_scheme || function_exists( 'tainacan_the_item_gallery' ) ) {
 			return;
-			
+		}
+
 		$css = '
 		/* Photoswipe layer for the gallery dark */
 		.tainacan-photoswipe-layer .pswp__bg {
@@ -908,8 +1071,7 @@ if ( !function_exists('tainacan_gallery_light_color_scheme') ) {
 			border: 2px solid #000000 !important;
 		}
 		';
-		echo '<style type="text/css" id="tainacan-gallery-color-scheme">' . sprintf( $css ) . '</style>';
-
+		tainacan_interface_print_style( 'tainacan-gallery-color-scheme', sprintf( $css ) );
 	}
 }
-add_action( 'wp_head', 'tainacan_gallery_light_color_scheme');
+add_action( 'wp_head', 'tainacan_gallery_light_color_scheme' );

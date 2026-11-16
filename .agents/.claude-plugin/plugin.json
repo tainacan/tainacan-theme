@@ -1,0 +1,8 @@
+{
+  "name": "tainacan-stack",
+  "description": "Stack de IA do Tainacan: skills, revisores e verificador tnc-check para desenvolver o núcleo e plugins do Tainacan.",
+  "author": { "name": "Stack de IA do Tainacan" },
+  "homepage": "https://github.com/marcossigismundo/tainacan-stack-ia",
+  "license": "GPL-3.0-or-later",
+  "keywords": ["tainacan", "wordpress", "php", "code-review", "agents"]
+}

@@ -1,0 +1,13 @@
+{
+    "extraKnownMarketplaces": {
+        "tainacan-stack-local": {
+            "source": {
+                "source": "directory",
+                "path": "."
+            }
+        }
+    },
+    "enabledPlugins": {
+        "tainacan-stack@tainacan-stack-local": true
+    }
+}

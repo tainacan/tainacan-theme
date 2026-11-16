@@ -1,0 +1,9 @@
+{
+    "versao": "0.5.0",
+    "ferramentas": [
+        "claude",
+        "codex"
+    ],
+    "ci": true,
+    "data": "2026-10-30T11:22:35Z"
+}

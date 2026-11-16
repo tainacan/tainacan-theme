@@ -1,0 +1,28 @@
+{
+    "hooks": {
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write|apply_patch",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"${TNC_PHP:-php}\" .agents/tainacan-stack/bin/tnc-check --hook=post-edit",
+                        "timeout": 60
+                    }
+                ]
+            }
+        ],
+        "PreToolUse": [
+            {
+                "matcher": "Bash",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"${TNC_PHP:-php}\" .agents/tainacan-stack/bin/tnc-check --hook=pre-bash",
+                        "timeout": 20
+                    }
+                ]
+            }
+        ]
+    }
+}

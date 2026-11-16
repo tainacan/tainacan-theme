@@ -1,0 +1,48 @@
+name: tnc-check
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  tnc-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: none
+      - name: tnc-check nas linhas alteradas
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.base_ref }}"
+          else
+            BASE="${{ github.event.before }}"
+            git cat-file -e "$BASE" 2>/dev/null || BASE="HEAD~1"
+          fi
+          php .agents/tainacan-stack/bin/tnc-check --diff="$BASE" --format=github --fail-on=block
+      - name: Conferências de release
+        if: github.event_name == 'push'
+        run: php .agents/tainacan-stack/bin/tnc-check --release --format=github --fail-on=block || true
+      # Opcional: achados na aba Security > Code scanning (repositório público ou com
+      # GitHub Advanced Security). Exige `security-events: write` em permissions.
+      # - name: SARIF
+      #   run: php .agents/tainacan-stack/bin/tnc-check --diff="$BASE" --format=sarif --output=tnc-check.sarif || true
+      # - uses: github/codeql-action/upload-sarif@v3
+      #   with:
+      #     sarif_file: tnc-check.sarif
+      # Opcional: Plugin Check do WordPress.org (exige WordPress + WP-CLI no runner).
+      # Alternativa leve: `vendor/bin/phpcs` com o phpcs.xml.dist da stack, se o projeto tiver composer.
+      # - name: PHPCS (ruleset estrito)
+      #   run: composer install --no-interaction && vendor/bin/phpcs --report=checkstyle | cs2pr
+      # - name: Plugin Check
+      #   uses: wordpress/plugin-check-action@v1
+      #   with:
+      #     exclude-directories: '.agents,.claude,.claude-plugin,.codex,.cursor,node_modules,vendor,tests'

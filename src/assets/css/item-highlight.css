@@ -1,0 +1,497 @@
+/*
+ * Highlighted item record, from the Museu Histórico Nacional work (Acervo em
+ * Cena "card skin"). Every rule is scoped by body.tt2-skin.
+ *
+ * The list rules carry !important on purpose: the Tainacan views are Vue
+ * components whose selectors include a [data-v-...] attribute (specificity
+ * 0-3-0), and the Faceted Search block prints its colors inline. Without it
+ * the stylesheet loses to the plugin's own rules.
+ *
+ * The accent is the theme's link color. It is not mapped back onto the
+ * Tainacan variables (--tainacan-secondary): the link color can itself come
+ * from them, and the two would loop.
+ */
+body.tt2-skin {
+	--tt2-accent: var(--tainacan-interface--link-color, #187181);
+	--tt2-ink: color-mix(in srgb, var(--tt2-accent) 72%, #000);
+	--tt2-soft: color-mix(in srgb, var(--tt2-accent) 10%, #fff);
+	--tt2-soft-strong: color-mix(in srgb, var(--tt2-accent) 18%, #fff);
+	--tt2-line: color-mix(in srgb, var(--tt2-accent) 16%, #dcdcdc);
+	--tt2-surface: #fff;
+	--tt2-radius: 14px;
+	--tt2-label: color-mix(in srgb, var(--tt2-ink) 62%, #8a8a8a);
+	--tt2-value: #2b2629;
+	--tt2-title-font: inherit;
+}
+
+/* ---------- Lists: surface ---------- */
+
+body.tt2-skin .tainacan-records-container .tainacan-record,
+body.tt2-skin .tainacan-cards-container .tainacan-card,
+body.tt2-skin .tainacan-list-container .tainacan-list,
+body.tt2-skin .tainacan-masonry-container .tainacan-masonry-item {
+	background-color: var(--tt2-surface) !important;
+	border: 1px solid var(--tt2-line) !important;
+	border-radius: var(--tt2-radius) !important;
+	box-shadow: 0 1px 2px rgba(30, 20, 40, 0.06), 0 10px 26px -12px rgba(30, 20, 40, 0.18) !important;
+	overflow: hidden;
+	transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover, focus and the item open in the drawer: ring in the accent, the card does not move. */
+body.tt2-skin .tainacan-records-container .tainacan-record:is(:hover, :focus-visible, :focus-within, .tt2-is-previewed),
+body.tt2-skin .tainacan-cards-container .tainacan-card:is(:hover, :focus-visible, :focus-within),
+body.tt2-skin .tainacan-cards-container .tt2-is-previewed .tainacan-card,
+body.tt2-skin .tainacan-list-container .tainacan-list:is(:hover, :focus-visible, :focus-within, .tt2-is-previewed),
+body.tt2-skin .tainacan-masonry-container .tainacan-masonry-item:is(:hover, :focus-visible, :focus-within, .tt2-is-previewed) {
+	border-color: var(--tt2-accent) !important;
+	box-shadow: 0 0 0 1px var(--tt2-accent), 0 14px 30px -14px color-mix(in srgb, var(--tt2-accent) 45%, transparent) !important;
+}
+body.tt2-skin .tt2-is-previewed,
+body.tt2-skin .tt2-is-previewed .tainacan-card { outline: 0; }
+
+/* ---------- Lists: title with an accent bar ---------- */
+
+body.tt2-skin .tainacan-records-container .tainacan-record .metadata-title,
+body.tt2-skin .tainacan-cards-container .tainacan-card .metadata-title,
+body.tt2-skin .tainacan-list-container .tainacan-list .metadata-title,
+body.tt2-skin .tainacan-masonry-container .tainacan-masonry-item .metadata-title {
+	position: relative;
+	background: transparent !important;
+	border-bottom: 1px solid var(--tt2-line);
+}
+body.tt2-skin .tainacan-records-container .tainacan-record .metadata-title::before,
+body.tt2-skin .tainacan-cards-container .tainacan-card .metadata-title::before,
+body.tt2-skin .tainacan-list-container .tainacan-list .metadata-title::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 22%;
+	bottom: 22%;
+	width: 4px;
+	border-radius: 0 4px 4px 0;
+	background: var(--tt2-accent);
+}
+body.tt2-skin .tainacan-records-container .tainacan-record .metadata-title p,
+body.tt2-skin .tainacan-cards-container .tainacan-card .metadata-title p,
+body.tt2-skin .tainacan-list-container .tainacan-list .metadata-title p,
+body.tt2-skin .tainacan-masonry-container .tainacan-masonry-item .metadata-title p {
+	font-family: var(--tt2-title-font) !important;
+	font-weight: 600 !important;
+	color: var(--tt2-ink) !important;
+	letter-spacing: 0.005em;
+}
+body.tt2-skin .tainacan-masonry-container .tainacan-masonry-item .metadata-title {
+	margin: 0 !important;
+	border-bottom: 0;
+	border-top: 3px solid var(--tt2-accent);
+}
+
+/* ---------- Lists: quiet labels, values first ---------- */
+
+body.tt2-skin .tainacan-records-container .tainacan-record .metadata-label {
+	font-family: inherit !important;
+	font-size: 0.66em !important;
+	font-weight: 600 !important;
+	line-height: 1.35 !important;
+	text-transform: uppercase;
+	letter-spacing: 0.045em;
+	color: var(--tt2-label) !important;
+}
+body.tt2-skin .tainacan-records-container .tainacan-record .metadata-value { color: var(--tt2-value) !important; }
+body.tt2-skin .tainacan-records-container .tainacan-record .tainacan-record-thumbnail img,
+body.tt2-skin .tainacan-cards-container .tainacan-card .card-thumbnail img {
+	border-radius: calc(var(--tt2-radius) * 0.7) !important;
+	background: var(--tt2-soft);
+	object-fit: contain !important;
+}
+
+/* ---------- Lists: terms as chips ---------- */
+
+body.tt2-skin .tainacan-record .metadata-value a,
+body.tt2-skin .tainacan-card .metadata-value a,
+body.tt2-skin .tainacan-list .metadata-value a,
+body.tt2-skin .tainacan-table td a {
+	color: var(--tt2-ink) !important;
+	text-decoration: none !important;
+}
+body.tt2-skin .tainacan-records-container .tainacan-record .metadata-value a[data-linkto="term"],
+body.tt2-skin .tainacan-list-container .tainacan-list .metadata-value a[data-linkto="term"],
+body.tt2-skin .tainacan-table td p a[data-linkto="term"] {
+	display: inline;
+	margin: 0 0.2em 0 0;
+	padding: 0.12em 0.55em;
+	border-radius: 999px;
+	background: var(--tt2-soft);
+	line-height: 2;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	word-break: normal;
+	overflow-wrap: break-word;
+}
+body.tt2-skin .tainacan-record .metadata-value a[data-linkto="term"]:hover,
+body.tt2-skin .tainacan-list .metadata-value a[data-linkto="term"]:hover,
+body.tt2-skin .tainacan-table td p a[data-linkto="term"]:hover {
+	background: var(--tt2-accent);
+	color: #fff !important;
+}
+/* A hierarchy reads as a path: only the last class is a chip. */
+body.tt2-skin .tainacan-record .metadata-value:has(.hierarchy-separator) a[data-linkto="term"]:not(:last-child),
+body.tt2-skin .tainacan-list .metadata-value:has(.hierarchy-separator) a[data-linkto="term"]:not(:last-child),
+body.tt2-skin .tainacan-table td p:has(.hierarchy-separator) a[data-linkto="term"]:not(:last-child) {
+	margin: 0;
+	padding: 0;
+	background: none;
+	line-height: inherit;
+}
+body.tt2-skin .tainacan-record .metadata-value .multivalue-separator,
+body.tt2-skin .tainacan-list .metadata-value .multivalue-separator,
+body.tt2-skin .tainacan-table td .multivalue-separator { display: none; }
+body.tt2-skin .tainacan-record .metadata-value .hierarchy-separator,
+body.tt2-skin .tainacan-table td .hierarchy-separator {
+	margin: 0 0.15em;
+	color: color-mix(in srgb, var(--tt2-ink) 45%, #9a9a9a);
+}
+
+/* ---------- Lists: cards are real boxes (no 210px cap cutting the hook area) ---------- */
+
+body.tt2-skin .tainacan-cards-container .tainacan-card {
+	display: flex !important;
+	flex-direction: column;
+	height: 100%;
+	max-height: none !important;
+	box-sizing: border-box;
+}
+body.tt2-skin .tainacan-cards-container .tainacan-card .media { flex: 1 1 auto; gap: 14px; padding: 12px 14px 8px; }
+body.tt2-skin .tainacan-cards-container .tainacan-card .faceted-search-hook-item-after { padding: 0 14px 12px; }
+body.tt2-skin .tainacan-cards-container .tainacan-card .media .list-metadata p.metadata-description.is-empty { opacity: 0.55; }
+
+/* ---------- Lists: table ---------- */
+
+body.tt2-skin .tainacan-table thead th {
+	font-size: 0.75em !important;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--tt2-label) !important;
+}
+body.tt2-skin .tainacan-table tbody tr:is(:hover, :focus-within, .tt2-is-previewed) { background-color: var(--tt2-soft) !important; }
+body.tt2-skin .tainacan-table .table-thumb { border-radius: calc(var(--tt2-radius) * 0.5) !important; }
+
+/* No image: a quiet placeholder on the tinted background. */
+body.tt2-skin .tainacan-record img[src*="placeholder"],
+body.tt2-skin .tainacan-card img[src*="placeholder"],
+body.tt2-skin .tainacan-masonry-item img[src*="placeholder"] {
+	opacity: 0.35;
+	filter: grayscale(1);
+	background: var(--tt2-soft);
+}
+
+/* ---------- Lists: filters panel, in the same language as the cards ---------- */
+
+/*
+ * The side panel only (and its phone modal): the horizontal filters of the
+ * Faceted Search block keep Tainacan's own inline layout. Logical properties
+ * throughout, so a right-to-left site mirrors.
+ */
+
+/* The panel is a card: surface, line, radius and the soft shadow, with the accent on top. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) #filters-items-list {
+	padding: 1.1rem 1rem 0.6rem !important;
+	background: var(--tt2-surface) !important;
+	border: 1px solid var(--tt2-line);
+	border-top: 3px solid var(--tt2-accent);
+	border-radius: var(--tt2-radius);
+	box-shadow: 0 1px 2px rgba(30, 20, 40, 0.06), 0 10px 26px -12px rgba(30, 20, 40, 0.18);
+	height: auto !important;
+	min-height: 0 !important;
+}
+
+/* Heading, then "Collapse all" as a pill on its own line (clear of the modal's close button). */
+body.tt2-skin #filters-modal:not(.horizontal-filters) #filters-label-landmark {
+	margin: 0 0 0.45rem !important;
+	font-size: 1.05rem !important;
+	font-weight: 700 !important;
+	color: var(--tt2-ink) !important;
+	letter-spacing: 0.01em;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-all {
+	margin: 0 0 0.6rem !important;
+	padding-block: 0.15rem !important;
+	padding-inline: 0.35rem 0.65rem !important;
+	height: auto !important;
+	font-size: 0.78rem !important;
+	color: var(--tt2-ink) !important;
+	background: var(--tt2-soft) !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-all:is(:hover, :focus-visible) { background: var(--tt2-soft-strong) !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-all .icon i,
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-all .icon i::before { color: var(--tt2-accent) !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-all + br { display: none; }
+
+/* One filter per block, a hairline between two. Tainacan leaves 64px under the list, which would sit inside the card. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) .filters-components-list { margin-bottom: 0 !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .filter-item-forms {
+	margin-block: 0 !important;
+	padding-block: 0.7rem 0.8rem !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .filter-item-forms + .filter-item-forms { border-top: 1px solid var(--tt2-line); }
+
+/* Filter name: the quiet label of the cards, with the arrow in the accent. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-trigger .label {
+	display: flex !important;
+	align-items: center;
+	gap: 0.15rem;
+	width: 100%;
+	margin: 0 0 0.45rem !important;
+	padding: 0 !important;
+	font-size: 0.72rem !important;
+	font-weight: 700 !important;
+	line-height: 1.3 !important;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--tt2-label) !important;
+	background: none !important;
+	border: 0 !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-trigger .label:is(:hover, :focus-visible) { color: var(--tt2-ink) !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-trigger .label .icon { margin-inline-start: -0.3rem; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-trigger .label .icon i,
+body.tt2-skin #filters-modal:not(.horizontal-filters) .collapse-trigger .label .icon i::before { color: var(--tt2-accent) !important; }
+
+/* Fields: rounded, the line color, a ring in the accent on focus. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) .input,
+body.tt2-skin #filters-modal:not(.horizontal-filters) .taginput-container,
+body.tt2-skin #filters-modal:not(.horizontal-filters) .select select,
+body.tt2-skin .search-control .search-area .input {
+	min-height: 2.35rem;
+	border: 1px solid var(--tt2-line) !important;
+	border-radius: 10px !important;
+	background-color: var(--tt2-surface) !important;
+	box-shadow: none !important;
+	color: var(--tt2-value) !important;
+	font-size: 0.875rem !important;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .taginput-container .input {
+	min-height: 0;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .taginput-container:focus-within,
+body.tt2-skin #filters-modal:not(.horizontal-filters) .input:focus,
+body.tt2-skin #filters-modal:not(.horizontal-filters) .select select:focus,
+body.tt2-skin .search-control .search-area .input:focus {
+	border-color: var(--tt2-accent) !important;
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--tt2-accent) 22%, transparent) !important;
+	outline: 0;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .taginput-container .input:focus { box-shadow: none !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .input::placeholder,
+body.tt2-skin .search-control .search-area .input::placeholder { color: var(--tt2-label); opacity: 0.85; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .control .icon i,
+body.tt2-skin .search-control .search-area .control .icon i { color: var(--tt2-accent) !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .select:not(.is-multiple):not(.is-loading)::after { border-color: var(--tt2-accent) !important; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .select:not(.is-multiple),
+body.tt2-skin #filters-modal:not(.horizontal-filters) .select:not(.is-multiple) select {
+	height: 2.35rem !important;
+	font-size: 0.875rem !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .select select:not([multiple]) { padding-inline-end: 2.25rem !important; }
+
+/* Selected terms of a tag input: the chips of the cards. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) .taginput-container .tag {
+	background: var(--tt2-soft) !important;
+	color: var(--tt2-ink) !important;
+	border-radius: 999px !important;
+}
+
+/* Checkbox options: accent box, the value takes the room, the count closes the line. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) .filter-options-wrap .metadatum { margin-block: 0.1rem; }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox {
+	display: flex !important;
+	align-items: center;
+	width: 100%;
+	padding: 0.2rem 0.35rem;
+	margin: 0 !important;
+	margin-inline-start: -0.35rem !important;
+	border-radius: 8px;
+	font-size: 0.875rem !important;
+	color: var(--tt2-value) !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox:hover { background: var(--tt2-soft); }
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox input[type="checkbox"] + .check {
+	flex: none;
+	width: 1.05rem !important;
+	height: 1.05rem !important;
+	border: 1.5px solid color-mix(in srgb, var(--tt2-accent) 45%, #9a9a9a) !important;
+	border-radius: 5px !important;
+	background-color: var(--tt2-surface) !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
+	background-color: var(--tt2-accent) !important;
+	border-color: var(--tt2-accent) !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox input[type="checkbox"]:focus-visible + .check {
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--tt2-accent) 25%, transparent) !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox .control-label {
+	display: flex !important;
+	align-items: baseline;
+	flex: 1 1 auto !important;
+	width: auto !important;
+	max-width: none !important;
+	min-width: 0;
+	gap: 0.4rem;
+	padding-inline-start: 0.5rem !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox .checkbox-label-text {
+	flex: 1 1 auto;
+	min-width: 0;
+	font-size: 0.875rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .b-checkbox.checkbox .facet-item-count {
+	flex: none;
+	margin: 0 !important;
+	font-size: 0.75rem;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+	color: var(--tt2-label) !important;
+}
+
+/* "View all": a link in the accent. */
+body.tt2-skin #filters-modal:not(.horizontal-filters) .view-all-button {
+	margin-top: 0.3rem;
+	padding: 0 !important;
+	font-size: 0.8rem !important;
+	font-weight: 600;
+	color: var(--tt2-accent) !important;
+	background: none !important;
+	border: 0 !important;
+}
+body.tt2-skin #filters-modal:not(.horizontal-filters) .view-all-button:is(:hover, :focus-visible) { text-decoration: underline; }
+
+/* Button that hides and shows the panel: a tab on the panel's edge. */
+body.tt2-skin #filter-menu-compress-button {
+	border: 1px solid var(--tt2-line) !important;
+	border-inline-start: 0 !important;
+	border-start-start-radius: 0 !important;
+	border-end-start-radius: 0 !important;
+	border-start-end-radius: 10px !important;
+	border-end-end-radius: 10px !important;
+	background: var(--tt2-soft) !important;
+}
+body.tt2-skin #filter-menu-compress-button .icon i,
+body.tt2-skin #filter-menu-compress-button .icon i::before { color: var(--tt2-accent) !important; }
+body.tt2-skin #filter-menu-compress-button:is(:hover, :focus-visible) { background: var(--tt2-soft-strong) !important; }
+
+/* "Advanced search" under the search field. */
+body.tt2-skin .search-control .search-area a { color: var(--tt2-accent) !important; font-size: 0.78rem; }
+
+/* Phones: the panel is the full screen modal; no card frame around it there. */
+@media (max-width: 768px) {
+	body.tt2-skin #filters-modal:not(.horizontal-filters) #filters-items-list {
+		border: 0;
+		border-top: 3px solid var(--tt2-accent);
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
+
+/* ---------- Item page: title and identification line ---------- */
+
+body.tt2-skin .tainacan-single-item-heading .title-page h1 {
+	padding-left: 14px;
+	border-left: 5px solid var(--tt2-accent);
+	font-family: var(--tt2-title-font);
+	font-size: clamp(1.6rem, 3vw, 2.4rem);
+	font-weight: 700;
+	line-height: 1.2;
+	text-wrap: balance;
+	color: var(--tt2-ink);
+}
+.tt2-item-identity {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 6px 14px;
+	margin: 6px 0 0;
+	padding-left: 19px;
+	font-size: 0.95rem;
+}
+.tt2-item-identity__collection {
+	font-size: 0.78rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	color: var(--tt2-accent, #187181);
+}
+.tt2-item-identity__collection:hover { text-decoration: underline; }
+.tt2-item-identity__number {
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: var(--tt2-soft, #e8f3f4);
+	color: var(--tt2-ink, #0f4f5a);
+	font-size: 0.82rem;
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.02em;
+}
+
+/* ---------- Item page: the record ---------- */
+
+body.tt2-skin .tainacan-single-post .title-content-items {
+	display: inline-block;
+	padding-bottom: 4px;
+	border-bottom: 3px solid var(--tt2-accent);
+	color: var(--tt2-ink);
+}
+body.tt2-skin .s-item-collection--metadata > div[class*="metadata-type-"] {
+	padding: 10px 0 12px;
+	border-bottom: 1px solid var(--tt2-line);
+}
+body.tt2-skin .s-item-collection--metadata > div[class*="metadata-type-"] > h3 {
+	margin: 0 0 4px;
+	font-size: 0.72rem;
+	font-weight: 600;
+	line-height: 1.35;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--tt2-label);
+}
+body.tt2-skin .s-item-collection--metadata .tainacan-metadata-value { color: var(--tt2-value); font-size: 1rem; }
+body.tt2-skin .s-item-collection--metadata .tainacan-metadata-value a[data-linkto="term"] {
+	display: inline-block;
+	margin: 2px 4px 2px 0;
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: var(--tt2-soft);
+	color: var(--tt2-ink);
+	text-decoration: none;
+	font-size: 0.92em;
+}
+body.tt2-skin .s-item-collection--metadata .tainacan-metadata-value a[data-linkto="term"]:hover {
+	background: var(--tt2-accent);
+	color: #fff;
+}
+body.tt2-skin .s-item-collection--metadata .tainacan-metadata-value .multivalue-separator { display: none; }
+body.tt2-skin .s-item-collection--metadata .tainacan-metadata-value:has(.hierarchy-separator) a[data-linkto="term"]:not(:last-child) {
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: var(--tt2-label);
+}
+/* Description and other long text: a readable measure. */
+body.tt2-skin .s-item-collection--metadata .metadata-type-textarea .tainacan-metadata-value,
+body.tt2-skin .s-item-collection--metadata .metadata-type-core_description .tainacan-metadata-value { max-width: 72ch; line-height: 1.6; }
+
+@media (prefers-reduced-motion: reduce) {
+	body.tt2-skin .tainacan-record,
+	body.tt2-skin .tainacan-card,
+	body.tt2-skin .tainacan-list,
+	body.tt2-skin .tainacan-masonry-item { transition: none; }
+}

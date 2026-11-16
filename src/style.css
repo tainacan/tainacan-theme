@@ -1,9 +1,11 @@
 /*
 Theme Name: Tainacan Interface
 Author: Tainacan
+Author URI: https://tainacan.org
 Theme URI: https://tainacan.org
-Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository.
-Version: 2.10.0
+Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 4 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch.
+Version: 4.4.9
+Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
 License: GPLv3 or later
@@ -35,10 +37,10 @@ Text Domain: tainacan-interface
   --wp--preset--theme-text-color--darkgray: #505253;
 }
 
-:where(:not(.has-link-color)) a:not(.has-link-color):not(.wp-block-button__link) {
+:where(:not(.has-link-color)) a:where(:not(.has-link-color):not(.wp-block-button__link)) {
   color: var(--tainacan-interface--link-color, #187181);
 }
-:where(:not(.has-link-color)) a:not(.has-link-color):not(.wp-block-button__link):hover {
+:where(:not(.has-link-color)) a:where(:not(.has-link-color):not(.wp-block-button__link)):hover {
   color: var(--tainacan-interface--link-color, #187181);
 }
 
@@ -520,7 +522,7 @@ body.loading-content main:before {
   z-index: 99;
   animation: appear-from-bottom 0.2s ease;
 }
-#return-to-top:focus, #return-to-top:active {
+#return-to-top:focus:not(:focus-visible), #return-to-top:active {
   outline: none;
 }
 #return-to-top i {
@@ -1119,7 +1121,7 @@ nav.menu-belowheader #menubelowHeader > ul > li .dropdown-menu {
   }
 }
 @media only screen and (max-width: 768px) {
-  nav {
+  nav.navbar {
     border-bottom: 1px solid #a5a5a5;
   }
 }
@@ -1235,6 +1237,9 @@ nav[aria-label=breadcrumb] .breadcrumb-item + .breadcrumb-item:before {
 }
 .navbar-box .navbar-toggler {
   outline: none;
+}
+.navbar-box .navbar-toggler:focus-visible {
+  outline: 2px solid currentColor;
 }
 .navbar-box .navbar-toggler .tainacan-icon-close {
   display: block;
@@ -1873,6 +1878,42 @@ nav[aria-label=breadcrumb] .breadcrumb-item + .breadcrumb-item:before {
 
 .wp-block-navigation__responsive-close {
   margin-right: 0px;
+}
+
+/*
+ * Blocks under Bootstrap 4's reboot (3.0.3).
+ */
+/* Links in running text keep the underline: the reboot takes it off every link, and color alone does not tell a link from the text (WCAG 1.4.1). Links with a class (buttons, chips, icons) stay as they are. */
+.tainacan-content :where(p, li, dd, td, th, figcaption, blockquote, cite) a:not([class]) {
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.15em;
+}
+
+/*
+ * Table block: the same table the editor shows (editor-style.scss), and the
+ * cells' borders back. Specificity 0-2-0: above core's `.wp-block-table td`
+ * (0-1-1), below the rules core prints for a border chosen in the editor
+ * (`.wp-block-table .has-border-color td`, 0-2-1). The font size only where
+ * the editor chose none. The stripes style keeps its own look.
+ */
+.wp-block-table:not(.is-style-stripes) :where(th) {
+  border: 0;
+  border-bottom: 1px solid #a5a5a5;
+  font-weight: normal;
+  padding: 0.75rem;
+  text-align: inherit;
+}
+.wp-block-table:not(.is-style-stripes) :where(td) {
+  border: 1px solid #f2f2f2;
+  padding: 0.75rem;
+}
+
+.wp-block-table:not(.is-style-stripes):not([class*=-font-size]):not([style*=font-size]) :where(th) {
+  font-size: 0.75rem;
+}
+.wp-block-table:not(.is-style-stripes):not([class*=-font-size]):not([style*=font-size]) :where(td) {
+  font-size: 0.875rem;
 }
 
 #comments {
@@ -3888,6 +3929,10 @@ footer .wp-block-group ul {
   border: none;
   outline: none;
 }
+.single-item-collection .single-item-collection--attachments-prev:focus-visible,
+.single-item-collection .single-item-collection--attachments-next:focus-visible {
+  outline: 2px solid currentColor;
+}
 .single-item-collection .single-item-collection--attachments-prev {
   left: -50px;
 }
@@ -4544,4 +4589,29 @@ body > .theme-items-list .search-control {
   margin-bottom: 0.75rem;
 }
 
-/*# sourceMappingURL=style.css.map */
+/* Hidden until reached with the keyboard. */
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  z-index: 100000;
+  top: 8px;
+  left: 8px;
+  width: auto;
+  height: auto;
+  padding: 10px 18px;
+  clip-path: none;
+  color: #111;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+#main-content:focus {
+  outline: none;
+}

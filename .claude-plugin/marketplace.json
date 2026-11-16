@@ -1,0 +1,13 @@
+{
+    "name": "tainacan-stack-local",
+    "owner": {
+        "name": "Stack de IA do Tainacan"
+    },
+    "plugins": [
+        {
+            "name": "tainacan-stack",
+            "source": "./.agents",
+            "description": "Stack de IA do Tainacan (skills, revisores, tnc-check)"
+        }
+    ]
+}
