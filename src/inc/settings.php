@@ -1,6 +1,6 @@
 <?php
 /**
- * The settings of the design of version 4.
+ * The settings of the new design.
  *
  * One schema feeds the Customizer panel, the "Public pages" fields of the
  * collection form and the values the templates read. A value comes from, in
@@ -27,7 +27,7 @@ function tainacan_interface_settings_sections() {
 		'layout'      => array( __( 'Layout and spacing', 'tainacan-interface' ), '' ),
 		'buttons'     => array( __( 'Buttons, fields and links', 'tainacan-interface' ), __( 'The buttons, search fields and links of the theme and of the blocks. The controls of the Tainacan lists keep their own look.', 'tainacan-interface' ) ),
 		'site_header' => array( __( 'Site header and footer', 'tainacan-interface' ), '' ),
-		'social'      => array( __( 'Social networks', 'tainacan-interface' ), __( 'Addresses of the profiles of the institution. Only the ones filled in appear.', 'tainacan-interface' ) ),
+		'social'      => array( __( 'Profiles of the institution', 'tainacan-interface' ), __( 'Icons that link to the profiles of the institution (follow us), in the header or the footer. They appear once at least one address below is filled in. To share a page, see the "Share" options of each kind of page.', 'tainacan-interface' ) ),
 		'breadcrumb'  => array( __( 'Breadcrumb', 'tainacan-interface' ), '' ),
 		'collection'  => array( __( 'Collection header', 'tainacan-interface' ), __( 'The top of the items page of a collection or a term. A collection can set its own header on its form in Tainacan.', 'tainacan-interface' ) ),
 		'collections' => array( __( 'List of collections', 'tainacan-interface' ), __( 'The page that lists every collection of the site.', 'tainacan-interface' ) ),
@@ -52,6 +52,9 @@ function tainacan_interface_settings_schema() {
 	if ( null !== $schema ) {
 		return $schema;
 	}
+	// Built before init, the labels would stay in English for the whole
+	// request: the theme loads its translations on init.
+	$cache = did_action( 'init' ) > 0;
 
 	$yes_no_band = array(
 		'bands'    => __( 'Four colors, side by side', 'tainacan-interface' ),
@@ -59,13 +62,21 @@ function tainacan_interface_settings_schema() {
 		'accent'   => __( 'Accent color', 'tainacan-interface' ),
 		'none'     => __( 'None', 'tainacan-interface' ),
 	);
+	// Sans serif first, then serif; the names of the fonts are not translated.
 	$fonts       = array(
-		'poppins' => 'Poppins',
-		'roboto'  => 'Roboto',
-		'lora'    => 'Lora',
-		'system'  => __( 'Font of the visitor\'s system', 'tainacan-interface' ),
-		'georgia' => 'Georgia',
+		'poppins'      => 'Poppins',
+		'roboto'       => 'Roboto',
+		'inter'        => 'Inter',
+		'open-sans'    => 'Open Sans',
+		'montserrat'   => 'Montserrat',
+		'system'       => __( 'Font of the visitor\'s system', 'tainacan-interface' ),
+		'lora'         => 'Lora',
+		'source-serif' => 'Source Serif',
+		'merriweather' => 'Merriweather',
+		'playfair'     => 'Playfair Display',
+		'georgia'      => 'Georgia',
 	);
+	$weight_help = __( 'A weight the chosen font does not have falls to the nearest one it has.', 'tainacan-interface' );
 
 	$schema = array(
 		// Look and feel.
@@ -135,29 +146,6 @@ function tainacan_interface_settings_schema() {
 			'default' => '#2b2f36',
 			'label'   => __( 'Text color', 'tainacan-interface' ),
 		),
-		'font_ui'               => array(
-			'section' => 'look',
-			'type'    => 'choice',
-			'default' => 'poppins',
-			'label'   => __( 'Font of the interface', 'tainacan-interface' ),
-			'help'    => __( 'All the fonts offered here come with the theme or with the visitor\'s system; nothing is loaded from another server.', 'tainacan-interface' ),
-			'choices' => $fonts,
-		),
-		'font_heading'          => array(
-			'section' => 'look',
-			'type'    => 'choice',
-			'default' => 'poppins',
-			'label'   => __( 'Font of the titles', 'tainacan-interface' ),
-			'choices' => $fonts,
-		),
-		'font_reading'          => array(
-			'section' => 'look',
-			'type'    => 'choice',
-			'default' => 'lora',
-			'label'   => __( 'Font of long texts', 'tainacan-interface' ),
-			'help'    => __( 'Descriptions of collections and items.', 'tainacan-interface' ),
-			'choices' => $fonts,
-		),
 		'font_size'             => array(
 			'section' => 'look',
 			'type'    => 'range',
@@ -198,16 +186,55 @@ function tainacan_interface_settings_schema() {
 		),
 
 		// Typography.
+		'font_ui'               => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => 'poppins',
+			'label'   => __( 'Font of the body text', 'tainacan-interface' ),
+			'help'    => __( 'All the fonts offered here come with the theme or with the visitor\'s system; nothing is loaded from another server.', 'tainacan-interface' ),
+			'choices' => $fonts,
+		),
+		'body_weight'           => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => '400',
+			'label'   => __( 'Weight of the body text', 'tainacan-interface' ),
+			'help'    => $weight_help,
+			'choices' => array(
+				'300' => __( 'Light', 'tainacan-interface' ),
+				'400' => __( 'Regular', 'tainacan-interface' ),
+				'500' => __( 'Medium', 'tainacan-interface' ),
+				'600' => __( 'Semibold', 'tainacan-interface' ),
+			),
+		),
+		'font_reading'          => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => 'lora',
+			'label'   => __( 'Font of long texts', 'tainacan-interface' ),
+			'help'    => __( 'Descriptions of collections and items.', 'tainacan-interface' ),
+			'choices' => $fonts,
+		),
+		'font_heading'          => array(
+			'section' => 'typography',
+			'type'    => 'choice',
+			'default' => 'poppins',
+			'label'   => __( 'Font of the titles', 'tainacan-interface' ),
+			'choices' => $fonts,
+		),
 		'heading_weight'        => array(
 			'section' => 'typography',
 			'type'    => 'choice',
 			'default' => '700',
 			'label'   => __( 'Weight of the titles', 'tainacan-interface' ),
+			'help'    => $weight_help,
 			'choices' => array(
+				'400' => __( 'Regular', 'tainacan-interface' ),
 				'500' => __( 'Medium', 'tainacan-interface' ),
 				'600' => __( 'Semibold', 'tainacan-interface' ),
 				'700' => __( 'Bold', 'tainacan-interface' ),
 				'800' => __( 'Extra bold', 'tainacan-interface' ),
+				'900' => __( 'Black', 'tainacan-interface' ),
 			),
 		),
 		'heading_scale'         => array(
@@ -218,6 +245,67 @@ function tainacan_interface_settings_schema() {
 			'max'     => 130,
 			'step'    => 5,
 			'label'   => __( 'Size of the titles (%)', 'tainacan-interface' ),
+		),
+		'h1_size'               => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 44,
+			'min'     => 24,
+			'max'     => 72,
+			'step'    => 1,
+			/* translators: %d: level of the title, 1 to 6. */
+			'label'   => sprintf( __( 'Size of the H%d titles (px)', 'tainacan-interface' ), 1 ),
+			'help'    => __( 'Each level of title, in the text of pages and posts; H1 is also the big title of every page, which shrinks on phones. "Size of the titles (%)" above still scales them all.', 'tainacan-interface' ),
+		),
+		'h2_size'               => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 28,
+			'min'     => 18,
+			'max'     => 48,
+			'step'    => 1,
+			/* translators: %d: level of the title, 1 to 6. */
+			'label'   => sprintf( __( 'Size of the H%d titles (px)', 'tainacan-interface' ), 2 ),
+		),
+		'h3_size'               => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 22,
+			'min'     => 14,
+			'max'     => 36,
+			'step'    => 1,
+			/* translators: %d: level of the title, 1 to 6. */
+			'label'   => sprintf( __( 'Size of the H%d titles (px)', 'tainacan-interface' ), 3 ),
+		),
+		'h4_size'               => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 19,
+			'min'     => 13,
+			'max'     => 30,
+			'step'    => 1,
+			/* translators: %d: level of the title, 1 to 6. */
+			'label'   => sprintf( __( 'Size of the H%d titles (px)', 'tainacan-interface' ), 4 ),
+		),
+		'h5_size'               => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 17,
+			'min'     => 12,
+			'max'     => 26,
+			'step'    => 1,
+			/* translators: %d: level of the title, 1 to 6. */
+			'label'   => sprintf( __( 'Size of the H%d titles (px)', 'tainacan-interface' ), 5 ),
+		),
+		'h6_size'               => array(
+			'section' => 'typography',
+			'type'    => 'range',
+			'default' => 15,
+			'min'     => 11,
+			'max'     => 22,
+			'step'    => 1,
+			/* translators: %d: level of the title, 1 to 6. */
+			'label'   => sprintf( __( 'Size of the H%d titles (px)', 'tainacan-interface' ), 6 ),
 		),
 		'heading_spacing'       => array(
 			'section' => 'typography',
@@ -740,6 +828,7 @@ function tainacan_interface_settings_schema() {
 			'type'    => 'choice',
 			'default' => 'auto',
 			'label'   => __( 'Image of the card', 'tainacan-interface' ),
+			'help'    => __( 'Only changes collections without a thumbnail of their own (and "Always the mosaic", which changes all).', 'tainacan-interface' ),
 			'choices' => array(
 				'auto'      => __( 'Thumbnail; a mosaic of items when there is none', 'tainacan-interface' ),
 				'thumbnail' => __( 'Only the thumbnail', 'tainacan-interface' ),
@@ -791,7 +880,22 @@ function tainacan_interface_settings_schema() {
 			'type'    => 'bool',
 			'default' => true,
 			'label'   => __( 'Field to find a collection', 'tainacan-interface' ),
-			'help'    => __( 'Filters the cards while typing. Shown from 7 collections on.', 'tainacan-interface' ),
+			'help'    => __( 'A field above the cards that filters them while typing. Shown when there are two or more collections.', 'tainacan-interface' ),
+		),
+
+		'list_taxonomies'       => array(
+			'section' => 'collections',
+			'type'    => 'bool',
+			'default' => true,
+			'label'   => __( 'Taxonomies below the collections', 'tainacan-interface' ),
+			'help'    => __( 'The public taxonomies of the site, each with a link to its page of terms.', 'tainacan-interface' ),
+		),
+		'list_taxonomies_heading' => array(
+			'section' => 'collections',
+			'type'    => 'text',
+			'default' => '',
+			'label'   => __( 'Title of the taxonomies', 'tainacan-interface' ),
+			'help'    => __( 'Empty: "Taxonomies".', 'tainacan-interface' ),
 		),
 
 		// Item cards and lists.
@@ -924,11 +1028,14 @@ function tainacan_interface_settings_schema() {
 			'type'       => 'choice',
 			'default'    => 'stacked',
 			'label'      => __( 'Layout', 'tainacan-interface' ),
+			'help'       => __( 'Where the document (image, file, video) and the record (metadata) go. In the side-by-side layouts, phones show first what is on the left.', 'tainacan-interface' ),
 			'collection' => true,
 			'choices'    => array(
-				'stacked'     => __( 'Document above, record below', 'tainacan-interface' ),
-				'media-left'  => __( 'Document on the left, record on the right', 'tainacan-interface' ),
-				'media-right' => __( 'Record on the left, document on the right', 'tainacan-interface' ),
+				'stacked'        => __( 'Document and attachments on top, record below', 'tainacan-interface' ),
+				'stacked-split'  => __( 'Document on top, then the record, attachments at the end', 'tainacan-interface' ),
+				'stacked-record' => __( 'Record on top, document and attachments below', 'tainacan-interface' ),
+				'media-left'     => __( 'Document on the left, record on the right', 'tainacan-interface' ),
+				'media-right'    => __( 'Record on the left, document on the right', 'tainacan-interface' ),
 			),
 		),
 		'item_subtitle'         => array(
@@ -957,6 +1064,25 @@ function tainacan_interface_settings_schema() {
 				'side'  => __( 'Beside the value', 'tainacan-interface' ),
 				'above' => __( 'Above the value', 'tainacan-interface' ),
 			),
+		),
+		'item_label_size'       => array(
+			'section' => 'item',
+			'type'    => 'range',
+			'default' => 14,
+			'min'     => 10,
+			'max'     => 22,
+			'step'    => 1,
+			'label'   => __( 'Size of the names of the metadata (px)', 'tainacan-interface' ),
+			'help'    => __( 'The names in the record (Description, Author...). 14 px is 0.875rem.', 'tainacan-interface' ),
+		),
+		'item_value_size'       => array(
+			'section' => 'item',
+			'type'    => 'range',
+			'default' => 16,
+			'min'     => 12,
+			'max'     => 26,
+			'step'    => 1,
+			'label'   => __( 'Size of the values of the metadata (px)', 'tainacan-interface' ),
 		),
 		'item_columns'          => array(
 			'section' => 'item',
@@ -1240,9 +1366,9 @@ function tainacan_interface_settings_schema() {
 	 *
 	 * @param array $schema Options.
 	 */
-	$schema = (array) apply_filters( 'tainacan_interface_settings_schema', $schema );
-
-	return $schema;
+	$built  = (array) apply_filters( 'tainacan_interface_settings_schema', $schema );
+	$schema = $cache ? $built : null;
+	return $built;
 }
 
 /**
@@ -1417,7 +1543,7 @@ function tainacan_interface_settings_customize( $wp_customize ) {
 	$wp_customize->add_panel(
 		'tainacan_interface',
 		array(
-			'title'       => __( 'Tainacan Interface', 'tainacan-interface' ),
+			'title'       => __( 'Look of the site and collections', 'tainacan-interface' ),
 			'description' => __( 'Everything about the look of the Tainacan pages in one place. The options of the item page and of the search area stay in their own panels.', 'tainacan-interface' ),
 			'priority'    => 20,
 			'capability'  => 'edit_theme_options',
@@ -1439,7 +1565,7 @@ function tainacan_interface_settings_customize( $wp_customize ) {
 		$priority += 10;
 	}
 
-	// Sections of version 3, now in the same panel.
+	// Sections of the 3.x development builds, now in the same panel.
 	foreach ( array( 'tainacan_interface_features', 'tainacan_interface_aside' ) as $id ) {
 		$section = $wp_customize->get_section( $id );
 		if ( $section ) {

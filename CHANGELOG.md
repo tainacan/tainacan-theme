@@ -1,5 +1,127 @@
 # Changelog
 
+## 2.11.0 (2026-11-19)
+
+Public release of the new design. Versions 3.0.0 to 4.10.2 below were development builds, never published; 2.11.0 contains all of them and continues the numbering of the official 2.x (2.10.0).
+
+- Upgrade: what a site still needs is counted in migration steps (`migration` in the `tainacan_interface` option), not by comparing the version it last saw. With 4.x back to 2.11, comparing versions would run old migrations again on every update. Sites that saw 4.3.0+ count as step 1 and 4.9.0+ as step 2.
+- Texts: "version 4" became "version 2.11" in the description of the theme and the readme; the Customizer section of the extra features no longer says "version 3".
+- Reactivating the theme keeps the migration steps a site still lacks (it used to mark the site as up to date).
+
+## 4.10.2 (2026-11-19)
+
+- Table view: column headers use the metadata name size (Customizer, default 0.875rem) instead of 0.75em of the plugin font, which made them tiny.
+
+## 4.10.1 (2026-11-19)
+
+### Fixed
+
+- Customizer pencils that "sometimes" did nothing: opening a section takes the preview to a page of its kind, and a pencil opens a section too. The breadcrumb pencil on an item page reloaded the preview as a collection page, and every pencil clicked during the reload was lost. A section opened by a pencil now leaves the preview where it is, and the breadcrumb (on every kind of page) no longer moves it at all.
+- Item heading: the theme's pencil sat exactly on the 2.x pencil of the same area and could catch the click meant for it; the theme's one is gone.
+
+## 4.10.0 (2026-11-19)
+
+### Added
+
+- Typography: a size for each level of title, H1 to H6 (px), live in the Customizer. H2 to H6 apply to the text of pages, posts and Tainacan content; H1 is also the maximum of the big title of every page, which still shrinks on phones. "Size of the titles (%)" keeps scaling them all.
+- Item page: "Size of the names of the metadata (px)", default 14 (0.875rem), and "Size of the values of the metadata (px)", default 16. They replace "Size of the text of the record (%)" of 4.7, which scaled both together relative to the parent and could not be set apart.
+
+### Changed
+
+- Default view of the lists of items outside a collection (all items, items of a term): Records instead of Masonry, unless the site chose a default in the Tainacan settings. Each collection keeps the default set on its own form.
+- Terms panel: "See all items" and "Copy link" sit side by side.
+
+## 4.9.0 (2026-11-19)
+
+### Changed
+
+- Item page: "Layout" and "What comes first: document or record" were two settings that could contradict each other ("document on top" with "record first"). They are one setting now, "Layout", with five choices that say where each part goes: document and attachments on top, record below; document on top, then the record, attachments at the end; record on top, document and attachments below; document on the left, record on the right; record on the left, document on the right. In the side-by-side layouts, phones show first what is on the left. Per collection too.
+- Update in place: the order saved for the site or for a collection (4.5 to 4.8, or the 2.x "sections order") becomes the equivalent layout and the old value is removed. A side-by-side layout keeps its side.
+- The layout now refreshes the Customizer preview (it changes the order of the page, which only the server can do).
+
+## 4.8.1 (2026-11-19)
+
+### Fixed
+
+- "Show more" says how many are left only when more than one page is left; the block of taxonomies keeps its distance from the cards of the collections.
+
+## 4.8.0 (2026-11-19)
+
+### Changed
+
+- Terms explorer: the map and radial views are gone. With a large taxonomy (hundreds of terms on one level) neither stayed readable. In their place, **Columns**: each level opens a column beside the previous one (like a file manager), with the whole path in sight and the keyboard (arrows go up, down, into a term and back).
+- Terms explorer: pages of 100 terms. The top level of the tree has numbered pages ("1–100 of 146"); a longer level under a term, and every column, show 100 and a "Show 100 more" button. Opening a term (link, panel, search) goes to the page that holds it.
+- Terms explorer: A–Z index above the views; a letter keeps the terms that start with it, at any level, combined with the search.
+- `tainacan_terms_viewmode` takes `tree` or `columns`; `map` and `radial` fall back to the tree.
+
+### Added
+
+- List of collections: "Taxonomies below the collections" (on by default) lists the public taxonomies of the site, with the number of terms and a link to each page of terms; "Title of the taxonomies" names the block. Edit shortcut in the Customizer.
+
+## 4.7.0 (2026-11-19)
+
+### Added
+
+- Item page: "Size of the text of the record (%)", 80 to 150, live in the Customizer; it scales the names and the values of the metadata. The default is one step larger than before (names 0.875em, values 1em).
+- Customizer: edit shortcuts (the pencil) on the areas of the theme (header, band, breadcrumb, page title, collection header, list of collections, item heading, document, record, "How to cite", share, profiles, footer); the pencil opens the option that shapes that area. Child themes add or change them with the `tainacan_interface_customizer_shortcuts` filter.
+
+### Fixed
+
+- Customizer labels in English on a site in another language: the schema of the options was built, and kept, before the theme loaded its translations on `init`. It is kept only from `init` on.
+- List of collections: "Field to find a collection" only appeared from 7 collections on, so it seemed to do nothing; it appears from 2 on.
+
+### Changed
+
+- The panel "Tainacan Interface" is now "Look of the site and collections"; "Social networks" is now "Profiles of the institution", with a description saying the icons appear once an address is filled in and that sharing is a separate option.
+- "Order of the document and the record" is now "What comes first: document or record", with a note on how to put the document below the record. "Image of the card" explains that it only changes collections without a thumbnail of their own, except "Always the mosaic".
+
+## 4.6.4 (2026-11-19)
+
+### Fixed
+
+- Terms explorer, radial view: long labels at the top of the circle ran over the hint above it; the drawing has room for them now.
+
+## 4.6.3 (2026-11-19)
+
+### Fixed
+
+- Terms explorer: the headings of the panel ("Terms below", "Items with this term") took the size of the page headings; they carry the `label` class now, like the other titles of the theme's own components. The search field can shrink to the width of a phone.
+
+## 4.6.2 (2026-11-19)
+
+### Fixed
+
+- Terms explorer: opening the page on a term (`#termo-<id>` or `termsparent`) jumped the page to an empty area; the term is now scrolled to the middle of the screen, and only when it is out of sight.
+
+## 4.6.1 (2026-11-19)
+
+### Fixed
+
+- Terms explorer: the counts came in English (the plural forms are now translated before they reach the script); on the map, small blocks broke words in the middle (names wrap by word with hyphenation, tiny blocks show the name on hover only); on the radial, a first ring with many terms covered the next one with its labels (above 48 terms the circle shows a single ring).
+
+## 4.6.0 (2026-11-19)
+
+### Changed
+
+- Taxonomy page: the cards, thumbnails and table views, which listed one level at a time behind "Children" links, are replaced by a terms explorer with three views of the whole hierarchy. **Tree** (default): every level with guide lines, item count, number of terms in the branch and a bar comparing the size of each branch; expand or collapse all; keyboard navigation of an ARIA tree. **Map**: squarified treemap of the branches, sized by items plus terms; a click opens the branch, crumbs go back up. **Radial**: the hierarchy around the centered term, up to four rings (about 360 terms at once); a second click on a term centers on it, a click on the center goes up. The search filters every view, keeping the path to each match open, and the order (alphabetical or most items first) applies to all of them.
+- Panel of the chosen term: place in the hierarchy, image, description, item count (the real total from the Tainacan REST, with the permissions of the visitor), child terms, terms on the same level, the first eight items with thumbnails, "See all items", "Center here" and a link to the term (`#termo-<id>`). On phones and tablets it is a bottom sheet.
+- The structure of the taxonomy is cached in a transient until any term changes. Without JavaScript the page shows the hierarchy as a nested list of links.
+- Links of 2.x keep working: `tainacan_terms_viewmode=cards|grid|table` opens the tree, `termsparent=<id>` opens the tree on that term and `search=` fills the search. `tainacan_terms_viewmode` now takes `tree`, `map` or `radial`.
+- Removed `template-parts/loop-tainacan-terms.php`, `loop-tainacan-terms-grid.php` and `loop-tainacan-terms-table.php`; a child theme with its own `tainacan/archive-terms.php` keeps its old page.
+
+## 4.5.1 (2026-11-17)
+
+### Fixed
+
+- The smaller titles had a fixed weight of 600 and ignored "Weight of the titles"; they now follow it one step lighter.
+
+## 4.5.0 (2026-11-17)
+
+### Added
+
+- Typography: the font and the weight of the body text and of the titles are chosen in one place (Typography section). New weight of the body text (light, regular, medium, semibold); the weight of the titles gains regular and black, and the smaller titles (sections of the record, cards of lists and of the blog, collections, "How to cite", the side column) follow it one step lighter, 600 with the default 700. Six more fonts, all shipped with the theme (latin subset, Fontsource, SIL OFL 1.1, variable files so every weight is real): Inter, Open Sans and Montserrat (sans serif), Source Serif, Merriweather and Playfair Display (serif). Lora is now variable (400 to 700, with italic); Poppins gains 300 and 800 and Roboto gains 300. A font file is downloaded only when the page uses it.
+- Item page: "Order of the document and the record" (document and attachments first, document then record then attachments, or record first), for the site and per collection on its form. In the side-by-side layouts it sets the order on phones. It replaces the 2.x "Layout sections order" control; a site that chose an order there keeps it until it chooses again.
+
 ## 4.4.9 (2026-11-10)
 
 ### Fixed

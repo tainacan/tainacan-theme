@@ -1,6 +1,6 @@
 <?php
 /**
- * Design of version 4: the tokens of the settings as CSS variables, the
+ * New design: the tokens of the settings as CSS variables, the
  * stylesheet, the body classes and the images made from the items of a
  * collection.
  *
@@ -21,11 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 function tainacan_interface_font_stack( $font ) {
 	$system = 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 	$stacks = array(
-		'poppins' => '"Poppins", ' . $system,
-		'roboto'  => '"Roboto", ' . $system,
-		'lora'    => '"Lora", Georgia, "Times New Roman", serif',
-		'georgia' => 'Georgia, "Times New Roman", serif',
-		'system'  => $system,
+		'poppins'      => '"Poppins", ' . $system,
+		'roboto'       => '"Roboto", ' . $system,
+		'inter'        => '"Inter", ' . $system,
+		'open-sans'    => '"Open Sans", ' . $system,
+		'montserrat'   => '"Montserrat", ' . $system,
+		'lora'         => '"Lora", Georgia, "Times New Roman", serif',
+		'source-serif' => '"Source Serif 4", Georgia, "Times New Roman", serif',
+		'merriweather' => '"Merriweather", Georgia, "Times New Roman", serif',
+		'playfair'     => '"Playfair Display", Georgia, "Times New Roman", serif',
+		'georgia'      => 'Georgia, "Times New Roman", serif',
+		'system'       => $system,
 	);
 	return isset( $stacks[ $font ] ) ? $stacks[ $font ] : $system;
 }
@@ -165,9 +171,18 @@ function tainacan_interface_design_css() {
 		'--tt2-footer-fg'                     => $footer[1],
 		'--tt2-header-pad'                    => absint( tainacan_interface_opt( 'header_padding' ) ) . 'px',
 		'--tt2-heading-weight'                => (int) tainacan_interface_opt( 'heading_weight' ),
+		'--tt2-body-weight'                   => (int) tainacan_interface_opt( 'body_weight' ),
 		'--tt2-heading-scale'                 => absint( tainacan_interface_opt( 'heading_scale' ) ) / 100,
 		'--tt2-heading-spacing'               => (int) tainacan_interface_opt( 'heading_spacing' ) / 100 . 'em',
 		'--tt2-leading'                       => absint( tainacan_interface_opt( 'line_height' ) ) / 100,
+		'--tt2-h1'                               => absint( tainacan_interface_opt( 'h1_size' ) ) . 'px',
+		'--tt2-h2'                               => absint( tainacan_interface_opt( 'h2_size' ) ) . 'px',
+		'--tt2-h3'                               => absint( tainacan_interface_opt( 'h3_size' ) ) . 'px',
+		'--tt2-h4'                               => absint( tainacan_interface_opt( 'h4_size' ) ) . 'px',
+		'--tt2-h5'                               => absint( tainacan_interface_opt( 'h5_size' ) ) . 'px',
+		'--tt2-h6'                               => absint( tainacan_interface_opt( 'h6_size' ) ) . 'px',
+		'--tt2-meta-label'                    => absint( tainacan_interface_opt( 'item_label_size' ) ) . 'px',
+		'--tt2-meta-value'                    => absint( tainacan_interface_opt( 'item_value_size' ) ) . 'px',
 		'--tt2-u-mobile'                      => absint( tainacan_interface_opt( 'font_size_mobile' ) ) . 'px',
 		'--tt2-menu-size'                     => absint( tainacan_interface_opt( 'menu_size' ) ) . 'px',
 		'--tt2-edge'                          => absint( tainacan_interface_opt( 'edge_spacing' ) ) . 'px',
@@ -508,8 +523,8 @@ function tainacan_interface_collection_count( $collection_id ) {
 }
 
 /**
- * Whether the blog page shows the sidebar: it has widgets, and on the design of
- * version 4 it was not turned off.
+ * Whether the blog page shows the sidebar: it has widgets, and on the new design
+ * it was not turned off.
  *
  * @return bool
  */
@@ -549,7 +564,7 @@ function tainacan_interface_without_emoji() {
 add_action( 'template_redirect', 'tainacan_interface_without_emoji' );
 
 /**
- * The footer menu of the design of version 4.
+ * The footer menu of the new design.
  */
 function tainacan_interface_register_footer_menu() {
 	register_nav_menus( array( 'tt2_footer' => __( 'Footer menu', 'tainacan-interface' ) ) );

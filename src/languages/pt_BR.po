@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Tainacan Interface 4.4.8\n"
+"Project-Id-Version: Tainacan Interface 4.5.0\n"
 "Report-Msgid-Bugs-To: https://github.com/marcossigismundo/tainacan-interface\n"
 "POT-Creation-Date: 2023-03-10 10:21-0300\n"
 "PO-Revision-Date: 2026-11-08 01:22+0000\n"
@@ -32,8 +32,8 @@ msgstr "https://tainacan.org"
 
 #. Description of the theme
 #: style.css
-msgid "This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 4 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch."
-msgstr "Este é o tema padrão do projeto Tainacan. Use-o com o plugin Tainacan para gerenciar e publicar suas coleções digitais com uma bela busca facetada. Ideal para museus, galerias, bibliotecas e quem tem um repositório digital. A versão 4 traz um design novo e altamente ajustável para coleções, listas e itens, menus para cada coleção e nenhuma dependência do Bootstrap; cada recurso tem seu próprio interruptor."
+msgid "This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 2.11 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch."
+msgstr "Este é o tema padrão do projeto Tainacan. Use-o com o plugin Tainacan para gerenciar e publicar suas coleções digitais com uma bela busca facetada. Ideal para museus, galerias, bibliotecas e quem tem um repositório digital. A versão 2.11 traz um design novo e altamente ajustável para coleções, listas e itens, menus para cada coleção e nenhuma dependência do Bootstrap; cada recurso tem seu próprio interruptor."
 
 #. Author of the theme
 #: style.css inc/nav-menus.php:216 inc/nav-menus.php:234
@@ -605,8 +605,8 @@ msgid "Lists and item page"
 msgstr "Listas e página do item"
 
 #: functions/customizer/tainacan-interface-features.php:18
-msgid "Features of version 3 for the Tainacan pages. Each one can be turned on or off without affecting the others."
-msgstr "Recursos da versão 3 para as páginas do Tainacan. Cada um pode ser ligado ou desligado sem afetar os outros."
+msgid "Extra features for the Tainacan pages. Each one can be turned on or off without affecting the others."
+msgstr "Recursos extras para as páginas do Tainacan. Cada um pode ser ligado ou desligado sem afetar os outros."
 
 #: functions/customizer/tainacan-interface-features.php:26
 msgid "Item preview drawer on the lists"
@@ -2087,10 +2087,6 @@ msgstr "Fundo de fichas e painéis"
 msgid "Text color"
 msgstr "Cor do texto"
 
-#: inc/settings.php:142
-msgid "Font of the interface"
-msgstr "Fonte da interface"
-
 #: inc/settings.php:143
 msgid "All the fonts offered here come with the theme or with the visitor's system; nothing is loaded from another server."
 msgstr "Todas as fontes oferecidas vêm com o tema ou com o sistema do visitante; nada é carregado de outro servidor."
@@ -2669,7 +2665,7 @@ msgstr "Mais novas primeiro"
 
 #: inc/settings.php:758
 msgid "Most items first"
-msgstr "Com mais itens primeiro"
+msgstr "Mais itens primeiro"
 
 #: inc/settings.php:765
 msgid "Show the description"
@@ -3284,3 +3280,279 @@ msgstr "Desfazer a importação"
 #: inc/upgrade.php:200
 msgid "Keep them and dismiss"
 msgstr "Manter e dispensar"
+
+#: inc/settings.php:190
+msgid "Font of the body text"
+msgstr "Fonte do corpo do texto"
+
+#: inc/settings.php:198
+msgid "Weight of the body text"
+msgstr "Peso do corpo do texto"
+
+#: inc/settings.php:76
+msgid "A weight the chosen font does not have falls to the nearest one it has."
+msgstr "Um peso que a fonte escolhida não tem cai no mais próximo que ela tem."
+
+#: inc/settings.php:234
+msgid "Black"
+msgstr "Pesado"
+
+#: inc/settings.php:962
+msgid "Order of the document and the record"
+msgstr "Ordem do documento e da ficha"
+
+#: inc/settings.php:963
+msgid "In the side-by-side layouts it sets the order on phones."
+msgstr "Nos leiautes lado a lado, define a ordem no celular."
+
+#: inc/settings.php:966
+msgid "Document and attachments, then the record"
+msgstr "Documento e anexos, depois a ficha"
+
+#: inc/settings.php:967
+msgid "Document, record, then attachments"
+msgstr "Documento, ficha, depois os anexos"
+
+#: inc/settings.php:968
+msgid "Record, then document and attachments"
+msgstr "Ficha, depois documento e anexos"
+
+#: inc/terms-explorer.php
+msgid "Tree"
+msgstr "Árvore"
+
+#: inc/terms-explorer.php
+msgid "Map"
+msgstr "Mapa"
+
+#: inc/terms-explorer.php
+msgid "Radial"
+msgstr "Radial"
+
+#: inc/terms-explorer.php
+msgid "Ways of seeing the taxonomy"
+msgstr "Formas de ver a taxonomia"
+
+#: inc/terms-explorer.php
+msgid "Find a term"
+msgstr "Encontrar um termo"
+
+#: inc/terms-explorer.php
+msgid "Alphabetical"
+msgstr "Ordem alfabética"
+
+#: inc/terms-explorer.php
+msgid "Expand all"
+msgstr "Abrir tudo"
+
+#: inc/terms-explorer.php
+msgid "Collapse all"
+msgstr "Fechar tudo"
+
+#: inc/terms-explorer.php
+msgid "No term matches this search."
+msgstr "Nenhum termo corresponde a esta busca."
+
+#: inc/terms-explorer.php
+msgid "All terms"
+msgstr "Todos os termos"
+
+#: inc/terms-explorer.php
+msgid "See all items"
+msgstr "Ver todos os itens"
+
+#: inc/terms-explorer.php
+msgid "Center here"
+msgstr "Centralizar aqui"
+
+#: inc/terms-explorer.php
+msgid "Up one level"
+msgstr "Subir um nível"
+
+#: inc/terms-explorer.php
+msgid "Terms below"
+msgstr "Termos abaixo"
+
+#: inc/terms-explorer.php
+msgid "Same level"
+msgstr "Mesmo nível"
+
+#: inc/terms-explorer.php
+msgid "Items with this term"
+msgstr "Itens com este termo"
+
+#: inc/terms-explorer.php
+msgid "No item uses this term yet."
+msgstr "Nenhum item usa este termo ainda."
+
+#: inc/terms-explorer.php
+msgid "The items could not be loaded."
+msgstr "Não foi possível carregar os itens."
+
+#: inc/terms-explorer.php
+msgid "Choose a term to see its details, its place in the hierarchy and its items."
+msgstr "Escolha um termo para ver os detalhes, o lugar dele na hierarquia e os itens."
+
+#: inc/terms-explorer.php
+msgid "Place in the hierarchy"
+msgstr "Lugar na hierarquia"
+
+#: inc/terms-explorer.php
+msgid "Each block is a branch, sized by its items and terms. Click to open it."
+msgstr "Cada bloco é um ramo, do tamanho dos seus itens e termos. Clique para abrir."
+
+#: inc/terms-explorer.php
+msgid "Click a term to see it; click it again to center the circle on it."
+msgstr "Clique num termo para vê-lo; clique de novo para centralizar o círculo nele."
+
+#: inc/terms-explorer.php
+msgid "Copy link to this term"
+msgstr "Copiar link deste termo"
+
+#: inc/terms-explorer.php
+msgid "Link copied"
+msgstr "Link copiado"
+
+#: inc/terms-explorer.php
+msgid "Terms"
+msgstr "Termos"
+
+#: inc/terms-explorer.php
+msgid "This taxonomy has no terms yet."
+msgstr "Esta taxonomia ainda não tem termos."
+
+#: inc/terms-explorer.php
+msgid "%d term"
+msgid_plural "%d terms"
+msgstr[0] "%d termo"
+msgstr[1] "%d termos"
+
+#: inc/terms-explorer.php
+msgid "%d child term"
+msgid_plural "%d child terms"
+msgstr[0] "%d termo filho"
+msgstr[1] "%d termos filhos"
+
+#: inc/terms-explorer.php
+msgid "%d term in the branch"
+msgid_plural "%d terms in the branch"
+msgstr[0] "%d termo no ramo"
+msgstr[1] "%d termos no ramo"
+
+#: inc/terms-explorer.php
+msgid "%d level"
+msgid_plural "%d levels"
+msgstr[0] "%d nível"
+msgstr[1] "%d níveis"
+
+#: inc/terms-explorer.php
+msgid "%d term found"
+msgid_plural "%d terms found"
+msgstr[0] "%d termo encontrado"
+msgstr[1] "%d termos encontrados"
+
+#: inc/settings.php
+msgid "Profiles of the institution"
+msgstr "Perfis da instituição"
+
+#: inc/settings.php
+msgid "Icons that link to the profiles of the institution (follow us), in the header or the footer. They appear once at least one address below is filled in. To share a page, see the \"Share\" options of each kind of page."
+msgstr "Ícones com links para os perfis da instituição (\"siga-nos\"), no cabeçalho ou no rodapé. Aparecem quando pelo menos um endereço abaixo estiver preenchido. Para compartilhar uma página, use as opções \"Compartilhar\" de cada tipo de página."
+
+#: inc/settings.php
+msgid "Look of the site and collections"
+msgstr "Aparência do site e das coleções"
+
+#: inc/settings.php
+msgid "What comes first: document or record"
+msgstr "O que vem primeiro: documento ou ficha"
+
+#: inc/settings.php
+msgid "Choose \"Record, then document and attachments\" to put the document below the record. In the side-by-side layouts it sets the order on phones."
+msgstr "Escolha \"Ficha, depois documento e anexos\" para pôr o documento abaixo da ficha. Nos leiautes lado a lado, define a ordem no celular."
+
+#: inc/settings.php
+msgid "A field above the cards that filters them while typing. Shown when there are two or more collections."
+msgstr "Campo acima das fichas que as filtra enquanto se digita. Aparece quando há duas coleções ou mais."
+
+#: inc/settings.php
+msgid "Only changes collections without a thumbnail of their own (and \"Always the mosaic\", which changes all)."
+msgstr "Só muda as coleções sem miniatura própria (e \"Sempre o mosaico\", que muda todas)."
+
+#: inc/settings.php
+msgid "Size of the text of the record (%)"
+msgstr "Tamanho do texto da ficha (%)"
+
+#: inc/settings.php
+msgid "Names and values of the metadata, relative to the text of the page."
+msgstr "Nomes e valores dos metadados, em relação ao texto da página."
+
+msgid "Columns"
+msgstr "Colunas"
+
+msgid "Terms by initial letter"
+msgstr "Termos pela letra inicial"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Pages of terms"
+msgstr "Páginas de termos"
+
+msgid "%1$d–%2$d of %3$d"
+msgstr "%1$d–%2$d de %3$d"
+
+msgid "Show %d more"
+msgstr "Mostrar mais %d"
+
+msgid "Taxonomies below the collections"
+msgstr "Taxonomias abaixo das coleções"
+
+msgid "The public taxonomies of the site, each with a link to its page of terms."
+msgstr "As taxonomias públicas do site, cada uma com link para a sua página de termos."
+
+msgid "Title of the taxonomies"
+msgstr "Título das taxonomias"
+
+msgid "Empty: \"Taxonomies\"."
+msgstr "Vazio: \"Taxonomias\"."
+
+msgid "%d left"
+msgid_plural "%d left"
+msgstr[0] "%d restante"
+msgstr[1] "%d restantes"
+
+msgid "%s term"
+msgid_plural "%s terms"
+msgstr[0] "%s termo"
+msgstr[1] "%s termos"
+
+msgid "Where the document (image, file, video) and the record (metadata) go. In the side-by-side layouts, phones show first what is on the left."
+msgstr "Onde ficam o documento (imagem, arquivo, vídeo) e a ficha (metadados). Nos leiautes lado a lado, o celular mostra primeiro o que está à esquerda."
+
+msgid "Document and attachments on top, record below"
+msgstr "Documento e anexos em cima, ficha embaixo"
+
+msgid "Document on top, then the record, attachments at the end"
+msgstr "Documento em cima, depois a ficha, anexos no fim"
+
+msgid "Record on top, document and attachments below"
+msgstr "Ficha em cima, documento e anexos embaixo"
+
+msgid "Size of the H%d titles (px)"
+msgstr "Tamanho dos títulos H%d (px)"
+
+msgid "Each level of title, in the text of pages and posts; H1 is also the big title of every page, which shrinks on phones. \"Size of the titles (%)\" above still scales them all."
+msgstr "Cada nível de título, no texto de páginas e posts; o H1 é também o título grande de cada página, que diminui no celular. \"Tamanho dos títulos (%)\", acima, continua ajustando todos."
+
+msgid "Size of the names of the metadata (px)"
+msgstr "Tamanho dos nomes dos metadados (px)"
+
+msgid "The names in the record (Description, Author...). 14 px is 0.875rem."
+msgstr "Os nomes na ficha (Descrição, Autor...). 14 px equivale a 0,875rem."
+
+msgid "Size of the values of the metadata (px)"
+msgstr "Tamanho dos valores dos metadados (px)"
+
+msgid "Records"
+msgstr "Fichas"

@@ -1,7 +1,7 @@
 <?php
 /**
  * Links to the social network profiles of the institution, in the header or the
- * footer of the design of version 4. The icons are inline SVG from Tabler Icons
+ * footer of the new design. The icons are inline SVG from Tabler Icons
  * (MIT, see readme.txt): no file and no request for them.
  *
  * @package tainacan-interface

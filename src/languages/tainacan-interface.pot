@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Tainacan Interface 4.4.8\n"
+"Project-Id-Version: Tainacan Interface 4.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/tt-i18n\n"
 "POT-Creation-Date: 2026-11-08T02:21:53+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 4 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch."
+msgid "This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 2.11 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch."
 msgstr ""
 
 #. Author of the theme
@@ -600,7 +600,7 @@ msgid "Lists and item page"
 msgstr ""
 
 #: functions/customizer/tainacan-interface-features.php:18
-msgid "Features of version 3 for the Tainacan pages. Each one can be turned on or off without affecting the others."
+msgid "Extra features for the Tainacan pages. Each one can be turned on or off without affecting the others."
 msgstr ""
 
 #: functions/customizer/tainacan-interface-features.php:26
@@ -2082,10 +2082,6 @@ msgstr ""
 msgid "Text color"
 msgstr ""
 
-#: inc/settings.php:142
-msgid "Font of the interface"
-msgstr ""
-
 #: inc/settings.php:143
 msgid "All the fonts offered here come with the theme or with the visitor's system; nothing is loaded from another server."
 msgstr ""
@@ -3278,4 +3274,40 @@ msgstr ""
 
 #: inc/upgrade.php:200
 msgid "Keep them and dismiss"
+msgstr ""
+
+#: inc/settings.php:190
+msgid "Font of the body text"
+msgstr ""
+
+#: inc/settings.php:198
+msgid "Weight of the body text"
+msgstr ""
+
+#: inc/settings.php:76
+msgid "A weight the chosen font does not have falls to the nearest one it has."
+msgstr ""
+
+#: inc/settings.php:234
+msgid "Black"
+msgstr ""
+
+#: inc/settings.php:962
+msgid "Order of the document and the record"
+msgstr ""
+
+#: inc/settings.php:963
+msgid "In the side-by-side layouts it sets the order on phones."
+msgstr ""
+
+#: inc/settings.php:966
+msgid "Document and attachments, then the record"
+msgstr ""
+
+#: inc/settings.php:967
+msgid "Document, record, then attachments"
+msgstr ""
+
+#: inc/settings.php:968
+msgid "Record, then document and attachments"
 msgstr ""

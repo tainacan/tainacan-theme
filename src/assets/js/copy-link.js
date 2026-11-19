@@ -41,7 +41,7 @@
             });
     }
 
-    // No jQuery: the design of version 4 does not load it.
+    // No jQuery: the new design does not load it.
     document.addEventListener('click', function (event) {
         var button = event.target.closest && event.target.closest('.tainacan-copy-link-button');
         if (button) {

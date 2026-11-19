@@ -168,8 +168,9 @@ body.tt2-skin .tainacan-cards-container .tainacan-card .media .list-metadata p.m
 
 /* ---------- Lists: table ---------- */
 
-body.tt2-skin .tainacan-table thead th {
-	font-size: 0.75em !important;
+body.tt2-skin .tainacan-table thead th,
+body.tt2-skin .tainacan-table thead th :is(.th-wrap, span, div) {
+	font-size: var(--tt2-meta-label, 0.875rem) !important;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 	color: var(--tt2-label) !important;

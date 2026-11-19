@@ -10,7 +10,7 @@
  * View mode of the collections or terms list, from the closed list. The value
  * comes from the URL and goes to get_template_part().
  *
- * @param string $query_var tainacan_collections_viewmode or tainacan_terms_viewmode.
+ * @param string $query_var tainacan_collections_viewmode (the terms page has its own views, inc/terms-explorer.php).
  * @return string cards|grid|table
  */
 function tainacan_interface_list_view_mode( $query_var ) {

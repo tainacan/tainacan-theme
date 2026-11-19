@@ -1,6 +1,6 @@
 <?php
 /**
- * Design of version 4: the header of the items pages and the breadcrumb.
+ * New design: the header of the items pages and the breadcrumb.
  *
  * The hooks of the classic header (tainacan-interface-collection-header,
  * -collection-description, -collection-header-bottom and the taxonomy ones) fire
@@ -297,7 +297,7 @@ function tainacan_interface_item_first_terms( $item, $count = 3 ) {
 }
 
 /**
- * Heading of the item page in the design of version 4.
+ * Heading of the item page in the new design.
  */
 function tainacan_interface_the_item_heading() {
 	$item = tainacan_get_item();

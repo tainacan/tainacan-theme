@@ -15,7 +15,7 @@ function tainacan_interface_customize_register( $wp_customize ) {
 		'tainacan_interface_features',
 		array(
 			'title'       => __( 'Lists and item page', 'tainacan-interface' ),
-			'description' => __( 'Features of version 3 for the Tainacan pages. Each one can be turned on or off without affecting the others.', 'tainacan-interface' ),
+			'description' => __( 'Extra features for the Tainacan pages. Each one can be turned on or off without affecting the others.', 'tainacan-interface' ),
 			'priority'    => 30,
 			'capability'  => 'edit_theme_options',
 		)

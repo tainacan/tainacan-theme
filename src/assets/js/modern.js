@@ -1,5 +1,5 @@
 /**
- * Small behaviors of the design of version 4: the field that finds a collection,
+ * Small behaviors of the new design: the field that finds a collection,
  * "Surprise me", the number of fields of each metadata section, the short values
  * of the record as capsules and the "How to cite" tabs.
  */

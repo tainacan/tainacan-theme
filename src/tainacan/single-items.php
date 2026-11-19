@@ -34,7 +34,7 @@ get_header();
 
 							echo '<div class="single-item-data-section">';
 
-						switch ( get_theme_mod( 'tainacan_single_item_layout_sections_order', 'document-attachments-metadata' ) ) {
+						switch ( tainacan_interface_item_sections_order() ) {
 							case 'document-attachments-metadata':
 								get_template_part( 'template-parts/single-items-document' );
 								do_action( 'tainacan-interface-single-item-after-document' );

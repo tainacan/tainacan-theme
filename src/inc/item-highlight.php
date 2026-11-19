@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Whether the highlight is on. Theme mod in the Customizer, plus a filter; the
- * design of version 4 is built on it.
+ * new design is built on it.
  *
  * @return bool
  */

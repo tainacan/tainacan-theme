@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.4.9
+Stable tag: 2.11.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -14,7 +14,7 @@ A highly adjustable theme for digital collections with Tainacan: headers, cards,
 
 This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries, and anyone who has a digital repository.
 
-Version 4 brings a new design, with almost everything adjustable in Appearance > Customize > Tainacan Interface, and leaves Bootstrap behind:
+Version 2.11 brings a new design, with almost everything adjustable in Appearance > Customize > Tainacan Interface, and leaves Bootstrap behind:
 
 * collection header with four layouts, banner and icon that can come from the items themselves;
 * breadcrumb as a capsule, list of all the collections as cards, item preview over the list;
@@ -24,45 +24,21 @@ Version 4 brings a new design, with almost everything adjustable in Appearance >
 
 There is one design: a site updated from an earlier version gets it at once, and an administrator is told where to adjust it. Child themes keep working: the template parts, hooks, script and style handles and the class names of the grid stay.
 
-Version 3 added, each with its own switch in Appearance > Customize:
+It also adds, each with its own switch in Appearance > Customize:
 
 * an item preview drawer on the lists, in every view mode;
 * a file viewer on the item page (images with zoom, video, audio) and a PDF reader in the page instead of the browser's;
 * a highlighted item record;
 * a side column of related items beside the metadata (by relationship metadata and by shared terms).
 
-Version 3 also fixed the security problems of 2.10.0 and ships the Roboto font instead of loading it from Google Fonts. Child themes, Customizer settings, actions and CSS classes of 2.x keep working.
+It also fixes the security problems of 2.10.0 and ships the Roboto font instead of loading it from Google Fonts. Child themes, Customizer settings, actions and CSS classes of 2.x keep working.
 
 For more information about Tainacan and Tainacan Interface please go to http://tainacan.org
 
 == Upgrade Notice ==
 
-= 4.4.0 =
-A new title at the top of the blog, posts, pages, searches and archives, in three styles. A child theme that copied template-parts/loop.php or loop-singular.php keeps its own title.
-
-= 4.3.0 =
-The earlier look is gone, with the old Bootstrap rules and jQuery: every site uses the design of version 4. Review a child theme that relied on Bootstrap's scripts or on jQuery without declaring it.
-
-= 4.2.1 =
-New options for typography, layout, buttons, fields, links, the header, social networks, the footer, posts, pages and the back to top button. The modern design no longer loads jQuery.
-
-= 4.1.0 =
-Every option of the Customizer now reaches the page and the preview. Security fix: the name of a collection could run a script in a menu. Password protected items show the form.
-
-= 4.0.0 =
-New design, off on updated sites until you choose it in Appearance > Customize. Bootstrap was removed: the classes the theme used keep working, but a child theme that relies on Bootstrap's JavaScript, modal, carousel or tooltip must bring them itself.
-
-= 3.0.3 =
-Child themes: the 2.10.0 item record files of a child theme are used again and its own style.css is loaded; administrators are told about child theme copies of 2.10.0 templates with security flaws. Links in text are underlined and block tables have their borders back.
-
-= 3.0.2 =
-The filters panel of the lists in the look of the cards (with "Highlighted item record" on).
-
-= 3.0.1 =
-Security fixes in the item navigation.
-
-= 3.0.0 =
-Security fixes. New features (preview drawer, file viewer and PDF reader, highlighted record, related items column) come switched off on updated sites; turn them on in Appearance > Customize.
+= 2.11.0 =
+A new design, adjustable in Appearance > Customize: a site updated from 2.x gets it at once and an administrator is told where to adjust it. Review a child theme that relied on Bootstrap's scripts or on jQuery without declaring it. Security fixes of 2.10.0.
 
 == Copyright ==
 
@@ -87,9 +63,13 @@ Poppins (latin subset, from Fontsource) Copyright 2020 The Poppins Project Autho
 License: SIL Open Font License 1.1 (assets/fonts/poppins/OFL.txt)
 Source: https://github.com/itfoundry/Poppins
 
-Lora (latin subset, from Fontsource) Copyright 2011 The Lora Project Authors
+Lora (latin subset, variable, from Fontsource 5.3.0) Copyright 2011 The Lora Project Authors
 License: SIL Open Font License 1.1 (assets/fonts/lora/OFL.txt)
 Source: https://github.com/cyrealtype/Lora-Cyrillic
+
+Inter, Open Sans, Montserrat, Source Serif 4, Merriweather and Playfair Display (latin subset, variable, from Fontsource 5.3.0), each by its authors as named in its license file
+License: SIL Open Font License 1.1 (assets/fonts/<font>/OFL.txt)
+Source: https://fontsource.org
 
 Roboto (latin subset, from Fontsource 5.1.0) Copyright 2011 Google Inc.
 License: Apache License 2.0 (assets/fonts/roboto/LICENSE.txt)
@@ -128,6 +108,52 @@ Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
 facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 2.11.0 =
+* Release of the new design. The numbers 3.0.0 to 4.10.2 below were development builds that never reached the public; 2.11.0 contains all of them.
+* Migrations of a site are now counted in steps, not compared by version number.
+
+= 4.10.2 =
+* Fix: table view headers follow the metadata name size (were 0.75em of an already small font).
+
+= 4.10.1 =
+* Customizer pencils always open their option, without moving the preview.
+
+= 4.10.0 =
+* Size of each title level (H1 to H6) and of the names and values of the metadata; Records as the default view of the lists outside a collection.
+
+= 4.9.0 =
+* Item page: one "Layout" setting with five choices replaces the layout and the order of document and record, which could contradict each other; saved choices are converted.
+
+= 4.8.1 =
+* Small fixes to the "Show more" button and to the spacing of the taxonomies.
+
+= 4.8.0 =
+* Taxonomy page: tree and columns views, A–Z index, pages of 100 terms (the map and radial views were removed). List of collections: the taxonomies of the site below the collections.
+
+= 4.7.0 =
+* Size of the text of the record; edit shortcuts (pencil) on the areas of the theme in the Customizer; Customizer labels translated; collection search field from two collections on; clearer names and help for the panel, the profiles, the order of document and record and the image of the card.
+
+= 4.6.4 =
+* Terms explorer: room for the long labels of the radial view.
+
+= 4.6.3 =
+* Terms explorer: headings of the panel at their own size.
+
+= 4.6.2 =
+* Terms explorer: a page opened on a term shows that term in the middle of the screen.
+
+= 4.6.1 =
+* Terms explorer: translated counts, readable names on the map, uncluttered radial view of large flat taxonomies.
+
+= 4.6.0 =
+* The page of a taxonomy shows the whole hierarchy in three views, tree (default), map and radial, with a panel for the chosen term: its place in the hierarchy, description, counts, child terms and the first items. Replaces the cards, thumbnails and table views.
+
+= 4.5.1 =
+* The smaller titles follow the weight chosen for the titles.
+
+= 4.5.0 =
+* Choose the font and the weight of the body text and of the titles, with six more fonts shipped with the theme; choose whether the document and attachments come before or after the record, per site or per collection.
 
 = 4.4.9 =
 * Phone menu as a side panel opens at full height even when the site's own CSS blurs or transforms the header.

@@ -10,7 +10,7 @@
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '4.4.9';
+const TAINACAN_INTERFACE_VERSION = '2.11.0';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -447,6 +447,7 @@ require get_template_directory() . '/inc/page-title.php';
 require get_template_directory() . '/inc/settings.php';
 require get_template_directory() . '/inc/design.php';
 require get_template_directory() . '/inc/customizer-design.php';
+require get_template_directory() . '/inc/customizer-shortcuts.php';
 require get_template_directory() . '/functions/customizer.php';
 require get_template_directory() . '/functions/patterns.php';
 require get_template_directory() . '/functions/single-functions.php';
@@ -460,6 +461,7 @@ require get_template_directory() . '/inc/item-drawer.php';
 require get_template_directory() . '/inc/item-viewer.php';
 require get_template_directory() . '/inc/item-highlight.php';
 require get_template_directory() . '/inc/item-aside.php';
+require get_template_directory() . '/inc/terms-explorer.php';
 require get_template_directory() . '/inc/item-citation.php';
 require get_template_directory() . '/inc/collection-pages.php';
 require get_template_directory() . '/inc/nav-menus.php';

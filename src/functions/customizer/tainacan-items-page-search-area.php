@@ -264,6 +264,26 @@ if ( ! function_exists( 'tainacan_interface_customize_register_tainacan_items_pa
 }
 
 
+/**
+ * Records ("Fichas") as the default view of the lists of items that are not
+ * a collection (all items, items of a term), unless the site chose one in the
+ * Tainacan settings. Each collection keeps the default set on its own form.
+ *
+ * @param string $view_mode Default view mode.
+ * @return string
+ */
+function tainacan_interface_default_view_mode( $view_mode ) {
+	if ( false !== get_option( 'tainacan_option_default_view_mode', false ) ) {
+		return $view_mode;
+	}
+	if ( ! class_exists( '\Tainacan\Theme_Helper' ) ) {
+		return $view_mode;
+	}
+	$registered = \Tainacan\Theme_Helper::get_instance()->get_registered_view_modes();
+	return isset( $registered['records'] ) ? 'records' : $view_mode;
+}
+add_filter( 'tainacan-default-view-mode-for-themes', 'tainacan_interface_default_view_mode' );
+
 if ( ! function_exists( 'tainacan_get_default_view_mode_choices' ) ) {
 	/**
 	 * Retrieves the current registered view modes on Tainacan plugin and filter some options to offer as default
@@ -287,8 +307,9 @@ if ( ! function_exists( 'tainacan_get_default_view_mode_choices' ) ) {
 				}
 			}
 		} else {
-			$default_view_mode  = 'masonry';
+			$default_view_mode  = 'records';
 			$enabled_view_modes = array(
+				'records' => __( 'Records', 'tainacan-interface' ),
 				'masonry' => __( 'Masonry', 'tainacan-interface' ),
 				'cards'   => __( 'Cards', 'tainacan-interface' ),
 				'table'   => __( 'Table', 'tainacan-interface' ),

@@ -111,17 +111,8 @@ if ( ! function_exists( 'tainacan_interface_customize_register_tainacan_single_i
 						'sanitize_callback' => 'tainacan_sanitize_single_item_layout_sections_order',
 					)
 				);
-				$wp_customize->add_control(
-					'tainacan_single_item_layout_sections_order',
-					array(
-						'type'        => 'select',
-						'priority'    => 1, // Within the section.
-						'section'     => 'tainacan_single_item_page_general',
-						'label'       => __( 'Layout sections order.', 'tainacan-interface' ),
-						'description' => __( 'Display the document, attachments and metadata sections in different order.', 'tainacan-interface' ),
-						'choices'     => tainacan_get_single_item_layout_sections_order_options(),
-					)
-				);
+				// The control moved to "Order of the document and the record" (inc/settings.php),
+				// which can also differ per collection; this setting stays for sites that chose it in 2.x.
 
 				/**
 				 * Adds option to configure Item Navigation section label.

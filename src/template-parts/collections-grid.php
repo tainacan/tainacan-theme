@@ -41,7 +41,7 @@ if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 			<?php endif; ?>
 				<?php do_action( 'tainacan-interface-banner-header-description' ); ?>
 		</div>
-		<?php if ( tainacan_interface_opt( 'list_search' ) && count( $tainacan_interface_cards ) >= 7 ) : ?>
+		<?php if ( tainacan_interface_opt( 'list_search' ) && count( $tainacan_interface_cards ) >= 2 ) : ?>
 			<label class="tt2-collections-page__search">
 				<span class="screen-reader-text"><?php esc_html_e( 'Find a collection', 'tainacan-interface' ); ?></span>
 				<input type="search" data-tt2-collections-filter placeholder="<?php esc_attr_e( 'Find a collection', 'tainacan-interface' ); ?>">
@@ -116,4 +116,6 @@ if ( 'items' === tainacan_interface_opt( 'list_order' ) ) {
 		</ul>
 		<p class="tt2-collections-page__none" data-tt2-collections-none hidden></p>
 	<?php endif; ?>
+
+	<?php get_template_part( 'template-parts/collections-taxonomies' ); ?>
 </main>

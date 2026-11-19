@@ -35,7 +35,7 @@
 /* .label: the theme leaves headings with it out of its global h2/h3 sizes. */
 .tt2-aside__title { margin: 0; font-size: 1.05rem; font-weight: 700; }
 .tt2-aside__thread { min-width: 0; }
-.tt2-aside__label { margin: 0 0 8px; font-size: 0.92rem; font-weight: 600; line-height: 1.35; }
+.tt2-aside__label { margin: 0 0 8px; font-size: 0.92rem; font-weight: var(--tt2-heading-weight-sub, 600); line-height: 1.35; }
 .tt2-aside__label small { display: block; margin-top: 2px; font-weight: 400; color: #5d6669; font-size: 0.8rem; }
 .tt2-aside__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
 .tt2-aside__grid li { margin: 0; min-width: 0; }

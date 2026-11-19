@@ -1,6 +1,6 @@
 <?php
 /**
- * The Customizer of the design of version 4 at work: options that change the
+ * The Customizer of the new design at work: options that change the
  * preview without reloading it, options that stay out of the way when they would
  * do nothing, the warning about collections with their own value, and a preview
  * that goes to a page where the open section can be seen.
@@ -89,14 +89,46 @@ function tainacan_interface_live_options() {
 		'item_chips'         => array( 'prefix' => 'tt2-chips-' ),
 		'item_labels'        => array( 'prefix' => 'tt2-labels-' ),
 		'item_columns'       => array( 'prefix' => 'tt2-meta-columns-' ),
-		'item_layout'        => array( 'prefix' => 'tt2-item-layout-' ),
 		'header_sticky'      => array( 'flag' => 'tt2-header-is-sticky' ),
 		'list_full_width'    => array( 'flag' => 'tt2-lists-full' ),
 		'item_frame'         => array( 'flag' => 'tt2-doc-frame' ),
 		'heading_weight'     => array( 'vars' => array( '--tt2-heading-weight' ) ),
+		'body_weight'        => array( 'vars' => array( '--tt2-body-weight' ) ),
 		'heading_scale'      => array(
 			'vars'   => array( '--tt2-heading-scale' ),
 			'divide' => 100,
+		),
+		'h1_size'            => array(
+			'vars' => array( '--tt2-h1' ),
+			'unit' => 'px',
+		),
+		'h2_size'            => array(
+			'vars' => array( '--tt2-h2' ),
+			'unit' => 'px',
+		),
+		'h3_size'            => array(
+			'vars' => array( '--tt2-h3' ),
+			'unit' => 'px',
+		),
+		'h4_size'            => array(
+			'vars' => array( '--tt2-h4' ),
+			'unit' => 'px',
+		),
+		'h5_size'            => array(
+			'vars' => array( '--tt2-h5' ),
+			'unit' => 'px',
+		),
+		'h6_size'            => array(
+			'vars' => array( '--tt2-h6' ),
+			'unit' => 'px',
+		),
+		'item_label_size'    => array(
+			'vars' => array( '--tt2-meta-label' ),
+			'unit' => 'px',
+		),
+		'item_value_size'    => array(
+			'vars' => array( '--tt2-meta-value' ),
+			'unit' => 'px',
 		),
 		'heading_spacing'    => array(
 			'vars'   => array( '--tt2-heading-spacing' ),
@@ -374,7 +406,6 @@ function tainacan_interface_customizer_controls_script() {
 			'pins'     => tainacan_interface_collection_pins(),
 			'targets'  => tainacan_interface_preview_targets(),
 			'sections' => array(
-				'tainacan_interface_opt_breadcrumb'       => 'collection',
 				'tainacan_interface_opt_collection'       => 'collection',
 				'tainacan_interface_opt_collections'      => 'collections',
 				'tainacan_interface_opt_cards'            => 'collection',

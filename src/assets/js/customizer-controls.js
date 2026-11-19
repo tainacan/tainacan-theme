@@ -84,13 +84,24 @@
 		var kind = '';
 		api.previewer.bind('tt2-context', function (current) { kind = current; });
 
+		// A pencil in the preview opens the option of something already on the
+		// page: the preview stays where it is (core expands the section first,
+		// in the same message, so the check waits a tick).
+		var viaShortcut = false;
+		api.previewer.bind('focus-control-for-setting', function () {
+			viaShortcut = true;
+			setTimeout(function () { viaShortcut = false; }, 400);
+		});
+
 		Object.keys(cfg.sections).forEach(function (id) {
 			api.section(id, function (section) {
 				section.expanded.bind(function (open) {
-					var wanted = cfg.sections[id];
-					if (open && kind !== wanted && cfg.targets[wanted]) {
-						api.previewer.previewUrl.set(cfg.targets[wanted]);
-					}
+					setTimeout(function () {
+						var wanted = cfg.sections[id];
+						if (open && !viaShortcut && kind !== wanted && cfg.targets[wanted]) {
+							api.previewer.previewUrl.set(cfg.targets[wanted]);
+						}
+					}, 0);
 				});
 			});
 		});

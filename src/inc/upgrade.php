@@ -10,7 +10,7 @@
  *   administrator is offered the settings of a Tainacan Interface derivative the
  *   site was using (Tainacan Acervo, for example);
  * - update in place: the settings of the working name of 2.x are renamed, the
- *   choice of the earlier look is forgotten (there is one design from 4.3) and
+ *   choice of the earlier look is forgotten (there is one design) and
  *   the administrators get a notice saying where to adjust the design.
  *
  * @package tainacan-interface
@@ -21,6 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 const TAINACAN_INTERFACE_STATE_OPTION = 'tainacan_interface';
+
+/**
+ * Last migration step of the theme. Steps, not version numbers, say what a
+ * site still needs: the numbering went back from 4.x to 2.11, so comparing
+ * versions would run old steps again on every update.
+ */
+const TAINACAN_INTERFACE_MIGRATION_STEP = 2;
 
 /**
  * What the theme keeps about the site, all in one option: the version it last
@@ -100,6 +107,9 @@ function tainacan_interface_state_set( $key, $value ) {
  */
 function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) {
 	unset( $old_name );
+	// A site that had the theme before keeps the steps it still lacks; the next request runs them.
+	$previous = tainacan_interface_state( 'version' );
+	tainacan_interface_state_set( 'migration', false === $previous ? TAINACAN_INTERFACE_MIGRATION_STEP : tainacan_interface_migration_step( $previous ) );
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 	// An undo offered before another theme was active would put back settings older than what the site has now.
 	tainacan_interface_state_set( 'pending_import', null );
@@ -302,13 +312,37 @@ function tainacan_interface_dismiss_import() {
 add_action( 'admin_post_tainacan_interface_dismiss_import', 'tainacan_interface_dismiss_import' );
 
 /**
+ * Migration step a site has reached. Sites from before the steps existed
+ * are placed by the version they last saw (3.x and 4.x development builds).
+ *
+ * @param string|false $seen Version the site last saw, false for none.
+ * @return int
+ */
+function tainacan_interface_migration_step( $seen ) {
+	$step = tainacan_interface_state( 'migration' );
+	if ( false !== $step ) {
+		return (int) $step;
+	}
+	if ( false === $seen ) {
+		return 0;
+	}
+	if ( version_compare( (string) $seen, '4.9.0', '>=' ) ) {
+		return 2;
+	}
+	if ( version_compare( (string) $seen, '4.3.0', '>=' ) ) {
+		return 1;
+	}
+	return 0;
+}
+
+/**
  * Update in place: the first request after the folder was replaced. Runs
  * after check_theme_switched() (init, 99), so an activation is already
  * recorded when this looks.
  */
 function tainacan_interface_on_update() {
 	$seen = tainacan_interface_state( 'version' );
-	if ( TAINACAN_INTERFACE_VERSION === $seen ) {
+	if ( TAINACAN_INTERFACE_VERSION === $seen && (int) tainacan_interface_state( 'migration', 0 ) >= TAINACAN_INTERFACE_MIGRATION_STEP ) {
 		return;
 	}
 
@@ -330,17 +364,96 @@ function tainacan_interface_on_update() {
 		}
 	}
 
-	// Up to 4.2 a site could stay on the earlier look; from 4.3 there is one design.
-	if ( false === $seen || version_compare( (string) $seen, '4.3.0', '<' ) ) {
+	$step = tainacan_interface_migration_step( $seen );
+
+	// Step 1 (was 4.3.0): a site could stay on the earlier look; now there is one design.
+	if ( $step < 1 ) {
 		remove_theme_mod( 'tainacan_interface_design' );
 		tainacan_interface_state_set( 'design_notice', 1 );
 		tainacan_interface_state_set( 'features_notice', null );
 	}
 
+	// Step 2 (was 4.9.0): the order of document and record became part of the layout.
+	if ( $step < 2 && false !== $seen ) {
+		tainacan_interface_merge_item_order();
+	}
+
+	tainacan_interface_state_set( 'migration', TAINACAN_INTERFACE_MIGRATION_STEP );
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 	delete_option( $lock );
 }
 add_action( 'init', 'tainacan_interface_on_update', 100 );
+
+/**
+ * Layout that shows what a page showed with a layout and an order of 4.8.
+ *
+ * @param string $layout Layout of 4.8 (stacked, media-left, media-right).
+ * @param string $order  Order: 4.5 key or 2.x value.
+ * @return string Layout of 4.9.
+ */
+function tainacan_interface_layout_for_order( $layout, $order ) {
+	if ( in_array( $layout, array( 'media-left', 'media-right' ), true ) ) {
+		return $layout;
+	}
+	$map = array(
+		'document-record'               => 'stacked-split',
+		'record-first'                  => 'stacked-record',
+		'document-metadata-attachments' => 'stacked-split',
+		'metadata-document-attachments' => 'stacked-record',
+	);
+	return isset( $map[ $order ] ) ? $map[ $order ] : 'stacked';
+}
+
+/**
+ * Converts the separate "order of the document and the record" (4.5 to 4.8,
+ * and the 2.x "sections order") into the layout, for the site and for each
+ * collection, so every item page keeps the order it had; removes the old values.
+ */
+function tainacan_interface_merge_item_order() {
+	$site_order = (string) get_theme_mod( 'tainacan_interface_item_order', '' );
+	if ( '' === $site_order ) {
+		$site_order = (string) get_theme_mod( 'tainacan_single_item_layout_sections_order', '' );
+	}
+	$site_old = (string) get_theme_mod( 'tainacan_interface_item_layout', '' );
+	$site_old = '' !== $site_old ? $site_old : 'stacked';
+	$site_new = tainacan_interface_layout_for_order( $site_old, $site_order );
+	if ( $site_new !== $site_old ) {
+		set_theme_mod( 'tainacan_interface_item_layout', $site_new );
+	}
+	remove_theme_mod( 'tainacan_interface_item_order' );
+
+	// Every collection with its own layout or order: what its pages showed, with what it inherited.
+	$collections = get_posts(
+		array(
+			'post_type'      => 'tainacan-collection',
+			'post_status'    => 'any',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_query_meta_query -- one-time conversion on update.
+				'relation' => 'OR',
+				array(
+					'key'     => 'tainacan_interface_opt_item_order',
+					'compare' => 'EXISTS',
+				),
+				array(
+					'key'     => 'tainacan_interface_opt_item_layout',
+					'compare' => 'EXISTS',
+				),
+			),
+		)
+	);
+	foreach ( $collections as $collection_id ) {
+		$own_layout = (string) get_post_meta( $collection_id, 'tainacan_interface_opt_item_layout', true );
+		$own_order  = (string) get_post_meta( $collection_id, 'tainacan_interface_opt_item_order', true );
+		$shown      = tainacan_interface_layout_for_order( '' !== $own_layout ? $own_layout : $site_old, '' !== $own_order ? $own_order : $site_order );
+		if ( '' !== $own_layout || $shown !== $site_new ) {
+			if ( $shown !== $own_layout ) {
+				update_post_meta( $collection_id, 'tainacan_interface_opt_item_layout', $shown );
+			}
+		}
+		delete_post_meta( $collection_id, 'tainacan_interface_opt_item_order' );
+	}
+}
 
 /**
  * Theme mods of the 2.x working name (tema_tainacan_*) under their 3.0 names.

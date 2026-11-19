@@ -14,7 +14,7 @@ get_header();
 	<?php
 	tainacan_the_faceted_search(
 		array(
-			'default_view_mode'                         => get_theme_mod( 'tainacan_items_repository_list_default_view_mode', get_option( 'tainacan_option_default_view_mode', 'masonry' ) ),
+			'default_view_mode'                         => get_theme_mod( 'tainacan_items_repository_list_default_view_mode', tainacan_get_default_view_mode_choices()['default_view_mode'] ),
 			'default_items_per_page'                    => get_theme_mod( 'tainacan_items_page_default_items_per_page', 12 ),
 			'hide_filters'                              => get_theme_mod( 'tainacan_items_page_hide_filters', false ),
 			'hide_hide_filters_button'                  => get_theme_mod( 'tainacan_items_page_hide_hide_filters_button', false ),

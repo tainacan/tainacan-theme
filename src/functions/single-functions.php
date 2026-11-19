@@ -459,3 +459,22 @@ function tainacan_get_source_item_list_url() {
 
 	return empty( $args ) ? $base : $base . '?' . http_build_query( $args );
 }
+
+/**
+ * Order of the document, the attachments and the record on the item page,
+ * from the "Layout" setting (site or collection). Since 4.9 the layout holds
+ * the order too; 4.9.0 converted the earlier separate "order" setting.
+ *
+ * @return string One of document-attachments-metadata, document-metadata-attachments, metadata-document-attachments.
+ */
+function tainacan_interface_item_sections_order() {
+	$orders = array(
+		'stacked'        => 'document-attachments-metadata',
+		'stacked-split'  => 'document-metadata-attachments',
+		'stacked-record' => 'metadata-document-attachments',
+		'media-left'     => 'document-attachments-metadata',
+		'media-right'    => 'metadata-document-attachments',
+	);
+	$layout = (string) tainacan_interface_opt( 'item_layout' );
+	return isset( $orders[ $layout ] ) ? $orders[ $layout ] : $orders['stacked'];
+}
