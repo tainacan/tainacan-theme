@@ -11,6 +11,34 @@ function tainacan_interface_extra_viewmodes( $public_query_vars ) {
 }
 add_filter( 'query_vars', 'tainacan_interface_extra_viewmodes' );
 
+/**
+ * Normalizes the public query vars of the Tainacan terms list before anyone
+ * reads them. The terms query is built by the plugin from these vars
+ * (offset = (termspaged - 1) * perpage), so ?termspaged=abc ended in a
+ * TypeError (HTTP 500) on PHP 8 before the theme printed anything, and the
+ * pagination links divided by the raw perpage. Fixed here, where WordPress
+ * parses the request, every reader gets integers.
+ *
+ * @param array $query_vars Parsed query vars.
+ * @return array
+ */
+function tainacan_interface_sanitize_terms_query_vars( $query_vars ) {
+	if ( isset( $query_vars['termspaged'] ) ) {
+		$query_vars['termspaged'] = max( 1, absint( $query_vars['termspaged'] ) );
+	}
+	if ( isset( $query_vars['perpage'] ) ) {
+		$query_vars['perpage'] = min( 96, max( 1, absint( $query_vars['perpage'] ) ) );
+	}
+	if ( isset( $query_vars['termsparent'] ) ) {
+		$query_vars['termsparent'] = absint( $query_vars['termsparent'] );
+	}
+	if ( isset( $query_vars['search'] ) && is_string( $query_vars['search'] ) ) {
+		$query_vars['search'] = sanitize_text_field( wp_unslash( $query_vars['search'] ) );
+	}
+	return $query_vars;
+}
+add_filter( 'request', 'tainacan_interface_sanitize_terms_query_vars' );
+
 function tainacan_active( $selected, $current = true, $echo = true ) {
 	$return = $selected == $current ? 'active' : '';
 
