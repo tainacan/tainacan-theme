@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.0
+Stable tag: 2.12.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -108,6 +108,15 @@ Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
 facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 2.12.2 =
+* Collection panel: the reset button of a color shows only when the collection has its own color.
+
+= 2.12.1 =
+* Fixes from the review of the collection panel: migration waits for Tainacan, three-digit colors, unique ids in the drawings.
+
+= 2.12.0 =
+* Collection form: a single panel with pictures of each choice, "As the site" first, in the colors of the collection; the two settings of the metadata sections became one.
 
 = 2.11.0 =
 * Release of the new design. The numbers 3.0.0 to 4.10.2 below were development builds that never reached the public; 2.11.0 contains all of them.

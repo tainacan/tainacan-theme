@@ -39,6 +39,24 @@
                     "fontFace": [
                         {
                             "fontFamily": "Roboto",
+                            "fontWeight": "300",
+                            "fontStyle": "normal",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-300-normal.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
+                            "fontWeight": "300",
+                            "fontStyle": "italic",
+                            "fontDisplay": "swap",
+                            "src": [
+                                "file:./assets/fonts/roboto/roboto-latin-300-italic.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Roboto",
                             "fontWeight": "400",
                             "fontStyle": "normal",
                             "fontDisplay": "swap",

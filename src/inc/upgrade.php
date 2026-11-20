@@ -27,7 +27,14 @@ const TAINACAN_INTERFACE_STATE_OPTION = 'tainacan_interface';
  * site still needs: the numbering went back from 4.x to 2.11, so comparing
  * versions would run old steps again on every update.
  */
-const TAINACAN_INTERFACE_MIGRATION_STEP = 2;
+const TAINACAN_INTERFACE_MIGRATION_STEP = 3;
+
+/**
+ * Last step that only concerns a site updated in place (the look of 4.2, the
+ * order of the item of 4.8). Steps after it convert data any site may have,
+ * so an activation starts after this one and runs the rest.
+ */
+const TAINACAN_INTERFACE_MIGRATION_IN_PLACE = 2;
 
 /**
  * What the theme keeps about the site, all in one option: the version it last
@@ -109,7 +116,7 @@ function tainacan_interface_on_activation( $old_name = '', $old_theme = false ) 
 	unset( $old_name );
 	// A site that had the theme before keeps the steps it still lacks; the next request runs them.
 	$previous = tainacan_interface_state( 'version' );
-	tainacan_interface_state_set( 'migration', false === $previous ? TAINACAN_INTERFACE_MIGRATION_STEP : tainacan_interface_migration_step( $previous ) );
+	tainacan_interface_state_set( 'migration', false === $previous ? TAINACAN_INTERFACE_MIGRATION_IN_PLACE : tainacan_interface_migration_step( $previous ) );
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 	// An undo offered before another theme was active would put back settings older than what the site has now.
 	tainacan_interface_state_set( 'pending_import', null );
@@ -342,7 +349,8 @@ function tainacan_interface_migration_step( $seen ) {
  */
 function tainacan_interface_on_update() {
 	$seen = tainacan_interface_state( 'version' );
-	if ( TAINACAN_INTERFACE_VERSION === $seen && (int) tainacan_interface_state( 'migration', 0 ) >= TAINACAN_INTERFACE_MIGRATION_STEP ) {
+	// Same version: only a step that waits for Tainacan (step 3) brings this back, once Tainacan is active.
+	if ( TAINACAN_INTERFACE_VERSION === $seen && ( (int) tainacan_interface_state( 'migration', 0 ) >= TAINACAN_INTERFACE_MIGRATION_STEP || ! post_type_exists( 'tainacan-collection' ) ) ) {
 		return;
 	}
 
@@ -378,7 +386,13 @@ function tainacan_interface_on_update() {
 		tainacan_interface_merge_item_order();
 	}
 
-	tainacan_interface_state_set( 'migration', TAINACAN_INTERFACE_MIGRATION_STEP );
+	// Step 3 (2.12.0): the layout of the metadata sections and the open panels became one setting.
+	$reached = TAINACAN_INTERFACE_MIGRATION_STEP;
+	if ( $step < 3 && ! tainacan_interface_migrate_sections() ) {
+		$reached = 2;
+	}
+
+	tainacan_interface_state_set( 'migration', max( $step, $reached ) );
 	tainacan_interface_state_set( 'version', TAINACAN_INTERFACE_VERSION );
 	delete_option( $lock );
 }

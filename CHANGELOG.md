@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.12.2 (2026-11-19)
+
+- Collection panel: "Use the site's" stays hidden while the color is the site's (the admin of Tainacan forces the display of buttons).
+
+## 2.12.1 (2026-11-19)
+
+- Review of 2.12.0: migration step 3 waits for Tainacan when it is not active (it used to count as done with nothing converted); colors of three digits are saved and shown as six; the drawings no longer repeat an SVG id; the step an activation starts from is a named constant.
+
+## 2.12.0 (2026-11-19)
+
+### Changed
+
+- **Collection form: one panel, "Look of this collection on the site"** (`inc/collection-form.php`), in place of the 2.x "extra settings" block and the list of selects of the new design. Four groups that open and close (Colors, Header, List of items, Item page), each with a badge saying whether the collection follows the site or how many settings it changes. Every choice is a small drawing of the result, in the colors of the collection; the first one is always "As the site" and says what the site uses today. Colors have a picker, the code and "Use the site's". Each group links to its section of the Customizer.
+- **Metadata sections: one setting.** The 2.x layout (default, tabs, collapses, accordion) and "which panels start open" became one list: panels with the first one open, all open or all closed, tabs, accordion. It writes both former settings, so the item page did not change. Migration step 3 converts the collections that had either; the 2.x "collapses" becomes panels with the first one open (what it showed).
+
+### Removed
+
+- `functions/class-tainacan-interface-collection-settings.php`, `assets/css/collection-extra-options.css` and the four `section_*.png` pictures. `tainacan_interface_section_layout()` moved to `inc/collection-form.php`.
+
 ## 2.11.0 (2026-11-19)
 
 Public release of the new design. Versions 3.0.0 to 4.10.2 below were development builds, never published; 2.11.0 contains all of them and continues the numbering of the official 2.x (2.10.0).

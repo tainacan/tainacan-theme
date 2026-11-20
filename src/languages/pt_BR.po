@@ -3556,3 +3556,142 @@ msgstr "Tamanho dos valores dos metadados (px)"
 
 msgid "Records"
 msgstr "Fichas"
+
+#: inc/collection-form.php
+#, php-format
+msgid "%d changes in this collection"
+msgstr "%d ajustes nesta coleção"
+
+#: inc/collection-form.php
+msgid "1 change in this collection"
+msgstr "1 ajuste nesta coleção"
+
+#: inc/collection-form.php
+msgid "Accordion, one at a time"
+msgstr "Sanfona, uma de cada vez"
+
+#: inc/collection-form.php
+#, php-format
+msgid "As the site (%s)"
+msgstr "Como no site (%s)"
+
+#: inc/collection-form.php
+msgid "Centered"
+msgstr "Centralizado"
+
+#: inc/collection-form.php
+msgid "Change it for the whole site"
+msgstr "Mudar para o site inteiro"
+
+#: inc/collection-form.php
+msgid "Colors"
+msgstr "Cores"
+
+#: inc/collection-form.php
+msgid "Document on the left"
+msgstr "Documento à esquerda"
+
+#: inc/collection-form.php
+msgid "Document on the right"
+msgstr "Documento à direita"
+
+#: inc/collection-form.php
+msgid "Document on top"
+msgstr "Documento em cima"
+
+#: inc/collection-form.php
+msgid "Document, record, attachments"
+msgstr "Documento, ficha, anexos"
+
+#: inc/collection-form.php
+msgid "Each part starts as the whole site is set in Appearance > Customize. Pick another picture only where this collection should be different."
+msgstr "Cada parte começa como o site inteiro está em Aparência > Personalizar. Escolha outra figura só onde esta coleção deve ser diferente."
+
+#: inc/collection-form.php
+msgid "Go to the item page"
+msgstr "Ir para a página do item"
+
+#: inc/collection-form.php
+msgid "Header image"
+msgstr "Imagem de cabeçalho"
+
+#: inc/collection-form.php
+msgid "How the groups of metadata of the record are shown. Sections are created in the metadata of the collection."
+msgstr "Como os grupos de metadados da ficha aparecem. As seções são criadas nos metadados da coleção."
+
+#: inc/collection-form.php
+msgid "Image or mosaic"
+msgstr "Imagem ou mosaico"
+
+#: inc/collection-form.php
+msgid "List of items"
+msgstr "Lista de itens"
+
+#: inc/collection-form.php
+msgid "Look of this collection on the site"
+msgstr "Aparência desta coleção no site"
+
+#: inc/collection-form.php
+msgid "Metadata sections"
+msgstr "Seções de metadados"
+
+#: inc/collection-form.php
+msgid "Mosaic of items"
+msgstr "Mosaico de itens"
+
+#: inc/collection-form.php
+msgid "No menu"
+msgstr "Sem menu"
+
+#: inc/collection-form.php
+msgid "Panels, all closed"
+msgstr "Painéis, todos fechados"
+
+#: inc/collection-form.php
+msgid "Panels, all open"
+msgstr "Painéis, todos abertos"
+
+#: inc/collection-form.php
+msgid "Panels, the first one open"
+msgstr "Painéis, o primeiro aberto"
+
+#: inc/collection-form.php
+msgid "Preview beside the list"
+msgstr "Prévia ao lado da lista"
+
+#: inc/collection-form.php
+msgid "Preview over the list"
+msgstr "Prévia sobre a lista"
+
+#: inc/collection-form.php
+msgid "Record on top"
+msgstr "Ficha em cima"
+
+#: inc/collection-form.php
+msgid "Show the menu"
+msgstr "Mostrar o menu"
+
+#: inc/collection-form.php
+msgid "The top of the items page: banner, icon, description and menu."
+msgstr "O topo da página de itens: banner, ícone, descrição e menu."
+
+#: inc/collection-form.php
+msgid "Titles, links and buttons of the pages of this collection."
+msgstr "Títulos, links e botões das páginas desta coleção."
+
+#: inc/collection-form.php
+msgid "What a click on an item of the list does."
+msgstr "O que um clique num item da lista faz."
+
+#: inc/collection-form.php
+msgid "Where the document and the record go, and how the metadata sections are shown."
+msgstr "Onde ficam o documento e a ficha, e como aparecem as seções de metadados."
+
+#: inc/collection-form.php
+#, php-format
+msgid "today: %s"
+msgstr "hoje: %s"
+
+#: inc/collection-form.php
+msgid "Use the site's"
+msgstr "Usar a do site"

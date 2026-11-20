@@ -3311,3 +3311,142 @@ msgstr ""
 #: inc/settings.php:968
 msgid "Record, then document and attachments"
 msgstr ""
+
+#: inc/collection-form.php
+#, php-format
+msgid "%d changes in this collection"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "1 change in this collection"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Accordion, one at a time"
+msgstr ""
+
+#: inc/collection-form.php
+#, php-format
+msgid "As the site (%s)"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Centered"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Change it for the whole site"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Colors"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Document on the left"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Document on the right"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Document on top"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Document, record, attachments"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Each part starts as the whole site is set in Appearance > Customize. Pick another picture only where this collection should be different."
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Go to the item page"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Header image"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "How the groups of metadata of the record are shown. Sections are created in the metadata of the collection."
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Image or mosaic"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "List of items"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Look of this collection on the site"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Metadata sections"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Mosaic of items"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "No menu"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Panels, all closed"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Panels, all open"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Panels, the first one open"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Preview beside the list"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Preview over the list"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Record on top"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Show the menu"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "The top of the items page: banner, icon, description and menu."
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Titles, links and buttons of the pages of this collection."
+msgstr ""
+
+#: inc/collection-form.php
+msgid "What a click on an item of the list does."
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Where the document and the record go, and how the metadata sections are shown."
+msgstr ""
+
+#: inc/collection-form.php
+#, php-format
+msgid "today: %s"
+msgstr ""
+
+#: inc/collection-form.php
+msgid "Use the site's"
+msgstr ""
