@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template for single pages.
+ *
+ * @package tainacan-interface
+ */
+
+get_header();
+?>
 
 <!-- Get the banner to display -->
 <?php get_template_part( 'template-parts/bannerheader' ); ?>

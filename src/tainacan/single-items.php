@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template for a single Tainacan item.
+ *
+ * @package tainacan-interface
+ */
+
+get_header();
+?>
 
 <main class="mt-5 max-large margin-one-column">
 	<div class="row">
@@ -7,8 +15,18 @@
 
 				<?php do_action( 'tainacan-interface-single-item-top' ); ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-					<article role="article" id="post_<?php the_ID()?>" <?php post_class()?>>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+
+					// A password protected item shows the form instead of its metadata and files.
+					if ( post_password_required() ) :
+						// tnc-check-ignore TNC-S05: markup built by the core, which escapes each value.
+						echo get_the_password_form(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup built by the core, which escapes each value; there is no safe variant of it.
+						continue;
+					endif;
+					?>
+					<article role="article" id="post_<?php the_ID(); ?>" <?php post_class(); ?>>
 						
 						<?php
 							get_template_part( 'template-parts/single-items-header' );
@@ -16,47 +34,46 @@
 
 							echo '<div class="single-item-data-section">';
 
-							switch (get_theme_mod( 'tainacan_single_item_layout_sections_order', 'document-attachments-metadata')) {
-								case 'document-attachments-metadata':
-									get_template_part( 'template-parts/single-items-document' );
-									do_action( 'tainacan-interface-single-item-after-document' );  
-					
-									get_template_part( 'template-parts/single-items-attachments' );
-									do_action( 'tainacan-interface-single-item-after-attachments' );
-									
-									get_template_part( 'template-parts/single-items-metadata' );
-									do_action( 'tainacan-interface-single-item-after-metadata' );
+						switch ( tainacan_interface_item_sections_order() ) {
+							case 'document-attachments-metadata':
+								get_template_part( 'template-parts/single-items-document' );
+								do_action( 'tainacan-interface-single-item-after-document' );
+
+								get_template_part( 'template-parts/single-items-attachments' );
+								do_action( 'tainacan-interface-single-item-after-attachments' );
+
+								tainacan_interface_the_item_metadata();
 								break;
 
-								case 'metadata-document-attachments':
-									get_template_part( 'template-parts/single-items-metadata' );
-									do_action( 'tainacan-interface-single-item-after-metadata' );
+							case 'metadata-document-attachments':
+								tainacan_interface_the_item_metadata();
 
-									get_template_part( 'template-parts/single-items-document' );
-									do_action( 'tainacan-interface-single-item-after-document' );  
-					
-									get_template_part( 'template-parts/single-items-attachments' );
-									do_action( 'tainacan-interface-single-item-after-attachments' );
+								get_template_part( 'template-parts/single-items-document' );
+								do_action( 'tainacan-interface-single-item-after-document' );
+
+								get_template_part( 'template-parts/single-items-attachments' );
+								do_action( 'tainacan-interface-single-item-after-attachments' );
 								break;
 
-								case 'document-metadata-attachments':
-									get_template_part( 'template-parts/single-items-document' );
-									do_action( 'tainacan-interface-single-item-after-document' );
+							case 'document-metadata-attachments':
+								get_template_part( 'template-parts/single-items-document' );
+								do_action( 'tainacan-interface-single-item-after-document' );
 
-									get_template_part( 'template-parts/single-items-metadata' );
-									do_action( 'tainacan-interface-single-item-after-metadata' );  
-					
-									get_template_part( 'template-parts/single-items-attachments' );
-									do_action( 'tainacan-interface-single-item-after-attachments' );
+								tainacan_interface_the_item_metadata();
+
+								get_template_part( 'template-parts/single-items-attachments' );
+								do_action( 'tainacan-interface-single-item-after-attachments' );
 								break;
-									
-							}
+
+						}
 
 							echo '</div>';
 						?>
 
-						<?php get_template_part( 'template-parts/single-items-related-items' );
-							  do_action( 'tainacan-interface-single-item-after-reated-items' ); ?>
+						<?php
+						get_template_part( 'template-parts/single-items-related-items' );
+								do_action( 'tainacan-interface-single-item-after-reated-items' );
+						?>
 
 						<?php get_template_part( 'template-parts/single-items-navigation' ); ?>
 
@@ -68,16 +85,10 @@
 				<?php do_action( 'tainacan-interface-single-item-bottom' ); ?>
 
 			<?php else : ?>
-				<?php _e( 'Nothing found', 'tainacan-interface' ); ?>
+				<?php esc_html_e( 'Nothing found', 'tainacan-interface' ); ?>
 			<?php endif; ?>
 		</div>
 	</div><!-- /.row -->
 </main>
 
 <?php get_footer(); ?>
-
-<script>
-	jQuery('#topNavbar').addClass('b-bottom-top');
-	jQuery('nav.menu-belowheader').removeClass('border-bottom');
-	jQuery('nav.menu-belowheader .max-large').addClass('b-bottom-bellow');
-</script>
