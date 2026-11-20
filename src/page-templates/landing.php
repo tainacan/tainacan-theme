@@ -1,4 +1,13 @@
-<?php /* Template Name: Landing */ ?>
+<?php
+/**
+ * Template Name: Landing
+ *
+ * Page template without a sidebar.
+ *
+ * @package tainacan-interface
+ */
+
+?>
 
 <?php get_header(); ?>
 

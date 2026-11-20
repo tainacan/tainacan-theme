@@ -1,9 +1,11 @@
 /*
 Theme Name: Tainacan Interface
 Author: Tainacan
+Author URI: https://tainacan.org
 Theme URI: https://tainacan.org
-Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish you digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who have a digital repository.
-Version: 2.10.0
+Description: This is the default theme for the Tainacan project. Use this in conjunction with Tainacan plugin to easily manage and publish your digital collections with a beautiful faceted search interface. Ideal for museums, galleries, libraries and anyone who has a digital repository. Version 2.11 brings a new, highly adjustable design for collections, lists and items, menus for each collection and no dependency on Bootstrap; each feature has its own switch.
+Version: 2.15.2
+Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
 License: GPLv3 or later
@@ -14,7 +16,10 @@ Text Domain: tainacan-interface
 
 @import '_variables';
 
-:where(:not(.has-link-color)) a:not(.has-link-color):not(.wp-block-button__link) {
+// The colour of links weighs as one element (0,0,1): a component that colours its own link with a class,
+// such as a white label on a coloured button, wins. With the :not() outside :where() it weighed (0,2,1)
+// and painted those labels in the link colour (blue on blue in the preview drawer of TainacanBiblio).
+:where(:not(.has-link-color)) a:where(:not(.has-link-color):not(.wp-block-button__link)) {
     color: var(--tainacan-interface--link-color, #187181);
     &:hover{
         color: var(--tainacan-interface--link-color, #187181);
@@ -524,7 +529,7 @@ body.loading-content main:before {
     transition: all 0.3s ease;
     z-index: 99;
     animation: appear-from-bottom 0.2s ease;
-    &:focus, &:active {
+    &:focus:not(:focus-visible), &:active {
         outline: none;
     }
     i {
@@ -814,8 +819,11 @@ nav {
             }
         }
     }
+    // Only the theme's menu bar: a navigation block or a plugin menu keeps its own look on phones.
     @media only screen and (max-width: 768px) {
-        border-bottom: 1px solid #a5a5a5;
+        &.navbar {
+            border-bottom: 1px solid #a5a5a5;
+        }
     }
     &[aria-label='breadcrumb']{
         border-bottom: 1px solid #a5a5a5;
@@ -945,6 +953,7 @@ nav {
 
     .navbar-toggler {
         outline: none;
+        &:focus-visible { outline: 2px solid currentColor; }
 
         .tainacan-icon-close { display: block; }
         .tainacan-icon-menu { display: none; }
@@ -1344,3 +1353,26 @@ nav {
 @import "_tainacan-terms-list";
 
 @import "_rich-text";
+
+/* Hidden until reached with the keyboard. */
+.screen-reader-text {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+.skip-link:focus {
+    z-index: 100000;
+    top: 8px;
+    left: 8px;
+    width: auto;
+    height: auto;
+    padding: 10px 18px;
+    clip-path: none;
+    color: #111;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+#main-content:focus { outline: none; }

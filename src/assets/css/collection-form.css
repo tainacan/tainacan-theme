@@ -1,0 +1,596 @@
+/*
+ * Tainacan Interface: the panel "Look of this collection on the site" on the
+ * collection form of Tainacan (inc/collection-form.php).
+ */
+
+.tt2-cform {
+	--tt2f-brand: #1c355e;
+	--tt2f-accent: #5b4fcf;
+	--tt2f-line: #dfe3ea;
+	--tt2f-soft: #eef1f6;
+	--tt2f-muted: #c4cbd6;
+	--tt2f-text: #454f5e;
+	--tt2f-focus: #187181;
+	margin: 0 0 0.5rem;
+}
+
+.tt2-cform__head h4 {
+	margin: 0 0 0.25rem;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--tt2f-focus);
+}
+
+.tt2-cform__head p {
+	margin: 0 0 0.75rem;
+	font-size: 0.8125rem;
+	line-height: 1.45;
+	color: var(--tt2f-text);
+}
+
+/* Groups */
+
+.tt2-cform__group {
+	border-top: 1px solid var(--tt2f-line);
+}
+
+.tt2-cform__group > summary {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.125rem 0.75rem;
+	padding: 0.75rem 1.75rem 0.75rem 0;
+	position: relative;
+	cursor: pointer;
+	list-style: none;
+}
+
+.tt2-cform__group > summary::-webkit-details-marker {
+	display: none;
+}
+
+.tt2-cform__group > summary::after {
+	content: "";
+	position: absolute;
+	right: 0.375rem;
+	top: 1.05rem;
+	width: 0.5rem;
+	height: 0.5rem;
+	border-right: 2px solid var(--tt2f-text);
+	border-bottom: 2px solid var(--tt2f-text);
+	transform: rotate(45deg);
+	transition: transform 0.15s ease;
+}
+
+.tt2-cform__group[open] > summary::after {
+	top: 1.25rem;
+	transform: rotate(-135deg);
+}
+
+.tt2-cform__group > summary:focus-visible {
+	outline: 2px solid var(--tt2f-focus);
+	outline-offset: 2px;
+	border-radius: 6px;
+}
+
+.tt2-cform__title {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: #1d2733;
+}
+
+.tt2-cform__state {
+	align-self: center;
+	padding: 0.125rem 0.5rem;
+	border-radius: 999px;
+	background: var(--tt2f-soft);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	color: var(--tt2f-text);
+	white-space: nowrap;
+}
+
+.tt2-cform__state.is-changed {
+	background: var(--tt2f-focus);
+	color: #fff;
+}
+
+.tt2-cform__hint {
+	grid-column: 1 / -1;
+	font-size: 0.75rem;
+	line-height: 1.4;
+	color: #6b7686;
+}
+
+.tt2-cform__body {
+	padding: 0.25rem 0 1rem;
+}
+
+/* One setting */
+
+.tt2-cform__opt {
+	margin: 0 0 1.125rem;
+	padding: 0;
+	border: 0;
+	min-width: 0;
+}
+
+.tt2-cform__opt > .label,
+.tt2-cform__opt > legend.label {
+	display: block;
+	margin: 0 0 0.125rem;
+	padding: 0;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	color: #1d2733;
+}
+
+.tt2-cform__help {
+	margin: 0 0 0.5rem;
+	font-size: 0.75rem;
+	line-height: 1.4;
+	color: #6b7686;
+}
+
+/* Pictures */
+
+.tt2-cform__tiles {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+	gap: 0.5rem;
+}
+
+.tt2-tile {
+	position: relative;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 0.375rem;
+	border: 1px solid var(--tt2f-line);
+	border-radius: 10px;
+	background: #fff;
+	cursor: pointer;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tt2-tile:hover {
+	border-color: var(--tt2f-muted);
+}
+
+.tt2-tile input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+	pointer-events: none;
+}
+
+.tt2-tile:has(input:checked) {
+	border-color: var(--tt2f-focus);
+	box-shadow: 0 0 0 1px var(--tt2f-focus);
+}
+
+.tt2-tile:has(input:checked)::after {
+	content: "";
+	position: absolute;
+	top: 0.25rem;
+	right: 0.25rem;
+	width: 1.125rem;
+	height: 1.125rem;
+	border-radius: 50%;
+	background: var(--tt2f-focus) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.875rem no-repeat;
+}
+
+.tt2-tile:has(input:focus-visible) {
+	outline: 2px solid var(--tt2f-focus);
+	outline-offset: 2px;
+}
+
+.tt2-tile__pic svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+}
+
+.tt2-tile__name {
+	font-size: 0.75rem;
+	font-weight: 600;
+	line-height: 1.25;
+	color: #1d2733;
+}
+
+.tt2-tile__note {
+	font-size: 0.6875rem;
+	line-height: 1.25;
+	color: #6b7686;
+}
+
+.tt2-tile--site {
+	background: var(--tt2f-soft);
+	border-style: dashed;
+}
+
+.tt2-tile--site:has(input:checked) {
+	border-style: solid;
+}
+
+/* The drawings, in the colors of the collection. */
+
+.tt2-cform svg .pg { fill: #f6f8fb; }
+.tt2-cform svg .k { fill: var(--tt2f-brand); }
+.tt2-cform svg .c { fill: var(--tt2f-accent); }
+.tt2-cform svg .s { fill: #e4e8ef; }
+.tt2-cform svg .m { fill: var(--tt2f-muted); }
+.tt2-cform svg .t { fill: #3a4452; }
+.tt2-cform svg .w { fill: #fff; }
+.tt2-cform svg .sh { fill: #1d2733; opacity: 0.12; }
+.tt2-cform svg .o { opacity: 0.55; }
+.tt2-cform svg .d { fill: none; stroke: var(--tt2f-muted); stroke-width: 1.2; stroke-dasharray: 3 2.5; }
+.tt2-cform svg .co { fill: none; stroke: var(--tt2f-accent); stroke-width: 1.6; }
+.tt2-cform svg .b1 { fill: var(--tt2f-b1, #f5333f); }
+.tt2-cform svg .b2 { fill: var(--tt2f-b2, #f7b52c); }
+.tt2-cform svg .b3 { fill: var(--tt2f-b3, #01a3a8); }
+.tt2-cform svg .b4 { fill: var(--tt2f-b4, #5b4fcf); }
+.tt2-cform svg .bz { fill: #3874ff; }
+.tt2-cform svg text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; }
+.tt2-cform svg text.t { fill: #3a4452; }
+.tt2-cform svg text.k { fill: var(--tt2f-brand); }
+.tt2-cform svg text.w { fill: #fff; }
+
+/* Colors */
+
+.tt2-color__row {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.tt2-color__pick {
+	flex: 0 0 auto;
+	width: 2.5rem;
+	height: 2.25rem;
+	padding: 0.125rem;
+	border: 1px solid var(--tt2f-line);
+	border-radius: 8px;
+	background: #fff;
+	cursor: pointer;
+}
+
+.tt2-color__pick::-webkit-color-swatch-wrapper { padding: 0; }
+.tt2-color__pick::-webkit-color-swatch { border: 0; border-radius: 6px; }
+.tt2-color__pick::-moz-color-swatch { border: 0; border-radius: 6px; }
+
+.tt2-cform .tt2-color__hex {
+	flex: 1 1 8rem;
+	min-width: 0;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.8125rem;
+}
+
+/* The admin of Tainacan sets the display of every .button with !important. */
+.tt2-cform .tt2-color:not(.is-own) .tt2-color__reset {
+	display: none !important;
+}
+
+.tt2-color.is-invalid .tt2-color__hex {
+	border-color: #a23939;
+}
+
+/* Link to the defaults of the site */
+
+.tt2-cform__site {
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--tt2f-focus);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tt2-cform__group > summary::after,
+	.tt2-tile {
+		transition: none;
+	}
+}
+
+/* The same pictures in the Customizer (inc/customizer-pictures.php). */
+
+.tt2-cform--customizer {
+	margin: 0.25rem 0 0;
+}
+
+.tt2-cform--customizer .tt2-cform__tiles {
+	grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+	gap: 6px;
+}
+
+.tt2-cform--customizer .tt2-tile {
+	padding: 4px;
+	border-radius: 8px;
+}
+
+.tt2-cform--customizer .tt2-tile__name {
+	font-size: 11px;
+}
+
+.tt2-percoll {
+	margin: 8px 0 0;
+	padding: 6px 8px;
+	border-left: 3px solid var(--tt2f-focus, #187181);
+	background: #f0f6f7;
+	font-size: 12px;
+	line-height: 1.4;
+	color: #3c434a;
+}
+
+/* The menu of the Customizer: icon and a line under each title, and a label
+   above each group of panels (inc/customizer-design.php). */
+
+#customize-theme-controls .tt2-menu .tt2-menu__icon {
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+	font-size: 16px;
+	vertical-align: -3px;
+	color: #187181;
+}
+
+/* The title of the menu is a flex row: the line goes below it. */
+#customize-theme-controls .tt2-menu > .accordion-section-title,
+#customize-theme-controls .tt2-menu .accordion-trigger {
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+#customize-theme-controls .tt2-menu .tt2-menu__sub {
+	display: block;
+	flex: 0 0 100%;
+	box-sizing: border-box;
+	min-width: 0;
+	margin-top: 3px;
+	padding-right: 28px;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.4;
+	color: #646970;
+}
+
+#customize-theme-controls .tt2-menu--icon .tt2-menu__sub {
+	padding-left: 24px;
+}
+
+/* A mark on the left on hover; a border would widen the title past the panel. */
+#customize-theme-controls .tt2-menu--icon > .accordion-section-title:hover {
+	box-shadow: inset 3px 0 0 #187181;
+}
+
+#customize-theme-controls [data-tt2-group]::before {
+	content: attr(data-tt2-group);
+	display: block;
+	padding: 18px 12px 6px;
+	background: #f0f0f1;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #50575e;
+}
+
+/* The Customizer: colors being set (on #customize-controls, by the inline
+   style and the panel script) and the sections of the theme. */
+
+.tt2-cform--customizer {
+	--tt2f-brand: var(--tt2c-brand, #1c355e);
+	--tt2f-accent: var(--tt2c-accent, #5b4fcf);
+	--tt2f-b1: var(--tt2c-b1, #f5333f);
+	--tt2f-b2: var(--tt2c-b2, #f7b52c);
+	--tt2f-b3: var(--tt2c-b3, #01a3a8);
+	--tt2f-b4: var(--tt2c-b4, #5b4fcf);
+}
+
+/* Where the section is on the page: a sketch with the part marked. */
+
+.tt2-cform.tt2-map {
+	display: block;
+	margin: 0 0 10px;
+	padding: 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.tt2-map__label {
+	display: block;
+	margin: 0 0 6px;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #50575e;
+}
+
+.tt2-map svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+}
+
+/* Amber whatever the colors of the site, so it shows on dark and light parts. */
+.tt2-cform svg .hl {
+	fill: #f6a609;
+	fill-opacity: 0.35;
+	stroke: #f6a609;
+	stroke-width: 2;
+	animation: tt2-map-mark 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes tt2-map-mark {
+	to { fill-opacity: 0.12; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tt2-cform svg .hl { animation: none; }
+}
+
+.tt2-map__help {
+	display: block;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 1.5;
+	color: #3c434a;
+}
+
+/* Each option a card; plain text instead of italics; switches instead of
+   check boxes; rounded fields. Only in the sections of the theme. */
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-section-description {
+	font-style: normal;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] > .customize-control {
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	padding: 12px 14px;
+	border: 1px solid #dcdcde;
+	border-radius: 10px;
+	background: #fff;
+	transition: border-color 0.15s;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] > .customize-control:hover,
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] > .customize-control:focus-within {
+	border-color: #a7aaad;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-title {
+	margin-bottom: 4px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1d2327;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-description {
+	margin-bottom: 8px;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 1.45;
+	color: #646970;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] select,
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] input[type="text"],
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] input[type="url"],
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] input[type="email"],
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] input[type="number"],
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] textarea {
+	width: 100%;
+	max-width: 100%;
+	min-height: 34px;
+	border-color: #c3c4c7;
+	border-radius: 8px;
+}
+
+/* A check box is a switch on the right of its name. */
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox .customize-inside-control-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	grid-template-areas: "name switch" "help switch";
+	column-gap: 12px;
+	align-items: start;
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox label {
+	grid-area: name;
+	padding-top: 1px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1d2327;
+	cursor: pointer;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox .customize-control-description {
+	grid-area: help;
+	margin: 4px 0 0;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"] {
+	grid-area: switch;
+	position: relative;
+	box-sizing: border-box;
+	width: 36px;
+	height: 20px;
+	margin: 0;
+	border: 0;
+	border-radius: 999px;
+	background: #c3c4c7;
+	box-shadow: none;
+	cursor: pointer;
+	-webkit-appearance: none;
+	appearance: none;
+	transition: background-color 0.15s;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	transition: transform 0.15s;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"]:checked {
+	background: #187181;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"]:checked::before {
+	transform: translateX(16px);
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"]:focus-visible {
+	outline: 0;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px #187181;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"],
+	#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-checkbox input[type="checkbox"]::before {
+		transition: none;
+	}
+}
+
+/* Radio buttons without pictures: one row per choice, the chosen one marked. */
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-radio .customize-inside-control-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 6px 0 0;
+	padding: 8px 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	text-indent: 0;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-radio .customize-inside-control-row:has(input:checked) {
+	border-color: #187181;
+	background: #f0f6f7;
+}
+
+#customize-theme-controls [id^="sub-accordion-section-tainacan_interface_opt_"] .customize-control-radio input {
+	margin: 0;
+}

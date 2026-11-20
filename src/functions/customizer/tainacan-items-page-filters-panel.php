@@ -1,213 +1,248 @@
 <?php
-
 /**
  * Functions that register the options for the customizer
  * related to the Tainacan Items page - Filters panel settings.
- * 
+ *
+ * @package tainacan-interface
  */
-if ( !function_exists('tainacan_interface_customize_register_tainacan_items_page_filters_panel') ) {
-	
-	function tainacan_interface_customize_register_tainacan_items_page_filters_panel( $wp_customize ) {
-		
-        /* If the Tainacan plugin is installed */
-		if (defined ( 'TAINACAN_VERSION' ) && version_compare(TAINACAN_VERSION, '0.16RC') >= 0) {
-			
-			/**
-			 * Adds section to settings related to filters panel . ---------------------------------------------------------
-			 */
-			$wp_customize->add_section( 'tainacan_items_page_filters_panel', array(
-				'title' 	  => __( 'Filters panel', 'tainacan-interface' ),
-				'description' => __( 'Settings related to Tainacan items list filters panel.', 'tainacan-interface' ),
-				'panel'		  => 'tainacan_items_page',
-				'priority' 	  => 161,
-				'capability'  => 'edit_theme_options'
-				) );
 
+if ( ! function_exists( 'tainacan_interface_customize_register_tainacan_items_page_filters_panel' ) ) {
+	/**
+	 * Registers the Customizer options related to the Tainacan Items page - Filters panel settings.
+	 *
+	 * @param WP_Customize_Manager $wp_customize The Customizer object.
+	 */
+	function tainacan_interface_customize_register_tainacan_items_page_filters_panel( $wp_customize ) {
+		/* If the Tainacan plugin is installed */
+		if ( defined( 'TAINACAN_VERSION' ) && version_compare( TAINACAN_VERSION, '0.16RC' ) >= 0 ) {
 			/**
 			 * Adds option to hide filters panel on every items list.
 			 */
-			$wp_customize->add_setting( 'tainacan_items_page_hide_filters', array(
-				'type' 		 => 'theme_mod',
-				'capability' => 'edit_theme_options',
-				'default' 	 => false,
-				'transport'  => 'refresh',
-				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-				) );
-			$wp_customize->add_control( 'tainacan_items_page_hide_filters', array(
-				'type' 	   	  => 'checkbox',
-				'priority' 	  => 0, // Within the section.
-				'section'  	  => 'tainacan_items_page_filters_panel',
-				'label'    	  => __( 'Hide the filters panel.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to hide the filters panel completely.', 'tainacan-interface' )
-				) );
+			$wp_customize->add_setting(
+				'tainacan_items_page_hide_filters',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_items_page_hide_filters',
+				array(
+					'type'        => 'checkbox',
+					'priority'    => 0, // Within the section.
+					'section'     => 'tainacan_interface_opt_filters',
+					'label'       => __( 'Hide the filters panel.', 'tainacan-interface' ),
+					'description' => __( 'Toggle to hide the filters panel completely.', 'tainacan-interface' ),
+				)
+			);
 
 			/**
 			 * Adds option to hide the "hide filters" button on every items list.
 			 */
-			$wp_customize->add_setting( 'tainacan_items_page_hide_hide_filters_button', array(
-				'type' 		 => 'theme_mod',
-				'capability' => 'edit_theme_options',
-				'default' 	 => false,
-				'transport'  => 'refresh',
-				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-				) );
-			$wp_customize->add_control( 'tainacan_items_page_hide_hide_filters_button', array(
-				'type' 	   	  => 'checkbox',
-				'priority' 	  => 1, // Within the section.
-				'section'  	  => 'tainacan_items_page_filters_panel',
-				'label'    	  => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to not show the "Hide filters" button for users.', 'tainacan-interface' ),
-				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-				) );
+			$wp_customize->add_setting(
+				'tainacan_items_page_hide_hide_filters_button',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_items_page_hide_hide_filters_button',
+				array(
+					'type'            => 'checkbox',
+					'priority'        => 1, // Within the section.
+					'section'         => 'tainacan_interface_opt_filters',
+					'label'           => __( 'Hide the "Hide filters" button.', 'tainacan-interface' ),
+					'description'     => __( 'Toggle to not show the "Hide filters" button for users.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+				)
+			);
 
 			/**
 			 * Adds option to show filters button inside the search control bar on every items list.
 			 */
-			$wp_customize->add_setting( 'tainacan_items_page_show_filters_button_inside_search_control', array(
-				'type' 		 => 'theme_mod',
-				'capability' => 'edit_theme_options',
-				'default' 	 => false,
-				'transport'  => 'refresh',
-				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-				) );
-			$wp_customize->add_control( 'tainacan_items_page_show_filters_button_inside_search_control', array(
-				'type' 	   	  => 'checkbox',
-				'priority' 	  => 8, // Within the section.
-				'section'  	  => 'tainacan_items_page_filters_panel',
-				'label'    	  => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to display the Filters button inside the search control bar.', 'tainacan-interface' ),
-				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-				) );
-				
+			$wp_customize->add_setting(
+				'tainacan_items_page_show_filters_button_inside_search_control',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_items_page_show_filters_button_inside_search_control',
+				array(
+					'type'            => 'checkbox',
+					'priority'        => 8, // Within the section.
+					'section'         => 'tainacan_interface_opt_filters',
+					'label'           => __( 'Show Filters button inside the search control bar.', 'tainacan-interface' ),
+					'description'     => __( 'Toggle to display the Filters button inside the search control bar.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+				)
+			);
+
 			/**
 			 * Adds option to start filters hidden by default on every items list.
 			 */
-			$wp_customize->add_setting( 'tainacan_items_page_start_with_filters_hidden', array(
-				'type' 		 => 'theme_mod',
-				'capability' => 'edit_theme_options',
-				'default' 	 => false,
-				'transport'  => 'refresh',
-				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-				) );
-			$wp_customize->add_control( 'tainacan_items_page_start_with_filters_hidden', array(
-				'type' 	   	  => 'checkbox',
-				'priority' 	  => 9, // Within the section.
-				'section'  	  => 'tainacan_items_page_filters_panel',
-				'label'    	  => __( 'Start with filters hidden.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' ),
-				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-				) );
+			$wp_customize->add_setting(
+				'tainacan_items_page_start_with_filters_hidden',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_items_page_start_with_filters_hidden',
+				array(
+					'type'            => 'checkbox',
+					'priority'        => 9, // Within the section.
+					'section'         => 'tainacan_interface_opt_filters',
+					'label'           => __( 'Start with filters hidden.', 'tainacan-interface' ),
+					'description'     => __( 'Toggle to make filters start hidden by default.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+				)
+			);
 
-			if (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) {
+			if ( version_compare( TAINACAN_VERSION, '0.17RC' ) >= 0 ) {
 				/**
 				 * Adds option to display filters as a modal on every items list.
 				 */
-				$wp_customize->add_setting( 'tainacan_items_page_filters_fixed_on_scroll', array(
-					'type' 		 => 'theme_mod',
-					'capability' => 'edit_theme_options',
-					'default' 	 => false,
-					'transport'  => 'refresh',
-					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-					) );
-				$wp_customize->add_control( 'tainacan_items_page_filters_fixed_on_scroll', array(
-					'type' 	   	  => 'checkbox',
-					'priority' 	  => 10, // Within the section.
-					'section'  	  => 'tainacan_items_page_filters_panel',
-					'label'    	  => __( 'Filters side panel fixed on scroll', 'tainacan-interface' ),
-					'description' => __( 'Keep the filters panel fixed on screen while scrolling down the items list. This only takes effect if the items list is taller than the screen.', 'tainacan-interface' ),
-					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-					) );
+				$wp_customize->add_setting(
+					'tainacan_items_page_filters_fixed_on_scroll',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_items_page_filters_fixed_on_scroll',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 10, // Within the section.
+						'section'         => 'tainacan_interface_opt_filters',
+						'label'           => __( 'Filters side panel fixed on scroll', 'tainacan-interface' ),
+						'description'     => __( 'Keep the filters panel fixed on screen while scrolling down the items list. This only takes effect if the items list is taller than the screen.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+					)
+				);
 			}
 
 			/**
 			 * Adds option to display filters as a modal on every items list.
 			 */
-			$wp_customize->add_setting( 'tainacan_items_page_filters_as_modal', array(
-				'type' 		 => 'theme_mod',
-				'capability' => 'edit_theme_options',
-				'default' 	 => false,
-				'transport'  => 'refresh',
-				'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-				) );
-			$wp_customize->add_control( 'tainacan_items_page_filters_as_modal', array(
-				'type' 	   	  => 'checkbox',
-				'priority' 	  => 10, // Within the section.
-				'section'  	  => 'tainacan_items_page_filters_panel',
-				'label'    	  => __( 'Filters as modal.', 'tainacan-interface' ),
-				'description' => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' ),
-				'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-				) );
+			$wp_customize->add_setting(
+				'tainacan_items_page_filters_as_modal',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => false,
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+				)
+			);
+			$wp_customize->add_control(
+				'tainacan_items_page_filters_as_modal',
+				array(
+					'type'            => 'checkbox',
+					'priority'        => 10, // Within the section.
+					'section'         => 'tainacan_interface_opt_filters',
+					'label'           => __( 'Filters as modal.', 'tainacan-interface' ),
+					'description'     => __( 'Toggle to make filters load inside a modal instead of a side panel.', 'tainacan-interface' ),
+					'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+				)
+			);
 
-			if (version_compare(TAINACAN_VERSION, '0.21.7') >= 0) {
+			if ( version_compare( TAINACAN_VERSION, '0.21.7' ) >= 0 ) {
 				/**
 				 * Adds option to disable the behavior of hiding filters on mobile inside a modal.
 				 */
-				$wp_customize->add_setting( 'tainacan_items_page_should_not_hide_filters_on_mobile', array(
-					'type' 		 => 'theme_mod',
-					'capability' => 'edit_theme_options',
-					'default' 	 => false,
-					'transport'  => 'refresh',
-					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-					) );
-				$wp_customize->add_control( 'tainacan_items_page_should_not_hide_filters_on_mobile', array(
-					'type' 	   	  => 'checkbox',
-					'priority' 	  => 10, // Within the section.
-					'section'  	  => 'tainacan_items_page_filters_panel',
-					'label'    	  => __( 'Keep filters visible on mobile', 'tainacan-interface' ),
-					'description' => __( 'Keep the filters area visible even on small screens.', 'tainacan-interface' ),
-					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-					) );
+				$wp_customize->add_setting(
+					'tainacan_items_page_should_not_hide_filters_on_mobile',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_items_page_should_not_hide_filters_on_mobile',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 10, // Within the section.
+						'section'         => 'tainacan_interface_opt_filters',
+						'label'           => __( 'Keep filters visible on mobile', 'tainacan-interface' ),
+						'description'     => __( 'Keep the filters area visible even on small screens.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+					)
+				);
 
 				/**
 				 * Adds option to display filters horizontally.
 				 */
-				$wp_customize->add_setting( 'tainacan_items_page_display_filters_horizontally', array(
-					'type' 		 => 'theme_mod',
-					'capability' => 'edit_theme_options',
-					'default' 	 => false,
-					'transport'  => 'refresh',
-					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-					) );
-				$wp_customize->add_control( 'tainacan_items_page_display_filters_horizontally', array(
-					'type' 	   	  => 'checkbox',
-					'priority' 	  => 10, // Within the section.
-					'section'  	  => 'tainacan_items_page_filters_panel',
-					'label'    	  => __( 'Display filters horizontally', 'tainacan-interface' ),
-					'description' => __( 'Show filters in a horizontal pane above the search control instead of a vertical sidebar. This layout works better with select and text filters. Do not combine this with "Filters as modal".', 'tainacan-interface' ),
-					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-					) );
+				$wp_customize->add_setting(
+					'tainacan_items_page_display_filters_horizontally',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_items_page_display_filters_horizontally',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 10, // Within the section.
+						'section'         => 'tainacan_interface_opt_filters',
+						'label'           => __( 'Display filters horizontally', 'tainacan-interface' ),
+						'description'     => __( 'Show filters in a horizontal pane above the search control instead of a vertical sidebar. This layout works better with select and text filters. Do not combine this with "Filters as modal".', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+					)
+				);
 
 				/**
 				 * Adds option to hide the "Collapse all" filters button.
 				 */
-				$wp_customize->add_setting( 'tainacan_items_page_hide_filter_collapses', array(
-					'type' 		 => 'theme_mod',
-					'capability' => 'edit_theme_options',
-					'default' 	 => false,
-					'transport'  => 'refresh',
-					'sanitize_callback' => 'tainacan_callback_sanitize_checkbox'
-					) );
-				$wp_customize->add_control( 'tainacan_items_page_hide_filter_collapses', array(
-					'type' 	   	  => 'checkbox',
-					'priority' 	  => 10, // Within the section.
-					'section'  	  => 'tainacan_items_page_filters_panel',
-					'label'    	  => __( 'Hide filter collapse buttons', 'tainacan-interface' ),
-					'description' => __( 'Do not display each filter label as a collapsible button. This is useful when there are only a few filters.', 'tainacan-interface' ),
-					'active_callback' => 'tainacan_interface_is_items_page_filters_visible'
-					) );
+				$wp_customize->add_setting(
+					'tainacan_items_page_hide_filter_collapses',
+					array(
+						'type'              => 'theme_mod',
+						'capability'        => 'edit_theme_options',
+						'default'           => false,
+						'transport'         => 'refresh',
+						'sanitize_callback' => 'tainacan_callback_sanitize_checkbox',
+					)
+				);
+				$wp_customize->add_control(
+					'tainacan_items_page_hide_filter_collapses',
+					array(
+						'type'            => 'checkbox',
+						'priority'        => 10, // Within the section.
+						'section'         => 'tainacan_interface_opt_filters',
+						'label'           => __( 'Hide filter collapse buttons', 'tainacan-interface' ),
+						'description'     => __( 'Do not display each filter label as a collapsible button. This is useful when there are only a few filters.', 'tainacan-interface' ),
+						'active_callback' => 'tainacan_interface_is_items_page_filters_visible',
+					)
+				);
 			}
-
-			/**
-			 * Adds section to settings related to pagination section . ---------------------------------------------------------
-			 */
-			$wp_customize->add_section( 'tainacan_items_page_pagination', array(
-				'title' 	  => __( 'Pagination section', 'tainacan-interface' ),
-				'description' => __( 'Settings related to Tainacan items list pagination section.', 'tainacan-interface' ),
-				'panel'		  => 'tainacan_items_page',
-				'priority' 	  => 161,
-				'capability'  => 'edit_theme_options'
-				) );
-        }
+		}
 	}
 	add_action( 'customize_register', 'tainacan_interface_customize_register_tainacan_items_page_filters_panel', 11 );
 }
@@ -225,7 +260,6 @@ if ( ! function_exists( 'tainacan_interface_is_items_page_filters_visible' ) ) :
 	}
 endif;
 
-
 /**
  * Enqueues front-end CSS for the items page fixed filters logic.
  *
@@ -234,14 +268,15 @@ endif;
  * @see wp_add_inline_style()
  */
 function tainacan_items_page_filters_fixed_on_scroll_output() {
-    if (!defined('TAINACAN_VERSION')) {
-        return;
-    }
-	$should_use_fixed_filters_logic = (version_compare(TAINACAN_VERSION, '0.17RC') >= 0) && get_theme_mod( 'tainacan_items_page_filters_fixed_on_scroll', false );
-	
-	if (!$should_use_fixed_filters_logic)
+	if ( ! defined( 'TAINACAN_VERSION' ) ) {
 		return;
-		
+	}
+	$should_use_fixed_filters_logic = ( version_compare( TAINACAN_VERSION, '0.17RC' ) >= 0 ) && get_theme_mod( 'tainacan_items_page_filters_fixed_on_scroll', false );
+
+	if ( ! $should_use_fixed_filters_logic ) {
+		return;
+	}
+
 	$css = '
 	/* Items list fixed filter logic (Introduced in Tainacan 0.17) */
 	:not(.wp-block-tainacan-faceted-search)>.theme-items-list:not(.is-fullscreen).is-filters-menu-open.is-filters-menu-fixed-at-top .items-list-area {
@@ -266,7 +301,6 @@ function tainacan_items_page_filters_fixed_on_scroll_output() {
 		bottom: 0;
 	}
 	';
-	echo '<style type="text/css" id="tainacan-fixed-filters-style">' . sprintf( $css ) . '</style>';
-
+	tainacan_interface_print_style( 'tainacan-fixed-filters-style', sprintf( $css ) );
 }
-add_action( 'wp_head', 'tainacan_items_page_filters_fixed_on_scroll_output');
+add_action( 'wp_head', 'tainacan_items_page_filters_fixed_on_scroll_output' );
