@@ -502,7 +502,7 @@ function tainacan_interface_cform() {
 	<div class="tt2-cform" style="--tt2f-brand: <?php echo esc_attr( tainacan_interface_cform_hex6( $brand ) ); ?>; --tt2f-accent: <?php echo esc_attr( tainacan_interface_cform_hex6( $accent ) ); ?>;">
 		<div class="tt2-cform__head">
 			<h4><?php esc_html_e( 'Look of this collection on the site', 'tainacan-interface' ); ?></h4>
-			<p><?php esc_html_e( 'Each part starts as the whole site is set in Appearance > Customize. Pick another picture only where this collection should be different.', 'tainacan-interface' ); ?></p>
+			<p><?php esc_html_e( 'The whole site follows Appearance > Customize. What you choose here is only for this collection and prevails over the site; what stays "As the site" keeps following the Customizer, even when it changes there later.', 'tainacan-interface' ); ?></p>
 		</div>
 		<?php foreach ( tainacan_interface_cform_groups() as $group_id => $group ) : ?>
 			<details class="tt2-cform__group" data-group="<?php echo esc_attr( $group_id ); ?>">

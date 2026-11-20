@@ -3,7 +3,7 @@ Contributors: andrebenedito, daltonmartins, eduardohumberto, fabianobn, jacsonp,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.12.2
+Stable tag: 2.13.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: two-columns, right-sidebar, grid-layout, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, photography, portfolio
@@ -108,6 +108,9 @@ Images in assets/images, Copyright Tainacan.org, CC0 1.0 Universal, except:
 facebook-circle.png, twitter-circle.png, whatsapp-circle.png and telegram-circle.png, logos of the respective services, used to name them on the share links.
 
 == Changelog ==
+
+= 2.13.0 =
+* The Customizer shows the same pictures of the collection form, and both places explain that a collection's choice prevails over the site's default.
 
 = 2.12.2 =
 * Collection panel: the reset button of a color shows only when the collection has its own color.

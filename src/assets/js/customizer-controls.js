@@ -66,6 +66,17 @@
 	}
 
 	api.bind('ready', function () {
+		// The pictures of the choices take the colors being set.
+		[['tainacan_interface_brand_color', '--tt2f-brand'], ['tainacan_interface_accent_color', '--tt2f-accent']].forEach(function (pair) {
+			api(pair[0], function (setting) {
+				var paint = function (color) {
+					if (!/^#(?:[0-9a-f]{3}){1,2}$/i.test(color || '')) { return; }
+					document.querySelectorAll('.tt2-cform--customizer').forEach(function (box) { box.style.setProperty(pair[1], color); });
+				};
+				setting.bind(paint);
+			});
+		});
+
 		api('tainacan_interface_preset_picker', function (setting) {
 			setting.bind(function (slug) {
 				var values = cfg.presets[slug];

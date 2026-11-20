@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.13.0 (2026-11-20)
+
+- **Pictures in the Customizer too** (`inc/customizer-pictures.php`): the options a collection can change (header layout, banner, icon, description, menu, item preview, item layout, open panels of the metadata sections) show the same drawings of the collection form, in the colors being set, instead of a select.
+- **Site and collection, explained in both places:** the Customizer panel says its options are the defaults of the site and that a collection can choose otherwise on its form, which then prevails for it; each option a collection can change says so; the collection panel says its choices are only for the collection and prevail, and that "As the site" keeps following the Customizer.
+- The warning "does not change these collections" of the open panels also lists collections whose sections are tabs or an accordion.
+
 ## 2.12.2 (2026-11-19)
 
 - Collection panel: "Use the site's" stays hidden while the color is the site's (the admin of Tainacan forces the display of buttons).

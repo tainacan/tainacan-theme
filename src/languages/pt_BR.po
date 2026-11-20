@@ -3695,3 +3695,19 @@ msgstr "hoje: %s"
 #: inc/collection-form.php
 msgid "Use the site's"
 msgstr "Usar a do site"
+
+#: inc/class-tainacan-interface-picture-control.php
+msgid "Site default. A collection can change it on its form in Tainacan."
+msgstr "Padrão do site. Uma coleção pode trocar isto no formulário dela no Tainacan."
+
+#: inc/settings.php
+msgid "Default of the site; a collection can choose another color on its form in Tainacan."
+msgstr "Padrão do site; uma coleção pode escolher outra cor no formulário dela no Tainacan."
+
+#: inc/settings.php
+msgid "Everything about the look of the Tainacan pages in one place. These are the defaults of the whole site. Some of them (colors, header, item preview, item page) can also be chosen for one collection, on its form in Tainacan (Settings > Look of this collection on the site): what a collection chooses there prevails for that collection, and what it leaves \"As the site\" follows this panel."
+msgstr "Tudo sobre a aparência das páginas do Tainacan num só lugar. Estes são os padrões do site inteiro. Alguns deles (cores, cabeçalho, prévia do item, página do item) também podem ser escolhidos para uma coleção, no formulário dela no Tainacan (Configurações > Aparência desta coleção no site): o que a coleção escolhe lá vale para ela, e o que ela deixa \"Como no site\" segue este painel."
+
+#: inc/collection-form.php
+msgid "The whole site follows Appearance > Customize. What you choose here is only for this collection and prevails over the site; what stays \"As the site\" keeps following the Customizer, even when it changes there later."
+msgstr "O site inteiro segue Aparência > Personalizar. O que você escolher aqui vale só para esta coleção e passa na frente do padrão do site; o que ficar \"Como no site\" continua seguindo o Personalizar, mesmo quando mudar lá depois."

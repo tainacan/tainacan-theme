@@ -10,7 +10,7 @@
  */
 
 /** Theme version; also versions the assets. */
-const TAINACAN_INTERFACE_VERSION = '2.12.2';
+const TAINACAN_INTERFACE_VERSION = '2.13.0';
 
 /* Disables Tainacan Theme Helper the_content filter, which is used to build a custom item and taxonomy (terms list) template. */
 if ( ! defined( 'TAINACAN_DISABLE_ITEM_THE_CONTENT_FILTER' ) ) {
@@ -454,6 +454,7 @@ require get_template_directory() . '/functions/single-functions.php';
 require get_template_directory() . '/functions/archive-functions.php';
 require get_template_directory() . '/functions/item-gallery.php';
 require get_template_directory() . '/inc/collection-form.php';
+require get_template_directory() . '/inc/customizer-pictures.php';
 require get_template_directory() . '/functions/class-tainacan-interface-textarea-readmore.php';
 require get_template_directory() . '/functions/breadcrumb.php';
 require get_template_directory() . '/inc/drawer-metadata-option.php';

@@ -283,3 +283,33 @@
 		transition: none;
 	}
 }
+
+/* The same pictures in the Customizer (inc/customizer-pictures.php). */
+
+.tt2-cform--customizer {
+	margin: 0.25rem 0 0;
+}
+
+.tt2-cform--customizer .tt2-cform__tiles {
+	grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+	gap: 6px;
+}
+
+.tt2-cform--customizer .tt2-tile {
+	padding: 4px;
+	border-radius: 8px;
+}
+
+.tt2-cform--customizer .tt2-tile__name {
+	font-size: 11px;
+}
+
+.tt2-percoll {
+	margin: 8px 0 0;
+	padding: 6px 8px;
+	border-left: 3px solid var(--tt2f-focus, #187181);
+	background: #f0f6f7;
+	font-size: 12px;
+	line-height: 1.4;
+	color: #3c434a;
+}

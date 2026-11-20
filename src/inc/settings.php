@@ -1544,7 +1544,7 @@ function tainacan_interface_settings_customize( $wp_customize ) {
 		'tainacan_interface',
 		array(
 			'title'       => __( 'Look of the site and collections', 'tainacan-interface' ),
-			'description' => __( 'Everything about the look of the Tainacan pages in one place. The options of the item page and of the search area stay in their own panels.', 'tainacan-interface' ),
+			'description' => __( 'Everything about the look of the Tainacan pages in one place. These are the defaults of the whole site. Some of them (colors, header, item preview, item page) can also be chosen for one collection, on its form in Tainacan (Settings > Look of this collection on the site): what a collection chooses there prevails for that collection, and what it leaves "As the site" follows this panel.', 'tainacan-interface' ),
 			'priority'    => 20,
 			'capability'  => 'edit_theme_options',
 		)
@@ -1602,8 +1602,9 @@ function tainacan_interface_settings_customize( $wp_customize ) {
 		)
 	);
 
-	$order = 2;
-	$live  = tainacan_interface_live_options();
+	$order    = 2;
+	$live     = tainacan_interface_live_options();
+	$pictures = tainacan_interface_picture_options();
 	foreach ( tainacan_interface_settings_schema() as $key => $option ) {
 		$id = 'tainacan_interface_' . $key;
 		$wp_customize->add_setting(
@@ -1626,7 +1627,23 @@ function tainacan_interface_settings_customize( $wp_customize ) {
 		);
 
 		if ( 'color' === $option['type'] ) {
+			if ( ! empty( $option['collection'] ) ) {
+				$control['description'] = trim( $control['description'] . ' ' . __( 'Default of the site; a collection can choose another color on its form in Tainacan.', 'tainacan-interface' ) );
+			}
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $id, $control ) );
+			continue;
+		}
+
+		if ( 'choice' === $option['type'] && isset( $pictures[ $key ] ) && class_exists( 'Tainacan_Interface_Picture_Control' ) ) {
+			$names = array();
+			foreach ( array_keys( $option['choices'] ) as $value ) {
+				$names[ $value ] = isset( $pictures[ $key ]['names'][ $value ] ) ? $pictures[ $key ]['names'][ $value ] : $option['choices'][ $value ];
+			}
+			$control['choices']        = $names;
+			$control['picture']        = $pictures[ $key ]['picture'];
+			$control['picture_values'] = $pictures[ $key ]['values'];
+			$control['per_collection'] = ! empty( $option['collection'] );
+			$wp_customize->add_control( new Tainacan_Interface_Picture_Control( $wp_customize, $id, $control ) );
 			continue;
 		}
 

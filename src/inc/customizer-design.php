@@ -306,6 +306,10 @@ function tainacan_interface_collection_pins() {
 	foreach ( $collections as $collection ) {
 		foreach ( array_keys( tainacan_interface_collection_options() ) as $key ) {
 			$own = get_post_meta( $collection->ID, 'tainacan_interface_opt_' . $key, true );
+			// Tabs and accordion are not panels: the open panels of the site do not reach them either.
+			if ( 'item_sections' === $key && '' === $own ) {
+				$own = in_array( get_post_meta( $collection->ID, TAINACAN_INTERFACE_SECTIONS_META, true ), array( 'tabs', 'accordion' ), true ) ? 'x' : '';
+			}
 			if ( '' !== $own ) {
 				$pins[ $key ][] = array(
 					'n' => tainacan_interface_plain( $collection->post_title ),
