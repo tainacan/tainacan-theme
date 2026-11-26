@@ -383,7 +383,8 @@ function tainacan_interface_public_navigation_args( $args ) {
 /**
  * The items the visitor may see, added to the WHERE of the navigation query
  * flagged by tainacan_interface_public_navigation_args(): items in a public
- * status (published), the visitor's own items in any status, and private
+ * status (published), the visitor's own drafts, pending and private items
+ * (never their trash or auto-drafts), and private
  * items when a logged-in visitor may read the private items of the list's
  * collection. An anonymous visitor gets only public items, whoever the author
  * of an item is.
@@ -409,7 +410,9 @@ function tainacan_interface_navigation_where( $where, $query ) {
 	$visible = $wpdb->prepare( "{$wpdb->posts}.post_status IN (" . implode( ', ', array_fill( 0, count( $statuses ), '%s' ) ) . ')', $statuses );
 	$user    = get_current_user_id();
 	if ( $user > 0 ) {
-		$visible = '(' . $visible . $wpdb->prepare( " OR {$wpdb->posts}.post_author = %d", $user ) . ')';
+		// Only the author's work in progress: never trash or auto-draft, even with status=any or status=trash.
+		$own     = array( 'draft', 'pending', 'private' );
+		$visible = '(' . $visible . $wpdb->prepare( " OR ({$wpdb->posts}.post_author = %d AND {$wpdb->posts}.post_status IN (" . implode( ', ', array_fill( 0, count( $own ), '%s' ) ) . '))', array_merge( array( $user ), $own ) ) . ')';
 	}
 
 	return $where . ' AND ' . $visible;
@@ -733,8 +736,12 @@ function tainacan_interface_public_list_args( $args ) {
 			unset( $args[ $name ] );
 		}
 	}
-	if ( isset( $args['metakey'] ) && ! tainacan_interface_queryable_metadatum( $args['metakey'] ) ) {
-		unset( $args['metakey'] );
+	// Same rule as meta_key in the navigation: Tainacan copies metavalue to
+	// meta_value even with no key, and WP_Meta_Query then matches the value in
+	// any field, private ones included. So the value and the compare go with
+	// the key, and only a readable key keeps them.
+	if ( ! isset( $args['metakey'] ) || ! tainacan_interface_queryable_metadatum( $args['metakey'] ) ) {
+		unset( $args['metakey'], $args['metavalue'], $args['metavaluenum'], $args['metacompare'] );
 		if ( isset( $args['orderby'] ) && in_array( $args['orderby'], array( 'meta_value', 'meta_value_num' ), true ) ) {
 			unset( $args['orderby'] );
 		}

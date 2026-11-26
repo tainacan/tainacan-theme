@@ -15,9 +15,12 @@ add_filter( 'query_vars', 'tainacan_interface_extra_viewmodes' );
  * Normalizes the public query vars of the Tainacan terms list before anyone
  * reads them. The terms query is built by the plugin from these vars
  * (offset = (termspaged - 1) * perpage), so ?termspaged=abc ended in a
- * TypeError (HTTP 500) on PHP 8 before the theme printed anything, and the
- * pagination links divided by the raw perpage. Fixed here, where WordPress
- * parses the request, every reader gets integers.
+ * TypeError (HTTP 500) on PHP 8 before the theme printed anything. Fixed
+ * here, where WordPress parses the request, every reader gets integers.
+ * perpage is not a public query var (Tainacan registers only termspaged and
+ * termsparent), so by default it comes from the
+ * tainacan-default-taxonomy-terms-perpage filter and never from the URL; the
+ * clamp below acts only on a site that registers it.
  *
  * @param array $query_vars Parsed query vars.
  * @return array
