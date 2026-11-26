@@ -1,4 +1,13 @@
-<?php /* Template Name: Landing with Breadcrumb */ ?>
+<?php
+/**
+ * Template Name: Landing with Breadcrumb
+ *
+ * Page template without a sidebar, with a breadcrumb.
+ *
+ * @package tainacan-interface
+ */
+
+?>
 
 <?php get_header(); ?>
 

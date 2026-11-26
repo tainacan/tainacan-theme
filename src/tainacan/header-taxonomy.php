@@ -4,7 +4,9 @@
  *
  * It will only work with tainacan plugin enabled.
  *
+ * @package tainacan-interface
  */
+
 ?>
 
 <!-- Get the banner to display -->

@@ -1,0 +1,1087 @@
+/*
+ * Tainacan Interface: new design. Every rule is scoped by
+ * body.tt2-modern, and the values are the tokens printed from the settings
+ * (inc/design.php). The list rules carry !important for the same reason as the
+ * highlight stylesheet: the Tainacan views are Vue components with [data-v-...]
+ * selectors, and the Faceted Search block prints its colors inline.
+ */
+
+/* Fonts shipped with the theme (latin subset, from Fontsource, SIL OFL 1.1). The browser downloads
+   a file only when the page uses that font, so offering many costs nothing to a site that uses one. */
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 300; font-display: swap; src: url("../fonts/poppins/poppins-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/poppins/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/poppins/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/poppins/poppins-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/poppins/poppins-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/poppins/poppins-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/inter/inter-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 100 900; font-display: swap; src: url("../fonts/inter/inter-latin-wght-italic.woff2") format("woff2"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("../fonts/open-sans/open-sans-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300 800; font-display: swap; src: url("../fonts/open-sans/open-sans-latin-wght-italic.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/montserrat/montserrat-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: italic; font-weight: 100 900; font-display: swap; src: url("../fonts/montserrat/montserrat-latin-wght-italic.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("../fonts/source-serif-4/source-serif-4-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: 200 900; font-display: swap; src: url("../fonts/source-serif-4/source-serif-4-latin-wght-italic.woff2") format("woff2"); }
+@font-face { font-family: "Merriweather"; font-style: normal; font-weight: 300 900; font-display: swap; src: url("../fonts/merriweather/merriweather-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Merriweather"; font-style: italic; font-weight: 300 900; font-display: swap; src: url("../fonts/merriweather/merriweather-latin-wght-italic.woff2") format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; font-display: swap; src: url("../fonts/playfair-display/playfair-display-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; font-display: swap; src: url("../fonts/playfair-display/playfair-display-latin-wght-italic.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("../fonts/lora/lora-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 400 700; font-display: swap; src: url("../fonts/lora/lora-latin-wght-italic.woff2") format("woff2"); }
+
+body.tt2-modern {
+	--tt2-soft: color-mix(in srgb, var(--tt2-accent) 10%, var(--tt2-surface));
+	--tt2-soft-strong: color-mix(in srgb, var(--tt2-accent) 18%, var(--tt2-surface));
+	--tt2-line: color-mix(in srgb, var(--tt2-brand) 14%, #e4e6ea);
+	--tt2-muted: color-mix(in srgb, var(--tt2-text) 62%, var(--tt2-surface));
+	--tt2-label: var(--tt2-muted);
+	--tt2-tint-1: #ece9fb;
+	--tt2-tint-1-ink: #4638b3;
+	--tt2-tint-2: #e3f4ee;
+	--tt2-tint-2-ink: #1b6a53;
+	--tt2-tint-3: #fdeee6;
+	--tt2-tint-3-ink: #a24a22;
+	--tt2-tint-4: #e6f1fa;
+	--tt2-tint-4-ink: #1f5f8f;
+	background-color: var(--tt2-page);
+	color: var(--tt2-text);
+	font-family: var(--tt2-font-ui);
+	font-weight: var(--tt2-body-weight, 400);
+	font-size: var(--tt2-u);
+	line-height: var(--tt2-leading);
+}
+@media (max-width: 767.98px) {
+	body.tt2-modern { font-size: var(--tt2-u-mobile); --tainacan-base-font-size: var(--tt2-u-mobile); }
+}
+
+body.tt2-modern .tt2-band { display: block; height: 4px; background: var(--tt2-band); }
+
+/* Content width: the same measure on every page. */
+body.tt2-modern .max-large,
+body.tt2-modern main.max-large,
+body.tt2-modern .tt2-crumbs,
+body.tt2-modern .tt2-head,
+body.tt2-modern .tt2-menu-bar,
+body.tt2-modern .tt2-collections-page {
+	max-width: var(--tt2-width);
+	margin-inline: auto;
+	padding-inline: clamp(12px, 3vw, var(--tt2-edge));
+	box-sizing: border-box;
+	width: 100%;
+}
+body.tt2-modern .margin-one-column { margin-inline: auto; }
+
+body.tt2-modern :is(h1, h2, h3, h4, h5, h6) { font-family: var(--tt2-font-heading); }
+:where(body.tt2-modern) :is(h1, h2, h3, h4, h5, h6) { font-weight: var(--tt2-heading-weight); letter-spacing: var(--tt2-heading-spacing); }
+/* Smaller titles (sections of the record, cards, collections) follow the weight chosen for the titles, one step lighter: 600 with the default 700. */
+body.tt2-modern { --tt2-heading-weight-sub: max(400, calc(var(--tt2-heading-weight, 700) - 100)); }
+body.tt2-modern .tainacan-list-post .blog-post h3 { font-weight: var(--tt2-heading-weight-sub); }
+body.tt2-modern.tt2-heading-upper :is(h1, h2, h3, h4, h5, h6) { text-transform: uppercase; }
+:where(body.tt2-modern) .tainacan-content :is(h1, h2, h3, h4, h5, h6) { color: var(--tt2-ink); }
+/* Titles on a Cover take its text color (white on a dark image), not the dark color the 2.x rule forces on titles. */
+body.tt2-modern .wp-block-cover__inner-container :is(h1, h2, h3, h4, h5, h6):not(.has-text-color) { color: inherit; }
+/* Each level of title has its own size (Typography); "Size of the titles (%)" scales them all. */
+:where(body.tt2-modern) :is(.tainacan-content, .entry-content, .wp-block-post-content, .tainacan-single-post) h1 { font-size: calc(var(--tt2-h1, 44px) * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) :is(.tainacan-content, .entry-content, .wp-block-post-content, .tainacan-single-post) h2 { font-size: calc(var(--tt2-h2, 28px) * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) :is(.tainacan-content, .entry-content, .wp-block-post-content, .tainacan-single-post) h3 { font-size: calc(var(--tt2-h3, 22px) * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) :is(.tainacan-content, .entry-content, .wp-block-post-content, .tainacan-single-post) h4 { font-size: calc(var(--tt2-h4, 19px) * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) :is(.tainacan-content, .entry-content, .wp-block-post-content, .tainacan-single-post) h5 { font-size: calc(var(--tt2-h5, 17px) * var(--tt2-heading-scale)); }
+:where(body.tt2-modern) :is(.tainacan-content, .entry-content, .wp-block-post-content, .tainacan-single-post) h6 { font-size: calc(var(--tt2-h6, 15px) * var(--tt2-heading-scale)); }
+/* No specificity of its own: buttons of blocks and plugins set their color with one class. */
+:where(body.tt2-modern) a { color: var(--tt2-accent); }
+body.tt2-modern a:focus-visible,
+body.tt2-modern button:focus-visible,
+body.tt2-modern summary:focus-visible { outline: 2px solid var(--tt2-accent); outline-offset: 2px; }
+
+/* ---------- Site header ---------- */
+
+body.tt2-modern nav.navbar.menu-shadow { box-shadow: none; border-bottom: 0; padding-block: 0; }
+body.tt2-modern #topNavbar { padding-inline: clamp(12px, 3vw, var(--tt2-edge)) !important; }
+body.tt2-modern .menu-belowheader > .container-fluid { padding-inline: 0 !important; margin: 0 !important; max-width: none; }
+body.tt2-modern .navbar .max-large { display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; }
+body.tt2-modern .navbar-brand,
+body.tt2-modern .navbar-brand span { font-family: var(--tt2-font-heading); font-weight: 600; }
+body.tt2-modern .navbar-box { display: flex; align-items: center; flex: 1 1 auto; }
+body.tt2-modern .menu-belowheader { flex: 1 1 auto; min-height: 0; padding-block: 0; border: 0 !important; }
+body.tt2-modern nav.navbar .navbar-nav > li { margin: 0 !important; padding: 0 !important; }
+body.tt2-modern nav.navbar .navbar-nav > li > a { margin: 0 !important; padding: 6px 12px !important; font-weight: 500; font-size: var(--tt2-menu-size); }
+body.tt2-modern.tt2-menu-upper nav.navbar .navbar-nav > li > a { text-transform: uppercase; letter-spacing: 0.04em; }
+body.tt2-modern nav.navbar .dropdown-toggle::after { border-top-color: currentColor !important; color: inherit !important; }
+body.tt2-modern .menu-belowheader #menubelowHeader { padding: 0; margin: 0; }
+/* Only the theme's own menus: the Tainacan lists use the same class names. */
+body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-menu { border: 1px solid var(--tt2-line); border-radius: calc(var(--tt2-radius) * 0.7); box-shadow: var(--tt2-shadow); padding: 6px; max-height: 70vh; overflow-y: auto; }
+body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-item { border-radius: 8px; padding: 6px 12px; font-size: 0.9em; white-space: normal; min-width: 14rem; }
+body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-item:hover,
+body.tt2-modern :is(nav.navbar, .tt2-menu-bar) .dropdown-item:focus { background: var(--tt2-soft); color: var(--tt2-ink); }
+
+body.tt2-modern #topNavbar { padding-block: var(--tt2-header-pad) calc(var(--tt2-header-pad) * 0.6); }
+@media (min-width: 768px) {
+	body.tt2-modern.tt2-header-stacked #topNavbar > .navbar-brand,
+	body.tt2-modern.tt2-header-stacked #topNavbar > a:first-child { flex: 0 0 100%; margin: 0 0 6px; }
+	body.tt2-modern.tt2-header-stacked .navbar-box { flex: 0 0 100%; justify-content: space-between; }
+	body.tt2-modern.tt2-header-stacked #menubelowHeader .navbar-nav { margin-left: -12px !important; }
+}
+
+/* In a color: the main one, the accent or dark (tokens in inc/design.php). */
+body.tt2-modern.tt2-header-colored nav.navbar.bg-white,
+body.tt2-modern.tt2-header-colored nav.navbar .bg-white { background-color: var(--tt2-header-bg) !important; }
+body.tt2-modern.tt2-header-colored nav.navbar,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-brand,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-brand *,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > a,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > .nav-link,
+body.tt2-modern.tt2-header-colored nav.navbar .btn,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-toggler,
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-toggler .tainacan-icon,
+body.tt2-modern.tt2-header-colored nav.navbar .btn .tainacan-icon,
+body.tt2-modern.tt2-header-colored nav.navbar .tt2-social a { color: var(--tt2-header-fg) !important; }
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > a { border-bottom-color: transparent !important; }
+body.tt2-modern.tt2-header-colored nav.navbar .dropdown-menu a { color: var(--tt2-text) !important; }
+
+/* The current item and the pointer over the menu. */
+body.tt2-modern nav.navbar .navbar-nav > li > a { --tt2-indicator: var(--tt2-accent); border-radius: 999px; transition: background-color 0.15s ease, box-shadow 0.15s ease; }
+body.tt2-modern.tt2-header-colored nav.navbar .navbar-nav > li > a { --tt2-indicator: var(--tt2-header-fg); }
+body.tt2-modern.tt2-indicator-underline nav.navbar .navbar-nav > li > a { border-radius: 0; }
+body.tt2-modern.tt2-indicator-underline nav.navbar .navbar-nav > li:is(.active, .current-menu-item, :hover) > a { box-shadow: inset 0 -2px 0 var(--tt2-indicator); }
+body.tt2-modern.tt2-indicator-pill nav.navbar .navbar-nav > li:is(.active, .current-menu-item, :hover) > a { background-color: color-mix(in srgb, var(--tt2-indicator) 16%, transparent); }
+
+/* Phones: the menu opens as a panel in the header's own color. */
+@media (max-width: 767.98px) {
+	body.tt2-modern .navbar-box { justify-content: space-between; }
+	body.tt2-modern .menu-belowheader { position: static; }
+	body.tt2-modern #menubelowHeader.navbar-collapse {
+		position: absolute;
+		z-index: 1030;
+		top: 100%;
+		left: 0;
+		right: 0;
+		width: auto;
+		max-height: 75vh;
+		overflow-y: auto;
+		padding: 8px clamp(12px, 3vw, var(--tt2-edge)) 14px;
+		background: var(--tt2-surface);
+		box-shadow: 0 16px 28px -14px rgba(15, 20, 35, 0.45);
+	}
+	body.tt2-modern.tt2-header-colored #menubelowHeader.navbar-collapse { background: var(--tt2-header-bg); }
+	body.tt2-modern nav.navbar .navbar-nav { margin: 0 !important; }
+	body.tt2-modern nav.navbar .dropdown-menu { position: static; box-shadow: none; }
+	body.tt2-modern nav.menu-shadow { position: relative; }
+	body.tt2-modern.tt2-crumbs-pills .tt2-crumbs ol { border-radius: 20px; padding-block: 6px; row-gap: 4px; }
+}
+
+body.tt2-modern.tt2-header-is-sticky nav.navbar.menu-shadow {
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 0px);
+	z-index: 1020;
+}
+
+/* ---------- Breadcrumb ---------- */
+
+body.tt2-modern .tt2-crumbs { margin-block: calc(28px * var(--tt2-space)) calc(18px * var(--tt2-space)); border: 0; font-size: 0.8125em; }
+body.tt2-modern .tt2-crumbs ol {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body.tt2-modern .tt2-crumbs li { display: inline-flex; align-items: center; min-width: 0; }
+body.tt2-modern .tt2-crumbs li + li::before {
+	content: "";
+	flex: none;
+	width: 0.45em;
+	height: 0.45em;
+	margin-inline: 0.8em 0.95em;
+	border-top: 1.5px solid currentColor;
+	border-right: 1.5px solid currentColor;
+	color: var(--tt2-muted);
+	transform: rotate(45deg);
+}
+body.tt2-modern .tt2-crumbs a,
+body.tt2-modern .tt2-crumbs li > span { color: var(--tt2-text); font-weight: 500; text-decoration: none; }
+body.tt2-modern .tt2-crumbs a:hover { color: var(--tt2-accent); text-decoration: underline; }
+body.tt2-modern .tt2-crumbs__current span {
+	display: block;
+	max-width: 44ch;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: 600 !important;
+}
+body.tt2-modern.tt2-crumbs-pills .tt2-crumbs ol {
+	padding: 2px 2px 2px 12px;
+	background: var(--tt2-surface);
+	border: 1px solid var(--tt2-line);
+	border-radius: 999px;
+	box-shadow: var(--tt2-shadow);
+}
+body.tt2-modern.tt2-crumbs-pills .tt2-crumbs__current span {
+	padding: 4px 12px;
+	border-radius: 999px;
+	background: var(--tt2-brand);
+	color: var(--tt2-on-brand) !important;
+}
+body.tt2-modern .tt2-crumbs--home-icon li:first-child a::before {
+	content: "";
+	display: inline-block;
+	width: 1.05em;
+	height: 1.05em;
+	margin-inline-end: 0.45em;
+	vertical-align: -0.15em;
+	background: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+body.tt2-modern .tt2-crumbs:has(#breadcrumb-single-item-pagination) { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+body.tt2-modern:is(.tt2-crumb-sep-slash, .tt2-crumb-sep-dot) .tt2-crumbs li + li::before { width: auto; height: auto; border: 0; transform: none; }
+body.tt2-modern.tt2-crumb-sep-slash .tt2-crumbs li + li::before { content: "/"; }
+body.tt2-modern.tt2-crumb-sep-dot .tt2-crumbs li + li::before { content: "\00b7"; font-weight: 700; }
+/* Pages outside Tainacan: the classic crumbs, as one line. */
+body.tt2-modern .tt2-crumbs--flat .tainacan-interface-breadcrumbs { color: var(--tt2-muted); }
+body.tt2-modern .tt2-crumbs--flat .current { color: var(--tt2-text) !important; font-weight: 600; }
+
+/* ---------- Mosaics ---------- */
+
+body.tt2-modern .tt2-mosaic { display: grid; width: 100%; height: 100%; overflow: hidden; background: var(--tt2-soft); }
+body.tt2-modern .tt2-mosaic img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; border-radius: 0; margin: 0; }
+body.tt2-modern .tt2-mosaic--2 { grid-template-columns: 1fr 1fr; }
+body.tt2-modern .tt2-mosaic--3 { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; }
+body.tt2-modern .tt2-mosaic--3 img:first-child { grid-row: 1 / 3; }
+body.tt2-modern .tt2-mosaic--4 { grid-template: 1fr 1fr / 1fr 1fr; }
+body.tt2-modern .tt2-mosaic--5,
+body.tt2-modern .tt2-mosaic--6 { grid-template: 1fr 1fr / repeat(3, 1fr); }
+body.tt2-modern .tt2-mosaic--7,
+body.tt2-modern .tt2-mosaic--8 { grid-template: 1fr 1fr / repeat(4, 1fr); }
+
+/* A collection without any image: a pattern chosen by its name, with its initials. */
+body.tt2-modern .tt2-art {
+	--tt2-art-a: var(--tt2-brand);
+	--tt2-art-b: var(--tt2-accent);
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-family: var(--tt2-font-heading);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	background:
+		radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.22) 0 14%, transparent 14.5%),
+		radial-gradient(circle at 84% 78%, rgba(255, 255, 255, 0.14) 0 26%, transparent 26.5%),
+		repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 12px, transparent 12px 24px),
+		linear-gradient(135deg, var(--tt2-art-a), var(--tt2-art-b));
+}
+body.tt2-modern .tt2-art--1 { --tt2-art-a: #1c355e; --tt2-art-b: #43aa8b; }
+body.tt2-modern .tt2-art--2 { --tt2-art-a: #4a1525; --tt2-art-b: #b5812a; }
+body.tt2-modern .tt2-art--3 { --tt2-art-a: #14433a; --tt2-art-b: #2cb4c1; }
+body.tt2-modern .tt2-art--4 { --tt2-art-a: #33383d; --tt2-art-b: #a07c4f; }
+body.tt2-modern .tt2-art--5 { --tt2-art-a: #3b2a8c; --tt2-art-b: #f8961e; }
+body.tt2-modern .tt2-art--6 { --tt2-art-a: #7a1f3d; --tt2-art-b: #5b4fcf; }
+body.tt2-modern .tt2-art--7 { --tt2-art-a: #0f4c75; --tt2-art-b: #5bc0be; }
+body.tt2-modern .tt2-head__banner .tt2-art { font-size: 0; }
+body.tt2-modern .tt2-collection__image .tt2-art { font-size: 2.75em; }
+body.tt2-modern .tt2-head__icon .tt2-art { font-size: calc(var(--tt2-icon-size) * 0.3); }
+
+/* ---------- Header of a collection ---------- */
+
+body.tt2-modern .tt2-head { margin-bottom: calc(28px * var(--tt2-space)); text-align: center; }
+body.tt2-modern .tt2-head__banner {
+	position: relative;
+	height: var(--tt2-banner-height);
+	overflow: hidden;
+	border-radius: var(--tt2-radius);
+	background: var(--tt2-brand);
+	box-shadow: var(--tt2-shadow);
+}
+body.tt2-modern .tt2-head__banner::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: color-mix(in srgb, var(--tt2-brand) var(--tt2-banner-veil), transparent);
+	pointer-events: none;
+}
+body.tt2-modern .tt2-head__banner .tt2-band { position: absolute; inset: auto 0 0; z-index: 1; height: 5px; }
+body.tt2-modern .tt2-head__banner-image,
+body.tt2-modern .tt2-head__banner img { display: block; width: 100%; height: 100%; object-fit: cover; margin: 0; }
+body.tt2-modern .tt2-head--full { max-width: none; padding-inline: 0; }
+body.tt2-modern .tt2-head--full .tt2-head__banner { border-radius: 0; }
+body.tt2-modern .tt2-head--full .tt2-head__body { max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(12px, 3vw, var(--tt2-edge)); }
+
+body.tt2-modern .tt2-head__body { display: flex; flex-direction: column; align-items: center; }
+body.tt2-modern .tt2-head__text { display: flex; flex-direction: column; align-items: center; width: 100%; min-width: 0; }
+
+body.tt2-modern .tt2-head__icon {
+	position: relative;
+	z-index: 2;
+	flex: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--tt2-icon-size);
+	height: var(--tt2-icon-size);
+	overflow: hidden;
+	border: 4px solid var(--tt2-surface);
+	border-radius: 16%;
+	background: var(--tt2-soft);
+	box-shadow: 0 10px 26px -8px rgba(15, 20, 35, 0.45);
+}
+body.tt2-modern .tt2-head__icon img,
+body.tt2-modern .tt2-head__icon .tt2-mosaic { display: grid; width: 100%; height: 100%; object-fit: cover; margin: 0; border-radius: 0; }
+body.tt2-modern .tt2-head__icon-image { display: block !important; }
+body.tt2-modern .tt2-head.has-banner .tt2-head__icon { margin-top: calc(var(--tt2-icon-size) * -0.55); }
+body.tt2-modern .tt2-head--icon-tilted .tt2-head__icon { transform: rotate(-3deg); }
+body.tt2-modern .tt2-head--icon-circle .tt2-head__icon { border-radius: 50%; }
+
+body.tt2-modern .tt2-head__eyebrow {
+	margin: 14px 0 6px;
+	padding: 3px 12px;
+	border-radius: 999px;
+	background: var(--tt2-brand);
+	color: var(--tt2-on-brand);
+	font-size: 0.6875em;
+	font-weight: 600;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+}
+body.tt2-modern .tt2-head__title {
+	margin: 6px 0 0;
+	color: var(--tt2-ink) !important;
+	font-size: calc(clamp(min(1.75rem, var(--tt2-h1, 44px)), 1.1rem + 2.2vw, var(--tt2-h1, 44px)) * var(--tt2-heading-scale)) !important;
+	font-weight: var(--tt2-heading-weight) !important;
+	line-height: 1.15;
+	letter-spacing: var(--tt2-heading-spacing);
+	text-wrap: balance;
+}
+body.tt2-modern .tt2-head__rule { width: 58px; height: 4px; margin-top: 14px; border-radius: 4px; }
+body.tt2-modern .tt2-head__description { width: 100%; max-width: 780px; margin-top: 22px; text-align: start; font-family: var(--tt2-font-reading); font-size: 1em; line-height: 1.65; color: var(--tt2-text); }
+body.tt2-modern .tt2-head__description p { margin: 0 0 0.7em; font: inherit; color: inherit; }
+body.tt2-modern .tt2-head__description > :last-child { margin-bottom: 0; }
+body.tt2-modern .tt2-head__description--panel {
+	position: relative;
+	padding: 20px 28px;
+	overflow: hidden;
+	border-radius: var(--tt2-radius);
+	background: var(--tt2-surface);
+	box-shadow: var(--tt2-shadow);
+}
+body.tt2-modern .tt2-head__description--panel::before {
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 4px;
+	background: var(--tt2-band);
+}
+body.tt2-modern .tt2-head__description--plain { text-align: center; }
+
+body.tt2-modern .tt2-head__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 10px; margin-top: 16px; }
+body.tt2-modern .tt2-head__count { color: var(--tt2-muted); font-size: 0.8125em; font-weight: 500; }
+body.tt2-modern .tt2-pill-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 14px;
+	border: 1px solid var(--tt2-line);
+	border-radius: 999px;
+	background: var(--tt2-surface);
+	color: var(--tt2-ink);
+	font: inherit;
+	font-size: 0.8125em;
+	font-weight: 500;
+	line-height: 1.5;
+	cursor: pointer;
+	list-style: none;
+}
+body.tt2-modern .tt2-pill-button::-webkit-details-marker { display: none; }
+body.tt2-modern .tt2-pill-button:hover { border-color: var(--tt2-accent); color: var(--tt2-accent); }
+body.tt2-modern .tt2-pill-button[hidden] { display: none; }
+body.tt2-modern .tt2-share { position: relative; }
+body.tt2-modern .tt2-share__links {
+	position: absolute;
+	z-index: 30;
+	top: calc(100% + 6px);
+	left: 50%;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	/* Absolute inside a small box: without its own width the icons shrink to fit it. */
+	width: max-content;
+	padding: 8px 10px;
+	transform: translateX(-50%);
+	border: 1px solid var(--tt2-line);
+	border-radius: 999px;
+	background: var(--tt2-surface);
+	box-shadow: var(--tt2-shadow);
+}
+body.tt2-modern .tt2-share__links > * { display: inline-flex; flex: none; margin: 0; padding: 0; border: 0; border-radius: 999px; background: none; line-height: 0; cursor: pointer; transition: transform 0.15s ease; }
+body.tt2-modern .tt2-share__links > :is(:hover, :focus-visible) { transform: scale(1.1); }
+body.tt2-modern .tt2-share__links img { display: block; width: 28px; max-width: none; height: 28px; margin: 0; object-fit: contain; }
+
+/* Along the left edge. */
+body.tt2-modern .tt2-head--left { text-align: start; }
+body.tt2-modern .tt2-head--left .tt2-head__body { flex-direction: row; align-items: flex-start; gap: 24px; padding-inline: 24px; }
+body.tt2-modern .tt2-head--left .tt2-head__text { align-items: flex-start; }
+body.tt2-modern .tt2-head--left .tt2-head__actions { justify-content: flex-start; }
+body.tt2-modern .tt2-head--left .tt2-head__description { max-width: 860px; }
+body.tt2-modern .tt2-head--left .tt2-head__description--plain { text-align: start; }
+
+/* Title over the banner: both share one grid cell, so the banner grows with the text. */
+body.tt2-modern .tt2-head--overlay.has-banner { display: grid; }
+body.tt2-modern .tt2-head--overlay.has-banner > * { grid-area: 1 / 1; min-width: 0; }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__banner { height: auto; min-height: var(--tt2-banner-height); }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__banner > :first-child { position: absolute; inset: 0; }
+/* The text sits on the veil: at the default it stays readable, and it follows the option. */
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__banner::after { background: linear-gradient(180deg, color-mix(in srgb, var(--tt2-brand) min(100%, calc(var(--tt2-banner-veil) + 31%)), transparent), color-mix(in srgb, var(--tt2-brand) min(100%, calc(var(--tt2-banner-veil) + 59%)), transparent)); }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__body { position: relative; z-index: 3; padding: 28px 24px 34px; }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__icon { margin-top: 0; }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__title { color: var(--tt2-on-brand) !important; }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__eyebrow { background: var(--tt2-on-brand); color: var(--tt2-brand); }
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__description--plain,
+body.tt2-modern .tt2-head--overlay.has-banner .tt2-head__count { color: var(--tt2-on-brand); }
+
+/* Compact. */
+body.tt2-modern .tt2-head--compact { text-align: start; }
+body.tt2-modern .tt2-head--compact .tt2-head__body { flex-direction: row; align-items: center; gap: 20px; padding: 18px 22px; border-radius: var(--tt2-radius); background: var(--tt2-surface); box-shadow: var(--tt2-shadow); }
+body.tt2-modern .tt2-head--compact .tt2-head__text { align-items: flex-start; }
+body.tt2-modern .tt2-head--compact .tt2-head__eyebrow { margin-top: 0; }
+body.tt2-modern .tt2-head--compact .tt2-head__actions { justify-content: flex-start; }
+body.tt2-modern .tt2-head--compact .tt2-head__description--plain { text-align: start; }
+body.tt2-modern .tt2-head--compact .tt2-head__description { margin-top: 10px; padding: 0; max-width: 900px; box-shadow: none; background: none; }
+body.tt2-modern .tt2-head--compact .tt2-head__description--panel::before { display: none; }
+
+/* Width of the description: option of the site, a collection can choose another. */
+body.tt2-modern .tt2-head.tt2-head--desc-narrow { --tt2-desc-width: 620px; }
+body.tt2-modern .tt2-head.tt2-head--desc-medium { --tt2-desc-width: 780px; }
+body.tt2-modern .tt2-head.tt2-head--desc-wide { --tt2-desc-width: 1040px; }
+body.tt2-modern .tt2-head.tt2-head--desc-full { --tt2-desc-width: 100%; }
+body.tt2-modern .tt2-head[class*="tt2-head--desc-"] .tt2-head__description { max-width: min(100%, var(--tt2-desc-width, 960px)); }
+
+@media (max-width: 640px) {
+	body.tt2-modern .tt2-head--left .tt2-head__body,
+	body.tt2-modern .tt2-head--compact .tt2-head__body { flex-direction: column; align-items: center; padding-inline: 12px; text-align: center; }
+	body.tt2-modern .tt2-head--left .tt2-head__text,
+	body.tt2-modern .tt2-head--compact .tt2-head__text { align-items: center; }
+	body.tt2-modern .tt2-head__description--panel { padding: 16px 18px; }
+}
+
+/* Bar of a collection's own menu. */
+body.tt2-modern .tt2-menu-bar { margin-block: 0 22px; }
+body.tt2-modern .tt2-menu-bar__list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body.tt2-modern .tt2-menu-bar__list > li { position: relative; }
+body.tt2-modern .tt2-menu-bar__list > li > a {
+	display: block;
+	padding: 6px 14px;
+	border-radius: 999px;
+	color: var(--tt2-ink);
+	font-size: 0.875em;
+	font-weight: 500;
+	text-decoration: none;
+}
+body.tt2-modern .tt2-menu-bar__list > li > a:hover,
+body.tt2-modern .tt2-menu-bar__list > li:is(.active, .current-menu-item) > a { background: var(--tt2-soft); color: var(--tt2-accent); }
+body.tt2-modern .tt2-menu-bar .dropdown-menu { position: absolute; z-index: 40; }
+body.tt2-modern .tt2-menu-bar .dropdown-toggle::after { display: inline-block; margin-inline-start: 0.4em; vertical-align: 0.15em; border-top: 0.3em solid; border-inline: 0.3em solid transparent; content: ""; }
+
+/* ---------- List of collections ---------- */
+
+body.tt2-modern .tt2-collections-page { padding-block: 8px 48px; }
+body.tt2-modern .tt2-collections-page__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 22px; }
+body.tt2-modern .tt2-collections-page__title { margin: 0; color: var(--tt2-ink) !important; font-size: calc(clamp(min(1.75rem, var(--tt2-h1, 44px)), 1.2rem + 1.6vw, var(--tt2-h1, 44px)) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; line-height: 1.15; letter-spacing: var(--tt2-heading-spacing); }
+body.tt2-modern .tt2-collections-page__intro { max-width: 70ch; margin: 8px 0 0; color: var(--tt2-muted); }
+body.tt2-modern .tt2-collections-page__search input {
+	width: min(320px, 100%);
+	padding: 8px 16px;
+	border: 1px solid var(--tt2-line);
+	border-radius: 999px;
+	background: var(--tt2-surface);
+	font: inherit;
+	font-size: 0.875em;
+}
+body.tt2-modern .tt2-collections-page__search input:focus { border-color: var(--tt2-accent); outline: 0; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tt2-accent) 22%, transparent); }
+
+body.tt2-modern .tt2-collections {
+	display: grid;
+	grid-template-columns: repeat(var(--tt2-list-columns), minmax(0, 1fr));
+	gap: 22px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+@media (max-width: 1100px) { body.tt2-modern .tt2-collections { grid-template-columns: repeat(min(var(--tt2-list-columns), 3), minmax(0, 1fr)); } }
+@media (max-width: 800px) { body.tt2-modern .tt2-collections { grid-template-columns: repeat(min(var(--tt2-list-columns), 2), minmax(0, 1fr)); gap: 14px; } }
+@media (max-width: 520px) { body.tt2-modern .tt2-collections { grid-template-columns: minmax(0, 1fr); } }
+
+body.tt2-modern .tt2-collection[hidden] { display: none; }
+body.tt2-modern .tt2-collection__link {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	border: 1px solid var(--tt2-line);
+	border-radius: calc(var(--tt2-radius) * 0.7);
+	background: var(--tt2-surface);
+	box-shadow: var(--tt2-shadow);
+	color: inherit;
+	text-decoration: none;
+	transition: transform 0.18s ease, border-color 0.18s ease;
+}
+body.tt2-modern .tt2-collection__link:hover,
+body.tt2-modern .tt2-collection__link:focus-visible { transform: translateY(-3px); border-color: var(--tt2-accent); }
+body.tt2-modern .tt2-collection__image { display: block; flex: none; aspect-ratio: var(--tt2-list-ratio); overflow: hidden; background: var(--tt2-soft); }
+body.tt2-modern .tt2-collection__image > img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; }
+body.tt2-modern .tt2-collection__text { display: flex; flex: 1 1 auto; flex-direction: column; gap: 6px; padding: 14px 16px 14px; }
+body.tt2-modern .tt2-collection__name { color: var(--tt2-ink); font-family: var(--tt2-font-heading); font-size: 1.0625em; font-weight: var(--tt2-heading-weight-sub); line-height: 1.3; }
+body.tt2-modern .tt2-collection__description { color: color-mix(in srgb, var(--tt2-text) 85%, var(--tt2-surface)); font-family: var(--tt2-font-reading); font-size: 0.8125em; line-height: 1.5; }
+body.tt2-modern .tt2-collection__count { margin-top: auto; padding-top: 8px; color: var(--tt2-muted); font-size: 0.75em; }
+
+/* Text over the image. */
+body.tt2-modern .tt2-collections--overlay .tt2-collection__link { position: relative; min-height: 240px; }
+body.tt2-modern .tt2-collections--overlay .tt2-collection__image { position: absolute; inset: 0; aspect-ratio: auto; }
+body.tt2-modern .tt2-collections--overlay .tt2-collection__image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 25%, color-mix(in srgb, var(--tt2-brand) 92%, transparent)); }
+body.tt2-modern .tt2-collections--overlay .tt2-collection__text { position: relative; justify-content: flex-end; }
+body.tt2-modern .tt2-collections--overlay :is(.tt2-collection__name, .tt2-collection__description, .tt2-collection__count) { color: var(--tt2-on-brand); }
+body.tt2-modern .tt2-collections--overlay .tt2-collection__count { margin-top: 0; padding-top: 0; }
+
+/* Image beside the text. */
+body.tt2-modern .tt2-collections--row .tt2-collection__link { flex-direction: row; }
+body.tt2-modern .tt2-collections--row .tt2-collection__image { flex: 0 0 38%; aspect-ratio: auto; min-height: 150px; }
+
+/* ---------- Items lists ---------- */
+
+body.tt2-modern.tt2-lists-full #tainacan-items-page,
+body.tt2-modern.tt2-lists-full .theme-items-list { max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(8px, 2vw, 28px); box-sizing: border-box; }
+body.tt2-modern .theme-items-list { background: var(--tt2-surface) !important; border-radius: var(--tt2-radius); box-shadow: var(--tt2-shadow); }
+
+/* The drawer beside the list: the margins that center the list give way to the one that makes room. */
+@media (min-width: 1100px) {
+	body.tt2-modern.tt2-lists-full.tt2-drawer-open:not(.tt2-drawer-over) #tainacan-items-page { width: calc(100% - var(--tt2-d-width)); margin-right: var(--tt2-d-width); margin-left: 0; }
+	body.tt2-modern.tt2-lists-full.tt2-drawer-open.tt2-drawer-side-left:not(.tt2-drawer-over) #tainacan-items-page { width: calc(100% - var(--tt2-d-width)); margin-right: 0; margin-left: var(--tt2-d-width); }
+}
+
+/* Card title in the accent. */
+body.tt2-skin.tt2-modern .tainacan-card .metadata-title p,
+body.tt2-skin.tt2-modern .tainacan-record .metadata-title p,
+body.tt2-skin.tt2-modern .tainacan-list .metadata-title p,
+body.tt2-skin.tt2-modern .tainacan-masonry-item .metadata-title p {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: var(--tt2-title-lines);
+	overflow: hidden;
+	color: var(--tt2-accent) !important;
+	font-family: var(--tt2-font-heading) !important;
+	font-size: 0.875em !important;
+	font-weight: var(--tt2-heading-weight-sub) !important;
+	line-height: 1.35 !important;
+	white-space: normal !important;
+}
+body.tt2-skin.tt2-modern.tt2-card-accent-side .tainacan-masonry-container .tainacan-masonry-item .metadata-title { border-top: 0; }
+body.tt2-skin.tt2-modern.tt2-card-accent-side .tainacan-masonry-container .tainacan-masonry-item .metadata-title::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 22%;
+	bottom: 22%;
+	width: 4px;
+	border-radius: 0 4px 4px 0;
+	background: var(--tt2-accent);
+}
+body.tt2-skin.tt2-modern.tt2-card-accent-top .tainacan-card,
+body.tt2-skin.tt2-modern.tt2-card-accent-top .tainacan-record,
+body.tt2-skin.tt2-modern.tt2-card-accent-top .tainacan-list { border-top: 3px solid var(--tt2-accent) !important; }
+body.tt2-skin.tt2-modern:is(.tt2-card-accent-top, .tt2-card-accent-none) :is(.tainacan-card, .tainacan-record, .tainacan-list) .metadata-title::before { display: none; }
+body.tt2-skin.tt2-modern.tt2-card-accent-none .tainacan-masonry-item .metadata-title { border-top: 0 !important; }
+
+/*
+ * Tablets. Tainacan gives the side filters 20% of the width with 32px inside on each side, and the list
+ * at most 80%: on a 820px tablet the filters had 90px for their text, and a panel with a margin pushed the
+ * list below it. The panel gets a readable width, the list takes the rest without wrapping, and the search
+ * field leaves its 136px.
+ */
+@media (min-width: 769px) {
+	body.tt2-modern #tainacan-items-page.is-filters-menu-open:not(.has-horizontal-filters) .items-list-area { flex: 1 1 0; min-width: 0; max-width: none; }
+}
+@media (min-width: 769px) and (max-width: 1279.98px) {
+	body.tt2-modern #filters-modal:not(.horizontal-filters) { flex: 0 0 clamp(228px, 30%, 280px); min-width: 0; max-width: clamp(228px, 30%, 280px); }
+	body.tt2-modern #filters-modal:not(.horizontal-filters) .modal-content { padding-inline: 0 14px !important; }
+	/* The bar is a flex row in Tainacan 1.4 (a grid with container queries in later versions, which then rule). */
+	body.tt2-modern .search-control .search-control-item--search { flex: 1 1 200px; max-width: 240px; }
+	body.tt2-modern .search-control .search-control-item--search .search-area { flex: 1 1 auto; min-width: 160px !important; max-width: none !important; }
+}
+/*
+ * The search bar does not shrink below its content (min-width: auto): a select with a long option, such as
+ * a plugin's search scope, widened the page on a phone. The bar and its parts may now be as narrow as the screen.
+ */
+body.tt2-modern .search-control { min-width: 0; }
+body.tt2-modern .search-control > .search-control-item { min-width: 0; max-width: 100%; }
+body.tt2-modern .search-control select { min-width: 0; max-width: 100%; }
+
+/* The list area of Tainacan hides what passes its edges: room above the first row, so the lift and the ring of the pointer are not cut. */
+body.tt2-skin.tt2-modern:is(.tt2-card-hover-lift, .tt2-card-hover-ring) .items-list-area .table-container { padding-top: 6px; }
+body.tt2-skin.tt2-modern.tt2-card-hover-lift :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item) { transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
+body.tt2-skin.tt2-modern.tt2-card-hover-lift :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item):hover { transform: translateY(-2px); }
+body.tt2-skin.tt2-modern.tt2-card-hover-ring :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item):hover { box-shadow: 0 0 0 2px var(--tt2-accent) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+	body.tt2-modern .tt2-collection__link,
+	body.tt2-skin.tt2-modern :is(.tainacan-card, .tainacan-record, .tainacan-list, .tainacan-masonry-item) { transition: none; transform: none !important; }
+}
+
+/* ---------- Item preview ---------- */
+
+.tt2-drawer--modern { font-family: var(--tt2-font-ui, inherit); font-size: 0.9375rem; }
+/* The drawer's own defaults follow the theme's old link color; here, the settings. */
+.tt2-drawer.tt2-drawer--modern {
+	--tt2-d-accent: var(--tt2-accent);
+	--tt2-d-ink: var(--tt2-text);
+	--tt2-d-muted: var(--tt2-muted);
+	--tt2-d-line: var(--tt2-line);
+	--tt2-d-soft: var(--tt2-soft);
+	background: var(--tt2-surface);
+	color: var(--tt2-text);
+}
+.tt2-drawer--modern .tt2-drawer__head { padding: 12px 14px 12px 20px; }
+.tt2-drawer--modern .tt2-drawer__btn { border-color: transparent; background: transparent; }
+.tt2-drawer--modern .tt2-drawer__btn:hover { background: var(--tt2-d-soft); }
+.tt2-drawer--modern .tt2-drawer__body { padding: 0 20px 84px; overscroll-behavior: contain; }
+.tt2-drawer--modern .tt2-drawer__media {
+	margin: 0 -20px 16px !important;
+	padding: 20px !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: linear-gradient(180deg, var(--tt2-d-soft), transparent) !important;
+}
+.tt2-drawer--modern .tt2-drawer__media:empty { display: none; }
+.tt2-drawer--modern .tt2-drawer__cover { display: block; width: 100%; max-height: 42vh; object-fit: contain; border-radius: 12px; }
+.tt2-drawer--cover .tt2-drawer__cover { object-fit: cover; aspect-ratio: 3 / 2; }
+.tt2-drawer--modern .tt2-drawer__meta-line { margin: 0 0 8px; color: var(--tt2-d-muted); font-size: 0.8125rem; }
+.tt2-drawer--modern .tt2-drawer__title.tt2-drawer__title {
+	margin: 0 0 16px !important;
+	padding: 0 !important;
+	border: 0 !important;
+	color: var(--tt2-ink, #1c355e);
+	font-family: var(--tt2-font-heading, inherit);
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+	outline: 0;
+}
+.tt2-drawer--modern .tt2-drawer__fields { display: grid; grid-template-columns: minmax(90px, 30%) minmax(0, 1fr); gap: 10px 14px; margin: 0 0 16px; padding: 0; border: 0; }
+.tt2-drawer--modern .tt2-drawer__fields dt { margin: 0; padding-top: 3px; color: var(--tt2-d-muted); font-size: 0.8125rem; font-weight: 400; line-height: 1.35; text-transform: none; letter-spacing: 0; }
+.tt2-drawer--modern .tt2-drawer__fields dd { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 6px; margin: 0; min-width: 0; font-size: 0.875rem; }
+.tt2-drawer--modern .tt2-drawer__fields dd:has(a[data-linkto="term"]) .multivalue-separator { display: none; }
+.tt2-drawer--modern .tt2-drawer__fields dd a[data-linkto="term"],
+.tt2-drawer--modern .tt2-drawer__fields dd.tt2-chip-value { display: inline-block; width: fit-content; padding: 2px 12px; border-radius: 999px; line-height: 1.5; text-decoration: none; background: var(--tt2-tint-1, #ece9fb); color: var(--tt2-tint-1-ink, #4638b3); }
+.tt2-drawer--modern .tt2-drawer__fields dd:nth-of-type(4n + 2) a[data-linkto="term"],
+.tt2-drawer--modern .tt2-drawer__fields dd.tt2-chip-value:nth-of-type(4n + 2) { background: var(--tt2-tint-2, #e3f4ee); color: var(--tt2-tint-2-ink, #1b6a53); }
+.tt2-drawer--modern .tt2-drawer__fields dd:nth-of-type(4n + 3) a[data-linkto="term"],
+.tt2-drawer--modern .tt2-drawer__fields dd.tt2-chip-value:nth-of-type(4n + 3) { background: var(--tt2-tint-3, #fdeee6); color: var(--tt2-tint-3-ink, #a24a22); }
+.tt2-drawer--modern .tt2-drawer__fields dd:nth-of-type(4n) a[data-linkto="term"],
+.tt2-drawer--modern .tt2-drawer__fields dd.tt2-chip-value:nth-of-type(4n) { background: var(--tt2-tint-4, #e6f1fa); color: var(--tt2-tint-4-ink, #1f5f8f); }
+.tt2-drawer--modern .tt2-drawer__description { margin: 0; color: var(--tt2-text, #333); font-family: var(--tt2-font-reading, inherit); line-height: 1.6; }
+.tt2-drawer--modern .tt2-drawer__foot { position: absolute; left: 20px; bottom: 18px; padding: 0; border: 0; background: none; }
+.tt2-drawer--modern .tt2-drawer__open {
+	display: inline-flex;
+	padding: 10px 22px;
+	border-radius: 999px;
+	background: var(--tt2-d-accent) !important;
+	color: var(--tt2-on-accent, #fff) !important;
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--tt2-d-accent) 70%, transparent);
+}
+.tt2-drawer--modern .tt2-drawer__open:hover { filter: brightness(1.1); }
+
+/* ---------- Item page ---------- */
+
+body.tt2-modern .tt2-item-head { margin-bottom: 22px; }
+body.tt2-modern .tt2-item-head__title { max-width: 26em; margin: 0; color: var(--tt2-ink) !important; font-size: calc(clamp(min(1.625rem, var(--tt2-h1, 44px)), 1.1rem + 1.7vw, var(--tt2-h1, 44px)) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; line-height: 1.15; letter-spacing: var(--tt2-heading-spacing); text-wrap: balance; }
+body.tt2-modern .tt2-item-head__subtitle { margin: 8px 0 0; color: var(--tt2-muted); font-size: 0.875em; }
+body.tt2-modern .tt2-item-head .tt2-item-identity { margin: 8px 0 0; padding: 0; }
+body.tt2-modern .tt2-item-head .tt2-item-identity__collection { display: none; }
+body.tt2-modern .tt2-item-head .tt2-item-identity:not(:has(.tt2-item-identity__number)) { display: none; }
+body.tt2-modern .tt2-item-head .tainacan-edit-item-collection { font-size: 0.8125em; }
+body.tt2-modern .tt2-item-head__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+body.tt2-modern .tt2-item-head__actions .tt2-share__links { left: 0; transform: none; }
+
+body.tt2-modern .tt2-crumbs ~ main.max-large.mt-5 { margin-top: 0 !important; }
+body.tt2-modern main.max-large > .row { margin-inline: 0; }
+body.tt2-modern main.max-large > .row > .col { padding-inline: 0; }
+/* Rows inside that column (previous and next post, comments) would pass the edges by their negative margins. */
+body.tt2-modern main.max-large > .row > .col > .row,
+body.tt2-modern main.max-large > .row > .col > .tainacan-single-post > .row { margin-inline: 0; }
+
+body.tt2-modern:not(.tt2-label-document) #single-item-document-label,
+body.tt2-modern:not(.tt2-label-attachments) #single-item-attachments-label { display: none; }
+body.tt2-modern .single-item-data-section .tainacan-single-post { margin-top: 0 !important; }
+body.tt2-modern .single-item-collection.margin-two-column { margin-inline: 0 !important; }
+body.tt2-modern .single-item-data-section .my-5.border-bottom { display: none; }
+body.tt2-modern.tt2-doc-frame .single-item-collection--document,
+body.tt2-modern.tt2-doc-frame .single-item-collection--gallery { overflow: hidden; border: 1px solid var(--tt2-line); border-radius: var(--tt2-radius); background: var(--tt2-surface); box-shadow: var(--tt2-shadow); }
+body.tt2-modern .single-item-collection--attachments { margin-top: 14px; }
+
+/* Two columns: the document stays in view beside the record. */
+@media (min-width: 992px) {
+	body.tt2-modern:is(.tt2-item-layout-media-left, .tt2-item-layout-media-right) .single-item-data-section { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 0 32px; align-items: start; }
+	body.tt2-modern:is(.tt2-item-layout-media-left, .tt2-item-layout-media-right) .single-item-data-section > .tt2-item-body { grid-row: 1 / span 4; grid-column: 2; margin-top: 0; display: block; }
+	body.tt2-modern:is(.tt2-item-layout-media-left, .tt2-item-layout-media-right) .single-item-data-section > :not(.tt2-item-body) { grid-column: 1; }
+	body.tt2-modern.tt2-item-layout-media-right .single-item-data-section { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+	body.tt2-modern.tt2-item-layout-media-right .single-item-data-section > .tt2-item-body { grid-column: 1; }
+	body.tt2-modern.tt2-item-layout-media-right .single-item-data-section > :not(.tt2-item-body) { grid-column: 2; }
+}
+
+body.tt2-modern .tt2-item-body { margin-top: calc(26px * var(--tt2-space)); }
+/* Below 960px "Keep exploring" falls under the record, right above the previous and next item. */
+@media (max-width: 959.98px) { body.tt2-modern .tt2-item-body { margin-bottom: calc(32px * var(--tt2-space)); } }
+body.tt2-modern .tt2-item-body--alone { display: block; }
+
+/* The record. */
+body.tt2-modern .tt2-section {
+	margin-bottom: 12px;
+	border: 1px solid var(--tt2-line);
+	border-radius: calc(var(--tt2-radius) * 0.7);
+	background: var(--tt2-surface);
+	box-shadow: var(--tt2-shadow);
+}
+body.tt2-modern .tt2-section__summary { display: flex; align-items: center; gap: 10px; padding: 14px 18px; cursor: pointer; list-style: none; }
+body.tt2-modern .tt2-section__summary::-webkit-details-marker { display: none; }
+body.tt2-modern .tt2-section__summary::before { content: "+"; flex: none; width: 1em; color: var(--tt2-accent); font-size: 1.2em; font-weight: 600; line-height: 1; text-align: center; }
+body.tt2-modern .tt2-section[open] > .tt2-section__summary::before { content: "\2212"; }
+body.tt2-modern .tt2-section__title.tt2-section__title { flex: 1 1 auto; margin: 0; padding: 0; border: 0; color: var(--tt2-ink); font-size: 0.9375em; font-weight: var(--tt2-heading-weight-sub); letter-spacing: 0; text-transform: none; }
+body.tt2-modern .tt2-section__count { flex: none; color: var(--tt2-muted); font-size: 0.75em; }
+body.tt2-modern .tt2-section .tainacan-metadata-section { margin: 0 !important; padding: 2px 18px 16px; }
+body.tt2-modern .tt2-section .single-item-collection--information .row { margin-inline: 0; }
+body.tt2-modern .tt2-section .s-item-collection--metadata { padding-inline: 0; }
+
+body.tt2-modern .s-item-collection--metadata > div { margin: 0 0 10px !important; padding: 0 !important; border-bottom: 0 !important; }
+body.tt2-modern.tt2-labels-side .s-item-collection--metadata > div {
+	display: grid;
+	grid-template-columns: minmax(110px, 30%) minmax(0, 1fr);
+	gap: 4px 16px;
+	align-items: start;
+}
+@media (max-width: 520px) { body.tt2-modern.tt2-labels-side .s-item-collection--metadata > div { grid-template-columns: minmax(0, 1fr); } }
+body.tt2-modern .s-item-collection--metadata > div > :is(h3, .label) {
+	margin: 0;
+	padding: 2px 0 0;
+	color: var(--tt2-muted) !important;
+	font-family: var(--tt2-font-ui);
+	font-size: var(--tt2-meta-label, 0.875rem) !important;
+	font-weight: 400 !important;
+	letter-spacing: 0 !important;
+	line-height: 1.35;
+	text-transform: none !important;
+}
+body.tt2-modern.tt2-labels-above .s-item-collection--metadata > div > :is(h3, .label) { margin-bottom: 4px; }
+body.tt2-modern .s-item-collection--metadata .tainacan-metadata-value { margin: 0 !important; padding: 0; color: var(--tt2-text); font-size: var(--tt2-meta-value, 1rem); line-height: 1.55; min-width: 0; }
+body.tt2-modern .tainacan-metadata-value.tt2-chip-value,
+body.tt2-modern .s-item-collection--metadata .tainacan-metadata-value a[data-linkto="term"] {
+	display: inline-block;
+	width: fit-content;
+	margin: 0 4px 4px 0;
+	padding: 2px 12px;
+	border-radius: 999px;
+	background: var(--tt2-soft);
+	color: var(--tt2-accent);
+	/* One size for every capsule, whatever the size of the record around it (the older style.css gives it 0.813rem). */
+	font-family: var(--tt2-font-ui);
+	font-size: var(--tt2-chip-size, 0.93rem);
+	line-height: 1.55;
+	text-decoration: none;
+}
+body.tt2-modern .s-item-collection--metadata .multivalue-separator { display: none; }
+body.tt2-modern .s-item-collection--metadata .tainacan-metadata-value:not(:has(a[data-linkto="term"])) .multivalue-separator { display: inline !important; }
+body.tt2-modern.tt2-chips-plain .s-item-collection--metadata .tainacan-metadata-value a[data-linkto="term"] { display: inline; padding: 0; margin: 0; background: none; font-size: inherit; }
+body.tt2-modern.tt2-chips-plain .s-item-collection--metadata .multivalue-separator { display: inline; }
+
+/* Four tints, by position in the record. */
+body.tt2-modern.tt2-chips-colored .s-item-collection--metadata > :nth-child(4n + 1) :is(a[data-linkto="term"], .tt2-chip-value) { background: var(--tt2-tint-1); color: var(--tt2-tint-1-ink); }
+body.tt2-modern.tt2-chips-colored .s-item-collection--metadata > :nth-child(4n + 2) :is(a[data-linkto="term"], .tt2-chip-value) { background: var(--tt2-tint-2); color: var(--tt2-tint-2-ink); }
+body.tt2-modern.tt2-chips-colored .s-item-collection--metadata > :nth-child(4n + 3) :is(a[data-linkto="term"], .tt2-chip-value) { background: var(--tt2-tint-3); color: var(--tt2-tint-3-ink); }
+body.tt2-modern.tt2-chips-colored .s-item-collection--metadata > :nth-child(4n) :is(a[data-linkto="term"], .tt2-chip-value) { background: var(--tt2-tint-4); color: var(--tt2-tint-4-ink); }
+
+@media (min-width: 768px) {
+	/* The option wins over the older column options and the side column, which are !important. */
+	body.tt2-modern.tt2-meta-columns-1 .single-item-data-section .single-item-collection .single-item-collection--information .s-item-collection--metadata { column-count: 1 !important; }
+	body.tt2-modern.tt2-meta-columns-2 .single-item-data-section .single-item-collection .single-item-collection--information .s-item-collection--metadata { column-count: 2 !important; column-gap: 32px; }
+	body.tt2-modern.tt2-meta-columns-2 .s-item-collection--metadata > * { break-inside: avoid; }
+}
+
+/* Long text reads in the reading font. */
+body.tt2-modern .s-item-collection--metadata :is(.metadata-type-textarea, .metadata-type-core_description) .tainacan-metadata-value:not(.tt2-chip-value) { font-family: var(--tt2-font-reading); font-size: calc(var(--tt2-meta-value, 1rem) * 1.05); line-height: 1.65; }
+
+/* How to cite. */
+body.tt2-modern .tt2-cite {
+	margin-top: 18px;
+	padding: 18px 20px;
+	border-radius: var(--tt2-radius);
+	background: linear-gradient(135deg, var(--tt2-soft), color-mix(in srgb, var(--tt2-brand) 6%, var(--tt2-surface)));
+	box-shadow: var(--tt2-shadow);
+}
+body.tt2-modern .tt2-cite__title.tt2-cite__title { margin: 0 0 10px; color: var(--tt2-ink); font-size: 1.0625em; font-weight: var(--tt2-heading-weight-sub); }
+body.tt2-modern .tt2-cite__tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+body.tt2-modern .tt2-cite__tab { padding: 4px 12px; border: 1px solid var(--tt2-line); border-radius: 999px; background: var(--tt2-surface); color: var(--tt2-text); font: inherit; font-size: 0.75em; cursor: pointer; }
+body.tt2-modern .tt2-cite__tab[aria-selected="true"] { border-color: var(--tt2-accent); background: var(--tt2-accent); color: var(--tt2-on-accent); }
+body.tt2-modern .tt2-cite__text { margin-bottom: 12px; padding: 12px 14px; overflow-wrap: anywhere; white-space: pre-line; border-radius: calc(var(--tt2-radius) * 0.6); background: var(--tt2-surface); font-size: 0.875em; line-height: 1.6; }
+body.tt2-modern .tt2-cite__text[hidden] { display: none; }
+
+/* Keep exploring. */
+body.tt2-modern .tt2-aside { margin-top: 0; border: 1px solid var(--tt2-line); border-radius: var(--tt2-radius); background: color-mix(in srgb, var(--tt2-accent) 3%, var(--tt2-surface)); box-shadow: var(--tt2-shadow); }
+
+/* Previous and next. */
+body.tt2-modern .tainacan-single-post:has(> .title-content-items + *) .title-content-items { color: var(--tt2-ink); font-size: 1.0625em; font-weight: var(--tt2-heading-weight-sub); border-bottom: 0; }
+body.tt2-modern .tainacan-single-post .title-content-items::after { display: none; }
+
+/* Blog, pages and search: the site banner in the same language as the collection banner. */
+body.tt2-modern .page-header.header-filter:not(.page-header--image-full) {
+	position: relative;
+	min-height: 0;
+	height: auto;
+	padding-block: clamp(28px, 5vw, 56px);
+	background-blend-mode: luminosity;
+	background-color: var(--tt2-brand);
+}
+body.tt2-modern .page-header.header-filter:not(.page-header--image-full)::before { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--tt2-brand) 82%, transparent); }
+body.tt2-modern .ph-title-description { position: relative; max-width: var(--tt2-width); margin-inline: auto; padding-inline: clamp(12px, 3vw, var(--tt2-edge)) !important; }
+body.tt2-modern .ph-title-description .title-header { padding: 0; background: none; box-shadow: none; }
+body.tt2-modern .ph-title-description .title-header h1 { color: var(--tt2-on-brand) !important; font-size: calc(clamp(min(1.75rem, var(--tt2-h1, 44px)), 1.1rem + 2.2vw, var(--tt2-h1, 44px)) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; letter-spacing: var(--tt2-heading-spacing); line-height: 1.15 !important; text-wrap: balance; }
+
+/* A post fixed at the top of the blog. */
+body.tt2-modern .blog-post.sticky { border-inline-start: 4px solid var(--tt2-accent); padding-inline-start: 12px; }
+
+/* The page not found: its text above the veil of the banner. */
+body.tt2-modern .page-404 > .container { position: relative; z-index: 1; padding-block: calc(48px * var(--tt2-space)); }
+body.tt2-modern .page-404 :is(h1, h3) { color: var(--tt2-on-brand) !important; }
+body.tt2-modern.tt2-hero-plain .page-404 :is(h1, h3) { color: var(--tt2-ink) !important; }
+body.tt2-modern .page-404 .btn { padding: 6px 18px !important; border: 0; border-radius: var(--tt2-button-radius); background: var(--tt2-accent) !important; color: var(--tt2-on-accent) !important; }
+
+/* Pagination of the Tainacan lists: labels, selects and pages on one line. */
+body.tt2-modern .pagination-area { align-items: center; }
+body.tt2-modern .pagination-area :is(.shown-items, .items-per-page, .go-to-page, .pagination) { display: flex; align-items: center; margin-block: 0; }
+body.tt2-modern .pagination-area .field.is-horizontal { align-items: center; margin: 0; }
+body.tt2-modern .pagination-area .field-label { display: flex; align-items: center; margin: 0 8px 0 0; padding: 0; }
+body.tt2-modern .pagination-area .field-label .label { margin: 0; line-height: 1.4; }
+body.tt2-modern .pagination-area select { height: auto; padding-block: 4px; font-size: inherit; line-height: 1.4; }
+
+/* ---------- Main area ---------- */
+
+body.tt2-modern main.max-large.mt-5 { margin-top: calc(3rem * var(--tt2-space)) !important; }
+
+/* Sidebar of the blog: beside the posts, on either side, at its own width. */
+@media (min-width: 992px) {
+	body.tt2-modern.tt2-has-sidebar main > .row { display: grid; grid-template-columns: minmax(0, 1fr) var(--tt2-sidebar-width); gap: calc(48px * var(--tt2-space)); margin-inline: 0; }
+	body.tt2-modern.tt2-has-sidebar main > .row > * { width: auto; max-width: none; padding-inline: 0; }
+	body.tt2-modern.tt2-has-sidebar.tt2-sidebar-left main > .row { grid-template-columns: var(--tt2-sidebar-width) minmax(0, 1fr); }
+	body.tt2-modern.tt2-has-sidebar.tt2-sidebar-left main > .row > :last-child { order: -1; }
+	body.tt2-modern.tt2-has-sidebar.tt2-sidebar-sticky main > .row > :last-child { position: sticky; top: calc(var(--wp-admin--admin-bar--height, 0px) + 24px); align-self: start; }
+}
+
+/* ---------- Posts and pages ---------- */
+
+/* The banner at the top. */
+body.tt2-modern .page-header.header-filter:not(.page-header--image-full) { min-height: var(--tt2-hero-height) !important; display: flex; align-items: center; }
+body.tt2-modern.tt2-hero-align-center .ph-title-description { text-align: center; }
+body.tt2-modern.tt2-hero-plain .page-header.header-filter:not(.page-header--image-full) { background-image: none !important; background-color: var(--tt2-surface); box-shadow: inset 0 -1px 0 var(--tt2-line); }
+body.tt2-modern.tt2-hero-plain .page-header.header-filter:not(.page-header--image-full)::before { display: none; }
+body.tt2-modern.tt2-hero-plain .ph-title-description .title-header h1 { color: var(--tt2-ink) !important; }
+
+/* The title of the page: a line saying what the page is, the title, the count. */
+body.tt2-modern .tt2-page-head { margin: 0 0 calc(28px * var(--tt2-space)); }
+/* Posts and pages start closer to the banner than the lists, whose main area has its own margin. */
+body.tt2-modern:is(.single, .page) .tt2-page-head { padding-top: calc(28px * var(--tt2-space)); }
+body.tt2-modern .tt2-page-head .tainacan-title-page { position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin: 0; padding: 0 0 calc(22px * var(--tt2-space)); border: 0; border-bottom: 1px solid var(--tt2-line); }
+body.tt2-modern .tt2-page-head .tainacan-title-page::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 56px; height: 3px; border-radius: 3px; background: var(--tt2-accent); transform-origin: 0 50%; }
+body.tt2-modern .tt2-page-head__text { flex: 1 1 30ch; min-width: 0; }
+body.tt2-modern .tt2-page-head__kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; color: var(--tt2-accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; line-height: 1.3; text-transform: uppercase; }
+body.tt2-modern .tt2-page-head__kicker::before { content: ""; flex: none; width: 20px; height: 2px; border-radius: 2px; background: currentColor; }
+body.tt2-modern .tt2-page-head__kicker a { color: inherit !important; text-decoration: none; }
+body.tt2-modern .tt2-page-head__kicker a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+body.tt2-modern .tt2-page-head .title-page h1 { min-width: 0; max-width: 28em; margin: 0; padding: 0; overflow: visible; color: var(--tt2-ink) !important; font-size: calc(clamp(min(1.75rem, var(--tt2-h1, 44px)), 1.15rem + 1.9vw, var(--tt2-h1, 44px)) * var(--tt2-heading-scale)) !important; font-weight: var(--tt2-heading-weight) !important; line-height: 1.12; letter-spacing: var(--tt2-heading-spacing); text-wrap: balance; }
+body.tt2-modern .tt2-page-head__description { max-width: 65ch; margin: 14px 0 0; color: var(--tt2-muted); font-size: 1.0625em; line-height: 1.6; }
+body.tt2-modern .tt2-page-head__meta { display: inline-flex; margin: 14px 0 0; padding: 3px 12px; border-radius: 999px; background: var(--tt2-soft); color: var(--tt2-accent); font-size: 0.8125rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+body.tt2-modern .tt2-page-head__back { display: inline-flex; flex: none; align-items: center; gap: 6px; margin: 0; padding: 7px 15px 7px 11px; border: 1px solid var(--tt2-line); border-radius: 999px; background: var(--tt2-surface); color: var(--tt2-ink) !important; font-size: 0.8125rem; font-weight: 500; line-height: 1.2; text-decoration: none !important; transition: border-color 0.2s, background-color 0.2s, color 0.2s; }
+body.tt2-modern .tt2-page-head__back svg { transition: transform 0.2s; }
+body.tt2-modern .tt2-page-head__back:hover { border-color: var(--tt2-accent); background: var(--tt2-soft); color: var(--tt2-accent) !important; }
+body.tt2-modern .tt2-page-head__back:hover svg { transform: translateX(-3px); }
+body.tt2-modern .tt2-page-head__back:focus-visible { outline: 2px solid var(--tt2-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+	body.tt2-modern .tt2-page-head .tainacan-title-page::after { animation: tt2-rule-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+	body.tt2-modern .tt2-page-head__text { animation: tt2-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+	@keyframes tt2-rule-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+	@keyframes tt2-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+/* Centered: the line of the kind on both sides, the back button above. */
+body.tt2-modern.tt2-title-centered .tt2-page-head .tainacan-title-page { flex-direction: column; align-items: center; text-align: center; }
+body.tt2-modern.tt2-title-centered .tt2-page-head .tainacan-title-page::after { right: 0; margin-inline: auto; transform-origin: 50% 50%; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__text { flex: none; width: 100%; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__kicker { justify-content: center; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__kicker::after { content: ""; flex: none; width: 20px; height: 2px; border-radius: 2px; background: currentColor; }
+body.tt2-modern.tt2-title-centered .tt2-page-head .title-page h1,
+body.tt2-modern.tt2-title-centered .tt2-page-head__description { margin-inline: auto; }
+body.tt2-modern.tt2-title-centered .tt2-page-head__back { order: -1; align-self: center; }
+/* Compact: the size of a section title, the count beside it. */
+body.tt2-modern.tt2-title-compact .tt2-page-head .tainacan-title-page { align-items: center; padding-bottom: calc(14px * var(--tt2-space)); }
+body.tt2-modern.tt2-title-compact .tt2-page-head__kicker { margin-bottom: 6px; }
+body.tt2-modern.tt2-title-compact .tt2-page-head .title-page h1 { font-size: calc(clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem) * var(--tt2-heading-scale)) !important; line-height: 1.25; }
+body.tt2-modern.tt2-title-compact :is(.tt2-page-head__description, .tt2-page-head__meta) { margin-top: 8px; }
+@media (max-width: 575.98px) {
+	body.tt2-modern .tt2-page-head .tainacan-title-page { gap: 14px; }
+	body.tt2-modern:not(.tt2-title-centered) .tt2-page-head__back { order: -1; }
+}
+
+/* Images of the list, in the chosen proportion. */
+body.tt2-modern .tainacan-list-post .blog-thumbnail img { width: 100%; aspect-ratio: var(--tt2-blog-ratio); object-fit: cover; border-radius: calc(var(--tt2-radius) * 0.6); }
+
+/* Cards in columns. */
+body.tt2-modern.tt2-blog-grid .tainacan-list-post { display: grid; grid-template-columns: repeat(var(--tt2-blog-columns), minmax(0, 1fr)); gap: calc(24px * var(--tt2-space)); margin-inline: 0 !important; }
+body.tt2-modern.tt2-blog-grid.tt2-has-sidebar .tainacan-list-post { grid-template-columns: repeat(min(var(--tt2-blog-columns), 2), minmax(0, 1fr)); }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post > hr { display: none; }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-post { flex-direction: column; flex-wrap: nowrap; margin: 0 !important; overflow: hidden; border: 1px solid var(--tt2-line); border-radius: var(--tt2-radius); background: var(--tt2-surface); box-shadow: var(--tt2-shadow); }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-post > div { flex: none; width: 100%; max-width: 100%; margin: 0 !important; padding: 16px 18px; }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-thumbnail { padding: 0 !important; }
+body.tt2-modern.tt2-blog-grid .tainacan-list-post .blog-thumbnail img { border-radius: 0; }
+@media (max-width: 991.98px) { body.tt2-modern.tt2-blog-grid .tainacan-list-post { grid-template-columns: repeat(min(var(--tt2-blog-columns), 2), minmax(0, 1fr)); } }
+@media (max-width: 575.98px) { body.tt2-modern.tt2-blog-grid .tainacan-list-post { grid-template-columns: minmax(0, 1fr); } }
+
+/* A narrower text, easier to read. */
+body.tt2-modern.tt2-post-narrow:is(.single-post, .page) main :is(.tainacan-title, .tainacan-single-post) { max-width: var(--tt2-narrow); margin-inline: auto; }
+body.tt2-modern.tt2-post-narrow:is(.single-post, .page) main .tainacan-single-post :is(.margin-two-column, .margin-one-column) { margin-inline: 0; }
+
+/* Links in the running text. */
+body.tt2-modern .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button, :where([class*="wp-block-tainacan-"]) a) { text-underline-offset: 0.18em; }
+body.tt2-modern.tt2-links-underline .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button, :where([class*="wp-block-tainacan-"]) a) { text-decoration: underline; }
+body.tt2-modern:is(.tt2-links-hover, .tt2-links-none) .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button, :where([class*="wp-block-tainacan-"]) a) { text-decoration: none; }
+body.tt2-modern.tt2-links-hover .tainacan-content a:not(.wp-block-button__link, .btn, .wp-element-button, :where([class*="wp-block-tainacan-"]) a):hover { text-decoration: underline; }
+
+/* Reading progress, drawn by the browser from the scroll of the page. */
+@supports (animation-timeline: scroll()) {
+	body.tt2-modern.tt2-progress::before {
+		content: "";
+		position: fixed;
+		z-index: 100001;
+		top: var(--wp-admin--admin-bar--height, 0px);
+		left: 0;
+		width: 100%;
+		height: 3px;
+		pointer-events: none;
+		background: var(--tt2-accent);
+		transform-origin: 0 50%;
+		animation: tt2-progress linear both;
+		animation-timeline: scroll(root);
+	}
+	@keyframes tt2-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* ---------- Buttons, fields and selection ---------- */
+
+:where(body.tt2-modern) :is(.wp-block-button__link, .wp-element-button, .btn-jelly-bean, .tt2-header-button, input[type="submit"], button[type="submit"]):not(.tainacan-modal *, #tainacan-items-page *, .swiper-button-prev, .swiper-button-next) {
+	border-radius: var(--tt2-button-radius);
+	font-weight: 600;
+}
+body.tt2-modern.tt2-button-upper :is(.wp-block-button__link, .wp-element-button, .btn-jelly-bean, .tt2-header-button, input[type="submit"], button[type="submit"]):not(.tainacan-modal *, #tainacan-items-page *, .swiper-button-prev, .swiper-button-next) { text-transform: uppercase; letter-spacing: 0.05em; }
+body.tt2-modern.tt2-buttons-outline :is(.wp-block-button__link, .wp-element-button, .btn-jelly-bean, input[type="submit"]):not(.has-background, .tainacan-modal *, #tainacan-items-page *, .swiper-button-prev, .swiper-button-next) { border: 2px solid var(--tt2-accent) !important; background: transparent !important; color: var(--tt2-accent) !important; }
+
+/* An outline button over a cover or a group with its own text color takes that color: the accent of the site would disappear on a dark background. */
+body.tt2-modern :is(.wp-block-cover, .has-text-color) .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color) { color: inherit; border-color: currentColor !important; }
+
+:where(body.tt2-modern) :where(.tainacan-content, .comment-form, .search-form, .wp-block-search, .widget, .tainacan-form-dropdown, .tainacan-footer) :is(input:not([type="submit"], [type="radio"], [type="checkbox"], [type="hidden"]), textarea, select) {
+	border-radius: calc(var(--tt2-button-radius) * 0.6);
+}
+body.tt2-modern.tt2-fields-filled :where(.tainacan-content, .comment-form, .search-form, .wp-block-search, .widget, .tainacan-form-dropdown) :is(input:not([type="submit"], [type="radio"], [type="checkbox"], [type="hidden"]), textarea, select) { border-color: transparent; background-color: var(--tt2-soft); }
+body.tt2-modern.tt2-fields-underline :where(.tainacan-content, .comment-form, .search-form, .wp-block-search, .widget, .tainacan-form-dropdown) :is(input:not([type="submit"], [type="radio"], [type="checkbox"], [type="hidden"]), textarea, select) { border-width: 0 0 2px; border-radius: 0; background-color: transparent; }
+
+body.tt2-modern.tt2-selection-accent ::selection { background: color-mix(in srgb, var(--tt2-accent) 28%, transparent); }
+body.tt2-modern.tt2-selection-brand ::selection { background: var(--tt2-brand); color: var(--tt2-on-brand); }
+
+/* ---------- Header: button, social networks and the menu on phones ---------- */
+
+body.tt2-modern .tt2-header-button { display: inline-flex; align-items: center; margin-inline: 8px 4px; padding: 7px 16px; background: var(--tt2-accent); color: var(--tt2-on-accent) !important; font-size: 0.875em; line-height: 1.3; text-decoration: none; white-space: nowrap; }
+body.tt2-modern.tt2-header-accent .tt2-header-button { background: var(--tt2-header-fg); color: var(--tt2-header-bg) !important; }
+body.tt2-modern .tt2-header-button:hover { filter: brightness(1.08); }
+
+body.tt2-modern .tt2-social { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; }
+body.tt2-modern .tt2-social a { display: inline-flex; padding: 6px; border-radius: 999px; color: inherit; }
+body.tt2-modern .tt2-social a:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+body.tt2-modern .tt2-social--header { margin-inline: 4px; }
+
+@media (max-width: 767.98px) {
+	body.tt2-modern.tt2-mobile-menu-side #menubelowHeader.navbar-collapse {
+		position: fixed;
+		z-index: 1040;
+		top: var(--wp-admin--admin-bar--height, 0px);
+		bottom: 0;
+		left: 0;
+		right: auto;
+		display: block !important;
+		width: min(320px, 86vw);
+		max-height: none;
+		padding: 64px 20px 24px;
+		visibility: hidden;
+		transform: translateX(-100%);
+		transition: transform 0.22s ease, visibility 0.22s;
+	}
+	body.tt2-modern.tt2-mobile-menu-side #menubelowHeader.navbar-collapse.show { visibility: visible; transform: none; }
+	body.tt2-modern.tt2-mobile-menu-side .menu-belowheader:has(#menubelowHeader.show)::after { content: ""; position: fixed; z-index: 1039; inset: 0; background: rgba(10, 16, 28, 0.45); }
+	body.tt2-modern.tt2-mobile-menu-side .navbar-toggler { position: relative; z-index: 1041; }
+	body.tt2-modern.tt2-mobile-menu-side .navbar-toggler[aria-expanded="true"] { position: fixed; top: calc(var(--wp-admin--admin-bar--height, 0px) + 12px); left: calc(min(320px, 86vw) - 52px); }
+	/* A header with backdrop-filter, filter or transform (a site's own CSS) becomes the
+	   containing block of everything fixed inside it, and the panel would be trapped in
+	   the header's height. While the panel is open those effects go; it covers the header anyway. */
+	body.tt2-modern.tt2-mobile-menu-side nav.navbar:has(#menubelowHeader.show) { backdrop-filter: none; -webkit-backdrop-filter: none; filter: none; transform: none; }
+}
+
+/* ---------- Footer ---------- */
+
+body.tt2-modern .tt2-footer-extra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 14px; }
+body.tt2-modern .tt2-footer-menu ul { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; list-style: none; }
+body.tt2-modern .tt2-footer-menu a { color: inherit; font-size: 0.875em; }
+body.tt2-modern .tt2-footer-note { flex-basis: 100%; opacity: 0.85; }
+
+/* ---------- Back to top and frame ---------- */
+
+body.tt2-modern #return-to-top { display: flex !important; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(8px); background: var(--tt2-accent); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; animation: none; }
+body.tt2-modern #return-to-top.tt2-is-shown { opacity: 1; visibility: visible; transform: none; }
+/* The arrow in the middle: the classic one was moved by hand with top and left. */
+body.tt2-modern #return-to-top i { position: static; display: block; font-size: 1.5rem; line-height: 1; }
+body.tt2-modern.tt2-back-top-rounded #return-to-top { border-radius: 10px; }
+body.tt2-modern.tt2-back-top-square #return-to-top { border-radius: 0; }
+body.tt2-modern.tt2-back-top-left #return-to-top { right: auto; left: 4.16vw; }
+@media (max-width: 767.98px) { body.tt2-modern.tt2-back-top-desktop #return-to-top { display: none !important; } }
+
+body.tt2-modern.tt2-frame { padding: var(--tt2-frame); }
+body.tt2-modern.tt2-frame::after { content: ""; position: fixed; z-index: 100000; inset: 0; border: var(--tt2-frame) solid var(--tt2-brand); pointer-events: none; }
+
+/* ---------- Compact footer ---------- */
+
+body.tt2-modern .tt2-footer-compact { margin-top: calc(40px * var(--tt2-space)) !important; padding: 26px clamp(12px, 3vw, var(--tt2-edge)) !important; background: var(--tt2-footer-bg) !important; }
+body.tt2-modern .tt2-footer-compact .tainacan-footer-area-separator { display: none; }
+body.tt2-modern .tt2-footer-compact .tainacan-footer-info { max-width: var(--tt2-width); margin-inline: auto; padding: 0 !important; align-items: center; }
+body.tt2-modern .tt2-footer-compact p { margin: 0; color: var(--tt2-footer-fg); font-size: 0.875em; }
+body.tt2-modern .tt2-footer-compact :is(.col, a) { color: var(--tt2-footer-fg) !important; }
+body.tt2-modern .tt2-footer-compact .tainacan-powered:empty,
+body.tt2-modern .tt2-footer-compact .tainacan-powered span:empty { display: none; }
+
+/* List of collections: taxonomies of the site below the cards (4.8.0). */
+body.tt2-modern .tt2-taxonomies { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--tt2-line); }
+body.tt2-modern .tt2-taxonomies__title { margin: 0 0 16px; font-family: var(--tt2-font-heading); font-size: 1.5em !important; font-weight: var(--tt2-heading-weight, 700); color: var(--tt2-ink); }
+body.tt2-modern .tt2-taxonomies__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+body.tt2-modern .tt2-taxonomy__link { display: flex; gap: 12px; height: 100%; padding: 14px 16px; border: 1px solid var(--tt2-line); border-radius: var(--tt2-radius); background: var(--tt2-surface); color: var(--tt2-text); text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+body.tt2-modern .tt2-taxonomy__link:hover, body.tt2-modern .tt2-taxonomy__link:focus-visible { border-color: var(--tt2-accent); box-shadow: var(--tt2-shadow); text-decoration: none; }
+body.tt2-modern .tt2-taxonomy__icon { flex: none; width: 36px; height: 36px; border-radius: 10px; background: color-mix(in srgb, var(--tt2-accent) 14%, var(--tt2-surface)); position: relative; }
+body.tt2-modern .tt2-taxonomy__icon::before { content: ""; position: absolute; inset: 9px; background: var(--tt2-accent); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h6v4H4zM14 10h6v4h-6zM14 17h6v4h-6zM7 8v11h7M7 12h7'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h6v4H4zM14 10h6v4h-6zM14 17h6v4h-6zM7 8v11h7M7 12h7'/%3E%3C/svg%3E") center / contain no-repeat; }
+body.tt2-modern .tt2-taxonomy__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+body.tt2-modern .tt2-taxonomy__name { font-weight: 700; color: var(--tt2-ink); }
+body.tt2-modern .tt2-taxonomy__link:hover .tt2-taxonomy__name { color: var(--tt2-accent); }
+body.tt2-modern .tt2-taxonomy__description { font-size: 0.85em; color: var(--tt2-muted); }
+body.tt2-modern .tt2-taxonomy__count { margin-top: 4px; font-size: 0.75em; color: var(--tt2-muted); }

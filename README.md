@@ -14,14 +14,16 @@ Tema WordPress padrão do Tainacan, para ser usado com o plugin Tainacan
 
 ## Dependências
 
-Este tema usa npm para gerenciar dependências:
-- **Sass**: Para compilação de SCSS (versão 1.58.3)
-- **Bootstrap**: Framework CSS (versão 4.6.1)
+Este tema usa npm só para compilar os estilos:
+- **Sass**: compilação de SCSS (versão 1.58.3)
+- **clean-css-cli**: versão minificada do `style.css`
+
+O tema não depende mais do Bootstrap: o pouco que ele usava está em `src/assets/css/foundation.css` (derivado do Bootstrap 4.6.1, licença MIT). O CSS compilado (`style.css`, `style.min.css`, `editor-style.css`) fica versionado, então o tema funciona sem passo de build.
 
 ## Scripts disponíveis
 
 - `npm run build` - Executa o build completo
 - `npm run build:watch` - Executa o build em modo watch
 - `npm run compile-sass` - Compila apenas os arquivos Sass
-- `npm run install-bootstrap` - Copia os arquivos do Bootstrap para a pasta src
-- `npm run postinstall` - Executado automaticamente após `npm install`
+
+O histórico de versões está em `CHANGELOG.md`.

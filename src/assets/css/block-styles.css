@@ -1,0 +1,102 @@
+/*
+ * Block styles of Tainacan Interface (Styles panel of the block, or className
+ * "is-style-<name>" in markup). Colors, radius and shadow come from the theme
+ * tokens (--tt2-*), with fallbacks for the classic design and the editor.
+ */
+
+/* Query loop: carousel. A row that scrolls sideways, one card snapped at a time. */
+.wp-block-post-template.is-style-tt2-carousel {
+	display: grid !important;
+	grid-template-columns: none !important;
+	grid-auto-flow: column;
+	grid-auto-columns: minmax(200px, calc((100% - 3 * var(--tt2-gap, 1.5rem)) / 4));
+	gap: var(--tt2-gap, 1.5rem);
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scroll-padding-inline: 0;
+	padding: 0 0 1rem;
+	margin: 0;
+	list-style: none;
+	scrollbar-width: thin;
+	scrollbar-color: var(--tt2-accent, #187181) transparent;
+}
+.wp-block-post-template.is-style-tt2-carousel > li {
+	scroll-snap-align: start;
+	min-width: 0;
+	margin: 0;
+}
+.wp-block-post-template.is-style-tt2-carousel:focus-visible {
+	outline: 2px solid var(--tt2-accent, #187181);
+	outline-offset: 4px;
+}
+@media (max-width: 781px) {
+	.wp-block-post-template.is-style-tt2-carousel {
+		grid-auto-columns: 72%;
+	}
+}
+
+/* Query loop: cards. Each entry in a box with the radius and the shadow of the theme. */
+.wp-block-post-template.is-style-tt2-cards > li,
+.wp-block-post-template.is-style-tt2-carousel.is-style-tt2-cards > li {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	overflow: hidden;
+	padding: 0 0 1rem;
+	border-radius: var(--tt2-radius, 8px);
+	background: var(--tt2-surface, #fff);
+	box-shadow: var(--tt2-shadow, 0 1px 4px rgba(0, 0, 0, 0.12));
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wp-block-post-template.is-style-tt2-cards > li > :not(.wp-block-post-featured-image) {
+	margin-inline: 1rem;
+}
+.wp-block-post-template.is-style-tt2-cards > li .wp-block-post-featured-image {
+	margin: 0;
+}
+.wp-block-post-template.is-style-tt2-cards > li .wp-block-post-featured-image img {
+	width: 100%;
+	border-radius: 0;
+}
+.wp-block-post-template.is-style-tt2-cards > li:hover {
+	transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-post-template.is-style-tt2-cards > li {
+		transition: none;
+	}
+	.wp-block-post-template.is-style-tt2-cards > li:hover {
+		transform: none;
+	}
+}
+
+/* Group: panel. A box on the page with the surface, radius and shadow of the theme. */
+.wp-block-group.is-style-tt2-panel {
+	padding: clamp(1.25rem, 3vw, 2.5rem);
+	border-radius: var(--tt2-radius, 8px);
+	background: var(--tt2-surface, #fff);
+	box-shadow: var(--tt2-shadow, 0 1px 4px rgba(0, 0, 0, 0.12));
+}
+
+/* Group: band on top. The decorative band of the theme above the group. */
+.wp-block-group.is-style-tt2-band {
+	position: relative;
+	padding-top: calc(clamp(1.25rem, 3vw, 2.5rem) + 6px);
+}
+.wp-block-group.is-style-tt2-band::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 6px;
+	background: linear-gradient(90deg, var(--tt2-brand, #1c355e), var(--tt2-accent, #187181));
+}
+
+/* Cover: brand veil. The main color of the theme over the image, text in its contrast color. */
+.wp-block-cover.is-style-tt2-veil .wp-block-cover__background {
+	background-color: var(--tt2-brand, #1c355e) !important;
+	opacity: 0.72;
+}
+.wp-block-cover.is-style-tt2-veil .wp-block-cover__inner-container {
+	color: var(--tt2-on-brand, #fff);
+}

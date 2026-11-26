@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.5/theme.json",
+	"version": 2,
+	"settings": {
+		"spacing": {
+			"spacingSizes": [
+				{ "name": "S", "slug": "30", "size": "clamp(0.75rem, 1.5vw, 1rem)" },
+				{ "name": "M", "slug": "50", "size": "clamp(1.25rem, 3vw, 2rem)" },
+				{ "name": "L", "slug": "70", "size": "clamp(2rem, 5vw, 3.5rem)" },
+				{ "name": "XL", "slug": "80", "size": "clamp(3rem, 8vw, 6rem)" }
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/button": {
+				"border": { "radius": "var(--tt2-button-radius, 999px)" },
+				"color": {
+					"background": "var(--tt2-accent, #187181)",
+					"text": "var(--tt2-on-accent, #ffffff)"
+				},
+				"spacing": {
+					"padding": { "top": "0.7em", "bottom": "0.7em", "left": "1.6em", "right": "1.6em" }
+				}
+			},
+			"core/heading": {
+				"typography": { "fontFamily": "var(--tt2-font-heading, inherit)" }
+			}
+		}
+	}
+}

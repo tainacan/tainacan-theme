@@ -1,143 +1,161 @@
 <?php
+/**
+ * Single post and single item helpers: comments, post meta line, item
+ * navigation and the "back to the list" link.
+ *
+ * @package tainacan-interface
+ */
 
 /**
  * Show list of comments.
- * callback: tainacan_comments_callback
- * param: @comment, @args, @depth
+ *
+ * @param WP_Comment $comment Comment.
+ * @param array      $args    wp_list_comments() arguments.
+ * @param int        $depth   Depth.
  */
 function tainacan_comments_callback( $comment, $args, $depth ) {
-	//get comment to determine type
-	global $post;
-	$class_has = 'has-children media comment-' . $comment->comment_ID; ?>
-	<div <?php comment_class( $args['has_children'] ? $class_has : 'parent media' ); ?> id="comment-<?php comment_ID() ?>">
+	$class_has = 'has-children media comment-' . $comment->comment_ID;
+	?>
+	<div <?php comment_class( $args['has_children'] ? $class_has : 'parent media' ); ?> id="comment-<?php comment_ID(); ?>">
 		<?php
-			$arg = array(
-				'class' => 'img-fluid rounded-circle mr-sm-3',
-			);
-			echo wp_kses_post( get_avatar( $comment, 60, '', '', $arg ) );
+		echo wp_kses_post( get_avatar( $comment, 60, '', '', array( 'class' => 'img-fluid rounded-circle mr-sm-3' ) ) );
 		?>
 		<div class="media-body">
 			<h5 class="media-heading comment-author vcard ml-2">
-				<?php if ( comment_author( $comment->comment_ID ) ) : ?>
-					<a href="<?php echo esc_url(get_author_posts_url( $comment->user_id )); ?>" class="text-black font-weight-bold bypostauthor">
-						<?php echo wp_kses_post( comment_author( $comment->comment_ID ) ); ?>
+				<?php if ( $comment->user_id ) : ?>
+					<a href="<?php echo esc_url( get_author_posts_url( $comment->user_id ) ); ?>" class="text-black font-weight-bold bypostauthor">
+						<?php echo esc_html( get_comment_author( $comment ) ); ?>
 					</a>
+				<?php else : ?>
+					<span class="text-black font-weight-bold"><?php echo esc_html( get_comment_author( $comment ) ); ?></span>
 				<?php endif; ?>
 				<p class="comment-time text-oslo-gray my-sm-1">
 					<?php
-						printf(
-							/* translators: 1: Comment date, 2: comment time. Example: April 21st at 15:25*/
-							__( '%1$s at %2$s.', 'tainacan-interface' ),
-							get_comment_date(),
-							get_comment_time()
-						);
+					printf(
+						/* translators: 1: Comment date, 2: comment time. Example: April 21st at 15:25*/
+						esc_html__( '%1$s at %2$s.', 'tainacan-interface' ),
+						esc_html( get_comment_date( '', $comment ) ),
+						esc_html( get_comment_time() )
+					);
 					?>
 				</p>
 			</h5>
-			<?php if ( '0' == $comment->comment_approved ) : ?>
+			<?php if ( '0' === (string) $comment->comment_approved ) : ?>
 				<p class="comment-awaiting-moderation">
-					<?php _e( 'Your comment is awaiting moderation.','tainacan-interface' ); ?>
+					<?php esc_html_e( 'Your comment is awaiting moderation.', 'tainacan-interface' ); ?>
 				</p>
 			<?php endif; ?>
-			<?php if ( comment_text() ) {
-				wp_kses_post( comment_text() );
-			
-				wp_kses_post(
-					comment_reply_link( array(
+			<?php
+			comment_text( $comment );
+			comment_reply_link(
+				array_merge(
+					$args,
+					array(
 						'reply_text' => __( 'Reply', 'tainacan-interface' ),
 						'depth'      => $depth,
 						'max_depth'  => $args['max_depth'],
-						'before'    => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
-						'after'     => '</li>',
-					))
-				);
-				wp_kses_post( edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' ) );
-			} ?>
+						'before'     => '<li class="ml-2 reply-link list-inline-item mr-3 mt-2">',
+						'after'      => '</li>',
+					)
+				)
+			);
+			edit_comment_link( __( 'Edit', 'tainacan-interface' ), '<li class="edit-link list-inline-item mr-3 mt-2">', '</li>' );
+			?>
 		</div>
 	</div>
-<?php }
+	<?php
+}
 
+/**
+ * Wraps the comment text.
+ *
+ * @param string $content Comment text (already filtered by WordPress).
+ * @return string
+ */
 function tainacan_wrap_comment( $content ) {
 	return '<div class="comment-text">' . $content . '</div>';
 }
 add_filter( 'comment_text', 'tainacan_wrap_comment', 99 );
 
-
-/**
- * Display date and author of post.
- */
-if ( ! function_exists('tainacan_meta_date_author') ) {
+if ( ! function_exists( 'tainacan_meta_date_author' ) ) {
+	/**
+	 * Display date and author of post.
+	 *
+	 * @param bool $echo Print (true) or return.
+	 * @return string|void
+	 */
 	function tainacan_meta_date_author( $echo = true ) {
-		$string = tainacan_meta_date( false );
-		$string .= tainacan_meta_author( false );
-
+		$string = tainacan_meta_date( false ) . tainacan_meta_author( false );
 		$string = apply_filters( 'tainacan-meta-date-author', $string );
 
-		if ( $echo ) {
-			echo wp_kses_post($string);
-		} else {
+		if ( ! $echo ) {
 			return $string;
 		}
+		echo wp_kses_post( $string );
 	}
 }
 
-/**
- * Display date of post.
- */
-if ( ! function_exists('tainacan_meta_date') ) {
+if ( ! function_exists( 'tainacan_meta_date' ) ) {
+	/**
+	 * Display date of post.
+	 *
+	 * @param bool $echo Print (true) or return.
+	 * @return string|void
+	 */
 	function tainacan_meta_date( $echo = true ) {
-		$time = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-
-		$time_string = sprintf( $time,
+		$string = sprintf(
+			'<time class="entry-date published" datetime="%1$s">%2$s</time>',
 			esc_attr( get_the_date( 'c' ) ),
-			get_the_date()
+			esc_html( get_the_date() )
 		);
-
-		$string = $time_string;
-		
 		$string = apply_filters( 'tainacan-meta-date', $string );
 
-		if ( $echo ) {
-			echo wp_kses_post($string);
-		} else {
+		if ( ! $echo ) {
 			return $string;
 		}
+		echo wp_kses_post( $string );
+	}
+}
+
+if ( ! function_exists( 'tainacan_meta_author' ) ) {
+	/**
+	 * Display author of post.
+	 *
+	 * @param bool $echo Print (true) or return.
+	 * @return string|void
+	 */
+	function tainacan_meta_author( $echo = true ) {
+		// A post without an author (made by a script, or whose author was removed) shows the date alone.
+		$link   = get_the_author_posts_link();
+		$string = '' === trim( wp_strip_all_tags( $link ) ) ? '' : esc_html__( '&nbsp;by&nbsp;', 'tainacan-interface' ) . $link;
+		$string = apply_filters( 'tainacan-meta-author', $string );
+
+		if ( ! $echo ) {
+			return $string;
+		}
+		echo wp_kses_post( $string );
 	}
 }
 
 /**
- * Display author of post.
+ * Cancel comment reply link with the theme classes.
+ *
+ * @param string $formatted_link Link HTML.
+ * @param string $link           Link URL.
+ * @param string $text           Link text.
+ * @return string
  */
-if ( ! function_exists('tainacan_meta_author') ) {
-	function tainacan_meta_author( $echo = true ) {
-		$string = __( '&nbsp;by&nbsp;', 'tainacan-interface' );
-		$string .= get_the_author_posts_link();
-
-		$string = apply_filters( 'tainacan-meta-author', $string );
-
-		if ( $echo ) {
-			echo wp_kses_post($string);
-		} else {
-			return $string;
-		}
-	}
-}
-
-// define the cancel_comment_reply_link callback
 function tainacan_filter_cancel_comment_reply_link( $formatted_link, $link, $text ) {
-	// make filter magic happen here...
-	$formatted_link = '<a rel="nofollow" class="btn btn-info text-haiti bg-white border-oslo-gray align-self-center mt-3 ml-auto mr-1" id="cancel-comment-reply-link" href="' . $link . '" style="display:none;">' . $text . '</a>';
-	return $formatted_link;
+	return '<a rel="nofollow" class="btn btn-info text-haiti bg-white border-oslo-gray align-self-center mt-3 ml-auto mr-1" id="cancel-comment-reply-link" href="' . esc_url( $link ) . '" style="display:none;">' . esc_html( $text ) . '</a>';
 }
 add_filter( 'cancel_comment_reply_link', 'tainacan_filter_cancel_comment_reply_link', 10, 3 );
 
 /**
  * The collection of the list the visitor came from, when that list is one
  * collection (source_list=collection): source_entity_id, or else the
- * collection of the item, read as Theme_Helper::get_adjacent_items() reads
- * them (is_numeric, then absint), so both look at the same collection. Null
- * for a list of a term or of the whole repository, which spans collections.
- * Memoized per request.
+ * collection of the item, read the way Tainacan reads them in
+ * get_adjacent_items(). Null for a list of a term or of the whole repository,
+ * which spans collections. Memoized per request.
  *
  * @return \Tainacan\Entities\Collection|null
  */
@@ -147,13 +165,12 @@ function tainacan_interface_navigation_collection() {
 	if ( false !== $memo ) {
 		return $memo;
 	}
-	$memo        = null;
-	$source_list = isset( $_GET['source_list'] ) && is_string( $_GET['source_list'] ) ? sanitize_key( wp_unslash( $_GET['source_list'] ) ) : '';
-	if ( 'collection' !== $source_list ) {
+	$memo = null;
+	if ( 'collection' !== tainacan_interface_query_arg( 'source_list' ) ) {
 		return $memo;
 	}
 
-	$source = isset( $_GET['source_entity_id'] ) && is_scalar( $_GET['source_entity_id'] ) ? wp_unslash( $_GET['source_entity_id'] ) : '';
+	$source = tainacan_interface_query_arg( 'source_entity_id' );
 	if ( is_numeric( $source ) && class_exists( '\Tainacan\Repositories\Collections' ) ) {
 		$collection = \Tainacan\Repositories\Collections::get_instance()->fetch( absint( $source ) );
 	} else {
@@ -203,7 +220,7 @@ function tainacan_interface_queryable_metadatum( $key ) {
 		$section_ids = array_map( 'intval', array_filter( (array) $metadatum->get_metadata_section_id(), 'is_numeric' ) );
 		_prime_post_caches( $section_ids, false, false );
 		foreach ( $section_ids as $section_id ) {
-			$section = \Tainacan\Repositories\Metadata_Sections::get_instance()->fetch( $section_id );
+			$section = \Tainacan\Repositories\Metadata_Sections::get_instance()->fetch( $section_id ); // tnc-check-ignore TNC-P02: fetch by ID builds the entity from the post primed just above; no query per section.
 			if ( ! $section instanceof \Tainacan\Entities\Metadata_Section ) {
 				continue;
 			}
@@ -259,10 +276,9 @@ function tainacan_interface_queryable_core_key( $key ) {
 			}
 		}
 		$ids = array_filter( $ids );
-		// One query for all the collection posts; fetch() below reads them from the cache.
 		_prime_post_caches( $ids, false, false );
 		foreach ( $ids as $id ) {
-			$collections[] = $repository->fetch( $id );
+			$collections[] = $repository->fetch( $id ); // tnc-check-ignore TNC-P02: fetch by ID builds the entity from the post primed just above; no query per collection.
 		}
 	}
 
@@ -302,9 +318,11 @@ function tainacan_interface_queryable_taxonomy( $taxonomy ) {
 
 /**
  * A WP_Query meta_query or tax_query with only the clauses the visitor may
- * ask, read the way WP_Meta_Query and WP_Tax_Query read it. Clauses are
- * rebuilt from their known fields, so compare_key (which matches keys by LIKE)
- * never gets through, and a meta clause with no key is dropped.
+ * ask. Read the way WP_Meta_Query and WP_Tax_Query read it: a non-array entry
+ * is ignored, an array with a clause field is a clause, any other array is a
+ * nested group. Clauses are rebuilt from their known fields, so a field such
+ * as compare_key (which matches keys by LIKE) never gets through, and a meta
+ * clause with no key (the value under any key) is dropped.
  *
  * @param mixed  $query meta_query or tax_query.
  * @param string $kind  'meta' or 'tax'.
@@ -343,18 +361,19 @@ function tainacan_interface_public_query( $query, $kind ) {
 }
 
 /**
- * Narrows the item query that Tainacan builds for the item navigation.
+ * Narrows the item query that Tainacan builds for the navigation.
  *
  * Tainacan turns the whole query string into WP_Query arguments
  * (prepare_filters) without asking whether the visitor may see what is being
- * filtered: ?pos=0&status=draft shows the title and thumbnail of a draft, and
- * the presence of a "next" item answers whether an item has a given value in
- * a field the visitor cannot read. This runs on the mapped arguments: no
- * author, meta clauses only on readable metadata, tax clauses only on
- * readable taxonomies, meta_value only with a readable meta_key. The status
- * asked stays, so an author can walk the list of their own drafts: the flag
- * set here makes tainacan_interface_navigation_where() keep, in SQL, only the
- * items the visitor may see.
+ * filtered, and the presence of a "next" item answers the question. This runs
+ * on the arguments already mapped, exactly as they reach WP_Query: no
+ * author, meta clauses only on metadata the visitor may read and tax clauses
+ * only on taxonomies they may read, and meta_value only with a readable
+ * meta_key.
+ * The status asked stays, so an author can walk the list of their own drafts:
+ * the flag set here makes tainacan_interface_navigation_where() keep, in SQL,
+ * only the items the visitor may see. Hooked only around the navigation call,
+ * so Tainacan's own REST routes are left as they are.
  *
  * @param array $args Mapped WP_Query arguments.
  * @return array
@@ -368,10 +387,10 @@ function tainacan_interface_public_navigation_args( $args ) {
 	$args['tainacan_interface_visible_only'] = true;
 
 	if ( isset( $args['meta_query'] ) ) {
-		$args['meta_query'] = tainacan_interface_public_query( $args['meta_query'], 'meta' );
+		$args['meta_query'] = tainacan_interface_public_query( $args['meta_query'], 'meta' ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- narrows the meta query Tainacan already built from the list filters; no clause is added.
 	}
 	if ( isset( $args['tax_query'] ) ) {
-		$args['tax_query'] = tainacan_interface_public_query( $args['tax_query'], 'tax' );
+		$args['tax_query'] = tainacan_interface_public_query( $args['tax_query'], 'tax' ); // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- narrows the tax query Tainacan already built from the list filters; no clause is added.
 	}
 	if ( ! isset( $args['meta_key'] ) || ! tainacan_interface_queryable_metadatum( $args['meta_key'] ) ) {
 		unset( $args['meta_key'], $args['meta_value'], $args['meta_value_num'], $args['meta_compare'] );
@@ -419,13 +438,13 @@ function tainacan_interface_navigation_where( $where, $query ) {
 }
 
 /**
- * Whether the visitor may navigate the list unfiltered: they manage Tainacan,
- * or they edit the items of others in the collection the list comes from
- * (source_entity_id, which may differ from the item's). Term and repository
- * lists span collections, so only managers pass there. Everyone else
- * navigates the narrowed list, where their own drafts still count. An
- * anonymous visitor always navigates the narrowed list, whatever capabilities
- * a site may grant it.
+ * Whether the visitor may navigate the list unfiltered: they edit the items of
+ * others in the collection the list actually comes from (source_entity_id,
+ * which may differ from the item's), or they manage Tainacan. A list of a
+ * term or of the whole repository spans collections, so only managers pass
+ * there. Everyone else navigates the narrowed list, where their own drafts
+ * still count. An anonymous visitor always navigates the narrowed list,
+ * whatever capabilities a site may grant it.
  *
  * @return bool
  */
@@ -444,10 +463,14 @@ function tainacan_interface_navigation_unfiltered() {
 }
 
 /**
- * The previous and next items of the list the visitor came from, computed
- * once per request, with the query narrowed by
- * tainacan_interface_public_navigation_args() unless the visitor may see
- * everything.
+ * The previous and next items of the list the visitor came from.
+ *
+ * Computed once per request (the header, the breadcrumb and the navigation
+ * part all ask). Tainacan builds the query from the whole query string and
+ * turns ?status= into post_status, which WP_Query does not check against the
+ * visitor: ?pos=0&status=draft would show the title and thumbnail of a draft
+ * to anyone. Unless the visitor may see everything, the query is narrowed by
+ * tainacan_interface_public_navigation_args() for the duration of the call.
  *
  * @return array|false { next, previous } as Tainacan returns them, or false.
  */
@@ -459,7 +482,7 @@ function tainacan_interface_adjacent_items() {
 	}
 
 	$memo = false;
-	if ( ! function_exists( 'tainacan_get_adjacent_items' ) || ! isset( $_GET['pos'] ) ) {
+	if ( ! function_exists( 'tainacan_get_adjacent_items' ) || ! ctype_digit( tainacan_interface_query_arg( 'pos' ) ) ) {
 		return $memo;
 	}
 
@@ -478,192 +501,104 @@ function tainacan_interface_adjacent_items() {
 }
 
 /**
- * The URL, if it is an http(s) address on this site; empty string otherwise.
- * Only control characters are stripped, because a Tainacan list address is
- * percent-encoded and carries JSON. The caller escapes with esc_url().
+ * Retrieves an item adjacent link, either using WP strategy or Tainacan plugin tainacan_get_adjacent_items().
  *
- * @param string $url Candidate URL.
- * @return string
- */
-function tainacan_interface_internal_url( $url ) {
-	if ( ! is_string( $url ) || '' === $url ) {
-		return '';
-	}
-
-	$url = preg_replace( '/[\x00-\x1F\x7F]/', '', $url );
-	if ( null === $url || '' === $url ) {
-		return '';
-	}
-
-	if ( '/' === $url[0] && ( ! isset( $url[1] ) || '/' !== $url[1] ) ) {
-		// A root-relative address (Tainacan's $route.href) already carries the install path.
-		$home_parts = wp_parse_url( home_url() );
-		$url        = $home_parts['scheme'] . '://' . $home_parts['host'] . ( isset( $home_parts['port'] ) ? ':' . $home_parts['port'] : '' ) . $url;
-	}
-
-	// Parsed and compared, never resolved: wp_http_validate_url() looks up the
-	// host of any address that is not this site's, so a ?ref= to another host
-	// made the server run a DNS query while rendering the page.
-	$parts = wp_parse_url( $url );
-	$home  = wp_parse_url( home_url() );
-	if ( ! is_array( $parts ) || ! is_array( $home ) || ! isset( $parts['scheme'], $parts['host'], $home['host'] ) ) {
-		return '';
-	}
-	if ( ! in_array( strtolower( $parts['scheme'] ), array( 'http', 'https' ), true ) || isset( $parts['user'] ) || isset( $parts['pass'] ) ) {
-		return '';
-	}
-	$port      = isset( $parts['port'] ) ? (int) $parts['port'] : 0;
-	$home_port = isset( $home['port'] ) ? (int) $home['port'] : 0;
-	if ( strtolower( $parts['host'] ) !== strtolower( $home['host'] ) || $port !== $home_port ) {
-		return '';
-	}
-
-	return $url;
-}
-
-/**
- * An address for a CSS url('…') in a style attribute, before esc_url().
+ * Every piece is escaped where the HTML is built: the result goes to echo in
+ * three templates.
  *
- * The function esc_url() keeps the single quote (as &#039;, which the HTML
- * parser turns back into a quote inside the attribute) and the parentheses,
- * and either one ends the CSS string or the url(). They are percent-encoded
- * here, with the double quote and the backslash, which leaves the address
- * the same.
- *
- * @param string $url Address.
- * @return string Unescaped address; escape with esc_url() on output.
+ * @param string|null $thumbnail Accepts 'small' and 'large', defaults to null.
+ * @return array{next: string, previous: string}
  */
-function tainacan_interface_css_url( $url ) {
-	return str_replace( array( "'", '"', '(', ')', '\\' ), array( '%27', '%22', '%28', '%29', '%5C' ), (string) $url );
-}
+function tainacan_get_adjacent_item_links( $thumbnail = null ) {
+	$size     = 'large' === $thumbnail ? 'tainacan-medium' : 'tainacan-small';
+	$adjacent = tainacan_interface_adjacent_items();
+	$links    = array();
 
-/**
- * Retrieves an item adjacent link, either using WP strategy or Tainacan plugin tainacan_get_adjacent_items()
- * 
- * @param string $thumbnail: accepts 'small' and 'large', defaults to null
- */
-function tainacan_get_adjacent_item_links($thumbnail = null) {
+	foreach ( array( 'previous', 'next' ) as $side ) {
+		$links[ $side ] = array(
+			'url'   => '',
+			'title' => '',
+			'thumb' => '',
+		);
 
-	if (function_exists('tainacan_get_adjacent_items') && isset($_GET['pos'])) {
-		$adjacent_items = tainacan_interface_adjacent_items();
-
-		if (isset($adjacent_items['next'])) {
-			$next_link_url = $adjacent_items['next']['url'];
-			$next_title = $adjacent_items['next']['title'];
+		if ( is_array( $adjacent ) ) {
+			if ( empty( $adjacent[ $side ] ) ) {
+				continue;
+			}
+			$entry          = $adjacent[ $side ];
+			$links[ $side ] = array(
+				'url'   => isset( $entry['url'] ) ? $entry['url'] : '',
+				'title' => isset( $entry['title'] ) ? $entry['title'] : '',
+				'thumb' => isset( $entry['thumbnail'][ $size ][0] ) ? $entry['thumbnail'][ $size ][0] : '',
+			);
 		} else {
-			$next_link_url = false;
+			$post = 'previous' === $side ? get_previous_post() : get_next_post();
+			if ( ! $post instanceof WP_Post ) {
+				continue;
+			}
+			$links[ $side ] = array(
+				'url'   => get_permalink( $post ),
+				'title' => get_the_title( $post ),
+				'thumb' => (string) get_the_post_thumbnail_url( $post, $size ),
+			);
 		}
-		if (isset($adjacent_items['previous'])) {
-			$previous_link_url = $adjacent_items['previous']['url'];
-			$previous_title = $adjacent_items['previous']['title'];
-		} else {
-			$previous_link_url = false;
+	}
+
+	$out = array(
+		'next'     => '',
+		'previous' => '',
+	);
+
+	foreach ( $links as $side => $link ) {
+		if ( '' === $link['url'] ) {
+			continue;
 		}
 
-	} else {
-		//Get the links to the Previous and Next Post
-		$previous_link_url = get_permalink( get_previous_post() );
-		$next_link_url = get_permalink( get_next_post() );
+		$rel   = 'previous' === $side ? 'prev' : 'next';
+		$arrow = '<i class="tainacan-icon tainacan-icon-arrow' . ( 'previous' === $side ? 'left' : 'right' ) . ' tainacan-icon-' . ( 'large' === $thumbnail ? '36px' : '30px' ) . '"></i>';
+		$title = '<span>' . esc_html( wp_strip_all_tags( $link['title'] ) ) . '</span>';
+		$img   = '' !== $link['thumb'] ? '<img src="' . esc_url( $link['thumb'] ) . '" alt="" />' : '';
+		$href  = esc_url( $link['url'] );
 
-		//Get the title of the previous post and next post
-		$previous_title = get_the_title( get_previous_post() );
-		$next_title = get_the_title( get_next_post() );
+		if ( 'small' === $thumbnail ) {
+			$inner = 'previous' === $side ? $arrow . '&nbsp;' . $title . $img : $img . $title . '&nbsp;' . $arrow;
+			$class = ' class="has-small-thumbnail"';
+		} elseif ( 'large' === $thumbnail ) {
+			$box   = '<div>' . $img . $title . '</div>';
+			$inner = 'previous' === $side ? $arrow . '&nbsp;' . $box : $box . '&nbsp;' . $arrow;
+			$class = ' class="has-large-thumbnail"';
+		} else {
+			$inner = 'previous' === $side ? $arrow . '&nbsp; ' . $title : $title . ' &nbsp;' . $arrow;
+			$class = '';
+		}
+
+		$out[ $side ] = '<a' . $class . ' rel="' . $rel . '" href="' . $href . '">' . $inner . '</a>';
 	}
 
-	$previous = '';
-	$next = '';
-
-	switch ($thumbnail) {
-
-		case 'small':
-			//Get the thumnail url of the previous and next post
-			if (function_exists('tainacan_get_adjacent_items') && isset($_GET['pos'])) {
-				if ($adjacent_items['next']) {
-					$next_thumb = isset($adjacent_items['next']['thumbnail']['tainacan-small'][0]) ? $adjacent_items['next']['thumbnail']['tainacan-small'][0] : false;
-				}
-				if ($adjacent_items['previous']) {
-					$previous_thumb = isset($adjacent_items['previous']['thumbnail']['tainacan-small'][0]) ? $adjacent_items['previous']['thumbnail']['tainacan-small'][0] : false;
-				}
-			} else {
-				$previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-small' );
-				$next_thumb = get_the_post_thumbnail_url( get_next_post(), 'tainacan-small' );
-			}
-
-			// Creates the links
-			$previous = $previous_link_url === false ? '' :
-				'<a class="has-small-thumbnail" rel="prev" href="' . esc_url( $previous_link_url ) . '">' . 
-					'<i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-30px"></i>&nbsp;<span>' . 
-					esc_html( $previous_title ) . '</span>' . 
-					($previous_thumb !== false ? '<img src="' . esc_url( $previous_thumb ) . '" alt="" />' : '') .
-				'</a>';
-			$next = $next_link_url === false ? '' :
-				'<a class="has-small-thumbnail" rel="next" href="' . esc_url( $next_link_url ) . '">' . 
-					($next_thumb !== false ? '<img src="' . esc_url( $next_thumb ) . '" alt="" />' : '') .
-					'<span>' . esc_html( $next_title ) . 
-					'</span>&nbsp;<i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-30px"></i>' .
-				'</a>';
-		break;
-
-		case 'large':
-
-			if (function_exists('tainacan_get_adjacent_items') && isset($_GET['pos'])) {
-				if ($adjacent_items['next']) {
-					$next_thumb = $adjacent_items['next']['thumbnail']['tainacan-medium'][0];
-				}
-				if ($adjacent_items['previous']) {
-					$previous_thumb = $adjacent_items['previous']['thumbnail']['tainacan-medium'][0];
-				}
-			} else {
-				//Get the thumnail url of the previous and next post
-				$previous_thumb = get_the_post_thumbnail_url( get_previous_post(), 'tainacan-medium' );
-				$next_thumb = get_the_post_thumbnail_url( get_next_post(), 'tainacan-medium' );
-			}
-			
-			// Creates the links
-			$previous = $previous_link_url === false ? '' :
-				'<a class="has-large-thumbnail" rel="prev" href="' . esc_url( $previous_link_url ) . '">' .
-					'<i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-36px"></i>&nbsp;' .
-					'<div><img src="' . esc_url( $previous_thumb ) . '" alt=""><span>' . esc_html( $previous_title ) . 
-				'</span></div></a>';
-			$next = $next_link_url === false ? '' :
-				'<a class="has-large-thumbnail" rel="next" href="' . esc_url( $next_link_url ) . '">' . 
-					'<div><img src="' . esc_url( $next_thumb ) . '" alt=""><span>' . esc_html( $next_title ) . 
-					'</span></div>&nbsp;<i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-36px"></i>' .
-				'</a>';
-		break;
-		
-		default:
-			$previous = $previous_link_url === false ? '' : '<a rel="prev" href="' . esc_url( $previous_link_url ) . '"><i class="tainacan-icon tainacan-icon-arrowleft tainacan-icon-30px"></i>&nbsp; <span>' . esc_html( $previous_title ) . '</span></a>';
-			$next = $next_link_url === false ? '' :'<a rel="next" href="' . esc_url( $next_link_url ) . '"><span>' . esc_html( $next_title ) . '</span> &nbsp;<i class="tainacan-icon tainacan-icon-arrowright tainacan-icon-30px"></i></a>';
-	}
-
-	return ['next' => $next, 'previous' => $previous];
+	return $out;
 }
 
 /**
- * The address of the list the visitor came from, for the "back to the list"
- * link.
+ * Retrieves the current items list source link.
  *
  * The address of the list is ?ref=, which the Tainacan lists send with the
- * item link, when it points to this site. Its own query is the state of the
- * list (the Vue lists put every filter, the search, the order and the page in
- * it) and is kept as it is: the arguments of the item address are not merged
- * into it, because with plain permalinks they also name the item (?p=,
- * ?tnc_col_1_item=) and the list's own &paged=2 would be replaced by the
- * item's. Without ?ref= (the grid of the theme sends none), the link goes to
- * the collection, with the list arguments that came with the item link.
+ * item link, when it points to this site (the original theme printed it as it
+ * came, so a crafted link sent the "back to the list" button to another site
+ * and could inject markup into the breadcrumb). Its own query is the state of
+ * the list and is kept: with plain permalinks it is also what names the list
+ * (?post_type=tnc_col_1_item). Without ?ref= (the grid of the theme sends
+ * none), the link goes to the collection, with the list arguments that came
+ * with the item link.
  *
  * Either way, what names the item or the navigation is left out (a ?p= would
  * send the visitor back to the item), and the filters follow the rule of the
- * navigation: unless the visitor may see the whole list, no status, no
- * author, and only filters and an order on metadata and taxonomies they may
- * read.
+ * navigation: unless the visitor may see the whole list, no status, and only
+ * filters and an order on metadata and taxonomies they may read.
  *
  * @return string Unescaped URL; escape with esc_url() on output.
  */
 function tainacan_get_source_item_list_url() {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- read-only; validated by tainacan_interface_internal_url(): http(s), this host and port, no control characters.
-	$ref  = isset( $_GET['ref'] ) && is_string( $_GET['ref'] ) ? tainacan_interface_internal_url( wp_unslash( $_GET['ref'] ) ) : '';
+	$ref  = tainacan_interface_query_url( 'ref' );
 	$base = '' !== $ref ? $ref : ( function_exists( 'tainacan_get_the_collection_url' ) ? (string) tainacan_get_the_collection_url() : home_url( '/' ) );
 
 	$base = explode( '#', $base, 2 )[0];
@@ -671,17 +606,7 @@ function tainacan_get_source_item_list_url() {
 	$args = array();
 	wp_parse_str( (string) wp_parse_url( $base, PHP_URL_QUERY ), $args );
 	if ( '' === $ref ) {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- read-only; control characters stripped below, the values only rebuild a URL escaped on output (the list parses its own JSON parameters, so they are not sanitized as text).
-		$current = wp_unslash( $_GET );
-		if ( is_array( $current ) ) {
-			array_walk_recursive(
-				$current,
-				static function ( &$value ) {
-					$value = is_scalar( $value ) ? preg_replace( '/[\x00-\x1F\x7F]/', '', (string) $value ) : '';
-				}
-			);
-			$args = array_merge( $args, $current );
-		}
+		$args = array_merge( $args, tainacan_interface_list_query_args() );
 	}
 
 	$args = tainacan_interface_public_list_args( tainacan_interface_list_args_without_item( $args ) );
@@ -709,11 +634,10 @@ function tainacan_interface_list_args_without_item( $args ) {
 
 /**
  * List arguments (as a Tainacan list sends them: status, metaquery, taxquery,
- * author, metakey) narrowed by the rule of the navigation, unless the visitor
- * may see the whole list. The list itself is rendered by Tainacan, which does
- * not apply this rule, so the theme does not link to it with a status or
- * author filter, or with a filter or order on a metadatum or taxonomy the
- * visitor may not read.
+ * author, metakey) narrowed by the rule of the navigation, unless the visitor may see
+ * the whole list. The list itself is rendered by Tainacan, which does not
+ * apply this rule, so the theme does not link to it with a status filter or a
+ * filter or order on a metadatum or taxonomy the visitor may not read.
  *
  * @param array $args Query arguments.
  * @return array
@@ -747,4 +671,23 @@ function tainacan_interface_public_list_args( $args ) {
 		}
 	}
 	return $args;
+}
+
+/**
+ * Order of the document, the attachments and the record on the item page,
+ * from the "Layout" setting (site or collection). Since 4.9 the layout holds
+ * the order too; 4.9.0 converted the earlier separate "order" setting.
+ *
+ * @return string One of document-attachments-metadata, document-metadata-attachments, metadata-document-attachments.
+ */
+function tainacan_interface_item_sections_order() {
+	$orders = array(
+		'stacked'        => 'document-attachments-metadata',
+		'stacked-split'  => 'document-metadata-attachments',
+		'stacked-record' => 'metadata-document-attachments',
+		'media-left'     => 'document-attachments-metadata',
+		'media-right'    => 'metadata-document-attachments',
+	);
+	$layout = (string) tainacan_interface_opt( 'item_layout' );
+	return isset( $orders[ $layout ] ) ? $orders[ $layout ] : $orders['stacked'];
 }
