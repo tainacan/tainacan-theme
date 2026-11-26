@@ -1,0 +1,489 @@
+/* Import from Blocksy (Appearance > Import from Blocksy). Admin only. */
+
+.tib {
+	--tib-exact: #00a32a;
+	--tib-approx: #dba617;
+	--tib-adjust: #2271b1;
+	--tib-none: #8c8f94;
+	max-width: 1180px;
+}
+
+.tib-title {
+	font-size: 26px;
+	margin-bottom: 4px;
+}
+
+.tib-lead {
+	font-size: 14px;
+	max-width: 780px;
+	color: #50575e;
+}
+
+.tib-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 18px 22px;
+	margin: 16px 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.tib-card h2 {
+	margin: 0 0 8px;
+	font-size: 17px;
+}
+
+/* Steps */
+.tib-steps {
+	display: flex;
+	gap: 8px;
+	list-style: none;
+	margin: 18px 0 6px;
+	padding: 0;
+	flex-wrap: wrap;
+}
+
+.tib-steps li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 6px 14px 6px 6px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	color: #646970;
+	font-weight: 500;
+}
+
+.tib-step-n {
+	display: inline-grid;
+	place-items: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: #c3c4c7;
+	color: #fff;
+	font-size: 12px;
+}
+
+.tib-steps .is-current {
+	background: #2271b1;
+	color: #fff;
+}
+
+.tib-steps .is-current .tib-step-n {
+	background: #fff;
+	color: #2271b1;
+}
+
+.tib-steps .is-done .tib-step-n {
+	background: var(--tib-exact);
+}
+
+/* Sources */
+.tib-sources {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 16px;
+}
+
+.tib-sources .tib-card {
+	margin: 0;
+}
+
+.tib-source > .dashicons {
+	font-size: 34px;
+	width: 34px;
+	height: 34px;
+	color: #2271b1;
+	margin-bottom: 6px;
+}
+
+.tib-facts {
+	margin: 8px 0 14px;
+	color: #50575e;
+}
+
+.tib-facts li::before {
+	content: "• ";
+}
+
+.tib-drop {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 110px;
+	padding: 14px;
+	border: 2px dashed #c3c4c7;
+	border-radius: 8px;
+	background: #f6f7f7;
+	cursor: pointer;
+	text-align: center;
+	transition: border-color 0.15s, background 0.15s;
+}
+
+.tib-drop:hover,
+.tib-drop.is-over {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+.tib-drop.has-file .tib-drop-text {
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.tib-drop input[type="file"] {
+	max-width: 100%;
+}
+
+.tib-howto summary {
+	cursor: pointer;
+	color: #2271b1;
+	margin-top: 6px;
+}
+
+.tib-howto ol {
+	margin-top: 8px;
+}
+
+.tib-howto li {
+	margin-bottom: 6px;
+}
+
+.tib-promises ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 10px 24px;
+	margin: 0;
+}
+
+.tib-promises li {
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+	margin: 0;
+}
+
+.tib-promises .dashicons {
+	color: var(--tib-exact);
+	flex: none;
+}
+
+/* Summary and sketch */
+.tib-summary {
+	display: grid;
+	grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.4fr);
+	gap: 22px;
+	align-items: start;
+}
+
+@media (max-width: 960px) {
+	.tib-summary {
+		grid-template-columns: 1fr;
+	}
+}
+
+.tib-counts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 12px 0 0;
+}
+
+.tib-counts li {
+	margin: 0;
+	padding: 8px 12px;
+	border-radius: 8px;
+	background: #f6f7f7;
+	border-left: 4px solid var(--tib-c, #c3c4c7);
+	min-width: 92px;
+}
+
+.tib-counts strong {
+	display: block;
+	font-size: 22px;
+	line-height: 1.1;
+}
+
+.tib-level-exact { --tib-c: var(--tib-exact); }
+.tib-level-approx { --tib-c: var(--tib-approx); }
+.tib-level-adjust { --tib-c: var(--tib-adjust); }
+.tib-level-none { --tib-c: var(--tib-none); }
+
+.tib-sketches {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+}
+
+.tib-sketch {
+	margin: 0;
+}
+
+.tib-sketch figcaption {
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+
+.tib-s-page {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	overflow: hidden;
+	background: var(--s-page);
+	color: var(--s-text);
+	font-family: var(--s-body);
+	font-size: 11px;
+}
+
+.tib-s-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 10px;
+	background: var(--s-header);
+	color: var(--s-on-header);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tib-s-logo {
+	font-family: var(--s-heading);
+	font-weight: 700;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 65%;
+}
+
+.tib-s-menu {
+	display: flex;
+	gap: 5px;
+}
+
+.tib-s-menu i {
+	display: block;
+	width: 18px;
+	height: 4px;
+	border-radius: 2px;
+	background: currentColor;
+	opacity: 0.6;
+}
+
+.tib-s-body {
+	padding: 10px;
+}
+
+.tib-s-h {
+	font-family: var(--s-heading);
+	font-weight: 700;
+	font-size: 15px;
+	color: var(--s-brand);
+	margin-bottom: 4px;
+}
+
+.tib-s-p {
+	margin: 0 0 8px;
+	font-size: 11px;
+}
+
+.tib-s-a {
+	color: var(--s-accent);
+}
+
+.tib-s-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6px;
+	margin-bottom: 8px;
+}
+
+.tib-s-cards span {
+	height: 34px;
+	border-radius: var(--s-radius);
+	background: var(--s-surface);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tib-s-button {
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: var(--s-button);
+	background: var(--s-accent);
+	color: #fff;
+	font-weight: 600;
+}
+
+/* Plan */
+.tib-legend {
+	color: #50575e;
+	line-height: 2;
+}
+
+.tib-badge {
+	display: inline-block;
+	padding: 1px 8px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.7;
+	color: #fff;
+	background: var(--tib-c, #8c8f94);
+	white-space: nowrap;
+}
+
+.tib-level-approx.tib-badge {
+	color: #1d2327;
+}
+
+.tib-toggle-all {
+	margin: 4px 0 0;
+}
+
+.tib-group {
+	padding: 0;
+}
+
+.tib-group > summary {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 18px;
+	cursor: pointer;
+	list-style: none;
+}
+
+.tib-group > summary::-webkit-details-marker {
+	display: none;
+}
+
+.tib-group > summary::after {
+	content: "\f347";
+	font-family: dashicons;
+	margin-left: 6px;
+	color: #8c8f94;
+}
+
+.tib-group[open] > summary::after {
+	content: "\f343";
+}
+
+.tib-group-title {
+	font-size: 15px;
+	font-weight: 600;
+	flex: 1;
+}
+
+.tib-group-counts {
+	display: flex;
+	gap: 4px;
+}
+
+.tib-group.is-off > summary .tib-group-title {
+	color: #8c8f94;
+	text-decoration: line-through;
+}
+
+.tib-group.is-off .tib-table {
+	opacity: 0.45;
+}
+
+.tib-group-text {
+	margin: 0 18px 10px;
+	color: #50575e;
+}
+
+.tib-table {
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	border-radius: 0 0 8px 8px;
+}
+
+.tib-table th[scope="row"] {
+	width: 24%;
+	font-weight: 600;
+}
+
+.tib-table td:last-child {
+	width: 110px;
+	text-align: right;
+}
+
+.tib-value {
+	word-break: break-word;
+}
+
+.tib-note {
+	display: block;
+	margin-top: 3px;
+	color: #646970;
+	font-size: 12px;
+}
+
+.tib-swatch {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	vertical-align: -3px;
+	margin-right: 6px;
+}
+
+.tib-thumb {
+	display: block;
+	max-width: 180px;
+	max-height: 70px;
+	margin-top: 6px;
+	border-radius: 4px;
+	border: 1px solid #dcdcde;
+	background: repeating-conic-gradient(#f0f0f1 0% 25%, #fff 0% 50%) 50% / 12px 12px;
+}
+
+.tib-left summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.tib-keys {
+	font-family: Consolas, Monaco, monospace;
+	font-size: 11px;
+	color: #646970;
+	word-break: break-word;
+}
+
+.tib-actions {
+	position: sticky;
+	bottom: 0;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 12px 0;
+	background: linear-gradient(to bottom, rgba(240, 240, 241, 0), #f0f0f1 30%);
+	z-index: 2;
+}
+
+.tib-done > .dashicons {
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
+	color: var(--tib-exact);
+}
+
+.tib-next li {
+	margin-bottom: 8px;
+}
+
+.tib-done .tib-actions {
+	position: static;
+	justify-content: flex-start;
+	background: none;
+}
+
+.tib-last {
+	border-left: 4px solid #2271b1;
+}

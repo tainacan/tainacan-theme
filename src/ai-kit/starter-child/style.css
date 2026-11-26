@@ -1,0 +1,57 @@
+/*
+Theme Name: {{THEME_NAME}}
+Template: {{PARENT_FOLDER}}
+Description: Child theme of Tainacan Interface for {{SITE_NAME}}, made from the starter of the Kit for AI.
+Version: 1.0.0
+Requires at least: 6.5
+Requires PHP: 7.4
+License: GPL-3.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: {{THEME_SLUG}}
+Tags: tainacan, child-theme
+*/
+
+/*
+ * This file loads by itself after the stylesheet of Tainacan Interface
+ * (do not enqueue the parent's style.css). Rules for the look of the site go
+ * here, scoped and built on the theme tokens, so Customize keeps working:
+ *
+ *   var(--tt2-brand)  var(--tt2-accent)  var(--tt2-text)  var(--tt2-surface)
+ *   var(--tt2-page)   var(--tt2-radius)  var(--tt2-shadow) var(--tt2-font-heading)
+ *
+ * The full list is in ai-kit/reference/css-tokens.md of Tainacan Interface.
+ * Never restyle the Tainacan lists or the item page with broad selectors:
+ * use the options of Customize first (ai-kit/reference/options.json).
+ */
+
+/* Home page sections made with the patterns of this theme. */
+/*
+ * Sections take the full width (alignfull) and keep their content in the
+ * middle (constrained layout); this padding keeps text off the screen edges on
+ * phones. Do not nest "wide" blocks inside them: the parent theme gives
+ * .alignwide negative margins that overflow inside a group.
+ */
+.{{THEME_SLUG}}-section {
+	padding-block: clamp(2.5rem, 6vw, 5rem);
+	padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.{{THEME_SLUG}}-eyebrow {
+	margin-bottom: 0.25rem;
+	color: var(--tt2-accent, #187181);
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+/* Columns stacked on phones keep some air between them. */
+.{{THEME_SLUG}}-section .wp-block-columns {
+	row-gap: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* On a Cover the line above the title takes the light text of the cover. */
+.wp-block-cover .{{THEME_SLUG}}-eyebrow {
+	color: inherit;
+	opacity: 0.85;
+}

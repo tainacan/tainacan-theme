@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tainacan-interface/search",
+	"version": "2.17.0",
+	"title": "Search the collection",
+	"category": "theme",
+	"icon": "search",
+	"description": "A search box that opens the list of items of Tainacan (all items or one collection) with the words typed. Rendered by the server: it works when written by hand.",
+	"keywords": [ "tainacan", "search", "collection", "items" ],
+	"textdomain": "tainacan-interface",
+	"attributes": {
+		"collectionId": { "type": "number", "default": 0 },
+		"label": { "type": "string", "default": "" },
+		"placeholder": { "type": "string", "default": "" },
+		"buttonText": { "type": "string", "default": "" },
+		"size": { "type": "string", "enum": [ "regular", "large" ], "default": "regular" }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full", "center" ],
+		"color": { "background": true, "text": true },
+		"spacing": { "margin": true, "padding": true },
+		"typography": { "fontSize": true },
+		"__experimentalBorder": { "radius": true }
+	},
+	"example": {
+		"attributes": { "placeholder": "Search the collection", "size": "large" }
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

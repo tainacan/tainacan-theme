@@ -1,3 +1,11 @@
+<?php
+/**
+ * Search form template.
+ *
+ * @package tainacan-interface
+ */
+
+?>
 <form role="search" method="post" name="tainacan-search-form" class="search-form" onsubmit="return onTainacanSearchSubmit()" style="margin-block-end: 0px;">
 	<div class="input-group">
 		<input class="form-control py-2" type="search" name="s" placeholder="<?php esc_attr_e( 'Search', 'tainacan-interface' ); ?>" id="tainacan-search">
@@ -7,67 +15,88 @@
 			</button>
 		</span>
 	</div>
-	<?php if ( defined ( 'TAINACAN_VERSION' ) ): ?>
-		<div class="search-controls" <?php echo (get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_on_posts', false) ) ? '' : 'style="display:none;visibility:hidden;"'; ?>>
+	<?php if ( defined( 'TAINACAN_VERSION' ) ) : ?>
+		<div class="search-controls" <?php echo ( get_theme_mod( 'tainacan_search_on_items', false ) || get_theme_mod( 'tainacan_search_on_collections', false ) || get_theme_mod( 'tainacan_search_on_posts', false ) ) ? '' : 'style="display:none;visibility:hidden;"'; ?>>
 
 			<label for="search-global">
 				<input
 					type="radio" 
 					value="global" 
 					name="archive"
-					<?php if (get_theme_mod('tainacan_search_default_option', 'global') == 'global') echo 'checked="checked"'; ?>
+					<?php
+					if ( 'global' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) {
+						echo 'checked="checked"';}
+					?>
 					id="search-global">
-				<?php echo esc_html( get_theme_mod('tainacan_search_global_label', __( 'Global', 'tainacan-interface' ) ) ); ?>
+				<?php echo esc_html( get_theme_mod( 'tainacan_search_global_label', __( 'Global', 'tainacan-interface' ) ) ); ?>
 			</label>
 
-			<?php if ( get_theme_mod('tainacan_search_on_posts', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'posts' ) : ?>
+			<?php if ( get_theme_mod( 'tainacan_search_on_posts', false ) || 'posts' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) : ?>
 				<label for="search-on-posts">
 					<input
 						type="radio" 
 						value="posts" 
 						name="archive"
-						<?php if (get_theme_mod('tainacan_search_default_option', 'global') == 'posts') echo 'checked="checked"'; ?>
+						<?php
+						if ( 'posts' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) {
+							echo 'checked="checked"';}
+						?>
 						id="search-on-posts">
-					<?php echo esc_html( get_theme_mod('tainacan_search_on_posts_label', __( 'Posts', 'tainacan-interface' ) ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'tainacan_search_on_posts_label', __( 'Posts', 'tainacan-interface' ) ) ); ?>
 				</label>
 
-			<?php endif;
-				if ( get_theme_mod('tainacan_search_on_pages', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'pages' ) : ?>
+				<?php
+			endif;
+			if ( get_theme_mod( 'tainacan_search_on_pages', false ) || 'pages' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) :
+				?>
 				
 				<label for="search-on-pages">
 					<input
 						type="radio" 
 						value="pages" 
 						name="archive"
-						<?php if (get_theme_mod('tainacan_search_default_option', 'global') == 'pages') echo 'checked="checked"'; ?>
+						<?php
+						if ( 'pages' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) {
+							echo 'checked="checked"';}
+						?>
 						id="search-on-pages">
-					<?php echo esc_html( get_theme_mod('tainacan_search_on_pages_label', __( 'Pages', 'tainacan-interface' ) ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'tainacan_search_on_pages_label', __( 'Pages', 'tainacan-interface' ) ) ); ?>
 				</label>
 	
-			<?php endif;
-				if ( get_theme_mod('tainacan_search_on_items', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'tainacan-items' ) : ?>
+				<?php
+			endif;
+			if ( get_theme_mod( 'tainacan_search_on_items', false ) || 'tainacan-items' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) :
+				?>
 				
 				<label for="search-on-items">
 					<input
 						type="radio" 
 						value="tainacan-items" 
 						name="archive"
-						<?php if (get_theme_mod('tainacan_search_default_option', 'global') == 'tainacan-items') echo 'checked="checked"'; ?>
+						<?php
+						if ( 'tainacan-items' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) {
+							echo 'checked="checked"';}
+						?>
 						id="search-on-items">
-					<?php echo esc_html( get_theme_mod('tainacan_search_on_items_label', __( 'Items', 'tainacan-interface' ) ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'tainacan_search_on_items_label', __( 'Items', 'tainacan-interface' ) ) ); ?>
 				</label>
 
-			<?php endif; 
-				if ( get_theme_mod('tainacan_search_on_collections', false) || get_theme_mod('tainacan_search_default_option', 'global') == 'tainacan-collections' ) : ?>
+				<?php
+			endif;
+			if ( get_theme_mod( 'tainacan_search_on_collections', false ) || 'tainacan-collections' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) :
+				?>
 
 				<label for="search-on-collections">
 					<input
 						type="radio" 
 						value="tainacan-collections" 
 						name="archive"
-						<?php if (get_theme_mod('tainacan_search_default_option', 'global') == 'tainacan-collections') echo 'checked="checked"'; ?>
+						<?php
+						if ( 'tainacan-collections' === (string) get_theme_mod( 'tainacan_search_default_option', 'global' ) ) {
+							echo 'checked="checked"';}
+						?>
 						id="search-on-collections">
-					<?php echo esc_html( get_theme_mod('tainacan_search_on_collections_label', __( 'Collections', 'tainacan-interface' ) ) ); ?>
+					<?php echo esc_html( get_theme_mod( 'tainacan_search_on_collections_label', __( 'Collections', 'tainacan-interface' ) ) ); ?>
 				</label>
 
 			<?php endif; ?>

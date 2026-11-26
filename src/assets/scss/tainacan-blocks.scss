@@ -1,0 +1,534 @@
+/*
+ * Tainacan blocks in pages and posts: the look of the theme over the one of
+ * the plugin (Tainacan 1.x). Compiled to assets/css/tainacan-blocks.css by
+ * compile-sass.sh; loaded only on pages with a Tainacan block.
+ *
+ * inc/tainacan-blocks.php puts on the root of each block the class tt2-tb and
+ * the classes of its choices: tt2-tb-card | tt2-tb-clean | tt2-tb-overlay,
+ * tt2-tb-chips | tt2-tb-cloud (facets), tt2-ratio-*, tt2-fit-*, tt2-lines-*,
+ * tt2-hover-*, tt2-radius-*, tt2-arrows-*. A block without tt2-tb keeps the
+ * look of the plugin.
+ *
+ * Each selector starts with the class of the block plus .tt2-tb and follows
+ * the chain of the plugin's own rule, so it wins by specificity whatever the
+ * order the stylesheets arrive (the plugin prints some of its own in the
+ * footer). Child themes can change the tokens --tt2-tb-* on .tt2-tb.
+ */
+
+// Root of the carousel blocks, with the modifiers $m (classes on the same element).
+@function carousels($m: '') {
+	@return ':is(.wp-block-tainacan-carousel-items-list, .wp-block-tainacan-carousel-collections-list, .wp-block-tainacan-carousel-terms-list).tt2-tb#{$m}';
+}
+
+// The link of each tile, in every block and layout that draws tiles.
+@function tiles($m: '') {
+	@return ':is(#{carousels($m)} .tainacan-carousel .swiper .swiper-slide > a, .wp-block-tainacan-dynamic-items-list.tt2-tb#{$m} ul.items-list.items-layout-grid li.item-list-item > a, .wp-block-tainacan-items-list.tt2-tb#{$m} ul.items-list.items-layout-grid li.item-list-item > a, .wp-block-tainacan-collections-list.tt2-tb#{$m} ul.collections-list.collections-layout-grid li.collection-list-item > a, .wp-block-tainacan-terms-list.tt2-tb#{$m} ul.terms-list.terms-layout-grid li.term-list-item > a, .wp-block-tainacan-facets-list.tt2-tb#{$m} ul.facets-list.facets-layout-grid li.facet-list-item > a)';
+}
+
+// The tiles of the mosaic.
+@function mosaic($m: '') {
+	@return '.wp-block-tainacan-dynamic-items-list.tt2-tb#{$m} ul.items-list.items-layout-mosaic .mosaic-container li.item-list-item > a';
+}
+
+$carousels: carousels();
+$tiles: tiles();
+$mosaic: mosaic();
+
+// The rows of the layouts in list.
+$rows: ':is(.wp-block-tainacan-dynamic-items-list.tt2-tb ul.items-list.items-layout-list li.item-list-item > a, .wp-block-tainacan-items-list.tt2-tb ul.items-list.items-layout-list li.item-list-item > a, .wp-block-tainacan-collections-list.tt2-tb ul.collections-list.collections-layout-list li.collection-list-item > a, .wp-block-tainacan-terms-list.tt2-tb ul.terms-list.terms-layout-list li.term-list-item > a)';
+
+// Facets drawn as labels (cloud and list layouts).
+$chips: '.wp-block-tainacan-facets-list.tt2-tb:is(.tt2-tb-chips, .tt2-tb-cloud) ul.facets-list:is(.facets-layout-cloud, .facets-layout-list)';
+
+// The picture of what has no image (inc/placeholders.php).
+$placeholder: 'img[src*="tt2-ph="]';
+
+/* ---------- Tokens ---------- */
+
+.tt2-tb {
+	--tt2-tb-radius: var(--tt2-radius, 10px);
+	--tt2-tb-ratio: auto;
+	--tt2-tb-fit: cover;
+	--tt2-tb-lines: 2;
+	--tt2-tb-ink: var(--tt2-ink, #1f2937);
+	--tt2-tb-text: var(--tt2-text, #4b5563);
+	--tt2-tb-accent: var(--tt2-accent, #187181);
+	--tt2-tb-on-accent: var(--tt2-on-accent, #fff);
+	--tt2-tb-surface: var(--tt2-surface, #fff);
+	--tt2-tb-line: color-mix(in srgb, var(--tt2-tb-ink) 11%, transparent);
+	--tt2-tb-backdrop: color-mix(in srgb, var(--tt2-tb-ink) 5%, var(--tt2-tb-surface));
+	--tt2-tb-shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 8px 20px -8px rgb(16 24 40 / 18%);
+	--tt2-tb-shadow-up: 0 2px 4px rgb(16 24 40 / 6%), 0 20px 36px -14px rgb(16 24 40 / 32%);
+	--tt2-tb-title-size: 0.95rem;
+	--tt2-tb-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.tt2-tb.tt2-radius-square { --tt2-tb-radius: 0px; }
+.tt2-tb.tt2-radius-theme { --tt2-tb-radius: var(--tt2-radius, 10px); }
+.tt2-tb.tt2-radius-round { --tt2-tb-radius: max(18px, calc(var(--tt2-radius, 10px) * 2)); }
+.tt2-tb.tt2-ratio-auto { --tt2-tb-ratio: auto; }
+.tt2-tb.tt2-ratio-1-1 { --tt2-tb-ratio: 1 / 1; }
+.tt2-tb.tt2-ratio-4-3 { --tt2-tb-ratio: 4 / 3; }
+.tt2-tb.tt2-ratio-3-2 { --tt2-tb-ratio: 3 / 2; }
+.tt2-tb.tt2-ratio-16-9 { --tt2-tb-ratio: 16 / 9; }
+.tt2-tb.tt2-ratio-3-4 { --tt2-tb-ratio: 3 / 4; }
+.tt2-tb.tt2-fit-cover { --tt2-tb-fit: cover; }
+.tt2-tb.tt2-fit-contain { --tt2-tb-fit: contain; }
+.tt2-tb.tt2-lines-1 { --tt2-tb-lines: 1; }
+.tt2-tb.tt2-lines-2 { --tt2-tb-lines: 2; }
+.tt2-tb.tt2-lines-3 { --tt2-tb-lines: 3; }
+
+/* ---------- Tiles: carousels and lists in grid ---------- */
+
+#{$tiles} {
+	position: relative;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	width: 100%;
+	min-width: 0;
+	height: 100%;
+	color: var(--tt2-tb-ink);
+	text-decoration: none;
+	border-radius: var(--tt2-tb-radius);
+	transition: transform 0.25s var(--tt2-tb-ease), box-shadow 0.25s var(--tt2-tb-ease), border-color 0.25s;
+
+	&:hover,
+	&:focus {
+		color: var(--tt2-tb-ink);
+		text-decoration: none;
+	}
+	&:focus-visible {
+		outline: 2px solid var(--tt2-tb-accent);
+		outline-offset: 3px;
+	}
+
+	// The image: the progressive image of the items or the img of collections, terms and facets.
+	> .tainacan-progressive-image,
+	> img {
+		display: grid;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		aspect-ratio: var(--tt2-tb-ratio);
+		overflow: hidden;
+		background: var(--tt2-tb-backdrop);
+		border-radius: var(--tt2-tb-radius);
+		object-fit: var(--tt2-tb-fit);
+		transition: transform 0.45s var(--tt2-tb-ease);
+	}
+	> .tainacan-progressive-image > img,
+	> .tainacan-progressive-image > canvas {
+		grid-area: 1 / 1;
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		margin: 0;
+		object-fit: var(--tt2-tb-fit);
+		transition: transform 0.45s var(--tt2-tb-ease);
+	}
+	> .tainacan-progressive-image > #{$placeholder},
+	> #{$placeholder} {
+		object-fit: contain;
+	}
+
+	// The title: the first span of items, collections and terms; label and count of facets.
+	> span,
+	> .facet-label-and-count {
+		display: -webkit-box;
+		margin: 0;
+		padding: 0.7rem 0.15rem 0;
+		overflow: hidden;
+		color: inherit;
+		font-family: var(--tt2-font-ui, inherit);
+		font-size: var(--tt2-tb-title-size);
+		font-weight: 600;
+		line-height: 1.35;
+		text-align: start;
+		text-decoration: none;
+		word-break: normal;
+		overflow-wrap: anywhere;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: var(--tt2-tb-lines);
+	}
+	> .facet-label-and-count {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+	> .facet-label-and-count > .facet-item-count {
+		flex: none;
+		font-weight: 500;
+		opacity: 0.65;
+	}
+}
+
+// The plugin's square, when the site and the block leave the shape to the block.
+#{$carousels}:not([class*="tt2-ratio-"]) .tainacan-carousel .swiper .swiper-slide.is-forced-square > a > .tainacan-progressive-image {
+	aspect-ratio: 1 / 1;
+}
+
+// Cards: image and title in a box.
+#{tiles('.tt2-tb-card')} {
+		overflow: hidden;
+		background: var(--tt2-tb-surface);
+		border: 1px solid var(--tt2-tb-line);
+		box-shadow: var(--tt2-tb-shadow);
+
+		> .tainacan-progressive-image,
+		> img {
+			border-radius: 0;
+		}
+		> span,
+		> .facet-label-and-count {
+			padding: 0.75rem 0.9rem 0.85rem;
+		}
+}
+
+// Title over the image.
+#{tiles('.tt2-tb-overlay')} {
+		overflow: hidden;
+		background: var(--tt2-tb-backdrop);
+
+		> .tainacan-progressive-image,
+		> img {
+			flex: 1 1 auto;
+			border-radius: 0;
+		}
+		> span,
+		> .facet-label-and-count {
+			position: absolute;
+			inset: auto 0 0;
+			padding: 2.6rem 0.9rem 0.8rem;
+			color: #fff;
+			background: linear-gradient(to top, rgb(0 0 0 / 80%), rgb(0 0 0 / 40%) 55%, transparent);
+			text-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+		}
+}
+
+// When the pointer is over a tile.
+@media (hover: hover) {
+	#{tiles('.tt2-hover-zoom')} {
+		&:hover > img,
+		&:hover > .tainacan-progressive-image > img,
+		&:focus-visible > img,
+		&:focus-visible > .tainacan-progressive-image > img {
+			transform: scale(1.05);
+		}
+		&:hover > #{$placeholder},
+		&:hover > .tainacan-progressive-image > #{$placeholder} {
+			transform: none;
+		}
+	}
+	#{tiles('.tt2-hover-zoom.tt2-tb-card')} {
+		&:hover {
+			box-shadow: var(--tt2-tb-shadow-up);
+		}
+	}
+	#{tiles('.tt2-hover-lift')} {
+		&:hover {
+			transform: translateY(-4px);
+		}
+	}
+	#{tiles('.tt2-hover-lift:is(.tt2-tb-card, .tt2-tb-overlay)')} {
+		&:hover {
+			box-shadow: var(--tt2-tb-shadow-up);
+		}
+	}
+	#{tiles('.tt2-hover-lift.tt2-tb-clean')} {
+		&:hover > :is(img, .tainacan-progressive-image) {
+			box-shadow: var(--tt2-tb-shadow-up);
+		}
+	}
+}
+
+/* ---------- Carousels ---------- */
+
+#{$carousels} .tainacan-carousel .swiper {
+	// Room for the shadow of the cards, which the carousel would cut.
+	padding-block: 6px 20px;
+}
+#{$carousels} .tainacan-carousel .swiper .swiper-slide {
+	display: flex;
+	height: auto;
+}
+// Everything fits on the screen: the slides go to the middle, not to the left.
+#{$carousels} .tainacan-carousel:has(.swiper-button-next.swiper-button-lock) .swiper-wrapper {
+	justify-content: center;
+}
+
+// Arrows.
+#{$carousels}:is(.tt2-arrows-round, .tt2-arrows-accent) .tainacan-carousel :is(.swiper-button-prev, .swiper-button-next) {
+	width: 44px;
+	height: 44px;
+	margin-top: -22px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	color: var(--tt2-tb-ink);
+	background: var(--tt2-tb-surface);
+	box-shadow: 0 2px 6px rgb(16 24 40 / 14%), 0 0 0 1px var(--tt2-tb-line);
+	transition: background-color 0.2s, color 0.2s, transform 0.2s var(--tt2-tb-ease);
+
+	svg {
+		width: 22px;
+		height: 22px;
+		border-radius: 0;
+		fill: currentColor;
+	}
+	&:hover,
+	&:focus-visible {
+		color: var(--tt2-tb-on-accent);
+		background: var(--tt2-tb-accent);
+		transform: scale(1.06);
+	}
+	&:focus-visible {
+		outline: 2px solid var(--tt2-tb-accent);
+		outline-offset: 2px;
+	}
+}
+#{$carousels}.tt2-arrows-accent .tainacan-carousel :is(.swiper-button-prev, .swiper-button-next) {
+	color: var(--tt2-tb-on-accent);
+	background: var(--tt2-tb-accent);
+	box-shadow: 0 4px 12px -2px color-mix(in srgb, var(--tt2-tb-accent) 45%, transparent);
+
+	&:hover,
+	&:focus-visible {
+		filter: brightness(1.1);
+	}
+}
+
+// Phones: the plugin widens the carousel by its "space around" (50 px by default) past both
+// edges of the content, which scrolls the page sideways; the arrows go over the images instead.
+@media (max-width: 600px) {
+	#{$carousels} .tainacan-carousel {
+		left: 0;
+		width: 100%;
+	}
+	#{$carousels} .tainacan-carousel .swiper {
+		margin-inline: 0;
+	}
+	#{$carousels}:is(.tt2-arrows-round, .tt2-arrows-accent) .tainacan-carousel :is(.swiper-button-prev, .swiper-button-next) {
+		width: 38px;
+		height: 38px;
+		margin-top: -19px;
+	}
+	#{$carousels} .tainacan-carousel .swiper-button-prev {
+		left: 6px;
+	}
+	#{$carousels} .tainacan-carousel .swiper-button-next {
+		right: 6px;
+	}
+}
+
+/* ---------- Lists in rows ---------- */
+
+#{$rows} {
+	display: flex;
+	align-items: center;
+	gap: 0.9rem;
+	padding: 0.5rem;
+	color: var(--tt2-tb-ink);
+	text-decoration: none;
+	border-radius: var(--tt2-tb-radius);
+	transition: background-color 0.2s;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--tt2-tb-ink);
+		text-decoration: none;
+		background: color-mix(in srgb, var(--tt2-tb-accent) 7%, transparent);
+	}
+	&:focus-visible {
+		outline: 2px solid var(--tt2-tb-accent);
+		outline-offset: 1px;
+	}
+	> .tainacan-progressive-image,
+	> img {
+		flex: none;
+		width: 64px;
+		height: 64px;
+		margin: 0;
+		overflow: hidden;
+		background: var(--tt2-tb-backdrop);
+		border-radius: calc(var(--tt2-tb-radius) * 0.7);
+		object-fit: cover;
+	}
+	> .tainacan-progressive-image > :is(img, canvas) {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	> span {
+		font-weight: 600;
+		line-height: 1.35;
+		text-decoration: none;
+	}
+}
+
+/* ---------- Mosaic ---------- */
+
+// The plugin paints each tile as the background of the item (style attribute) and hides the img.
+.wp-block-tainacan-dynamic-items-list.tt2-tb ul.items-list.items-layout-mosaic {
+	overflow: hidden;
+	border-radius: var(--tt2-tb-radius);
+}
+// A picture of what has no image at its own size, not a drawing as big as the tile.
+.wp-block-tainacan-dynamic-items-list.tt2-tb ul.items-list.items-layout-mosaic .mosaic-container li.item-list-item[style*="tt2-ph="] {
+	background-color: var(--tt2-tb-backdrop);
+	background-repeat: no-repeat;
+	background-size: auto min(100%, 300px);
+}
+#{$mosaic} {
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+
+	> span {
+		inset: auto 0 0;
+		max-width: 100%;
+		padding: 2.4rem 1rem 0.85rem;
+		color: #fff;
+		font-weight: 600;
+		line-height: 1.35;
+		text-decoration: none;
+		background: linear-gradient(to top, rgb(0 0 0 / 78%), transparent);
+		transform: translateY(8px);
+		transition: opacity 0.3s ease, transform 0.3s var(--tt2-tb-ease);
+	}
+	&:hover > span,
+	&:focus-visible > span {
+		opacity: 1;
+		transform: none;
+	}
+	&:hover {
+		background-color: rgb(0 0 0 / 8%);
+	}
+	&:focus-visible {
+		outline: 3px solid var(--tt2-tb-accent);
+		outline-offset: -3px;
+	}
+}
+
+/* ---------- Facets as labels ---------- */
+
+#{$chips} {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem !important; // The plugin writes "gap: inherit" in the style attribute of the list.
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wp-block-tainacan-facets-list.tt2-tb:is(.tt2-tb-chips, .tt2-tb-cloud) ul.facets-list.facets-layout-cloud {
+	justify-content: center;
+}
+#{$chips} li.facet-list-item {
+	display: block;
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.2;
+}
+#{$chips} li.facet-list-item > a {
+	display: inline-flex;
+	font-size: inherit !important; // The plugin writes the size of each term of the cloud in the style attribute of the link.
+	align-items: center;
+	gap: 0.55rem;
+	min-height: 0;
+	padding: 0.45rem 0.55rem 0.45rem 0.95rem;
+	color: var(--tt2-tb-ink);
+	font-weight: 500;
+	text-decoration: none;
+	background: var(--tt2-tb-surface);
+	border: 1px solid color-mix(in srgb, var(--tt2-tb-accent) 22%, var(--tt2-tb-line));
+	border-radius: 999px;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s var(--tt2-tb-ease);
+
+	&:hover,
+	&:focus-visible {
+		color: var(--tt2-tb-accent);
+		text-decoration: none;
+		background: color-mix(in srgb, var(--tt2-tb-accent) 8%, var(--tt2-tb-surface));
+		border-color: var(--tt2-tb-accent);
+	}
+	&:focus-visible {
+		outline: 2px solid var(--tt2-tb-accent);
+		outline-offset: 2px;
+	}
+	> img {
+		display: none;
+	}
+	> .facet-label-and-count {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	> .facet-label-and-count > span:not(.facet-item-count) {
+		text-decoration: none;
+	}
+	.facet-item-count {
+		min-width: 1.75em;
+		padding: 0.1em 0.55em;
+		color: var(--tt2-tb-accent);
+		font-size: 0.78em;
+		font-weight: 700;
+		line-height: 1.5;
+		text-align: center;
+		background: color-mix(in srgb, var(--tt2-tb-accent) 12%, transparent);
+		border-radius: 999px;
+		opacity: 1;
+	}
+}
+// A label without the number keeps the padding even on both sides.
+#{$chips} li.facet-list-item > a:not(:has(.facet-item-count)) {
+	padding-inline-end: 0.95rem;
+}
+
+// Cloud: five sizes by the number of items, given by assets/js/tainacan-blocks.js (on the item; the link inherits).
+.wp-block-tainacan-facets-list.tt2-tb.tt2-tb-cloud ul.facets-list li.facet-list-item {
+	&[data-tt2-w="2"] { font-size: 1.02rem; }
+	&[data-tt2-w="3"] { font-size: 1.1rem; }
+	&[data-tt2-w="4"] { font-size: 1.2rem; }
+	&[data-tt2-w="5"] { font-size: 1.32rem; }
+	&[data-tt2-w="4"] > a,
+	&[data-tt2-w="5"] > a {
+		font-weight: 600;
+		background: color-mix(in srgb, var(--tt2-tb-accent) 6%, var(--tt2-tb-surface));
+	}
+}
+
+// List layout: rows with the number at the end.
+.wp-block-tainacan-facets-list.tt2-tb:is(.tt2-tb-chips, .tt2-tb-cloud) ul.facets-list.facets-layout-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 0.35rem 1rem !important;
+
+	li.facet-list-item > a {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.5rem 0.75rem;
+		border-color: transparent;
+		border-radius: var(--tt2-tb-radius);
+		background: transparent;
+	}
+	li.facet-list-item > a > .facet-label-and-count {
+		flex: 1;
+		justify-content: space-between;
+	}
+}
+
+/* ---------- Less movement ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.tt2-tb *,
+	.tt2-tb *::before,
+	.tt2-tb *::after {
+		transition: none !important;
+	}
+	.tt2-tb a:hover,
+	.tt2-tb a:hover img {
+		transform: none !important;
+	}
+}

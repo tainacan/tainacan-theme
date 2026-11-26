@@ -1,0 +1,137 @@
+/* Appearance > Kit for AI. */
+.tt2kit {
+	max-width: 1180px;
+}
+.tt2kit-title {
+	font-size: 1.9em;
+	margin-bottom: 0.3em;
+}
+.tt2kit-lead {
+	font-size: 1.08em;
+	max-width: 72ch;
+	color: #3c434a;
+}
+.tt2kit-steps {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+	margin: 1.5em 0;
+	padding: 0;
+	list-style: none;
+}
+.tt2kit-steps li {
+	position: relative;
+	margin: 0;
+	padding: 14px 14px 14px 52px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+}
+.tt2kit-n {
+	position: absolute;
+	left: 14px;
+	top: 14px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: #2271b1;
+	color: #fff;
+	font-weight: 600;
+}
+.tt2kit-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+.tt2kit-card {
+	margin: 0 0 16px;
+	padding: 18px 20px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+}
+.tt2kit-card h2 {
+	margin-top: 0;
+}
+.tt2kit-form label {
+	display: block;
+	margin: 10px 0 4px;
+	font-weight: 600;
+}
+.tt2kit-warn {
+	color: #b32d2e;
+}
+.tt2kit-context pre {
+	max-height: 360px;
+	overflow: auto;
+	padding: 12px;
+	background: #f6f7f7;
+	font-size: 12px;
+	white-space: pre-wrap;
+}
+.tt2kit-ai {
+	margin: 8px 0;
+	padding: 10px 14px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+}
+.tt2kit-ai > summary {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 1.05em;
+}
+.tt2kit-prompt {
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+}
+.tt2kit-prompt textarea {
+	flex: 1 1 auto;
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
+}
+.tt2kit-inline {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+.tt2kit-results {
+	margin: 14px 0;
+	padding: 0;
+	list-style: none;
+}
+.tt2kit-results li {
+	margin: 0 0 6px;
+	padding: 8px 12px;
+	border-left: 4px solid #72aee6;
+	background: #f6f7f7;
+}
+.tt2kit-results li.is-ok {
+	border-left-color: #00a32a;
+}
+.tt2kit-results li.is-warning {
+	border-left-color: #dba617;
+}
+.tt2kit-results li.is-error {
+	border-left-color: #d63638;
+}
+.tt2kit-list li {
+	list-style: disc;
+	margin-left: 1.4em;
+}
+@media (max-width: 960px) {
+	.tt2kit-steps,
+	.tt2kit-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.tt2kit-prompt {
+		flex-direction: column;
+	}
+	.tt2kit-prompt textarea {
+		width: 100%;
+	}
+}

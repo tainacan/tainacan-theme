@@ -1,0 +1,578 @@
+{
+ "about": "Markup of the Tainacan 1.4 blocks as the block editor saves them (made on a test site, then generalised: {{SITE_URL}}, {{COLLECTION_ID}}, {{TAXONOMY_ID}}). made_by_editor true: the saved HTML is built by the editor script with values of the site (API root, URLs); never write it by hand. Write only the block comment with its attributes, open the page in the editor (Tainacan Interface 2.17+ rebuilds it) and save. made_by_editor false: the server renders the block from its attributes, so the markup may be written by hand.",
+ "query_variations": [
+  {
+   "name": "tainacan-collection",
+   "title": "Tainacan collections",
+   "attributes": {
+    "namespace": "tainacan-collection",
+    "query": {
+     "postType": "tainacan-collection",
+     "perPage": 12,
+     "offset": 0
+    },
+    "align": "wide",
+    "displayLayout": {
+     "type": "flex",
+     "columns": 4
+    }
+   }
+  },
+  {
+   "name": "tainacan-items-tnc_col_{{COLLECTION_ID}}_item",
+   "title": "{{COLLECTION_NAME}}",
+   "attributes": {
+    "namespace": "tainacan-items-tnc_col_{{COLLECTION_ID}}_item",
+    "query": {
+     "postType": "tnc_col_{{COLLECTION_ID}}_item",
+     "perPage": 12,
+     "offset": 0
+    },
+    "align": "wide",
+    "displayLayout": {
+     "type": "flex",
+     "columns": 4
+    }
+   }
+  },
+  {
+   "name": "tainacan-taxonomies",
+   "title": "Tainacan taxonomies",
+   "attributes": {
+    "namespace": "tainacan-taxonomy",
+    "query": {
+     "postType": "tainacan-taxonomy",
+     "perPage": 12,
+     "offset": 0
+    },
+    "align": "wide",
+    "displayLayout": {
+     "type": "flex",
+     "columns": 4
+    }
+   }
+  }
+ ],
+ "blocks": {
+  "tainacan/collections-list": {
+   "title_pt_BR": "Lista de Coleções do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": false,
+     "gradients": false,
+     "link": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/collections-list -->\n<div class=\"wp-block-tainacan-collections-list has-link-color\" data-module=\"collections-list\"></div>\n<!-- /wp:tainacan/collections-list -->"
+  },
+  "tainacan/search-bar": {
+   "title_pt_BR": "Barra de Busca do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide",
+     "left",
+     "center",
+     "right"
+    ],
+    "html": true,
+    "multiple": false,
+    "typography": {
+     "fontSize": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/search-bar {\"placeholderText\":\"Buscar no acervo\"} -->\n<div class=\"wp-block-tainacan-search-bar\" data-module=\"search-bar\"></div>\n<!-- /wp:tainacan/search-bar -->"
+  },
+  "tainacan/facets-list": {
+   "title_pt_BR": "Lista de Facetas do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": false,
+     "gradients": false,
+     "link": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/facets-list {\"collectionId\":\"{{COLLECTION_ID}}\",\"blockId\":\"tainacan-facets-list-ai1\"} -->\n<div class=\"wp-block-tainacan-facets-list has-link-color\" data-module=\"facets-list\" data-metadatum-id=\"\" data-metadatum-type=\"\" data-collection-id=\"{{COLLECTION_ID}}\" data-collection-slug=\"\" data-show-image=\"true\" data-name-inside-image=\"false\" data-show-items-count=\"true\" data-show-search-bar=\"undefined\" data-show-load-more=\"false\" data-image-size=\"tainacan-medium\" data-append-child-terms=\"false\" data-link-term-facets-to-term-page=\"true\" data-layout=\"grid\" data-items-count-style=\"default\" data-cloud-rate=\"1\" data-grid-margin=\"24\" data-max-columns-count=\"5\" data-tainacan-api-root=\"{{SITE_URL}}/wp-json/tainacan/v2\" data-tainacan-site-url=\"{{SITE_URL}}\" id=\"wp-block-tainacan-facets-list_tainacan-facets-list-ai1\"></div>\n<!-- /wp:tainacan/facets-list -->"
+  },
+  "tainacan/dynamic-items-list": {
+   "title_pt_BR": "Lista de Itens da Coleção Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": false,
+     "gradients": false,
+     "link": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/dynamic-items-list {\"collectionId\":\"{{COLLECTION_ID}}\",\"layout\":\"mosaic\",\"searchURL\":\"{{SITE_URL}}/wp-admin/admin.php?page=tainacan_admin#/collections/{{COLLECTION_ID}}/items/?perpage=8\\u0026order=DESC\\u0026orderby=date\",\"maxItemsNumber\":8,\"blockId\":\"tainacan-dynamic-items-list-ai1\"} -->\n<div class=\"wp-block-tainacan-dynamic-items-list has-link-color\" data-module=\"dynamic-items-list\" data-search-url=\"{{SITE_URL}}/wp-admin/admin.php?page=tainacan_admin#/collections/{{COLLECTION_ID}}/items/?perpage=8&amp;order=DESC&amp;orderby=date\" data-selected-items=\"[]\" data-collection-id=\"{{COLLECTION_ID}}\" data-show-image=\"true\" data-show-name=\"true\" data-show-search-bar=\"false\" data-show-collection-header=\"false\" data-show-collection-label=\"false\" data-image-size=\"tainacan-medium\" data-layout=\"mosaic\" data-load-strategy=\"search\" data-mosaic-height=\"280\" data-mosaic-density=\"5\" data-mosaic-grid-rows=\"3\" data-mosaic-grid-columns=\"3\" data-mosaic-item-focal-point-x=\"0.5\" data-mosaic-item-focal-point-y=\"0.5\" data-max-columns-count=\"4\" data-collection-background-color=\"#373839\" data-collection-text-color=\"#ffffff\" data-grid-margin=\"0\" data-max-items-number=\"8\" data-order=\"\" data-order-by=\"date\" data-order-by-meta-key=\"\" data-tainacan-view-mode=\"masonry\" data-tainacan-api-root=\"{{SITE_URL}}/wp-json/tainacan/v2\" id=\"wp-block-tainacan-dynamic-items-list_tainacan-dynamic-items-list-ai1\"></div>\n<!-- /wp:tainacan/dynamic-items-list -->"
+  },
+  "tainacan/carousel-items-list": {
+   "title_pt_BR": "Carrossel de Itens de Coleções do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "multiple": true,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": false,
+     "link": true,
+     "button": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/carousel-items-list {\"collectionId\":\"{{COLLECTION_ID}}\",\"searchURL\":\"{{SITE_URL}}/wp-admin/admin.php?page=tainacan_admin#/collections/{{COLLECTION_ID}}/items/?perpage=12\\u0026order=DESC\\u0026orderby=date\",\"maxItemsPerScreen\":5,\"hideTitle\":false,\"blockId\":\"tainacan-carousel-items-list-ai1\"} -->\n<div class=\"wp-block-tainacan-carousel-items-list has-link-color\" data-module=\"carousel-items-list\" data-search-url=\"{{SITE_URL}}/wp-admin/admin.php?page=tainacan_admin#/collections/{{COLLECTION_ID}}/items/?perpage=12&amp;order=DESC&amp;orderby=date\" data-selected-items=\"[]\" data-arrows-position=\"around\" data-load-strategy=\"search\" data-collection-id=\"{{COLLECTION_ID}}\" data-auto-play=\"false\" data-auto-play-speed=\"3\" data-loop-slides=\"false\" data-hide-title=\"false\" data-large-arrows=\"false\" data-arrows-style=\"type-1\" data-image-size=\"tainacan-medium\" data-show-collection-header=\"false\" data-show-collection-label=\"false\" data-collection-background-color=\"#373839\" data-collection-text-color=\"#ffffff\" data-max-items-number=\"12\" data-max-items-per-screen=\"5\" data-space-between-items=\"32\" data-space-around-carousel=\"50\" data-tainacan-api-root=\"{{SITE_URL}}/wp-json/tainacan/v2\" data-variable-items-width=\"false\" id=\"wp-block-tainacan-carousel-items-list_tainacan-carousel-items-list-ai1\"></div>\n<!-- /wp:tainacan/carousel-items-list -->"
+  },
+  "tainacan/carousel-terms-list": {
+   "title_pt_BR": "Carrossel de Termos do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "multiple": true,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": false,
+     "link": true,
+     "button": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/carousel-terms-list {\"blockId\":\"tainacan-carousel-terms-list-ai1\",\"taxonomyId\":\"{{TAXONOMY_ID}}\"} -->\n<div class=\"wp-block-tainacan-carousel-terms-list has-link-color\" data-module=\"carousel-terms-list\" data-selected-terms=\"[]\" data-auto-play=\"undefined\" data-loop-slides=\"undefined\" data-hide-name=\"undefined\" data-large-arrows=\"undefined\" data-image-size=\"tainacan-medium\" data-taxonomy-id=\"{{TAXONOMY_ID}}\" data-tainacan-api-root=\"{{SITE_URL}}/wp-json/tainacan/v2\" data-show-term-thumbnail=\"undefined\" data-variable-terms-width=\"false\" id=\"wp-block-tainacan-carousel-terms-list_tainacan-carousel-terms-list-ai1\"></div>\n<!-- /wp:tainacan/carousel-terms-list -->"
+  },
+  "tainacan/carousel-collections-list": {
+   "title_pt_BR": "Carrossel de Coleções do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "multiple": true,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": false,
+     "link": true,
+     "button": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/carousel-collections-list {\"selectedCollections\":[{\"id\":\"{{COLLECTION_ID}}\",\"name\":\"Acervo\"}],\"hideName\":false,\"showCollectionThumbnail\":true,\"blockId\":\"tainacan-carousel-collections-list-ai1\"} -->\n<div class=\"wp-block-tainacan-carousel-collections-list has-link-color\" data-module=\"carousel-collections-list\" data-selected-collections=\"[&quot;{{COLLECTION_ID}}&quot;]\" data-arrows-position=\"around\" data-auto-play=\"false\" data-auto-play-speed=\"3\" data-loop-slides=\"false\" data-hide-name=\"false\" data-large-arrows=\"false\" data-arrows-style=\"type-1\" data-image-size=\"tainacan-medium\" data-max-collections-number=\"false\" data-max-collections-per-screen=\"6\" data-space-between-collections=\"32\" data-space-around-carousel=\"50\" data-tainacan-api-root=\"{{SITE_URL}}/wp-json/tainacan/v2\" data-show-collection-thumbnail=\"true\" id=\"wp-block-tainacan-carousel-collections-list_tainacan-carousel-collections-list-ai1\"></div>\n<!-- /wp:tainacan/carousel-collections-list -->"
+  },
+  "tainacan/related-items-list": {
+   "title_pt_BR": "Itens Relacionados do Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "multiple": true,
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/related-items-list -->\n<div class=\"wp-block-tainacan-related-items-list\" data-module=\"related-items-list\"></div>\n<!-- /wp:tainacan/related-items-list -->"
+  },
+  "tainacan/terms-list": {
+   "title_pt_BR": "Lista de Termos do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": false,
+    "typography": {
+     "fontSize": true
+    },
+    "color": {
+     "text": true,
+     "background": false,
+     "gradients": false,
+     "link": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/terms-list {\"taxonomyId\":\"{{TAXONOMY_ID}}\"} -->\n<div class=\"wp-block-tainacan-terms-list has-link-color\" data-module=\"terms-list\"></div>\n<!-- /wp:tainacan/terms-list -->"
+  },
+  "tainacan/faceted-search": {
+   "title_pt_BR": "Busca Facetada do Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": true,
+    "multiple": false
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/faceted-search {\"collectionId\":\"{{COLLECTION_ID}}\",\"listType\":\"collection\"} -->\n<div style=\"font-size:16px;--tainacan-base-font-size:16px;--tainacan-background-color:#ffffff;--tainacan-filter-menu-width-theme:20%;--tainacan-filters-inline-width:272px;--tainacan-input-color:#1d1d1d;--tainacan-input-background-color:#ffffff;--tainacan-input-border-color:#dbdbdb;--tainacan-label-color:#373839;--tainacan-info-color:#505253;--tainacan-heading-color:#000000;--tainacan-skeleton-color:#eeeeee;--tainacan-item-background-color:#ffffff;--tainacan-item-hover-background-color:#f2f2f2;--tainacan-item-heading-hover-background-color:#dbdbdb;--tainacan-primary:#d9eced;--tainacan-secondary:#187181\" class=\"wp-block-tainacan-faceted-search\"><main id=\"tainacan-items-page\" data-module=\"faceted-search\" data-collection-id=\"{{COLLECTION_ID}}\" data-default-view-mode=\"masonry\" data-is-forced-view-mode=\"false\" data-enabled-view-modes=\"\" data-hide-filters=\"false\" data-hide-hide-filters-button=\"false\" data-hide-search=\"false\" data-hide-advanced-search=\"false\" data-hide-displayed-metadata-button=\"false\" data-hide-pagination-area=\"false\" data-hide-sorting-area=\"false\" data-hide-items-thumbnail=\"false\" data-hide-sort-by-button=\"false\" data-hide-exposers-button=\"false\" data-hide-items-per-page-button=\"false\" data-default-items-per-page=\"12\" data-hide-go-to-page-button=\"false\" data-show-filters-button-inside-search-control=\"false\" data-start-with-filters-hidden=\"false\" data-filters-as-modal=\"false\" data-show-inline-view-mode-options=\"false\" data-show-fullscreen-with-view-modes=\"false\" data-default-order=\"ASC\" data-default-orderby=\"date\" data-default-orderby-meta=\"\" data-default-orderby-type=\"\" data-should-not-hide-filters-on-mobile=\"false\" data-hide-filter-collapses=\"false\" data-display-filters-horizontally=\"false\"></main></div>\n<!-- /wp:tainacan/faceted-search -->"
+  },
+  "tainacan/item-submission-form": {
+   "title_pt_BR": "Formulário de Submissão do Item Tainacan",
+   "made_by_editor": true,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "html": true,
+    "multiple": false
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/item-submission-form {\"collectionId\":\"{{COLLECTION_ID}}\"} -->\n<div style=\"font-size:16px;--tainacan-base-font-size:16px;--tainacan-background-color:rgba(255,255,255,0);--tainacan-input-color:#1d1d1d;--tainacan-input-background-color:#ffffff;--tainacan-input-border-color:#dbdbdb;--tainacan-label-color:#373839;--tainacan-info-color:#505253;--tainacan-primary:#d9eced;--tainacan-secondary:#187181\" class=\"wp-block-tainacan-item-submission-form\"><div id=\"tainacan-item-submission-form\" data-module=\"item-submission-form\" data-collection-id=\"{{COLLECTION_ID}}\" data-hide-file-modal-button=\"false\" data-hide-text-modal-button=\"false\" data-hide-link-modal-button=\"false\" data-hide-thumbnail-section=\"false\" data-hide-attachments-section=\"false\" data-show-allow-comments-section=\"false\" data-hide-help-buttons=\"false\" data-hide-metadata-types=\"false\" data-hide-collapses=\"false\" data-enabled-metadata=\"[]\" data-sent-form-heading=\"Form submitted!\" data-sent-form-message=\"Thank you. Your item was submitted to the collection.\" data-document-section-label=\"Document\" data-thumbnail-section-label=\"Thumbnail\" data-attachments-section-label=\"Attachments\" data-metadata-section-label=\"Metadata\" data-show-item-link-button=\"false\" data-show-terms-agreement-checkbox=\"false\" data-terms-agreement-message=\"I agree to submit this item information.\" data-item-link-button-label=\"Go to the item page\" data-help-info-bellow-label=\"false\" data-is-layout-steps=\"false\"></div></div>\n<!-- /wp:tainacan/item-submission-form -->"
+  },
+  "tainacan/item-gallery": {
+   "title_pt_BR": "Galeria de Mídias do Item Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "spacing": {
+     "padding": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/item-gallery /-->"
+  },
+  "tainacan/item-metadata-sections": {
+   "title_pt_BR": "Seções de metadados do item Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "typography": {
+     "fontSize": true,
+     "lineHeight": true
+    },
+    "spacing": {
+     "margin": true,
+     "padding": true,
+     "spacing": true
+    },
+    "listView": true
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/item-metadata-sections -->\n<div class=\"wp-block-tainacan-item-metadata-sections has-text-align-undefined\"></div>\n<!-- /wp:tainacan/item-metadata-sections -->"
+  },
+  "tainacan/item-metadata-section": {
+   "title_pt_BR": "Seção de metadados do item Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "typography": {
+     "fontSize": true,
+     "lineHeight": true
+    },
+    "spacing": {
+     "margin": true,
+     "padding": true,
+     "spacing": true
+    },
+    "listView": true
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/item-metadata-section -->\n<div class=\"wp-block-tainacan-item-metadata-section has-text-align-undefined\"></div>\n<!-- /wp:tainacan/item-metadata-section -->"
+  },
+  "tainacan/item-metadata": {
+   "title_pt_BR": "Metadados do item Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "typography": {
+     "fontSize": true,
+     "lineHeight": true
+    },
+    "spacing": {
+     "margin": true,
+     "padding": true,
+     "spacing": true
+    },
+    "listView": true
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/item-metadata -->\n<div class=\"wp-block-tainacan-item-metadata has-text-align-undefined\"></div>\n<!-- /wp:tainacan/item-metadata -->"
+  },
+  "tainacan/item-metadatum": {
+   "title_pt_BR": "Metadado do item Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "typography": {
+     "fontSize": true,
+     "lineHeight": true
+    },
+    "spacing": {
+     "margin": true,
+     "padding": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/item-metadatum /-->"
+  },
+  "tainacan/geocoordinate-item-metadatum": {
+   "title_pt_BR": "Tainacan Metadado de Geo Coordenadas do Item",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true
+   },
+   "parent": [],
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/geocoordinate-item-metadatum /-->"
+  },
+  "tainacan/metadata-section-name": {
+   "title_pt_BR": "Nome da seção de metadados Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "typography": {
+     "fontSize": true,
+     "lineHeight": true
+    },
+    "spacing": {
+     "margin": true,
+     "padding": true,
+     "spacing": true
+    }
+   },
+   "parent": [
+    "tainacan/item-metadata-section"
+   ],
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/metadata-section-name -->\n<h2 class=\"wp-block-tainacan-metadata-section-name has-text-align-undefined\" id=\"tainacan-metadata-section-name-block-id--\"></h2>\n<!-- /wp:tainacan/metadata-section-name -->"
+  },
+  "tainacan/metadata-section-description": {
+   "title_pt_BR": "Descrição da seção de metadados Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "html": true,
+    "anchor": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "typography": {
+     "fontSize": true,
+     "lineHeight": true
+    },
+    "spacing": {
+     "margin": true,
+     "padding": true,
+     "spacing": true
+    }
+   },
+   "parent": [
+    "tainacan/item-metadata-section"
+   ],
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/metadata-section-description -->\n<p class=\"wp-block-tainacan-metadata-section-description has-text-align-undefined\" id=\"tainacan-metadata-section-description-block-id--\"></p>\n<!-- /wp:tainacan/metadata-section-description -->"
+  },
+  "tainacan/items-gallery": {
+   "title_pt_BR": "Galeria de Itens Tainacan",
+   "made_by_editor": false,
+   "supports": {
+    "align": [
+     "full",
+     "wide"
+    ],
+    "multiple": true,
+    "color": {
+     "text": true,
+     "background": true,
+     "gradients": true,
+     "link": true
+    },
+    "spacing": {
+     "padding": true
+    },
+    "position": {
+     "sticky": true
+    }
+   },
+   "parent": null,
+   "ancestor": null,
+   "markup": "<!-- wp:tainacan/items-gallery {\"blockId\":\"tainacan-items-gallery-ai1\",\"collectionId\":\"{{COLLECTION_ID}}\",\"searchURL\":\"{{SITE_URL}}/wp-admin/admin.php?page=tainacan_admin#/collections/{{COLLECTION_ID}}/items/?perpage=12\\u0026order=DESC\\u0026orderby=date\"} /-->"
+  }
+ }
+}

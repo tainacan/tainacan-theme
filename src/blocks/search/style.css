@@ -1,0 +1,59 @@
+/* Search the collection (tainacan-interface/search). Colors follow the theme tokens when there are any. */
+.tt2-search {
+	display: flex;
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+	max-width: 46rem;
+	margin-inline: auto;
+	border-radius: var(--tt2-button-radius, 999px);
+	background: var(--tt2-surface, #fff);
+	box-shadow: var(--tt2-shadow, 0 2px 10px rgba(0, 0, 0, 0.08));
+	overflow: hidden;
+}
+.tt2-search.alignwide,
+.tt2-search.alignfull {
+	max-width: none;
+}
+.tt2-search .tt2-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	margin: 0;
+	padding: 0.85em 1.25em;
+	border: 0;
+	background: transparent;
+	color: var(--tt2-text, #1d1d1d);
+	font: inherit;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+.tt2-search .tt2-search__input:focus {
+	outline: 2px solid var(--tt2-accent, #187181);
+	outline-offset: -2px;
+}
+.tt2-search .tt2-search__button {
+	flex: 0 0 auto;
+	margin: 0;
+	padding: 0.85em 1.6em;
+	border: 0;
+	border-radius: 0;
+	background: var(--tt2-accent, #187181);
+	color: var(--tt2-on-accent, #fff);
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+.tt2-search .tt2-search__button:hover,
+.tt2-search .tt2-search__button:focus-visible {
+	filter: brightness(1.08);
+}
+.tt2-search.is-size-large .tt2-search__input,
+.tt2-search.is-size-large .tt2-search__button {
+	padding-block: 1.1em;
+	font-size: 1.15rem;
+}
+@media (max-width: 480px) {
+	.tt2-search .tt2-search__button {
+		padding-inline: 1em;
+	}
+}
