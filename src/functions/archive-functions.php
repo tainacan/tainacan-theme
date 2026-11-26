@@ -11,6 +11,37 @@ function tainacan_interface_extra_viewmodes( $public_query_vars ) {
 }
 add_filter( 'query_vars', 'tainacan_interface_extra_viewmodes' );
 
+/**
+ * Normalizes the public query vars of the Tainacan terms list before anyone
+ * reads them. The terms query is built by the plugin from these vars
+ * (offset = (termspaged - 1) * perpage), so ?termspaged=abc ended in a
+ * TypeError (HTTP 500) on PHP 8 before the theme printed anything. Fixed
+ * here, where WordPress parses the request, every reader gets integers.
+ * perpage is not a public query var (Tainacan registers only termspaged and
+ * termsparent), so by default it comes from the
+ * tainacan-default-taxonomy-terms-perpage filter and never from the URL; the
+ * clamp below acts only on a site that registers it.
+ *
+ * @param array $query_vars Parsed query vars.
+ * @return array
+ */
+function tainacan_interface_sanitize_terms_query_vars( $query_vars ) {
+	if ( isset( $query_vars['termspaged'] ) ) {
+		$query_vars['termspaged'] = max( 1, absint( $query_vars['termspaged'] ) );
+	}
+	if ( isset( $query_vars['perpage'] ) ) {
+		$query_vars['perpage'] = min( 96, max( 1, absint( $query_vars['perpage'] ) ) );
+	}
+	if ( isset( $query_vars['termsparent'] ) ) {
+		$query_vars['termsparent'] = absint( $query_vars['termsparent'] );
+	}
+	if ( isset( $query_vars['search'] ) && is_string( $query_vars['search'] ) ) {
+		$query_vars['search'] = sanitize_text_field( wp_unslash( $query_vars['search'] ) );
+	}
+	return $query_vars;
+}
+add_filter( 'request', 'tainacan_interface_sanitize_terms_query_vars' );
+
 function tainacan_active( $selected, $current = true, $echo = true ) {
 	$return = $selected == $current ? 'active' : '';
 
@@ -108,6 +139,8 @@ endif;
 if ( ! function_exists( 'tainacan_pagination_terms' ) ) :
 	function tainacan_pagination_terms($total_terms) {
 		$current_args = \Tainacan\Theme_Helper::get_instance()->get_taxonomies_query_args();
+        $current_args['termspaged'] = max( 1, absint( isset( $current_args['termspaged'] ) ? $current_args['termspaged'] : 1 ) );
+        $current_args['perpage'] = max( 1, absint( isset( $current_args['perpage'] ) ? $current_args['perpage'] : 12 ) );
         $current_total_terms = $total_terms;
         $current_first_term_index = max(($current_args['termspaged'] - 1) * $current_args['perpage'] + 1, 1);
         $current_last_term_index = min($current_args['termspaged'] * $current_args['perpage'], $current_total_terms);

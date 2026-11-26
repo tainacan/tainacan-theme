@@ -5,8 +5,8 @@ if (get_theme_mod('tainacan_single_item_collection_header', false))  {
 		min-width: 10rem !important;
 	}');
 
-	$background_color = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_background_color', true ) );
-	$text_color = esc_attr( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_color', true ) );
+	$background_color = sanitize_hex_color( (string) get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_background_color', true ) );
+	$text_color = tainacan_interface_collection_text_color( get_post_meta( tainacan_get_collection_id(), 'tainacan_theme_collection_color', true ) );
 	if ( $background_color ) {
 		echo ".t-bg-collection {
 			background-color: " . esc_attr($background_color) . " !important;

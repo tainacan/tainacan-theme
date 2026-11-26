@@ -42,29 +42,30 @@ $src = wp_get_attachment_image_src($image, 'full');
 					<div class="col-12 col-xl-2 col-lg-3 d-flex flex-wrap page-header-share">
 						<div class="page-header-icons">
 							<p class="share-title"><?php _e('Share', 'tainacan-interface'); ?></p>
+							<?php $term_link = get_term_link( (int) $current_term->get_id() ); $term_link = is_wp_error( $term_link ) ? '' : $term_link; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_facebook_share', true ) ) : ?> 
-								<a href="http://www.facebook.com/sharer.php?u=<?php echo get_term_link((int) $current_term->get_id()); ?>" title="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-link" target="_blank">
+								<a href="<?php echo esc_url( 'https://www.facebook.com/sharer.php?u=' . rawurlencode( $term_link ) ); ?>" title="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-link" target="_blank">
 									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/facebook-circle.png'; ?>" alt="<?php esc_attr_e('Share this on facebook', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_twitter_share', true ) ) : ?> 
 								<?php $twitter_option = get_option( 'tainacan_twitter_user' ); ?>
-								<?php $via = ! empty( $twitter_option ) ? '&amp;via=' . esc_attr( get_option( 'tainacan_twitter_user' ) ) : ''; ?>
-								<a href="http://twitter.com/share?url=<?php echo get_term_link((int) $current_term->get_id()); ?>&amp;text=<?php echo $current_taxonomy->labels->name . ':' . $current_term->get_name(); ?><?php echo $via; ?>" target="_blank" title="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-link">
+								<?php $via = ! empty( $twitter_option ) ? '&via=' . rawurlencode( ltrim( (string) $twitter_option, '@' ) ) : ''; ?>
+								<a href="<?php echo esc_url( 'https://twitter.com/share?url=' . rawurlencode( $term_link ) . '&text=' . rawurlencode( $current_taxonomy->labels->name . ':' . $current_term->get_name() ) . $via ); ?>" target="_blank" title="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-link">
 									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/twitter-circle.png'; ?>" alt="<?php esc_attr_e('Share this on twitter', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_whatsapp_share', false ) ) : ?>
-								<a href="https://api.whatsapp.com/send?1=pt_BR&text=<?php echo get_term_link((int) $current_term->get_id()); ?>" class="share-link" target="_blank" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
+								<a href="<?php echo esc_url( 'https://api.whatsapp.com/send?text=' . rawurlencode( $term_link ) ); ?>" class="share-link" target="_blank" title="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>">
 									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/whatsapp-circle.png'; ?>" alt="<?php esc_attr_e('Share this on WhatsApp', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
 							<?php if ( true == get_theme_mod( 'tainacan_telegram_share', false ) ) : ?>
-								<a href="https://t.me/share/url?url=<?php echo get_term_link((int) $current_term->get_id()); ?>" class="share-link" target="_blank" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
+								<a href="<?php echo esc_url( 'https://t.me/share/url?url=' . rawurlencode( $term_link ) ); ?>" class="share-link" target="_blank" title="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>">
 									<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/telegram-circle.png'; ?>" alt="<?php esc_attr_e('Share this on Telegram', 'tainacan-interface') ?>" class="share-images">
 								</a>
 							<?php endif; ?>
-							<button id="tainacan-interface-sharer" data-link="<?php echo get_term_link((int) $current_term->get_id()); ?>" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-link tainacan-copy-link-button">
+							<button id="tainacan-interface-sharer" data-link="<?php echo esc_url( $term_link ); ?>" title="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-link tainacan-copy-link-button">
 								<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/url-circle.png'; ?>" alt="<?php esc_attr_e('Copy link', 'tainacan-interface') ?>" class="share-images">
 							</button>
 						</div>
